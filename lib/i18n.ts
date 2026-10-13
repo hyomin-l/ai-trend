@@ -2,15 +2,11 @@ import type { Industry, Lang, Region, Section } from "@/types";
 
 /**
  * Every user-visible brand string lives here. Renaming the product is a change to this object only.
- * <Wordmark> renders the first word of `name` in magenta and the rest in ink.
+ * <Logo> renders `name` in the display face next to the blob mark.
  */
 export const BRAND = {
   name: "AI Trend",
   short: "AI Trend",
-  tagline: {
-    ko: "월·수·금, AI 판도를 한 장으로",
-    en: "Mon, Wed, Fri: the AI landscape on one page",
-  },
   description: {
     ko: "월·수·금 아침, 흩어진 AI 트렌드를 한 장의 신문으로 묶어 드립니다.",
     en: "Scattered AI trends, gathered into a single newspaper page every Monday, Wednesday and Friday.",
@@ -22,14 +18,14 @@ export const isLang = (v: string): v is Lang => (LANGS as string[]).includes(v);
 
 export type SectionKey = Section | "front";
 
-/** Sections as shown in the nav and in section headers. `title` is the on-page header label. */
-export const SECTION_LABEL: Record<SectionKey, { kicker: string; ko: string; en: string; title: { ko: string; en: string } }> = {
-  front: { kicker: "FRONT PAGE", ko: "1면", en: "Front Page", title: { ko: "1면", en: "Front Page" } },
-  newsroom: { kicker: "NEWSROOM", ko: "뉴스룸", en: "Newsroom", title: { ko: "뉴스룸", en: "Newsroom" } },
-  ax: { kicker: "AX IN THE FIELD", ko: "현장의 AX", en: "AX in the Field", title: { ko: "현장의 AX", en: "AX in the Field" } },
-  repos: { kicker: "RISING REPOS", ko: "급상승 레포", en: "Rising Repos", title: { ko: "급상승 레포 ★ 시세표", en: "Rising Repos ★ Ticker" } },
-  pulse: { kicker: "COMMUNITY PULSE", ko: "커뮤니티 펄스", en: "Community Pulse", title: { ko: "커뮤니티 펄스", en: "Community Pulse" } },
-  playbook: { kicker: "PLAYBOOK", ko: "플레이북", en: "Playbook", title: { ko: "플레이북", en: "Playbook" } },
+/** Section names, used for column headers, dialogs and search filters. */
+export const SECTION_LABEL: Record<SectionKey, { ko: string; en: string }> = {
+  front: { ko: "오늘의 3줄", en: "Top 3" },
+  newsroom: { ko: "뉴스룸", en: "Newsroom" },
+  ax: { ko: "현장의 AX", en: "AX in the Field" },
+  repos: { ko: "급상승 레포", en: "Rising Repos" },
+  pulse: { ko: "커뮤니티 펄스", en: "Community Pulse" },
+  playbook: { ko: "플레이북", en: "Playbook" },
 };
 
 export const REGION_LABEL: Record<Region, { ko: string; en: string }> = {
@@ -49,15 +45,11 @@ const INDUSTRY_LABEL: Record<Industry, { ko: string; en: string }> = {
   media: { ko: "미디어", en: "Media" },
 };
 
-/** "건설 · CONSTRUCTION" on Korean pages, "CONSTRUCTION" on English ones. */
-export const industryTag = (i: Industry, lang: Lang) =>
-  lang === "ko" ? `${INDUSTRY_LABEL[i].ko} · ${INDUSTRY_LABEL[i].en.toUpperCase()}` : INDUSTRY_LABEL[i].en.toUpperCase();
+/** "건설" on Korean pages, "Construction" on English ones. */
+export const industryTag = (i: Industry, lang: Lang) => INDUSTRY_LABEL[i][lang];
 
 const ko = {
   skip: "본문으로 건너뛰기",
-  sections: "섹션",
-  menuOpen: "메뉴 열기",
-  menuClose: "메뉴 닫기",
   home: "최신 호로 이동",
   prevIssue: "이전 호",
   nextIssue: "다음 호",
@@ -66,7 +58,6 @@ const ko = {
   search: "검색",
   language: "언어",
   issue: (n: number) => `제${n}호`,
-  collectedPublished: (c: number, p: number) => `수집 ${c} → 게재 ${p}`,
   what: "무슨 일",
   why: "왜 중요한가",
   more: (n: number) => `+${n}`,
@@ -74,11 +65,11 @@ const ko = {
   sectionAll: (n: number) => `전체 ${n}건`,
   readOriginal: "원문 보기",
   close: "닫기",
-  terrain: "오늘의 지형",
-  terrainKicker: "TERRAIN",
+  regions: "지역",
   regionFilter: "지역별 보기",
   regionCount: (label: string, n: number) => `${label} ${n}건`,
-  repoHead: { repo: "저장소", stars: "★", perDay: "★/일", change: "등락" },
+  perDay: (n: string) => `+${n}/일`,
+  returning: "재등장",
   newRepo: "NEW",
   m: { stars: "스타", perDay: "일 평균 스타", language: "언어", change: "등락", points: "점수", comments: "댓글" },
   pts: (n: string) => `${n}점`,
@@ -111,9 +102,6 @@ type Dict = typeof ko;
 
 const en: Dict = {
   skip: "Skip to content",
-  sections: "Sections",
-  menuOpen: "Open menu",
-  menuClose: "Close menu",
   home: "Go to the latest edition",
   prevIssue: "Previous edition",
   nextIssue: "Next edition",
@@ -122,7 +110,6 @@ const en: Dict = {
   search: "Search",
   language: "Language",
   issue: (n) => `No. ${n}`,
-  collectedPublished: (c, p) => `${c} collected → ${p} published`,
   what: "What happened",
   why: "Why it matters",
   more: (n) => `+${n}`,
@@ -130,11 +117,11 @@ const en: Dict = {
   sectionAll: (n) => `All ${n} stories`,
   readOriginal: "Read original",
   close: "Close",
-  terrain: "Today's terrain",
-  terrainKicker: "TERRAIN",
+  regions: "Regions",
   regionFilter: "Filter by region",
   regionCount: (label, n) => `${label}: ${n} stories`,
-  repoHead: { repo: "Repository", stars: "★", perDay: "★/day", change: "Move" },
+  perDay: (n) => `+${n}/day`,
+  returning: "Back",
   newRepo: "NEW",
   m: { stars: "Stars", perDay: "Stars per day", language: "Language", change: "Move", points: "Points", comments: "Comments" },
   pts: (n) => `${n} pts`,

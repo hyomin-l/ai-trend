@@ -30,16 +30,12 @@ function metaOf(item: Item, lang: Lang, generatedAt: string): string[] {
 export default function SectionDialog({ section, items, lang, generatedAt, onOpen, onClose }: Props) {
   const u = ui(lang);
   const info = section ? SECTION_LABEL[section] : null;
-  const title = info ? info.title[lang] : "";
+  const title = info ? info[lang] : "";
   return (
     <Dialog open={section !== null} onClose={onClose} label={title} closeLabel={u.close}>
       {info && (
         <div className={styles.wrap}>
           <header className={styles.head}>
-            <p className={styles.kicker}>
-              <i className={styles.mark} aria-hidden="true" />
-              {info.kicker}
-            </p>
             <h2 className={styles.title}>{title}</h2>
             <p className={styles.count}>{u.sectionAll(items.length)}</p>
           </header>

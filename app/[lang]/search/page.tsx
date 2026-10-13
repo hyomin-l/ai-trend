@@ -26,7 +26,7 @@ export default async function SearchPage({ params }: { params: Params }) {
       <a className="skip" href="#main">
         {ui(lang).skip}
       </a>
-      <TopBar lang={lang} dates={listDates()} kind="search" sections={SECTION_ORDER} />
+      <TopBar lang={lang} dates={listDates()} kind="search" />
       <main id="main" lang={lang}>
         <SearchView lang={lang} sections={SECTION_ORDER} />
       </main>

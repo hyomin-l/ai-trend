@@ -15,8 +15,8 @@ const COORDS: Partial<Record<Region, [number, number]>> = {
 };
 
 const THETA = 0.3;
-/** Keeps the dot spacing constant (about 5px) whatever the globe size. */
-const samples = (size: number) => Math.max(1800, Math.round(size * size * 0.13));
+/** Keeps the dot spacing constant (about 6px) whatever the globe size; small globes get fewer, larger dots so the land stays legible. */
+const samples = (size: number) => Math.max(900, Math.round(size * size * 0.09));
 const AUTO = 0.002; // radians per frame while idle, about one turn a minute
 const TAU = Math.PI * 2;
 
@@ -26,21 +26,26 @@ const facing = (lng: number) => -Math.PI / 2 - (lng * Math.PI) / 180;
 /** Ink dots on paper in the day edition, paper dots on ink in the night edition; markers are the magenta. */
 const palette = (night: boolean) =>
   night
-    ? { dark: 1, baseColor: [0.93, 0.92, 0.91] as [number, number, number], glowColor: [0.02, 0.02, 0.02] as [number, number, number], markerColor: [0.94, 0.28, 0.62] as [number, number, number], mapBrightness: 5, diffuse: 1.2 }
-    : { dark: 0, baseColor: [0.86, 0.86, 0.85] as [number, number, number], glowColor: [0.97, 0.97, 0.96] as [number, number, number], markerColor: [0.76, 0.09, 0.44] as [number, number, number], mapBrightness: 2.4, diffuse: 1.6 };
+    ? { dark: 1, baseColor: [0.93, 0.92, 0.91] as [number, number, number], glowColor: [0.02, 0.02, 0.02] as [number, number, number], markerColor: [0.94, 0.28, 0.62] as [number, number, number], mapBrightness: 9, mapBaseBrightness: 0.35, diffuse: 1.2 }
+    : { dark: 0, baseColor: [0.86, 0.86, 0.85] as [number, number, number], glowColor: [0.97, 0.97, 0.96] as [number, number, number], markerColor: [0.76, 0.09, 0.44] as [number, number, number], mapBrightness: 2.4, mapBaseBrightness: 0, diffuse: 1.6 };
 
 type Props = {
   regions: { region: Region; count: number }[];
+  /** Region the edition is filtered to: stays emphasised and keeps the globe turned to it. */
   active: Region | null;
+  /** Region being previewed (hover/focus on its row): the globe turns to it and its markers pulse. */
+  hover: Region | null;
 };
 
-type Controller = { sync: (regions: Props["regions"], active: Region | null) => void };
+type Controller = { sync: (regions: Props["regions"], active: Region | null, hover: Region | null) => void };
+
+const PULSE_MS = 1100;
 
 /**
  * cobe v2 has no render loop of its own (no onRender): every `update()` draws one frame, so this component
  * owns a requestAnimationFrame loop. It pauses off-screen, in background tabs and under prefers-reduced-motion.
  */
-export default function Globe({ regions, active }: Props) {
+export default function Globe({ regions, active, hover }: Props) {
   const host = useRef<HTMLDivElement>(null);
   const ctl = useRef<Controller | null>(null);
 
@@ -59,6 +64,9 @@ export default function Globe({ regions, active }: Props) {
     let phi = facing(127);
     let target: number | null = null;
     let markers: Marker[] = [];
+    let list: Props["regions"] = [];
+    let selected: Region | null = null;
+    let preview: Region | null = null;
     let vel = 0;
     let dragging = false;
     let lastX = 0;
@@ -77,7 +85,25 @@ export default function Globe({ regions, active }: Props) {
       ...palette(scheme.matches),
     });
 
-    const draw = () => globe.update({ phi, theta: THETA });
+    /** Marker sizes: a selected region is emphasised and the rest recede; the previewed region breathes. */
+    const build = (pulse: number): Marker[] => {
+      const max = Math.max(1, ...list.map((r) => r.count));
+      return list.flatMap(({ region, count }) => {
+        const location = COORDS[region];
+        if (!location) return [];
+        const base = 0.035 + 0.05 * (count / max);
+        let size = selected === null ? base : region === selected ? base * 1.5 + 0.02 : base * 0.55;
+        if (region === preview) size = Math.max(size, base) * (1.35 + 0.3 * pulse);
+        return [{ location, size }];
+      });
+    };
+    const pulsing = () => preview !== null && COORDS[preview] !== undefined && !reduce.matches;
+    const draw = () => {
+      if (pulsing()) {
+        markers = build((Math.sin((performance.now() / PULSE_MS) * TAU) + 1) / 2);
+        globe.update({ phi, theta: THETA, markers });
+      } else globe.update({ phi, theta: THETA });
+    };
     const running = () => visible && !document.hidden && !reduce.matches;
 
     const tick = () => {
@@ -150,17 +176,14 @@ export default function Globe({ regions, active }: Props) {
     ro.observe(el);
 
     ctl.current = {
-      sync(list, selected) {
-        const max = Math.max(1, ...list.map((r) => r.count));
-        markers = list.flatMap(({ region, count }) => {
-          const location = COORDS[region];
-          if (!location) return [];
-          const base = 0.035 + 0.05 * (count / max);
-          const s = selected === null ? base : region === selected ? base * 1.5 + 0.02 : base * 0.55;
-          return [{ location, size: s }];
-        });
+      sync(next, filter, over) {
+        list = next;
+        selected = filter;
+        preview = over;
+        markers = build(0.5);
         globe.update({ markers });
-        const place = selected ? COORDS[selected] : undefined;
+        const focus = over ?? filter;
+        const place = focus ? COORDS[focus] : undefined;
         target = place ? facing(place[1]) : null;
         if (target !== null && reduce.matches) phi = target;
         draw();
@@ -183,8 +206,8 @@ export default function Globe({ regions, active }: Props) {
   }, []);
 
   useEffect(() => {
-    ctl.current?.sync(regions, active);
-  }, [regions, active]);
+    ctl.current?.sync(regions, active, hover);
+  }, [regions, active, hover]);
 
   return <div ref={host} className={styles.globe} aria-hidden="true" />;
 }

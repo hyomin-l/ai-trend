@@ -1,6 +1,6 @@
 .wrap {
   max-width: 800px;
-  min-height: calc(100dvh - var(--topbar-h));
+  min-height: calc(var(--vh) - var(--topbar-h));
   margin: 0 auto;
   padding: var(--s8) var(--pad-x) 96px;
 }
@@ -13,14 +13,8 @@
 .title {
   padding-top: var(--s2);
   border-top: 2px solid var(--ink);
-  font-family: var(--ff-hl);
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-}
-:lang(en) .title {
-  font-weight: 600;
+  font: 700 26px/1.25 var(--ff-display);
+  letter-spacing: -0.02em;
 }
 
 .form {
@@ -85,7 +79,7 @@
 .status {
   min-height: 20px;
   margin-top: var(--s4);
-  font: 400 12px/1.5 var(--ff-mono);
+  font: 400 12px/1.5 var(--ff-body);
   color: var(--ink-3);
 }
 
@@ -116,8 +110,7 @@
 .groupHead {
   padding: var(--s2) 0;
   border-top: 2px solid var(--ink);
-  font: 500 12px/1.4 var(--ff-mono);
-  letter-spacing: 0.04em;
+  font: 600 12.5px/1.4 var(--ff-body);
 }
 .groupHead a:hover {
   text-decoration: underline;
@@ -131,11 +124,8 @@
   border-top: 1px solid var(--rule);
 }
 .headline {
-  font-family: var(--ff-hl);
-  font-weight: 600;
-  font-size: 16.5px;
-  line-height: 1.35;
-  letter-spacing: -0.005em;
+  font: 650 16.5px/1.35 var(--ff-display);
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 .summary {
@@ -153,7 +143,7 @@
   align-items: center;
   gap: var(--s1) var(--s3);
   margin-top: var(--s1);
-  font: 400 11px/1.4 var(--ff-mono);
+  font: 400 12px/1.4 var(--ff-body);
   color: var(--ink-3);
 }
 .original {
@@ -174,7 +164,7 @@
 .more {
   margin-top: var(--s6);
   padding: 8px var(--s4);
-  font: 500 12px/1.3 var(--ff-mono);
+  font: 600 12.5px/1.3 var(--ff-body);
   border: 1px solid var(--ink);
   border-radius: 2px;
 }

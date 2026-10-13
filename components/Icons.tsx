@@ -21,11 +21,6 @@ function Svg({ size = 16, children }: { size?: number; children: ReactNode }) {
 
 type P = { size?: number };
 
-export const IconMenu = (p: P) => (
-  <Svg {...p}>
-    <path d="M2 4.5h12M2 8h12M2 11.5h12" />
-  </Svg>
-);
 export const IconClose = (p: P) => (
   <Svg {...p}>
     <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />

@@ -1,11 +1,10 @@
 import { notFound } from "next/navigation";
-import type { Lang } from "@/types";
+import type { Lang, Snapshot } from "@/types";
 import { DISPLAY, SECTION_ORDER } from "@/config/sources";
 import { ui } from "@/lib/i18n";
 import { latestSnapshot, listDates, loadSnapshot } from "@/lib/snapshots";
 import Edition from "./Edition";
 import EmptyState from "./EmptyState";
-import Masthead from "./Masthead";
 import TopBar from "./TopBar";
 import styles from "./EditionPage.module.css";
 
@@ -14,6 +13,14 @@ type Props = {
   /** Omit for the latest edition. */
   date?: string;
 };
+
+/** The note only appears when something went wrong with this edition. */
+function noticeOf(s: Snapshot, lang: Lang) {
+  const u = ui(lang);
+  return [!s.curated && u.uncurated, s.failedSources.length > 0 && u.failedSources(s.failedSources)]
+    .filter(Boolean)
+    .join(" · ");
+}
 
 /** A full edition page (shared by `/`, `/[lang]` and `/[lang]/[date]`), or the empty state before the first one. */
 export default function EditionPage({ lang, date }: Props) {
@@ -27,18 +34,16 @@ export default function EditionPage({ lang, date }: Props) {
       <a className="skip" href="#main">
         {u.skip}
       </a>
-      <TopBar lang={lang} dates={dates} date={snapshot?.date} kind="edition" sections={snapshot ? SECTION_ORDER : []} />
+      <TopBar
+        lang={lang}
+        dates={dates}
+        date={snapshot?.date}
+        issue={snapshot?.issue}
+        notice={snapshot ? noticeOf(snapshot, lang) || undefined : undefined}
+        kind="edition"
+      />
       <main id="main" lang={lang} className={styles.main}>
-        {snapshot ? (
-          <>
-            <Masthead snapshot={snapshot} lang={lang} />
-            <div className={styles.edition}>
-              <Edition snapshot={snapshot} lang={lang} display={DISPLAY} />
-            </div>
-          </>
-        ) : (
-          <EmptyState lang={lang} />
-        )}
+        {snapshot ? <Edition snapshot={snapshot} lang={lang} sections={SECTION_ORDER} display={DISPLAY} /> : <EmptyState lang={lang} />}
       </main>
     </div>
   );

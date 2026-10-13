@@ -1,0 +1,17 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.mark {
+  flex: none;
+  display: block;
+  width: auto;
+  height: 18px;
+}
+.name {
+  font: 700 17px/1 var(--ff-display);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--ink);
+}

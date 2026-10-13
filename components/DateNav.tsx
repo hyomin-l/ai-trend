@@ -15,12 +15,14 @@ type Props = {
   dates: string[];
   /** Current edition; undefined on pages that are not an edition (search). */
   date?: string;
+  /** Issue number of the current edition, shown next to its date. */
+  issue?: number;
 };
 
 const href = (lang: Lang, date: string) => `/${lang}/${date}/`;
 
-/** ‹ [10.13 (월)] › : older / newer edition and a native <select> of every edition. */
-export default function DateNav({ lang, dates, date }: Props) {
+/** ‹ [10월 13일 (화) · 제1호 ▾] › : older / newer edition and a (customizable) <select> of every edition. */
+export default function DateNav({ lang, dates, date, issue }: Props) {
   const router = useRouter();
   const u = ui(lang);
   const idx = date ? dates.indexOf(date) : -1;
@@ -37,6 +39,9 @@ export default function DateNav({ lang, dates, date }: Props) {
         {icon}
       </button>
     );
+
+  // Plain text only: browsers without customizable selects drop any markup inside <option>.
+  const label = (d: string) => (d === date && issue != null ? `${fmtDateShort(d, lang)} · ${u.issue(issue)}` : fmtDateShort(d, lang));
 
   return (
     <div className={styles.nav} role="group" aria-label={u.issueSelect}>
@@ -56,7 +61,7 @@ export default function DateNav({ lang, dates, date }: Props) {
           )}
           {dates.map((d) => (
             <option key={d} value={d}>
-              {fmtDateShort(d, lang)}
+              {label(d)}
             </option>
           ))}
         </select>

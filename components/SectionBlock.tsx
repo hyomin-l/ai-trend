@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
-import type { Lang } from "@/types";
-import { SECTION_LABEL, ui, type SectionKey } from "@/lib/i18n";
+import type { Lang, Section } from "@/types";
+import { SECTION_LABEL, ui } from "@/lib/i18n";
+import SectionHead, { HeadButton } from "./SectionHead";
 import styles from "./SectionBlock.module.css";
 
 type Props = {
-  id: SectionKey;
+  id: Section;
   lang: Lang;
   /** Stories not shown on the page; renders the "+N" button when > 0. */
   more?: number;
@@ -12,26 +13,20 @@ type Props = {
   children: ReactNode;
 };
 
-/** Section header (2px ink rule, mono kicker, label, "+N") plus its body. Focus target for the top-bar nav. */
+/** One section column: header (label + "+N") over its stories. On desktop it is a grid cell that clips and gets trimmed by Edition. */
 export default function SectionBlock({ id, lang, more = 0, onMore, children }: Props) {
   const u = ui(lang);
-  const info = SECTION_LABEL[id];
-  const label = info.title[lang];
+  const label = SECTION_LABEL[id][lang];
   return (
-    <section id={`sec-${id}`} className={styles.section} aria-labelledby={`hd-${id}`} tabIndex={-1}>
-      <header className={styles.head}>
-        <h2 id={`hd-${id}`} className={styles.title}>
-          <i className={styles.mark} aria-hidden="true" />
-          <span className={styles.kicker}>{info.kicker}</span>
-          {lang === "ko" && <span className={styles.label}>{label}</span>}
-        </h2>
+    <section className={styles.section} aria-labelledby={`hd-${id}`}>
+      <SectionHead id={`hd-${id}`} label={label}>
         {more > 0 && onMore && (
-          <button type="button" className={styles.more} onClick={onMore} aria-label={u.moreLabel(label, more)}>
+          <HeadButton label={u.moreLabel(label, more)} onClick={onMore}>
             {u.more(more)}
-          </button>
+          </HeadButton>
         )}
-      </header>
-      {children}
+      </SectionHead>
+      <div className={styles.body}>{children}</div>
     </section>
   );
 }

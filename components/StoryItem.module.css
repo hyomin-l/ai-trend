@@ -1,54 +1,25 @@
+/* Section story: display-face headline, one soft summary line, small meta. No rules between stories: space does the grouping.
+   Density follows the column: compact by default, "roomy" (2-line summaries, more air) when Edition finds spare height there. */
 .item {
+  --sum-lines: 2;
   position: relative;
-  padding: var(--s3) 0;
-  border-top: 1px solid var(--rule);
   transition: opacity 0.18s ease;
 }
-.item:first-child {
-  border-top: 0;
+.item + .item {
+  margin-top: var(--s5);
 }
 .item[data-dim="true"] {
-  opacity: 0.28;
+  opacity: 0.3;
 }
 .item:has(.hit:focus-visible) {
   outline: 2px solid var(--magenta);
-  outline-offset: 2px;
+  outline-offset: 4px;
 }
 
-/* kicker (front page items) */
-.kicker {
-  display: flex;
-  align-items: center;
-  gap: var(--s2);
-  margin-bottom: var(--s2);
-  font: 500 11px/1.2 var(--ff-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.mark {
-  flex: none;
-  width: 6px;
-  height: 6px;
-  background: var(--magenta);
-}
-.time {
-  margin-left: auto;
-  letter-spacing: 0.02em;
-  text-transform: none;
-}
-
-/* headline */
 .headline {
-  font-family: var(--ff-hl);
-  font-weight: 700;
-  letter-spacing: -0.012em;
-  line-height: 1.32;
+  font: 650 17px/1.36 var(--ff-display);
+  letter-spacing: -0.015em;
   text-wrap: balance;
-}
-:lang(en) .headline {
-  font-weight: 600;
-  letter-spacing: -0.005em;
 }
 /* A <button> cannot flow inline, so the line clamp lives on a block span inside it. */
 .hit {
@@ -66,7 +37,7 @@
 .hit::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -4px -6px;
 }
 .hit:focus-visible {
   outline: none;
@@ -78,173 +49,52 @@
   text-underline-offset: 3px;
 }
 
-/* summary */
 .summary {
   margin-top: var(--s1);
-  color: var(--ink-2);
-  font-size: 13.5px;
-  line-height: 1.55;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.5;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: var(--sum-lines);
   overflow: hidden;
 }
 
-/* meta line */
 .meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--s1) var(--s2);
   margin-top: var(--s1);
-  font: 400 11px/1.4 var(--ff-mono);
+  font-size: 12px;
+  line-height: 1.45;
   color: var(--ink-3);
 }
-.tag {
-  padding: 1px 5px;
-  border: 1px solid var(--rule);
-  border-radius: 1px;
-  font-size: 10px;
-  letter-spacing: 0.08em;
+.industry {
+  font-weight: 600;
   color: var(--ink-2);
 }
 
-/* --- variants --- */
-.lead {
-  padding-top: var(--s3);
-}
-.lead .headline {
-  font-size: clamp(22px, 1.75vw, 27px);
-  line-height: 1.28;
-}
-.lead .clamp {
-  -webkit-line-clamp: 3;
-}
-.lead .summary {
-  margin-top: var(--s3);
-  font-size: 15px;
-  line-height: 1.6;
-  -webkit-line-clamp: 3;
-}
-.why {
-  margin-top: var(--s3);
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--ink-2);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-.whyLabel {
-  margin-right: var(--s2);
-  font: 500 11px/1 var(--ff-mono);
-  letter-spacing: 0.08em;
-  color: var(--magenta);
-}
-
-.sub .headline {
-  font-size: 18px;
-  font-weight: 600;
-}
-.sub .summary {
-  font-size: 14px;
-  -webkit-line-clamp: 2;
-}
-
-.news .headline,
-.ax .headline {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.pulse .headline,
-.playbook .headline {
-  font-size: 14.5px;
-  font-weight: 600;
-}
-
-/* One-screen desktop layout: dense by default. Only the first newsroom story keeps its summary until the column is tall. */
 @media (min-width: 1100px) {
   .item {
-    padding: 6px 0;
+    --sum-lines: 1;
   }
-  .lead {
-    padding-top: var(--s2);
+  .item + .item {
+    margin-top: 14px;
   }
-  .sub {
-    padding: 8px 0;
-  }
-  .news .headline,
-  .ax .headline {
-    font-size: 15px;
-    line-height: 1.3;
-  }
-  .pulse .headline,
-  .playbook .headline {
-    font-size: 14px;
-    line-height: 1.3;
-  }
-  .meta {
-    margin-top: 2px;
+  .headline {
+    font-size: 15.5px;
+    line-height: 1.35;
   }
   .summary {
+    margin-top: 2px;
     font-size: 13px;
-    line-height: 1.5;
   }
-  .news:not([data-first]) .summary,
-  .ax .summary,
-  .pulse .summary,
-  .playbook .summary {
-    margin-top: 1px;
-    font-size: 12.5px;
-    color: var(--ink-3);
-    -webkit-line-clamp: 1;
+  .meta {
+    margin-top: 3px;
+    font-size: 11.5px;
   }
 
-  /* tall windows: breathe, and show every summary */
-  @container (min-height: 880px) {
-    .item {
-      padding: 10px 0;
-    }
-    .news .summary,
-    .ax .summary,
-    .playbook .summary {
-      -webkit-line-clamp: 2;
-    }
+  [data-roomy] .item {
+    --sum-lines: 2;
   }
-
-  /* medium windows (about 860px tall): trim the rhythm a little */
-  @container (max-height: 770px) {
-    .item {
-      padding: 5px 0;
-    }
-    .meta {
-      margin-top: 1px;
-    }
-  }
-
-  /* short windows (about 800px tall): drop secondary text, one-line pulse/playbook headlines */
-  @container (max-height: 710px) {
-    .news .summary,
-    .ax .summary,
-    .sub .summary {
-      display: none;
-    }
-    .lead .summary {
-      -webkit-line-clamp: 2;
-    }
-    .item {
-      padding: 3px 0;
-    }
-    .news .headline,
-    .ax .headline {
-      font-size: 14.5px;
-      line-height: 1.28;
-    }
-    .pulse .clamp,
-    .playbook .clamp {
-      -webkit-line-clamp: 1;
-    }
+  [data-roomy] .item + .item {
+    margin-top: 18px;
   }
 }

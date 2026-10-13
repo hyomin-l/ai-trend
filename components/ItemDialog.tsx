@@ -41,10 +41,7 @@ export default function ItemDialog({ item, lang, generatedAt, onClose }: Props) 
     <Dialog open={item !== null} onClose={onClose} label={item?.title[lang] ?? ""} closeLabel={u.close}>
       {item && (
         <article className={styles.article}>
-          <p className={styles.kicker}>
-            <i className={styles.mark} aria-hidden="true" />
-            {SECTION_LABEL[item.section].kicker}
-          </p>
+          <p className={styles.kicker}>{SECTION_LABEL[item.section][lang]}</p>
           <h2 className={styles.headline}>{item.title[lang]}</h2>
           <p className={styles.meta}>
             <span>{item.source}</span>

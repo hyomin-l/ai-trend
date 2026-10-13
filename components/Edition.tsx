@@ -2,25 +2,28 @@
 
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Item, Lang, Region, Section, Snapshot } from "@/types";
-import RepoTicker from "./RepoTicker";
+import Brief from "./Brief";
+import ItemDialog from "./ItemDialog";
+import Regions from "./Regions";
+import RepoItem from "./RepoItem";
 import SectionBlock from "./SectionBlock";
 import SectionDialog from "./SectionDialog";
-import ItemDialog from "./ItemDialog";
-import StoryItem, { type StoryVariant } from "./StoryItem";
-import Terrain from "./Terrain";
+import StoryItem from "./StoryItem";
 import styles from "./Edition.module.css";
 
 type Props = {
   snapshot: Snapshot;
   lang: Lang;
+  /** Section columns, left to right. */
+  sections: Section[];
   /** Fixed per-section story counts for the one-screen page (DISPLAY in config/sources.ts). */
   display: Record<Section | "front", number>;
 };
 
 const REGION_ORDER: Region[] = ["KR", "US", "EU", "CN", "JP", "GLOBAL"];
 
-/** The one-screen grid: 1면 + 지형 | 뉴스룸 + AX | 레포 시세표 + 펄스 + 플레이북. Owns the region filter and dialogs. */
-export default function Edition({ snapshot, lang, display }: Props) {
+/** The one-screen page: "오늘의 3줄" band (+ regions) over one column per section. Owns the region filter and the dialogs. */
+export default function Edition({ snapshot, lang, sections, display }: Props) {
   const [region, setRegion] = useState<Region | null>(null);
   const [openItem, setOpenItem] = useState<Item | null>(null);
   const [openSection, setOpenSection] = useState<Section | null>(null);
@@ -29,32 +32,30 @@ export default function Edition({ snapshot, lang, display }: Props) {
   const { generatedAt } = snapshot;
 
   /**
-   * Safety net for the one-screen layout: text length varies per edition, so if a desktop column still
-   * overflows after the CSS density tiers, hide trailing stories (from the section showing the most) and
-   * fold them into that section's "+N". Mobile and tall windows never trim.
+   * Safety net for the one-screen layout. Text length varies per edition, so on desktop each column picks the richest
+   * density that fits (roomy -> compact) and, if it still overflows, hides trailing stories (kept: at least one)
+   * and folds them into that section's "+N". Mobile and tall windows never trim.
    */
   useLayoutEffect(() => {
     const root = grid.current;
     if (!root) return;
     const desktop = window.matchMedia("(min-width: 1100px)");
     const fit = () => {
-      const nodes = [...root.querySelectorAll<HTMLElement>("[data-fit]")];
-      for (const n of nodes) n.hidden = false;
       const hidden: Partial<Record<Section, number>> = {};
-      if (desktop.matches) {
-        for (const col of Array.from(root.children) as HTMLElement[]) {
-          const mine = nodes.filter((n) => col.contains(n));
-          while (col.scrollHeight > col.clientHeight + 1) {
-            const bySection = new Map<string, HTMLElement[]>();
-            for (const n of mine) if (!n.hidden) bySection.set(n.dataset.fit!, [...(bySection.get(n.dataset.fit!) ?? []), n]);
-            let pick: HTMLElement[] | undefined;
-            for (const list of bySection.values()) if (list.length > 1 && (!pick || list.length >= pick.length)) pick = list;
-            if (!pick) break;
-            const last = pick[pick.length - 1];
-            last.hidden = true;
-            const key = last.dataset.fit as Section;
-            hidden[key] = (hidden[key] ?? 0) + 1;
-          }
+      for (const col of Array.from(root.children) as HTMLElement[]) {
+        const rows = [...col.querySelectorAll<HTMLElement>("[data-fit]")];
+        for (const n of rows) n.hidden = false;
+        delete col.dataset.roomy;
+        if (!desktop.matches) continue;
+        const over = () => col.scrollHeight > col.clientHeight + 1;
+        col.dataset.roomy = "";
+        if (over()) delete col.dataset.roomy;
+        let last = rows.length;
+        while (over() && last > 1) {
+          const n = rows[--last];
+          n.hidden = true;
+          const key = n.dataset.fit as Section;
+          hidden[key] = (hidden[key] ?? 0) + 1;
         }
       }
       setFitHidden((prev) => (JSON.stringify(prev) === JSON.stringify(hidden) ? prev : hidden));
@@ -75,97 +76,59 @@ export default function Edition({ snapshot, lang, display }: Props) {
     let front = snapshot.front.map((id) => byId.get(id)).filter((i): i is Item => !!i).slice(0, display.front);
     if (!front.length) front = items.slice(0, display.front);
     const onFront = new Set(front.map((i) => i.id));
-    const sectionItems = (s: Section) => items.filter((i) => i.section === s && !onFront.has(i.id));
-    const bySection: Record<Section, Item[]> = {
-      newsroom: sectionItems("newsroom"),
-      ax: sectionItems("ax"),
-      repos: sectionItems("repos"),
-      pulse: sectionItems("pulse"),
-      playbook: sectionItems("playbook"),
-    };
+    // Front-page stories are not repeated in their section.
+    const bySection = Object.fromEntries(
+      sections.map((s) => [s, items.filter((i) => i.section === s && !onFront.has(i.id))]),
+    ) as Record<Section, Item[]>;
     const counts = new Map<Region, number>();
     for (const i of items) counts.set(i.region, (counts.get(i.region) ?? 0) + 1);
     const regions = [...counts]
       .map(([region, count]) => ({ region, count }))
       .sort((a, b) => b.count - a.count || REGION_ORDER.indexOf(a.region) - REGION_ORDER.indexOf(b.region));
     return { front, bySection, regions };
-  }, [snapshot, display.front]);
+  }, [snapshot, sections, display.front]);
 
   const isDimmed = (item: Item) => region !== null && item.region !== region;
 
-  const stories = (section: Section, variant: StoryVariant) => {
-    const list = bySection[section];
-    if (!list.length) return null;
-    const shown = list.slice(0, display[section]);
-    return (
-      <SectionBlock
-        id={section}
-        lang={lang}
-        more={list.length - shown.length + (fitHidden[section] ?? 0)}
-        onMore={() => setOpenSection(section)}
-      >
-        {shown.map((item, i) => (
-          <StoryItem
-            key={item.id}
-            item={item}
-            lang={lang}
-            generatedAt={generatedAt}
-            variant={variant}
-            first={i === 0}
-            dimmed={isDimmed(item)}
-            onOpen={setOpenItem}
-          />
-        ))}
-      </SectionBlock>
-    );
-  };
-
-  const repos = bySection.repos;
-  const reposShown = repos.slice(0, display.repos);
-
   return (
-    <>
+    <div className={styles.root}>
+      <div className={styles.band}>
+        {front.length > 0 && (
+          <Brief items={front} lang={lang} generatedAt={generatedAt} isDimmed={isDimmed} onOpen={setOpenItem} />
+        )}
+        <Regions regions={regions} active={region} onSelect={setRegion} lang={lang} />
+      </div>
+
       <div ref={grid} className={styles.grid}>
-        <div className={styles.col}>
-          {front.length > 0 && (
-            <SectionBlock id="front" lang={lang}>
-              {front.map((item, i) => (
-                <StoryItem
-                  key={item.id}
-                  item={item}
-                  lang={lang}
-                  generatedAt={generatedAt}
-                  variant={i === 0 ? "lead" : "sub"}
-                  dimmed={isDimmed(item)}
-                  onOpen={setOpenItem}
-                />
-              ))}
-            </SectionBlock>
-          )}
-          <div className={styles.terrain}>
-            <Terrain regions={regions} active={region} onSelect={setRegion} lang={lang} />
-          </div>
-        </div>
-
-        <div className={styles.col}>
-          {stories("newsroom", "news")}
-          {stories("ax", "ax")}
-        </div>
-
-        <div className={styles.col}>
-          {repos.length > 0 && (
+        {sections.map((s) => {
+          const list = bySection[s];
+          if (!list.length) return null;
+          const shown = list.slice(0, display[s]);
+          return (
             <SectionBlock
-              id="repos"
+              key={s}
+              id={s}
               lang={lang}
-              more={repos.length - reposShown.length + (fitHidden.repos ?? 0)}
-              onMore={() => setOpenSection("repos")}
+              more={list.length - shown.length + (fitHidden[s] ?? 0)}
+              onMore={() => setOpenSection(s)}
             >
-              <RepoTicker items={reposShown} lang={lang} isDimmed={isDimmed} onOpen={setOpenItem} />
+              {shown.map((item) =>
+                s === "repos" ? (
+                  <RepoItem key={item.id} item={item} lang={lang} dimmed={isDimmed(item)} onOpen={setOpenItem} />
+                ) : (
+                  <StoryItem
+                    key={item.id}
+                    item={item}
+                    lang={lang}
+                    generatedAt={generatedAt}
+                    dimmed={isDimmed(item)}
+                    onOpen={setOpenItem}
+                  />
+                ),
+              )}
             </SectionBlock>
-          )}
-          {stories("pulse", "pulse")}
-          {stories("playbook", "playbook")}
-        </div>
+          );
+        })}
       </div>
 
       <SectionDialog
@@ -177,6 +140,6 @@ export default function Edition({ snapshot, lang, display }: Props) {
         onClose={() => setOpenSection(null)}
       />
       <ItemDialog item={openItem} lang={lang} generatedAt={generatedAt} onClose={() => setOpenItem(null)} />
-    </>
+    </div>
   );
 }
