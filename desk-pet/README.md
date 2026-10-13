@@ -13,7 +13,7 @@ Xcode Command Line Tools(Swift 6)와 macOS 13 이상이 필요하다.
 ## 실행
 
 ```sh
-./DeskPet                                    # 기본 서버: https://hyomin-l.github.io/gazettai
+./DeskPet                                    # 기본 서버: https://hyomin-l.github.io/ai-trend
 DISPATCH_URL=http://localhost:3000 ./DeskPet # 다른 서버
 DISPATCH_URL=file:///path/to/dir ./DeskPet   # 로컬 테스트: dir/latest.json을 읽는다
 ./DeskPet --demo                             # 네트워크 없이 샘플 말풍선을 바로 띄운다

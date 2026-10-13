@@ -47,12 +47,12 @@ afterEach(() => {
 });
 
 describe("fetchAll", () => {
-  it("PRD-collector: calls every source once with the gazettai User-Agent and a timeout signal", async () => {
+  it("PRD-collector: calls every source once with the ai-trend User-Agent and a timeout signal", async () => {
     await fetchAll(now);
     expect(calls).toHaveLength(SOURCES.length);
     for (const c of calls) {
       const headers = new Headers(c.init?.headers);
-      expect(headers.get("user-agent")).toBe("gazettai/0.1 (+https://github.com/hyomin-l/gazettai)");
+      expect(headers.get("user-agent")).toBe("ai-trend/0.1 (+https://github.com/hyomin-l/ai-trend)");
       expect(c.init?.signal).toBeInstanceOf(AbortSignal);
     }
   });

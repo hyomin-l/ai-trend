@@ -9,7 +9,7 @@ export const CONFIG = {
   dedupeEditions: 10,
   returningGrowth: 1.5,
   recentHeadlineEditions: 3,
-  siteUrl: "https://hyomin-l.github.io/gazettai",
+  siteUrl: "https://hyomin-l.github.io/ai-trend",
 };
 
 export const SECTION_ORDER: Section[] = ["newsroom", "ax", "repos", "pulse", "playbook"];

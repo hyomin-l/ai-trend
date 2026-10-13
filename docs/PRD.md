@@ -1,6 +1,6 @@
-# PRD — GazettAI
+# PRD — AI Trend
 
-> 이름: **GazettAI**(가제타이) = Gazette(신문) + AI. 시중에 없는 조어이고, 제호에서 'AI'를 마젠타로 구분한다. 사이트는 `hyomin-l.github.io/gazettai`.
+> 이름: **AI Trend**. 일반 명사 조합이라 상표 충돌 부담이 없다. 제호는 마젠타 'AI' + 잉크 세리프 'Trend'. 사이트는 `hyomin-l.github.io/ai-trend`.
 
 > 월·수·금 아침, 흩어진 AI 트렌드를 한 장의 신문으로 묶어 주는 개인 브리핑 웹앱.
 > Next.js(정적 export) + JSON 스냅샷 + `claude -p`(구독 Claude, 별도 API 키 없음) + GitHub Actions/Pages.

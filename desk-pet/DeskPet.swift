@@ -3,7 +3,7 @@
 import AppKit
 import SwiftUI
 
-let brand = "GazettAI" // 사용자에게 보이는 서비스 이름은 여기 한 곳뿐 — 이름이 바뀌면 이 줄만 고친다.
+let brand = "AI Trend" // 사용자에게 보이는 서비스 이름은 여기 한 곳뿐 — 이름이 바뀌면 이 줄만 고친다.
 let defaults = UserDefaults(suiteName: "io.github.hyomin-l.deskpet")! // 번들 없는 실행 파일이라 도메인을 명시 (LaunchAgent Label과 동일)
 
 // MARK: - 데이터
@@ -45,7 +45,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate {
     private let demo = CommandLine.arguments.contains("--demo")
     private let base: String = {
         let v = ProcessInfo.processInfo.environment["DISPATCH_URL"] ?? ""
-        return v.isEmpty ? "https://hyomin-l.github.io/gazettai" : v
+        return v.isEmpty ? "https://hyomin-l.github.io/ai-trend" : v
     }()
     private var panel: NSPanel!
     private var statusItem: NSStatusItem!

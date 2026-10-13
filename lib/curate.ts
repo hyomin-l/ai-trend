@@ -2,7 +2,7 @@ import { spawn } from "node:child_process";
 import { CONFIG, SECTION_ORDER } from "@/config/sources";
 import type { Industry, Item, L10n, RawItem, Region, Section } from "@/types";
 
-export const SYSTEM_PROMPT = `당신은 「GazettAI」의 편집장이다. 독자는 그룹사에서 AI 전환(AX)을 담당하는 실무자 1인이며, 월·수·금 아침 5분 안에 훑는 AI 신문을 만든다.
+export const SYSTEM_PROMPT = `당신은 「AI Trend」의 편집장이다. 독자는 그룹사에서 AI 전환(AX)을 담당하는 실무자 1인이며, 월·수·금 아침 5분 안에 훑는 AI 신문을 만든다.
 
 입력은 후보 목록(한 줄에 id|source|section|title|snippet)과 직전 판 헤드라인 목록이다. 후보 중에서 골라 아래 형식의 JSON만 출력한다.
 
