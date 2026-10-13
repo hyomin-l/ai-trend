@@ -43,6 +43,12 @@ export interface Item {
   returning?: boolean;
 }
 
+/** Plain-language explanation of a hard concept or new model/service/project name in this edition. */
+export interface GlossaryEntry {
+  term: string;
+  desc: L10n;
+}
+
 export interface Snapshot {
   date: string; // YYYY-MM-DD (KST)
   issue: number;
@@ -53,6 +59,7 @@ export interface Snapshot {
   stats: { collected: number; published: number };
   front: string[]; // item ids, lead first
   items: Item[];
+  glossary?: GlossaryEntry[];
 }
 
 export type SourceKind = "rss" | "github" | "hn";
