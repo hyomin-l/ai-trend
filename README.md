@@ -26,8 +26,8 @@ GitHub Actions (월·수·금 05:17 KST)
 | 뉴스룸 | TechCrunch AI, The Verge AI, AI타임스 |
 | 현장의 AX | Google News RSS: 건설·금융·물류·유통·미디어 × AI (국문·영문) |
 | 급상승 레포 | GitHub Search API (최근 30일 생성, ★/일 순) |
-| 커뮤니티 펄스 | Hacker News, Reddit, GeekNews |
-| 플레이북 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g |
+| 커뮤니티 (Community Pulse) | Hacker News, Reddit, GeekNews |
+| AI 플레이북 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g |
 
 토큰 절약 설계:
 - 수집은 결정적 코드가 맡는다.

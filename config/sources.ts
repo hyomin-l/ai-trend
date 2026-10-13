@@ -12,7 +12,7 @@ export const CONFIG = {
   siteUrl: "https://hyomin-l.github.io/ai-trend",
 };
 
-export const SECTION_ORDER: Section[] = ["newsroom", "ax", "repos", "pulse", "playbook"];
+export const SECTION_ORDER: Section[] = ["newsroom", "playbook", "pulse", "repos", "ax"];
 
 /** How many items each section shows on the one-screen front page. */
 export const DISPLAY: Record<Section | "front", number> = {

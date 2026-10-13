@@ -24,8 +24,8 @@ export const SECTION_LABEL: Record<SectionKey, { ko: string; en: string }> = {
   newsroom: { ko: "뉴스룸", en: "Newsroom" },
   ax: { ko: "현장의 AX", en: "AX in the Field" },
   repos: { ko: "급상승 레포", en: "Rising Repos" },
-  pulse: { ko: "커뮤니티 펄스", en: "Community Pulse" },
-  playbook: { ko: "플레이북", en: "Playbook" },
+  pulse: { ko: "커뮤니티", en: "Community Pulse" },
+  playbook: { ko: "AI 플레이북", en: "AI Playbook" },
 };
 
 export const REGION_LABEL: Record<Region, { ko: string; en: string }> = {
