@@ -1,40 +1,40 @@
 import type { Item, Lang } from "@/types";
 import { ui } from "@/lib/i18n";
-import { fmtCompact, fmtNum, parseRepoTitle } from "@/lib/format";
+import { fmtCompact, fmtNum, parseRepoTitle, repoDesc } from "@/lib/format";
+import { Glossed, type GlossPlan } from "./Glossary";
 import styles from "./RepoItem.module.css";
 
 type Props = {
   item: Item;
   lang: Lang;
+  gloss?: GlossPlan;
   dimmed?: boolean;
   onOpen: (item: Item) => void;
 };
 
-/** A rising repo: `owner/repo`, its one-line description, and ★ / +N per day (plus "재등장 ▲" when it returns). */
-export default function RepoItem({ item, lang, dimmed, onOpen }: Props) {
+/** A rising repo: `owner/repo`, its short description, and ★ / +N per day (plus "재등장 ▲" when it returns). */
+export default function RepoItem({ item, lang, gloss, dimmed, onOpen }: Props) {
   const u = ui(lang);
   const m = item.metrics;
   const title = item.title[lang];
   const parsed = parseRepoTitle(title);
-  // The curator's headline is "owner/repo, what it does": that tagline is the best short description (the summary is for the dialog).
-  const desc = parsed?.tagline || item.summary[lang];
 
   return (
     <article className={styles.item} data-dim={dimmed || undefined} data-fit="repos">
       <h3 className={styles.name}>
-        <button type="button" className={styles.hit} aria-label={title} onClick={() => onOpen(item)}>
-          {parsed ? (
-            <>
-              <span className={styles.owner}>{parsed.owner}/</span>
-              <wbr />
-              <span className={styles.repo}>{parsed.repo}</span>
-            </>
-          ) : (
-            title
-          )}
-        </button>
+        {parsed ? (
+          <>
+            <span className={styles.owner}>{parsed.owner}/</span>
+            <wbr />
+            <span className={styles.repo}>{parsed.repo}</span>
+          </>
+        ) : (
+          title
+        )}
       </h3>
-      <p className={styles.desc}>{desc}</p>
+      <p className={styles.desc}>
+        <Glossed text={repoDesc(item, lang)} terms={gloss?.get(`${item.id}:m`)} lang={lang} />
+      </p>
       <p className={styles.nums}>
         {m?.stars != null && (
           <span className={styles.stars}>
@@ -50,6 +50,7 @@ export default function RepoItem({ item, lang, dimmed, onOpen }: Props) {
           </span>
         )}
       </p>
+      <button type="button" className={styles.hit} aria-label={title} onClick={() => onOpen(item)} />
     </article>
   );
 }

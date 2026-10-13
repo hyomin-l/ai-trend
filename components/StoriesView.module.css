@@ -1,0 +1,112 @@
+/* Section chips: calm. A hairline outline; the chosen one gets an ink wash and heavier type, never a black fill. */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-top: var(--s3);
+}
+.chip {
+  padding: 6px 12px;
+  font: 500 12.5px/1.3 var(--ff-body);
+  color: var(--ink-3);
+  border: 1px solid var(--rule-2);
+  border-radius: 2px;
+}
+.chip:hover {
+  color: var(--ink);
+  background: var(--flash);
+}
+.chip[aria-pressed="true"] {
+  font-weight: 650;
+  color: var(--ink);
+  background: var(--flash-2);
+  border-color: transparent;
+}
+
+/* Stories, grouped under one date header per edition. */
+.group {
+  margin-top: var(--s6);
+}
+.groupHead {
+  padding: var(--s2) 0;
+  font: 650 13.5px/1.4 var(--ff-display);
+  color: var(--ink-3);
+}
+.groupHead a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--magenta);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.row {
+  position: relative;
+  padding: var(--s3) 0;
+  border-top: 1px solid var(--rule);
+}
+.row[aria-busy="true"] {
+  opacity: 0.6;
+}
+.row:has(.hit:focus-visible) {
+  outline: 2px solid var(--magenta);
+  outline-offset: -2px;
+}
+.headline {
+  padding-right: 80px; /* room for the 원문 link */
+  font: 650 16.5px/1.35 var(--ff-display);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.row:hover .headline {
+  text-decoration: underline;
+  text-decoration-color: var(--magenta);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+.summary {
+  margin-top: var(--s1);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s3);
+  margin-top: var(--s1);
+  font: 400 12px/1.4 var(--ff-body);
+  color: var(--ink-3);
+}
+.meta span + span::before {
+  content: "·";
+  margin-right: var(--s3);
+  color: var(--ink-4);
+}
+.hit {
+  position: absolute;
+  inset: 0;
+}
+.hit:focus-visible {
+  outline: none;
+}
+.original {
+  position: absolute;
+  top: var(--s3);
+  right: 0;
+  z-index: 1;
+}
+
+.more {
+  margin-top: var(--s6);
+  padding: 9px var(--s4);
+  font: 600 12.5px/1.3 var(--ff-body);
+  background: var(--flash);
+  border-radius: 2px;
+}
+.more:hover {
+  background: var(--flash-2);
+}

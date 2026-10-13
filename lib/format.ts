@@ -1,4 +1,4 @@
-import type { Lang } from "@/types";
+import type { Item, Lang } from "@/types";
 import { ui } from "@/lib/i18n";
 
 const WD_KO = ["일", "월", "화", "수", "목", "금", "토"];
@@ -17,6 +17,18 @@ function parts(date: string) {
 export function fmtDateShort(date: string, lang: Lang) {
   const { m, d, wd } = parts(date);
   return lang === "ko" ? `${m}월 ${d}일 (${WD_KO[wd]})` : `${MON_EN[m - 1]} ${d} (${WD_EN[wd]})`;
+}
+
+/** "10.13 (화)" / "Oct 13": the top bar's date on small phones. */
+export function fmtDateCompact(date: string, lang: Lang) {
+  const { m, d, wd } = parts(date);
+  return lang === "ko" ? `${m}.${d} (${WD_KO[wd]})` : `${MON_EN[m - 1]} ${d}`;
+}
+
+/** "10.13" / "Oct 13": the smallest form, for the narrowest phones. */
+export function fmtDateTiny(date: string, lang: Lang) {
+  const { m, d } = parts(date);
+  return lang === "ko" ? `${m}.${d}` : `${MON_EN[m - 1]} ${d}`;
 }
 
 /** "2026년 10월 13일" / "Oct 13, 2026" */
@@ -59,3 +71,6 @@ export function parseRepoTitle(title: string) {
   const m = /^([\w.-]+)\/([\w.-]+)(?:\s*[,:]\s*(.+))?$/.exec(title.trim());
   return m ? { owner: m[1], repo: m[2], tagline: m[3] ?? "" } : null;
 }
+
+/** The one-line description a repo row shows: the headline's tagline, else the summary. */
+export const repoDesc = (item: Item, lang: Lang) => parseRepoTitle(item.title[lang])?.tagline || item.summary[lang];

@@ -1,5 +1,4 @@
-/* Section story: display-face headline, one soft summary line, small meta. No rules between stories: space does the grouping.
-   Density follows the column: compact by default, "roomy" (2-line summaries, more air) when Edition finds spare height there. */
+/* Section story: display-face headline, a two-line soft summary, small meta. No rules between stories: space does the grouping. */
 .item {
   --sum-lines: 2;
   position: relative;
@@ -21,28 +20,21 @@
   letter-spacing: -0.015em;
   text-wrap: balance;
 }
-/* A <button> cannot flow inline, so the line clamp lives on a block span inside it. */
-.hit {
-  display: block;
-  width: 100%;
-  text-align: left;
-  color: inherit;
-}
 .clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-.hit::after {
-  content: "";
+/* The click target: an empty button over the whole story; glossary terms sit above it (z-index). */
+.hit {
   position: absolute;
   inset: -4px -6px;
 }
 .hit:focus-visible {
   outline: none;
 }
-.item:hover .hit {
+.item:hover .headline {
   text-decoration: underline;
   text-decoration-color: var(--magenta);
   text-decoration-thickness: 1.5px;
@@ -71,30 +63,26 @@
   color: var(--ink-2);
 }
 
+/* Desktop: the gap between stories grows with the window's height (see --item-gap in Edition.module.css). */
 @media (min-width: 1100px) {
-  .item {
-    --sum-lines: 1;
-  }
   .item + .item {
-    margin-top: 14px;
+    margin-top: var(--item-gap);
   }
   .headline {
     font-size: 15.5px;
-    line-height: 1.35;
+    line-height: 1.33;
   }
   .summary {
-    margin-top: 2px;
+    margin-top: 3px;
     font-size: 13px;
+    line-height: 1.45;
   }
   .meta {
-    margin-top: 3px;
+    margin-top: 4px;
     font-size: 11.5px;
-  }
-
-  [data-roomy] .item {
-    --sum-lines: 2;
-  }
-  [data-roomy] .item + .item {
-    margin-top: 18px;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

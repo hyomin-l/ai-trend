@@ -1,18 +1,30 @@
 /* Design tokens + base. Hierarchy comes from weight, size, colour and space; no shadows, gradients or rounded cards. */
 
 :root {
-  --paper: #f7f7f5;
-  --ink: #121212;
-  --ink-2: #3a3a3a;
-  --ink-soft: #525252; /* summaries: clearly secondary to the headline, still 7:1 on paper */
-  --ink-3: #6b6b6b; /* AA on paper: use for meta text */
-  --ink-4: #9a9a9a; /* decorative only (not AA for text) */
-  --rule: rgba(18, 18, 18, 0.14);
-  --rule-strong: #121212;
-  --magenta: #c2186f;
-  --magenta-hover: #a3125c;
-  --flash: rgba(18, 18, 18, 0.07);
-  --paper-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+  /* One token table for both themes: light-dark() picks by the used colour scheme, which follows the system until
+     <html data-theme> (set before paint by the inline script in layout.tsx) pins it to light or dark. */
+  color-scheme: light dark;
+
+  --paper: light-dark(#f7f7f5, #111112);
+  --ink: light-dark(#121212, #ecebe8);
+  --ink-2: light-dark(#3a3a3a, #cfcecb);
+  --ink-soft: light-dark(#525252, #b7b6b1); /* summaries: clearly secondary to the headline */
+  --ink-3: light-dark(#6b6b6b, #9b9a95); /* AA on paper: meta text, quiet labels */
+  --ink-4: light-dark(#9a9a9a, #66655f); /* decorative only (not AA for text) */
+  --rule: light-dark(rgba(18, 18, 18, 0.11), rgba(236, 235, 232, 0.13)); /* the only line weight: 1px, ~11% ink */
+  --rule-2: light-dark(rgba(18, 18, 18, 0.22), rgba(236, 235, 232, 0.24)); /* edge of things that float over the page: dialogs, menus, tooltips */
+  --field: light-dark(rgba(18, 18, 18, 0.46), rgba(236, 235, 232, 0.42)); /* input outline: about 3:1, so the field stays findable */
+  --flash: light-dark(rgba(18, 18, 18, 0.07), rgba(236, 235, 232, 0.09)); /* hover wash and quiet button fill */
+  --flash-2: light-dark(rgba(18, 18, 18, 0.12), rgba(236, 235, 232, 0.16)); /* the same, one step darker (hover on a quiet button) */
+  --backdrop: light-dark(rgba(18, 18, 18, 0.35), rgba(0, 0, 0, 0.55));
+  --magenta: light-dark(#c2186f, #f0479e);
+  --magenta-hover: light-dark(#a3125c, #ff72b6);
+
+  /* Paper grain: grey feTurbulence noise tiled over the paper colour. Strong enough to see, too weak to touch text contrast. */
+  --paper-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.0867 0.0867 0.0867 0 0.8386 0.0867 0.0867 0.0867 0 0.8386 0.0867 0.0867 0.0867 0 0.8308 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --sun-display: none;
+  --moon-display: block;
+  --globe-blend: multiply; /* day: the globe's white sea multiplies into the paper, so only the dots stay */
 
   /* 4px scale */
   --s1: 4px;
@@ -24,37 +36,42 @@
   --s8: 32px;
 
   --pad-x: 16px;
-  --topbar-h: 52px;
+  --topbar-h: 48px;
   --z: 1; /* page zoom on very wide screens (see below) */
   --vh: 100dvh; /* viewport height in zoomed px */
 
   /* All sans. Pretendard carries text, meta and numbers; Wanted Sans is the display face (logo, numerals, headlines, labels). */
   --ff-body: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
   --ff-display: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
-
-  color-scheme: light dark;
 }
 
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* The few tokens that cannot use light-dark() (an image, a display value) switch with the system unless the page is pinned. */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #111112;
-    --ink: #ecebe8;
-    --ink-2: #cfcecb;
-    --ink-soft: #b7b6b1;
-    --ink-3: #9b9a95;
-    --ink-4: #66655f;
-    --rule: rgba(236, 235, 232, 0.16);
-    --rule-strong: #ecebe8;
-    --magenta: #f0479e;
-    --magenta-hover: #ff72b6;
-    --flash: rgba(236, 235, 232, 0.09);
-    --paper-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  :root:not([data-theme="light"]) {
+    --paper-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.0567 0.0567 0.0567 0 -0.0183 0.0567 0.0567 0.0567 0 -0.0183 0.0567 0.0567 0.0567 0 -0.0144 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    --sun-display: block;
+    --moon-display: none;
+    --globe-blend: normal;
   }
+}
+:root[data-theme="dark"] {
+  --paper-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.0567 0.0567 0.0567 0 -0.0183 0.0567 0.0567 0.0567 0 -0.0183 0.0567 0.0567 0.0567 0 -0.0144 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --sun-display: block;
+  --moon-display: none;
+  --globe-blend: normal;
 }
 
 @media (min-width: 1100px) {
   :root {
     --pad-x: 24px;
+    --topbar-h: 52px;
   }
 }
 

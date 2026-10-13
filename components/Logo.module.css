@@ -1,13 +1,14 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 4px; /* the mark's box carries its own padding (the blob fills 70% of it) */
 }
 .mark {
   flex: none;
   display: block;
-  width: auto;
-  height: 18px;
+  width: 20px;
+  height: 20px;
+  margin-left: -3px; /* optical: the blob, not its box, sits on the page margin */
 }
 .name {
   font: 700 17px/1 var(--ff-display);

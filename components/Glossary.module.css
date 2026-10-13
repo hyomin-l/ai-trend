@@ -1,0 +1,36 @@
+/* Marked term: a dotted ink-3 underline, lifted above the card's stretched click target so it can take its own hover, focus and tap. */
+.term {
+  position: relative;
+  z-index: 1;
+  cursor: help;
+  text-decoration: underline dotted var(--ink-3);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.term:focus-visible {
+  outline-offset: 1px;
+}
+
+.tip {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  width: max-content;
+  max-width: min(280px, calc(100vw - 16px));
+  padding: var(--s2) var(--s3);
+  font: 400 12.5px/1.5 var(--ff-body);
+  letter-spacing: 0;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  overflow: visible;
+  color: var(--ink-2);
+  background-color: var(--paper);
+  background-image: var(--paper-noise);
+  border: 1px solid var(--rule-2);
+  border-radius: 2px;
+}
+.tip b {
+  font-weight: 700;
+  color: var(--ink);
+}

@@ -15,19 +15,35 @@ const COORDS: Partial<Record<Region, [number, number]>> = {
 };
 
 const THETA = 0.3;
+const ELEVATION = 0.02; // markerElevation
+const SPHERE = 0.8; // cobe draws the sphere with radius 0.8 of the half-canvas
+const SCALE = 1.2; // ...times this: the sphere fills 96% of the canvas, so the (fixed-size) dots are 20% bigger in the same box
 /** Keeps the dot spacing constant (about 6px) whatever the globe size; small globes get fewer, larger dots so the land stays legible. */
-const samples = (size: number) => Math.max(900, Math.round(size * size * 0.09));
+const samples = (size: number) => Math.max(1400, Math.round(size * size * 0.3));
 const AUTO = 0.002; // radians per frame while idle, about one turn a minute
 const TAU = Math.PI * 2;
+const CLICK_SLOP = 3; // px of travel that still counts as a click rather than a drag
+const HIT_RADIUS = 12; // px around a marker that still selects it
 
 /** phi that puts the given longitude in front of the camera (derived from cobe's lat/lng mapping). */
 const facing = (lng: number) => -Math.PI / 2 - (lng * Math.PI) / 180;
 
-/** Ink dots on paper in the day edition, paper dots on ink in the night edition; markers are the magenta. */
+type RGB = [number, number, number];
+
+/**
+ * Dots on paper in the day edition (near-black land on an almost-paper sphere), light dots on ink in the night edition.
+ * cobe shades land by `mapBrightness * dot coverage`; a high value saturates the dot core, which is what makes small dots crisp.
+ */
 const palette = (night: boolean) =>
   night
-    ? { dark: 1, baseColor: [0.93, 0.92, 0.91] as [number, number, number], glowColor: [0.02, 0.02, 0.02] as [number, number, number], markerColor: [0.94, 0.28, 0.62] as [number, number, number], mapBrightness: 9, mapBaseBrightness: 0.35, diffuse: 1.2 }
-    : { dark: 0, baseColor: [0.86, 0.86, 0.85] as [number, number, number], glowColor: [0.97, 0.97, 0.96] as [number, number, number], markerColor: [0.76, 0.09, 0.44] as [number, number, number], mapBrightness: 2.4, mapBaseBrightness: 0, diffuse: 1.6 };
+    ? { dark: 1, baseColor: [0.97, 0.96, 0.94] as RGB, glowColor: [0.03, 0.03, 0.03] as RGB, markerColor: [0.98, 0.36, 0.67] as RGB, mapBrightness: 14, mapBaseBrightness: 0.05, diffuse: 1.1 }
+    : { dark: 0, baseColor: [1.14, 1.14, 1.12] as RGB, glowColor: [0.97, 0.97, 0.96] as RGB, markerColor: [0.76, 0.09, 0.44] as RGB, mapBrightness: 24, mapBaseBrightness: 0.03, diffuse: 1 };
+
+/** Is the page dark right now: the pinned <html data-theme>, else the system preference. */
+const isNight = () => {
+  const pinned = document.documentElement.dataset.theme;
+  return pinned ? pinned === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+};
 
 type Props = {
   regions: { region: Region; count: number }[];
@@ -35,6 +51,8 @@ type Props = {
   active: Region | null;
   /** Region being previewed (hover/focus on its row): the globe turns to it and its markers pulse. */
   hover: Region | null;
+  /** A marker was clicked or tapped (a drag does not count). */
+  onPick?: (region: Region) => void;
 };
 
 type Controller = { sync: (regions: Props["regions"], active: Region | null, hover: Region | null) => void };
@@ -45,9 +63,13 @@ const PULSE_MS = 1100;
  * cobe v2 has no render loop of its own (no onRender): every `update()` draws one frame, so this component
  * owns a requestAnimationFrame loop. It pauses off-screen, in background tabs and under prefers-reduced-motion.
  */
-export default function Globe({ regions, active, hover }: Props) {
+export default function Globe({ regions, active, hover, onPick }: Props) {
   const host = useRef<HTMLDivElement>(null);
   const ctl = useRef<Controller | null>(null);
+  const pick = useRef(onPick);
+  useEffect(() => {
+    pick.current = onPick;
+  });
 
   useEffect(() => {
     const el = host.current;
@@ -70,19 +92,23 @@ export default function Globe({ regions, active, hover }: Props) {
     let vel = 0;
     let dragging = false;
     let lastX = 0;
+    let downX = 0;
+    let downY = 0;
+    let travelled = 0;
     let raf = 0;
     let visible = true;
 
     const globe = createGlobe(canvas, {
       width: size,
       height: size,
-      devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+      devicePixelRatio: Math.max(2, Math.min(window.devicePixelRatio || 1, 3)), // never below 2x: at 1x the dots are sub-pixel and half of them drop out
       phi,
       theta: THETA,
       mapSamples: samples(size),
-      markerElevation: 0.02,
+      markerElevation: ELEVATION,
+      scale: SCALE,
       markers,
-      ...palette(scheme.matches),
+      ...palette(isNight()),
     });
 
     /** Marker sizes: a selected region is emphasised and the rest recede; the previewed region breathes. */
@@ -91,9 +117,9 @@ export default function Globe({ regions, active, hover }: Props) {
       return list.flatMap(({ region, count }) => {
         const location = COORDS[region];
         if (!location) return [];
-        const base = 0.035 + 0.05 * (count / max);
-        let size = selected === null ? base : region === selected ? base * 1.5 + 0.02 : base * 0.55;
-        if (region === preview) size = Math.max(size, base) * (1.35 + 0.3 * pulse);
+        const base = 0.075 + 0.055 * (count / max);
+        let size = selected === null ? base : region === selected ? base * 1.4 + 0.02 : base * 0.6;
+        if (region === preview) size = Math.max(size, base) * (1.3 + 0.3 * pulse);
         return [{ location, size }];
       });
     };
@@ -126,24 +152,73 @@ export default function Globe({ regions, active, hover }: Props) {
       if (!raf && running()) raf = requestAnimationFrame(tick);
     };
 
+    /**
+     * Region whose front-facing marker is within HIT_RADIUS of the pointer. Same projection cobe uses for a marker
+     * (lat/lng -> unit sphere at radius 0.8 + elevation -> rotate by phi and theta -> orthographic), in canvas CSS px.
+     */
+    const hit = (clientX: number, clientY: number): Region | null => {
+      const box = canvas.getBoundingClientRect();
+      if (!box.width) return null;
+      const k = size / box.width; // box is in screen px (may be zoomed); canvas math is in layout px
+      const px = (clientX - box.left) * k;
+      const py = (clientY - box.top) * k;
+      const [cp, sp, ct, st] = [Math.cos(phi), Math.sin(phi), Math.cos(THETA), Math.sin(THETA)];
+      let best: Region | null = null;
+      let bestD = HIT_RADIUS * HIT_RADIUS;
+      for (const { region } of list) {
+        const at = COORDS[region];
+        if (!at) continue;
+        const lat = (at[0] * Math.PI) / 180;
+        const lng = (at[1] * Math.PI) / 180 - Math.PI;
+        const r = SPHERE + ELEVATION;
+        const p0 = -Math.cos(lat) * Math.cos(lng) * r;
+        const p1 = Math.sin(lat) * r;
+        const p2 = Math.cos(lat) * Math.sin(lng) * r;
+        const nx = cp * p0 + sp * p2;
+        const ny = sp * st * p0 + ct * p1 - cp * st * p2;
+        const z = -sp * ct * p0 + st * p1 + cp * ct * p2;
+        if (z < 0 && nx * nx + ny * ny < SPHERE * SPHERE) continue; // behind the globe (cobe still draws markers that stick out past the rim)
+        const x = ((nx * SCALE + 1) / 2) * size;
+        const y = ((1 - ny * SCALE) / 2) * size;
+        const d = (x - px) ** 2 + (y - py) ** 2;
+        if (d <= bestD) {
+          bestD = d;
+          best = region;
+        }
+      }
+      return best;
+    };
+
     const onDown = (e: PointerEvent) => {
       dragging = true;
-      lastX = e.clientX;
+      lastX = downX = e.clientX;
+      downY = e.clientY;
+      travelled = 0;
       vel = 0;
       target = null;
       canvas.setPointerCapture(e.pointerId);
     };
     const onMove = (e: PointerEvent) => {
-      if (!dragging) return;
+      if (!dragging) {
+        canvas.style.cursor = hit(e.clientX, e.clientY) ? "pointer" : "";
+        return;
+      }
+      travelled = Math.max(travelled, Math.hypot(e.clientX - downX, e.clientY - downY));
       const d = (e.clientX - lastX) / (size * 0.4);
       lastX = e.clientX;
       phi += d;
       vel = d;
       draw();
     };
-    const onUp = () => {
+    const onUp = (e: PointerEvent) => {
+      const wasDragging = dragging;
       dragging = false;
       if (reduce.matches) vel = 0; // no momentum for reduced motion; drag itself stays user-driven
+      if (wasDragging && e.type === "pointerup" && travelled <= CLICK_SLOP) {
+        vel = 0;
+        const region = hit(e.clientX, e.clientY);
+        if (region) pick.current?.(region);
+      }
       kick();
     };
     canvas.addEventListener("pointerdown", onDown);
@@ -151,11 +226,14 @@ export default function Globe({ regions, active, hover }: Props) {
     canvas.addEventListener("pointerup", onUp);
     canvas.addEventListener("pointercancel", onUp);
 
-    const onScheme = (e: MediaQueryListEvent) => {
-      globe.update(palette(e.matches));
+    const restyle = () => {
+      globe.update(palette(isNight()));
       draw();
     };
-    scheme.addEventListener("change", onScheme);
+    // The palette follows the system and the in-page toggle (<html data-theme>).
+    scheme.addEventListener("change", restyle);
+    const themeWatch = new MutationObserver(restyle);
+    themeWatch.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     reduce.addEventListener("change", kick);
     document.addEventListener("visibilitychange", kick);
 
@@ -197,7 +275,8 @@ export default function Globe({ regions, active, hover }: Props) {
       cancelAnimationFrame(raf);
       io.disconnect();
       ro.disconnect();
-      scheme.removeEventListener("change", onScheme);
+      themeWatch.disconnect();
+      scheme.removeEventListener("change", restyle);
       reduce.removeEventListener("change", kick);
       document.removeEventListener("visibilitychange", kick);
       globe.destroy();

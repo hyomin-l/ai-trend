@@ -1,9 +1,13 @@
-/* Two rows on phones (logo + tools, then the edition picker), one row from 640px. The only rule is the hairline underneath. */
+/* One row at every width. Everything sits on the bar's centre line; controls are 32px tall; the only rule is the hairline below.
+   Narrow screens compact instead of wrapping (see DateNav for the date, the language cell here, the logo word at the very end). */
 .bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  column-gap: var(--s3);
+  gap: var(--s2);
+  height: var(--topbar-h);
   padding: 0 var(--pad-x);
   background-color: var(--paper);
   background-image: var(--paper-noise);
@@ -11,48 +15,60 @@
 }
 
 .logo {
-  order: 0;
+  flex: none;
   display: inline-flex;
   align-items: center;
-  height: 48px;
-  margin-right: auto;
-}
-
-.controls {
-  order: 1;
-  display: flex;
-  align-items: center;
-  gap: var(--s2);
-}
-.date {
-  order: 2;
-  flex: 1 0 100%;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  margin-left: -8px; /* optical: the chevron glyph sits on the gutter line */
-}
-.notice {
-  order: 3;
-  flex: 1 0 100%;
-  padding-bottom: var(--s2);
-  font: 400 12px/1.4 var(--ff-body);
-  color: var(--ink-2);
-}
-
-.search {
-  display: grid;
-  place-items: center;
-  width: 32px;
   height: 32px;
-  color: var(--ink-2);
 }
-.search:hover {
+
+.menu {
+  align-self: stretch;
+  display: flex;
+  margin-left: 0;
+}
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font: 600 13px/1 var(--ff-display);
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  color: var(--ink-3);
+}
+.item:hover {
   color: var(--ink);
-  background: var(--flash);
 }
-.search[aria-current="page"] {
-  color: var(--magenta);
+.item[aria-current="page"] {
+  color: var(--ink);
+}
+/* Active tab: a 2px ink bar sitting on the bar's hairline. */
+.item[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: -1px;
+  height: 2px;
+  background: var(--ink);
+}
+.item:focus-visible {
+  outline-offset: -2px;
+}
+
+.menu,
+.logo,
+.lang {
+  flex: none;
+}
+
+.tools {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--s1);
 }
 
 .lang {
@@ -67,6 +83,7 @@
   font: 600 12px/1 var(--ff-body);
   letter-spacing: 0.04em;
   color: var(--ink-3);
+  border-radius: 2px;
 }
 a.langCell:hover {
   color: var(--ink);
@@ -76,43 +93,39 @@ a.langCell:hover {
   color: var(--magenta);
 }
 
+/* Below 384px even the compact row runs out of room: the logo keeps its mark and drops the word. */
+@media (max-width: 383px) {
+  .logo > span > span {
+    display: none;
+  }
+}
+
+/* Phones: the active language is implied, so show only the one you can switch to. */
+@media (max-width: 639px) {
+  .on {
+    display: none;
+  }
+  .langCell {
+    padding: 0;
+  }
+}
+
 @media (min-width: 640px) {
   .bar {
-    position: sticky;
-    top: 0;
-    z-index: 30;
-    flex-wrap: nowrap;
-    height: var(--topbar-h);
-    column-gap: var(--s4);
+    gap: var(--s4);
   }
-  .logo {
-    order: 0;
-    height: auto;
-    margin-right: 0;
+  .menu {
+    margin-left: var(--s2);
   }
-  .date {
-    order: 1;
-    flex: none;
-    height: auto;
-    margin-left: 0;
+  .item {
+    padding: 0 var(--s3);
+    font-size: 14px;
   }
-  .notice {
-    order: 2;
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 0;
-    text-align: right;
-    font-size: 12px;
-    color: var(--ink-3);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .item[aria-current="page"]::after {
+    left: var(--s3);
+    right: var(--s3);
   }
-  .controls {
-    order: 3;
-    margin-left: auto;
-  }
-  .notice + .controls {
-    margin-left: 0;
+  .tools {
+    gap: var(--s2);
   }
 }

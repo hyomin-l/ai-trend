@@ -1,19 +1,18 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useId, useRef, type KeyboardEvent, type ReactNode } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import type { Lang } from "@/types";
 import { ui } from "@/lib/i18n";
-import { fmtDateShort } from "@/lib/format";
-import { IconChevronDown, IconChevronLeft, IconChevronRight } from "./Icons";
+import { fmtDateCompact, fmtDateShort, fmtDateTiny } from "@/lib/format";
+import { IconChevronLeft, IconChevronRight } from "./Icons";
 import styles from "./DateNav.module.css";
 
 type Props = {
   lang: Lang;
   /** All edition dates, newest first. */
   dates: string[];
-  /** Current edition; undefined on pages that are not an edition (search). */
+  /** Current edition. */
   date?: string;
   /** Issue number of the current edition, shown next to its date. */
   issue?: number;
@@ -21,13 +20,46 @@ type Props = {
 
 const href = (lang: Lang, date: string) => `/${lang}/${date}/`;
 
-/** ‹ [10월 13일 (화) · 제1호 ▾] › : older / newer edition and a (customizable) <select> of every edition. */
+/**
+ * ‹ [10월 13일 (화) · 제1호] › : older / newer edition, and a button that opens the list of every edition.
+ * The list is a native popover (light dismiss, Esc, top layer for free) of plain links, so it works the same in every browser.
+ * The label is rendered in all its lengths and CSS picks one, which keeps the top bar on one line on phones.
+ */
 export default function DateNav({ lang, dates, date, issue }: Props) {
-  const router = useRouter();
   const u = ui(lang);
+  const id = useId();
+  const btn = useRef<HTMLButtonElement>(null);
+  const list = useRef<HTMLDivElement>(null);
   const idx = date ? dates.indexOf(date) : -1;
   const older = idx >= 0 ? dates[idx + 1] : undefined;
   const newer = idx > 0 ? dates[idx - 1] : undefined;
+
+  // Place the list under the button when it opens (the popover is fixed-position in the top layer) and focus the current edition.
+  useEffect(() => {
+    const pop = list.current;
+    const trigger = btn.current;
+    if (!pop || !trigger) return;
+    const onToggle = (e: Event) => {
+      if ((e as ToggleEvent).newState !== "open") return;
+      const r = trigger.getBoundingClientRect();
+      const bar = trigger.closest("header")?.getBoundingClientRect() ?? r;
+      const z = parseFloat(getComputedStyle(document.documentElement).zoom) || 1; // wide screens zoom the page
+      pop.style.top = `${(bar.bottom + 4) / z}px`;
+      pop.style.left = `${Math.max(8, Math.min(r.left, window.innerWidth - pop.offsetWidth * z - 8)) / z}px`;
+      pop.querySelector<HTMLElement>('[aria-current="page"], a')?.focus({ preventScroll: false });
+    };
+    pop.addEventListener("toggle", onToggle);
+    return () => pop.removeEventListener("toggle", onToggle);
+  }, []);
+
+  const close = () => list.current?.hidePopover();
+  const onKey = (e: KeyboardEvent<HTMLUListElement>) => {
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    const links = [...e.currentTarget.querySelectorAll<HTMLElement>("a")];
+    const at = links.indexOf(document.activeElement as HTMLElement);
+    links[(at + (e.key === "ArrowDown" ? 1 : -1) + links.length) % links.length]?.focus();
+    e.preventDefault();
+  };
 
   const step = (to: string | undefined, label: string, icon: ReactNode) =>
     to ? (
@@ -40,36 +72,41 @@ export default function DateNav({ lang, dates, date, issue }: Props) {
       </button>
     );
 
-  // Plain text only: browsers without customizable selects drop any markup inside <option>.
-  const label = (d: string) => (d === date && issue != null ? `${fmtDateShort(d, lang)} · ${u.issue(issue)}` : fmtDateShort(d, lang));
-
   return (
     <div className={styles.nav} role="group" aria-label={u.issueSelect}>
       {step(older, u.prevIssue, <IconChevronLeft />)}
-      <label className={styles.pick}>
-        <span className="sr-only">{u.issueSelect}</span>
-        <select
-          className={styles.select}
-          value={date ?? ""}
-          disabled={dates.length === 0}
-          onChange={(e) => e.target.value && router.push(href(lang, e.target.value))}
-        >
-          {!date && (
-            <option value="" disabled>
-              {u.issuePlaceholder}
-            </option>
-          )}
-          {dates.map((d) => (
-            <option key={d} value={d}>
-              {label(d)}
-            </option>
-          ))}
-        </select>
-        <span className={styles.caret}>
-          <IconChevronDown size={12} />
-        </span>
-      </label>
+      <button
+        ref={btn}
+        type="button"
+        className={styles.pick}
+        popoverTarget={id}
+        disabled={dates.length === 0}
+        aria-label={u.issueSelect}
+      >
+        {date ? (
+          <>
+            <span className={styles.full}>{fmtDateShort(date, lang)}</span>
+            <span className={styles.compact}>{fmtDateCompact(date, lang)}</span>
+            <span className={styles.tiny}>{fmtDateTiny(date, lang)}</span>
+            {issue != null && <span className={styles.issue}>· {u.issue(issue)}</span>}
+          </>
+        ) : (
+          u.issuePlaceholder
+        )}
+      </button>
       {step(newer, u.nextIssue, <IconChevronRight />)}
+      <div id={id} ref={list} popover="auto" className={styles.list}>
+        <ul onKeyDown={onKey}>
+          {dates.map((d) => (
+            <li key={d}>
+              <Link href={href(lang, d)} aria-current={d === date ? "page" : undefined} onClick={close}>
+                {fmtDateShort(d, lang)}
+                {d === date && issue != null && <span className={styles.issueInList}> · {u.issue(issue)}</span>}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

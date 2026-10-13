@@ -17,7 +17,7 @@ type Props = {
 
 /**
  * "지역": a small globe and the region list. Hovering or focusing a row turns the globe to that region and pulses its
- * markers; clicking filters (dims) every other story on the page.
+ * markers; clicking a row, or a marker on the globe, filters (dims) every other story on the page.
  */
 export default function Regions({ regions, active, onSelect, lang }: Props) {
   const u = ui(lang);
@@ -29,7 +29,7 @@ export default function Regions({ regions, active, onSelect, lang }: Props) {
       </SectionHead>
       <div className={styles.body}>
         <div className={styles.globe}>
-          <Globe regions={regions} active={active} hover={hover} />
+          <Globe regions={regions} active={active} hover={hover} onPick={(r) => onSelect(active === r ? null : r)} />
         </div>
         <ul className={styles.list} aria-label={u.regionFilter}>
           {regions.map(({ region, count }) => (

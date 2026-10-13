@@ -6,11 +6,16 @@
   flex-direction: column;
 }
 
+/* Desktop: five columns in a row, a light vertical rule between neighbours. Each column carries its own 16px side padding,
+   and the grid (Edition) is pulled out by the same amount, so text still lines up with the page edge. */
 @media (min-width: 1100px) {
   .section {
-    margin: 0 -6px;
-    padding: 0 6px 6px; /* room for the focus ring, which the clipping below would otherwise cut */
+    margin: 0;
+    padding: 0 var(--s4) 6px; /* side room doubles as the gutter and keeps the focus ring from being clipped */
     min-height: 0;
     overflow: hidden; /* Edition measures this box to decide how many stories fit */
+  }
+  .section + .section {
+    border-left: 1px solid var(--rule);
   }
 }

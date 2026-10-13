@@ -13,6 +13,10 @@
   white-space: nowrap;
 }
 
+.quiet {
+  color: var(--ink-3);
+}
+
 .action {
   flex: none;
   min-width: 32px;
@@ -25,13 +29,14 @@
   border-radius: 2px;
 }
 .action:hover {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--flash-2);
+  color: var(--ink);
 }
 
 @media (min-width: 1100px) {
   .head {
     min-height: 26px;
+    margin-bottom: 6px;
   }
   .label {
     font-size: 14.5px;

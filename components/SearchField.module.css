@@ -1,0 +1,74 @@
+/* A plain field: magnifier inside, a 1px grey outline, a clear button. Focus = a grey 2px ring; no magenta, no glow. */
+.form {
+  position: relative;
+  margin-top: var(--s4);
+}
+.glass {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  translate: 0 -50%;
+  display: grid;
+  color: var(--ink-3);
+  pointer-events: none;
+}
+.input {
+  width: 100%;
+  height: 46px;
+  padding: 0 44px 0 42px;
+  font: 400 16px/1 var(--ff-body);
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--field);
+  border-radius: 2px;
+  appearance: none;
+}
+.input::placeholder {
+  color: var(--ink-3);
+}
+.input:focus-visible {
+  outline: 1px solid var(--ink-3); /* with the 1px border: a plain 2px grey ring */
+  outline-offset: 0;
+  border-color: var(--ink-3);
+}
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-decoration {
+  display: none; /* our own clear button below */
+  -webkit-appearance: none;
+}
+.clear,
+.slash {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+.clear {
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--ink-3);
+  border-radius: 2px;
+}
+.clear:hover {
+  color: var(--ink);
+  background: var(--flash);
+}
+.slash {
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  font: 600 12px/1 var(--ff-body);
+  color: var(--ink-3);
+  border: 1px solid var(--rule-2);
+  border-radius: 2px;
+  pointer-events: none;
+}
+@media (hover: none) {
+  .slash {
+    display: none;
+  }
+}

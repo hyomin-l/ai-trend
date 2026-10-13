@@ -1,0 +1,51 @@
+/* Edition list. A row is one link: its date line stretches over the whole row. */
+.editions {
+  margin-top: var(--s2);
+}
+.edition {
+  position: relative;
+  padding: var(--s4) 0;
+  border-top: 1px solid var(--rule);
+}
+.edition:has(.link:focus-visible) {
+  outline: 2px solid var(--magenta);
+  outline-offset: -2px;
+}
+.head {
+  font: 650 15px/1.4 var(--ff-display);
+  letter-spacing: -0.01em;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.link:focus-visible {
+  outline: none;
+}
+.edition:hover .link {
+  text-decoration: underline;
+  text-decoration-color: var(--magenta);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+.issue {
+  font-weight: 500;
+  color: var(--ink-3);
+}
+.heads {
+  display: grid;
+  gap: 6px;
+  margin-top: var(--s2);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.heads li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+}
+.no {
+  font: 600 12px/1.9 var(--ff-body);
+  color: var(--ink-3);
+}

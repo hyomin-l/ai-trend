@@ -36,11 +36,6 @@ export const IconChevronRight = (p: P) => (
     <path d="M6 3l5 5-5 5" />
   </Svg>
 );
-export const IconChevronDown = (p: P) => (
-  <Svg {...p}>
-    <path d="M3.5 6l4.5 4.5L12.5 6" />
-  </Svg>
-);
 export const IconSearch = (p: P) => (
   <Svg {...p}>
     <circle cx="7" cy="7" r="4.5" />
@@ -50,5 +45,16 @@ export const IconSearch = (p: P) => (
 export const IconArrowUpRight = (p: P) => (
   <Svg {...p}>
     <path d="M5 11l6-6M5.5 5H11v5.5" />
+  </Svg>
+);
+export const IconSun = (p: P) => (
+  <Svg {...p}>
+    <circle cx="8" cy="8" r="3" />
+    <path d="M8 1.5v1.8M8 12.7v1.8M1.5 8h1.8M12.7 8h1.8M3.4 3.4l1.3 1.3M11.3 11.3l1.3 1.3M12.6 3.4l-1.3 1.3M4.7 11.3l-1.3 1.3" />
+  </Svg>
+);
+export const IconMoon = (p: P) => (
+  <Svg {...p}>
+    <path d="M14 8.5A6 6 0 1 1 7.5 2 4.7 4.7 0 0 0 14 8.5z" strokeLinecap="round" strokeLinejoin="round" />
   </Svg>
 );

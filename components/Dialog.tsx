@@ -9,6 +9,8 @@ type Props = {
   onClose: () => void;
   label: string;
   closeLabel: string;
+  /** Calm controls shown left of the close button, pinned to the dialog's top-right corner (they do not scroll). */
+  actions?: ReactNode;
   children: ReactNode;
 };
 
@@ -16,7 +18,7 @@ type Props = {
  * Native <dialog> shell shared by the item and section dialogs. It stays mounted and is opened/closed
  * imperatively, so the browser handles Esc, the top layer, inertness and focus return to the trigger.
  */
-export default function Dialog({ open, onClose, label, closeLabel, children }: Props) {
+export default function Dialog({ open, onClose, label, closeLabel, actions, children }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
   const downOnBackdrop = useRef(false);
 
@@ -41,9 +43,12 @@ export default function Dialog({ open, onClose, label, closeLabel, children }: P
         if (downOnBackdrop.current && e.target === e.currentTarget) e.currentTarget.close();
       }}
     >
-      <button type="button" className={styles.close} onClick={() => ref.current?.close()} aria-label={closeLabel}>
-        <IconClose />
-      </button>
+      <div className={styles.chrome}>
+        <button type="button" className={styles.close} onClick={() => ref.current?.close()} aria-label={closeLabel}>
+          <IconClose />
+        </button>
+        {actions}
+      </div>
       <div className={styles.inner}>{open ? children : null}</div>
     </dialog>
   );

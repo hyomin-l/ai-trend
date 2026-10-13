@@ -1,11 +1,11 @@
 import { BRAND } from "@/lib/i18n";
 import styles from "./Logo.module.css";
 
-/** The desk-pet "mochi" blob in flat magenta (two paper-coloured eyes) + the brand name in the display face. */
+/** The desk-pet "mochi" blob in flat magenta (two paper-coloured eyes), drawn at 70% of its square box, + the brand name in the display face. */
 export default function Logo() {
   return (
     <span className={styles.logo}>
-      <svg className={styles.mark} viewBox="62 40 116 118" aria-hidden="true" focusable="false">
+      <svg className={styles.mark} viewBox="35.7 14.7 168.6 168.6" aria-hidden="true" focusable="false">
         <path
           d="M120,42 C156,40 178,66 178,102 C178,138 156,158 120,158 C84,158 62,140 62,104 C62,68 84,44 120,42 Z"
           fill="var(--magenta)"

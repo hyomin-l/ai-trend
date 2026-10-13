@@ -8,7 +8,7 @@
   font: 600 12px/1 var(--ff-body);
   letter-spacing: 0.04em;
   color: var(--ink-3);
-  padding-right: 40px;
+  padding-right: 160px; /* clear of the 원문 보기 + close buttons pinned to the corner */
 }
 
 .headline {
@@ -49,7 +49,7 @@
   font-size: 15px;
   line-height: 1.7;
   color: var(--ink-2);
-  max-width: 62ch;
+  max-width: 62ch; /* a 3-4 sentence summary stays about 36 Korean characters wide inside the 640px dialog */
 }
 
 .metrics {
@@ -81,22 +81,18 @@
   color: var(--magenta);
 }
 
-.cta {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s2);
-  padding: 10px var(--s4);
-  background: var(--ink);
-  color: var(--paper);
-  font-weight: 600;
+.terms {
+  display: grid;
+  gap: var(--s3);
+}
+.terms dt {
+  font: 700 13.5px/1.4 var(--ff-body);
+  color: var(--ink);
+}
+.terms dd {
+  margin: 2px 0 0;
   font-size: 13.5px;
-  line-height: 1;
-  border-radius: 2px;
-}
-.cta:hover {
-  background: var(--ink-2);
-}
-.cta:focus-visible {
-  outline-offset: 3px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 62ch;
 }

@@ -1,9 +1,10 @@
-/* Mobile: band (stories, regions) then each section as a list. Desktop: band over five gutter-separated columns that fill the screen. */
+/* Mobile: band (stories, regions) then each section as a list. Desktop: band over five columns that fill the screen,
+   separated by light vertical rules; the only horizontal rule is the one under the band. */
 .band {
   display: grid;
   gap: var(--s8);
   padding: var(--s5) 0 var(--s6);
-  border-bottom: 2px solid var(--ink); /* the one rule on the page (besides the hairline under the top bar) */
+  border-bottom: 1px solid var(--rule);
 }
 .grid {
   display: block;
@@ -12,17 +13,27 @@
 
 @media (min-width: 1100px) {
   .root {
+    /* Gap between stories in a column: tighter on short windows, airier on tall ones. */
+    --item-gap: clamp(12px, calc((max(var(--vh), 720px) - 800px) * 0.13 + 12px), 28px);
     display: flex;
     flex-direction: column;
     flex: 1;
     min-height: 0;
   }
+  /* [오늘의 3줄: three equal cards] | [지역] */
   .band {
-    grid-template-columns: minmax(0, 1fr) 176px;
-    column-gap: var(--s8);
+    grid-template-columns: minmax(0, 1fr) 217px;
+    gap: 0;
     align-items: start;
-    padding: var(--s4) 0 var(--s4);
+    padding: var(--s4) 0;
   }
+  .side {
+    align-self: stretch;
+    margin-left: var(--s5);
+    padding-left: var(--s5);
+    border-left: 1px solid var(--rule);
+  }
+  /* The sections add their own 16px side padding (SectionBlock), so the grid is pulled out by the same amount. */
   .grid {
     flex: 1;
     min-height: 0;
@@ -30,7 +41,17 @@
     grid-auto-flow: column;
     grid-auto-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr);
-    column-gap: var(--s8);
+    margin: 0 calc(-1 * var(--s4));
     padding-top: var(--s4);
+  }
+}
+
+/* Short windows: a slimmer band and column top, so four stories per column still fit. */
+@media (min-width: 1100px) and (max-height: 899px) {
+  .band {
+    padding: var(--s3) 0;
+  }
+  .grid {
+    padding-top: var(--s3);
   }
 }

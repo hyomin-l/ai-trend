@@ -34,16 +34,19 @@ export default function EditionPage({ lang, date }: Props) {
       <a className="skip" href="#main">
         {u.skip}
       </a>
-      <TopBar
-        lang={lang}
-        dates={dates}
-        date={snapshot?.date}
-        issue={snapshot?.issue}
-        notice={snapshot ? noticeOf(snapshot, lang) || undefined : undefined}
-        kind="edition"
-      />
+      <TopBar lang={lang} dates={dates} date={snapshot?.date} issue={snapshot?.issue} kind="edition" />
       <main id="main" lang={lang} className={styles.main}>
-        {snapshot ? <Edition snapshot={snapshot} lang={lang} sections={SECTION_ORDER} display={DISPLAY} /> : <EmptyState lang={lang} />}
+        {snapshot ? (
+          <Edition
+            snapshot={snapshot}
+            lang={lang}
+            sections={SECTION_ORDER}
+            display={DISPLAY}
+            notice={noticeOf(snapshot, lang) || undefined}
+          />
+        ) : (
+          <EmptyState lang={lang} />
+        )}
       </main>
     </div>
   );

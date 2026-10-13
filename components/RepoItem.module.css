@@ -25,14 +25,8 @@
   letter-spacing: -0.005em;
   overflow-wrap: anywhere; /* long owner/repo pairs wrap at the slash (<wbr>) or, failing that, anywhere */
 }
+/* The click target: an empty button over the whole row; glossary terms sit above it (z-index). */
 .hit {
-  display: block;
-  max-width: 100%;
-  text-align: left;
-  color: inherit;
-}
-.hit::after {
-  content: "";
   position: absolute;
   inset: -4px -6px;
 }
@@ -108,9 +102,10 @@
 
 @media (min-width: 1100px) {
   .item + .item {
-    margin-top: 14px;
+    margin-top: var(--item-gap);
   }
-  [data-roomy] .item + .item {
-    margin-top: 18px;
+  .desc {
+    margin-top: 3px;
+    line-height: 1.45;
   }
 }

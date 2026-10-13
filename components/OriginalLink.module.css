@@ -1,0 +1,23 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 var(--s3);
+  font: 600 13px/1 var(--ff-body);
+  color: var(--ink);
+  background: var(--flash);
+  border-radius: 2px;
+}
+.link:hover {
+  background: var(--flash-2);
+}
+.link:focus-visible {
+  outline-offset: 2px;
+}
+.small {
+  height: 28px;
+  padding: 0 var(--s3);
+  gap: 4px;
+  font-size: 12.5px;
+}

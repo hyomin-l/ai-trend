@@ -1,0 +1,25 @@
+.toggle {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--ink-2);
+  border-radius: 2px;
+}
+.toggle:hover {
+  color: var(--ink);
+  background: var(--flash);
+}
+
+/* Icon = the theme you would switch to; the tokens are set per theme in globals.css, so this is right before any script runs. */
+.sun {
+  display: var(--sun-display);
+}
+.moon {
+  display: var(--moon-display);
+}
+.sun,
+.moon {
+  line-height: 0;
+}

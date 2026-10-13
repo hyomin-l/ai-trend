@@ -1,9 +1,12 @@
 import { listDates, loadSnapshot } from "@/lib/snapshots";
-import type { SearchRow } from "@/components/SearchView";
+import type { SearchRow } from "@/components/StoriesView";
 
 export const dynamic = "force-static";
 
-/** Compact index over every edition; the browser filters it, no search server involved. */
+/**
+ * Compact index over every edition; the browser filters it, no search server involved. Rows carry only what the list
+ * shows plus (date, id), which is the key for fetching the whole story from /editions/<date>/data.json.
+ */
 export function GET() {
   const rows: SearchRow[] = listDates().flatMap((d) => {
     const s = loadSnapshot(d);

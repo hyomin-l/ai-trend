@@ -1,13 +1,24 @@
-/* Mobile: three stacked cards with the numeral in a left rail. Desktop: three columns, numeral above. */
+/* Mobile: three stacked cards with the numeral in a left rail. Desktop: three equal columns, numeral above. */
 .list {
   display: grid;
   gap: var(--s5);
+}
+
+/* Edition notice (failed sources, no summaries): the right end of the header row, so it costs no height. */
+.notice {
+  min-width: 0;
+  overflow: hidden;
+  font: 400 12px/1.4 var(--ff-body);
+  color: var(--ink-3);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .card {
   --hl-lines: 3;
   --sum-lines: 3;
   position: relative;
+  min-width: 0;
   display: grid;
   grid-template-columns: 32px minmax(0, 1fr);
   column-gap: var(--s3);
@@ -21,7 +32,7 @@
   outline: 2px solid var(--magenta);
   outline-offset: 4px;
 }
-.card > :not(.no) {
+.card > :not(.no, .hit) {
   grid-column: 2;
 }
 
@@ -46,28 +57,24 @@
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
-/* A <button> cannot flow inline, so the line clamp lives on a block span inside it. */
-.hit {
-  display: block;
-  width: 100%;
-  text-align: left;
-  color: inherit;
-}
 .clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--hl-lines);
   overflow: hidden;
 }
-.hit::after {
-  content: "";
+
+/* The click target: an empty button over the whole card. Glossary terms sit above it (z-index) and take their own taps. */
+.hit {
   position: absolute;
   inset: -4px -8px;
+  width: auto;
+  height: auto;
 }
 .hit:focus-visible {
   outline: none;
 }
-.card:hover .hit {
+.card:hover .headline {
   text-decoration: underline;
   text-decoration-color: var(--magenta);
   text-decoration-thickness: 2px;
@@ -101,15 +108,19 @@
   letter-spacing: 0.01em;
   color: var(--magenta);
 }
+.arrow {
+  display: none;
+}
 
 @media (min-width: 1100px) {
-  /* Cards share four row tracks (numeral, headline, summary, why) so a one-line headline does not pull its neighbours out of line. */
+  /* Equal tracks, whatever the text: three 1fr columns, and every card may shrink to its track. */
   .list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: repeat(4, auto);
     column-gap: var(--s8);
     row-gap: 0;
   }
+  /* Cards share four row tracks (numeral, headline, summary, why) so a one-line headline does not pull its neighbours out of line. */
   .card {
     --hl-lines: 2;
     --sum-lines: 2;
@@ -119,7 +130,7 @@
     column-gap: var(--s3);
     align-items: end;
   }
-  .card > :not(.no) {
+  .card > :not(.no, .hit) {
     grid-column: 1 / -1;
   }
   .no {
@@ -145,10 +156,33 @@
   .why {
     align-self: start;
   }
+
+  /* The takeaway: a quiet grey line led by a magenta arrow. The label stays for screen readers only. */
+  .why {
+    padding-left: 1.3em;
+    text-indent: -1.3em;
+    color: var(--ink-3);
+  }
+  .whyLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .arrow {
+    display: inline-block;
+    width: 1.3em;
+    text-indent: 0;
+    font-weight: 700;
+    color: var(--magenta);
+  }
 }
 
-/* Short windows: one-line "why" and a tighter numeral. */
-@media (min-width: 1100px) and (max-height: 859px) {
+/* Short windows: one-line takeaway and a tighter numeral. */
+@media (min-width: 1100px) and (max-height: 899px) {
   .card {
     --why-lines: 1;
   }

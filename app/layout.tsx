@@ -17,10 +17,17 @@ export const viewport: Viewport = {
   ],
 };
 
+/** localStorage key; components/ThemeToggle.tsx writes it. */
+const THEME_KEY = "ai-trend-theme";
+
+/** Runs before first paint: a saved light/dark choice pins <html data-theme>; with none, CSS follows the system. */
+const THEME_BOOT = `try{var t=localStorage.getItem("${THEME_KEY}");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
         {/* Pretendard: body, meta, numbers. Wanted Sans: the display face for logo, numerals, headlines and labels. */}
         <link

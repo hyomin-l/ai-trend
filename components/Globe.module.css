@@ -6,6 +6,7 @@
 
 .canvas {
   display: block;
+  mix-blend-mode: var(--globe-blend);
   width: 100%;
   height: 100%;
   cursor: grab;

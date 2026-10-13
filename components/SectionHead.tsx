@@ -1,11 +1,21 @@
 import type { ReactNode } from "react";
 import styles from "./SectionHead.module.css";
 
-/** Label (once, no kicker) with an optional action on the right. Shared by the band, the region panel and every section. */
-export default function SectionHead({ id, label, children }: { id: string; label: string; children?: ReactNode }) {
+/** Label (once, no kicker) with an optional action on the right. Shared by the band, the region panel and every section. `quiet` = ink-3 label (the five section columns). */
+export default function SectionHead({
+  id,
+  label,
+  quiet,
+  children,
+}: {
+  id: string;
+  label: string;
+  quiet?: boolean;
+  children?: ReactNode;
+}) {
   return (
     <header className={styles.head}>
-      <h2 id={id} className={styles.label}>
+      <h2 id={id} className={`${styles.label} ${quiet ? styles.quiet : ""}`}>
         {label}
       </h2>
       {children}

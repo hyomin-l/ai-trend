@@ -19,7 +19,7 @@ export default function SectionBlock({ id, lang, more = 0, onMore, children }: P
   const label = SECTION_LABEL[id][lang];
   return (
     <section className={styles.section} aria-labelledby={`hd-${id}`}>
-      <SectionHead id={`hd-${id}`} label={label}>
+      <SectionHead id={`hd-${id}`} label={label} quiet>
         {more > 0 && onMore && (
           <HeadButton label={u.moreLabel(label, more)} onClick={onMore}>
             {u.more(more)}

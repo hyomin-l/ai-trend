@@ -1,13 +1,21 @@
 "use client";
 
-import type { Item, Lang } from "@/types";
+import type { GlossaryEntry, Item, Lang } from "@/types";
 import { REGION_LABEL, SECTION_LABEL, industryTag, ui } from "@/lib/i18n";
 import { fmtNum, relTime } from "@/lib/format";
 import Dialog from "./Dialog";
-import { IconArrowUpRight } from "./Icons";
+import { termsIn } from "./Glossary";
+import OriginalLink from "./OriginalLink";
 import styles from "./ItemDialog.module.css";
 
-type Props = { item: Item | null; lang: Lang; generatedAt: string; onClose: () => void };
+type Props = {
+  item: Item | null;
+  lang: Lang;
+  generatedAt: string;
+  /** The edition's glossary; terms that occur in this item are listed under "용어". */
+  glossary?: GlossaryEntry[];
+  onClose: () => void;
+};
 
 function Metrics({ item, lang }: { item: Item; lang: Lang }) {
   const u = ui(lang);
@@ -35,10 +43,17 @@ function Metrics({ item, lang }: { item: Item; lang: Lang }) {
   );
 }
 
-export default function ItemDialog({ item, lang, generatedAt, onClose }: Props) {
+export default function ItemDialog({ item, lang, generatedAt, glossary, onClose }: Props) {
   const u = ui(lang);
+  const terms = item ? termsIn([item.title[lang], item.summary[lang], item.takeaway[lang]], glossary) : [];
   return (
-    <Dialog open={item !== null} onClose={onClose} label={item?.title[lang] ?? ""} closeLabel={u.close}>
+    <Dialog
+      open={item !== null}
+      onClose={onClose}
+      label={item?.title[lang] ?? ""}
+      closeLabel={u.close}
+      actions={item && <OriginalLink href={item.url} label={u.readOriginal} />}
+    >
       {item && (
         <article className={styles.article}>
           <p className={styles.kicker}>{SECTION_LABEL[item.section][lang]}</p>
@@ -59,12 +74,21 @@ export default function ItemDialog({ item, lang, generatedAt, onClose }: Props) 
             <p className={styles.body}>{item.takeaway[lang]}</p>
           </section>
 
-          <Metrics item={item} lang={lang} />
+          {terms.length > 0 && (
+            <section className={styles.block}>
+              <h3 className={styles.label}>{u.terms}</h3>
+              <dl className={styles.terms}>
+                {terms.map((g) => (
+                  <div key={g.term}>
+                    <dt>{g.term}</dt>
+                    <dd>{g.desc[lang]}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
 
-          <a className={styles.cta} href={item.url} target="_blank" rel="noopener noreferrer">
-            {u.readOriginal}
-            <IconArrowUpRight />
-          </a>
+          <Metrics item={item} lang={lang} />
         </article>
       )}
     </Dialog>
