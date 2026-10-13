@@ -1,23 +1,19 @@
 .link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  height: 32px;
-  padding: 0 var(--s3);
-  font: 600 13px/1 var(--ff-body);
-  color: var(--ink);
-  background: var(--flash);
-  border-radius: 2px;
+  gap: 4px;
+  font: 500 13px/1.4 var(--ff-body);
+  color: var(--ink-3);
+  text-underline-offset: 3px;
 }
 .link:hover {
-  background: var(--flash-2);
+  color: var(--ink);
+  text-decoration: underline;
 }
 .link:focus-visible {
   outline-offset: 2px;
 }
 .small {
-  height: 28px;
-  padding: 0 var(--s3);
-  gap: 4px;
+  gap: 3px;
   font-size: 12.5px;
 }
