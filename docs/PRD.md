@@ -117,7 +117,7 @@ Next.js(정적 export) + JSON 스냅샷 + `claude -p`(구독 Claude, 별도 API 
   - 예약 실행에서 그날(KST) 스냅샷이 이미 있으면 수집하지 않는다.
   - `CLAUDE_CODE_OAUTH_TOKEN`이 없으면 수집하지 않고 기존 스냅샷으로 배포한다.
 - **시크릿 분리:** CLI 설치 단계는 시크릿 없이 별도로 실행하고(버전 고정), 토큰은 수집 단계에만 주입한다. 액션은 커밋 SHA로 고정한다.
-- **URL:** `SITE_URL`과 `BASE_PATH`는 `configure-pages` 출력에서 받아 빌드에 전달한다. 포크도 자신의 Pages 주소로 빌드된다. 로컬 빌드의 `BASE_PATH`는 빈 값.
+- **URL:** `BASE_PATH`는 `configure-pages` 출력에서 받아 빌드에 전달한다. 포크도 자신의 Pages 주소로 빌드된다. 로컬 빌드의 `BASE_PATH`는 빈 값.
 - 동시 실행은 `concurrency` 그룹으로 직렬화한다(진행 중 취소 안 함).
 
 ## 9. 데스크 펫

@@ -55,7 +55,6 @@ npm run collect -- --date 2026-10-14
 | `CLAUDE_CODE_OAUTH_TOKEN` | CI 수집 시 필수 | Claude 구독 토큰. 저장소 Actions 시크릿으로 등록. 없으면 워크플로는 수집 없이 기존 데이터만 배포 |
 | `GITHUB_TOKEN` | 선택 | GitHub Search API 호출 한도 상향. Actions에서는 자동 제공 |
 | `SNAPSHOT_DIR` | 선택 | 스냅샷 저장 위치 재지정. 기본 `data/snapshots` |
-| `SITE_URL` | 선택 | 사이트 절대 URL. 워크플로가 Pages 설정에서 채운다 |
 | `BASE_PATH` | 선택 | 배포 하위 경로. 워크플로가 채우며 로컬 빌드는 빈 값 |
 
 편집 가능한 설정(원천, 섹션 순서, 표시 건수, 기간·상한, 모델)은 `config/sources.ts`에 있다.
@@ -93,13 +92,33 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
    ```
    토큰은 공유하거나 커밋하지 않는다. 한 사람당 토큰 하나를 쓴다.
 4. Actions > `dispatch` > Run workflow를 실행한다. 첫 실행이 수집, `data/snapshots/<date>.json` 커밋, 빌드, 배포까지 수행한다. 이후 월·수·금 05:17 KST에 자동 실행된다.
-5. `GITHUB_TOKEN`은 자동 제공되고 `SITE_URL`/`BASE_PATH`는 워크플로가 설정한다. `CLAUDE_CODE_OAUTH_TOKEN`이 없으면 기존 데이터만 배포하며, `main` push는 배포만 한다.
+5. `GITHUB_TOKEN`은 자동 제공되고 `BASE_PATH`는 워크플로가 Pages 설정에서 채운다. `CLAUDE_CODE_OAUTH_TOKEN`이 없으면 기존 데이터만 배포하며, `main` push는 배포만 한다.
 6. 데스크 펫을 쓴다면 `DISPATCH_URL`을 자신의 사이트로 지정한다.
 
 유의 사항:
 
 - `data/snapshots`의 기존 스냅샷은 원본 저장소의 것이 그대로 따라온다. 예약 실행은 그날 스냅샷이 이미 있으면 건너뛰므로, 처음부터 시작하려면 포크에서 스냅샷을 정리하거나 수동 실행을 쓴다.
 - 구독 계정 사용은 제공사의 이용 약관을 따른다. 각자 자신의 계정으로 사용한다.
+
+## 커스터마이징
+
+포크 후 바꿀 만한 것과 위치.
+
+| 바꿀 것 | 위치 |
+|---|---|
+| 서비스 이름·소개 문구·바탕색 | `lib/i18n.ts` `BRAND` (페이지 제목, manifest, 로고, 큐레이터 프롬프트가 읽음) |
+| 강조색·테마 색 | `app/globals.css` 토큰(`--magenta`, `--paper`, `--ink`). `BRAND.paper`는 `--paper`와 같게 유지. 강조색은 `app/icon.svg`, `components/Globe.tsx` `markerColor`, `desk-pet/DeskPet.swift`에도 있음 |
+| 로고 모양 | `components/Logo.tsx` |
+| 섹션 키·이름(ko/en)·순서·표시 개수 | `config/sections.ts` `SECTIONS` (`FRONT`는 오늘의 3줄, `INDUSTRIES`는 현장의 AX 업종 태그) |
+| 수집 원천 | `config/sources.ts` `SOURCES`, `AX_QUERIES` |
+| 수집 튜닝(모델, 기간, 상한, 중복 제거) | `config/sources.ts` `CONFIG` |
+| 편집 방향·독자 설정 | `config/prompt.ts` (끝부분 출력 형식은 `lib/curate.ts`가 파싱하므로 유지) |
+| 발행 일정 | `.github/workflows/dispatch.yml` cron. 일정 문구는 `lib/i18n.ts`(`BRAND.description`, `ui.emptyNote`)와 `config/prompt.ts`에도 있음 |
+| 화면 문구(ko/en) | `lib/i18n.ts` `ko`, `en` |
+| 지역 이름·지구본 좌표 | `lib/i18n.ts` `REGION_LABEL`, `components/Globe.tsx` `COORDS` |
+| 데스크 펫 이름·기본 서버·섹션명 | `desk-pet/DeskPet.swift` 맨 위 상수 묶음, 또는 실행 시 `DISPATCH_URL` |
+
+섹션을 추가·삭제할 때는 `config/sections.ts`, `config/sources.ts`의 `section` 값, `config/prompt.ts`의 섹션 목록, `desk-pet/DeskPet.swift`의 `sectionLabel`을 함께 고친다.
 
 ## 데스크 펫
 
@@ -110,8 +129,8 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 ```
 app/          라우트: /, /[lang], /[lang]/[date], archive, stories, latest.json, search-index.json, editions/<date>/data.json
 components/   화면 컴포넌트와 CSS Module (TopBar, DateNav, TopSearch, Globe, 각종 Dialog 등)
-lib/          수집·가공·검색 로직 (sources, rss, prep, curate, pipeline, snapshots, search, format, i18n)
-config/       sources.ts: 원천, 섹션 순서, 표시 건수, 기간·상한
+lib/          수집·가공·검색 로직 (sources, rss, prep, curate, claude, pipeline, snapshots, search, format, i18n)
+config/       sections.ts: 섹션·업종 정의 / sources.ts: 원천, 기간·상한 / prompt.ts: 큐레이터 프롬프트
 types/        Snapshot·Item 등 공용 타입
 data/         snapshots/ 날짜별 판 JSON
 scripts/      collect.ts 수집 진입점
