@@ -23,6 +23,7 @@ function Metrics({ item, lang }: { item: Item; lang: Lang }) {
   if (!m) return null;
   const cells: [string, string][] = [];
   if (m.stars != null) cells.push([u.m.stars, fmtNum(m.stars)]);
+  if (m.forks != null) cells.push([u.m.forks, fmtNum(m.forks)]);
   if (m.starsPerDay != null) cells.push([u.m.perDay, fmtNum(m.starsPerDay)]);
   if (m.language) cells.push([u.m.language, m.language]);
   if (item.section === "repos") {

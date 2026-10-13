@@ -11,7 +11,7 @@ const raw = (id: string, over: Partial<RawItem> = {}): RawItem => ({
 });
 const candidates: RawItem[] = [
   raw("a1", { source: "TechCrunch" }),
-  raw("b2", { section: "repos", source: "GitHub", metrics: { stars: 1200, starsPerDay: 80, language: "Rust" }, returning: true }),
+  raw("b2", { section: "repos", source: "GitHub", metrics: { stars: 1200, forks: 90, starsPerDay: 80, language: "Rust" }, returning: true }),
   raw("c3", { section: "ax", source: "Google News", industry: "finance" }),
   raw("d4", { section: "pulse", source: "Hacker News", metrics: { points: 300, comments: 120 } }),
   raw("e5", { section: "playbook" }),
@@ -209,7 +209,7 @@ describe("fallbackCuration", () => {
 
   it("PRD-curator: carries metrics and returning from the candidate", () => {
     const { items } = fallbackCuration([candidates[1]]);
-    expect(items[0]).toMatchObject({ metrics: { stars: 1200 }, returning: true });
+    expect(items[0]).toMatchObject({ metrics: { stars: 1200, forks: 90 }, returning: true });
   });
 });
 

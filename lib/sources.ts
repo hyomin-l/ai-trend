@@ -32,6 +32,7 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
       publishedAt: new Date(r.created_at).toISOString(),
       metrics: {
         stars: r.stargazers_count,
+        forks: typeof r.forks_count === "number" ? r.forks_count : undefined,
         language: r.language ?? undefined,
         starsPerDay: Math.round(r.stargazers_count / Math.max(1, (now.getTime() - Date.parse(r.created_at)) / DAY)),
       },

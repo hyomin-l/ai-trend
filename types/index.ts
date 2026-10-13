@@ -6,6 +6,8 @@ export type L10n = Record<Lang, string>;
 
 export interface Metrics {
   stars?: number;
+  /** Fork count; absent in editions collected before it was tracked. */
+  forks?: number;
   starsPerDay?: number;
   starsDelta?: number;
   points?: number;

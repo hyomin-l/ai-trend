@@ -77,6 +77,23 @@
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
+.counts {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s2);
+}
+.forks {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink-3);
+}
+.forks svg {
+  align-self: center;
+}
 .stars {
   font-size: 13px;
   font-weight: 600;

@@ -21,6 +21,7 @@ function metaOf(item: Item, lang: Lang, generatedAt: string): string[] {
   const out = [item.source];
   if (item.industry) out.push(industryTag(item.industry, lang));
   if (m?.stars != null) out.push(`★ ${fmtCompact(m.stars)}`);
+  if (m?.forks != null) out.push(`${u.m.forks} ${fmtCompact(m.forks)}`);
   if (m?.points != null) out.push(u.pts(String(m.points)));
   out.push(relTime(item.publishedAt, generatedAt, lang));
   return out;

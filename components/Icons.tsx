@@ -21,6 +21,15 @@ function Svg({ size = 16, children }: { size?: number; children: ReactNode }) {
 
 type P = { size?: number };
 
+export const IconFork = (p: P) => (
+  <Svg {...p}>
+    <circle cx="4.5" cy="3.5" r="1.5" />
+    <circle cx="11.5" cy="3.5" r="1.5" />
+    <circle cx="8" cy="12.5" r="1.5" />
+    <path d="M4.5 5v1.5Q4.5 8 6 8h4q1.5 0 1.5-1.5V5M8 8v3" strokeLinecap="round" />
+  </Svg>
+);
+
 export const IconClose = (p: P) => (
   <Svg {...p}>
     <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />

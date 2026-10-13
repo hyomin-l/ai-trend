@@ -12,7 +12,7 @@ const feed = (n: number, base: string) =>
 
 const ghJson = {
   items: [
-    { full_name: "o/fast", html_url: "https://github.com/o/fast", description: "Fast tool", created_at: "2026-10-03T00:00:00Z", stargazers_count: 1000, language: "Rust" },
+    { full_name: "o/fast", html_url: "https://github.com/o/fast", description: "Fast tool", created_at: "2026-10-03T00:00:00Z", stargazers_count: 1000, forks_count: 120, language: "Rust" },
     { full_name: "o/new", html_url: "https://github.com/o/new", description: null, created_at: "2026-10-12T12:00:00Z", stargazers_count: 300, language: null },
   ],
 };
@@ -84,12 +84,13 @@ describe("fetchAll", () => {
     expect(fast).toMatchObject({
       id: itemId("https://github.com/o/fast"), source: "GitHub", section: "repos", title: "o/fast",
       snippet: "Fast tool", publishedAt: "2026-10-03T00:00:00.000Z",
-      metrics: { stars: 1000, language: "Rust", starsPerDay: 100 }, // 10 days old
+      metrics: { stars: 1000, forks: 120, language: "Rust", starsPerDay: 100 }, // 10 days old
     });
     const fresh = items.find((i) => i.url === "https://github.com/o/new")!;
     expect(fresh.metrics?.starsPerDay).toBe(300); // younger than a day => divisor 1
     expect(fresh.snippet).toBe("");
     expect(fresh.metrics?.language).toBeUndefined();
+    expect(fresh.metrics?.forks).toBeUndefined(); // no forks_count in the API row => absent, not 0
   });
 
   it("PRD-collector: HN query encodes numericFilters (points>80, created_at_i > now-72h) and maps hits", async () => {
