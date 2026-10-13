@@ -1,4 +1,4 @@
-import type { Item, Snapshot } from "@/types";
+import type { GlossaryEntry, Item, Snapshot } from "@/types";
 
 export const kstDate = (now: Date) => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(now); // YYYY-MM-DD
 
@@ -22,7 +22,7 @@ export function buildSnapshot(a: {
   failed: string[];
   model: string;
   now: Date;
-  curation: { front: string[]; items: Item[]; curated: boolean };
+  curation: { front: string[]; items: Item[]; glossary: GlossaryEntry[]; curated: boolean };
 }): Snapshot {
   return {
     date: a.date,
@@ -34,5 +34,6 @@ export function buildSnapshot(a: {
     stats: { collected: a.collected, published: a.curation.items.length },
     front: a.curation.front,
     items: a.curation.items,
+    ...(a.curation.glossary.length ? { glossary: a.curation.glossary } : {}), // omitted when empty so old/uncurated editions keep their shape
   };
 }

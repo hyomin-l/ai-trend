@@ -23,7 +23,8 @@ const entry = (id: string, over: Record<string, unknown> = {}) => ({
   takeaway: { ko: `시사점 ${id}`, en: `Takeaway ${id}` },
   ...over,
 });
-const json = (items: unknown[], front: unknown = ["a1", "b2", "c3"]) => JSON.stringify({ front, items });
+const json = (items: unknown[], front: unknown = ["a1", "b2", "c3"], glossary?: unknown) => JSON.stringify({ front, items, glossary });
+const gloss = (term: string, over: Record<string, unknown> = {}) => ({ term, desc: { ko: `${term} 풀이`, en: `${term} explained` }, ...over });
 
 describe("parseCuration", () => {
   const good = json([entry("a1"), entry("b2", { section: "repos" }), entry("c3", { section: "ax", industry: "finance" })]);
@@ -120,6 +121,67 @@ describe("parseCuration", () => {
   });
 });
 
+describe("parseCuration glossary", () => {
+  const items = [entry("a1")];
+  const parse = (glossary: unknown) => parseCuration(json(items, ["a1"], glossary), candidates)!.glossary;
+
+  it("PRD-glossary: returns valid entries as {term, desc:{ko,en}}", () => {
+    expect(parse([gloss("양자화"), gloss("MCP")])).toEqual([
+      { term: "양자화", desc: { ko: "양자화 풀이", en: "양자화 explained" } },
+      { term: "MCP", desc: { ko: "MCP 풀이", en: "MCP explained" } },
+    ]);
+  });
+
+  it("PRD-glossary: missing, null, non-array or garbage glossary gives []", () => {
+    for (const g of [undefined, null, "nope", 7, { term: "x" }, [null, 3, "x"]]) expect(parse(g)).toEqual([]);
+  });
+
+  it("PRD-glossary: keeps at most 8 entries (first 8 valid ones)", () => {
+    const many = Array.from({ length: 12 }, (_, i) => gloss(`용어${i}`));
+    const out = parse(many);
+    expect(out).toHaveLength(8);
+    expect(out.map((g) => g.term)).toEqual(many.slice(0, 8).map((g) => g.term));
+  });
+
+  it("PRD-glossary: trims term and desc; term must be 1-40 chars", () => {
+    const out = parse([
+      gloss("  추론 단가  ", { desc: { ko: " 쓸 때마다 드는 비용 ", en: " Cost per use " } }),
+      gloss(""), gloss("   "), gloss("가".repeat(41)), gloss("나".repeat(40)),
+    ]);
+    expect(out.map((g) => g.term)).toEqual(["추론 단가", "나".repeat(40)]);
+    expect(out[0].desc).toEqual({ ko: "쓸 때마다 드는 비용", en: "Cost per use" });
+  });
+
+  it("PRD-glossary: drops entries with non-string term or a missing/empty desc.ko or desc.en", () => {
+    const out = parse([
+      gloss("ok"),
+      gloss("t1", { term: 5 }),
+      { term: "no-desc" },
+      gloss("no-ko", { desc: { en: "only en" } }),
+      gloss("no-en", { desc: { ko: "한글만" } }),
+      gloss("blank-en", { desc: { ko: "한글", en: "  " } }),
+      gloss("str-desc", { desc: "plain string" }),
+    ]);
+    expect(out.map((g) => g.term)).toEqual(["ok"]);
+  });
+
+  it("PRD-glossary: dedupes terms case-insensitively (first wins)", () => {
+    const out = parse([gloss("MCP"), gloss("mcp", { desc: { ko: "다른", en: "other" } }), gloss(" Mcp "), gloss("RAG")]);
+    expect(out.map((g) => g.term)).toEqual(["MCP", "RAG"]);
+    expect(out[0].desc.en).toBe("MCP explained");
+  });
+
+  it("PRD-glossary: an invalid glossary never invalidates the edition", () => {
+    const res = parseCuration(json(items, ["a1"], "garbage"), candidates)!;
+    expect(res.items).toHaveLength(1);
+    expect(res.glossary).toEqual([]);
+  });
+
+  it("PRD-glossary: a response without a glossary key still parses (older/shorter output)", () => {
+    expect(parseCuration(JSON.stringify({ front: ["a1"], items }), candidates)!.glossary).toEqual([]);
+  });
+});
+
 describe("fallbackCuration", () => {
   it("PRD-curator: uses original title/snippet, empty takeaway, Hangul => KR else GLOBAL", () => {
     const cands = [raw("k1", { title: "삼성 AI", snippet: "스니펫" }), raw("g1", { source: "Verge" })];
@@ -132,13 +194,17 @@ describe("fallbackCuration", () => {
     expect(front).toEqual(items.slice(0, 3).map((i) => i.id));
   });
 
-  it("PRD-curator: keeps about 5 per section", () => {
+  it("PRD-curator: keeps about 4 per section", () => {
     const many = Array.from({ length: 20 }, (_, i) => raw(`n${i}`)).concat(
       Array.from({ length: 20 }, (_, i) => raw(`r${i}`, { section: "repos" })),
     );
     const { items } = fallbackCuration(many);
-    expect(items.filter((i) => i.section === "newsroom")).toHaveLength(5);
-    expect(items.filter((i) => i.section === "repos")).toHaveLength(5);
+    expect(items.filter((i) => i.section === "newsroom")).toHaveLength(4);
+    expect(items.filter((i) => i.section === "repos")).toHaveLength(4);
+  });
+
+  it("PRD-glossary: has an empty glossary", () => {
+    expect(fallbackCuration(candidates).glossary).toEqual([]);
   });
 
   it("PRD-curator: carries metrics and returning from the candidate", () => {
@@ -148,12 +214,12 @@ describe("fallbackCuration", () => {
 });
 
 describe("buildPrompt / SYSTEM_PROMPT", () => {
-  it("PRD-curator: one id|source|section|title|snippet line per item, snippet cut at 200", () => {
+  it("PRD-curator: one id|source|section|title|snippet line per item, snippet cut at 140", () => {
     const long = raw("L1", { snippet: "x".repeat(500) });
     const lines = buildPrompt([candidates[0], long], []).split("\n");
     expect(lines).toContain("a1|TechCrunch|newsroom|Title a1|Snippet a1");
     const line = lines.find((l) => l.startsWith("L1|"))!;
-    expect(line.split("|")[4]).toBe("x".repeat(200));
+    expect(line.split("|")[4]).toBe("x".repeat(140));
   });
 
   it("PRD-curator: pipes and newlines inside fields cannot break the line format", () => {
@@ -178,6 +244,32 @@ describe("buildPrompt / SYSTEM_PROMPT", () => {
   });
 });
 
+describe("SYSTEM_PROMPT glossary", () => {
+  it("PRD-glossary: asks for a top-level glossary of at most 8 terms with ko/en descriptions, exact-as-written terms", () => {
+    expect(SYSTEM_PROMPT).toContain("용어 풀이");
+    expect(SYSTEM_PROMPT).toContain('"glossary":[{"term":"","desc":{"ko":"","en":""}}]');
+    expect(SYSTEM_PROMPT).toMatch(/최대 8/);
+    expect(SYSTEM_PROMPT).toMatch(/60자/);
+    expect(SYSTEM_PROMPT).toMatch(/120/);
+    expect(SYSTEM_PROMPT).toMatch(/표기 그대로|그대로/);
+  });
+});
+
+describe("SYSTEM_PROMPT selection size and summary length", () => {
+  it("PRD-curator: asks for 18-22 items, 3-4 per section, front counted inside its section", () => {
+    expect(SYSTEM_PROMPT).toMatch(/18~22건/);
+    expect(SYSTEM_PROMPT).toMatch(/섹션마다 3~4건/);
+    expect(SYSTEM_PROMPT).not.toMatch(/약 30건/);
+  });
+
+  it("PRD-curator: summary is 3-4 Korean / 2-3 English sentences with background and inline jargon explanation", () => {
+    expect(SYSTEM_PROMPT).toMatch(/ko는 3~4문장/);
+    expect(SYSTEM_PROMPT).toMatch(/en은 2~3문장/);
+    expect(SYSTEM_PROMPT).toMatch(/배경/);
+    expect(SYSTEM_PROMPT).toMatch(/전문용어/);
+  });
+});
+
 describe("curate", () => {
   const errSpy = () => vi.spyOn(console, "error").mockImplementation(() => {});
   afterEach(() => vi.restoreAllMocks());
@@ -186,6 +278,13 @@ describe("curate", () => {
     const res = await curate(candidates, [], async () => json([entry("a1"), entry("b2"), entry("c3")]));
     expect(res.curated).toBe(true);
     expect(res.items).toHaveLength(3);
+  });
+
+  it("PRD-glossary: curate passes the parsed glossary through; fallback has none", async () => {
+    const res = await curate(candidates, [], async () => json([entry("a1")], ["a1"], [gloss("양자화")]));
+    expect(res.glossary).toEqual([{ term: "양자화", desc: { ko: "양자화 풀이", en: "양자화 explained" } }]);
+    errSpy();
+    expect((await curate(candidates, [], async () => "nope")).glossary).toEqual([]);
   });
 
   it("PRD-curator: a throwing run falls back with curated:false", async () => {

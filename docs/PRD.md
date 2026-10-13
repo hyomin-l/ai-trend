@@ -50,9 +50,10 @@
    - 레포 순위는 ★ 속도(stars ÷ 생성 후 일수)로 매긴다.
    - 소스 하나가 실패해도 나머지로 계속 진행하고, 실패한 소스를 `failedSources`에 기록한다.
 2. **curator**: `claude -p` 1회 호출.
-   - 입력: 약 80건의 `{id, source, section 후보, title, snippet ≤200자}` + 직전 3개 판의 헤드라인 목록.
+   - 입력: 약 80건의 `{id, source, section 후보, title, snippet ≤140자}` + 직전 3개 판의 헤드라인 목록.
    - 지시: 같은 사건은 1건으로 합치고, 직전 판에서 다룬 사건은 새로운 진전이 없으면 제외한다.
-   - 출력: JSON `{front:[id×3], items:[{id, section, region, industry?, title{ko,en}, summary{ko,en}, takeaway{ko,en}}]}` 약 30건.
+   - 출력: JSON `{front:[id×3], items:[{id, section, region, industry?, title{ko,en}, summary{ko,en}, takeaway{ko,en}}], glossary:[{term, desc{ko,en}}]}` 약 18~22건(섹션당 3~4건).
+   - `glossary`: 판당 최대 8개의 용어 풀이(어려운 개념, 새 모델·서비스·프로젝트 이름). 지면에서는 점선 밑줄 + 툴팁, 모달에서는 "용어" 블록으로 보여 준다.
      - `summary`: 2~3문장. 지면 카드에서는 2줄로 자르고, 모달에서는 전문을 보여 준다.
      - `takeaway`: 실무 시사점 1문장.
      - 레포의 `summary`에는 "무엇을 하는 도구인지"를 쓴다.
@@ -123,7 +124,7 @@
 **토큰 예산**
 - 1회 실행 = `claude -p` 1회. 기본 모델은 `sonnet`(항상 최신 Sonnet)이고 `config`에서 바꿀 수 있다.
 - 모델 선택 근거: 기사 선별, 같은 사건 병합, 한국어 요약, JSON 형식 안정성의 균형. Haiku는 판단과 한국어 뉘앙스가 약하고, Opus는 Pro 한도 대비 과하다.
-- 입력 약 10k tokens 이하(80건 × 제목 + 200자 스니펫), 출력 약 6k tokens 이하(30건 × 한/영 1~2문장).
+- 입력 약 10k tokens 이하(90건 × 제목 + 140자 스니펫), 출력 약 6k tokens 이하(20건 × 한 3~4문장·영 2~3문장).
 - 주 3회 기준 Pro 한도에 거의 영향이 없다.
 
 **아키텍처**

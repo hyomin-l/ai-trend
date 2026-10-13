@@ -137,3 +137,18 @@ describe("fetchAll", () => {
     expect((await fetchAll(now)).failed).toEqual(["aitimes"]);
   });
 });
+
+describe("undated feeds", () => {
+  it("PRD-collector: an undated newest-first feed is stamped with fetch time; other feeds stay undated", async () => {
+    handler = (url) => {
+      if (url.includes("api.github.com")) return Response.json(ghJson);
+      if (url.includes("hn.algolia.com")) return Response.json(hnJson);
+      return new Response(`<rss><channel><item><title>t</title><link>https://${new URL(url).hostname}/a</link></item></channel></rss>`);
+    };
+    const { items } = await fetchAll(now);
+    const yozm = items.find((i) => i.sourceId === "yozm");
+    const other = items.find((i) => i.sourceId === "techcrunch");
+    expect(yozm?.publishedAt).toBe(now.toISOString());
+    expect(other?.publishedAt).toBeUndefined();
+  });
+});

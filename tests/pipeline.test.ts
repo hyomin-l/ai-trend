@@ -66,7 +66,7 @@ describe("recentHeadlines", () => {
 });
 
 describe("buildSnapshot", () => {
-  const curation = { front: ["x", "y", "z"], items: [item("x"), item("y"), item("z"), item("w")], curated: true };
+  const curation = { front: ["x", "y", "z"], items: [item("x"), item("y"), item("z"), item("w")], glossary: [], curated: true };
   const base = {
     date: "2026-10-13", collected: 77, failed: ["reddit"], model: "sonnet",
     now: new Date("2026-10-12T20:17:00Z"), curation,
@@ -85,6 +85,15 @@ describe("buildSnapshot", () => {
 
   it("PRD-collector: stats = collected from the candidate count, published from curated items", () => {
     expect(buildSnapshot({ ...base, previous }).stats).toEqual({ collected: 77, published: 4 });
+  });
+
+  it("PRD-glossary: carries the curation glossary into the snapshot", () => {
+    const glossary = [{ term: "양자화", desc: { ko: "모델을 가볍게 줄이는 기법", en: "Shrinking a model to run cheaper" } }];
+    expect(buildSnapshot({ ...base, previous, curation: { ...curation, glossary } }).glossary).toEqual(glossary);
+  });
+
+  it("PRD-glossary: an empty glossary omits the key (old and uncurated snapshots keep their shape)", () => {
+    expect("glossary" in buildSnapshot({ ...base, previous, curation: { ...curation, glossary: [] } })).toBe(false);
   });
 
   it("PRD-snapshot-store: carries date, model, curated, failedSources, front, items and an ISO generatedAt", () => {
