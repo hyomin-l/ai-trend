@@ -2,15 +2,25 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1;
+  isolation: isolate; /* the canvas blends with the disc below, not with the page */
+}
+/* A flat paper disc behind the sphere (96% of the box, see SCALE in Globe.tsx): the page's grain never shows through. */
+.globe::before {
+  content: "";
+  position: absolute;
+  inset: 2%;
+  border-radius: 50%;
+  background: var(--paper);
 }
 
 .canvas {
+  position: relative;
   display: block;
   mix-blend-mode: var(--globe-blend);
   width: 100%;
   height: 100%;
   cursor: grab;
-  touch-action: pan-y; /* horizontal drag spins the globe, vertical swipes still scroll the page */
+  touch-action: none; /* any drag spins/tilts the globe; the page scrolls from everywhere else */
 }
 .canvas:active {
   cursor: grabbing;

@@ -14,12 +14,13 @@ const COORDS: Partial<Record<Region, [number, number]>> = {
   JP: [36, 138],
 };
 
-const THETA = 0.3;
+const THETA = 0.3; // resting tilt
+const TILT = 1.0; // max tilt either way (rad), so the poles never flip over
 const ELEVATION = 0.02; // markerElevation
 const SPHERE = 0.8; // cobe draws the sphere with radius 0.8 of the half-canvas
 const SCALE = 1.2; // ...times this: the sphere fills 96% of the canvas, so the (fixed-size) dots are 20% bigger in the same box
-/** Keeps the dot spacing constant (about 6px) whatever the globe size; small globes get fewer, larger dots so the land stays legible. */
-const samples = (size: number) => Math.max(1400, Math.round(size * size * 0.3));
+/** Keeps the dot spacing constant (about 7px) whatever the globe size. 0.3 read as noise; 0.14 left the land too faint, worst in the night edition. */
+const samples = (size: number) => Math.max(1000, Math.round(size * size * 0.2));
 const AUTO = 0.002; // radians per frame while idle, about one turn a minute
 const TAU = Math.PI * 2;
 const CLICK_SLOP = 3; // px of travel that still counts as a click rather than a drag
@@ -84,14 +85,17 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
 
     let size = Math.round(el.clientWidth) || 170;
     let phi = facing(127);
+    let theta = THETA;
     let target: number | null = null;
     let markers: Marker[] = [];
     let list: Props["regions"] = [];
     let selected: Region | null = null;
     let preview: Region | null = null;
     let vel = 0;
+    let tvel = 0;
     let dragging = false;
     let lastX = 0;
+    let lastY = 0;
     let downX = 0;
     let downY = 0;
     let travelled = 0;
@@ -101,9 +105,9 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
     const globe = createGlobe(canvas, {
       width: size,
       height: size,
-      devicePixelRatio: Math.max(2, Math.min(window.devicePixelRatio || 1, 3)), // never below 2x: at 1x the dots are sub-pixel and half of them drop out
+      devicePixelRatio: 4, // supersampled: cobe dots are ~1 device px at 2x, so they flicker between 1 and 2 px as the globe turns; 4x renders them round and the browser smooths them down
       phi,
-      theta: THETA,
+      theta,
       mapSamples: samples(size),
       markerElevation: ELEVATION,
       scale: SCALE,
@@ -127,8 +131,8 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
     const draw = () => {
       if (pulsing()) {
         markers = build((Math.sin((performance.now() / PULSE_MS) * TAU) + 1) / 2);
-        globe.update({ phi, theta: THETA, markers });
-      } else globe.update({ phi, theta: THETA });
+        globe.update({ phi, theta, markers });
+      } else globe.update({ phi, theta });
     };
     const running = () => visible && !document.hidden && !reduce.matches;
 
@@ -144,6 +148,10 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
         }
         phi += vel;
         vel = Math.abs(vel) < 1e-4 ? 0 : vel * 0.95;
+        // tilt: coast on the throw, then settle back to the resting angle (faster once a region is in focus)
+        theta = Math.max(-TILT, Math.min(TILT, theta + tvel));
+        tvel = Math.abs(tvel) < 1e-4 ? 0 : tvel * 0.95;
+        theta += (THETA - theta) * (target !== null ? 0.06 : 0.015);
       }
       draw();
       raf = requestAnimationFrame(tick);
@@ -154,7 +162,7 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
 
     /**
      * Region whose front-facing marker is within HIT_RADIUS of the pointer. Same projection cobe uses for a marker
-     * (lat/lng -> unit sphere at radius 0.8 + elevation -> rotate by phi and theta -> orthographic), in canvas CSS px.
+     * (lat/lng -> unit sphere at radius 0.8 + elevation -> rotate by phi and the current theta -> orthographic), in canvas CSS px.
      */
     const hit = (clientX: number, clientY: number): Region | null => {
       const box = canvas.getBoundingClientRect();
@@ -162,7 +170,7 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
       const k = size / box.width; // box is in screen px (may be zoomed); canvas math is in layout px
       const px = (clientX - box.left) * k;
       const py = (clientY - box.top) * k;
-      const [cp, sp, ct, st] = [Math.cos(phi), Math.sin(phi), Math.cos(THETA), Math.sin(THETA)];
+      const [cp, sp, ct, st] = [Math.cos(phi), Math.sin(phi), Math.cos(theta), Math.sin(theta)];
       let best: Region | null = null;
       let bestD = HIT_RADIUS * HIT_RADIUS;
       for (const { region } of list) {
@@ -192,9 +200,9 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
     const onDown = (e: PointerEvent) => {
       dragging = true;
       lastX = downX = e.clientX;
-      downY = e.clientY;
+      lastY = downY = e.clientY;
       travelled = 0;
-      vel = 0;
+      vel = tvel = 0;
       target = null;
       canvas.setPointerCapture(e.pointerId);
     };
@@ -208,14 +216,18 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
       lastX = e.clientX;
       phi += d;
       vel = d;
+      const dt = (e.clientY - lastY) / (size * 0.4);
+      lastY = e.clientY;
+      theta = Math.max(-TILT, Math.min(TILT, theta + dt));
+      tvel = dt;
       draw();
     };
     const onUp = (e: PointerEvent) => {
       const wasDragging = dragging;
       dragging = false;
-      if (reduce.matches) vel = 0; // no momentum for reduced motion; drag itself stays user-driven
+      if (reduce.matches) vel = tvel = 0; // no momentum for reduced motion; drag itself stays user-driven
       if (wasDragging && e.type === "pointerup" && travelled <= CLICK_SLOP) {
-        vel = 0;
+        vel = tvel = 0;
         const region = hit(e.clientX, e.clientY);
         if (region) pick.current?.(region);
       }
