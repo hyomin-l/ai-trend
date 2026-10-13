@@ -354,7 +354,7 @@ struct BubbleView: View {
         .background(shape.fill(paperGrain).shadow(color: .black.opacity(0.14), radius: 5, y: 2))
         .overlay(shape.stroke(Color(0x121212).opacity(0.22), lineWidth: 0.75))
         .environment(\.colorScheme, .light)
-        .scaleEffect(pressed && !calm ? 0.97 : 1, anchor: UnitPoint(x: tailX / 240, y: 1))
+        .scaleEffect(pressed && !calm ? 0.98 : 1, anchor: UnitPoint(x: tailX / 240, y: 1))
         .animation(.easeOut(duration: 0.1), value: pressed)
         .accessibilityElement(children: .contain)
     }
@@ -477,8 +477,8 @@ struct PetView: View {
                     .frame(width: 240 * s, height: 190 * s, alignment: .topLeading)
             }
             // 누르면 납작하게, 떼면 출렁이며 복원(squash & stretch). 동작 줄이기에서는 생략.
-            .scaleEffect(x: pressed ? 1.1 : 1, y: pressed ? 0.86 : 1, anchor: .bottom)
-            .animation(pressed ? .easeOut(duration: 0.08) : .spring(response: 0.3, dampingFraction: 0.35), value: pressed)
+            .scaleEffect(x: pressed ? 1.04 : 1, y: pressed ? 0.94 : 1, anchor: .bottom)
+            .animation(pressed ? .easeOut(duration: 0.08) : .spring(response: 0.28, dampingFraction: 0.6), value: pressed)
             .overlay(DragTap(onTap: pet.petTapped,
                              onPress: { pressed = $0 && !NSWorkspace.shared.accessibilityDisplayShouldReduceMotion; pet.pin("press", $0) },
                              onHover: { pet.pin("hover", $0) }, menu: pet.buildMenu))
