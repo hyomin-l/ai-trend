@@ -1,6 +1,6 @@
 # desk-pet — 애트라(Atra)
 
-새 판이 나오면 말풍선으로 알려 주는 macOS 데스크톱 펫 **애트라**(AI Trend의 AT에서 따온 이름, 마젠타 모찌 블롭). Swift + AppKit + SwiftUI 단일 파일, 외부 패키지 없음. Dock 아이콘 없이 메뉴바에만 상주한다.
+새 판이 나오면 말풍선으로 알려 주는 macOS 데스크톱 펫 **애트라**(마젠타 블롭 캐릭터). Swift + AppKit + SwiftUI 단일 파일, 외부 패키지 없음. Dock 아이콘 없이 메뉴바에만 상주한다.
 
 ## 빌드
 
@@ -13,7 +13,7 @@ Xcode Command Line Tools(Swift 6)와 macOS 13 이상이 필요하다. 기본 SDK
 ## 실행
 
 ```sh
-./DeskPet                                    # 기본 서버: https://hyomin-l.github.io/ai-trend
+./DeskPet                                    # 기본 서버: https://hyomin-l.github.io/ai-trend (포크는 자신의 사이트 주소로 지정)
 DISPATCH_URL=http://localhost:3000 ./DeskPet # 다른 서버
 DISPATCH_URL=file:///path/to/dir ./DeskPet   # 로컬 테스트: dir/latest.json을 읽는다
 ./DeskPet --demo                             # 네트워크 없이 샘플 말풍선을 바로 띄운다
@@ -44,7 +44,7 @@ DISPATCH_URL=file:///path/to/dir ./DeskPet   # 로컬 테스트: dir/latest.json
 
 ## 로그인 시 자동 실행 (LaunchAgent)
 
-`~/Library/LaunchAgents/io.github.hyomin-l.deskpet.plist`를 만든다. `ProgramArguments`의 경로는 `DeskPet` 바이너리의 절대 경로로 바꾼다.
+`~/Library/LaunchAgents/io.github.hyomin-l.deskpet.plist`를 만든다. `ProgramArguments`의 `<repo-path>`는 저장소를 클론한 절대 경로로 바꾼다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -53,7 +53,7 @@ DISPATCH_URL=file:///path/to/dir ./DeskPet   # 로컬 테스트: dir/latest.json
 <dict>
   <key>Label</key><string>io.github.hyomin-l.deskpet</string>
   <key>ProgramArguments</key>
-  <array><string>/절대/경로/ai-trend/desk-pet/DeskPet</string></array>
+  <array><string><repo-path>/desk-pet/DeskPet</string></array>
   <key>RunAtLoad</key><true/>
   <key>KeepAlive</key><false/>
 </dict>

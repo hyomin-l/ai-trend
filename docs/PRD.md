@@ -1,182 +1,146 @@
 # PRD — AI Trend
 
-> 이름: **AI Trend**. 일반 명사 조합이라 상표 충돌 부담이 없다. 제호는 마젠타 'AI' + 잉크 세리프 'Trend'. 사이트는 `hyomin-l.github.io/ai-trend`.
+월·수·금 아침, 흩어진 AI 트렌드를 한 장의 지면으로 묶어 발행하는 정적 웹앱의 현행 제품 사양.
+Next.js(정적 export) + JSON 스냅샷 + `claude -p`(구독 Claude, 별도 API 키 없음) + GitHub Actions/Pages.
 
-> 월·수·금 아침, 흩어진 AI 트렌드를 한 장의 신문으로 묶어 주는 개인 브리핑 웹앱.
-> Next.js(정적 export) + JSON 스냅샷 + `claude -p`(구독 Claude, 별도 API 키 없음) + GitHub Actions/Pages.
-> 이 문서는 프로젝트 전체를 규정하며, **Features**의 각 항목이 구현·테스트 단위다.
+## 1. 목적과 대상 독자
 
-## Problem Statement
+- **문제:** AI 트렌드(레포, 커뮤니티 토론, 기사, 업종별 사례)가 여러 채널에 흩어져 있어 누락·분산·휘발이 생긴다.
+- **해결:** 정해진 원천을 코드가 수집하고, LLM이 선별·요약해 하루 한 장으로 발행한다. 지난 호는 날짜별로 보존해 다시 찾아볼 수 있다.
+- **대상 독자:** 기업 AI 전환(AX) 실무자. 아침에 5분 안에 훑고 관심 기사의 원문으로 이동하는 사용 패턴을 가정한다. 로그인·계정은 없다.
 
-그룹 AX 업무를 하는 실무자는 AI 트렌드를 계속 팔로우해야 한다. 지금은 GitHub, Hacker News, Reddit, 국내외 기사, Threads·인스타그램 피드가 내 알고리즘에 우연히 뜨기를 기다리는 방식이다. 그래서 세 가지 문제가 생긴다.
+## 2. 발행 주기
 
-- **누락:** 중요한 레포와 이슈가 알고리즘에 안 뜨면 그냥 놓친다.
-- **분산:** 소스마다 앱과 사이트를 오가며 확인해야 한다.
-- **휘발:** 지난주에 본 내용을 다시 찾기 어렵고, 팀 공유나 보고용으로 재활용하기 어렵다.
+- 월·수·금 05:17 KST(cron `17 20 * * 0,2,4`, UTC). 정각 혼잡을 피해 17분에 둔다.
+- 수동 실행(`workflow_dispatch`)을 지원한다.
+- 호수(issue)는 스냅샷 개수 기준으로 증가한다. 날짜 기준은 KST.
 
-메신저 요약 봇은 텍스트 나열이라 한눈에 들어오지 않는다. 우리 업종(건설·소재, 금융, 물류, 유통, 미디어)의 AX 사례는 일반 AI 뉴스에 묻혀 따로 찾아야 한다.
+## 3. 지면 구성
 
-## Solution
+### 3.1 오늘의 3줄
 
-**월·수·금 새벽(05:17 KST)에 자동으로 발행되는 AI 신문.**
+전 섹션에서 고른 그날의 핵심 3건(`front`, 첫 번째가 리드). 헤드라인, 요약, "왜 중요한가"를 보여 준다.
 
-1. 수집기가 공개 API와 RSS로 원천을 모아 중복을 제거한다.
-2. 구독 중인 Claude(`claude -p`)를 **1회만** 호출해 섹션 분류, 선별, 한/영 1~2문장 요약을 받는다.
-3. 그날 판을 JSON 스냅샷으로 저장하고 정적 사이트로 배포한다.
+### 3.2 지역 + 지구본
 
-사용자는 아침에 사이트 한 장을 5분 안에 훑고, 관심 기사의 원문으로 이동한다. 지난 호는 날짜별로 그대로 남아 다시 볼 수 있다(스냅샷 아카이브). Phase 2에서는 바탕화면을 걸어 다니는 미니 캐릭터(Desk Pet)가 새 판 발행을 말풍선으로 알려 준다.
+기사의 `region`(KR/US/EU/CN/JP/GLOBAL; 한국·미국·유럽·중국·일본·글로벌)을 지구본(`cobe`)에 마커로 표시한다. 지역 패널에서 지역을 고르면 해당 기사만 모아 본다.
 
-대상 사용자: 본인 1인. 팀 공유는 URL 전달 수준이며 로그인은 없다.
+### 3.3 섹션 (지면 순서)
 
-### 지면 구성 (섹션)
+섹션당 4건을 표시하고(`DISPLAY`), 나머지는 섹션 머리를 눌러 목록 모달로 본다.
 
-| key | EN | KO | 담는 것 | 원천 |
-|---|---|---|---|---|
-| `front` | Front Page | 1면 | 그날 가장 중요한 3건(리드 1 + 서브 2). 전 섹션에서 선별 | (curate 결과) |
-| `repos` | Rising Repos | 급상승 레포 | 최근 생성됐거나 스타가 급증한 AI 레포 | GitHub Search API |
-| `pulse` | Community Pulse | 커뮤니티 펄스 | 개발자·커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News(Algolia), Reddit RSS, GeekNews |
-| `newsroom` | Newsroom | 뉴스룸 | 국내외 AI·빅테크 주요 뉴스 | TechCrunch AI, The Verge AI, AI타임스 |
-| `ax` | AX in the Field | 현장의 AX | 산업별 AI 도입·전환 사례(국내외) | Google News RSS: 업종 키워드 × AI |
-| `playbook` | Playbook | 플레이북 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, UX Collective, NN/g |
+| 순서 | key | KO | EN | 정의 | 원천 |
+|---|---|---|---|---|---|
+| 1 | `newsroom` | 뉴스룸 | Newsroom | 국내외 AI·빅테크 주요 뉴스 | TechCrunch AI, The Verge AI, AI타임스 |
+| 2 | `playbook` | AI 플레이북 | AI Playbook | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g |
+| 3 | `pulse` | 커뮤니티 | Community Pulse | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News(검색어 "AI"), Reddit(r/LocalLLaMA+ClaudeAI+MachineLearning 주간 top), GeekNews |
+| 4 | `repos` | 급상승 레포 | Rising Repos | 최근 30일 안에 생성돼 스타 증가 속도가 빠른 AI 레포 | GitHub Search API (토픽 llm, ai-agents, mcp, generative-ai) |
+| 5 | `ax` | 현장의 AX | AX in the Field | 업종별 AI 도입·전환 사례 | Google News RSS: 일반 기업 AX 쿼리 + 업종(건설·금융·물류·유통·미디어) 키워드, 국문·영문 |
 
-`ax` 업종 키워드(`config/sources.ts`, 편집 가능): 건설·건자재·시멘트 / 금융·증권 / 물류 / 유통·리테일 / 미디어·방송. 국문 쿼리와 영문 쿼리를 함께 수집한다. 기사 속 회사명은 그대로 노출하고, 카드에 업종 태그를 붙인다.
+원천은 `config/sources.ts` 기준 27개 피드·쿼리. 업종 태그(`industry`)는 `ax` 항목에만 붙는다.
 
-## Features
+### 3.4 수집 규칙
 
-1. **collector**: 원천 수집과 전처리.
-   - 소스 어댑터(GitHub, HN, RSS 공용)가 병렬로 수집하고, 정규화 `RawItem{id, source, section, title, url, snippet, publishedAt, metrics}`으로 변환한다.
-   - 전처리: URL 정규화 중복 제거 → 기간 필터(최근 72h, 레포는 30일) → **이전 판 중복 제거** → 소스별 상위 N개 → 전체 약 80건.
-   - 이전 판 중복 제거: 최근 10개 판에 실린 id(URL 해시)는 후보에서 제외한다. 레포만 예외로, 마지막 등장 대비 ★가 +50% 이상 늘었으면 "재등장"으로 다시 후보에 넣는다.
-   - 레포 순위는 ★ 속도(stars ÷ 생성 후 일수)로 매긴다.
-   - 소스 하나가 실패해도 나머지로 계속 진행하고, 실패한 소스를 `failedSources`에 기록한다.
-2. **curator**: `claude -p` 1회 호출.
-   - 입력: 약 80건의 `{id, source, section 후보, title, snippet ≤140자}` + 직전 3개 판의 헤드라인 목록.
-   - 지시: 같은 사건은 1건으로 합치고, 직전 판에서 다룬 사건은 새로운 진전이 없으면 제외한다.
-   - 출력: JSON `{front:[id×3], items:[{id, section, region, industry?, title{ko,en}, summary{ko,en}, takeaway{ko,en}}], glossary:[{term, desc{ko,en}}]}` 약 18~22건(섹션당 3~4건).
-   - `glossary`: 판당 최대 8개의 용어 풀이(어려운 개념, 새 모델·서비스·프로젝트 이름). 지면에서는 점선 밑줄 + 툴팁, 모달에서는 "용어" 블록으로 보여 준다.
-     - `summary`: 2~3문장. 지면 카드에서는 2줄로 자르고, 모달에서는 전문을 보여 준다.
-     - `takeaway`: 실무 시사점 1문장.
-     - 레포의 `summary`에는 "무엇을 하는 도구인지"를 쓴다.
-   - 호출 옵션: `claude -p --model sonnet --system-prompt <큐레이터 지침> --tools "" --strict-mcp-config --no-session-persistence --output-format json`.
-     - Claude Code 기본 시스템 프롬프트와 도구, MCP 정의를 싣지 않아 입력 토큰을 최소화한다.
-   - **URL·지표는 원천 데이터에서만 가져온다.** LLM이 만든 링크는 쓰지 않는다(환각 차단). 원천에 없는 id는 버린다.
-   - 실패 시(프로세스 오류, JSON 파싱 실패, 시간 초과) 원문 제목·스니펫으로 `curated:false` 판을 발행한다.
-3. **snapshot-store**: `data/snapshots/YYYY-MM-DD.json` 저장, 목록, 조회.
-   - 호수(issue)는 스냅샷 개수 + 1이다.
-   - 재등장 레포는 마지막 등장 판 대비 `starsDelta`(★ 증가량)를 계산한다.
-   - 같은 날 재실행하면 덮어쓴다.
-4. **edition-web**: 지면 화면.
-   - 경로: `/` = 최신판(ko), `/[lang]/[date]` = 특정 판, `/latest.json` = 최신판 원본(Desk Pet용).
-   - **랜딩(`/`)은 곧 최신판 지면이다.** 별도 소개 페이지는 두지 않는다.
-   - 상단바(스크롤 시 고정): 제호 로고, 섹션 바로가기, 검색, 지난 호, KO/EN. 좁은 화면에서는 메뉴 버튼으로 접고 펼친다.
-   - 마스트헤드: 제호, 날짜, 호수.
-   - **한 화면 지면:** 데스크톱(1440×900 기준)에서 스크롤 없이 전 섹션이 보인다.
-     - 3단 그리드: 1면(리드 + 서브 2) | 뉴스룸 + 현장의 AX | ★ 시세표(레포) + 커뮤니티 펄스 + 플레이북.
-     - 섹션당 표시 개수는 고정하고, 나머지는 섹션 머리를 눌러 목록 모달로 본다. 모바일에서는 1단으로 흐른다.
-   - 항목: 헤드라인 + 2줄 요약 + 출처·상대시간. `repos`는 시세표 행(이름, 한 줄 설명, ★, ★/일, 등락)이다.
-   - **상세 모달**(네이티브 `<dialog>`): 항목을 누르면 전체 요약, 시사점, 지표, 출처, 원문 보기(새 탭)가 뜬다. Esc와 바깥 클릭으로 닫힌다.
-   - **일자 변경:** 상단바의 ‹ 날짜 › 버튼과 발행일 목록(select)으로 지난 호로 이동한다.
-   - UI 문구 사전(ko/en)은 한 파일로 관리한다.
-   - 빈 상태(스냅샷 0개), 일부 소스 실패 표기, 미요약 판(`curated:false`) 배지를 둔다.
-5. **globe**: 마스트헤드 옆 점묘 지구본(`cobe`).
-   - 그날 기사의 지역(KR/US/EU/CN/JP/GLOBAL)에 마커를 표시한다.
-   - 지역 칩(button)을 클릭하면 해당 지역 기사만 강조한다. 키보드로도 조작할 수 있다.
-   - `prefers-reduced-motion`이면 회전하지 않는다.
-6. **schedule-deploy**: GitHub Actions.
-   - cron `17 20 * * 0,2,4`(UTC) = 월·수·금 05:17 KST. 06:20 출근 전 발행이 목표이며, 정각 혼잡을 피해 17분에 둔다. 수동 실행(`workflow_dispatch`)도 지원한다.
-   - 순서: collect → 스냅샷 commit → `next build`(static export) → GitHub Pages 배포.
-   - 인증: `claude setup-token`으로 발급한 구독 OAuth 토큰을 `CLAUDE_CODE_OAUTH_TOKEN` 시크릿으로 둔다(사용자가 직접 등록).
-7. **search**: 사이트 내 검색.
-   - 빌드할 때 전체 호의 기사를 `search-index.json` 하나로 묶는다(날짜, 섹션, 제목·요약 ko/en, 출처, URL).
-   - `/[lang]/search`에서 브라우저가 바로 거르고, 결과는 날짜별로 묶어 "지난 호 스크랩"처럼 보여 준다. 섹션 필터를 함께 제공한다.
-   - 서버나 검색 API는 쓰지 않는다. 1년 기준 약 4.7k건, 약 2MB.
-8. **desk-pet** (Phase 2): macOS 데스크톱 캐릭터.
-   - Swift 단일 파일을 `swiftc`로 빌드한다. 투명 always-on-top 창 위에 미니멀 봇이 떠 있다.
-   - 봇 디자인: 마젠타 바디에 알약형 눈 2개, 원형이 아닌 출렁이는 실루엣(시안 A/B/C 중 선택). 그라데이션 하이라이트와 그림자로 입체감을 주고, 둥실 떠다니며 가끔 눈을 깜빡인다. 드래그로 위치를 옮길 수 있다.
-   - 30분마다 `/latest.json`을 확인해 새 판이면 리드 헤드라인을 말풍선으로 띄운다.
-   - 클릭하면 사이트를 연다. 메뉴바 아이콘으로 종료하거나 숨길 수 있다.
+- 소스 어댑터(GitHub, Hacker News, RSS)가 병렬로 수집해 `RawItem`으로 정규화한다. 소스 하나가 실패해도 나머지로 진행하고 `failedSources`에 기록한다.
+- 전처리: URL 정규화 중복 제거(`utm_*`, `fbclid`, `gclid`, `ref` 제거) -> 기간 필터(기본 72시간, 소스별 재정의 가능, 레포는 30일) -> 이전 판 중복 제거(최근 10개 판의 id) -> 소스별 상한 -> 전체 상한 90건.
+- 이전 판에 실린 레포라도 마지막 등장 대비 스타가 +50% 이상 늘었으면 `returning`으로 후보에 다시 넣는다. 레포 순위는 스타 속도(`starsPerDay`)다.
 
-## Scope & Priorities
+## 4. 큐레이션 규칙
 
-**코어(이게 없으면 제품이 아님)**
-- `collector` → `curator` → `snapshot-store` → `edition-web` → `schedule-deploy`
+`lib/curate.ts`의 `SYSTEM_PROMPT`와 응답 검증이 기준이다.
 
-**보강**
-- `globe`(시각적 인상과 지역 필터): edition-web 직후
-- `search`(지난 호 검색): globe 다음
-- `desk-pet`(알림 채널): 웹 배포 이후 Phase 2
+**호출:** `claude -p` 1회. Claude Code 기본 시스템 프롬프트·도구·MCP를 싣지 않고 큐레이터 지침만 사용한다. 입력은 후보 목록(`id|source|section|title|snippet`, 스니펫 140자)과 직전 3개 판의 헤드라인. 기본 모델은 `sonnet`, 제한 시간 180초(`config/sources.ts`).
 
-권장 빌드 순서: 위 Features 번호 순서.
+**선별:**
+- 전체 18~22건, 섹션마다 3~4건(`front` 3건도 해당 섹션 몫). 후보가 적은 섹션은 있는 만큼만.
+- 같은 사건은 1건으로 합치고 1차 출처에 가까운 id를 쓴다.
+- 직전 판에서 다룬 사건은 실질적 진전이 있을 때만 포함한다.
+- 실무 가치(구체 수치가 있는 도입 사례, 도구·업무 방식 변화, AX 시사점)를 우선하고 홍보성·내용 없는 글은 뺀다.
+- 후보의 section은 힌트이며 내용에 맞게 다섯 섹션 중 하나로 바로잡을 수 있다.
 
-## Out of Scope
+**항목 작성:** 제목(ko/en, 신문 헤드라인, 고유명사 원문 유지), 요약(ko 3~4문장, en 2~3문장, 전문용어는 그 자리에서 풀이), 시사점 1문장, 지역, 업종(`ax`만). 후보에 없는 사실을 지어내지 않으며 URL은 출력하지 않는다.
 
-- **Instagram·Threads 직접 수집**
-  - Instagram은 키워드·트렌드 API가 없다.
-  - Threads 키워드 검색은 Meta 개발자 앱 + 테스터 권한(`threads_keyword_search`)으로 가능하지만, 토큰을 60일마다 갱신해야 해서 v2로 미룬다.
-  - 대신 크리에이터들이 주로 인용하는 원천(HN·Reddit·GitHub·GeekNews·공식 블로그)을 직접 수집한다.
-- **Claude가 웹을 직접 검색하는 에이전트 방식:** 토큰이 10배 이상 들고 링크 환각 위험이 있다.
-- **DB(SQLite 등):** 하루 1파일 JSON 스냅샷으로 충분하다.
-- **웹 검색 API(Tavily 등):** 현재 원천은 모두 링크를 직접 주고, 키워드 검색이 필요한 `ax`는 Google News RSS가 무료로 대신한다. 뉴스가 아닌 웹 자료(백서, 사례 리포트)가 필요해지면 키가 있을 때만 켜지는 선택형 원천으로 추가한다.
-- **로그인·멀티유저, 메신저 푸시, md 내보내기, Hugging Face 등 추가 원천:** 필요가 확인되면 추가한다.
+**용어 풀이:** 판당 최대 8개. 비전문가가 모를 만한 기술 개념과 새 모델·서비스·프로젝트 이름이 대상이고, 누구나 아는 이름은 제외한다. 용어는 본문 표기와 일치해야 하고 지면에서는 점선 밑줄 툴팁, 모달에서는 "용어" 블록으로 보인다.
 
-## Further Notes
+**검증과 폴백:**
+- URL·출처·발행일·지표는 항상 수집기의 후보에서 가져오며 모델 출력은 쓰지 않는다. 원천에 없는 id, 중복 id, 잘못된 section, 제목(ko/en)이 빈 항목은 버린다.
+- 잘못된 region은 제목에 한글이 있으면 KR, 아니면 GLOBAL로 대체한다. `front`가 3건 미만이면 남은 항목으로 채운다.
+- 용어는 40자 이하, ko/en 설명이 모두 있는 항목만 받는다(중복 제외, 최대 8개).
+- 호출 실패·시간 초과·JSON 파싱 실패 시 원문 제목·스니펫으로 `curated: false` 판을 만든다(섹션당 약 4건). 화면에 미요약 판 표시가 붙는다. 단, CI에서는 구독 토큰이 없으면 수집 자체를 건너뛰고 미큐레이션 판을 발행하지 않는다.
 
-**토큰 예산**
-- 1회 실행 = `claude -p` 1회. 기본 모델은 `sonnet`(항상 최신 Sonnet)이고 `config`에서 바꿀 수 있다.
-- 모델 선택 근거: 기사 선별, 같은 사건 병합, 한국어 요약, JSON 형식 안정성의 균형. Haiku는 판단과 한국어 뉘앙스가 약하고, Opus는 Pro 한도 대비 과하다.
-- 입력 약 10k tokens 이하(90건 × 제목 + 140자 스니펫), 출력 약 6k tokens 이하(20건 × 한 3~4문장·영 2~3문장).
-- 주 3회 기준 Pro 한도에 거의 영향이 없다.
+## 5. 데이터 모델
 
-**아키텍처**
-```
-config/sources.ts      원천·업종 키워드·한도(N, 기간) — 코드와 분리된 설정
-lib/rss.ts             RSS/Atom 파서(순수 함수)
-lib/sources.ts         소스 어댑터 → RawItem[]
-lib/prep.ts            중복 제거·필터·상한(순수 함수)
-lib/curate.ts          프롬프트 생성, claude -p 실행, 응답 검증, 폴백
-lib/snapshots.ts       저장·목록·조회·starsDelta
-scripts/collect.ts     파이프라인 진입점 (npm run collect)
-app/                   정적 지면 (Server Components), components/ = 지면 부품
-types/index.ts         타입 단일 관리
-```
+`types/index.ts` 기준.
 
-**스냅샷 스키마**
-```json
-{
-  "date": "2026-10-13",
-  "issue": 1,
-  "generatedAt": "ISO",
-  "curated": true,
-  "failedSources": [],
-  "front": ["id"],
-  "items": [{
-    "id": "sha1(url)",
-    "section": "repos|pulse|newsroom|ax|playbook",
-    "source": "GitHub",
-    "url": "https://...",
-    "publishedAt": "ISO",
-    "region": "KR|US|EU|CN|JP|GLOBAL",
-    "industry": "construction|finance|logistics|retail|media",
-    "title": {"ko": "", "en": ""},
-    "summary": {"ko": "", "en": ""},
-    "takeaway": {"ko": "", "en": ""},
-    "metrics": {"stars": 0, "starsPerDay": 0, "starsDelta": 0, "points": 0, "comments": 0, "language": ""},
-    "returning": false
-  }]
-}
-```
+- **Snapshot:** `date`(YYYY-MM-DD, KST), `issue`, `generatedAt`, `model`, `curated`, `failedSources[]`, `stats{collected, published}`, `front[]`(item id, 리드 먼저), `items[]`, `glossary?[]`.
+- **Item:** `id`(URL 해시), `section`, `source`, `url`, `publishedAt`, `region`, `industry?`, `title`/`summary`/`takeaway`(각 `{ko,en}`), `metrics?`, `returning?`.
+- **Metrics:** `stars`, `forks`(포크 수 도입 이전 판에는 없음), `starsPerDay`, `starsDelta`(이전 등장 대비 증가량), `points`, `comments`, `language`.
+- **GlossaryEntry:** `term`, `desc{ko,en}`.
+- 스냅샷은 `data/snapshots/YYYY-MM-DD.json`에 날짜별로 저장되며 같은 날 재실행하면 덮어쓴다.
 
-**테스트 (vitest, 네트워크·LLM은 고정 응답)**
-- RSS/Atom 파싱(CDATA, Atom link href)
-- 전처리(중복 URL, 기간 밖 제외, 이전 판 중복 제외와 레포 재등장 규칙, 소스별 상한)
-- curate 응답 검증(없는 id 제거, 깨진 JSON → 폴백)
-- ★ 속도·starsDelta 계산, 호수 증가
+## 6. 화면과 상호작용
 
-**디자인 방향:** 모노톤 에디토리얼에 마젠타 포인트, "한눈에"가 최우선.
-- **구성:** 상단바 1줄(로고 · ‹ 날짜·호수 › · 검색 · KO/EN) → "오늘의 3줄" 띠(번호 + 헤드라인 + 요약 + 왜 중요한가) + 지역 패널(지구본) → 5열 섹션 목록(뉴스룸 | 현장의 AX | 급상승 레포 | 커뮤니티 펄스 | 플레이북). 섹션 머리는 라벨 + `+N`뿐이다.
-- **선과 여백:** 선은 상단바 아래와 3줄 띠 아래 2개만 쓴다. 열과 항목은 간격으로만 나누고, 여백은 촘촘하되 답답하지 않게 잡는다.
-- **색:** 뉴트럴 페이퍼(#F7F7F5) + 옅은 종이 질감, 잉크(#121212)와 회색 단계를 쓴다. 마젠타(#C2186F)는 1번 숫자, 왜 중요한가 라벨, +N/일, 활성 언어, 호버 밑줄, 지구본 마커, 포커스 링에만 쓴다. 다크 모드는 "야간판"이다.
-- **서체:** 전부 산세리프. 헤드라인·로고·섹션 라벨·숫자는 Wanted Sans, 본문·메타·수치는 Pretendard(tabular-nums)를 쓴다.
-- **로고:** 데스크 펫과 같은 마젠타 모찌 실루엣 마크 + "AI Trend". 파비콘도 같은 마크다.
-- **인터랙션:** 항목을 누르면 상세 모달, 지역 행에 호버하면 지구본이 회전하고 클릭하면 필터. 날짜는 커스텀 셀렉트로 고르고, `prefers-reduced-motion`을 존중한다.
-- **접근성:** 대비 AA, 11px 미만 글자 없음, 포커스 링, 키보드로 모달·날짜·필터 조작.
+- **상단바(한 줄):** 왼쪽에 로고와 메뉴(지면 / 지난 호 / 기사), 가운데에 날짜 스테퍼, 인라인 검색, 테마 토글, KO/EN 전환.
+- **날짜 스테퍼:** 가운데 정렬. 이전·다음 호 버튼과, 내용 폭에 맞춘 호 카드(`10월 13일 (화) · 제N호`)를 누르면 전체 발행일 목록(네이티브 popover, 링크 목록)이 열린다. 판 주소는 `/<lang>/<date>/`.
+- **검색:** 상단바에 인라인. 입력과 함께 실시간으로 거르고, 오타(삽입·삭제·치환·인접 교환 1회)와 띄어쓰기·구두점 차이를 허용한다(`lib/search.ts`). 결과를 누르면 이동 없이 그 자리에서 기사 모달이 열리며, 실패 시 스토리 페이지 딥링크로 폴백한다. "모든 결과 보기"는 `/<lang>/stories/?q=`로 이동한다.
+- **기사 목록:** `/<lang>/archive/`는 발행일별 목록과 헤드라인 검색, `/<lang>/stories/`는 전 호의 기사 목록(섹션 필터).
+- **지구본:** 드래그로 회전·상하 기울임(기울임은 놓으면 기본 각도로 복귀, 극이 뒤집히지 않도록 제한). 마커·지역 패널 클릭으로 지역 필터. 화면 밖·백그라운드 탭에서는 애니메이션을 멈춘다.
+- **다이얼로그:** 네이티브 `<dialog>`. 기사 모달(요약, 왜 중요한가, 지표, 용어, 원문 링크)과 섹션 목록 모달. Esc와 바깥 클릭으로 닫힌다.
+- **전환:** 페이지 이동은 View Transition 크로스페이드(상단바는 전환 대상 밖). 모달 열림·닫힘에 애니메이션이 있다.
+- **모션 줄이기:** `prefers-reduced-motion`이면 전환 애니메이션과 지구본 자동 회전·관성을 끈다.
+- **UI 문구:** `lib/i18n.ts`의 ko/en 사전 한 곳에서 관리한다. 브랜드 문자열도 같은 파일(`BRAND`).
+- **빈 상태/오류:** 스냅샷이 없으면 안내 화면, 일부 소스 실패와 미요약 판은 표기한다.
+
+## 7. 엔드포인트
+
+정적 export로 생성된다.
+
+| 경로 | 내용 |
+|---|---|
+| `/` | 최신 호(한국어) |
+| `/<lang>/`, `/<lang>/<date>/` | 최신 호, 특정 호 (`lang` = `ko`/`en`) |
+| `/<lang>/archive/`, `/<lang>/stories/` | 지난 호 목록, 기사 목록 |
+| `/latest.json` | 최신 판 전체 (데스크 펫용) |
+| `/search-index.json` | 전 호의 압축 검색 인덱스 |
+| `/editions/<date>/data.json` | 판 하나의 전체 데이터 |
+| `/<lang>/stories/?open=<date>/<id>` | 해당 기사 모달이 열린 딥링크 |
+
+## 8. 수집·배포 파이프라인
+
+`.github/workflows/dispatch.yml`, job 두 개.
+
+- **build:** checkout -> Node 22 -> `npm ci` -> 수집 여부 판단 -> (수집 시) Claude CLI 설치 -> `npm run collect` -> 스냅샷 커밋(`edition: <date>`) -> `npm test` -> `actions/configure-pages` -> `npm run build` -> Pages 아티팩트 업로드.
+- **deploy:** `actions/deploy-pages`로 배포.
+- **트리거:** 예약, 수동, `main` push(`data/snapshots/**`, `desk-pet/**`, `docs/**`만 바뀐 push는 제외).
+- **건너뛰기 규칙:**
+  - `main` push는 수집하지 않고 재배포만 한다.
+  - 예약 실행에서 그날(KST) 스냅샷이 이미 있으면 수집하지 않는다.
+  - `CLAUDE_CODE_OAUTH_TOKEN`이 없으면 수집하지 않고 기존 스냅샷으로 배포한다.
+- **시크릿 분리:** CLI 설치 단계는 시크릿 없이 별도로 실행하고(버전 고정), 토큰은 수집 단계에만 주입한다. 액션은 커밋 SHA로 고정한다.
+- **URL:** `SITE_URL`과 `BASE_PATH`는 `configure-pages` 출력에서 받아 빌드에 전달한다. 포크도 자신의 Pages 주소로 빌드된다. 로컬 빌드의 `BASE_PATH`는 빈 값.
+- 동시 실행은 `concurrency` 그룹으로 직렬화한다(진행 중 취소 안 함).
+
+## 9. 데스크 펫
+
+macOS 메뉴바 상주 캐릭터(Swift 단일 파일, 외부 패키지 없음). 30분마다 `<DISPATCH_URL>/latest.json`을 확인해 새 판이면 리드 헤드라인을 말풍선으로 알리고, 클릭하면 해당 기사 딥링크를 연다. 펫 클릭 시 이번 판의 무작위 기사를 보여 준다. 유휴 시 프레임 루프 없이 저전력으로 동작한다. 상세는 `desk-pet/README.md`.
+
+## 10. 보안 원칙
+
+- 토큰·키는 환경 변수와 Actions 시크릿으로만 다루며 커밋하지 않는다.
+- 외부 링크는 절대 `http`/`https` URL만 렌더링한다(`lib/format.ts`).
+- LLM 출력의 URL은 쓰지 않는다. URL·지표는 수집 데이터에서만 가져온다.
+- CI 액션은 SHA로, CLI는 버전으로 고정한다. 설치 단계는 시크릿과 분리한다.
+- 데스크 펫의 `DISPATCH_URL`은 `https://`, `http://localhost`, `http://127.0.0.1`, `file://`만 허용한다.
+
+## 11. 비목표와 향후 과제
+
+**비목표**
+- 로그인·멀티유저, 서버 측 검색 API, DB(날짜별 JSON 스냅샷으로 충분).
+- Claude가 웹을 직접 검색하는 에이전트 방식(토큰 비용과 링크 환각 위험).
+- Instagram·Threads 직접 수집(공개 키워드 API 제약).
+- 메신저 푸시, Markdown 내보내기.
+
+**향후 과제 (필요가 확인되면)**
+- 뉴스가 아닌 웹 자료(백서, 사례 리포트)용 선택형 원천.
+- 추가 원천(예: Hugging Face).
+- 데스크 펫의 다른 플랫폼 지원.
