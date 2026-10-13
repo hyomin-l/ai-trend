@@ -9,7 +9,7 @@ export const CONFIG = {
   dedupeEditions: 10,
   returningGrowth: 1.5,
   recentHeadlineEditions: 3,
-  siteUrl: "https://hyomin-l.github.io/ai-dispatch",
+  siteUrl: "https://hyomin-l.github.io/gazettai",
 };
 
 export const SECTION_ORDER: Section[] = ["newsroom", "ax", "repos", "pulse", "playbook"];
@@ -41,10 +41,8 @@ export const SOURCES: SourceDef[] = [
     id: `gh-${t}`, name: "GitHub", kind: "github" as const, url: t, section: "repos" as const, cap: 6,
   })),
   { id: "hn", name: "Hacker News", kind: "hn", url: "AI", section: "pulse", cap: 8 },
-  ...["LocalLLaMA", "ClaudeAI", "MachineLearning"].map((r) => ({
-    id: `reddit-${r.toLowerCase()}`, name: `r/${r}`, kind: "rss" as const,
-    url: `https://www.reddit.com/r/${r}/top/.rss?t=week`, section: "pulse" as const, cap: 4, windowHours: 168,
-  })),
+  // One multireddit request: Reddit allows ~1 unauthenticated request per minute per IP, so three feeds in parallel always 429.
+  { id: "reddit", name: "Reddit", kind: "rss", url: "https://www.reddit.com/r/LocalLLaMA+ClaudeAI+MachineLearning/top/.rss?t=week", section: "pulse", cap: 8, windowHours: 168 },
   { id: "geeknews", name: "GeekNews", kind: "rss", url: "https://news.hada.io/rss/news", section: "pulse", cap: 6 },
   { id: "techcrunch", name: "TechCrunch", kind: "rss", url: "https://techcrunch.com/category/artificial-intelligence/feed/", section: "newsroom", cap: 8 },
   { id: "verge", name: "The Verge", kind: "rss", url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", section: "newsroom", cap: 6 },
