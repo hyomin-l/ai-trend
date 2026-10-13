@@ -40,6 +40,9 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # A delayed or duplicate scheduled run must not spend tokens on an edition that already exists.
+          TODAY=$(TZ=Asia/Seoul date +%F)
+          if [ "${{ github.event_name }}" = schedule ] && [ -f "data/snapshots/$TODAY.json" ]; then echo "edition $TODAY already published"; exit 0; fi
           npm i -g @anthropic-ai/claude-code
           npm run collect
 
