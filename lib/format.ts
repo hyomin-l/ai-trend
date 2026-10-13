@@ -1,6 +1,16 @@
 import type { Item, Lang } from "@/types";
 import { ui } from "@/lib/i18n";
 
+/** True only for absolute http(s) URLs; the single gate for anything rendered as an external href. */
+export function isWebUrl(u: string): boolean {
+  try {
+    const p = new URL(u.trim()).protocol;
+    return p === "http:" || p === "https:";
+  } catch {
+    return false;
+  }
+}
+
 const WD_KO = ["일", "월", "화", "수", "목", "금", "토"];
 const WD_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const WD_EN_LONG = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

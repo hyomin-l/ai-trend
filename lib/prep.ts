@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { CONFIG, SECTION_ORDER, SOURCES } from "@/config/sources";
+import { isWebUrl } from "@/lib/format";
 import type { RawItem } from "@/types";
 
 /**
@@ -48,6 +49,7 @@ export function prep(raw: Candidate[], opts: { now: Date; seen: Map<string, numb
   const ids = new Set<string>();
   const kept: Candidate[] = [];
   for (const it of raw) {
+    if (!isWebUrl(it.url)) continue; // javascript:, data:, relative or malformed links never become items
     if (ids.has(it.id)) continue;
     ids.add(it.id);
 

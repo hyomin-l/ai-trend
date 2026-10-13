@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CONFIG, SOURCES } from "@/config/sources";
 import { itemId, normalizeUrl, prep, type Candidate } from "@/lib/prep";
+import { isWebUrl } from "@/lib/format";
 
 const now = new Date("2026-10-13T00:00:00Z");
 const ago = (hours: number) => new Date(now.getTime() - hours * 3_600_000).toISOString();
@@ -148,5 +149,22 @@ describe("prep: ordering and caps", () => {
     const out = run([...a, ...b]);
     expect(out).toHaveLength(CONFIG.totalCap);
     expect(out.filter((i) => i.source === "A")).toHaveLength(CONFIG.totalCap / 2);
+  });
+});
+
+describe("URL scheme gate", () => {
+  const bad = ["javascript:alert(1)", "data:text/html,<script>1</script>", "/relative/path", "not a url", "", "ftp://example.com/x"];
+
+  it("SEC: prep drops non-http(s) and malformed URLs, keeps https", () => {
+    const good = mk({ url: "https://example.com/ok" });
+    const out = run([...bad.map((u) => mk({ url: u })), good, mk({ url: "http://example.com/plain" })]);
+    expect(out.map((i) => i.url).sort()).toEqual(["http://example.com/plain", "https://example.com/ok"]);
+  });
+
+  it("SEC: isWebUrl accepts only http(s)", () => {
+    expect(isWebUrl("https://example.com/a")).toBe(true);
+    expect(isWebUrl("  HTTP://example.com ")).toBe(true);
+    for (const u of bad) expect(isWebUrl(u)).toBe(false);
+    expect(isWebUrl("JaVaScRiPt:alert(1)")).toBe(false);
   });
 });
