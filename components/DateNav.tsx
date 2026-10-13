@@ -34,22 +34,28 @@ export default function DateNav({ lang, dates, date, issue }: Props) {
   const older = idx >= 0 ? dates[idx + 1] : undefined;
   const newer = idx > 0 ? dates[idx - 1] : undefined;
 
-  // Centre the list under the button when it opens (the popover is fixed-position in the top layer) and focus the current edition.
+  // Centre the list under the stepper when it opens (the popover is fixed-position in the top layer) and focus the current edition.
   useEffect(() => {
     const pop = list.current;
     const trigger = btn.current;
     if (!pop || !trigger) return;
     const onToggle = (e: Event) => {
       if ((e as ToggleEvent).newState !== "open") return;
-      const r = trigger.getBoundingClientRect();
+      const r = trigger.parentElement!.getBoundingClientRect(); // the whole ‹ date › group: its centre is the bar's centre
       const bar = trigger.closest("header")?.getBoundingClientRect() ?? r;
       const z = parseFloat(getComputedStyle(document.documentElement).zoom) || 1; // wide screens zoom the page
       pop.style.top = `${(bar.bottom + 4) / z}px`;
-      pop.style.left = `${Math.max(8, Math.min(r.left + (r.width - pop.offsetWidth * z) / 2, window.innerWidth - pop.offsetWidth * z - 8)) / z}px`;
+      const w = pop.getBoundingClientRect().width; // content-sized, so measure after it is shown
+      pop.style.left = `${Math.max(8, Math.min(r.left + (r.width - w) / 2, window.innerWidth - w - 8)) / z}px`;
       pop.querySelector<HTMLElement>('[aria-current="page"], a')?.focus({ preventScroll: false });
     };
+    const onResize = () => pop.hidePopover(); // the card is placed once; a resize would leave it off-centre
     pop.addEventListener("toggle", onToggle);
-    return () => pop.removeEventListener("toggle", onToggle);
+    window.addEventListener("resize", onResize);
+    return () => {
+      pop.removeEventListener("toggle", onToggle);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
   const close = () => list.current?.hidePopover();
