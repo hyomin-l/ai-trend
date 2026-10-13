@@ -136,7 +136,11 @@ export function runClaude(prompt: string, model: string): Promise<string> {
     p.stdin.on("error", () => {}); // EPIPE if claude dies early; 'close' reports the real failure
     p.on("error", reject);
     p.on("close", (code, signal) => {
-      if (code !== 0) return reject(new Error(`claude exited code=${code} signal=${signal}: ${err.trim().slice(0, 300)}`));
+      if (code !== 0) {
+        // With --output-format json the reason (e.g. expired login) is in stdout's .result, not stderr.
+        const reason = err.trim() || out.match(/"result":"([^"]*)"/)?.[1] || "";
+        return reject(new Error(`claude exited code=${code} signal=${signal}: ${reason.slice(0, 300)}`));
+      }
       try {
         const env = JSON.parse(out);
         if (env.is_error) throw new Error(`claude reported an error: ${String(env.result).slice(0, 300)}`);
