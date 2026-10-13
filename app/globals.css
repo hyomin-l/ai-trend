@@ -35,6 +35,11 @@
   --s6: 24px;
   --s8: 32px;
 
+  /* Motion: dialogs and page changes fade in a little slower than they leave. */
+  --dur-in: 180ms;
+  --dur-out: 120ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+
   --pad-x: 16px;
   --topbar-h: 48px;
   --z: 1; /* page zoom on very wide screens (see below) */
@@ -203,7 +208,18 @@ button {
   transform: none;
 }
 
+/* Page changes: each page wraps its <main> in <ViewTransition> (the top bar sits outside it, so it never flashes). Cross-fade only. */
+::view-transition-group(*) {
+  animation-duration: var(--dur-in);
+  animation-timing-function: var(--ease-out);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
   *,
   *::before,
   *::after {

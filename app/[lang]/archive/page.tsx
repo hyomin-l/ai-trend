@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ArchiveView, { type ArchiveEdition } from "@/components/ArchiveView";
@@ -35,9 +36,11 @@ export default async function ArchivePage({ params }: { params: Params }) {
         {ui(lang).skip}
       </a>
       <TopBar lang={lang} dates={dates} kind="archive" />
-      <main id="main" lang={lang}>
-        <ArchiveView lang={lang} editions={editions} />
-      </main>
+      <ViewTransition>
+        <main id="main" lang={lang}>
+          <ArchiveView lang={lang} editions={editions} />
+        </main>
+      </ViewTransition>
     </>
   );
 }

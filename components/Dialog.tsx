@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { IconClose } from "./Icons";
 import styles from "./Dialog.module.css";
 
@@ -21,6 +21,9 @@ type Props = {
 export default function Dialog({ open, onClose, label, closeLabel, actions, children }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
   const downOnBackdrop = useRef(false);
+  // The parents drop their content the moment they close; keep the last content until the fade-out ends.
+  const [held, setHeld] = useState<ReactNode>(null);
+  if (open && held !== children) setHeld(children);
 
   useEffect(() => {
     const d = ref.current;
@@ -35,6 +38,9 @@ export default function Dialog({ open, onClose, label, closeLabel, actions, chil
       className={styles.dialog}
       aria-label={label}
       onClose={onClose}
+      onTransitionEnd={(e) => {
+        if (e.target === e.currentTarget && !e.currentTarget.open) setHeld(null);
+      }}
       onPointerDown={(e) => {
         downOnBackdrop.current = e.target === e.currentTarget;
       }}
@@ -49,7 +55,7 @@ export default function Dialog({ open, onClose, label, closeLabel, actions, chil
         </button>
         {actions}
       </div>
-      <div className={styles.inner}>{open ? children : null}</div>
+      <div className={styles.inner}>{open ? children : held}</div>
     </dialog>
   );
 }

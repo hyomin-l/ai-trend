@@ -15,17 +15,38 @@
   overflow: visible;
 }
 
-.dialog[open] {
-  animation: rise 180ms ease-out;
+/* Closed state = the exit frame. `display` and `overlay` are allow-discrete so the dialog stays painted (and in the top layer, where
+   supported) until the fade ends; browsers without them just close instantly. */
+.dialog,
+.dialog::backdrop {
+  opacity: 0;
+  transition:
+    opacity var(--dur-out) ease-in,
+    transform var(--dur-out) ease-in,
+    overlay var(--dur-out) allow-discrete,
+    display var(--dur-out) allow-discrete;
 }
-
+.dialog {
+  transform: translateY(8px);
+}
 .dialog::backdrop {
   background: var(--backdrop);
 }
-
-@keyframes rise {
-  from {
+.dialog[open],
+.dialog[open]::backdrop {
+  opacity: 1;
+  transition-duration: var(--dur-in);
+  transition-timing-function: var(--ease-out);
+}
+.dialog[open] {
+  transform: none;
+}
+@starting-style {
+  .dialog[open],
+  .dialog[open]::backdrop {
     opacity: 0;
+  }
+  .dialog[open] {
     transform: translateY(8px);
   }
 }

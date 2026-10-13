@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import type { Lang, Snapshot } from "@/types";
 import { DISPLAY, SECTION_ORDER } from "@/config/sources";
@@ -35,19 +36,21 @@ export default function EditionPage({ lang, date }: Props) {
         {u.skip}
       </a>
       <TopBar lang={lang} dates={dates} date={snapshot?.date} issue={snapshot?.issue} kind="edition" />
-      <main id="main" lang={lang} className={styles.main}>
-        {snapshot ? (
-          <Edition
-            snapshot={snapshot}
-            lang={lang}
-            sections={SECTION_ORDER}
-            display={DISPLAY}
-            notice={noticeOf(snapshot, lang) || undefined}
-          />
-        ) : (
-          <EmptyState lang={lang} />
-        )}
-      </main>
+      <ViewTransition>
+        <main id="main" lang={lang} className={styles.main}>
+          {snapshot ? (
+            <Edition
+              snapshot={snapshot}
+              lang={lang}
+              sections={SECTION_ORDER}
+              display={DISPLAY}
+              notice={noticeOf(snapshot, lang) || undefined}
+            />
+          ) : (
+            <EmptyState lang={lang} />
+          )}
+        </main>
+      </ViewTransition>
     </div>
   );
 }
