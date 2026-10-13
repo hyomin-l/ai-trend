@@ -1,0 +1,188 @@
+/* Mobile first: wordmark + menu button, the panel drops under the bar. */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background-color: var(--paper);
+  background-image: var(--paper-noise);
+  border-bottom: 1px solid var(--rule);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--topbar-h);
+  padding: 0 var(--pad-x);
+}
+
+.wordmark {
+  font-family: var(--ff-wordmark);
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+
+.menu {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+}
+
+.panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: calc(100dvh - var(--topbar-h));
+  overflow-y: auto;
+  padding: var(--s2) var(--pad-x) var(--s5);
+  background-color: var(--paper);
+  background-image: var(--paper-noise);
+  border-bottom: 1px solid var(--rule-strong);
+}
+.panel[data-open="true"] {
+  display: block;
+}
+
+.sections ul {
+  display: flex;
+  flex-direction: column;
+}
+.sections li + li {
+  border-top: 1px solid var(--rule);
+}
+.link {
+  display: block;
+  padding: var(--s3) 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+.link:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--magenta);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+}
+.link[data-active="true"] {
+  color: var(--magenta);
+  text-decoration: underline;
+  text-decoration-color: var(--magenta);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s4);
+  margin-top: var(--s4);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--rule-strong);
+}
+
+.search {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--ink-2);
+}
+.search:hover,
+.search[aria-current="page"] {
+  color: var(--magenta);
+}
+
+.lang {
+  display: inline-flex;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+.langCell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 32px;
+  height: 26px;
+  padding: 0 var(--s2);
+  font: 500 11px/1 var(--ff-mono);
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+.langCell + .langCell {
+  border-left: 1px solid var(--rule);
+}
+a.langCell:hover {
+  color: var(--ink);
+}
+.on {
+  color: var(--magenta);
+  font-weight: 600;
+}
+.on::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--magenta);
+}
+
+/* Desktop: 3-column grid; row and panel dissolve so wordmark / nav / controls are grid items. */
+@media (min-width: 1100px) {
+  .bar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: var(--s6);
+    height: var(--topbar-h);
+    padding: 0 var(--pad-x);
+    border-bottom: 0;
+  }
+  .row,
+  .panel,
+  .panel[data-open] {
+    display: contents;
+  }
+  .menu {
+    display: none;
+  }
+
+  .wordmark {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .sections {
+    grid-column: 2;
+  }
+  .sections ul {
+    flex-direction: row;
+    gap: var(--s6);
+  }
+  .sections li + li {
+    border-top: 0;
+  }
+  .link {
+    padding: var(--s1) 0;
+    font-size: 12.5px;
+  }
+
+  .controls {
+    grid-column: 3;
+    justify-self: end;
+    flex-wrap: nowrap;
+    gap: var(--s3);
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+  }
+}

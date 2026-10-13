@@ -1,0 +1,34 @@
+.empty {
+  display: grid;
+  gap: var(--s4);
+  align-content: start;
+  justify-items: start;
+  max-width: 560px;
+  padding: var(--s8) 0 var(--s8);
+  border-top: 1px solid var(--rule-strong);
+  margin-top: var(--s6);
+}
+.brand {
+  font-family: var(--ff-wordmark);
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.title {
+  padding-top: var(--s4);
+  border-top: 3px double var(--rule-strong);
+  width: 100%;
+  font-family: var(--ff-hl);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+:lang(en) .title {
+  font-weight: 600;
+}
+.note {
+  font: 400 12px/1.4 var(--ff-mono);
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}

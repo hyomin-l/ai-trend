@@ -1,0 +1,188 @@
+/* Design tokens + base. Hierarchy comes from weight, rules and spacing; no shadows, gradients or rounded cards. */
+
+:root {
+  --paper: #f7f7f5;
+  --ink: #121212;
+  --ink-2: #3a3a3a;
+  --ink-3: #6b6b6b; /* AA on paper: use for meta text */
+  --ink-4: #9a9a9a; /* decorative only (not AA for text) */
+  --rule: rgba(18, 18, 18, 0.14);
+  --rule-strong: #121212;
+  --magenta: #c2186f;
+  --magenta-hover: #a3125c;
+  --flash: rgba(18, 18, 18, 0.07);
+  --paper-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+
+  /* 4px scale */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+
+  --pad-x: 16px;
+  --topbar-h: 44px;
+
+  --ff-wordmark: var(--f-wordmark), "Times New Roman", serif;
+  --ff-hl-ko: var(--f-hl-ko), "Noto Serif KR", "Apple SD Gothic Neo", "Nanum Myeongjo", serif;
+  --ff-hl-en: var(--f-hl-en), var(--f-hl-ko), Georgia, serif;
+  --ff-body: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --ff-mono: var(--f-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #111112;
+    --ink: #ecebe8;
+    --ink-2: #cfcecb;
+    --ink-3: #9b9a95;
+    --ink-4: #66655f;
+    --rule: rgba(236, 235, 232, 0.16);
+    --rule-strong: #ecebe8;
+    --magenta: #f0479e;
+    --magenta-hover: #ff72b6;
+    --flash: rgba(236, 235, 232, 0.09);
+    --paper-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --pad-x: 24px;
+  }
+}
+
+/* The headline serif follows the language of the nearest lang attribute. */
+:lang(ko) {
+  --ff-hl: var(--ff-hl-ko);
+}
+:lang(en) {
+  --ff-hl: var(--ff-hl-en);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image: var(--paper-noise);
+  color: var(--ink);
+  font: 400 14px/1.6 var(--ff-body);
+  font-variant-numeric: tabular-nums;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+ol,
+ul,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+h1,
+h2,
+h3 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+select,
+input {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--magenta);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 8px 12px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 500 13px/1 var(--ff-body);
+  transform: translateY(-200%);
+}
+.skip:focus {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

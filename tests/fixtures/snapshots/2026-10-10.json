@@ -1,0 +1,632 @@
+{
+  "date": "2026-10-10",
+  "issue": 11,
+  "generatedAt": "2026-10-09T20:17:12.000Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [
+    "r/MachineLearning"
+  ],
+  "stats": {
+    "collected": 198,
+    "published": 28
+  },
+  "front": [
+    "7d35934a435d",
+    "f395989e8d66",
+    "48096c234561"
+  ],
+  "items": [
+    {
+      "id": "f395989e8d66",
+      "section": "newsroom",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/10/northwind-voice-agent-pricing/",
+      "publishedAt": "2026-10-09T16:17:12.000Z",
+      "region": "US",
+      "title": {
+        "ko": "노스윈드, 실시간 음성 에이전트 API 가격 40% 인하… 통화 분당 과금으로 개편",
+        "en": "Northwind cuts realtime voice agent API prices by 40% and moves to per-minute billing"
+      },
+      "summary": {
+        "ko": "노스윈드가 실시간 음성 에이전트 API의 가격을 40% 낮추고 과금 기준을 토큰에서 통화 분당 요금으로 바꿨다. 콜센터 도입 비용을 예측하기 쉬워졌다는 평가가 나온다.",
+        "en": "Northwind lowered realtime voice agent API prices by 40% and switched billing from tokens to per-call-minute rates. Analysts say contact-center budgets become easier to forecast."
+      },
+      "takeaway": {
+        "ko": "분당 과금은 도입 전 비용 시뮬레이션이 쉬워진다. 현재 상담 시간 분포로 견적부터 다시 내 보자.",
+        "en": "Per-minute billing simplifies pre-deployment cost modeling; re-run estimates with your current call-duration distribution."
+      }
+    },
+    {
+      "id": "33573041016a",
+      "section": "newsroom",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/browser-agents-sandbox-by-default",
+      "publishedAt": "2026-10-09T12:17:12.000Z",
+      "region": "US",
+      "title": {
+        "ko": "브라우저 에이전트, 이제는 ‘기본 샌드박스’… 주요 업체 잇따라 권한 모델 개편",
+        "en": "Browser agents move to sandbox-by-default as vendors rework permission models"
+      },
+      "summary": {
+        "ko": "웹을 대신 탐색하는 브라우저 에이전트들이 로그인 정보와 결제 수단에 접근하지 못하도록 기본 샌드박스 모드를 도입하고 있다. 사이트별로 권한을 풀어 주는 방식이 표준이 되어 간다.",
+        "en": "Agents that browse on a user's behalf are adopting sandbox-by-default modes that keep logins and payment methods out of reach, with per-site permission grants becoming the norm."
+      },
+      "takeaway": {
+        "ko": "에이전트에 계정 권한을 통째로 맡기는 설계는 피하고, 사이트·작업 단위로 권한을 쪼개야 한다.",
+        "en": "Avoid handing agents whole-account access; scope permissions per site and task."
+      }
+    },
+    {
+      "id": "4ba5bd79148f",
+      "section": "newsroom",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=88020",
+      "publishedAt": "2026-10-09T08:17:12.000Z",
+      "region": "KR",
+      "title": {
+        "ko": "국내 금융당국, 금융권 생성형 AI 활용 가이드라인 개정안 공개",
+        "en": "Korean regulators publish revised guidelines on generative AI use in finance"
+      },
+      "summary": {
+        "ko": "금융당국이 생성형 AI 활용 가이드라인 개정안을 공개해 모델 선정 기준, 설명 책임, 위탁 관리 항목을 구체화했다. 업계 의견 수렴은 이달 말까지 이어진다.",
+        "en": "Financial regulators released a revised draft of generative-AI guidelines, detailing model-selection criteria, accountability for explanations and outsourcing controls. Industry comment runs through the end of the month."
+      },
+      "takeaway": {
+        "ko": "금융권 고객이라면 개정안의 ‘위탁 관리’ 항목이 외부 모델 사용 계약에 영향을 준다.",
+        "en": "For financial clients, the ‘outsourcing controls’ section will shape contracts for external models."
+      }
+    },
+    {
+      "id": "c166222dec05",
+      "section": "newsroom",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/10/robotics-foundation-model-warehouse-seed/",
+      "publishedAt": "2026-10-09T04:17:12.000Z",
+      "region": "US",
+      "title": {
+        "ko": "로보틱스 파운데이션 모델 스타트업, 창고 자동화 시드 투자 1.2억 달러 유치",
+        "en": "Robotics foundation-model startup raises $120 million seed to automate warehouses"
+      },
+      "summary": {
+        "ko": "로봇 제어용 파운데이션 모델을 만드는 스타트업이 창고 자동화를 겨냥해 1억 2천만 달러 규모의 시드 투자를 유치했다. 시뮬레이션이 아닌 실제 창고 데이터로 학습한다는 점을 내세운다.",
+        "en": "A startup building foundation models for robot control raised a $120 million seed round aimed at warehouse automation, emphasizing training on real warehouse data rather than simulation."
+      },
+      "takeaway": {
+        "ko": "물류 자동화의 병목이 ‘로봇 하드웨어’에서 ‘제어 모델’로 옮겨 가고 있다.",
+        "en": "The logistics-automation bottleneck is moving from robot hardware to control models."
+      }
+    },
+    {
+      "id": "cca34afa885b",
+      "section": "newsroom",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=87968",
+      "publishedAt": "2026-10-09T00:17:12.000Z",
+      "region": "JP",
+      "title": {
+        "ko": "일본 통신사, 일본어 특화 거대언어모델 기업용 서비스 개시",
+        "en": "Japanese carrier launches Japanese-specialized LLM service for enterprises"
+      },
+      "summary": {
+        "ko": "일본의 한 통신사가 일본어 업무 문서와 경어체 처리에 특화한 거대언어모델을 기업용으로 출시했다. 국내 데이터센터 내 전용 인스턴스 옵션을 제공한다.",
+        "en": "A Japanese carrier launched an enterprise LLM specialized for Japanese business documents and honorific registers, with dedicated in-country data-center instances."
+      },
+      "takeaway": {
+        "ko": "언어·문화 특화 모델은 번역 품질보다 ‘문서 관행’ 처리에서 차이를 만든다.",
+        "en": "Language-specific models differentiate on document conventions more than translation quality."
+      }
+    },
+    {
+      "id": "aece160e4ef6",
+      "section": "newsroom",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/eu-chip-alliance-inference",
+      "publishedAt": "2026-10-08T16:17:12.000Z",
+      "region": "EU",
+      "title": {
+        "ko": "유럽 반도체 연합, 추론 가속기 공동 개발 프로젝트 착수",
+        "en": "European chip alliance starts joint inference-accelerator project"
+      },
+      "summary": {
+        "ko": "유럽 반도체 기업과 연구소 연합이 데이터센터용 추론 가속기 공동 개발에 착수했다. 첫 시제품은 2년 뒤를 목표로 한다.",
+        "en": "A consortium of European chipmakers and labs began joint development of data-center inference accelerators, targeting a first prototype in two years."
+      },
+      "takeaway": {
+        "ko": "공급 다변화는 중기 과제다. 당장은 기존 가속기 가격 협상의 참고 자료 정도다.",
+        "en": "Supply diversification is a medium-term matter; for now it is leverage in pricing talks."
+      }
+    },
+    {
+      "id": "08499c65396e",
+      "section": "newsroom",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/10/china-open-model-multilingual-release/",
+      "publishedAt": "2026-10-08T11:17:12.000Z",
+      "region": "CN",
+      "title": {
+        "ko": "중국 연구소, 다국어 오픈 모델 공개… 한국어·일본어 성능 개선 내세워",
+        "en": "Chinese lab releases multilingual open model, touting stronger Korean and Japanese"
+      },
+      "summary": {
+        "ko": "중국의 한 연구소가 한국어와 일본어 성능을 강화한 다국어 오픈 모델을 공개했다. 라이선스는 상업적 이용을 허용하되 일부 대규모 서비스에는 별도 협의를 요구한다.",
+        "en": "A Chinese lab released an open multilingual model with improved Korean and Japanese. The license permits commercial use but requires separate terms for some large-scale services."
+      },
+      "takeaway": {
+        "ko": "라이선스 조항을 먼저 읽어야 한다. 성능이 좋아도 서비스 규모 조건에 걸릴 수 있다.",
+        "en": "Read the license first; good performance may still hit a scale clause."
+      }
+    },
+    {
+      "id": "9cb4400ba51c",
+      "section": "newsroom",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=87911",
+      "publishedAt": "2026-10-08T04:17:12.000Z",
+      "region": "KR",
+      "title": {
+        "ko": "정부, 공공 부문 AI 도입 사례집 발간… 부처별 시범 과제 42건 수록",
+        "en": "Government publishes public-sector AI casebook with 42 pilot projects"
+      },
+      "summary": {
+        "ko": "정부가 부처별 AI 시범 과제 42건을 정리한 사례집을 발간했다. 과제마다 예산, 기간, 성과 지표를 함께 적어 후속 사업 설계에 참고하도록 했다.",
+        "en": "The government published a casebook of 42 ministry-level AI pilots, each with budget, duration and outcome metrics for follow-on project design."
+      },
+      "takeaway": {
+        "ko": "예산·기간·지표가 함께 있는 사례집은 사내 기획서의 벤치마크로 쓰기 좋다.",
+        "en": "A casebook with budget, timeline and metrics doubles as a benchmark for internal proposals."
+      }
+    },
+    {
+      "id": "7d35934a435d",
+      "section": "ax",
+      "source": "Google News",
+      "url": "https://news.google.com/rss/articles/ax-ready-mix-ai-dispatching",
+      "publishedAt": "2026-10-09T14:17:12.000Z",
+      "region": "KR",
+      "industry": "construction",
+      "title": {
+        "ko": "레미콘 업계, 배차에 AI 도입… 공사 현장 대기 시간 평균 22분 단축",
+        "en": "Ready-mix concrete suppliers adopt AI dispatching, cutting average site wait time by 22 minutes"
+      },
+      "summary": {
+        "ko": "레미콘 제조사들이 교통 상황과 타설 일정을 반영해 믹서 트럭 배차를 조정하는 AI를 도입했다. 현장 대기 시간이 평균 22분 줄었고, 굳기 전 폐기되는 물량도 감소했다. 데이터 수집을 위해 트럭 위치 정보를 표준화하는 작업이 선행됐다.",
+        "en": "Ready-mix producers introduced AI that adjusts mixer-truck dispatch using traffic and pouring schedules. Average site wait fell by 22 minutes and concrete discarded before setting declined. Standardizing truck location data came first."
+      },
+      "takeaway": {
+        "ko": "시간에 민감한 자재 공급망에서 AI의 효과가 가장 선명하다. 위치·시간 데이터 표준화가 성패를 갈랐다.",
+        "en": "AI shows its clearest effect in time-sensitive material supply chains, and location-time data standardization decided success."
+      }
+    },
+    {
+      "id": "f4311206ccb5",
+      "section": "ax",
+      "source": "Google News",
+      "url": "https://news.google.com/rss/articles/retail-generative-ai-product-pages",
+      "publishedAt": "2026-10-09T10:17:12.000Z",
+      "region": "US",
+      "industry": "retail",
+      "title": {
+        "ko": "유통업체, 생성형 AI로 상품 페이지 200만 개 재작성… 사람은 표본 검수",
+        "en": "Retailer uses generative AI to rewrite 2 million product pages, with human spot checks"
+      },
+      "summary": {
+        "ko": "미국의 한 유통업체가 생성형 AI로 상품 설명 200만 건을 다시 쓰고, 사람은 표본 검수와 오류 신고 처리를 맡는다. 검색 유입이 늘었고 반품률은 비슷한 수준을 유지했다.",
+        "en": "A US retailer rewrote two million product descriptions with generative AI, leaving humans with sample reviews and error-report handling. Search traffic rose while return rates stayed flat."
+      },
+      "takeaway": {
+        "ko": "전수 검수가 어려운 규모에서는 ‘표본 검수 + 신고 경로’ 조합이 현실적인 품질 통제 방식이다.",
+        "en": "At volumes where full review is impossible, sampling plus a reporting channel is the practical quality control."
+      }
+    },
+    {
+      "id": "7c9aaf676fe5",
+      "section": "ax",
+      "source": "Google News",
+      "url": "https://news.google.com/rss/articles/securities-compliance-monitoring-llm",
+      "publishedAt": "2026-10-09T06:17:12.000Z",
+      "region": "KR",
+      "industry": "finance",
+      "title": {
+        "ko": "증권사 준법감시, 대화 모니터링에 LLM 적용… 오탐 줄이고 점검 시간 단축",
+        "en": "Securities firms apply LLMs to compliance monitoring of conversations, cutting false positives"
+      },
+      "summary": {
+        "ko": "증권사들이 준법감시 업무에서 메신저와 통화 기록을 점검할 때 LLM을 써 키워드 기반 방식의 오탐을 줄이고 있다. 의심 사례만 담당자에게 근거 문장과 함께 전달한다.",
+        "en": "Securities firms use LLMs in compliance monitoring of messages and call records, cutting the false positives of keyword-based methods. Only suspicious cases reach staff, with supporting sentences."
+      },
+      "takeaway": {
+        "ko": "‘모두 읽는 사람’이 아니라 ‘의심 건을 근거와 함께 받는 사람’으로 업무가 바뀐다.",
+        "en": "Reviewers shift from reading everything to receiving flagged cases with evidence."
+      }
+    },
+    {
+      "id": "4709477e5866",
+      "section": "ax",
+      "source": "Google News",
+      "url": "https://news.google.com/rss/articles/freight-forwarder-customs-docs-agent",
+      "publishedAt": "2026-10-09T01:17:12.000Z",
+      "region": "EU",
+      "industry": "logistics",
+      "title": {
+        "ko": "화물 운송 주선업체, 문서 판독 에이전트로 통관 서류 처리 자동화",
+        "en": "Freight forwarder automates customs paperwork with a document-reading agent"
+      },
+      "summary": {
+        "ko": "유럽의 한 화물 운송 주선업체가 인보이스와 선하증권을 읽고 통관 신고서를 채우는 에이전트를 도입했다. 불일치 항목은 담당자에게 표시되어 서류당 처리 시간이 크게 줄었다.",
+        "en": "A European freight forwarder deployed an agent that reads invoices and bills of lading to prefill customs declarations. Mismatches are flagged for staff, sharply shortening per-document handling time."
+      },
+      "takeaway": {
+        "ko": "서류 정합성 확인처럼 ‘읽고 대조하는’ 업무가 에이전트의 가장 안정적인 적용 영역이다.",
+        "en": "Read-and-reconcile work such as document matching remains the most stable agent use case."
+      }
+    },
+    {
+      "id": "a2c7895dca51",
+      "section": "ax",
+      "source": "Google News",
+      "url": "https://news.google.com/rss/articles/tv-archive-search-generative-ai",
+      "publishedAt": "2026-10-08T21:17:12.000Z",
+      "region": "KR",
+      "industry": "media",
+      "title": {
+        "ko": "방송사 아카이브 검색에 생성형 AI… 수십만 시간 영상에서 장면 단위 검색",
+        "en": "Broadcaster adds generative AI to archive search, finding scenes across hundreds of thousands of hours"
+      },
+      "summary": {
+        "ko": "한 방송사가 수십만 시간 분량의 영상 아카이브에 장면 설명을 자동 생성해 붙여, 제작진이 문장으로 원하는 장면을 찾을 수 있게 했다. 저작권 구분 정보도 함께 색인한다.",
+        "en": "A broadcaster auto-generated scene descriptions for its archive of hundreds of thousands of hours, letting producers find footage with plain sentences. Rights information is indexed alongside."
+      },
+      "takeaway": {
+        "ko": "검색 품질은 설명의 정확도보다 ‘권리 정보가 같이 붙는가’에서 실무 가치가 갈린다.",
+        "en": "In practice, value hinges less on description accuracy than on rights data traveling with the result."
+      }
+    },
+    {
+      "id": "90c5f935bae6",
+      "section": "ax",
+      "source": "Google News",
+      "url": "https://news.google.com/rss/articles/mid-size-bank-rag-internal-regulation",
+      "publishedAt": "2026-10-08T14:17:12.000Z",
+      "region": "JP",
+      "industry": "finance",
+      "title": {
+        "ko": "지방은행, 사내 규정 검색에 생성형 AI 도입… 본부 문의 30% 감소",
+        "en": "Regional bank adds generative AI to internal-regulation search, cutting head-office inquiries by 30%"
+      },
+      "summary": {
+        "ko": "일본의 한 지방은행이 사내 규정 검색에 생성형 AI를 도입한 뒤 본부 부서로 가는 문의가 30% 줄었다. 답변에는 항상 조항 번호가 붙는다.",
+        "en": "A Japanese regional bank saw inquiries to head-office departments fall 30% after adding generative AI to internal-regulation search. Every answer cites the clause number."
+      },
+      "takeaway": {
+        "ko": "‘조항 번호 인용’이 신뢰의 핵심이다. 사내 RAG에서는 출처 인용 형식을 먼저 정하자.",
+        "en": "Clause-level citation is what builds trust; fix the citation format first in internal RAG."
+      }
+    },
+    {
+      "id": "3ef8bc6c9754",
+      "section": "repos",
+      "source": "GitHub",
+      "url": "https://github.com/docsmith/parsekit",
+      "publishedAt": "2026-09-14T20:17:12.000Z",
+      "region": "EU",
+      "title": {
+        "ko": "docsmith/parsekit",
+        "en": "docsmith/parsekit"
+      },
+      "summary": {
+        "ko": "PDF를 구조를 살린 마크다운으로 변환하는 라이브러리. RAG 전처리를 겨냥했다.",
+        "en": "A library that converts PDFs into structure-preserving Markdown, aimed at RAG preprocessing."
+      },
+      "takeaway": {
+        "ko": "공개 직후 빠르게 별이 늘고 있다. 문서 전처리 비교 대상에 올려 둘 만하다.",
+        "en": "Gaining stars quickly right after launch; worth adding to preprocessing comparisons."
+      },
+      "metrics": {
+        "stars": 1770,
+        "starsPerDay": 590,
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "f25c9e47ca8f",
+      "section": "repos",
+      "source": "GitHub",
+      "url": "https://github.com/pocketgraph/pocketgraph",
+      "publishedAt": "2026-09-27T08:17:12.000Z",
+      "region": "US",
+      "title": {
+        "ko": "pocketgraph/pocketgraph",
+        "en": "pocketgraph/pocketgraph"
+      },
+      "summary": {
+        "ko": "SQLite 파일 하나로 동작하는 임베디드 지식 그래프 저장소. 에이전트 기억 장치용 질의 API를 제공한다.",
+        "en": "An embedded knowledge-graph store that runs from a single SQLite file, with a query API designed for agent memory."
+      },
+      "takeaway": {
+        "ko": "별도 인프라 없이 에이전트에 장기 기억을 붙여 보고 싶을 때 가볍게 시작할 수 있다.",
+        "en": "A light way to give agents long-term memory without extra infrastructure."
+      },
+      "metrics": {
+        "stars": 9820,
+        "starsPerDay": 540,
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "46a7e7caa911",
+      "section": "repos",
+      "source": "GitHub",
+      "url": "https://github.com/cobalt-labs/voicekit",
+      "publishedAt": "2026-09-19T20:17:12.000Z",
+      "region": "KR",
+      "title": {
+        "ko": "cobalt-labs/voicekit",
+        "en": "cobalt-labs/voicekit"
+      },
+      "summary": {
+        "ko": "실시간 음성 에이전트를 위한 오픈소스 툴킷. 끼어들기 처리와 지연 시간 계측이 내장돼 있다.",
+        "en": "An open-source toolkit for realtime voice agents with built-in barge-in handling and latency instrumentation."
+      },
+      "takeaway": {
+        "ko": "콜센터형 음성 에이전트 PoC에서 가장 손이 많이 가는 ‘끼어들기’ 구현을 덜어 준다.",
+        "en": "Takes on the barge-in handling that costs most effort in call-center voice agent PoCs."
+      },
+      "metrics": {
+        "stars": 7010,
+        "starsPerDay": 402,
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "b5fe66f5da54",
+      "section": "repos",
+      "source": "GitHub",
+      "url": "https://github.com/tracewright/tracewright",
+      "publishedAt": "2026-09-12T18:17:12.000Z",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "tracewright/tracewright",
+        "en": "tracewright/tracewright"
+      },
+      "summary": {
+        "ko": "LLM 애플리케이션용 오픈 트레이싱 도구. 호출 단위 비용, 지연, 입력과 출력을 한 화면에서 비교한다.",
+        "en": "An open tracing tool for LLM applications that compares per-call cost, latency, inputs and outputs on one screen."
+      },
+      "takeaway": {
+        "ko": "운영 중인 에이전트의 비용 이상을 호출 단위로 찾아낼 때 유용하다.",
+        "en": "Useful for tracing cost anomalies in production agents down to the call."
+      },
+      "metrics": {
+        "stars": 5330,
+        "starsPerDay": 277,
+        "language": "Go"
+      }
+    },
+    {
+      "id": "8507e0a8951d",
+      "section": "repos",
+      "source": "GitHub",
+      "url": "https://github.com/ricegrain/ricegrain-slm",
+      "publishedAt": "2026-09-10T16:17:12.000Z",
+      "region": "JP",
+      "title": {
+        "ko": "ricegrain/ricegrain-slm",
+        "en": "ricegrain/ricegrain-slm"
+      },
+      "summary": {
+        "ko": "일본어·영어 이중 언어 소형 모델과 미세조정 레시피 모음. 8GB 메모리 노트북에서도 실행된다.",
+        "en": "A bilingual Japanese-English small model with fine-tuning recipes, able to run on an 8GB laptop."
+      },
+      "takeaway": {
+        "ko": "소형 모델 미세조정을 처음 해 보는 팀의 교재로 쓰기 좋다.",
+        "en": "Good teaching material for teams trying small-model fine-tuning for the first time."
+      },
+      "metrics": {
+        "stars": 3890,
+        "starsPerDay": 188,
+        "language": "Python"
+      }
+    },
+    {
+      "id": "48096c234561",
+      "section": "pulse",
+      "source": "Hacker News",
+      "url": "https://news.ycombinator.com/item?id=2979310",
+      "publishedAt": "2026-10-09T11:17:12.000Z",
+      "region": "US",
+      "title": {
+        "ko": "Ask HN: 프로덕션에서 에이전트를 실제로 어디에 쓰고 있나요?",
+        "en": "Ask HN: What do you actually use agents for in production?"
+      },
+      "summary": {
+        "ko": "실서비스에서 에이전트를 쓰는 개발자들이 용도를 공유한 스레드. 코드 리뷰 보조, 데이터 정제, 고객 문의 분류가 가장 많이 언급됐고 ‘자유 형식 자율 에이전트’는 드물었다.",
+        "en": "A thread where developers share production uses for agents. Code-review assistance, data cleanup and ticket triage dominate, while free-form autonomous agents are rare."
+      },
+      "takeaway": {
+        "ko": "성공 사례 대부분이 범위가 좁고 검증이 쉬운 작업이다. 첫 과제도 그런 것으로 고르자.",
+        "en": "Most successes are narrow, verifiable tasks; pick the first project like that."
+      },
+      "metrics": {
+        "points": 1104,
+        "comments": 689
+      }
+    },
+    {
+      "id": "3619df35e8db",
+      "section": "pulse",
+      "source": "Hacker News",
+      "url": "https://news.ycombinator.com/item?id=2979022",
+      "publishedAt": "2026-10-09T03:17:12.000Z",
+      "region": "US",
+      "title": {
+        "ko": "사후 분석: 프롬프트 캐시가 조용히 깨져 청구서가 세 배가 됐다",
+        "en": "Postmortem: our prompt cache silently broke and tripled our bill"
+      },
+      "summary": {
+        "ko": "프롬프트 앞부분의 시각 정보 한 줄이 매 요청마다 바뀌면서 캐시 적중이 사라져 비용이 세 배가 된 사례. 캐시 적중률을 모니터링 지표로 두라는 교훈이 정리돼 있다.",
+        "en": "A case where a timestamp line at the start of the prompt changed on every request, destroying cache hits and tripling cost. The lesson: monitor cache hit rate as a metric."
+      },
+      "takeaway": {
+        "ko": "캐시 적중률 대시보드는 비용 사고를 막는 가장 싼 장치다.",
+        "en": "A cache-hit-rate dashboard is the cheapest guard against cost incidents."
+      },
+      "metrics": {
+        "points": 701,
+        "comments": 233
+      }
+    },
+    {
+      "id": "a5459501bb7f",
+      "section": "pulse",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=21790",
+      "publishedAt": "2026-10-09T09:17:12.000Z",
+      "region": "KR",
+      "title": {
+        "ko": "사내 문서 검색 RAG, 청크 크기보다 ‘메타데이터’가 더 중요했다",
+        "en": "For internal-document RAG, metadata mattered more than chunk size"
+      },
+      "summary": {
+        "ko": "사내 문서 검색 시스템을 개선하면서 청크 크기를 조정하는 것보다 문서 유형과 작성 시점 같은 메타데이터를 붙이는 쪽이 정확도에 더 큰 영향을 줬다는 경험담.",
+        "en": "A practitioner reports that attaching metadata such as document type and date improved accuracy more than tuning chunk size in an internal-document search system."
+      },
+      "takeaway": {
+        "ko": "검색이 안 될 때 모델을 바꾸기 전에 메타데이터 설계를 먼저 점검하자.",
+        "en": "When retrieval fails, audit metadata design before swapping models."
+      },
+      "metrics": {
+        "points": 142,
+        "comments": 37
+      }
+    },
+    {
+      "id": "cda26782e817",
+      "section": "pulse",
+      "source": "r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1g1zz8k/",
+      "publishedAt": "2026-10-08T23:17:12.000Z",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "벤치마크 점수와 실제 코딩 작업 사이에 큰 차이를 느끼는 분 계신가요?",
+        "en": "Anyone else seeing big gaps between benchmark scores and real coding work?"
+      },
+      "summary": {
+        "ko": "벤치마크 상위 모델이 실제 저장소 작업에서는 기대에 못 미친다는 경험이 이어진 스레드. 자체 과제로 구성한 소규모 평가셋을 쓰라는 조언이 많았다.",
+        "en": "Users report top-benchmark models underperforming on real repositories. Many advise building a small evaluation set from your own tasks."
+      },
+      "takeaway": {
+        "ko": "공개 벤치마크는 후보를 거르는 용도로만 쓰자. 최종 선택은 우리 과제로 판단한다.",
+        "en": "Use public benchmarks only to shortlist; decide on your own tasks."
+      },
+      "metrics": {
+        "points": 960,
+        "comments": 410
+      }
+    },
+    {
+      "id": "d64278580a1e",
+      "section": "pulse",
+      "source": "r/ClaudeAI",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1g1wm2d/",
+      "publishedAt": "2026-10-08T09:17:12.000Z",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "모노레포에서 더는 어긋나지 않는 CLAUDE.md 구조를 공유합니다",
+        "en": "Sharing my CLAUDE.md structure for monorepos that finally stopped drifting"
+      },
+      "summary": {
+        "ko": "모노레포에서 에이전트 지침 파일을 루트와 패키지별로 나누고, 중복되는 규칙은 참조로 연결하는 구조를 소개한 글. 지침 파일이 길어질수록 지켜지는 비율이 낮아졌다는 관찰도 담았다.",
+        "en": "A post describing a root-plus-package split of agent instruction files in a monorepo, with shared rules linked by reference. It also observes that longer instruction files were followed less reliably."
+      },
+      "takeaway": {
+        "ko": "지침은 짧게, 계층적으로. 길어질수록 ‘읽었지만 안 지키는’ 비율이 올라간다.",
+        "en": "Keep instructions short and layered; longer files get read but not followed."
+      },
+      "metrics": {
+        "points": 411,
+        "comments": 98
+      }
+    },
+    {
+      "id": "b3163ce24e52",
+      "section": "playbook",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Oct/10/tool-calls-as-the-interface/",
+      "publishedAt": "2026-10-09T07:17:12.000Z",
+      "region": "EU",
+      "title": {
+        "ko": "도구 호출 목록이 곧 제품의 인터페이스가 되는 이유",
+        "en": "Why the list of tool calls becomes your product's interface"
+      },
+      "summary": {
+        "ko": "에이전트 제품에서는 노출하는 도구의 이름과 인자 설계가 사실상 사용자 인터페이스 역할을 한다는 주장. 도구를 적게, 서술적으로 설계하는 사례를 보여 준다.",
+        "en": "Argues that in agent products the names and parameters of exposed tools effectively are the user interface, with examples of fewer, more descriptive tools."
+      },
+      "takeaway": {
+        "ko": "도구 설계 리뷰를 화면 설계 리뷰만큼 진지하게 하자.",
+        "en": "Review tool design as seriously as screen design."
+      }
+    },
+    {
+      "id": "3ad5e6555118",
+      "section": "playbook",
+      "source": "Latent Space",
+      "url": "https://www.latent.space/p/context-engineering-beyond-prompts",
+      "publishedAt": "2026-10-08T00:17:12.000Z",
+      "region": "US",
+      "title": {
+        "ko": "프롬프트를 넘어 컨텍스트 설계로: 에이전트에 무엇을 보여 줄 것인가",
+        "en": "Beyond prompts to context design: what to show the agent"
+      },
+      "summary": {
+        "ko": "에이전트 성능이 프롬프트 문구보다 어떤 정보를 언제 컨텍스트에 넣느냐에 더 좌우된다는 실무자 대담. 정보를 줄이는 쪽이 성능을 올린 사례가 반복해서 등장한다.",
+        "en": "A practitioner conversation arguing agent quality depends more on what enters context and when than on prompt wording. Cases where removing information improved results recur."
+      },
+      "takeaway": {
+        "ko": "컨텍스트에 넣는 정보에는 ‘빼는 기준’도 문서화해야 한다.",
+        "en": "Document the criteria for leaving information out, not just putting it in."
+      }
+    },
+    {
+      "id": "06bc0f3cfa02",
+      "section": "playbook",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/empty-states-for-ai-features",
+      "publishedAt": "2026-10-07T10:17:12.000Z",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI 기능의 빈 상태 화면: 처음 사용자에게 무엇을 보여 줄까",
+        "en": "Empty states for AI features: what to show first-time users"
+      },
+      "summary": {
+        "ko": "빈 입력창 대신 예시 작업과 기대 결과를 먼저 보여 주면 첫 사용 전환이 높아진다는 디자인 사례 모음. 무엇을 못 하는지도 함께 알려야 신뢰가 쌓인다고 강조한다.",
+        "en": "Design cases showing that example tasks with expected outcomes beat a blank input box for first-use conversion. It stresses stating what the feature cannot do to build trust."
+      },
+      "takeaway": {
+        "ko": "사내 AI 도구 온보딩에는 ‘할 수 있는 일’만큼 ‘못 하는 일’도 적어 두자.",
+        "en": "In onboarding for internal AI tools, list what it cannot do as clearly as what it can."
+      }
+    },
+    {
+      "id": "1ee042aeffdd",
+      "section": "playbook",
+      "source": "NN/g",
+      "url": "https://www.nngroup.com/articles/ai-chat-vs-gui-tasks/",
+      "publishedAt": "2026-10-06T22:17:12.000Z",
+      "region": "US",
+      "title": {
+        "ko": "챗 인터페이스와 GUI, 작업별로 어느 쪽이 나은가",
+        "en": "Chat interface or GUI: which suits which task"
+      },
+      "summary": {
+        "ko": "탐색적 질문에는 대화형이, 반복적이고 정형화된 작업에는 GUI가 낫다는 비교 연구. 두 방식을 섞은 하이브리드 설계가 가장 높은 만족도를 보였다.",
+        "en": "A comparison study finding chat suits exploratory questions while GUIs suit repetitive structured tasks, with hybrid designs scoring highest in satisfaction."
+      },
+      "takeaway": {
+        "ko": "모든 업무를 챗으로 옮기려는 시도보다 챗과 화면을 섞는 설계가 안전하다.",
+        "en": "Mixing chat and screens is safer than moving every workflow into chat."
+      }
+    }
+  ]
+}

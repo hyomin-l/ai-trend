@@ -1,0 +1,65 @@
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  width: min(640px, calc(100% - 24px));
+  max-width: 640px;
+  max-height: none;
+  height: fit-content;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: var(--paper-noise);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  overflow: visible;
+}
+
+.dialog[open] {
+  animation: rise 180ms ease-out;
+}
+
+.dialog::backdrop {
+  background: rgba(18, 18, 18, 0.35);
+}
+@media (prefers-color-scheme: dark) {
+  .dialog::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.inner {
+  max-height: min(86dvh, 780px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--s8) var(--s8) var(--s6);
+}
+
+.close {
+  position: absolute;
+  top: var(--s3);
+  right: var(--s3);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--ink-2);
+  background-color: var(--paper);
+}
+.close:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: var(--s6) var(--s5) var(--s5);
+  }
+}

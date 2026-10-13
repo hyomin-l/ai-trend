@@ -1,0 +1,35 @@
+.main {
+  padding: 0 var(--pad-x) 56px;
+}
+
+/* Desktop: the whole edition lives in one viewport. Never shorter than 760px so it stays readable. */
+@media (min-width: 1100px) {
+  .page {
+    display: grid;
+    grid-template-rows: var(--topbar-h) minmax(0, 1fr);
+    height: max(100dvh, 760px);
+    overflow: hidden;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding-bottom: var(--s3);
+  }
+  .edition {
+    flex: 1;
+    min-height: 0;
+  }
+}
+
+/* Short or narrow desktop windows trade chrome for room, and narrow ones get a taller floor (the page scrolls). */
+@media (min-width: 1100px) and (max-height: 840px) {
+  .main {
+    padding-bottom: var(--s2);
+  }
+}
+@media (min-width: 1100px) and (max-width: 1279px) {
+  .page {
+    height: max(100dvh, 960px);
+  }
+}

@@ -1,0 +1,167 @@
+import type { Industry, Lang, Region, Section } from "@/types";
+
+/**
+ * Every user-visible brand string lives here. Renaming the product is a change to this object only.
+ * <Wordmark> renders the first word of `name` in magenta and the rest in ink.
+ */
+export const BRAND = {
+  name: "AI Trend",
+  short: "AI Trend",
+  tagline: {
+    ko: "월·수·금, AI 판도를 한 장으로",
+    en: "Mon, Wed, Fri: the AI landscape on one page",
+  },
+  description: {
+    ko: "월·수·금 아침, 흩어진 AI 트렌드를 한 장의 신문으로 묶어 드립니다.",
+    en: "Scattered AI trends, gathered into a single newspaper page every Monday, Wednesday and Friday.",
+  },
+} as const;
+
+export const LANGS: Lang[] = ["ko", "en"];
+export const isLang = (v: string): v is Lang => (LANGS as string[]).includes(v);
+
+export type SectionKey = Section | "front";
+
+/** Sections as shown in the nav and in section headers. `title` is the on-page header label. */
+export const SECTION_LABEL: Record<SectionKey, { kicker: string; ko: string; en: string; title: { ko: string; en: string } }> = {
+  front: { kicker: "FRONT PAGE", ko: "1면", en: "Front Page", title: { ko: "1면", en: "Front Page" } },
+  newsroom: { kicker: "NEWSROOM", ko: "뉴스룸", en: "Newsroom", title: { ko: "뉴스룸", en: "Newsroom" } },
+  ax: { kicker: "AX IN THE FIELD", ko: "현장의 AX", en: "AX in the Field", title: { ko: "현장의 AX", en: "AX in the Field" } },
+  repos: { kicker: "RISING REPOS", ko: "급상승 레포", en: "Rising Repos", title: { ko: "급상승 레포 ★ 시세표", en: "Rising Repos ★ Ticker" } },
+  pulse: { kicker: "COMMUNITY PULSE", ko: "커뮤니티 펄스", en: "Community Pulse", title: { ko: "커뮤니티 펄스", en: "Community Pulse" } },
+  playbook: { kicker: "PLAYBOOK", ko: "플레이북", en: "Playbook", title: { ko: "플레이북", en: "Playbook" } },
+};
+
+export const REGION_LABEL: Record<Region, { ko: string; en: string }> = {
+  KR: { ko: "한국", en: "Korea" },
+  US: { ko: "미국", en: "U.S." },
+  EU: { ko: "유럽", en: "Europe" },
+  CN: { ko: "중국", en: "China" },
+  JP: { ko: "일본", en: "Japan" },
+  GLOBAL: { ko: "글로벌", en: "Global" },
+};
+
+const INDUSTRY_LABEL: Record<Industry, { ko: string; en: string }> = {
+  construction: { ko: "건설", en: "Construction" },
+  finance: { ko: "금융", en: "Finance" },
+  logistics: { ko: "물류", en: "Logistics" },
+  retail: { ko: "유통", en: "Retail" },
+  media: { ko: "미디어", en: "Media" },
+};
+
+/** "건설 · CONSTRUCTION" on Korean pages, "CONSTRUCTION" on English ones. */
+export const industryTag = (i: Industry, lang: Lang) =>
+  lang === "ko" ? `${INDUSTRY_LABEL[i].ko} · ${INDUSTRY_LABEL[i].en.toUpperCase()}` : INDUSTRY_LABEL[i].en.toUpperCase();
+
+const ko = {
+  skip: "본문으로 건너뛰기",
+  sections: "섹션",
+  menuOpen: "메뉴 열기",
+  menuClose: "메뉴 닫기",
+  home: "최신 호로 이동",
+  prevIssue: "이전 호",
+  nextIssue: "다음 호",
+  issueSelect: "발행일 선택",
+  issuePlaceholder: "지난 호",
+  search: "검색",
+  language: "언어",
+  issue: (n: number) => `제${n}호`,
+  collectedPublished: (c: number, p: number) => `수집 ${c} → 게재 ${p}`,
+  what: "무슨 일",
+  why: "왜 중요한가",
+  more: (n: number) => `+${n}`,
+  moreLabel: (label: string, n: number) => `${label} ${n}건 더 보기`,
+  sectionAll: (n: number) => `전체 ${n}건`,
+  readOriginal: "원문 보기",
+  close: "닫기",
+  terrain: "오늘의 지형",
+  terrainKicker: "TERRAIN",
+  regionFilter: "지역별 보기",
+  regionCount: (label: string, n: number) => `${label} ${n}건`,
+  repoHead: { repo: "저장소", stars: "★", perDay: "★/일", change: "등락" },
+  newRepo: "NEW",
+  m: { stars: "스타", perDay: "일 평균 스타", language: "언어", change: "등락", points: "점수", comments: "댓글" },
+  pts: (n: string) => `${n}점`,
+  cmt: (n: string) => `댓글 ${n}`,
+  uncurated: "요약 없이 원문 제목으로 발행된 판",
+  failedSources: (list: string[]) => `수집 실패 소스: ${list.join(", ")}`,
+  emptyTitle: "첫 판을 준비하고 있어요",
+  emptyNote: "월·수·금 05:17 발행",
+  searchTitle: "지난 호 검색",
+  searchPlaceholder: "에이전트, 금융 AX, MCP…",
+  searchLabel: "검색어",
+  filterAll: "전체",
+  filterLabel: "섹션 필터",
+  loading: "색인을 불러오는 중…",
+  error: "검색 색인을 불러오지 못했어요.",
+  retry: "다시 시도",
+  noResults: (q: string) => (q ? `‘${q}’와 일치하는 기사가 없어요.` : "표시할 기사가 없어요."),
+  resultCount: (n: number) => `${n}건`,
+  showMore: "더 보기",
+  original: "원문",
+  editionLink: (d: string, n: number) => `${d} · 제${n}호`,
+  titleSearch: "검색",
+  relNow: "방금",
+  relMin: (n: number) => `${n}분 전`,
+  relHour: (n: number) => `${n}시간 전`,
+  relDay: (n: number) => `${n}일 전`,
+};
+
+type Dict = typeof ko;
+
+const en: Dict = {
+  skip: "Skip to content",
+  sections: "Sections",
+  menuOpen: "Open menu",
+  menuClose: "Close menu",
+  home: "Go to the latest edition",
+  prevIssue: "Previous edition",
+  nextIssue: "Next edition",
+  issueSelect: "Choose an edition",
+  issuePlaceholder: "Past editions",
+  search: "Search",
+  language: "Language",
+  issue: (n) => `No. ${n}`,
+  collectedPublished: (c, p) => `${c} collected → ${p} published`,
+  what: "What happened",
+  why: "Why it matters",
+  more: (n) => `+${n}`,
+  moreLabel: (label, n) => `${n} more in ${label}`,
+  sectionAll: (n) => `All ${n} stories`,
+  readOriginal: "Read original",
+  close: "Close",
+  terrain: "Today's terrain",
+  terrainKicker: "TERRAIN",
+  regionFilter: "Filter by region",
+  regionCount: (label, n) => `${label}: ${n} stories`,
+  repoHead: { repo: "Repository", stars: "★", perDay: "★/day", change: "Move" },
+  newRepo: "NEW",
+  m: { stars: "Stars", perDay: "Stars per day", language: "Language", change: "Move", points: "Points", comments: "Comments" },
+  pts: (n) => `${n} pts`,
+  cmt: (n) => `${n} comments`,
+  uncurated: "Published with original headlines and no summaries",
+  failedSources: (list) => `Sources that failed: ${list.join(", ")}`,
+  emptyTitle: "Preparing our first edition",
+  emptyNote: "Published Mon, Wed, Fri at 05:17 KST",
+  searchTitle: "Search past editions",
+  searchPlaceholder: "agents, finance AX, MCP…",
+  searchLabel: "Search query",
+  filterAll: "All",
+  filterLabel: "Section filter",
+  loading: "Loading the search index…",
+  error: "Could not load the search index.",
+  retry: "Try again",
+  noResults: (q) => (q ? `No stories match “${q}”.` : "Nothing to show."),
+  resultCount: (n) => `${n} results`,
+  showMore: "Show more",
+  original: "Original",
+  editionLink: (d, n) => `${d} · No. ${n}`,
+  titleSearch: "Search",
+  relNow: "just now",
+  relMin: (n) => `${n}m ago`,
+  relHour: (n) => `${n}h ago`,
+  relDay: (n) => `${n}d ago`,
+};
+
+const DICTS: Record<Lang, Dict> = { ko, en };
+export const ui = (lang: Lang): Dict => DICTS[lang];

@@ -1,0 +1,250 @@
+.item {
+  position: relative;
+  padding: var(--s3) 0;
+  border-top: 1px solid var(--rule);
+  transition: opacity 0.18s ease;
+}
+.item:first-child {
+  border-top: 0;
+}
+.item[data-dim="true"] {
+  opacity: 0.28;
+}
+.item:has(.hit:focus-visible) {
+  outline: 2px solid var(--magenta);
+  outline-offset: 2px;
+}
+
+/* kicker (front page items) */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-bottom: var(--s2);
+  font: 500 11px/1.2 var(--ff-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.mark {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--magenta);
+}
+.time {
+  margin-left: auto;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+/* headline */
+.headline {
+  font-family: var(--ff-hl);
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.32;
+  text-wrap: balance;
+}
+:lang(en) .headline {
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+/* A <button> cannot flow inline, so the line clamp lives on a block span inside it. */
+.hit {
+  display: block;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+}
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.hit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.hit:focus-visible {
+  outline: none;
+}
+.item:hover .hit {
+  text-decoration: underline;
+  text-decoration-color: var(--magenta);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* summary */
+.summary {
+  margin-top: var(--s1);
+  color: var(--ink-2);
+  font-size: 13.5px;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* meta line */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s1) var(--s2);
+  margin-top: var(--s1);
+  font: 400 11px/1.4 var(--ff-mono);
+  color: var(--ink-3);
+}
+.tag {
+  padding: 1px 5px;
+  border: 1px solid var(--rule);
+  border-radius: 1px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+}
+
+/* --- variants --- */
+.lead {
+  padding-top: var(--s3);
+}
+.lead .headline {
+  font-size: clamp(22px, 1.75vw, 27px);
+  line-height: 1.28;
+}
+.lead .clamp {
+  -webkit-line-clamp: 3;
+}
+.lead .summary {
+  margin-top: var(--s3);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-line-clamp: 3;
+}
+.why {
+  margin-top: var(--s3);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.whyLabel {
+  margin-right: var(--s2);
+  font: 500 11px/1 var(--ff-mono);
+  letter-spacing: 0.08em;
+  color: var(--magenta);
+}
+
+.sub .headline {
+  font-size: 18px;
+  font-weight: 600;
+}
+.sub .summary {
+  font-size: 14px;
+  -webkit-line-clamp: 2;
+}
+
+.news .headline,
+.ax .headline {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.pulse .headline,
+.playbook .headline {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+/* One-screen desktop layout: dense by default. Only the first newsroom story keeps its summary until the column is tall. */
+@media (min-width: 1100px) {
+  .item {
+    padding: 6px 0;
+  }
+  .lead {
+    padding-top: var(--s2);
+  }
+  .sub {
+    padding: 8px 0;
+  }
+  .news .headline,
+  .ax .headline {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+  .pulse .headline,
+  .playbook .headline {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .meta {
+    margin-top: 2px;
+  }
+  .summary {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .news:not([data-first]) .summary,
+  .ax .summary,
+  .pulse .summary,
+  .playbook .summary {
+    margin-top: 1px;
+    font-size: 12.5px;
+    color: var(--ink-3);
+    -webkit-line-clamp: 1;
+  }
+
+  /* tall windows: breathe, and show every summary */
+  @container (min-height: 880px) {
+    .item {
+      padding: 10px 0;
+    }
+    .news .summary,
+    .ax .summary,
+    .playbook .summary {
+      -webkit-line-clamp: 2;
+    }
+  }
+
+  /* medium windows (about 860px tall): trim the rhythm a little */
+  @container (max-height: 770px) {
+    .item {
+      padding: 5px 0;
+    }
+    .meta {
+      margin-top: 1px;
+    }
+  }
+
+  /* short windows (about 800px tall): drop secondary text, one-line pulse/playbook headlines */
+  @container (max-height: 710px) {
+    .news .summary,
+    .ax .summary,
+    .sub .summary {
+      display: none;
+    }
+    .lead .summary {
+      -webkit-line-clamp: 2;
+    }
+    .item {
+      padding: 3px 0;
+    }
+    .news .headline,
+    .ax .headline {
+      font-size: 14.5px;
+      line-height: 1.28;
+    }
+    .pulse .clamp,
+    .playbook .clamp {
+      -webkit-line-clamp: 1;
+    }
+  }
+}

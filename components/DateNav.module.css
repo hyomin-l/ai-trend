@@ -1,0 +1,58 @@
+.nav {
+  display: inline-flex;
+  align-items: center;
+}
+
+.step {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--ink-2);
+}
+a.step:hover {
+  color: var(--ink);
+  background: var(--flash);
+}
+.off {
+  color: var(--ink-4);
+  cursor: default;
+}
+
+.pick {
+  position: relative;
+  display: inline-block;
+}
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 104px;
+  height: 28px;
+  padding: 0 24px 0 var(--s2);
+  font: 500 12px/1 var(--ff-mono);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule-strong);
+  border-radius: 0;
+  cursor: pointer;
+}
+.select:disabled {
+  color: var(--ink-3);
+  cursor: default;
+}
+.select option {
+  background: var(--paper);
+  color: var(--ink);
+}
+.caret {
+  position: absolute;
+  top: 0;
+  right: var(--s2);
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  color: var(--ink-2);
+}

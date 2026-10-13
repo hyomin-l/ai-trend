@@ -1,0 +1,47 @@
+/* Mobile: one column in reading order. Desktop: three ruled columns that fill the remaining height. */
+.grid {
+  display: block;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s5);
+  padding-top: var(--s5);
+}
+.terrain {
+  margin-top: 0;
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 0.95fr);
+    grid-template-rows: minmax(0, 1fr);
+    height: 100%;
+    min-height: 0;
+  }
+  .col {
+    min-height: 0;
+    padding: var(--s4) var(--s6) 0;
+    gap: var(--s3);
+    overflow: hidden;
+    container-type: size; /* lets stories/globe adapt to the column height with @container */
+    border-left: 1px solid var(--rule);
+  }
+  .col:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .col:last-child {
+    padding-right: 0;
+  }
+  .terrain {
+    margin-top: auto;
+  }
+}
+
+@media (min-width: 1100px) and (max-height: 840px) {
+  .col {
+    padding-top: var(--s3);
+  }
+}
