@@ -1,7 +1,9 @@
+import type { INDUSTRIES, SECTIONS } from "@/config/sections";
+
 export type Lang = "ko" | "en";
-export type Section = "repos" | "pulse" | "newsroom" | "ax" | "playbook";
+export type Section = keyof typeof SECTIONS;
 export type Region = "KR" | "US" | "EU" | "CN" | "JP" | "GLOBAL";
-export type Industry = "construction" | "finance" | "logistics" | "retail" | "media";
+export type Industry = keyof typeof INDUSTRIES;
 export type L10n = Record<Lang, string>;
 
 export interface Metrics {

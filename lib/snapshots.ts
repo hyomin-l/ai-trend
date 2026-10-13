@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Snapshot } from "@/types";
 
-const DATE = /^\d{4}-\d{2}-\d{2}$/;
+export const isDate = (s: string) => /^\d{4}-\d{2}-\d{2}$/.test(s);
 
 export const snapshotDir = () =>
   process.env.SNAPSHOT_DIR ?? path.join(process.cwd(), "data", "snapshots");
@@ -13,13 +13,13 @@ export function listDates(dir = snapshotDir()): string[] {
   return fs
     .readdirSync(dir)
     .map((f) => f.replace(/\.json$/, ""))
-    .filter((d) => DATE.test(d))
+    .filter(isDate)
     .sort()
     .reverse();
 }
 
 export function loadSnapshot(date: string, dir = snapshotDir()): Snapshot | null {
-  if (!DATE.test(date)) return null;
+  if (!isDate(date)) return null;
   const file = path.join(dir, `${date}.json`);
   return fs.existsSync(file) ? (JSON.parse(fs.readFileSync(file, "utf8")) as Snapshot) : null;
 }

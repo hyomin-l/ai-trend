@@ -1,7 +1,6 @@
 import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import type { Lang, Snapshot } from "@/types";
-import { DISPLAY, SECTION_ORDER } from "@/config/sources";
 import { ui } from "@/lib/i18n";
 import { latestSnapshot, listDates, loadSnapshot } from "@/lib/snapshots";
 import Edition from "./Edition";
@@ -39,13 +38,7 @@ export default function EditionPage({ lang, date }: Props) {
       <ViewTransition>
         <main id="main" lang={lang} className={styles.main}>
           {snapshot ? (
-            <Edition
-              snapshot={snapshot}
-              lang={lang}
-              sections={SECTION_ORDER}
-              display={DISPLAY}
-              notice={noticeOf(snapshot, lang) || undefined}
-            />
+            <Edition snapshot={snapshot} lang={lang} notice={noticeOf(snapshot, lang) || undefined} />
           ) : (
             <EmptyState lang={lang} />
           )}

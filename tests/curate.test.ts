@@ -3,7 +3,10 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { RawItem } from "@/types";
-import { SYSTEM_PROMPT, buildPrompt, curate, fallbackCuration, parseCuration, runClaude } from "@/lib/curate";
+import { SYSTEM_PROMPT } from "@/config/prompt";
+import { SECTION_ORDER } from "@/config/sections";
+import { runClaude } from "@/lib/claude";
+import { buildPrompt, curate, fallbackCuration, parseCuration } from "@/lib/curate";
 
 const raw = (id: string, over: Partial<RawItem> = {}): RawItem => ({
   id, source: "Src", section: "newsroom", title: `Title ${id}`, url: `https://example.com/${id}`,
@@ -238,7 +241,7 @@ describe("buildPrompt / SYSTEM_PROMPT", () => {
   });
 
   it("PRD-curator: system prompt names every section, region, industry and demands JSON only", () => {
-    for (const k of ["repos", "pulse", "newsroom", "ax", "playbook", "KR", "GLOBAL", "construction", "media", "front", "takeaway"])
+    for (const k of [...SECTION_ORDER, "KR", "GLOBAL", "construction", "media", "front", "takeaway"])
       expect(SYSTEM_PROMPT).toContain(k);
     expect(SYSTEM_PROMPT).toMatch(/JSON/);
   });

@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
-import { CONFIG, SECTION_ORDER, SOURCES } from "@/config/sources";
+import { SECTION_ORDER } from "@/config/sections";
+import { CONFIG, SOURCES } from "@/config/sources";
 import { isWebUrl } from "@/lib/format";
 import type { RawItem } from "@/types";
 

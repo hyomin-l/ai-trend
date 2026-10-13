@@ -2,6 +2,8 @@
 
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Item, Lang, Region, Section, Snapshot } from "@/types";
+import { FRONT, SECTIONS, SECTION_ORDER } from "@/config/sections";
+import { REGIONS } from "@/lib/i18n";
 import { repoDesc } from "@/lib/format";
 import Brief from "./Brief";
 import { planGloss } from "./Glossary";
@@ -16,18 +18,12 @@ import styles from "./Edition.module.css";
 type Props = {
   snapshot: Snapshot;
   lang: Lang;
-  /** Section columns, left to right. */
-  sections: Section[];
-  /** Fixed per-section story counts for the one-screen page (DISPLAY in config/sources.ts). */
-  display: Record<Section | "front", number>;
   /** Only when something went wrong with this edition (no summaries, failed sources); shown quietly in the band's header row. */
   notice?: string;
 };
 
-const REGION_ORDER: Region[] = ["KR", "US", "EU", "CN", "JP", "GLOBAL"];
-
 /** The one-screen page: "오늘의 3줄" band (+ regions) over one column per section. Owns the region filter and the dialogs. */
-export default function Edition({ snapshot, lang, sections, display, notice }: Props) {
+export default function Edition({ snapshot, lang, notice }: Props) {
   const [region, setRegion] = useState<Region | null>(null);
   const [openItem, setOpenItem] = useState<Item | null>(null);
   const [openSection, setOpenSection] = useState<Section | null>(null);
@@ -68,26 +64,26 @@ export default function Edition({ snapshot, lang, sections, display, notice }: P
       ro.disconnect();
       document.fonts?.removeEventListener("loadingdone", fit);
     };
-  }, [snapshot, display]);
+  }, [snapshot]);
 
   const { front, bySection, shown, regions, gloss } = useMemo(() => {
     const items = snapshot.items;
     const byId = new Map(items.map((i) => [i.id, i]));
-    let front = snapshot.front.map((id) => byId.get(id)).filter((i): i is Item => !!i).slice(0, display.front);
-    if (!front.length) front = items.slice(0, display.front);
+    let front = snapshot.front.map((id) => byId.get(id)).filter((i): i is Item => !!i).slice(0, FRONT.show);
+    if (!front.length) front = items.slice(0, FRONT.show);
     const onFront = new Set(front.map((i) => i.id));
     // Front-page stories are not repeated in their section.
     const bySection = Object.fromEntries(
-      sections.map((s) => [s, items.filter((i) => i.section === s && !onFront.has(i.id))]),
+      SECTION_ORDER.map((s) => [s, items.filter((i) => i.section === s && !onFront.has(i.id))]),
     ) as Record<Section, Item[]>;
-    const shown = Object.fromEntries(sections.map((s) => [s, bySection[s].slice(0, display[s])])) as Record<Section, Item[]>;
+    const shown = Object.fromEntries(SECTION_ORDER.map((s) => [s, bySection[s].slice(0, SECTIONS[s].show)])) as Record<Section, Item[]>;
     // Glossary terms are marked once per edition, at their first appearance in reading order: the band, then column by column.
     const slots = [
       ...front.flatMap((i) => [
         { key: `${i.id}:t`, text: i.title[lang] },
         { key: `${i.id}:m`, text: i.summary[lang] },
       ]),
-      ...sections.flatMap((s) =>
+      ...SECTION_ORDER.flatMap((s) =>
         shown[s].flatMap((i) =>
           s === "repos"
             ? [{ key: `${i.id}:m`, text: repoDesc(i, lang) }]
@@ -103,9 +99,9 @@ export default function Edition({ snapshot, lang, sections, display, notice }: P
     for (const i of items) counts.set(i.region, (counts.get(i.region) ?? 0) + 1);
     const regions = [...counts]
       .map(([region, count]) => ({ region, count }))
-      .sort((a, b) => b.count - a.count || REGION_ORDER.indexOf(a.region) - REGION_ORDER.indexOf(b.region));
+      .sort((a, b) => b.count - a.count || REGIONS.indexOf(a.region) - REGIONS.indexOf(b.region));
     return { front, bySection, shown, regions, gloss };
-  }, [snapshot, sections, display, lang]);
+  }, [snapshot, lang]);
 
   const isDimmed = (item: Item) => region !== null && item.region !== region;
 
@@ -129,7 +125,7 @@ export default function Edition({ snapshot, lang, sections, display, notice }: P
       </div>
 
       <div ref={grid} className={styles.grid}>
-        {sections.map((s) => {
+        {SECTION_ORDER.map((s) => {
           const list = bySection[s];
           if (!list.length) return null;
           const shownHere = shown[s];

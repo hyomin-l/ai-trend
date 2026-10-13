@@ -1,8 +1,12 @@
+import { FRONT, INDUSTRIES, SECTIONS } from "@/config/sections";
 import type { Industry, Lang, Region, Section } from "@/types";
 
 /**
- * Every user-visible brand string lives here. Renaming the product is a change to this object only.
- * <Logo> renders `name` in the display face next to the blob mark.
+ * FORK POINT: every user-visible brand string lives here. Renaming the product is a change to this object only
+ * (the curator's prompt and the page metadata read `name`). <Logo> renders `name` in the display face next to the blob mark.
+ * Colours are elsewhere: the accent (--magenta) and paper tones are tokens in app/globals.css; `paper` below is the
+ * browser-chrome copy of --paper and must match it. The favicon (app/icon.svg) and the globe's markers (components/Globe.tsx)
+ * carry the accent as literals.
  */
 export const BRAND = {
   name: "AI Trend",
@@ -11,6 +15,7 @@ export const BRAND = {
     ko: "월·수·금 아침, 흩어진 AI 트렌드를 한 장의 신문으로 묶어 드립니다.",
     en: "Scattered AI trends, gathered into a single newspaper page every Monday, Wednesday and Friday.",
   },
+  paper: { light: "#F7F7F5", dark: "#111112" },
 } as const;
 
 export const LANGS: Lang[] = ["ko", "en"];
@@ -18,16 +23,10 @@ export const isLang = (v: string): v is Lang => (LANGS as string[]).includes(v);
 
 export type SectionKey = Section | "front";
 
-/** Section names, used for column headers, dialogs and search filters. */
-export const SECTION_LABEL: Record<SectionKey, { ko: string; en: string }> = {
-  front: { ko: "오늘의 3줄", en: "Top 3" },
-  newsroom: { ko: "뉴스룸", en: "Newsroom" },
-  ax: { ko: "현장의 AX", en: "AX in the Field" },
-  repos: { ko: "급상승 레포", en: "Rising Repos" },
-  pulse: { ko: "커뮤니티", en: "Community Pulse" },
-  playbook: { ko: "AI 플레이북", en: "AI Playbook" },
-};
+/** Section names, used for column headers, dialogs and search filters (defined in config/sections.ts). */
+export const SECTION_LABEL: Record<SectionKey, { ko: string; en: string }> = { front: FRONT, ...SECTIONS };
 
+/** Region names; the key order is the tie-break order of the front page's region list. The globe's marker positions live in components/Globe.tsx. */
 export const REGION_LABEL: Record<Region, { ko: string; en: string }> = {
   KR: { ko: "한국", en: "Korea" },
   US: { ko: "미국", en: "U.S." },
@@ -37,16 +36,10 @@ export const REGION_LABEL: Record<Region, { ko: string; en: string }> = {
   GLOBAL: { ko: "글로벌", en: "Global" },
 };
 
-const INDUSTRY_LABEL: Record<Industry, { ko: string; en: string }> = {
-  construction: { ko: "건설", en: "Construction" },
-  finance: { ko: "금융", en: "Finance" },
-  logistics: { ko: "물류", en: "Logistics" },
-  retail: { ko: "유통", en: "Retail" },
-  media: { ko: "미디어", en: "Media" },
-};
-
 /** "건설" on Korean pages, "Construction" on English ones. */
-export const industryTag = (i: Industry, lang: Lang) => INDUSTRY_LABEL[i][lang];
+export const REGIONS = Object.keys(REGION_LABEL) as Region[];
+
+export const industryTag = (i: Industry, lang: Lang) => INDUSTRIES[i][lang];
 
 const ko = {
   skip: "본문으로 건너뛰기",

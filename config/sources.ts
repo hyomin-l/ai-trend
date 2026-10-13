@@ -1,28 +1,18 @@
-import type { Industry, Section, SourceDef } from "@/types";
+import type { Industry, SourceDef } from "@/types";
 
+/**
+ * FORK POINT: what the collector reads and how much of it it keeps. Section keys, labels and per-column counts
+ * are in config/sections.ts; the curator's editorial voice is in config/prompt.ts.
+ */
 export const CONFIG = {
-  model: "sonnet",
-  timeoutMs: 180_000,
-  totalCap: 90,
-  windowHours: 72,
-  repoWindowDays: 30,
-  dedupeEditions: 10,
-  returningGrowth: 1.5,
-  recentHeadlineEditions: 3,
-  // Set by the workflow from the repo's Pages settings; defaults to the original deployment.
-  siteUrl: process.env.SITE_URL || "https://hyomin-l.github.io/ai-trend",
-};
-
-export const SECTION_ORDER: Section[] = ["newsroom", "playbook", "pulse", "repos", "ax"];
-
-/** How many items each section shows on the one-screen front page. */
-export const DISPLAY: Record<Section | "front", number> = {
-  front: 3,
-  newsroom: 4,
-  ax: 4,
-  repos: 4,
-  pulse: 4,
-  playbook: 4,
+  model: "sonnet", // `claude --model` for the curator
+  timeoutMs: 180_000, // one curation call
+  totalCap: 90, // candidates handed to the curator
+  windowHours: 72, // news older than this is dropped
+  repoWindowDays: 30, // repos created longer ago than this are dropped
+  dedupeEditions: 10, // items already published in this many past editions are skipped...
+  returningGrowth: 1.5, // ...unless a repo's stars grew by this factor ("returning")
+  recentHeadlineEditions: 3, // past editions whose headlines the curator is told not to repeat
 };
 
 const gnews = (q: string, ko: boolean) =>
@@ -37,6 +27,11 @@ const AX_QUERIES: [Industry, string, string][] = [
   ["media", "방송 OR 언론 AI 도입", "newsroom broadcaster AI"],
 ];
 
+/**
+ * Add, remove or retune sources here; nothing else needs to change. `section` must be a key of config/sections.ts.
+ * kind "rss": `url` is a feed (RSS or Atom). "github": `url` is a repository topic. "hn": `url` is the Hacker News query.
+ * `cap` is the most items kept per source, `windowHours` overrides CONFIG.windowHours for slow feeds.
+ */
 export const SOURCES: SourceDef[] = [
   ...["llm", "ai-agents", "mcp", "generative-ai"].map((t) => ({
     id: `gh-${t}`, name: "GitHub", kind: "github" as const, url: t, section: "repos" as const, cap: 6,

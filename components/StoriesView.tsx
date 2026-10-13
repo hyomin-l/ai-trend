@@ -1,32 +1,27 @@
 "use client";
 
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import type { GlossaryEntry, Item, Lang, Section, Snapshot } from "@/types";
+import type { Lang, Section } from "@/types";
+import { SECTION_ORDER } from "@/config/sections";
 import { SECTION_LABEL, ui } from "@/lib/i18n";
 import { fmtDateShort } from "@/lib/format";
-import { parseQuery, prepare, score, type SearchRow } from "@/lib/search";
+import { loadIndex, loadStory, parseQuery, prepare, score, type SearchRow, type Story } from "@/lib/search";
 import ItemDialog from "./ItemDialog";
 import OriginalLink from "./OriginalLink";
 import SearchField from "./SearchField";
 import page from "./ListPage.module.css";
 import styles from "./StoriesView.module.css";
 
-type Props = { lang: Lang; sections: Section[] };
-type Opened = { item: Item; generatedAt: string; glossary?: GlossaryEntry[] };
-
 const PAGE = 60;
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const INDEX_URL = `${BASE}/search-index.json`;
-const editionUrl = (date: string) => `${BASE}/editions/${date}/data.json`;
 
 /**
  * 기사: every story of every edition in one scannable list, newest edition first, under a date header per edition.
  * The field and the section chips filter live. A story opens in the same dialog as on the front page; its edition's
  * full JSON is fetched on first click and cached.
  */
-export default function StoriesView({ lang, sections }: Props) {
+export default function StoriesView({ lang }: { lang: Lang }) {
   const u = ui(lang);
   const [rows, setRows] = useState<SearchRow[] | null>(null);
   const [failed, setFailed] = useState(false);
@@ -34,10 +29,9 @@ export default function StoriesView({ lang, sections }: Props) {
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState<Section | "all">("all");
   const [limit, setLimit] = useState(PAGE);
-  const [opened, setOpened] = useState<Opened | null>(null);
+  const [opened, setOpened] = useState<Story | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [openFailed, setOpenFailed] = useState(false);
-  const editionCache = useRef(new Map<string, Snapshot>());
   const deferred = useDeferredValue(q);
 
   // The top bar's search lands here as `?q=…` (all results) or `?open=<date>/<id>` (one story).
@@ -49,17 +43,7 @@ export default function StoriesView({ lang, sections }: Props) {
   }, [params]);
 
   useEffect(() => {
-    const ctl = new AbortController();
-    fetch(INDEX_URL, { signal: ctl.signal })
-      .then((r) => {
-        if (!r.ok) throw new Error(String(r.status));
-        return r.json() as Promise<SearchRow[]>;
-      })
-      .then(setRows)
-      .catch((e: unknown) => {
-        if (!(e instanceof DOMException && e.name === "AbortError")) setFailed(true);
-      });
-    return () => ctl.abort();
+    loadIndex().then(setRows, () => setFailed(true));
   }, [attempt]);
 
   const prepared = useMemo(() => prepare(rows ?? []), [rows]);
@@ -91,16 +75,7 @@ export default function StoriesView({ lang, sections }: Props) {
     setBusy(r.id);
     setOpenFailed(false);
     try {
-      let snap = editionCache.current.get(r.d);
-      if (!snap) {
-        const res = await fetch(editionUrl(r.d));
-        if (!res.ok) throw new Error(String(res.status));
-        snap = (await res.json()) as Snapshot;
-        editionCache.current.set(r.d, snap);
-      }
-      const item = snap.items.find((i) => i.id === r.id);
-      if (!item) throw new Error("missing");
-      setOpened({ item, generatedAt: snap.generatedAt, glossary: snap.glossary });
+      setOpened(await loadStory(r));
     } catch {
       setOpenFailed(true);
     } finally {
@@ -135,7 +110,7 @@ export default function StoriesView({ lang, sections }: Props) {
       />
 
       <div className={styles.chips} role="group" aria-label={u.filterLabel}>
-        {(["all", ...sections] as const).map((key) => (
+        {(["all", ...SECTION_ORDER] as const).map((key) => (
           <button
             key={key}
             type="button"

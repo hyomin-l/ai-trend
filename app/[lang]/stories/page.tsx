@@ -1,7 +1,6 @@
 import { Suspense, ViewTransition } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SECTION_ORDER } from "@/config/sources";
 import StoriesView from "@/components/StoriesView";
 import TopBar from "@/components/TopBar";
 import { LANGS, isLang, ui } from "@/lib/i18n";
@@ -31,7 +30,7 @@ export default async function StoriesPage({ params }: { params: Params }) {
       <ViewTransition>
         <main id="main" lang={lang}>
           <Suspense>
-            <StoriesView lang={lang} sections={SECTION_ORDER} />
+            <StoriesView lang={lang} />
           </Suspense>
         </main>
       </ViewTransition>

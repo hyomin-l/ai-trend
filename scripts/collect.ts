@@ -1,9 +1,11 @@
 // npm run collect [-- --date YYYY-MM-DD] [-- --no-llm]
-import { CONFIG, SECTION_ORDER } from "@/config/sources";
+import { SECTION_ORDER } from "@/config/sections";
+import { CONFIG } from "@/config/sources";
+import { runClaude } from "@/lib/claude";
 import { curate, fallbackCuration } from "@/lib/curate";
 import { buildSnapshot, kstDate, recentHeadlines, seenMap } from "@/lib/pipeline";
 import { prep } from "@/lib/prep";
-import { listDates, loadSnapshot, saveSnapshot } from "@/lib/snapshots";
+import { isDate, listDates, loadSnapshot, saveSnapshot } from "@/lib/snapshots";
 import { fetchAll } from "@/lib/sources";
 
 const argv = process.argv.slice(2);
@@ -13,7 +15,7 @@ const dateArg = argv.includes("--date") ? argv[argv.indexOf("--date") + 1] : und
 async function main() {
   const now = new Date();
   const date = dateArg ?? kstDate(now);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error(`--date must be YYYY-MM-DD, got "${date}"`);
+  if (!isDate(date)) throw new Error(`--date must be YYYY-MM-DD, got "${date}"`);
 
   // newest first; same-day (and later) editions are excluded so a re-run never dedupes against itself
   const previous = listDates()
@@ -30,7 +32,7 @@ async function main() {
 
   const curation = noLlm
     ? { ...fallbackCuration(candidates), curated: false }
-    : await curate(candidates, recentHeadlines(previous, CONFIG.recentHeadlineEditions));
+    : await curate(candidates, recentHeadlines(previous, CONFIG.recentHeadlineEditions), (p) => runClaude(p, CONFIG.model));
 
   const snapshot = buildSnapshot({
     date, previous, collected: candidates.length, failed, now, curation,

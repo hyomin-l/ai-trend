@@ -13,9 +13,7 @@ export function isWebUrl(u: string): boolean {
 
 const WD_KO = ["일", "월", "화", "수", "목", "금", "토"];
 const WD_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const WD_EN_LONG = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const MON_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const MON_EN_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 /** Calendar parts of a YYYY-MM-DD edition date; timezone-independent, so server and browser agree. */
 function parts(date: string) {
@@ -45,12 +43,6 @@ export function fmtDateTiny(date: string, lang: Lang) {
 export function fmtDateYMD(date: string, lang: Lang) {
   const { y, m, d } = parts(date);
   return lang === "ko" ? `${y}년 ${m}월 ${d}일` : `${MON_EN[m - 1]} ${d}, ${y}`;
-}
-
-/** "2026년 10월 13일 월요일" / "Monday, October 13, 2026" */
-export function fmtDateLong(date: string, lang: Lang) {
-  const { y, m, d, wd } = parts(date);
-  return lang === "ko" ? `${y}년 ${m}월 ${d}일 ${WD_KO[wd]}요일` : `${WD_EN_LONG[wd]}, ${MON_EN_LONG[m - 1]} ${d}, ${y}`;
 }
 
 /** Relative time measured against the edition's generatedAt, never the wall clock (the page is static). */
