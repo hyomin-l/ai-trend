@@ -34,7 +34,7 @@ export default function DateNav({ lang, dates, date, issue }: Props) {
   const older = idx >= 0 ? dates[idx + 1] : undefined;
   const newer = idx > 0 ? dates[idx - 1] : undefined;
 
-  // Place the list under the button when it opens (the popover is fixed-position in the top layer) and focus the current edition.
+  // Centre the list under the button when it opens (the popover is fixed-position in the top layer) and focus the current edition.
   useEffect(() => {
     const pop = list.current;
     const trigger = btn.current;
@@ -45,7 +45,7 @@ export default function DateNav({ lang, dates, date, issue }: Props) {
       const bar = trigger.closest("header")?.getBoundingClientRect() ?? r;
       const z = parseFloat(getComputedStyle(document.documentElement).zoom) || 1; // wide screens zoom the page
       pop.style.top = `${(bar.bottom + 4) / z}px`;
-      pop.style.left = `${Math.max(8, Math.min(r.left, window.innerWidth - pop.offsetWidth * z - 8)) / z}px`;
+      pop.style.left = `${Math.max(8, Math.min(r.left + (r.width - pop.offsetWidth * z) / 2, window.innerWidth - pop.offsetWidth * z - 8)) / z}px`;
       pop.querySelector<HTMLElement>('[aria-current="page"], a')?.focus({ preventScroll: false });
     };
     pop.addEventListener("toggle", onToggle);

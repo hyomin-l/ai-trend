@@ -1,5 +1,5 @@
 import { listDates, loadSnapshot } from "@/lib/snapshots";
-import type { SearchRow } from "@/components/StoriesView";
+import type { SearchRow } from "@/lib/search";
 
 export const dynamic = "force-static";
 

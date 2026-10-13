@@ -1,3 +1,4 @@
+import { Suspense, ViewTransition } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SECTION_ORDER } from "@/config/sources";
@@ -27,9 +28,13 @@ export default async function StoriesPage({ params }: { params: Params }) {
         {ui(lang).skip}
       </a>
       <TopBar lang={lang} dates={listDates()} kind="stories" />
-      <main id="main" lang={lang}>
-        <StoriesView lang={lang} sections={SECTION_ORDER} />
-      </main>
+      <ViewTransition>
+        <main id="main" lang={lang}>
+          <Suspense>
+            <StoriesView lang={lang} sections={SECTION_ORDER} />
+          </Suspense>
+        </main>
+      </ViewTransition>
     </>
   );
 }

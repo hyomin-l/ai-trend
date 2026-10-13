@@ -2,26 +2,16 @@
 
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import type { GlossaryEntry, Item, L10n, Lang, Section, Snapshot } from "@/types";
+import { useSearchParams } from "next/navigation";
+import type { GlossaryEntry, Item, Lang, Section, Snapshot } from "@/types";
 import { SECTION_LABEL, ui } from "@/lib/i18n";
 import { fmtDateShort } from "@/lib/format";
+import { parseQuery, prepare, score, type SearchRow } from "@/lib/search";
 import ItemDialog from "./ItemDialog";
 import OriginalLink from "./OriginalLink";
 import SearchField from "./SearchField";
 import page from "./ListPage.module.css";
 import styles from "./StoriesView.module.css";
-
-/** One story in search-index.json (compact keys: the file covers every edition). `d` + `id` locate the full story in /editions/<d>/data.json. */
-export type SearchRow = {
-  d: string; // edition date
-  i: number; // issue
-  s: Section;
-  id: string;
-  t: L10n; // title
-  m: L10n; // summary
-  src: string;
-  u: string; // url
-};
 
 type Props = { lang: Lang; sections: Section[] };
 type Opened = { item: Item; generatedAt: string; glossary?: GlossaryEntry[] };
@@ -48,7 +38,15 @@ export default function StoriesView({ lang, sections }: Props) {
   const [busy, setBusy] = useState<string | null>(null);
   const [openFailed, setOpenFailed] = useState(false);
   const editionCache = useRef(new Map<string, Snapshot>());
-  const needle = useDeferredValue(q).trim().toLowerCase();
+  const deferred = useDeferredValue(q);
+
+  // The top bar's search lands here as `?q=…` (all results) or `?open=<date>/<id>` (one story).
+  const params = useSearchParams();
+  const wanted = params.get("open");
+  useEffect(() => {
+    const initial = params.get("q");
+    if (initial) setQ(initial);
+  }, [params]);
 
   useEffect(() => {
     const ctl = new AbortController();
@@ -64,13 +62,12 @@ export default function StoriesView({ lang, sections }: Props) {
     return () => ctl.abort();
   }, [attempt]);
 
-  const haystack = useMemo(
-    () => rows?.map((r) => `${r.t.ko} ${r.t.en} ${r.m.ko} ${r.m.en} ${r.src}`.toLowerCase()) ?? [],
-    [rows],
-  );
+  const prepared = useMemo(() => prepare(rows ?? []), [rows]);
+  const tokens = useMemo(() => parseQuery(deferred), [deferred]);
   const results = useMemo(
-    () => (rows ?? []).filter((r, i) => (filter === "all" || r.s === filter) && (!needle || haystack[i].includes(needle))),
-    [rows, haystack, filter, needle],
+    () =>
+      prepared.filter((p) => (filter === "all" || p.row.s === filter) && (!tokens.length || score(p, tokens) > 0)).map((p) => p.row),
+    [prepared, filter, tokens],
   );
 
   // Rows arrive newest edition first, so consecutive rows with the same date form one group.
@@ -110,6 +107,16 @@ export default function StoriesView({ lang, sections }: Props) {
       setBusy(null);
     }
   };
+
+  useEffect(() => {
+    if (!wanted || !rows) return;
+    const next = new URLSearchParams(params);
+    next.delete("open"); // one-shot, so the same story can be picked again
+    window.history.replaceState(null, "", `?${next}`);
+    const cut = wanted.indexOf("/");
+    const r = rows.find((x) => x.d === wanted.slice(0, cut) && x.id === wanted.slice(cut + 1));
+    if (r) void open(r);
+  }, [wanted, rows]);
 
   const status = openFailed ? u.openFailed : failed ? null : rows === null ? u.loading : results.length ? u.resultCount(results.length) : null;
 

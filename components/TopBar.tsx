@@ -4,6 +4,7 @@ import { BRAND, LANGS, ui } from "@/lib/i18n";
 import DateNav from "./DateNav";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
+import TopSearch from "./TopSearch";
 import styles from "./TopBar.module.css";
 
 type Props = {
@@ -18,38 +19,72 @@ type Props = {
 };
 
 /**
- * The only chrome, always one row: logo, the three menu items (지면 | 지난 호 | 기사), then edition picker (editions only),
- * theme toggle and language. Every item is centred on the same line; controls are 32px tall.
+ * The only chrome, always one row: logo and the three menu items (지면 | 지난 호 | 기사) on the left, the edition picker
+ * (editions only) in the middle, search, theme toggle and language on the right. Every item is centred on the same
+ * line; controls are 32px tall.
  */
 export default function TopBar({ lang, dates, date, issue, kind }: Props) {
   const u = ui(lang);
   const home = lang === "ko" ? "/" : `/${lang}/`;
   const langHref = (l: Lang) =>
-    kind === "edition" ? (date ? `/${l}/${date}/` : l === "ko" ? "/" : `/${l}/`) : `/${l}/${kind}/`;
+    kind === "edition"
+      ? date
+        ? `/${l}/${date}/`
+        : l === "ko"
+          ? "/"
+          : `/${l}/`
+      : `/${l}/${kind}/`;
 
   return (
     <header className={styles.bar} lang={lang}>
-      <Link href={home} className={styles.logo} aria-label={`${BRAND.name}, ${u.home}`}>
-        <Logo />
-      </Link>
-      <nav className={styles.menu} aria-label={u.menu}>
-        <Link href={home} className={styles.item} aria-current={kind === "edition" ? "page" : undefined}>
-          {u.menuEdition}
+      <div className={styles.left}>
+        <Link
+          href={home}
+          className={styles.logo}
+          aria-label={`${BRAND.name}, ${u.home}`}
+        >
+          <Logo />
         </Link>
-        <Link href={`/${lang}/archive/`} className={styles.item} aria-current={kind === "archive" ? "page" : undefined}>
-          {u.menuArchive}
-        </Link>
-        <Link href={`/${lang}/stories/`} className={styles.item} aria-current={kind === "stories" ? "page" : undefined}>
-          {u.menuStories}
-        </Link>
-      </nav>
+        <nav className={styles.menu} aria-label={u.menu}>
+          <Link
+            href={home}
+            className={styles.item}
+            aria-current={kind === "edition" ? "page" : undefined}
+          >
+            {u.menuEdition}
+          </Link>
+          <Link
+            href={`/${lang}/archive/`}
+            className={styles.item}
+            aria-current={kind === "archive" ? "page" : undefined}
+          >
+            {u.menuArchive}
+          </Link>
+          <Link
+            href={`/${lang}/stories/`}
+            className={styles.item}
+            aria-current={kind === "stories" ? "page" : undefined}
+          >
+            {u.menuStories}
+          </Link>
+        </nav>
+      </div>
+      <div className={styles.center}>
+        {kind === "edition" && (
+          <DateNav lang={lang} dates={dates} date={date} issue={issue} />
+        )}
+      </div>
       <div className={styles.tools}>
-        {kind === "edition" && <DateNav lang={lang} dates={dates} date={date} issue={issue} />}
+        <TopSearch lang={lang} />
         <ThemeToggle lang={lang} />
         <div className={styles.lang} role="group" aria-label={u.language}>
           {LANGS.map((l) =>
             l === lang ? (
-              <span key={l} className={`${styles.langCell} ${styles.on}`} aria-current="true">
+              <span
+                key={l}
+                className={`${styles.langCell} ${styles.on}`}
+                aria-current="true"
+              >
                 {l.toUpperCase()}
               </span>
             ) : (
