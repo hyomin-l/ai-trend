@@ -4,6 +4,7 @@ import AppKit
 import SwiftUI
 
 let brand = "AI Trend" // 사용자에게 보이는 서비스 이름은 여기 한 곳뿐 — 이름이 바뀌면 이 줄만 고친다.
+let petName = "애트라"
 let defaults = UserDefaults(suiteName: "io.github.hyomin-l.deskpet")! // 번들 없는 실행 파일이라 도메인을 명시 (LaunchAgent Label과 동일)
 
 // MARK: - 데이터
@@ -112,7 +113,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let b = statusItem.button {
             let img = NSImage(systemSymbolName: "newspaper", accessibilityDescription: brand)
-            b.toolTip = brand
+            b.toolTip = "\(petName) · \(brand)"
             img?.isTemplate = true
             b.image = img
             if img == nil { b.title = "●" }
@@ -351,7 +352,7 @@ struct PetView: View {
                     .frame(width: 240 * s, height: 190 * s, alignment: .topLeading)
             }
             .overlay(DragTap(onTap: pet.petTapped))
-            .accessibilityLabel("\(brand) 펫")
+            .accessibilityLabel("\(petName), \(brand) 펫")
             .accessibilityAddTraits(.isButton)
             .accessibilityAction { pet.petTapped() }
     }

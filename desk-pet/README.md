@@ -1,6 +1,6 @@
-# desk-pet
+# desk-pet — 애트라(Atra)
 
-새 판이 나오면 말풍선으로 알려 주는 macOS 데스크톱 펫(모찌 블롭). Swift + AppKit + SwiftUI 단일 파일, 외부 패키지 없음. Dock 아이콘 없이 메뉴바에만 상주한다.
+새 판이 나오면 말풍선으로 알려 주는 macOS 데스크톱 펫 **애트라**(AI Trend의 AT에서 따온 이름, 마젠타 모찌 블롭). Swift + AppKit + SwiftUI 단일 파일, 외부 패키지 없음. Dock 아이콘 없이 메뉴바에만 상주한다.
 
 ## 빌드
 

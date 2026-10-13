@@ -27,7 +27,7 @@ GitHub Actions (월·수·금 05:17 KST)
 | 현장의 AX | Google News RSS: 건설·금융·물류·유통·미디어 × AI (국문·영문) |
 | 급상승 레포 | GitHub Search API (최근 30일 생성, ★/일 순) |
 | 커뮤니티 펄스 | Hacker News, Reddit, GeekNews |
-| 플레이북 | Simon Willison, Latent Space, UX Collective, NN/g |
+| 플레이북 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g |
 
 토큰 절약 설계:
 - 수집은 결정적 코드가 맡는다.
@@ -53,7 +53,7 @@ npm test                   # vitest
 
 ## Desk Pet
 
-[desk-pet/README.md](desk-pet/README.md) — Swift 단일 파일. `cd desk-pet && ./build.sh && ./DeskPet`
+[desk-pet/README.md](desk-pet/README.md) — 펫 이름은 **애트라(Atra)**. Swift 단일 파일. `cd desk-pet && ./build.sh && ./DeskPet`
 
 ## 기술 스택
 
