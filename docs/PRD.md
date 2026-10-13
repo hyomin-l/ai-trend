@@ -16,7 +16,7 @@
 
 ## Solution
 
-**월·수·금 07:00(KST)에 자동으로 발행되는 AI 신문.**
+**월·수·금 새벽(05:17 KST)에 자동으로 발행되는 AI 신문.**
 
 1. 수집기가 공개 API와 RSS로 원천을 모아 중복을 제거한다.
 2. 구독 중인 Claude(`claude -p`)를 **1회만** 호출해 섹션 분류, 선별, 한/영 1~2문장 요약을 받는다.
@@ -80,7 +80,7 @@
    - 지역 칩(button)을 클릭하면 해당 지역 기사만 강조한다. 키보드로도 조작할 수 있다.
    - `prefers-reduced-motion`이면 회전하지 않는다.
 6. **schedule-deploy**: GitHub Actions.
-   - cron `0 22 * * 0,2,4`(UTC) = 월·수·금 07:00 KST. 수동 실행(`workflow_dispatch`)도 지원한다.
+   - cron `17 20 * * 0,2,4`(UTC) = 월·수·금 05:17 KST. 06:20 출근 전 발행이 목표이며, 정각 혼잡을 피해 17분에 둔다. 수동 실행(`workflow_dispatch`)도 지원한다.
    - 순서: collect → 스냅샷 commit → `next build`(static export) → GitHub Pages 배포.
    - 인증: `claude setup-token`으로 발급한 구독 OAuth 토큰을 `CLAUDE_CODE_OAUTH_TOKEN` 시크릿으로 둔다(사용자가 직접 등록).
 7. **search**: 사이트 내 검색.
