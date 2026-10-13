@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+// Empty for local dev; the workflow passes the Pages base path (e.g. /ai-trend, or "" for a user site).
 const basePath = process.env.BASE_PATH ?? "";
 
 const config: NextConfig = {

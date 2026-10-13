@@ -52,7 +52,7 @@ describe("fetchAll", () => {
     expect(calls).toHaveLength(SOURCES.length);
     for (const c of calls) {
       const headers = new Headers(c.init?.headers);
-      expect(headers.get("user-agent")).toBe("ai-trend/0.1 (+https://github.com/hyomin-l/ai-trend)");
+      expect(headers.get("user-agent")).toBe(`ai-trend/0.1 (+https://github.com/${process.env.GITHUB_REPOSITORY || "hyomin-l/ai-trend"})`);
       expect(c.init?.signal).toBeInstanceOf(AbortSignal);
     }
   });

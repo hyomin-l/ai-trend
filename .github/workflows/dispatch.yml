@@ -8,23 +8,21 @@ on:
     branches: [main]
     paths-ignore: ["data/snapshots/**", "desk-pet/**", "docs/**"]
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+permissions: {}
 
 concurrency:
   group: dispatch
   cancel-in-progress: false
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+    permissions:
+      contents: write # push the snapshot commit
+      pages: read # configure-pages reads the site URL / base path
     env:
       # Without the subscription token, skip collection instead of publishing an uncurated edition.
+      # (Only a boolean is computed here; the secret value itself is exposed to the collect step alone.)
       COLLECT: ${{ github.event_name != 'push' && secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -34,20 +32,33 @@ jobs:
           cache: npm
       - run: npm ci
 
-      - name: Collect edition
+      - name: Decide whether to collect
+        id: plan
         if: env.COLLECT == 'true'
-        env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # A delayed or duplicate scheduled run must not spend tokens on an edition that already exists.
           TODAY=$(TZ=Asia/Seoul date +%F)
-          if [ "${{ github.event_name }}" = schedule ] && [ -f "data/snapshots/$TODAY.json" ]; then echo "edition $TODAY already published"; exit 0; fi
-          npm i -g @anthropic-ai/claude-code@2.1.296
-          npm run collect
+          if [ "${{ github.event_name }}" = schedule ] && [ -f "data/snapshots/$TODAY.json" ]; then
+            echo "edition $TODAY already published"
+          else
+            echo "collect=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Install in its own step with no secrets in the environment. Scripts must stay on:
+      # the postinstall copies the platform binary over the bin/claude.exe stub.
+      - name: Install Claude CLI
+        if: steps.plan.outputs.collect == 'true'
+        run: npm i -g @anthropic-ai/claude-code@2.1.296
+
+      - name: Collect edition
+        if: steps.plan.outputs.collect == 'true'
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run collect
 
       - name: Commit snapshot
-        if: env.COLLECT == 'true'
+        if: steps.plan.outputs.collect == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -55,12 +66,26 @@ jobs:
           git diff --cached --quiet || { git commit -m "edition: $(TZ=Asia/Seoul date +%F)"; git push; }
 
       - run: npm test
+      - id: pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - run: npm run build
         env:
-          BASE_PATH: /ai-trend
-      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+          # Derived from the repo's Pages settings, so a fork builds for its own URL.
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - id: deploy
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

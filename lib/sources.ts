@@ -3,7 +3,7 @@ import { itemId, type Candidate } from "@/lib/prep";
 import { parseFeed } from "@/lib/rss";
 import type { SourceDef } from "@/types";
 
-const UA = "ai-trend/0.1 (+https://github.com/hyomin-l/ai-trend)";
+const UA = `ai-trend/0.1 (+https://github.com/${process.env.GITHUB_REPOSITORY || "hyomin-l/ai-trend"})`;
 const DAY = 86_400_000;
 
 async function get(url: string, headers: Record<string, string> = {}): Promise<string> {

@@ -9,7 +9,8 @@ export const CONFIG = {
   dedupeEditions: 10,
   returningGrowth: 1.5,
   recentHeadlineEditions: 3,
-  siteUrl: "https://hyomin-l.github.io/ai-trend",
+  // Set by the workflow from the repo's Pages settings; defaults to the original deployment.
+  siteUrl: process.env.SITE_URL || "https://hyomin-l.github.io/ai-trend",
 };
 
 export const SECTION_ORDER: Section[] = ["newsroom", "playbook", "pulse", "repos", "ax"];
