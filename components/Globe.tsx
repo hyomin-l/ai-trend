@@ -29,16 +29,29 @@ const HIT_RADIUS = 12; // px around a marker that still selects it
 /** phi that puts the given longitude in front of the camera (derived from cobe's lat/lng mapping). */
 const facing = (lng: number) => -Math.PI / 2 - (lng * Math.PI) / 180;
 
+/**
+ * cobe cuts each land dot out of its Fibonacci lattice with `smoothstep(8e-3, 0., g)`, g being the distance to the nearest lattice
+ * point on the unit sphere. At this size that is a disc only 1-2 device px wide whose edge covers well under a pixel, so as the
+ * globe turns the pixels under every dot flip on and off and the whole sphere sizzles. cobe has no option for it, so the one
+ * constant is widened in the shader source as it is handed to WebGL (instance-level on our own canvas' context, nothing global).
+ * `softened` below reports it when a cobe upgrade changes the string (tests/globe-shader.test.ts fails first).
+ */
+const DOT_MASK = "smoothstep(8e-3,0.,g)";
+const DOT_WIDER = "smoothstep(1.6e-2,0.,g)";
+
 type RGB = [number, number, number];
 
 /**
  * Dots on paper in the day edition (near-black land on an almost-paper sphere), light dots on ink in the night edition.
- * cobe shades land by `mapBrightness * dot coverage`; a high value saturates the dot core, which is what makes small dots crisp.
+ * cobe shades land by `mapBrightness * dot coverage`. The core must saturate (>1) to read as solid, but a high value (it was 14-24)
+ * clips the mask into a hard binary disc whose pixel count jumps as it moves, which is the sizzle; about 2.5 keeps the core solid
+ * and leaves a graded edge that supersampling can average. Measured on the day globe (second difference of a tracked dot's ink
+ * per frame, same total ink): 12% -> 5% with the wider mask below, peak darkness 10% -> 1.6%.
  */
 const palette = (night: boolean) =>
   night
-    ? { dark: 1, baseColor: [0.97, 0.96, 0.94] as RGB, glowColor: [0.03, 0.03, 0.03] as RGB, markerColor: [0.98, 0.36, 0.67] as RGB, mapBrightness: 14, mapBaseBrightness: 0.05, diffuse: 1.1 }
-    : { dark: 0, baseColor: [1.14, 1.14, 1.12] as RGB, glowColor: [0.97, 0.97, 0.96] as RGB, markerColor: [0.76, 0.09, 0.44] as RGB, mapBrightness: 24, mapBaseBrightness: 0.03, diffuse: 1 };
+    ? { dark: 1, baseColor: [0.97, 0.96, 0.94] as RGB, glowColor: [0.03, 0.03, 0.03] as RGB, markerColor: [0.98, 0.36, 0.67] as RGB, mapBrightness: 2.5, mapBaseBrightness: 0.05, diffuse: 1.1 }
+    : { dark: 0, baseColor: [1.14, 1.14, 1.12] as RGB, glowColor: [0.97, 0.97, 0.96] as RGB, markerColor: [0.76, 0.09, 0.44] as RGB, mapBrightness: 2.5, mapBaseBrightness: 0.03, diffuse: 1 };
 
 /** Is the page dark right now: the pinned <html data-theme>, else the system preference. */
 const isNight = () => {
@@ -78,10 +91,13 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
     const scheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-    // cobe wraps the canvas in its own <div>; create the canvas here so cleanup leaves React's DOM untouched.
+    // cobe renders into a canvas we never attach (it wraps it in a <div> of its own); what the page shows is `canvas`, a plain
+    // 2D canvas that `blit` fills from it. Cleanup therefore leaves React's DOM untouched.
+    const gl = document.createElement("canvas");
     const canvas = document.createElement("canvas");
     canvas.className = styles.canvas;
     el.appendChild(canvas);
+    const view = canvas.getContext("2d");
 
     let size = Math.round(el.clientWidth) || 170;
     let phi = facing(127);
@@ -102,10 +118,46 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
     let raf = 0;
     let visible = true;
 
-    const globe = createGlobe(canvas, {
+    /** Device pixels the canvas covers on screen, and cobe's supersampling (a whole multiple, so the downscale below is a clean box). */
+    const dpr = () => Math.max(1, window.devicePixelRatio || 1);
+    const oversample = () => Math.max(4, Math.ceil(dpr() * 2));
+    const fit = () => {
+      const px = Math.max(1, Math.round(el.getBoundingClientRect().width * dpr()));
+      if (canvas.width !== px) canvas.width = canvas.height = px;
+    };
+    /**
+     * Copy the frame cobe just drew onto the visible canvas, scaled down to exactly the device pixels it covers. Must run in the
+     * same task as the draw (cobe's canvas is not preserved). Why not let the browser scale cobe's canvas: cobe's dots are only
+     * ~1-2 device px, and a compositor bilinear downscale of an oversampled canvas reads just a few of the pixels under each
+     * device pixel, so dots flicker as they drift ("sizzle"), worst when the box is a fractional px wide or the page is zoomed.
+     * drawImage with high smoothing quality averages all of them, and the result is shown 1:1.
+     */
+    const blit = () => {
+      if (!view) return;
+      view.imageSmoothingEnabled = true;
+      view.imageSmoothingQuality = "high";
+      view.clearRect(0, 0, canvas.width, canvas.height);
+      view.drawImage(gl, 0, 0, canvas.width, canvas.height);
+    };
+    fit();
+
+    let softened = false;
+    const getContext = gl.getContext.bind(gl) as (type: string, options?: unknown) => any;
+    (gl as any).getContext = (type: string, options?: unknown) => {
+      const ctx = getContext(type, options);
+      const shaderSource = ctx?.shaderSource?.bind(ctx);
+      if (shaderSource)
+        ctx.shaderSource = (shader: WebGLShader, src: string) => {
+          if (src.includes(DOT_MASK)) softened = true;
+          shaderSource(shader, src.replace(DOT_MASK, DOT_WIDER));
+        };
+      return ctx;
+    };
+
+    const globe = createGlobe(gl, {
       width: size,
       height: size,
-      devicePixelRatio: 4, // supersampled: cobe dots are ~1 device px at 2x, so they flicker between 1 and 2 px as the globe turns; 4x renders them round and the browser smooths them down
+      devicePixelRatio: oversample(),
       phi,
       theta,
       mapSamples: samples(size),
@@ -128,11 +180,18 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
       });
     };
     const pulsing = () => preview !== null && COORDS[preview] !== undefined && !reduce.matches;
+    if (!softened) console.error("Globe: cobe's dot mask was not found in its shader; dots are unsoftened. Re-check DOT_MASK after a cobe upgrade.");
+
+    /** Every cobe update draws a frame; copy it out right away. */
+    const paint = (options: Parameters<typeof globe.update>[0]) => {
+      globe.update(options);
+      blit();
+    };
     const draw = () => {
       if (pulsing()) {
         markers = build((Math.sin((performance.now() / PULSE_MS) * TAU) + 1) / 2);
-        globe.update({ phi, theta, markers });
-      } else globe.update({ phi, theta });
+        paint({ phi, theta, markers });
+      } else paint({ phi, theta });
     };
     const running = () => visible && !document.hidden && !reduce.matches;
 
@@ -239,7 +298,7 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
     canvas.addEventListener("pointercancel", onUp);
 
     const restyle = () => {
-      globe.update(palette(isNight()));
+      paint(palette(isNight()));
       draw();
     };
     // The palette follows the system and the in-page toggle (<html data-theme>).
@@ -255,15 +314,18 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
     });
     io.observe(el);
 
-    const ro = new ResizeObserver(() => {
+    const resize = () => {
       const next = Math.round(el.clientWidth);
+      fit();
       if (next && next !== size) {
         size = next;
         globe.update({ width: next, height: next, mapSamples: samples(next) });
-        draw();
       }
-    });
+      draw();
+    };
+    const ro = new ResizeObserver(resize);
     ro.observe(el);
+    window.addEventListener("resize", resize); // browser zoom changes the device pixel ratio without resizing the box
 
     ctl.current = {
       sync(next, filter, over) {
@@ -271,7 +333,7 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
         selected = filter;
         preview = over;
         markers = build(0.5);
-        globe.update({ markers });
+        paint({ markers });
         const focus = over ?? filter;
         const place = focus ? COORDS[focus] : undefined;
         target = place ? facing(place[1]) : null;
@@ -287,6 +349,7 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
       cancelAnimationFrame(raf);
       io.disconnect();
       ro.disconnect();
+      window.removeEventListener("resize", resize);
       themeWatch.disconnect();
       scheme.removeEventListener("change", restyle);
       reduce.removeEventListener("change", kick);
