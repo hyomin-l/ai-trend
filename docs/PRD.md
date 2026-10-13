@@ -35,24 +35,27 @@
 | `pulse` | Community Pulse | 커뮤니티 펄스 | 개발자·커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News(Algolia), Reddit RSS, GeekNews |
 | `newsroom` | Newsroom | 뉴스룸 | 국내외 AI·빅테크 주요 뉴스 | TechCrunch AI, The Verge AI, AI타임스 |
 | `ax` | AX in the Field | 현장의 AX | 산업별 AI 도입·전환 사례(국내외) | Google News RSS: 업종 키워드 × AI |
-| `craft` | Craft | 일하는 방식 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, UX Collective, NN/g |
+| `playbook` | Playbook | 플레이북 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, UX Collective, NN/g |
 
-`ax` 업종 키워드(`config/sources.ts`, 편집 가능): 건설·건자재·시멘트 / 금융·증권 / 물류 / 유통·리테일 / 미디어·방송. 국문 쿼리와 영문 쿼리를 함께 수집한다. 화면에는 특정 회사명이 드러나지 않고 업종 태그만 표시한다.
+`ax` 업종 키워드(`config/sources.ts`, 편집 가능): 건설·건자재·시멘트 / 금융·증권 / 물류 / 유통·리테일 / 미디어·방송. 국문 쿼리와 영문 쿼리를 함께 수집한다. 기사 속 회사명은 그대로 노출하고, 카드에 업종 태그를 붙인다.
 
 ## Features
 
 1. **collector**: 원천 수집과 전처리.
    - 소스 어댑터(GitHub, HN, RSS 공용)가 병렬로 수집하고, 정규화 `RawItem{id, source, section, title, url, snippet, publishedAt, metrics}`으로 변환한다.
-   - 전처리: URL 정규화 중복 제거 → 기간 필터(최근 72h, 레포는 30일) → 소스별 상위 N개 → 전체 약 80건.
+   - 전처리: URL 정규화 중복 제거 → 기간 필터(최근 72h, 레포는 30일) → **이전 판 중복 제거** → 소스별 상위 N개 → 전체 약 80건.
+   - 이전 판 중복 제거: 최근 10개 판에 실린 id(URL 해시)는 후보에서 제외한다. 레포만 예외로, 마지막 등장 대비 ★가 +50% 이상 늘었으면 "재등장"으로 다시 후보에 넣는다.
+   - 레포 순위는 ★ 속도(stars ÷ 생성 후 일수)로 매긴다.
    - 소스 하나가 실패해도 나머지로 계속 진행하고, 실패한 소스를 `failedSources`에 기록한다.
 2. **curator**: `claude -p` 1회 호출.
-   - 입력: 약 80건의 `{id, source, section 후보, title, snippet ≤200자}`.
+   - 입력: 약 80건의 `{id, source, section 후보, title, snippet ≤200자}` + 직전 3개 판의 헤드라인 목록.
+   - 지시: 같은 사건은 1건으로 합치고, 직전 판에서 다룬 사건은 새로운 진전이 없으면 제외한다.
    - 출력: JSON `{front:[id×3], items:[{id, section, region, industry?, title{ko,en}, summary{ko,en}}]}` 약 30건.
    - **URL·지표는 원천 데이터에서만 가져온다.** LLM이 만든 링크는 쓰지 않는다(환각 차단). 원천에 없는 id는 버린다.
    - 실패 시(프로세스 오류, JSON 파싱 실패, 시간 초과) 원문 제목·스니펫으로 `curated:false` 판을 발행한다.
 3. **snapshot-store**: `data/snapshots/YYYY-MM-DD.json` 저장, 목록, 조회.
    - 호수(issue)는 스냅샷 개수 + 1이다.
-   - 직전 판과 비교해 레포의 `starsDelta`(★ 증가량)를 계산한다.
+   - 재등장 레포는 마지막 등장 판 대비 `starsDelta`(★ 증가량)를 계산한다.
    - 같은 날 재실행하면 덮어쓴다.
 4. **edition-web**: 지면 화면.
    - 경로: `/` = 최신판(ko), `/[lang]/[date]` = 특정 판, `/latest.json` = 최신판 원본(Desk Pet용).
@@ -70,7 +73,8 @@
    - 순서: collect → 스냅샷 commit → `next build`(static export) → GitHub Pages 배포.
    - 인증: `claude setup-token`으로 발급한 구독 OAuth 토큰을 `CLAUDE_CODE_OAUTH_TOKEN` 시크릿으로 둔다(사용자가 직접 등록).
 7. **desk-pet** (Phase 2): macOS 데스크톱 캐릭터.
-   - Swift 단일 파일을 `swiftc`로 빌드한다. 투명 always-on-top 창 위의 작은 잉크방울 신문배달 캐릭터가 화면 하단을 천천히 오간다.
+   - Swift 단일 파일을 `swiftc`로 빌드한다. 투명 always-on-top 창 위에 미니멀 봇이 떠 있다.
+   - 봇 디자인: 무광 블랙 구체 + 빛나는 알약형 눈 2개. 그라데이션 하이라이트와 그림자로 입체감을 주고, 둥실 떠다니며 가끔 눈을 깜빡인다. 드래그로 위치를 옮길 수 있다.
    - 30분마다 `/latest.json`을 확인해 새 판이면 리드 헤드라인을 말풍선으로 띄운다.
    - 클릭하면 사이트를 연다. 메뉴바 아이콘으로 종료하거나 숨길 수 있다.
 
@@ -93,6 +97,7 @@
   - 대신 크리에이터들이 주로 인용하는 원천(HN·Reddit·GitHub·GeekNews·공식 블로그)을 직접 수집한다.
 - **Claude가 웹을 직접 검색하는 에이전트 방식:** 토큰이 10배 이상 들고 링크 환각 위험이 있다.
 - **DB(SQLite 등):** 하루 1파일 JSON 스냅샷으로 충분하다.
+- **웹 검색 API(Tavily 등):** 현재 원천은 모두 링크를 직접 주고, 키워드 검색이 필요한 `ax`는 Google News RSS가 무료로 대신한다. 뉴스가 아닌 웹 자료(백서, 사례 리포트)가 필요해지면 키가 있을 때만 켜지는 선택형 원천으로 추가한다.
 - **로그인·멀티유저, 사이트 내 검색, 메신저 푸시, md 내보내기, Hugging Face 등 추가 원천:** 필요가 확인되면 추가한다.
 
 ## Further Notes
@@ -126,7 +131,7 @@ types/index.ts         타입 단일 관리
   "front": ["id"],
   "items": [{
     "id": "sha1(url)",
-    "section": "repos|pulse|newsroom|ax|craft",
+    "section": "repos|pulse|newsroom|ax|playbook",
     "source": "GitHub",
     "url": "https://...",
     "publishedAt": "ISO",
@@ -134,16 +139,17 @@ types/index.ts         타입 단일 관리
     "industry": "construction|finance|logistics|retail|media",
     "title": {"ko": "", "en": ""},
     "summary": {"ko": "", "en": ""},
-    "metrics": {"stars": 0, "starsDelta": 0, "points": 0, "comments": 0, "language": ""}
+    "metrics": {"stars": 0, "starsPerDay": 0, "starsDelta": 0, "points": 0, "comments": 0, "language": ""},
+    "returning": false
   }]
 }
 ```
 
 **테스트 (vitest, 네트워크·LLM은 고정 응답)**
 - RSS/Atom 파싱(CDATA, Atom link href)
-- 전처리(중복 URL, 기간 밖 제외, 소스별 상한)
+- 전처리(중복 URL, 기간 밖 제외, 이전 판 중복 제외와 레포 재등장 규칙, 소스별 상한)
 - curate 응답 검증(없는 id 제거, 깨진 JSON → 폴백)
-- starsDelta 계산, 호수 증가
+- ★ 속도·starsDelta 계산, 호수 증가
 
 **디자인 방향:** 에디토리얼 신문.
 - 세리프 헤드라인 + 산세리프 본문, 종이 톤 배경 + 잉크 블랙, 포인트 컬러 1색, 다크모드.
