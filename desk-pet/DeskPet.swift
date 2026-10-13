@@ -3,8 +3,13 @@
 import AppKit
 import SwiftUI
 
-let brand = "AI Trend" // 사용자에게 보이는 서비스 이름은 여기 한 곳뿐 — 이름이 바뀌면 이 줄만 고친다.
+// MARK: - 포크 시 고칠 상수 (여기 한 곳)
+let brand = "AI Trend" // 사용자에게 보이는 서비스 이름 — lib/i18n.ts BRAND.name과 같게
 let petName = "애트라"
+let defaultSiteURL = "https://hyomin-l.github.io/ai-trend" // 기본 서버. DISPATCH_URL 환경변수가 우선한다. 포크는 자기 Pages 주소로
+// 섹션 키 → 말풍선 라벨. config/sections.ts의 한국어 이름과 같게
+let sectionLabel = ["newsroom": "뉴스룸", "ax": "현장의 AX", "repos": "급상승 레포", "pulse": "커뮤니티", "playbook": "AI 플레이북"]
+
 let defaults = UserDefaults(suiteName: "io.github.hyomin-l.deskpet")! // 번들 없는 실행 파일이라 도메인을 명시 (LaunchAgent Label과 동일)
 
 // MARK: - 데이터
@@ -27,9 +32,6 @@ struct Bubble: Equatable {
     let headline: String
     let link: String // 사이트 기준 상대 경로. 열 스토리를 알면 "/ko/stories/?open=<date>/<id>", 아니면 "".
 }
-
-// lib/i18n.ts SECTION_LABEL(ko)과 동일
-let sectionLabel = ["newsroom": "뉴스룸", "ax": "현장의 AX", "repos": "급상승 레포", "pulse": "커뮤니티", "playbook": "AI 플레이북"]
 
 func caption(_ date: String, _ section: String? = nil) -> String {
     let d = date.split(separator: "-").compactMap { Int($0) }
@@ -91,12 +93,11 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
     private let demo = CommandLine.arguments.contains("--demo")
     private let base: String = {
         let v = ProcessInfo.processInfo.environment["DISPATCH_URL"] ?? ""
-        let def = "https://hyomin-l.github.io/ai-trend"
-        if v.isEmpty { return def }
+        if v.isEmpty { return defaultSiteURL }
         // https, 로컬 테스트용 http://localhost·127.0.0.1, file://만 허용
         let ok = ["https://", "http://localhost", "http://127.0.0.1", "file://"].contains { v.hasPrefix($0) }
         if !ok { log("DISPATCH_URL 무시(https·localhost·file만 허용): 기본 서버 사용") }
-        return ok ? v : def
+        return ok ? v : defaultSiteURL
     }()
     private var panel: NSPanel!
     private var statusItem: NSStatusItem!
