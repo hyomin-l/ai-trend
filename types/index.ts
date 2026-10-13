@@ -73,6 +73,4 @@ export interface SourceDef {
   cap: number;
   windowHours?: number;
   industry?: Industry;
-  /** Feed has no per-item dates but lists newest first: stamp items with fetch time and rely on cross-edition dedupe. */
-  undated?: boolean;
 }

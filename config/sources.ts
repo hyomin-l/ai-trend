@@ -56,7 +56,6 @@ export const SOURCES: SourceDef[] = [
   { id: "simonw", name: "Simon Willison", kind: "rss", url: "https://simonwillison.net/atom/everything/", section: "playbook", cap: 5 },
   { id: "latentspace", name: "Latent Space", kind: "rss", url: "https://www.latent.space/feed", section: "playbook", cap: 3, windowHours: 168 },
   { id: "uxcollective", name: "UX Collective", kind: "rss", url: "https://uxdesign.cc/feed", section: "playbook", cap: 4, windowHours: 168 },
-  { id: "yozm", name: "요즘IT", kind: "rss", url: "https://yozm.wishket.com/magazine/feed/", section: "playbook", cap: 4, windowHours: 168, undated: true },
   { id: "oneusefulthing", name: "One Useful Thing", kind: "rss", url: "https://www.oneusefulthing.org/feed", section: "playbook", cap: 2, windowHours: 168 },
   { id: "nngroup", name: "NN/g", kind: "rss", url: "https://www.nngroup.com/feed/rss/", section: "playbook", cap: 3, windowHours: 168 },
 ];

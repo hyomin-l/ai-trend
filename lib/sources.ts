@@ -64,7 +64,7 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
   return feed.map((f) => {
     // Google News titles end with " - Publisher"; surface the real outlet as the source.
     const m = s.name === "Google News" ? f.title.match(/^(.*\S)\s+-\s+([^-]+)$/) : null;
-    return { ...base, ...f, ...(m && { title: m[1], source: m[2].trim() }), publishedAt: f.publishedAt ?? (s.undated ? now.toISOString() : undefined), id: itemId(f.url), industry: s.industry };
+    return { ...base, ...f, ...(m && { title: m[1], source: m[2].trim() }), id: itemId(f.url), industry: s.industry };
   });
 }
 
