@@ -98,6 +98,10 @@
   top: var(--s3);
   right: 0;
   z-index: 1;
+  /* Same box as the headline's first line, link centred in it, so 원문 ↗ shares the title's first line however long the title wraps. */
+  display: flex;
+  align-items: center;
+  height: calc(16.5px * 1.35);
 }
 
 .more {
