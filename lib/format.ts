@@ -1,5 +1,4 @@
 import type { Item, Lang } from "@/types";
-import { ui } from "@/lib/i18n";
 
 /** True only for absolute http(s) URLs; the single gate for anything rendered as an external href. */
 export function isWebUrl(u: string): boolean {
@@ -52,7 +51,7 @@ const kst = (ms: number) => {
 };
 const p2 = (n: number) => String(n).padStart(2, "0");
 
-/** "2026-10-13 14:05 KST": the exact time behind a relative or date-only label (tooltip text). */
+/** "2026-10-13 14:05 KST": the exact time behind a displayed time label (tooltip text). */
 export function kstStamp(iso: string) {
   const t = Date.parse(iso);
   if (Number.isNaN(t)) return "";
@@ -61,21 +60,18 @@ export function kstStamp(iso: string) {
 }
 
 /**
- * Time measured against the edition's generatedAt, never the wall clock (the page is static).
- * Under 24h: relative ("방금", "n분 전", "n시간 전"). From 24h: the KST calendar date, with the year only when it differs from the edition's.
+ * Absolute KST time, measured against the edition's generatedAt only for the year (never the wall clock; the page is static).
+ * "10월 14일 14:05" / "Oct 14, 14:05"; the year is added when it differs from the edition's. `dateOnly` drops the clock (repo creation).
  */
-export function relTime(iso: string, ref: string, lang: Lang) {
+export function fmtWhen(iso: string, ref: string, lang: Lang, dateOnly = false) {
   const t = Date.parse(iso);
   const r = Date.parse(ref);
   if (Number.isNaN(t) || Number.isNaN(r)) return "";
-  const u = ui(lang);
-  const min = Math.max(0, Math.round((r - t) / 60_000));
-  if (min < 1) return u.relNow;
-  if (min < 60) return u.relMin(min);
-  if (min < 24 * 60) return u.relHour(Math.floor(min / 60));
-  const { y, m, d } = kst(t);
-  if (lang === "ko") return y === kst(r).y ? `${m}월 ${d}일` : `${y}년 ${m}월 ${d}일`;
-  return y === kst(r).y ? `${MON_EN[m - 1]} ${d}` : `${MON_EN[m - 1]} ${d}, ${y}`;
+  const { y, m, d, hh, mm } = kst(t);
+  const year = y !== kst(r).y;
+  const clock = `${p2(hh)}:${p2(mm)}`;
+  if (lang === "ko") return `${year ? `${y}년 ` : ""}${m}월 ${d}일${dateOnly ? "" : ` ${clock}`}`;
+  return `${MON_EN[m - 1]} ${d}${year ? `, ${y}` : ""}${dateOnly ? "" : `, ${clock}`}`;
 }
 
 /** 12,400 (fixed locale so server and client render identically) */

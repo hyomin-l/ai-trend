@@ -72,6 +72,12 @@ export function validateSnapshot(s: unknown, file: string): string[] {
       else for (const [k, v] of Object.entries(it.metrics))
         if (typeof v === "number" && !(Number.isFinite(v) && v >= 0 && v < MAX_METRIC)) err(w, `metrics.${k} out of range: ${v}`);
     }
+    if (it.related !== undefined) {
+      if (!Array.isArray(it.related)) err(w, "related must be an array");
+      else it.related.forEach((r: any, j: number) => {
+        if (!isStr(r?.source) || !isStr(r?.url) || !isWebUrl(r.url)) err(w, `related #${j} needs a source and an http(s) url`);
+      });
+    }
     // An uncurated (--no-llm) edition copies feed snippets and has no takeaway, so only the title is required there.
     for (const f of snap.curated === false ? ["title"] : ["title", "summary", "takeaway"])
       if (!isL10n(it[f])) err(w, `${f} needs non-empty ko and en`);

@@ -52,6 +52,8 @@ export interface Item {
   takeaway: L10n;
   metrics?: Metrics;
   returning?: boolean;
+  /** Other candidates covering the same event (source name and link only, filled from collected candidates). */
+  related?: { source: string; url: string }[];
 }
 
 /** Plain-language explanation of a hard concept or new model/service/project name in this edition. */

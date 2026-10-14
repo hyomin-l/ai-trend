@@ -4,7 +4,7 @@ import { Fragment, type ReactNode } from "react";
 import type { Item, Lang, Section } from "@/types";
 import { SECTION_LABEL, industryTag, ui } from "@/lib/i18n";
 import { fmtCompact } from "@/lib/format";
-import RelTime from "./RelTime";
+import WhenTime from "./WhenTime";
 import { IconDownload, IconFork, IconHeart, IconStar } from "./Icons";
 import Metric from "./Metric";
 import Dialog from "./Dialog";
@@ -29,7 +29,7 @@ function metaOf(item: Item, lang: Lang, generatedAt: string): ReactNode[] {
   if (m?.likes != null) out.push(<Metric key="l" icon={<IconHeart size={12} />} label={u.m.likes} value={fmtCompact(m.likes)} />);
   if (m?.downloads != null) out.push(<Metric key="d" icon={<IconDownload size={12} />} label={u.m.downloads} value={fmtCompact(m.downloads)} />);
   if (m?.points != null) out.push(u.pts(String(m.points)));
-  out.push(<RelTime key="t" iso={item.publishedAt} at={generatedAt} lang={lang} />);
+  out.push(<WhenTime key="t" iso={item.publishedAt} at={generatedAt} lang={lang} />);
   return out;
 }
 

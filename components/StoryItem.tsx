@@ -2,7 +2,7 @@ import type { Item, Lang } from "@/types";
 import { industryTag, ui } from "@/lib/i18n";
 import { Fragment, type ReactNode } from "react";
 import { fmtNum } from "@/lib/format";
-import RelTime from "./RelTime";
+import WhenTime from "./WhenTime";
 import { Glossed, type GlossPlan } from "./Glossary";
 import styles from "./StoryItem.module.css";
 
@@ -21,12 +21,12 @@ export default function StoryItem({ item, lang, generatedAt, gloss, dimmed, onOp
   const u = ui(lang);
   const m = item.metrics;
 
-  const meta: ReactNode[] = [item.source];
+  // The time leads: the one-line meta ellipsizes at its tail on desktop, and a clipped time is worse than a clipped source.
+  const meta: ReactNode[] = [<WhenTime key="t" iso={item.publishedAt} at={generatedAt} lang={lang} />, item.source];
   if (item.section === "pulse") {
     if (m?.points != null) meta.push(u.pts(fmtNum(m.points)));
     if (m?.comments != null) meta.push(u.cmt(fmtNum(m.comments)));
   }
-  meta.push(<RelTime key="t" iso={item.publishedAt} at={generatedAt} lang={lang} />);
 
   return (
     <article className={styles.item} data-dim={dimmed || undefined} data-fit={item.section}>

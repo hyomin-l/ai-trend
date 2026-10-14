@@ -2,7 +2,7 @@ import type { Item, Lang } from "@/types";
 import { ui } from "@/lib/i18n";
 import { fmtCompact, fmtNum, parseRepoTitle, repoDesc } from "@/lib/format";
 import { IconDownload, IconFork, IconHeart, IconStar, IconTrend } from "./Icons";
-import RelTime from "./RelTime";
+import WhenTime from "./WhenTime";
 import Metric from "./Metric";
 import { Glossed, type GlossPlan } from "./Glossary";
 import styles from "./RepoItem.module.css";
@@ -53,7 +53,7 @@ export default function RepoItem({ item, lang, generatedAt, gloss, dimmed, onOpe
             {/* publishedAt == generatedAt means the creation date is unknown */}
             {showBorn && (
               <span className={styles.born}>
-                <RelTime iso={item.publishedAt} at={generatedAt} lang={lang} wrap={u.created} />
+                <WhenTime iso={item.publishedAt} at={generatedAt} lang={lang} wrap={u.created} dateOnly />
               </span>
             )}
           </>
@@ -76,7 +76,7 @@ export default function RepoItem({ item, lang, generatedAt, gloss, dimmed, onOpe
             {/* publishedAt == generatedAt means the creation date could not be looked up */}
             {showBorn && (
               <span className={styles.born}>
-                <RelTime iso={item.publishedAt} at={generatedAt} lang={lang} wrap={u.created} />
+                <WhenTime iso={item.publishedAt} at={generatedAt} lang={lang} wrap={u.created} dateOnly />
               </span>
             )}
           </span>

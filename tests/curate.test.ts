@@ -3,8 +3,8 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { RawItem } from "@/types";
-import { SYSTEM_PROMPT } from "@/config/prompt";
-import { SECTION_ORDER } from "@/config/sections";
+import { CRITERIA, SYSTEM_PROMPT } from "@/config/prompt";
+import { SECTIONS, SECTION_ORDER } from "@/config/sections";
 import { runClaude } from "@/lib/claude";
 import { buildPrompt, curate, fallbackCuration, parseCuration } from "@/lib/curate";
 
@@ -143,6 +143,28 @@ describe("parseCuration", () => {
   });
 });
 
+describe("parseCuration also", () => {
+  const cands = [
+    raw("n1", { source: "NewsA" }), raw("n2", { source: "NewsB", url: "https://b.com/n2" }),
+    raw("n3", { source: "NewsC" }), raw("n4", { source: "NewsD" }), raw("n5", { source: "NewsE" }),
+    raw("n6", { source: "NewsF" }), raw("n7", { source: "NewsG" }),
+  ];
+  const parse = (also: unknown, extra: unknown[] = []) => parseCuration(json([entry("n1", { also }), ...extra]), cands)!.items[0].related;
+
+  it("fills source and url from the candidates, not from model text", () => {
+    expect(parse(["n2"])).toEqual([{ source: "NewsB", url: "https://b.com/n2" }]);
+  });
+  it("drops unknown ids, itself, selected items and duplicates", () => {
+    expect(parse(["zzz", "n1", "n3", "n2", "n2"], [entry("n3")])).toEqual([{ source: "NewsB", url: "https://b.com/n2" }]);
+  });
+  it("caps at 4", () => {
+    expect(parse(["n2", "n3", "n4", "n5", "n6", "n7"])).toHaveLength(4);
+  });
+  it("omits related when absent, empty or malformed", () => {
+    for (const v of [undefined, [], "n2", [{ id: "n2" }], ["zzz"]]) expect(parse(v)).toBeUndefined();
+  });
+});
+
 describe("parseCuration glossary", () => {
   const items = [entry("a1")];
   const parse = (glossary: unknown) => parseCuration(json(items, ["a1"], glossary), candidates)!.glossary;
@@ -268,6 +290,17 @@ describe("buildPrompt / SYSTEM_PROMPT", () => {
     for (const k of [...SECTION_ORDER, "KR", "GLOBAL", "construction", "media", "front", "takeaway"])
       expect(SYSTEM_PROMPT).toContain(k);
     expect(SYSTEM_PROMPT).toMatch(/JSON/);
+  });
+});
+
+describe("SYSTEM_PROMPT composition", () => {
+  it("asks for the also field and lists sections from config", () => {
+    expect(SYSTEM_PROMPT).toContain('"also":["id"]');
+    expect(SYSTEM_PROMPT).toMatch(/also: 같은 사건/);
+    for (const s of SECTION_ORDER) expect(SYSTEM_PROMPT).toContain(`- ${s}: ${SECTIONS[s].brief}`);
+  });
+  it("includes every CRITERIA bullet", () => {
+    for (const c of CRITERIA) expect(SYSTEM_PROMPT).toContain(`- ${c}`);
   });
 });
 

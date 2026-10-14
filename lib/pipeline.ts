@@ -1,4 +1,6 @@
+import { sectionFlag } from "@/config/sections";
 import { CONFIG } from "@/config/sources";
+import { itemId } from "@/lib/prep";
 import type { GlossaryEntry, Item, Snapshot } from "@/types";
 
 export const kstDate = (now: Date) => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(now); // YYYY-MM-DD
@@ -12,7 +14,14 @@ export type Seen = { stars?: number; ago: number };
 export function seenMap(previous: Snapshot[], n: number): Map<string, Seen> {
   const seen = new Map<string, Seen>();
   newest(previous, n).forEach((s, k) => {
-    for (const i of s.items) if (!seen.has(i.id)) seen.set(i.id, { stars: i.metrics?.stars, ago: k + 1 });
+    for (const i of s.items) {
+      if (!seen.has(i.id)) seen.set(i.id, { stars: i.metrics?.stars, ago: k + 1 });
+      // other-source versions of a published event must not return next edition as new candidates
+      for (const r of i.related ?? []) {
+        const id = itemId(r.url);
+        if (!seen.has(id)) seen.set(id, { ago: k + 1 });
+      }
+    }
   });
   return seen;
 }
@@ -21,8 +30,7 @@ export const recentHeadlines = (previous: Snapshot[], n: number): string[] =>
   newest(previous, n).flatMap((s) => s.items.map((i) => i.title.ko));
 
 /**
- * Post-curation freshness guard: the curator may move an older item (e.g. a week-old Reddit post) into newsroom, ax or
- * pulse, so the FINAL section decides. Those sections keep only items <= CONFIG.windowHours old; playbook (slow feeds)
+ * Post-curation freshness guard: the curator may move an older item (e.g. a week-old Reddit post) into a fresh section, so the FINAL section decides. The sections flagged `fresh` in config/sections.ts keep only items <= CONFIG.windowHours old; playbook (slow feeds)
  * and repos (ranked by star growth) are exempt. Dropped ids leave `front`, which is refilled from the remaining items.
  */
 export function dropStale(
@@ -31,7 +39,7 @@ export function dropStale(
 ): { front: string[]; items: Item[] } {
   const limit = CONFIG.windowHours * 3_600_000;
   const items = c.items.filter(
-    (i) => !["newsroom", "ax", "pulse"].includes(i.section) || now.getTime() - Date.parse(i.publishedAt) <= limit,
+    (i) => !sectionFlag(i.section, "fresh") || now.getTime() - Date.parse(i.publishedAt) <= limit,
   );
   if (items.length === c.items.length) return c;
   const ids = new Set(items.map((i) => i.id));

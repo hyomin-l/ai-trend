@@ -3,7 +3,7 @@
 import type { GlossaryEntry, Item, Lang } from "@/types";
 import { REGION_LABEL, SECTION_LABEL, industryTag, ui } from "@/lib/i18n";
 import { fmtNum } from "@/lib/format";
-import RelTime from "./RelTime";
+import WhenTime from "./WhenTime";
 import Dialog from "./Dialog";
 import { termsIn } from "./Glossary";
 import OriginalLink from "./OriginalLink";
@@ -65,7 +65,7 @@ export default function ItemDialog({ item, lang, generatedAt, glossary, onClose 
           <h2 className={styles.headline}>{item.title[lang]}</h2>
           <p className={styles.meta}>
             <span>{item.source}</span>
-            <RelTime iso={item.publishedAt} at={generatedAt} lang={lang} />
+            <WhenTime iso={item.publishedAt} at={generatedAt} lang={lang} />
             <span>{REGION_LABEL[item.region][lang]}</span>
             {item.industry && <span>{industryTag(item.industry, lang)}</span>}
           </p>
@@ -75,6 +75,19 @@ export default function ItemDialog({ item, lang, generatedAt, glossary, onClose 
             <h3 className={`${styles.label} ${styles.why}`}>{u.why}</h3>
             <p className={styles.body}>{item.takeaway[lang]}</p>
           </section>
+
+          {!!item.related?.length && (
+            <section className={styles.block}>
+              <h3 className={styles.label}>{u.alsoCovered(item.related.length)}</h3>
+              <ul className={styles.also}>
+                {item.related.map((r) => (
+                  <li key={r.url}>
+                    <OriginalLink href={r.url} label={r.source} small />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {terms.length > 0 && (
             <section className={styles.block}>

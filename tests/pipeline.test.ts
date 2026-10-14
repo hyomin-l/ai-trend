@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Item, Snapshot } from "@/types";
+import { itemId } from "@/lib/prep";
 import { buildSnapshot, kstDate, recentHeadlines, seenMap } from "@/lib/pipeline";
 
 const item = (id: string, over: Partial<Item> = {}): Item => ({
@@ -30,6 +31,16 @@ describe("kstDate", () => {
 });
 
 describe("seenMap", () => {
+  it("registers related urls under itemId with the item's ago", () => {
+    const prev = [
+      snap("2026-10-10", [item("a", { related: [{ source: "X", url: "https://o.com/x" }] })]),
+      snap("2026-10-08", [item("b", { related: [{ source: "X", url: "https://o.com/x" }] })]),
+    ];
+    const m = seenMap(prev, 2);
+    expect(m.get(itemId("https://o.com/x"))).toEqual({ ago: 1 });
+    expect(seenMap(prev, 1).has(itemId("https://o.com/x"))).toBe(true);
+  });
+
   it("PRD-collector: maps ids to stars from the n newest editions only", () => {
     const m = seenMap(previous, 2);
     expect([...m.keys()].sort()).toEqual(["a", "b", "r1"]);

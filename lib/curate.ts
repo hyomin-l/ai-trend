@@ -1,4 +1,4 @@
-import { INDUSTRIES, SECTION_ORDER } from "@/config/sections";
+import { INDUSTRIES, SECTION_ORDER, sectionFlag } from "@/config/sections";
 import { REGIONS } from "@/lib/i18n";
 import type { GlossaryEntry, Industry, Item, L10n, RawItem, Region, Section } from "@/types";
 
@@ -8,6 +8,7 @@ const HANGUL = /[ㄱ-ㆎ가-힣]/;
 type Curation = { front: string[]; items: Item[]; glossary: GlossaryEntry[] };
 
 const GLOSSARY_MAX = 8;
+const RELATED_MAX = 4;
 const TERM_MAX = 40;
 
 const oneLine = (s: string) => s.replace(/\s+/g, " ").replace(/\|/g, "/").trim();
@@ -75,9 +76,9 @@ export function parseCuration(text: string, candidates: RawItem[]): Curation | n
     if (!SECTION_ORDER.includes(m.section)) continue;
     const title = l10n(m.title);
     if (!title.ko || !title.en) continue;
-    // newsroom is for news outlets and official announcements only (sources configured in newsroom): a candidate whose source is configured elsewhere (Reddit, HN, Google News...)
+    // an outletsOnly section (newsroom: news outlets and official announcements) takes only candidates whose source is configured there: a candidate whose source is configured elsewhere (Reddit, HN, Google News...)
     // goes back to its own section. Every other reassignment (e.g. playbook <-> pulse) is left to the curator.
-    const section: Section = m.section === "newsroom" && c.section !== "newsroom" ? c.section : m.section;
+    const section: Section = sectionFlag(m.section, "outletsOnly") && c.section !== m.section ? c.section : m.section;
     const industry = section === "ax" ? [m.industry, c.industry].find((x) => INDUSTRY_KEYS.includes(x)) : undefined;
     const item = toItem(c, {
       section,
@@ -90,6 +91,21 @@ export function parseCuration(text: string, candidates: RawItem[]): Curation | n
     items.push(item);
   }
   if (!items.length) return null;
+
+  // `also`: other candidates on the same event. Only known candidate ids that are not published items; source and url come from the candidate.
+  const published = new Set(items.map((i) => i.id));
+  const raw = new Map<string, unknown>();
+  for (const m of obj.items) if (!raw.has(m?.id)) raw.set(m?.id, m?.also); // the first entry per id is the one that was kept
+  for (const item of items) {
+    const also = raw.get(item.id);
+    if (!Array.isArray(also)) continue;
+    const related = [...new Set<unknown>(also)]
+      .map((id) => byId.get(id as string))
+      .filter((c): c is RawItem => !!c && !published.has(c.id))
+      .slice(0, RELATED_MAX)
+      .map((c) => ({ source: c.source, url: c.url }));
+    if (related.length) item.related = related;
+  }
 
   const ids = new Set(items.map((i) => i.id));
   const front = [...new Set<string>(Array.isArray(obj.front) ? obj.front : [])].filter((id) => ids.has(id)).slice(0, 3);
