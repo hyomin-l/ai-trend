@@ -43,6 +43,15 @@ describe("prep: filters", () => {
     expect(run([a, b])).toHaveLength(1);
   });
 
+  it("PRD-collector: same URL from two sources dedupes first-wins, but a copy outside its window does not block the other", () => {
+    const url = "https://openai.com/index/x";
+    const a = mk({ url, sourceId: "openai", section: "newsroom", publishedAt: ago(1) });
+    const b = mk({ url, sourceId: "openai-research", section: "playbook", publishedAt: ago(1) });
+    expect(run([a, b]).map((i) => i.sourceId)).toEqual(["openai"]);
+    const old = ago(100); // outside openai's 72h, inside openai-research's 168h
+    expect(run([{ ...a, publishedAt: old }, { ...b, publishedAt: old }]).map((i) => i.sourceId)).toEqual(["openai-research"]);
+  });
+
   it("PLAN-review1: drops items with missing or invalid publishedAt", () => {
     const out = run([mk({ publishedAt: undefined }), mk({ publishedAt: "garbage" }), mk()]);
     expect(out).toHaveLength(1);

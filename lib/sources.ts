@@ -138,7 +138,14 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
   const xml = await get(s.url);
   const feed = parseFeed(xml);
   if (xml.trim() && !feed.length) throw new Error("response parsed to 0 items");
-  return feed.map((f) => {
+  const wanted = s.categories?.map((c) => c.toLowerCase());
+  // Feeds are not strictly date-sorted (OpenAI): when filtering by category, order newest first so the cap keeps the latest.
+  const kept = wanted
+    ? feed
+        .filter((f) => f.categories?.some((c) => wanted.includes(c.toLowerCase())))
+        .sort((a, b) => Date.parse(b.publishedAt ?? "") - Date.parse(a.publishedAt ?? "") || 0)
+    : feed;
+  return kept.map(({ categories: _c, ...f }) => {
     // Google News titles end with " - Publisher"; surface the real outlet as the source.
     const m = s.name === "Google News" ? f.title.match(/^(.*\S)\s+-\s+([^-]+)$/) : null;
     return { ...base, ...f, ...(m && { title: m[1], source: m[2].trim() }), id: itemId(f.url), industry: s.industry };

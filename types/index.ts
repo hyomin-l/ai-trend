@@ -89,6 +89,8 @@ export interface SourceDef {
   windowHours?: number;
   /** Allowed item URL hosts (exact match, case-insensitive); items elsewhere are dropped. Set for third-party mirrors. */
   hosts?: string[];
+  /** rss only: keep only items with at least one <category> equal (case-insensitive) to one of these. */
+  categories?: string[];
   industry?: Industry;
   /** Runs only when the primary repo sources yielded fewer than CONFIG.repoFallbackMin repos. */
   fallback?: boolean;

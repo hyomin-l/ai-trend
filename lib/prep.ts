@@ -63,14 +63,15 @@ export function prep(raw: Candidate[], opts: { now: Date; seen: Map<string, Seen
     if (!isWebUrl(it.url)) continue; // javascript:, data:, relative or malformed links never become items
     const hosts = DEFS.get(it.sourceId ?? "")?.hosts;
     if (hosts && !hosts.includes(new URL(it.url).hostname.toLowerCase())) continue; // third-party mirror must not inject foreign links
-    if (ids.has(it.id)) continue;
-    ids.add(it.id);
-
     const t = it.publishedAt ? Date.parse(it.publishedAt) : NaN;
     if (Number.isNaN(t)) continue; // freshness unverifiable
     // Repos are ranked by recent star growth; their creation date never gates selection.
     const hours = DEFS.get(it.sourceId ?? "")?.windowHours ?? CONFIG.windowHours;
     if (it.section !== "repos" && opts.now.getTime() - t > hours * 3_600_000) continue;
+    // After the window check: the same URL from a short-window and a long-window source (OpenAI newsroom vs research) must
+    // survive via whichever source's window still covers it. First source in config order wins.
+    if (ids.has(it.id)) continue;
+    ids.add(it.id);
 
     if (!opts.seen.has(it.id)) {
       kept.push(it);

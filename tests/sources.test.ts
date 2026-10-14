@@ -243,4 +243,29 @@ describe("fetchAll", () => {
     handler = (url) => (url.includes("aitimes.com") ? new Response("<html>blocked by captcha</html>") : base(url));
     expect((await fetchAll(now)).failed).toEqual(["aitimes"]);
   });
+
+  it("PRD-collector: category filter keeps matching items case-insensitively, newest first, and drops the category field", async () => {
+    const item = (n: string, cat: string, d: string) =>
+      `<item><title>${n}</title><link>https://openai.com/index/${n}</link><category><![CDATA[${cat}]]></category><pubDate>${d}</pubDate></item>`;
+    const base = handler;
+    handler = (url) =>
+      url.includes("openai.com/news/rss.xml")
+        ? new Response(`<rss><channel>${item("old-r", "Research", "Fri, 09 Oct 2026 12:00:00 GMT")}${item("prod", "Product", "Mon, 12 Oct 2026 12:00:00 GMT")}${item("new-r", "research", "Mon, 12 Oct 2026 10:00:00 GMT")}</channel></rss>`)
+        : base(url);
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual([]);
+    const res = items.filter((i) => i.sourceId === "openai-research");
+    expect(res.map((i) => i.title)).toEqual(["new-r", "old-r"]);
+    expect(res.every((i) => i.section === "playbook" && !("categories" in i))).toBe(true);
+    expect(items.filter((i) => i.sourceId === "openai")).toHaveLength(3); // the general OpenAI source is unfiltered
+  });
+
+  it("PRD-collector: new sources are configured as intended", () => {
+    const by = (id: string) => SOURCES.find((s) => s.id === id)!;
+    expect(by("anthropic-research")).toMatchObject({ section: "newsroom", cap: 2, hosts: ["anthropic.com", "www.anthropic.com"] });
+    expect(by("mistral")).toMatchObject({ section: "newsroom", cap: 2 });
+    expect(by("mistral").windowHours).toBeUndefined();
+    for (const id of ["aws-ml", "msr", "openai-research"]) expect(by(id)).toMatchObject({ section: "playbook", cap: 2, windowHours: 168 });
+    expect(by("openai-research")).toMatchObject({ url: by("openai").url, categories: ["Research"] });
+  });
 });

@@ -104,4 +104,15 @@ describe("parseFeed", () => {
     expect(parseFeed("<html><body>captcha</body></html>")).toEqual([]);
     expect(parseFeed("")).toEqual([]);
   });
+
+  it("PRD-collector: collects <category> (CDATA, plain, Atom term); items without categories carry no field", () => {
+    const [a, b] = parseFeed(
+      rss(`<item><title>a</title><link>https://e.com/a</link><category><![CDATA[Research]]></category><category>Safety &amp; Alignment</category></item>
+           <item><title>b</title><link>https://e.com/b</link></item>`),
+    );
+    expect(a.categories).toEqual(["Research", "Safety & Alignment"]);
+    expect("categories" in b).toBe(false);
+    const [c] = parseFeed(atom(`<entry><title>c</title><link href="https://e.com/c"/><category term="Research"/></entry>`));
+    expect(c.categories).toEqual(["Research"]);
+  });
 });

@@ -48,7 +48,7 @@ export const HF_SKIP = /gguf|quantiz|uncensored|heretic|\b(awq|gptq|nvfp4|mlx|bn
  * kind "hfpapers": Hugging Face Daily Papers (public API, `url` unused); ranked by upvotes, papers below `minUpvotes` are dropped, `cap` keeps the top few.
  * kind "github": `url` is a repository topic (GitHub Search, new repos only) and `fallback: true` sources run only when the
  * trending sources yielded fewer than CONFIG.repoFallbackMin repos.
- * `cap` is the most items kept per source, `windowHours` overrides CONFIG.windowHours for slow feeds.
+ * `categories` (rss) keeps only items with a matching <category>. `cap` is the most items kept per source, `windowHours` overrides CONFIG.windowHours for slow feeds.
  */
 export const SOURCES: SourceDef[] = [
   // Repos: most stars gained this week, regardless of creation date. Three pages x ~10 repos, AI-filtered.
@@ -76,6 +76,8 @@ export const SOURCES: SourceDef[] = [
   { id: "deepmind", name: "Google DeepMind", kind: "rss", url: "https://deepmind.google/blog/rss.xml", section: "newsroom", cap: 3 },
   // anthropic.com has no feed of its own; this is a community-maintained mirror regenerated from the site (third party: may lag or vanish).
   { id: "anthropic-news", name: "Anthropic", kind: "rss", url: "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml", section: "newsroom", cap: 3, hosts: ["anthropic.com", "www.anthropic.com"] },
+  { id: "anthropic-research", name: "Anthropic Research", kind: "rss", url: "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_research.xml", section: "newsroom", cap: 2, hosts: ["anthropic.com", "www.anthropic.com"] },
+  { id: "mistral", name: "Mistral", kind: "rss", url: "https://mistral.ai/rss.xml", section: "newsroom", cap: 2 },
   { id: "gnews-ax-ko", name: "Google News", kind: "rss", url: gnews("기업 AX OR AI 전환", true), section: "ax", cap: 4 },
   { id: "gnews-ax-en", name: "Google News", kind: "rss", url: gnews("enterprise AI adoption", false), section: "ax", cap: 4 },
   ...AX_QUERIES.flatMap(([industry, ko, en]) => [
@@ -91,5 +93,9 @@ export const SOURCES: SourceDef[] = [
   { id: "interconnects", name: "Interconnects", kind: "rss", url: "https://www.interconnects.ai/feed", section: "playbook", cap: 2, windowHours: 168 },
   { id: "hf-papers", name: "Hugging Face Papers", kind: "hfpapers", url: "", section: "playbook", cap: 3, windowHours: 168, minUpvotes: 20 },
   { id: "hf-blog", name: "Hugging Face Blog", kind: "rss", url: "https://huggingface.co/blog/feed.xml", section: "playbook", cap: 2, windowHours: 168 },
+  { id: "aws-ml", name: "AWS Machine Learning Blog", kind: "rss", url: "https://aws.amazon.com/blogs/machine-learning/feed/", section: "playbook", cap: 2, windowHours: 168 },
+  { id: "msr", name: "Microsoft Research", kind: "rss", url: "https://www.microsoft.com/en-us/research/feed/", section: "playbook", cap: 2, windowHours: 168 },
+  // Same feed as the `openai` newsroom source, Research category only, weekly window. A fresh post in both is deduped in prep (first wins: newsroom).
+  { id: "openai-research", name: "OpenAI Research", kind: "rss", url: "https://openai.com/news/rss.xml", section: "playbook", cap: 2, windowHours: 168, categories: ["Research"] },
   { id: "nngroup", name: "NN/g", kind: "rss", url: "https://www.nngroup.com/feed/rss/", section: "playbook", cap: 3, windowHours: 168 },
 ];

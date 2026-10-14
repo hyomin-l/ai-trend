@@ -24,13 +24,13 @@ Scattered AI trends, gathered into one newspaper page every Monday, Wednesday an
 
 | 섹션 | 다루는 것 | 원천 |
 |---|---|---|
-| 뉴스룸 | 국내외 AI·빅테크 주요 뉴스 | 언론: TechCrunch AI, The Verge AI, AI타임스. 공식 발표: OpenAI, Google AI, Google DeepMind, Anthropic(커뮤니티 미러 피드) |
-| 실무 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g, Hamel Husain, Interconnects, Anthropic Engineering, Hugging Face Blog, Hugging Face Daily Papers(추천 20 이상 상위 3편, 판 전체 최대 2편) |
+| 뉴스룸 | 국내외 AI·빅테크 주요 뉴스 | 언론: TechCrunch AI, The Verge AI, AI타임스. 공식 발표: OpenAI, Google AI, Google DeepMind, Anthropic·Anthropic Research(커뮤니티 미러 피드), Mistral |
+| 실무 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g, Hamel Husain, Interconnects, Anthropic Engineering, AWS Machine Learning Blog, Microsoft Research, OpenAI Research(OpenAI 피드의 Research 분류만), Hugging Face Blog, Hugging Face Daily Papers(추천 20 이상 상위 3편, 판 전체 최대 2편) |
 | 산업 | 업종별 AI 도입·전환 사례 (건설·금융·물류·유통·미디어) | Google News RSS (업종 키워드 x AI, 국문·영문) |
 | 오픈소스 | 최근 일주일간 스타가 가장 많이 늘어난 AI 레포(생성일 무관) + Hugging Face 트렌딩 모델(좋아요·다운로드, 최대 5건) | Hugging Face Hub API(trendingScore 순, 재패키징 모델 제외). GitHub Trending 주간(전체·python·typescript, HTML 스크랩) + 생성일 조회 GitHub REST. 실패 시 GitHub Search(토픽 llm, ai-agents, mcp, generative-ai, 최근 30일 생성)로 대체 |
 | 커뮤니티 (Community Pulse) | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News, Reddit(r/LocalLLaMA·ClaudeAI·MachineLearning), GeekNews |
 
-섹션당 4건을 지면에 표시하고 나머지는 섹션 머리를 눌러 본다. 원천은 `config/sources.ts` 기준 37개 피드·쿼리다. 상세 사양은 [docs/PRD.md](docs/PRD.md).
+섹션당 4건을 지면에 표시하고 나머지는 섹션 머리를 눌러 본다. 원천은 `config/sources.ts` 기준 42개 피드·쿼리다. 상세 사양은 [docs/PRD.md](docs/PRD.md).
 
 ## 빠른 시작
 

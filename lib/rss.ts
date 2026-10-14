@@ -5,6 +5,8 @@ export interface FeedItem {
   url: string;
   snippet: string;
   publishedAt?: string;
+  /** <category> / <category term=""> labels; present only when the item has any. */
+  categories?: string[];
 }
 
 const NAMED: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
@@ -50,6 +52,12 @@ function date(block: string): string | undefined {
   return t && !Number.isNaN(t.getTime()) ? t.toISOString() : undefined;
 }
 
+function categories(block: string): string[] {
+  return [...block.matchAll(/<category(?=[\s>/])([^>]*?)(?:\/>|>([\s\S]*?)<\/category>)/gi)]
+    .map((m) => text(m[2]) || decode(m[1].match(/\sterm\s*=\s*["']([^"']+)["']/i)?.[1] ?? "").trim())
+    .filter(Boolean);
+}
+
 export function parseFeed(xml: string): FeedItem[] {
   const out: FeedItem[] = [];
   for (const [block] of xml.matchAll(/<(item|entry)(?=[\s>])[\s\S]*?<\/\1>/gi)) {
@@ -57,7 +65,8 @@ export function parseFeed(xml: string): FeedItem[] {
     const url = link(block);
     if (!title || !url) continue;
     const snippet = ["description", "summary", "content:encoded", "content"].map((n) => text(tag(block, n))).find(Boolean) ?? "";
-    out.push({ title, url, snippet: snippet.slice(0, 300), publishedAt: date(block) });
+    const cats = categories(block);
+    out.push({ title, url, snippet: snippet.slice(0, 300), publishedAt: date(block), ...(cats.length && { categories: cats }) });
   }
   return out;
 }
