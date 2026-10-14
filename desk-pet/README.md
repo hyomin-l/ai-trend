@@ -25,13 +25,13 @@ DISPATCH_URL=file:///path/to/dir ./DeskPet   # 로컬 테스트: dir/latest.json
 - 말풍선을 클릭하면 시스템 기본 브라우저로 **그 기사의 모달이 열린 지면**(`<DISPATCH_URL>/ko/<date>/?open=<id>`)를 열고 본 것으로 처리한다. `latest.json`에 id가 없으면(구버전) 사이트 루트를 연다. 딥링크는 배포된 사이트에 해당 기능이 올라간 뒤에만 동작한다(GitHub Pages는 배포 후). `×`는 열지 않고 본 것으로만 처리한다.
 - 클릭 모션: 펫은 누르고 있는 내내(끄는 동안 포함) 납작한 자세를 유지하다가 뗄 때 출렁이며 복원한다. 말풍선은 누르는 동안 살짝 작아진다.
 - 말풍선은 몸통과 꼬리가 하나의 외곽선(단일 경로)이고, 사이트 종이 배경과 같은 은은한 그레인이 깔려 있다.
-- 우클릭(펫·말풍선): 지금 확인 / 펫 숨기기 / 크기 / 종료. 숨기면 메뉴바 아이콘의 "펫 보이기"로 되살린다. LaunchAgent `KeepAlive`가 `false`라서 "종료"하면 다음 로그인까지 다시 뜨지 않는다.
+- 우클릭(펫·말풍선): 지금 확인 / 펫 숨기기 / 크기 / 언어(한국어·English) / 종료. 메뉴 문구도 선택한 언어로 바뀐다. 숨기면 메뉴바 아이콘의 "펫 보이기"로 되살린다. LaunchAgent `KeepAlive`가 `false`라서 "종료"하면 다음 로그인까지 다시 뜨지 않는다.
 - 펫을 클릭하면 이번 판(`items[]`)에서 **무작위 기사**를 말풍선으로 보여 준다. 셔플 순서로 전부 한 바퀴 돌아야 반복하고, 직전 기사와 같은 기사는 연달아 나오지 않는다. 말풍선이 떠 있을 때 클릭하면 닫지 않고 다음 무작위 기사로 교체한다. 새 판 알림 말풍선만 리드(`front[0]`)로 시작한다.
 - 말풍선 라벨은 `AI Trend · 커뮤니티 · 10월 14일`처럼 섹션 이름(사이트 `SECTION_LABEL`의 한국어명)을 포함한다. 말풍선을 클릭하면 **지금 보이는 그 기사**의 모달이 열린 사이트가 열린다.
 - `DISPATCH_URL`은 `https://`, `http://localhost`, `http://127.0.0.1`, `file://`만 허용한다. 그 밖의 값은 stderr에 한 줄 남기고 기본 서버로 대체한다. 딥링크의 `date`·`id`는 퍼센트 인코딩하고, 기본 URL과 같은 스킴(http/https/file)일 때만 연다.
 - 누른 자세는 마우스를 떼기 전까지(끄는 동안 포함) 유지한다. 최신 macOS에서 `performDrag`가 곧바로 반환되므로 해제는 `mouseUp`에서만 한다.
 - 펫이나 말풍선을 끌어 옮길 수 있다. 위치는 기억한다.
-- 메뉴바 아이콘: 우클릭 메뉴와 같은 목록(지금 확인 / 펫 숨기기·보이기 / 크기 작게 44pt · 보통 56pt · 크게 72pt / 종료).
+- 메뉴바 아이콘: 우클릭 메뉴와 같은 목록(지금 확인 / 펫 숨기기·보이기 / 크기 작게 44pt · 보통 56pt · 크게 72pt / 언어 한국어·English / 종료).
 - 시스템 설정의 "동작 줄이기"를 켜면 떠다님·morph·곁눈질·클릭 모션을 멈추고 깜빡임만 남긴다.
 
 ## 에너지
@@ -73,7 +73,7 @@ launchctl bootout   gui/$(id -u) ~/Library/LaunchAgents/io.github.hyomin-l.deskp
 
 ## 저장되는 값과 초기화
 
-설정은 `UserDefaults` 도메인 `io.github.hyomin-l.deskpet`에 저장된다: `origin`(위치), `petWidth`(크기), `lastSeenDate`(마지막으로 본 판).
+설정은 `UserDefaults` 도메인 `io.github.hyomin-l.deskpet`에 저장된다: `origin`(위치), `petWidth`(크기), `lang`(`ko`·`en`, 기본 `ko` — 말풍선 제목·섹션명·날짜와 클릭 시 열리는 `/ko|en/` 경로), `lastSeenDate`(마지막으로 본 판).
 
 ```sh
 defaults delete io.github.hyomin-l.deskpet lastSeenDate   # 같은 판의 말풍선을 다시 보고 싶을 때

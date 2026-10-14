@@ -8,15 +8,28 @@ let brand = "AI Trend" // 사용자에게 보이는 서비스 이름 — lib/i18
 let petName = "애트라"
 let defaultSiteURL = "https://hyomin-l.github.io/ai-trend" // 기본 서버. DISPATCH_URL 환경변수가 우선한다. 포크는 자기 Pages 주소로
 // 섹션 키 → 말풍선 라벨. config/sections.ts의 한국어 이름과 같게
-let sectionLabel = ["newsroom": "뉴스룸", "ax": "현장의 AX", "repos": "급상승 레포", "pulse": "커뮤니티", "playbook": "AI 플레이북"]
+let sectionLabel: [String: [String: String]] = [
+    "ko": ["newsroom": "뉴스룸", "ax": "현장의 AX", "repos": "급상승 레포", "pulse": "커뮤니티", "playbook": "AI 플레이북"],
+    "en": ["newsroom": "Newsroom", "ax": "AX in the Field", "repos": "Rising Repos", "pulse": "Community Pulse", "playbook": "AI Playbook"],
+]
 
 let defaults = UserDefaults(suiteName: "io.github.hyomin-l.deskpet")! // 번들 없는 실행 파일이라 도메인을 명시 (LaunchAgent Label과 동일)
+
+// 언어: "ko"(기본) | "en". 메뉴에서 바꾸고 UserDefaults "lang"에 저장한다.
+var lang: String { defaults.string(forKey: "lang") == "en" ? "en" : "ko" }
+let menuText: [String: [String: String]] = [
+    "check": ["ko": "지금 확인", "en": "Check now"], "hide": ["ko": "펫 숨기기", "en": "Hide pet"], "show": ["ko": "펫 보이기", "en": "Show pet"],
+    "size": ["ko": "크기", "en": "Size"], "small": ["ko": "작게", "en": "Small"], "medium": ["ko": "보통", "en": "Medium"], "large": ["ko": "크게", "en": "Large"],
+    "quit": ["ko": "종료 (다음 로그인까지 꺼짐)", "en": "Quit (off until next login)"], "lang": ["ko": "언어 / Language", "en": "Language / 언어"],
+]
+func tr(_ k: String) -> String { menuText[k]?[lang] ?? k }
+let enMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 // MARK: - 데이터
 
 struct Latest: Decodable {
     struct Item: Decodable {
-        struct Title: Decodable { let ko: String }
+        struct Title: Decodable { let ko: String; let en: String? }
         let id: String
         let title: Title
         let section: String?
@@ -30,17 +43,17 @@ struct Latest: Decodable {
 struct Bubble: Equatable {
     let caption: String
     let headline: String
-    let link: String // 사이트 기준 상대 경로. 열 스토리를 알면 "/ko/<date>/?open=<id>", 아니면 "".
+    let link: String // 사이트 기준 상대 경로. 열 스토리를 알면 "/<lang>/<date>/?open=<id>", 아니면 "".
 }
 
 func caption(_ date: String, _ section: String? = nil) -> String {
     let d = date.split(separator: "-").compactMap { Int($0) }
-    let day = d.count == 3 ? "\(d[1])월 \(d[2])일" : date
-    return [brand, section.flatMap { sectionLabel[$0] }, day].compactMap { $0 }.joined(separator: " · ")
+    let day = d.count == 3 && (1...12).contains(d[1]) ? (lang == "en" ? "\(enMonths[d[1] - 1]) \(d[2])" : "\(d[1])월 \(d[2])일") : date
+    return [brand, section.flatMap { sectionLabel[lang]?[$0] }, day].compactMap { $0 }.joined(separator: " · ")
 }
 
 func makeBubble(_ date: String, _ it: Latest.Item) -> Bubble {
-    Bubble(caption: caption(date, it.section), headline: it.title.ko, link: storyLink(date, it.id))
+    Bubble(caption: caption(date, it.section), headline: lang == "en" ? (it.title.en ?? it.title.ko) : it.title.ko, link: storyLink(date, it.id))
 }
 
 // 사이트 딥링크: 해당 스토리 모달이 열린 채로 그날의 지면을 연다.
@@ -48,7 +61,7 @@ func storyLink(_ date: String, _ id: String?) -> String {
     guard let id, !id.isEmpty else { return "" }
     let safe = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
     func enc(_ s: String) -> String { s.addingPercentEncoding(withAllowedCharacters: safe) ?? "" }
-    return "/ko/\(enc(date))/?open=\(enc(id))"
+    return "/\(lang)/\(enc(date))/?open=\(enc(id))"
 }
 
 func log(_ s: String) { FileHandle.standardError.write(Data("[deskpet] \(s)\n".utf8)) }
@@ -106,6 +119,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
     private var edition: Latest?
     private var queue: [Latest.Item] = [] // 클릭용 셔플 순서 — 다 돌아야 반복
     private var lastShownId: String?
+    private var shown: (String, Latest.Item)? // 마지막으로 만든 말풍선의 (날짜, 기사) — 언어 전환 시 재생성용
 
     func applicationDidFinishLaunching(_ n: Notification) {
         let w = defaults.double(forKey: "petWidth")
@@ -113,12 +127,12 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
         makePanel()
         makeStatusItem()
         if demo {
-            func it(_ id: String, _ sec: String, _ t: String) -> Latest.Item { .init(id: id, title: .init(ko: t), section: sec) }
-            let items = [it("a", "repos", "오픈소스 코딩 에이전트, 주간 ★ 1위"), it("b", "pulse", "개발자 커뮤니티가 꼽은 이번 주 가장 뜨거운 AI 툴 논쟁"),
-                         it("c", "playbook", "프롬프트 캐싱으로 API 비용을 절반으로 줄이는 방법"), it("d", "ax", "제조 현장에 들어간 AI 점검 에이전트 사례")]
+            func it(_ id: String, _ sec: String, _ t: (String, String)) -> Latest.Item { .init(id: id, title: .init(ko: t.0, en: t.1), section: sec) }
+            let items = [it("a", "repos", ("오픈소스 코딩 에이전트, 주간 ★ 1위", "Open-source coding agent tops the weekly star chart")), it("b", "pulse", ("개발자 커뮤니티가 꼽은 이번 주 가장 뜨거운 AI 툴 논쟁", "The hottest AI tool debate among developers this week")),
+                         it("c", "playbook", ("프롬프트 캐싱으로 API 비용을 절반으로 줄이는 방법", "How prompt caching cuts your API bill in half")), it("d", "ax", ("제조 현장에 들어간 AI 점검 에이전트 사례", "An AI inspection agent on the factory floor"))]
             edition = Latest(date: "2026-10-13", issue: 0, front: ["a"], items: items)
             lastShownId = "a"
-            show(makeBubble("2026-10-13", items[0]))
+            present("2026-10-13", items[0])
         } else {
             Task { while !Task.isCancelled { await check(); try? await Task.sleep(for: .seconds(1800), tolerance: .seconds(120)) } }
         }
@@ -187,26 +201,42 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
         let menu = NSMenu(), sizes = NSMenu()
         menu.delegate = self
         sizes.delegate = self
-        for (title, w) in [("작게", 44), ("보통", 56), ("크게", 72)] {
-            let it = NSMenuItem(title: "\(title) (\(w)pt)", action: #selector(setSize(_:)), keyEquivalent: "")
+        for (key, w) in [("small", 44), ("medium", 56), ("large", 72)] {
+            let it = NSMenuItem(title: "\(tr(key)) (\(w)pt)", action: #selector(setSize(_:)), keyEquivalent: "")
             it.tag = w
             sizes.addItem(it)
         }
-        let sizeItem = NSMenuItem(title: "크기", action: nil, keyEquivalent: "")
+        let sizeItem = NSMenuItem(title: tr("size"), action: nil, keyEquivalent: "")
         sizeItem.submenu = sizes
-        menu.addItem(NSMenuItem(title: "지금 확인", action: #selector(checkNow), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "펫 숨기기", action: #selector(toggle), keyEquivalent: ""))
+        let langs = NSMenu()
+        langs.delegate = self
+        for (code, name) in [("ko", "한국어"), ("en", "English")] {
+            let it = NSMenuItem(title: name, action: #selector(setLang(_:)), keyEquivalent: "")
+            it.representedObject = code
+            langs.addItem(it)
+        }
+        let langItem = NSMenuItem(title: tr("lang"), action: nil, keyEquivalent: "")
+        langItem.submenu = langs
+        menu.addItem(NSMenuItem(title: tr("check"), action: #selector(checkNow), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: tr("hide"), action: #selector(toggle), keyEquivalent: ""))
         menu.addItem(sizeItem)
+        menu.addItem(langItem)
         menu.addItem(.separator())
-        menu.addItem(NSMenuItem(title: "종료 (다음 로그인까지 꺼짐)", action: #selector(quit), keyEquivalent: "q"))
-        for m in [menu, sizes] { m.items.forEach { $0.target = self } }
+        menu.addItem(NSMenuItem(title: tr("quit"), action: #selector(quit), keyEquivalent: "q"))
+        for m in [menu, sizes, langs] { m.items.forEach { $0.target = self } }
         return menu
     }
 
     func menuNeedsUpdate(_ m: NSMenu) {
+        // 제목은 열릴 때마다 현재 언어로 다시 붙인다 (언어 전환 즉시 반영).
+        let keys: [Selector: String] = [#selector(checkNow): "check", #selector(quit): "quit"]
+        let sizeKeys = [44: "small", 56: "medium", 72: "large"]
         for it in m.items {
-            if it.action == #selector(toggle) { it.title = panel.isVisible ? "펫 숨기기" : "펫 보이기" }
-            if it.action == #selector(setSize(_:)) { it.state = Double(it.tag) == petWidth ? .on : .off }
+            if let k = it.action.flatMap({ keys[$0] }) { it.title = tr(k) }
+            if it.action == #selector(toggle) { it.title = tr(panel.isVisible ? "hide" : "show") }
+            if it.action == #selector(setSize(_:)) { it.state = Double(it.tag) == petWidth ? .on : .off; it.title = "\(tr(sizeKeys[it.tag] ?? "medium")) (\(it.tag)pt)" }
+            if it.action == #selector(setLang(_:)) { it.state = (it.representedObject as? String) == lang ? .on : .off }
+            if let sub = it.submenu { it.title = tr(sub.items.first?.action == #selector(setLang(_:)) ? "lang" : "size") }
         }
     }
 
@@ -232,6 +262,10 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
         let f = panel.frame, n = panelSize
         panel.setFrame(NSRect(x: f.maxX - n.width, y: f.minY, width: n.width, height: n.height), display: true)
     }
+    @objc private func setLang(_ item: NSMenuItem) {
+        defaults.set(item.representedObject as? String ?? "ko", forKey: "lang")
+        if bubble != nil, let (d, it) = shown { present(d, it) } // 떠 있는 말풍선을 새 언어로 다시 그린다
+    }
     @objc private func toggle() {
         if panel.isVisible { panel.orderOut(nil) } else { panel.orderFrontRegardless() }
     }
@@ -250,7 +284,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
         if l.date != defaults.string(forKey: "lastSeenDate") {
             log("새 판 감지: \(l.date) 제\(l.issue)호 — \(lead.title.ko)")
             lastShownId = lead.id
-            show(makeBubble(l.date, lead))
+            present(l.date, lead)
         }
     }
 
@@ -269,6 +303,8 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
             if !Task.isCancelled { self?.lively = false }
         }
     }
+
+    private func present(_ d: String, _ it: Latest.Item) { shown = (d, it); show(makeBubble(d, it)) }
 
     func show(_ b: Bubble?) {
         pin("bubble", b != nil)
@@ -298,7 +334,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
         }
         let it = queue.removeLast()
         lastShownId = it.id
-        show(makeBubble(e.date, it))
+        present(e.date, it)
     }
 }
 
