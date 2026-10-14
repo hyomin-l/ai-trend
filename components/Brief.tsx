@@ -1,6 +1,6 @@
 import type { Item, Lang } from "@/types";
 import { SECTION_LABEL, ui } from "@/lib/i18n";
-import { relTime } from "@/lib/format";
+import RelTime from "./RelTime";
 import { Glossed, type GlossPlan } from "./Glossary";
 import SectionHead from "./SectionHead";
 import styles from "./Brief.module.css";
@@ -38,7 +38,7 @@ export default function Brief({ items, lang, generatedAt, gloss, notice, isDimme
               {i + 1}
             </span>
             <p className={styles.meta}>
-              {SECTION_LABEL[item.section][lang]} · {item.source} · {relTime(item.publishedAt, generatedAt, lang)}
+              {SECTION_LABEL[item.section][lang]} · {item.source} · <RelTime iso={item.publishedAt} at={generatedAt} lang={lang} />
             </p>
             <h3 className={styles.headline}>
               <span className={styles.clamp}>

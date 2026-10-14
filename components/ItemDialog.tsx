@@ -2,7 +2,8 @@
 
 import type { GlossaryEntry, Item, Lang } from "@/types";
 import { REGION_LABEL, SECTION_LABEL, industryTag, ui } from "@/lib/i18n";
-import { fmtNum, relTime } from "@/lib/format";
+import { fmtNum } from "@/lib/format";
+import RelTime from "./RelTime";
 import Dialog from "./Dialog";
 import { termsIn } from "./Glossary";
 import OriginalLink from "./OriginalLink";
@@ -61,7 +62,7 @@ export default function ItemDialog({ item, lang, generatedAt, glossary, onClose 
           <h2 className={styles.headline}>{item.title[lang]}</h2>
           <p className={styles.meta}>
             <span>{item.source}</span>
-            <span>{relTime(item.publishedAt, generatedAt, lang)}</span>
+            <RelTime iso={item.publishedAt} at={generatedAt} lang={lang} />
             <span>{REGION_LABEL[item.region][lang]}</span>
             {item.industry && <span>{industryTag(item.industry, lang)}</span>}
           </p>

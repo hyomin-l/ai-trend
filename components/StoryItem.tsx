@@ -1,6 +1,8 @@
 import type { Item, Lang } from "@/types";
 import { industryTag, ui } from "@/lib/i18n";
-import { fmtNum, relTime } from "@/lib/format";
+import { Fragment, type ReactNode } from "react";
+import { fmtNum } from "@/lib/format";
+import RelTime from "./RelTime";
 import { Glossed, type GlossPlan } from "./Glossary";
 import styles from "./StoryItem.module.css";
 
@@ -19,12 +21,12 @@ export default function StoryItem({ item, lang, generatedAt, gloss, dimmed, onOp
   const u = ui(lang);
   const m = item.metrics;
 
-  const meta: string[] = [item.source];
+  const meta: ReactNode[] = [item.source];
   if (item.section === "pulse") {
     if (m?.points != null) meta.push(u.pts(fmtNum(m.points)));
     if (m?.comments != null) meta.push(u.cmt(fmtNum(m.comments)));
   }
-  meta.push(relTime(item.publishedAt, generatedAt, lang));
+  meta.push(<RelTime key="t" iso={item.publishedAt} at={generatedAt} lang={lang} />);
 
   return (
     <article className={styles.item} data-dim={dimmed || undefined} data-fit={item.section}>
@@ -43,7 +45,12 @@ export default function StoryItem({ item, lang, generatedAt, gloss, dimmed, onOp
             {" · "}
           </>
         )}
-        {meta.join(" · ")}
+        {meta.map((x, k) => (
+          <Fragment key={k}>
+            {k > 0 && " · "}
+            {x}
+          </Fragment>
+        ))}
       </p>
       <button type="button" className={styles.hit} aria-label={item.title[lang]} onClick={() => onOpen(item)} />
     </article>

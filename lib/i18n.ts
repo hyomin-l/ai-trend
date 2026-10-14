@@ -100,7 +100,8 @@ const ko = {
   relNow: "방금",
   relMin: (n: number) => `${n}분 전`,
   relHour: (n: number) => `${n}시간 전`,
-  relDay: (n: number) => `${n}일 전`,
+  created: (when: string) => `${when} 생성`,
+  perDayTip: "생성 후 일 평균 스타",
 };
 
 type Dict = typeof ko;
@@ -164,7 +165,8 @@ const en: Dict = {
   relNow: "just now",
   relMin: (n) => `${n}m ago`,
   relHour: (n) => `${n}h ago`,
-  relDay: (n) => `${n}d ago`,
+  created: (when) => `created ${when}`,
+  perDayTip: "Average stars per day since creation",
 };
 
 const DICTS: Record<Lang, Dict> = { ko, en };

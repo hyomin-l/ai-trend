@@ -45,7 +45,25 @@ export function fmtDateYMD(date: string, lang: Lang) {
   return lang === "ko" ? `${y}년 ${m}월 ${d}일` : `${MON_EN[m - 1]} ${d}, ${y}`;
 }
 
-/** Relative time measured against the edition's generatedAt, never the wall clock (the page is static). */
+const KST_MS = 9 * 3_600_000;
+const kst = (ms: number) => {
+  const d = new Date(ms + KST_MS);
+  return { y: d.getUTCFullYear(), m: d.getUTCMonth() + 1, d: d.getUTCDate(), hh: d.getUTCHours(), mm: d.getUTCMinutes() };
+};
+const p2 = (n: number) => String(n).padStart(2, "0");
+
+/** "2026-10-13 14:05 KST": the exact time behind a relative or date-only label (tooltip text). */
+export function kstStamp(iso: string) {
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return "";
+  const { y, m, d, hh, mm } = kst(t);
+  return `${y}-${p2(m)}-${p2(d)} ${p2(hh)}:${p2(mm)} KST`;
+}
+
+/**
+ * Time measured against the edition's generatedAt, never the wall clock (the page is static).
+ * Under 24h: relative ("방금", "n분 전", "n시간 전"). From 24h: the KST calendar date, with the year only when it differs from the edition's.
+ */
 export function relTime(iso: string, ref: string, lang: Lang) {
   const t = Date.parse(iso);
   const r = Date.parse(ref);
@@ -54,9 +72,10 @@ export function relTime(iso: string, ref: string, lang: Lang) {
   const min = Math.max(0, Math.round((r - t) / 60_000));
   if (min < 1) return u.relNow;
   if (min < 60) return u.relMin(min);
-  const h = Math.floor(min / 60);
-  if (h < 24) return u.relHour(h);
-  return u.relDay(Math.floor(h / 24));
+  if (min < 24 * 60) return u.relHour(Math.floor(min / 60));
+  const { y, m, d } = kst(t);
+  if (lang === "ko") return y === kst(r).y ? `${m}월 ${d}일` : `${y}년 ${m}월 ${d}일`;
+  return y === kst(r).y ? `${MON_EN[m - 1]} ${d}` : `${MON_EN[m - 1]} ${d}, ${y}`;
 }
 
 /** 12,400 (fixed locale so server and client render identically) */

@@ -162,7 +162,7 @@ export default function Edition({ snapshot, lang, notice }: Props) {
             >
               {shownHere.map((item) =>
                 s === "repos" ? (
-                  <RepoItem key={item.id} item={item} lang={lang} gloss={gloss} dimmed={isDimmed(item)} onOpen={setOpenItem} />
+                  <RepoItem key={item.id} item={item} lang={lang} generatedAt={generatedAt} gloss={gloss} dimmed={isDimmed(item)} onOpen={setOpenItem} />
                 ) : (
                   <StoryItem
                     key={item.id}
