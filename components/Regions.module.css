@@ -1,22 +1,25 @@
-/* Mobile: globe left, list right. Desktop: a narrow column, globe over a two-column list. */
+/* Narrow: a larger globe left, one compact list right (name left, count right in a narrow column), the pair centred.
+   Desktop: a narrow column, globe over a two-column list. */
 .body {
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
+  grid-template-columns: auto auto;
+  justify-content: center;
   align-items: center;
-  gap: var(--s5);
+  gap: var(--s6);
 }
 .globe {
-  width: 112px;
+  width: clamp(136px, 40vw, 220px);
 }
 
 .list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 var(--s4);
+  grid-template-columns: minmax(0, 1fr);
+  width: clamp(92px, 25vw, 140px);
 }
 .row {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
   gap: 6px;
   width: 100%;
   padding: 5px 0;
@@ -52,9 +55,16 @@
   text-underline-offset: 4px;
 }
 
+@media (min-width: 600px) {
+  .row {
+    font-size: 15px;
+  }
+}
+
 @media (min-width: 1100px) {
   .body {
     grid-template-columns: minmax(0, 1fr);
+    justify-content: normal;
     justify-items: start;
     align-items: start;
     gap: var(--s2);
@@ -64,9 +74,11 @@
   }
   .list {
     width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0 var(--s4);
   }
   .row {
+    justify-content: flex-start;
     font-size: 13px;
     padding: 3px 0;
   }
