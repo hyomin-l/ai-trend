@@ -2,7 +2,7 @@
 .item {
   --desc-lines: 2;
   position: relative;
-  container-type: inline-size; /* .counts stacks ★ over forks when the row is narrow (see below) */
+  container-type: inline-size; /* .counts stacks stars over forks when the row is narrow (see below) */
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: var(--s3);
@@ -79,12 +79,17 @@
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
-/* ★ and forks side by side only where the row is wide enough to leave the name room; in a narrow column (desktop 1100-1240px) they stack and the name keeps its width. */
+/* Stars and forks side by side only where the row is wide enough to leave the name room; in a narrow column (desktop 1100-1240px) they stack and the name keeps its width. */
 .counts {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 2px;
+  /* stars and forks share one format (Metric): same size, weight, colour, icon */
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink-3);
 }
 @container (min-width: 210px) {
   .counts {
@@ -92,23 +97,6 @@
     align-items: baseline;
     gap: var(--s2);
   }
-}
-.forks {
-  font-size: 11.5px;
-  font-weight: 500;
-  line-height: 1.35;
-  color: var(--ink-3);
-}
-/* Inline icon: lowered 2px so its centre meets the digits' centre, and the digits keep the text baseline shared with the star count (an inline-flex box took the icon's bottom edge as its baseline, which lifted the digits 2px). */
-.forks svg {
-  margin-right: 3px;
-  vertical-align: -2px;
-}
-.stars {
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--ink);
 }
 .rate {
   font-size: 12px;

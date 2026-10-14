@@ -30,6 +30,12 @@ export const IconFork = (p: P) => (
   </Svg>
 );
 
+export const IconStar = (p: P) => (
+  <Svg {...p}>
+    <path d="M8 2.1L9.7 6.25L14.18 6.59L10.76 9.5L11.82 13.86L8 11.5L4.18 13.86L5.24 9.5L1.82 6.59L6.3 6.25Z" strokeLinejoin="round" />
+  </Svg>
+);
+
 export const IconClose = (p: P) => (
   <Svg {...p}>
     <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />

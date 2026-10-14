@@ -1,7 +1,8 @@
 import type { Item, Lang } from "@/types";
 import { ui } from "@/lib/i18n";
 import { fmtCompact, fmtNum, parseRepoTitle, repoDesc } from "@/lib/format";
-import { IconFork } from "./Icons";
+import { IconFork, IconStar } from "./Icons";
+import Metric from "./Metric";
 import { Glossed, type GlossPlan } from "./Glossary";
 import styles from "./RepoItem.module.css";
 
@@ -39,20 +40,8 @@ export default function RepoItem({ item, lang, gloss, dimmed, onOpen }: Props) {
       <p className={styles.nums}>
         {(m?.stars != null || m?.forks != null) && (
           <span className={styles.counts}>
-            {m?.stars != null && (
-              <span className={styles.stars}>
-                <span aria-hidden="true">★ </span>
-                <span className="sr-only">{u.m.stars} </span>
-                {fmtCompact(m.stars)}
-              </span>
-            )}
-            {m?.forks != null && (
-              <span className={styles.forks}>
-                <IconFork size={12} />
-                <span className="sr-only">{u.m.forks} </span>
-                {fmtCompact(m.forks)}
-              </span>
-            )}
+            {m?.stars != null && <Metric icon={<IconStar size={12} />} label={u.m.stars} value={fmtCompact(m.stars)} />}
+            {m?.forks != null && <Metric icon={<IconFork size={12} />} label={u.m.forks} value={fmtCompact(m.forks)} />}
           </span>
         )}
         {m?.starsPerDay != null && <span className={styles.rate}>{u.perDay(fmtNum(m.starsPerDay))}</span>}

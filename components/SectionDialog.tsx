@@ -1,8 +1,11 @@
 "use client";
 
+import { Fragment, type ReactNode } from "react";
 import type { Item, Lang, Section } from "@/types";
 import { SECTION_LABEL, industryTag, ui } from "@/lib/i18n";
 import { fmtCompact, relTime } from "@/lib/format";
+import { IconFork, IconStar } from "./Icons";
+import Metric from "./Metric";
 import Dialog from "./Dialog";
 import styles from "./SectionDialog.module.css";
 
@@ -15,13 +18,13 @@ type Props = {
   onClose: () => void;
 };
 
-function metaOf(item: Item, lang: Lang, generatedAt: string): string[] {
+function metaOf(item: Item, lang: Lang, generatedAt: string): ReactNode[] {
   const u = ui(lang);
   const m = item.metrics;
-  const out = [item.source];
+  const out: ReactNode[] = [item.source];
   if (item.industry) out.push(industryTag(item.industry, lang));
-  if (m?.stars != null) out.push(`★ ${fmtCompact(m.stars)}`);
-  if (m?.forks != null) out.push(`${u.m.forks} ${fmtCompact(m.forks)}`);
+  if (m?.stars != null) out.push(<Metric key="s" icon={<IconStar size={12} />} label={u.m.stars} value={fmtCompact(m.stars)} />);
+  if (m?.forks != null) out.push(<Metric key="f" icon={<IconFork size={12} />} label={u.m.forks} value={fmtCompact(m.forks)} />);
   if (m?.points != null) out.push(u.pts(String(m.points)));
   out.push(relTime(item.publishedAt, generatedAt, lang));
   return out;
@@ -52,7 +55,12 @@ export default function SectionDialog({ section, items, lang, generatedAt, onOpe
                       {item.title[lang]}
                     </button>
                   </h3>
-                  <p className={styles.meta}>{metaOf(item, lang, generatedAt).join(" · ")}</p>
+                  <p className={styles.meta}>{metaOf(item, lang, generatedAt).map((x, k) => (
+                      <Fragment key={k}>
+                        {k > 0 && " · "}
+                        {x}
+                      </Fragment>
+                    ))}</p>
                   <p className={styles.summary}>{item.summary[lang]}</p>
                 </div>
               </li>

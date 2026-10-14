@@ -1,0 +1,8 @@
+.metric {
+  white-space: nowrap;
+}
+/* Icon lowered 2px so its centre meets the digits' centre; the digits keep the text baseline (an inline-flex box would take the icon's bottom edge as its baseline). */
+.metric svg {
+  margin-right: 3px;
+  vertical-align: -2px;
+}
