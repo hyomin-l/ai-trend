@@ -28,7 +28,10 @@ export default function Dialog({ open, onClose, label, closeLabel, actions, chil
   useEffect(() => {
     const d = ref.current;
     if (!d) return;
-    if (open && !d.open) d.showModal();
+    if (open && !d.open) {
+      d.showModal();
+      d.focus({ focusVisible: false } as FocusOptions); // showModal() focuses the first control (×); park focus on the dialog so no ring shows until Tab
+    }
     else if (!open && d.open) d.close();
   }, [open]);
 
@@ -37,6 +40,7 @@ export default function Dialog({ open, onClose, label, closeLabel, actions, chil
       ref={ref}
       className={styles.dialog}
       aria-label={label}
+      tabIndex={-1}
       onClose={onClose}
       onTransitionEnd={(e) => {
         if (e.target === e.currentTarget && !e.currentTarget.open) setHeld(null);

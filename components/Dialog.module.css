@@ -17,6 +17,9 @@
 
 /* Closed state = the exit frame. `display` and `overlay` are allow-discrete so the dialog stays painted (and in the top layer, where
    supported) until the fade ends; browsers without them just close instantly. */
+.dialog:focus {
+  outline: none; /* focus is parked on the dialog on open; the × and links keep their own :focus-visible ring */
+}
 .dialog,
 .dialog::backdrop {
   opacity: 0;
@@ -58,7 +61,7 @@
   padding: var(--s8) var(--s8) var(--s6);
 }
 
-/* Top-right corner: the close button first in the DOM (it takes the initial focus), drawn rightmost, with the actions to its left. */
+/* Top-right corner: the close button first in the DOM (first Tab stop), drawn rightmost, with the actions to its left. */
 .chrome {
   position: absolute;
   top: var(--s3);
