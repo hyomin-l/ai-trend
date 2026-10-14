@@ -39,6 +39,8 @@ export function saveSnapshot(s: Snapshot, dir = snapshotDir()): string {
   return file;
 }
 
+/** Sanity bound for any numeric metric; larger values mean a scraping bug, never a real count. */
+const MAX_METRIC = 1e9;
 const isStr = (v: unknown): v is string => typeof v === "string" && v.trim() !== "";
 const isL10n = (v: unknown) => !!v && typeof v === "object" && isStr((v as any).ko) && isStr((v as any).en);
 
@@ -65,6 +67,11 @@ export function validateSnapshot(s: unknown, file: string): string[] {
     if (!REGIONS.includes(it.region)) err(w, `unknown region ${JSON.stringify(it.region)}`);
     if (!isStr(it.source)) err(w, "source missing");
     if (!isStr(it.publishedAt)) err(w, "publishedAt missing");
+    if (it.metrics !== undefined) {
+      if (!it.metrics || typeof it.metrics !== "object") err(w, "metrics must be an object");
+      else for (const [k, v] of Object.entries(it.metrics))
+        if (typeof v === "number" && !(Number.isFinite(v) && v >= 0 && v < MAX_METRIC)) err(w, `metrics.${k} out of range: ${v}`);
+    }
     // An uncurated (--no-llm) edition copies feed snippets and has no takeaway, so only the title is required there.
     for (const f of snap.curated === false ? ["title"] : ["title", "summary", "takeaway"])
       if (!isL10n(it[f])) err(w, `${f} needs non-empty ko and en`);

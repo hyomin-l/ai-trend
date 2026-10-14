@@ -31,6 +31,9 @@ describe("validateSnapshot", () => {
   it("rejects duplicate ids", () => expect(errs((s) => { s.items[1].id = s.items[0].id; })).toContain("duplicate id"));
   it("rejects front ids not in items", () => expect(errs((s) => { s.front.push("ghost"); })).toContain('front id "ghost"'));
   it("rejects a wrong date", () => expect(validateSnapshot(base(), "2000-01-01").join()).toContain("does not match filename"));
+  it.each([1.6e297, 1e9, -1, NaN, Infinity])("rejects metric %s", (v) =>
+    expect(errs((s) => { s.items[0].metrics = { stars: v }; })).toContain("metrics.stars out of range"));
+  it("accepts sane metrics", () => expect(errs((s) => { s.items[0].metrics = { stars: 183758, language: "TS" }; })).toBe(""));
   it("rejects a bad issue", () => expect(errs((s) => { s.issue = 0; })).toContain("issue"));
   it("rejects a malformed glossary", () => expect(errs((s) => { s.glossary = [{ term: "", desc: { ko: "a" } }]; })).toContain("glossary #0"));
 });
