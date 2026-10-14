@@ -1,38 +1,58 @@
 {
   "date": "2026-10-14",
   "issue": 1,
-  "generatedAt": "2026-10-14T00:20:28.544Z",
+  "generatedAt": "2026-10-14T01:09:41.741Z",
   "model": "sonnet",
   "curated": true,
   "failedSources": [],
   "stats": {
-    "collected": 90,
-    "published": 20
+    "collected": 110,
+    "published": 19
   },
   "front": [
-    "31304e5aeaf9",
-    "dfec49b3622b",
-    "38748a943309"
+    "66cb1e68848f",
+    "8c17f1f1ac30",
+    "dfec49b3622b"
   ],
   "items": [
     {
-      "id": "31304e5aeaf9",
-      "source": "AI타임스",
-      "url": "https://www.aitimes.com/news/articleView.html?idxno=216220",
-      "publishedAt": "2026-10-14T05:01:14.000Z",
+      "id": "66cb1e68848f",
+      "source": "Google AI",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "publishedAt": "2026-10-13T16:00:00.000Z",
       "section": "newsroom",
       "region": "US",
       "title": {
-        "ko": "구글, 제미나이 4 아르곤 전면 상용화",
-        "en": "Google rolls out Gemini 4 Argon to all developers, businesses and paid users"
+        "ko": "구글, 최상위 모델 'Gemini 4 Argon' 전면 공개",
+        "en": "Google opens Gemini 4 Argon, its top model, to all users"
       },
       "summary": {
-        "ko": "구글이 주력 AI 모델 'Gemini 4 Argon'을 전 세계 개발자와 기업, 유료 이용자에게 확대 출시했습니다. 지난달 일부에게만 공개했던 모델을 본격 상용화한 것입니다. 구글은 복잡한 실제 업무에서 거둔 성과와 기존 제품에 모델을 녹여 넣는 전략을 앞세웠습니다. 모델 성능 경쟁이 제품 생태계 경쟁으로 옮겨가고 있습니다.",
-        "en": "Google has expanded its flagship Gemini 4 Argon model to developers, enterprises and paying users worldwide, a month after a limited preview. It is stressing results on complex real-world work and integration into its existing products."
+        "ko": "구글이 최신 최상위 모델 Gemini 4 Argon을 개발자, 기업, 과학자, 일반 소비자에게 공개했습니다. 지난달 일부에게만 열었던 모델을 전 세계 개발자와 기업, 유료 이용자로 넓혀 본격 상용화한 것입니다. 구글은 가장 어려운 문제를 푸는 모델이라고 소개했고, 실제 업무 성과와 기존 제품에 녹여 넣는 전략을 앞세웠습니다.",
+        "en": "Google released Gemini 4 Argon, its latest top-tier model, to developers, enterprises, scientists and consumers. It widens access from last month's limited preview to paid users worldwide. Google pitches it for hard problems and for integration into its existing products."
       },
       "takeaway": {
-        "ko": "사내 AI 도구의 기반 모델을 고를 때 성능표뿐 아니라 기존 업무 제품과의 연동성을 함께 따져볼 시점입니다.",
-        "en": "When choosing a base model for internal AI tools, weigh integration with existing work products as well as benchmarks."
+        "ko": "주력 AI 모델이 바뀌면 사내 도구의 성능과 비용 기준도 달라지므로, 도입 중인 업무에 맞는지 바로 비교해 볼 시점입니다.",
+        "en": "A new flagship model shifts performance and cost baselines, so it is time to test it against current internal workloads."
+      }
+    },
+    {
+      "id": "8c17f1f1ac30",
+      "source": "Anthropic Engineering",
+      "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+      "publishedAt": "2026-10-13T00:00:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽, 하루 병합 10배 늘자 소스 관리 시스템 직접 재설계",
+        "en": "Anthropic rebuilds its source control as daily merges grow tenfold"
+      },
+      "summary": {
+        "ko": "앤트로픽이 코드 관리 방식을 처음부터 다시 설계한 과정을 공개했습니다. 하루에 합치는 코드 변경(병합) 건수가 10배 넘게 늘면서 소스 관리가 개발의 가장 큰 병목이 됐기 때문입니다. 이에 기존 도구의 대안을 자체 개발해 옮겨 갔다고 밝혔습니다. AI가 코드를 많이 쓰는 시대에는 개발 도구 자체도 새로 설계해야 한다는 사례입니다.",
+        "en": "Anthropic described how it redesigned its code management. Merges per day grew more than tenfold, making source control the biggest development bottleneck. It built its own alternative and migrated to it."
+      },
+      "takeaway": {
+        "ko": "AI 코딩 도입으로 코드량이 늘면 모델 성능보다 코드 관리와 검토 체계가 먼저 한계에 부딪힐 수 있어 미리 점검해야 합니다.",
+        "en": "As AI coding increases code volume, code management and review pipelines may break before model quality does, so check them early."
       }
     },
     {
@@ -43,160 +63,164 @@
       "section": "newsroom",
       "region": "US",
       "title": {
-        "ko": "저커버그, 최첨단 모델 경쟁 복귀 선언…'개인용 초지능' 승부",
-        "en": "Zuckerberg declares Meta back in the frontier model race, eyes 'personal superintelligence'"
+        "ko": "저커버그, 최첨단 모델 경쟁 복귀 선언…이제는 '개인용 초지능'",
+        "en": "Zuckerberg declares Meta back in the frontier race, now eyeing 'personal superintelligence'"
       },
       "summary": {
-        "ko": "마크 저커버그 메타 CEO가 최첨단 AI 모델 경쟁에 복귀했다며 자신감을 드러냈습니다. 지난해 4월 '라마 4'가 기대에 못 미친 뒤 AI 조직을 전면 개편하고 막대한 자금을 투입한 지 약 1년 반 만입니다. 메타는 경쟁사를 따라잡는 단계를 넘어 개인용 초지능을 내세우고 있습니다. 새 모델은 'Muse Wonder'라는 이름으로 알려졌습니다.",
-        "en": "Meta CEO Mark Zuckerberg says the company is back in the frontier model race, about 18 months after Llama 4's failure prompted an AI overhaul and heavy spending. Meta now pitches 'personal superintelligence' rather than just catching up. The new model is reportedly called Muse Wonder."
+        "ko": "마크 저커버그 메타 CEO가 최첨단 AI 모델 경쟁에 복귀했다며 자신감을 드러냈습니다. 지난해 4월 '라마 4'가 실패한 뒤 AI 조직을 전면 개편하고 막대한 자금을 투입한 지 약 1년 반 만입니다. 메타는 새 모델 Muse Wonder를 내놓았고, 이제 경쟁사를 따라잡는 단계를 넘어 개인용 초지능으로 승부하겠다는 구상입니다.",
+        "en": "Meta CEO Mark Zuckerberg says Meta is back in the frontier model race, about a year and a half after the Llama 4 failure and a full AI reorganization. Meta released its new Muse Wonder models. The goal now goes beyond catching up to 'personal superintelligence'."
       },
       "takeaway": {
-        "ko": "메타가 최상위 모델 경쟁에 다시 들어오면서 기업이 고를 수 있는 선택지와 가격 협상력이 달라질 수 있습니다.",
-        "en": "Meta's return to top-tier models could widen enterprise options and shift pricing leverage."
+        "ko": "주요 모델 공급사가 하나 더 늘면서 특정 업체에 묶이지 않는 선택 구조를 갖출 필요가 커졌습니다.",
+        "en": "With another major model supplier, enterprises have more reason to avoid lock-in to one vendor."
       }
     },
     {
-      "id": "38748a943309",
-      "source": "Reddit",
-      "url": "https://www.reddit.com/r/ClaudeAI/comments/1x03k4j/introducing_claude_haiku_55_the_cheapest_fastest/",
-      "publishedAt": "2026-10-07T18:01:28.000Z",
+      "id": "65f448f88477",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=216196",
+      "publishedAt": "2026-10-13T17:35:00.000Z",
       "section": "newsroom",
       "region": "US",
       "title": {
-        "ko": "앤트로픽, 가장 싸고 빠른 소형 모델 'Claude Haiku 5.5' 공개",
-        "en": "Anthropic launches Claude Haiku 5.5, its cheapest and fastest small model"
+        "ko": "오픈AI, 'GPT-6.1 솔' 컨텍스트 길이 50만 토큰으로 확대",
+        "en": "OpenAI raises GPT-6.1 Sol context length to 500,000 tokens"
       },
       "summary": {
-        "ko": "앤트로픽이 소형 모델 'Claude Haiku 5.5'를 내놨습니다. 회사는 지금까지 만든 소형 모델 중 가장 싸고 빠르며 성능도 가장 좋다고 소개했습니다. 운영 비용이 평균 약 75% 낮다고 밝혔습니다. 소형 모델은 대량의 반복 업무에 쓰기 알맞습니다.",
-        "en": "Anthropic released Claude Haiku 5.5, calling it its cheapest, fastest and most capable small model. It says running costs are around 75% lower on average."
+        "ko": "오픈AI가 코덱스와 챗GPT 워크에서 쓰는 GPT-6.1 솔의 기본 컨텍스트 길이를 27만2000 토큰에서 50만 토큰으로 늘렸습니다. 약 80% 확대된 규모입니다. 컨텍스트 길이는 AI가 한 번에 기억하며 작업할 수 있는 분량이며, 길어지면 장시간 작업 중 내용을 줄여 기억하는 일이 줄어 복잡한 작업의 세부 사항을 더 잘 유지합니다.",
+        "en": "OpenAI expanded the default context length of GPT-6.1 Sol in Codex and ChatGPT Work from 272,000 to 500,000 tokens, about 80% more. This reduces context compaction in long tasks and helps keep details in complex work."
       },
       "takeaway": {
-        "ko": "대량 문서 처리나 고객 응대처럼 호출이 많은 업무는 소형 모델로 바꾸면 비용을 크게 줄일 여지가 있습니다.",
-        "en": "High-volume workloads like document processing or support could cut costs substantially by moving to small models."
+        "ko": "긴 문서 검토나 대규모 코드 작업을 맡기는 업무에서 AI가 중간에 맥락을 놓치는 문제가 줄어들 수 있습니다.",
+        "en": "Long document reviews and large coding jobs may suffer less from the AI losing context midway."
       }
     },
     {
-      "id": "082a179fcd58",
+      "id": "c839b9474fae",
       "source": "The Verge",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1010642/openai-employee-arrested-recording-device",
-      "publishedAt": "2026-10-13T20:45:25.000Z",
+      "url": "https://www.theverge.com/news/1010365/shopify-opens-its-catalog-up-to-more-ai-agents",
+      "publishedAt": "2026-10-13T19:42:42.000Z",
       "section": "newsroom",
       "region": "US",
       "title": {
-        "ko": "OpenAI 직원, 사내 회의실 도청 장치 설치 혐의로 체포",
-        "en": "OpenAI employee arrested over alleged recording device in conference room"
+        "ko": "쇼피파이, 더 많은 AI 에이전트에 상품 카탈로그 개방",
+        "en": "Shopify opens its catalog to more AI agents"
       },
       "summary": {
-        "ko": "OpenAI 엔지니어가 사무실 회의실에 숨겨진 녹음 장치와 관련해 체포됐습니다. 회사는 정교한 녹음 장치를 발견했다고 밝혔습니다. 임원 회의실 대화를 엿들으려 했다는 혐의로 기소됐다고 전해집니다. AI 기업 내부의 보안 문제가 다시 주목받고 있습니다.",
-        "en": "An OpenAI engineer was arrested after the company said it found a sophisticated recording device hidden in an office conference room. Reports say he was charged over attempting to intercept conversations."
+        "ko": "쇼피파이가 더 많은 AI 에이전트가 자사 상품 목록을 둘러보고 구매할 수 있도록 문을 열기로 했습니다. AI 에이전트는 사용자를 대신해 일을 처리하는 AI 프로그램입니다. 쇼피파이가 추진하는 에이전트 쇼핑 확대 전략의 일부입니다.",
+        "en": "Shopify will let more AI agents browse and purchase from its listings. The move expands its agentic commerce ambitions."
       },
       "takeaway": {
-        "ko": "AI 핵심 정보를 다루는 조직일수록 외부 해킹뿐 아니라 내부자 위협까지 보안 체계에 넣어야 합니다.",
-        "en": "Teams handling sensitive AI information must cover insider threats, not only external attacks."
+        "ko": "고객이 AI 비서를 통해 구매하는 경로가 열리고 있어, 유통 계열사는 상품 정보를 AI가 읽기 쉬운 형태로 정리할 준비가 필요합니다.",
+        "en": "As customers start buying through AI assistants, retail units should prepare product data that AI can read."
       }
     },
     {
-      "id": "a1097dcd46a9",
+      "id": "927053312755",
       "source": "GitHub",
-      "url": "https://github.com/onehumanbeing/esp32-iphone-agent",
-      "publishedAt": "2026-10-11T19:10:25.000Z",
+      "url": "https://github.com/morluto/rea",
+      "publishedAt": "2026-04-14T00:51:32.000Z",
       "section": "repos",
       "region": "GLOBAL",
       "title": {
-        "ko": "7달러짜리 ESP32로 AI가 아이폰을 직접 조작",
-        "en": "A $7 ESP32 lets an AI model operate a real iPhone"
+        "ko": "morluto/rea, 에이전트로 앱부터 바이너리까지 역분석",
+        "en": "morluto/rea lets agents reverse engineer apps down to binaries"
       },
       "summary": {
-        "ko": "esp32-iphone-agent는 AI 모델이 실제 아이폰을 사람처럼 쓰게 해주는 도구입니다. 약 7달러짜리 소형 칩 ESP32가 AirPlay로 화면을 보고 USB로 터치를 대신하며, OpenAI 호환 비전 모델이면 무엇이든 붙일 수 있습니다. Mac이나 개발자 계정도 필요 없습니다. 하루 683개씩 별(★)이 붙어 총 ★1513을 기록했습니다.",
-        "en": "esp32-iphone-agent lets an AI model use a real iPhone, with a $7 ESP32 chip viewing the screen via AirPlay and sending input over USB HID. It works with any OpenAI-compatible vision model and needs no Mac or developer account. It gained 683 stars a day, reaching ★1513."
+        "ko": "rea는 AI 에이전트를 이용해 앱의 동작부터 기계어 수준의 실행 파일까지 무엇이든 역분석해 주는 도구입니다. 역분석은 완성된 프로그램을 뜯어 작동 원리를 알아내는 작업입니다. 이번 주에만 ★18만 3758개가 늘어 누적 ★20만 7920개를 기록하며 폭발적으로 주목받고 있습니다.",
+        "en": "rea is a tool that uses AI agents to reverse engineer anything, from app behavior down to native binaries. It gained 183,758 stars this week, reaching 207,920 in total."
       },
       "takeaway": {
-        "ko": "API가 없는 모바일 앱도 AI로 자동화할 수 있다는 가능성을 보여주는 사례입니다.",
-        "en": "It shows that mobile apps without APIs can still be automated by AI."
+        "ko": "레거시 시스템 분석에 쓸 수 있는 반면 보안 위험도 있어, 도입 전 사용 범위와 규정을 정해야 합니다.",
+        "en": "It could help analyze legacy systems but carries security risk, so set usage scope and policy before adopting."
       },
       "metrics": {
-        "stars": 1513,
-        "forks": 194,
+        "stars": 207920,
+        "forks": 50789,
+        "language": "TypeScript",
+        "starsGained": 183758,
+        "period": "week"
+      }
+    },
+    {
+      "id": "76608378b664",
+      "source": "GitHub",
+      "url": "https://github.com/mattpocock/skills",
+      "publishedAt": "2026-02-03T11:15:53.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "mattpocock/skills, 현업 개발자의 에이전트 스킬 모음",
+        "en": "mattpocock/skills shares a working engineer's agent skills"
+      },
+      "summary": {
+        "ko": "mattpocock/skills는 개발자가 실제로 쓰는 .agents 폴더의 스킬을 그대로 공개한 저장소입니다. 스킬은 AI 에이전트에게 작업 방식을 알려 주는 지침 묶음입니다. 누적 ★28만 9699개이며 이번 주에만 ★1만 1955개가 늘었습니다.",
+        "en": "mattpocock/skills publishes the skills from a working engineer's .agents directory. Skills are instruction bundles that teach AI agents how to work. It has 289,699 stars, up 11,955 this week."
+      },
+      "takeaway": {
+        "ko": "사내 에이전트 활용 표준을 처음부터 만들기보다 검증된 스킬 구성을 참고해 시간을 아낄 수 있습니다.",
+        "en": "Teams can borrow proven skill setups instead of building agent standards from scratch."
+      },
+      "metrics": {
+        "stars": 289699,
+        "forks": 24312,
+        "language": "Shell",
+        "starsGained": 11955,
+        "period": "week"
+      }
+    },
+    {
+      "id": "8898dc1fb352",
+      "source": "GitHub",
+      "url": "https://github.com/heygen-com/hyperframes",
+      "publishedAt": "2026-03-10T01:51:06.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "heygen-com/hyperframes, HTML로 쓰면 영상이 되는 도구",
+        "en": "heygen-com/hyperframes turns HTML into rendered video"
+      },
+      "summary": {
+        "ko": "hyperframes는 HTML로 장면을 작성하면 영상으로 만들어 주는 도구로, AI 에이전트가 쓰도록 설계됐습니다. 에이전트가 익숙한 웹 코드로 영상을 만들 수 있다는 점이 강점입니다. 누적 ★6만 2809개이며 이번 주 ★4732개가 늘었습니다.",
+        "en": "hyperframes renders video from HTML and is built for agents. Agents can make video using familiar web code. It has 62,809 stars, up 4,732 this week."
+      },
+      "takeaway": {
+        "ko": "홍보물이나 교육 영상을 반복 제작하는 부서는 코드로 자동화하는 방식을 검토할 만합니다.",
+        "en": "Teams that repeatedly produce promo or training video can consider automating it with code."
+      },
+      "metrics": {
+        "stars": 62809,
+        "forks": 5632,
+        "language": "TypeScript",
+        "starsGained": 4732,
+        "period": "week"
+      }
+    },
+    {
+      "id": "618e8fb74c6c",
+      "source": "GitHub",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "publishedAt": "2026-01-23T20:11:54.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "anthropics/knowledge-work-plugins, 지식노동자용 Claude Cowork 플러그인",
+        "en": "anthropics/knowledge-work-plugins offers plugins for Claude Cowork"
+      },
+      "summary": {
+        "ko": "앤트로픽이 지식노동자가 Claude Cowork에서 쓸 수 있는 플러그인을 오픈소스 저장소로 공개했습니다. 플러그인은 AI에 특정 업무 기능을 덧붙이는 부가 모듈입니다. 누적 ★2만 9549개이며 이번 주 ★3227개가 늘었습니다.",
+        "en": "Anthropic published an open source repository of plugins mainly for knowledge workers using Claude Cowork. It has 29,549 stars, up 3,227 this week."
+      },
+      "takeaway": {
+        "ko": "개발자가 아닌 사무 직군용 AI 업무 자동화의 출발점으로 활용할 수 있습니다.",
+        "en": "It is a starting point for AI workflow automation for non-developer office roles."
+      },
+      "metrics": {
+        "stars": 29549,
+        "forks": 3352,
         "language": "Python",
-        "starsPerDay": 683
-      }
-    },
-    {
-      "id": "0365ec89c7e5",
-      "source": "GitHub",
-      "url": "https://github.com/yetone/magpie",
-      "publishedAt": "2026-09-23T16:22:35.000Z",
-      "section": "repos",
-      "region": "GLOBAL",
-      "title": {
-        "ko": "magpie, 메뉴바에서 코딩 에이전트의 모델을 골라 바꾼다",
-        "en": "magpie lets you swap the model behind any coding agent from the menu bar"
-      },
-      "summary": {
-        "ko": "magpie는 코딩용 AI 에이전트가 쓰는 모델을 메뉴바에서 한 곳에서 바꿔주는 도구입니다. 예를 들어 Codex에 DeepSeek을, Claude Code에 Kimi를 연결할 수 있습니다. 에이전트와 모델을 자유롭게 조합하려는 수요 덕에 ★11512, 하루 566개의 별을 얻었습니다.",
-        "en": "magpie is a menu-bar tool that manages which model each coding agent uses, for example Codex on DeepSeek or Claude Code on Kimi. Demand for mixing agents and models earned it ★11512, 566 a day."
-      },
-      "takeaway": {
-        "ko": "에이전트 도구와 모델을 분리해 고를 수 있어, 비용과 벤더 의존도를 관리하기 쉬워집니다.",
-        "en": "Decoupling agent tools from models helps manage cost and vendor lock-in."
-      },
-      "metrics": {
-        "stars": 11512,
-        "forks": 773,
-        "language": "Go",
-        "starsPerDay": 566
-      }
-    },
-    {
-      "id": "b05ceac2f48e",
-      "source": "GitHub",
-      "url": "https://github.com/rehan-remade/universal-modder",
-      "publishedAt": "2026-09-30T05:00:35.000Z",
-      "section": "repos",
-      "region": "GLOBAL",
-      "title": {
-        "ko": "Claude Code로 거의 모든 PC 게임을 모딩하는 universal-modder",
-        "en": "universal-modder uses Claude Code to mod almost any PC game"
-      },
-      "summary": {
-        "ko": "universal-modder는 Claude Code가 내가 가진 PC 게임을 분석해 모드를 만들도록 돕는 스킬과 도구 모음입니다. 게임 구조 파악, 역공학, fal MCP 연동 등을 포함합니다. ★7400, 하루 536개의 별로 빠르게 주목받고 있습니다.",
-        "en": "universal-modder is a set of skills and tools that lets Claude Code mod PC games you own, covering recon, reverse engineering and fal MCP. It has ★7400, gaining 536 a day."
-      },
-      "takeaway": {
-        "ko": "AI 에이전트에 도메인 지식을 스킬로 묶어 주면 전문가 영역의 작업도 자동화할 수 있음을 보여줍니다.",
-        "en": "Packaging domain knowledge as skills lets agents handle expert-level tasks."
-      },
-      "metrics": {
-        "stars": 7400,
-        "forks": 784,
-        "language": "Python",
-        "starsPerDay": 536
-      }
-    },
-    {
-      "id": "e45fed453524",
-      "source": "GitHub",
-      "url": "https://github.com/Louis-CFM/coucou",
-      "publishedAt": "2026-09-27T21:54:12.000Z",
-      "section": "repos",
-      "region": "GLOBAL",
-      "title": {
-        "ko": "맥 노치에서 AI 코딩 에이전트를 지켜보는 coucou",
-        "en": "coucou watches your AI coding agents from the Mac notch"
-      },
-      "summary": {
-        "ko": "coucou는 맥 화면 상단 노치와 아이폰에서 Claude Code, Codex, Cursor, Gemini CLI 등 여러 AI 코딩 에이전트의 상태를 보여주는 작은 앱입니다. 에이전트를 동시에 여러 개 돌릴 때 진행 상황을 놓치지 않게 해줍니다. ★5119, 하루 318개의 별을 받았습니다.",
-        "en": "coucou is a small app that shows the status of AI coding agents such as Claude Code, Codex, Cursor and Gemini CLI in the Mac notch and on iPhone. It has ★5119, gaining 318 a day."
-      },
-      "takeaway": {
-        "ko": "에이전트를 여러 개 병행하는 시대에는 진행 상황을 한눈에 보는 관제 도구가 생산성을 좌우합니다.",
-        "en": "With parallel agents, at-a-glance monitoring tools affect productivity."
-      },
-      "metrics": {
-        "stars": 5119,
-        "forks": 853,
-        "language": "Swift",
-        "starsPerDay": 318
+        "starsGained": 3227,
+        "period": "week"
       }
     },
     {
@@ -207,16 +231,16 @@
       "section": "pulse",
       "region": "GLOBAL",
       "title": {
-        "ko": "AI 코딩 에이전트는 코드만 늘릴 뿐 소프트웨어는 늘지 않는다?",
+        "ko": "AI 코딩 에이전트, 코드는 늘려도 소프트웨어는 늘지 않았다",
         "en": "AI coding agents generate more code, but not more software"
       },
       "summary": {
-        "ko": "Hacker News에서 'AI 코딩 에이전트는 코드는 더 많이 만들지만 소프트웨어는 더 늘지 않는다'는 글이 359점, 댓글 299개로 뜨거운 논쟁을 일으켰습니다. GeekNews에서도 AI 코딩이 뛰어난데 왜 새롭고 좋은 소프트웨어가 눈에 띄지 않느냐는 글이 함께 화제였습니다. 여러 가설이 나오지만 대부분 추측입니다.",
-        "en": "A Hacker News post arguing AI coding agents produce more code but not more software drew 359 points and 299 comments. A similar GeekNews discussion asked why we don't see more great new software. Most explanations remain speculative."
+        "ko": "AI 코딩 에이전트가 코드를 더 많이 만들지만 쓸 만한 소프트웨어가 그만큼 늘지는 않았다는 글이 Hacker News에서 359점, 댓글 299개로 화제입니다. 같은 맥락에서 GeekNews에는 좋은 새 소프트웨어가 왜 안 보이는지 9가지 가설을 제시한 글도 올라왔습니다. 기존 제품의 개선, 비공개 도구 증가, 조직의 병목 등이 거론됩니다.",
+        "en": "A post arguing AI coding agents produce more code but not more software drew 359 points and 299 comments on Hacker News. A related GeekNews piece offers nine hypotheses, including improvements to existing products and organizational bottlenecks."
       },
       "takeaway": {
-        "ko": "AI 도입 성과는 코드 생산량이 아니라 실제 배포된 제품과 업무 개선으로 측정해야 합니다.",
-        "en": "Measure AI adoption by shipped products and process gains, not lines of code."
+        "ko": "AI 코딩 도입 효과는 코드 생산량이 아니라 실제 출시와 품질로 측정해야 합니다.",
+        "en": "Measure AI coding impact by shipped products and quality, not lines of code."
       },
       "metrics": {
         "points": 359,
@@ -231,16 +255,16 @@
       "section": "pulse",
       "region": "GLOBAL",
       "title": {
-        "ko": "오픈소스 지도 프로그램 QGIS, AI 기여 한시 중단",
+        "ko": "QGIS, AI 기여 일시 중단 선언",
         "en": "QGIS enacts moratorium on AI contributions"
       },
       "summary": {
-        "ko": "오픈소스 지리정보 프로그램 QGIS가 AI로 만든 기여물을 당분간 받지 않기로 했습니다. Hacker News에서 385점, 댓글 407개로 큰 논쟁이 일었습니다. 관리자가 검토해야 할 AI 생성 코드가 늘어나는 데 대한 부담이 배경으로 보입니다.",
-        "en": "The open-source GIS project QGIS has put a moratorium on AI contributions, drawing 385 points and 407 comments on Hacker News. The burden of reviewing AI-generated submissions appears to be a factor."
+        "ko": "오픈소스 지리정보 프로그램 QGIS가 AI로 만든 기여물을 당분간 받지 않기로 했습니다. Hacker News에서 385점, 댓글 407개로 큰 논쟁이 일었습니다. 오픈소스 프로젝트에서 AI가 만든 코드의 품질과 검토 부담을 둘러싼 갈등을 보여 줍니다.",
+        "en": "QGIS has imposed a moratorium on AI contributions, drawing 385 points and 407 comments on Hacker News. It reflects open source tension over AI-generated code quality and review burden."
       },
       "takeaway": {
-        "ko": "사내에서 오픈소스를 쓰거나 기여할 때 AI 생성 코드 정책이 프로젝트마다 다를 수 있어 확인이 필요합니다.",
-        "en": "Open-source projects may have differing AI-code policies, so check them before using or contributing."
+        "ko": "오픈소스에 기여하거나 가져다 쓰는 기업은 AI 생성 코드에 대한 프로젝트별 정책을 확인해야 합니다.",
+        "en": "Companies contributing to or using open source should check each project's policy on AI-generated code."
       },
       "metrics": {
         "points": 385,
@@ -255,41 +279,62 @@
       "section": "pulse",
       "region": "US",
       "title": {
-        "ko": "Character.ai, 파산보호 챕터 11 신청",
+        "ko": "Character.ai, 자발적 파산보호 11조 신청",
         "en": "Character.ai files for voluntary Chapter 11 bankruptcy"
       },
       "summary": {
-        "ko": "AI 캐릭터 대화 서비스 Character.ai가 자발적으로 챕터 11(미국의 기업 회생 절차)을 신청했다는 소식이 Hacker News에서 277점으로 화제가 됐습니다. 한때 인기 있던 AI 서비스도 사업 지속이 쉽지 않음을 보여줍니다.",
-        "en": "Character.ai has voluntarily filed for Chapter 11 bankruptcy, a story that drew 277 points on Hacker News. It shows even once-popular AI services can struggle to sustain their business."
+        "ko": "AI 캐릭터 대화 서비스 Character.ai가 미국 파산보호 11조(Chapter 11)를 자발적으로 신청했습니다. 파산보호 11조는 사업을 이어가며 부채를 정리하는 절차입니다. Hacker News에서 285점, 댓글 268개로 화제입니다.",
+        "en": "Character.ai has voluntarily initiated Chapter 11 bankruptcy, a process to restructure debt while continuing operations. The news drew 285 points and 268 comments on Hacker News."
       },
       "takeaway": {
-        "ko": "외부 AI 서비스를 도입할 때는 기능뿐 아니라 업체의 재무 안정성과 데이터 이전 방안도 점검해야 합니다.",
-        "en": "When adopting external AI services, check vendor financial stability and data portability."
+        "ko": "AI 서비스 업체의 재무 안정성도 도입 검토 때 확인해야 할 위험 요소입니다.",
+        "en": "Vendor financial stability is a risk worth checking when adopting AI services."
       },
       "metrics": {
-        "points": 277,
-        "comments": 262
+        "points": 285,
+        "comments": 268
       }
     },
     {
-      "id": "e63a37d5e535",
+      "id": "ea0e80c7ad24",
       "source": "Reddit",
-      "url": "https://www.reddit.com/r/ClaudeAI/comments/1wzw8zd/i_think_i_found_a_planet_nobody_knew_existed_i/",
-      "publishedAt": "2026-10-07T13:15:47.000Z",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1x3nkty/opus_55_is_insane_at_decompilation_ports/",
+      "publishedAt": "2026-10-12T00:12:14.000Z",
       "section": "pulse",
       "region": "GLOBAL",
       "title": {
-        "ko": "Claude Code로 NASA 데이터에서 미지의 행성 후보 발견",
-        "en": "User says Claude Code helped spot a possible unknown planet in NASA data"
+        "ko": "Opus 5.5로 스타폭스·소닉 CD를 디컴파일해 PC로 이식",
+        "en": "Opus 5.5 decompiles and ports StarFox and Sonic CD to PC"
       },
       "summary": {
-        "ko": "한 Reddit 이용자가 NASA의 TESS 망원경 데이터를 Claude Code로 살펴보다가 이상한 움직임을 보이는 별을 발견했고, 아무도 몰랐던 행성을 찾은 것 같다고 밝혔습니다. 아직 개인의 주장이며 검증은 필요합니다. 전문가가 아닌 사람도 AI로 대규모 데이터를 탐색할 수 있게 됐다는 사례입니다.",
-        "en": "A Reddit user says that while going through NASA TESS telescope data with Claude Code, one star looked odd, and they believe they found an unknown planet. It is a personal claim awaiting verification."
+        "ko": "한 사용자가 Opus 5.5로 스타폭스, 스타폭스 2, 소닉 CD를 디컴파일해 윈도우, 맥, 리눅스용으로 이식했다고 밝혔습니다. 디컴파일은 완성된 프로그램을 사람이 읽을 수 있는 코드로 되돌리는 작업입니다. 앞서 소개한 rea 같은 별도 스킬 없이 했다고 합니다.",
+        "en": "A user said they decompiled and natively ported StarFox, StarFox 2 and Sonic CD to Windows, Mac and Linux using Opus 5.5, without REA or similar skills."
       },
       "takeaway": {
-        "ko": "공개 데이터와 AI 에이전트만으로도 비전문가가 새로운 분석을 시도할 수 있어 사내 데이터 탐색에도 응용할 만합니다.",
-        "en": "Public data plus an AI agent lets non-experts attempt new analyses, a useful idea for internal data exploration."
+        "ko": "AI가 오래된 코드를 해석해 옮기는 능력이 높아져, 레거시 시스템 현대화 작업에 활용할 여지가 커졌습니다.",
+        "en": "AI's growing ability to interpret and port old code expands options for legacy modernization."
       }
+    },
+    {
+      "id": "59ea60b746be",
+      "source": "머니투데이",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBKaGxMMllXOC1NamNwdVF2Zm5HZ2puYl9DNFhNUXUwcHhVUDZFUklfcDR1dy1TUlpROVF2ZlhnaTBMTFAzWGNuQkJOSFNWaVNFblFyLUxBMVV5RHZOeVJMUmJfd3V6SVZvZlBVb9IBckFVX3lxTFBvcGpKMGx6My1ndTByRE9teFYzRWVmU3QzVC1xczYxaEtqT0hWanhER0s2eUkxa1hNaXVBUG93Ql9maWRsSWhVZnVwV1o2SE9yQU9ZSm1zaFpQZWZJdDk1U000LTcwUmFBZFlLeHJ6VzN1Zw?oc=5",
+      "publishedAt": "2026-10-14T00:41:27.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "LX판토스, 청라에 무인 물류센터 실증 거점 열어",
+        "en": "LX Pantos opens Cheongna test site for unmanned logistics center"
+      },
+      "summary": {
+        "ko": "LX판토스가 로봇과 AI로 무인 물류센터를 만들기 위한 실증 거점을 인천 청라에 열었습니다. 실증 거점은 실제 환경에서 기술을 시험하는 장소입니다. 물류 현장의 자동화를 단계적으로 검증하려는 시도입니다.",
+        "en": "LX Pantos opened a demonstration site in Cheongna to pursue an unmanned logistics center with robots and AI."
+      },
+      "takeaway": {
+        "ko": "물류 자동화는 바로 도입하기보다 실증 거점에서 검증하는 방식이 그룹사 현장 적용의 참고가 됩니다.",
+        "en": "Validating logistics automation at a test site first is a useful model for group affiliates."
+      },
+      "industry": "logistics"
     },
     {
       "id": "52d1b04b11ce",
@@ -299,58 +344,37 @@
       "section": "ax",
       "region": "EU",
       "title": {
-        "ko": "도이체방크, Farsight로 투자은행 전반에 사내 구축형 AI 확대",
+        "ko": "도이체방크, Farsight로 온프레미스 AI 투자은행 전반에 확대",
         "en": "Deutsche Bank scales on-premise AI across investment banking with Farsight"
       },
       "summary": {
-        "ko": "도이체방크가 투자은행과 자본시장 부문에서 Farsight의 안전한 AI 업무 흐름을 확대 적용합니다. 외부 클라우드가 아닌 자사 서버에 직접 설치하는 방식(온프레미스)입니다. 규제가 엄격한 금융권에서 보안을 지키며 AI를 쓰려는 선택입니다.",
-        "en": "Deutsche Bank is scaling Farsight's secure AI workflows across investment banking and capital markets, running on-premise rather than in an external cloud. The choice reflects security needs in regulated finance."
+        "ko": "도이체방크가 Farsight의 AI를 투자은행과 자본시장 부문 전반으로 확대하고 있습니다. 온프레미스는 외부 클라우드가 아닌 회사 내부 서버에 설치해 쓰는 방식입니다. 보안이 중요한 금융권에서 안전한 AI 업무 흐름을 갖추려는 사례입니다.",
+        "en": "Deutsche Bank is scaling Farsight's on-premise AI across investment banking and capital markets, building secure AI workflows."
       },
       "takeaway": {
-        "ko": "규제 산업에서는 데이터를 밖으로 내보내지 않는 구축형 AI가 현실적인 도입 경로가 될 수 있습니다.",
-        "en": "For regulated industries, on-premise AI that keeps data in-house is a practical path."
+        "ko": "민감 정보를 다루는 금융 계열사는 사내 서버 기반 AI 도입을 현실적 대안으로 검토할 수 있습니다.",
+        "en": "Finance affiliates handling sensitive data can consider on-premise AI as a realistic option."
       },
       "industry": "finance"
     },
     {
-      "id": "329351cfa3b7",
-      "source": "물류신문",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5rS3pMWjFGSWxsNllKNUZneUtHS3R0SFEzR0VYb2R2bi0wUUlEWG9WX0prQ09jeHZSNFpjTURPd3lSVV9UaFJZMmNxdFNOclBsbGF4aWpPNHdySHNZNDFubno1b0pwVHNiSDY4?oc=5",
-      "publishedAt": "2026-10-13T06:58:26.000Z",
+      "id": "12b122ceb52f",
+      "source": "파이낸셜신문",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1WWEMyZWJWUkxkcDVvbnZYVWg5TUFnbWdYWVRZd2RMdDl1OHFwb015clowbkRvbFNpNjhOaDh5MTI5MmhweFlnakc1dTNMNHBqc1h2ZzRvT2FLZDk5UGRZeUxhU3F5SWNwb0pr?oc=5",
+      "publishedAt": "2026-10-12T08:03:44.000Z",
       "section": "ax",
       "region": "KR",
       "title": {
-        "ko": "씨메스로보틱스, 박스 크기 달라도 집는 AI 물류 로봇 북미 첫선",
-        "en": "CMES Robotics debuts box-handling AI logistics robot in North America"
+        "ko": "GS건설, 협력사와 건설현장 혁신…피지컬 AI 도입 확대",
+        "en": "GS Engineering & Construction expands Physical AI with partners"
       },
       "summary": {
-        "ko": "씨메스로보틱스가 크기가 제각각인 박스도 척척 다루는 AI 물류 로봇을 북미 시장에 처음 선보였습니다. 물류 현장에서는 상자 규격이 일정하지 않아 자동화가 어려웠습니다. 국내 로봇 기업의 해외 진출 사례입니다.",
-        "en": "CMES Robotics showed its AI logistics robot, which handles boxes of varying sizes, for the first time in North America. Irregular box sizes have long hindered warehouse automation."
+        "ko": "GS건설이 협력사 상생행사를 열고 건설 현장에 피지컬 AI 도입을 넓히겠다고 밝혔습니다. 피지컬 AI는 로봇처럼 실제 공간에서 움직이며 일하는 AI를 뜻합니다. 협력사에 대한 실질적 지원도 강화하기로 했습니다.",
+        "en": "GS E&C held a partner event and said it will expand Physical AI in construction sites, along with stronger support for partners."
       },
       "takeaway": {
-        "ko": "규격이 불규칙한 물류 작업에도 AI 로봇이 적용되기 시작해 물류 자동화 범위를 다시 검토할 만합니다.",
-        "en": "AI robots now tackle irregular logistics tasks, so automation scope is worth revisiting."
-      },
-      "industry": "logistics"
-    },
-    {
-      "id": "f7c9070867eb",
-      "source": "뉴스핌",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8zWlJuNG5KTGIyNk81cGVFTk9uVnlVa2Z6U3JUc1QwVXZvWFRRQ21KWVdNOG9RR0J3RzRWUjVqRkh3M2JUc1o3ZEVwSmtLbG11SFREQndDRV9KOWtM?oc=5",
-      "publishedAt": "2026-10-12T08:12:00.000Z",
-      "section": "ax",
-      "region": "KR",
-      "title": {
-        "ko": "GS건설, 협력사 상생행사서 '피지컬 AI' 도입 지원 강화",
-        "en": "GS E&C pledges physical AI adoption and support at partner event"
-      },
-      "summary": {
-        "ko": "GS건설이 협력사 상생행사를 열고 피지컬 AI 도입과 실질적 지원을 강화하겠다고 밝혔습니다. 피지컬 AI는 로봇처럼 실제 공간에서 움직이며 일하는 AI를 뜻합니다. 원청이 협력사까지 함께 AI 전환을 이끄는 방식입니다.",
-        "en": "GS E&C held a partner event and pledged stronger physical AI adoption and practical support. Physical AI refers to AI that works in real-world spaces, such as robots."
-      },
-      "takeaway": {
-        "ko": "그룹 AX는 계열사뿐 아니라 협력사까지 함께 끌어올리는 접근이 필요합니다.",
-        "en": "Group AX should lift partner companies along with affiliates."
+        "ko": "AI 전환을 협력사까지 함께 끌고 가는 방식은 그룹 AX의 확산 모델로 참고할 만합니다.",
+        "en": "Bringing partners along in AI adoption is a useful model for spreading group AX."
       },
       "industry": "construction"
     },
@@ -362,38 +386,18 @@
       "section": "ax",
       "region": "KR",
       "title": {
-        "ko": "롯데하이마트, 온라인 사업 재편…AI 추가하고 라이브커머스 종료",
-        "en": "Lotte Himart reshapes online business, adds AI and ends live commerce after six years"
+        "ko": "롯데하이마트, 온라인 사업 재편…AI 추가하고 라이브커머스 6년 만 종료",
+        "en": "Lotte Himart reshapes online business, adding AI and ending live commerce after six years"
       },
       "summary": {
-        "ko": "롯데하이마트가 온라인 사업을 재편하면서 AI를 추가하고, 6년간 운영한 라이브커머스를 종료합니다. 성과가 기대에 못 미친 사업을 접고 AI 쪽으로 자원을 옮기는 흐름입니다.",
-        "en": "Lotte Himart is restructuring its online business, adding AI and ending its six-year live commerce operation, shifting resources toward AI."
+        "ko": "롯데하이마트가 온라인 사업을 재편하며 AI를 더하고 라이브커머스를 6년 만에 종료합니다. 라이브커머스는 실시간 방송으로 상품을 파는 방식입니다. 투자 우선순위를 AI 쪽으로 옮기는 흐름입니다.",
+        "en": "Lotte Himart is restructuring online business by adding AI and ending live commerce after six years."
       },
       "takeaway": {
-        "ko": "AI 투자는 기존 사업의 정리와 함께 우선순위를 다시 정하는 과정으로 이어집니다.",
-        "en": "AI investment often comes with reprioritizing and retiring existing businesses."
+        "ko": "AI 도입은 새 기능 추가와 함께 효과가 낮은 기존 사업을 정리하는 결정까지 요구합니다.",
+        "en": "AI adoption can require retiring low-performing legacy initiatives alongside adding new capabilities."
       },
       "industry": "retail"
-    },
-    {
-      "id": "49aae9e462bc",
-      "source": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/",
-      "publishedAt": "2026-10-13T23:00:06.000Z",
-      "section": "playbook",
-      "region": "US",
-      "title": {
-        "ko": "앤트로픽이 Git 대신 자체 소스 관리 시스템을 만든 이유",
-        "en": "Why Anthropic built its own alternative to Git"
-      },
-      "summary": {
-        "ko": "앤트로픽이 코드 변경 이력을 관리하는 소스 컨트롤을 직접 새로 설계한 이유와 과정을 공개했습니다. Git을 대체할 맞춤형 시스템입니다. 에이전트가 코드를 대량으로 쓰는 환경에 맞춰 개발 인프라를 다시 짠 사례로 읽힙니다.",
-        "en": "Anthropic described why and how it built a custom source control system as an alternative to Git. It reads as a case of rebuilding dev infrastructure for agent-heavy coding."
-      },
-      "takeaway": {
-        "ko": "AI 에이전트가 코드를 쓰기 시작하면 개발 도구와 협업 방식 자체를 다시 설계해야 할 수 있습니다.",
-        "en": "Once agents write code, dev tools and collaboration workflows may need redesign."
-      }
     },
     {
       "id": "a6cb7b4e4984",
@@ -403,16 +407,16 @@
       "section": "playbook",
       "region": "US",
       "title": {
-        "ko": "AI 고수들은 '컨텍스트 라이브러리'로 에이전트를 관리한다",
-        "en": "AI power users manage agents with 'context libraries'"
+        "ko": "AI 파워유저의 컨텍스트 관리법, '컨텍스트 라이브러리'",
+        "en": "Context libraries: how AI power users manage context"
       },
       "summary": {
-        "ko": "NN/g는 Claude 고급 사용자들이 컨텍스트 파일을 거의 고치지 않고, 어디 있는지도 모르는 경우가 많다고 지적합니다. 에이전트의 성능은 참고 자료 모음인 컨텍스트 라이브러리의 수준에 달려 있다는 것입니다. 컨텍스트 엔지니어링은 AI에 줄 정보를 설계하는 일을 말합니다.",
-        "en": "NN/g notes Claude power users rarely edit their context files and often can't find them. An agent is only as strong as its context library, and context engineering means designing the information given to AI."
+        "ko": "NN/g는 Claude 파워유저 상당수가 컨텍스트 파일을 거의 수정하지 않고 어디 있는지도 모른다고 지적합니다. 컨텍스트 파일은 AI에게 배경과 규칙을 알려 주는 문서입니다. AI 에이전트의 성능은 이 컨텍스트 라이브러리를 얼마나 잘 관리하느냐에 달려 있다는 주장입니다.",
+        "en": "NN/g notes that Claude power users rarely edit their context files and often can't find them. An AI agent is only as powerful as its context library."
       },
       "takeaway": {
-        "ko": "팀 단위로 AI 지침 파일을 정리하고 정기적으로 갱신하는 체계가 성과 차이를 만듭니다.",
-        "en": "Organizing and regularly updating team-level AI instruction files drives performance differences."
+        "ko": "팀 단위로 AI 지침 문서를 모아 정기적으로 고치는 체계를 만들면 활용 수준이 크게 달라집니다.",
+        "en": "Maintaining shared, regularly updated AI instruction documents can raise team-level AI usage."
       }
     },
     {
@@ -423,94 +427,74 @@
       "section": "playbook",
       "region": "US",
       "title": {
-        "ko": "앤트로픽의 동적 워크플로, 여러 Claude 에이전트를 조율하는 법",
+        "ko": "앤트로픽이 말하는 Claude 에이전트 협업법, 다이나믹 워크플로",
         "en": "How Anthropic's dynamic workflows coordinate Claude agents"
       },
       "summary": {
-        "ko": "앤트로픽이 AI Engineer New York에서 유닉스와 리눅스의 설계 교훈을 바탕으로 에이전트가 큰 프로젝트를 감당하는 방법을 설명했습니다. 에이전트가 한꺼번에 과부하에 걸리지 않도록 작업을 나누고 조율하는 구조가 핵심입니다.",
-        "en": "At AI Engineer New York, Anthropic drew on Unix and Linux lessons to explain how agents can tackle larger projects without being overwhelmed, by dividing and coordinating work."
+        "ko": "앤트로픽이 AI Engineer New York에서 유닉스와 리눅스의 교훈을 바탕으로 에이전트가 큰 프로젝트를 감당하는 방법을 설명했습니다. 핵심은 여러 에이전트가 과부하 없이 일을 나누도록 조율하는 것입니다. 다이나믹 워크플로는 이를 위한 방식으로 소개됐습니다.",
+        "en": "At AI Engineer New York, Anthropic drew on Unix and Linux lessons to explain how agents can tackle bigger projects without being overwhelmed, using dynamic workflows."
       },
       "takeaway": {
-        "ko": "복잡한 업무는 에이전트 하나에 맡기기보다 역할을 나눠 조율하는 구조로 설계하는 편이 안정적입니다.",
-        "en": "Complex work is more reliable when split across coordinated agents than given to one."
-      }
-    },
-    {
-      "id": "b3a42dd0cbbe",
-      "source": "NN/g",
-      "url": "https://www.nngroup.com/articles/ai-assistant-context/?utm_source=rss&utm_medium=feed&utm_campaign=rss-syndication",
-      "publishedAt": "2026-10-09T17:00:00.000Z",
-      "section": "playbook",
-      "region": "US",
-      "title": {
-        "ko": "새 Siri의 강점은 똑똑함이 아니라 개인 맥락",
-        "en": "The new Siri's biggest strength is personal context, not intelligence"
-      },
-      "summary": {
-        "ko": "NN/g는 쓸모 있는 AI 비서에 세 가지가 필요하다고 봅니다. 관련된 개인 맥락, 그 맥락을 쓸 수 있는 능력, 그리고 사용자가 한계를 이해하도록 돕는 경험입니다. 새 Siri의 강점도 지능 자체가 아니라 이런 요소에 있다고 분석합니다.",
-        "en": "NN/g says a useful AI assistant needs relevant personal context, the ability to use it, and an experience that helps users understand its limits. It argues the new Siri's strength lies there, not raw intelligence."
-      },
-      "takeaway": {
-        "ko": "사내 AI 비서를 만들 때 모델 성능만큼 업무 맥락 연결과 한계 안내 설계가 중요합니다.",
-        "en": "For internal AI assistants, context integration and clear limits matter as much as model quality."
+        "ko": "복잡한 업무를 에이전트 여러 개로 나눌 때의 설계 원칙을 미리 익혀 두면 시행착오를 줄일 수 있습니다.",
+        "en": "Learning design principles for splitting complex work across agents can cut trial and error."
       }
     }
   ],
   "glossary": [
     {
-      "term": "ESP32",
+      "term": "컨텍스트 길이",
       "desc": {
-        "ko": "몇 달러짜리 저가 소형 컴퓨터 칩으로, 와이파이 등 통신 기능이 들어 있습니다.",
-        "en": "A tiny, cheap computer chip costing a few dollars with built-in wireless connectivity."
+        "ko": "AI가 한 번에 기억하며 작업할 수 있는 글의 분량입니다.",
+        "en": "How much text an AI can keep in mind and work with at once."
       }
     },
     {
-      "term": "Muse Wonder",
+      "term": "토큰",
       "desc": {
-        "ko": "메타가 새로 내놓은 것으로 알려진 최신 AI 모델의 이름입니다.",
-        "en": "The reported name of Meta's new flagship AI model."
+        "ko": "AI가 글을 읽고 셀 때 쓰는 가장 작은 단위입니다.",
+        "en": "The small unit of text that AI uses to read and count words."
       }
     },
     {
-      "term": "Gemini 4 Argon",
+      "term": "디컴파일",
       "desc": {
-        "ko": "구글이 새로 내놓은 주력 AI 모델의 이름입니다.",
-        "en": "The name of Google's new flagship AI model."
-      }
-    },
-    {
-      "term": "Claude Haiku 5.5",
-      "desc": {
-        "ko": "앤트로픽이 만든 작고 빠르며 저렴한 AI 모델입니다.",
-        "en": "A small, fast and low-cost AI model made by Anthropic."
+        "ko": "완성된 프로그램을 사람이 읽을 수 있는 코드로 되돌리는 작업입니다.",
+        "en": "Turning a finished program back into human-readable code."
       }
     },
     {
       "term": "피지컬 AI",
       "desc": {
-        "ko": "로봇처럼 실제 공간에서 움직이며 일하는 AI를 뜻합니다.",
-        "en": "AI that acts in the physical world, such as robots."
+        "ko": "로봇처럼 실제 공간에서 움직이며 일하는 AI입니다.",
+        "en": "AI that acts in the physical world, such as in robots."
+      }
+    },
+    {
+      "term": "온프레미스",
+      "desc": {
+        "ko": "외부 클라우드가 아닌 회사 내부 서버에 설치해 쓰는 방식입니다.",
+        "en": "Running software on a company's own servers instead of an outside cloud."
+      }
+    },
+    {
+      "term": "Muse Wonder",
+      "desc": {
+        "ko": "메타가 새로 내놓은 최신 AI 모델의 이름입니다.",
+        "en": "The name of Meta's newly released AI model."
       }
     },
     {
       "term": "Farsight",
       "desc": {
-        "ko": "기업이 안전하게 AI 업무 흐름을 쓰게 해주는 서비스 업체입니다.",
-        "en": "A vendor offering secure AI workflows for enterprises."
+        "ko": "금융권에 보안이 갖춰진 AI 업무 환경을 제공하는 업체입니다.",
+        "en": "A vendor offering secure AI workflows to financial firms."
       }
     },
     {
-      "term": "챕터 11",
+      "term": "Claude Cowork",
       "desc": {
-        "ko": "미국에서 기업이 영업을 이어가며 빚을 정리하는 회생 절차입니다.",
-        "en": "A US bankruptcy process letting a company keep operating while restructuring debt."
-      }
-    },
-    {
-      "term": "컨텍스트 엔지니어링",
-      "desc": {
-        "ko": "AI가 일을 잘하도록 필요한 정보와 지침을 설계해 주는 일입니다.",
-        "en": "Designing the information and instructions an AI needs to work well."
+        "ko": "앤트로픽이 사무직 업무를 돕도록 만든 AI 작업 도구입니다.",
+        "en": "Anthropic's AI work tool designed to help with office tasks."
       }
     }
   ]
