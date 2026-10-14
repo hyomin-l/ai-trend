@@ -36,9 +36,9 @@ export const REGION_LABEL: Record<Region, { ko: string; en: string }> = {
   GLOBAL: { ko: "글로벌", en: "Global" },
 };
 
-/** "건설" on Korean pages, "Construction" on English ones. */
 export const REGIONS = Object.keys(REGION_LABEL) as Region[];
 
+/** "건설" on Korean pages, "Construction" on English ones. */
 export const industryTag = (i: Industry, lang: Lang) => INDUSTRIES[i][lang];
 
 const ko = {
@@ -65,9 +65,10 @@ const ko = {
   regionFilter: "지역별 보기",
   regionCount: (label: string, n: number) => `${label} ${n}건`,
   perDay: (n: string) => `+${n}/일`,
+  perWeek: (n: string) => `+${n}/주`,
   returning: "재등장",
   newRepo: "NEW",
-  m: { stars: "스타", forks: "포크", perDay: "일 평균 스타", language: "언어", change: "등락", points: "점수", comments: "댓글" },
+  m: { stars: "스타", forks: "포크", perDay: "일 평균 스타", gained: "주간 스타 증가", language: "언어", change: "등락", points: "점수", comments: "댓글" },
   pts: (n: string) => `${n}점`,
   cmt: (n: string) => `댓글 ${n}`,
   uncurated: "요약 없이 원문 제목으로 발행된 판",
@@ -102,6 +103,7 @@ const ko = {
   relHour: (n: number) => `${n}시간 전`,
   created: (when: string) => `${when} 생성`,
   perDayTip: "생성 후 일 평균 스타",
+  perWeekTip: "최근 일주일간 늘어난 스타",
 };
 
 type Dict = typeof ko;
@@ -130,9 +132,10 @@ const en: Dict = {
   regionFilter: "Filter by region",
   regionCount: (label, n) => `${label}: ${n} stories`,
   perDay: (n) => `+${n}/day`,
+  perWeek: (n) => `+${n}/week`,
   returning: "Back",
   newRepo: "NEW",
-  m: { stars: "Stars", forks: "Forks", perDay: "Stars per day", language: "Language", change: "Move", points: "Points", comments: "Comments" },
+  m: { stars: "Stars", forks: "Forks", perDay: "Stars per day", gained: "Stars this week", language: "Language", change: "Move", points: "Points", comments: "Comments" },
   pts: (n) => `${n} pts`,
   cmt: (n) => `${n} comments`,
   uncurated: "Published with original headlines and no summaries",
@@ -167,6 +170,7 @@ const en: Dict = {
   relHour: (n) => `${n}h ago`,
   created: (when) => `created ${when}`,
   perDayTip: "Average stars per day since creation",
+  perWeekTip: "Stars gained in the past week",
 };
 
 const DICTS: Record<Lang, Dict> = { ko, en };

@@ -23,6 +23,17 @@ const hnJson = {
   ],
 };
 
+const trendingHtml = `<html><body>
+<article class="Box-row"><h2 class="h3"><a href="/acme/agent-kit" class="Link"><span class="text-normal"> acme / </span> agent-kit</a></h2>
+<p class="col-9"> An <b>LLM</b> agent toolkit &amp; runtime </p>
+<div><span itemprop="programmingLanguage">Python</span><a href="/acme/agent-kit/stargazers" class="x"> 12,345</a><a href="/acme/agent-kit/forks" class="x"> 1,020</a>
+<span class="d-inline-block float-sm-right"> 3,210 stars this week </span></div></article>
+<article class="Box-row"><h2 class="h3"><a href="/bob/ps5-port" class="Link"><span> bob / </span> ps5-port</a></h2>
+<p> Tool for porting executables </p>
+<div><span itemprop="programmingLanguage">C++</span><a href="/bob/ps5-port/stargazers"> 35,358</a><a href="/bob/ps5-port/forks"> 3,066</a>
+<span> 28,663 stars this week </span></div></article>
+</body></html>`;
+
 type Call = { url: string; init?: RequestInit };
 let calls: Call[];
 let handler: (url: string) => Response | Promise<Response>;
@@ -30,7 +41,9 @@ let handler: (url: string) => Response | Promise<Response>;
 beforeEach(() => {
   calls = [];
   handler = (url) => {
-    if (url.includes("api.github.com")) return Response.json(ghJson);
+    if (url.startsWith("https://github.com/trending")) return new Response(trendingHtml);
+    if (url.includes("api.github.com/repos/")) return Response.json({ created_at: "2025-03-01T00:00:00Z" });
+    if (url.includes("api.github.com/search")) return Response.json(ghJson);
     if (url.includes("hn.algolia.com")) return Response.json(hnJson);
     return new Response(feed(3, new URL(url).hostname), { status: 200 });
   };
@@ -49,7 +62,7 @@ afterEach(() => {
 describe("fetchAll", () => {
   it("PRD-collector: calls every source once with the ai-trend User-Agent and a timeout signal", async () => {
     await fetchAll(now);
-    expect(calls).toHaveLength(SOURCES.length);
+    expect(calls.filter((c) => !c.url.includes("api.github.com/repos/"))).toHaveLength(SOURCES.filter((s) => !s.fallback).length);
     for (const c of calls) {
       const headers = new Headers(c.init?.headers);
       expect(headers.get("user-agent")).toBe(`ai-trend/0.1 (+https://github.com/${process.env.GITHUB_REPOSITORY || "hyomin-l/ai-trend"})`);
@@ -57,9 +70,39 @@ describe("fetchAll", () => {
     }
   });
 
-  it("PRD-collector: GitHub query is topic + created:>30d ago + stars:>100, sorted by stars; no token header by default", async () => {
-    await fetchAll(now);
-    const gh = calls.filter((c) => c.url.includes("api.github.com"));
+  it("PRD-collector: trending (weekly, AI-filtered) is the primary repo source; GitHub Search is not called while it works", async () => {
+    const { items } = await fetchAll(now);
+    const trending = calls.filter((c) => c.url.startsWith("https://github.com/trending"));
+    expect(trending.map((c) => c.url)).toEqual([
+      "https://github.com/trending?since=weekly",
+      "https://github.com/trending/python?since=weekly",
+      "https://github.com/trending/typescript?since=weekly",
+    ]);
+    expect(calls.some((c) => c.url.includes("api.github.com/search"))).toBe(false);
+    const repos = items.filter((i) => i.section === "repos");
+    expect(repos.every((r) => r.url === "https://github.com/acme/agent-kit")).toBe(true); // ps5-port is not AI-related
+    expect(repos).toHaveLength(3); // once per trending page
+    expect(repos[0]).toMatchObject({
+      id: itemId("https://github.com/acme/agent-kit"), source: "GitHub", title: "acme/agent-kit",
+      snippet: "An LLM agent toolkit & runtime", publishedAt: "2025-03-01T00:00:00.000Z", // creation date from REST, display only
+      metrics: { stars: 12345, forks: 1020, language: "Python", starsGained: 3210, period: "week" },
+    });
+  });
+
+  it("PRD-collector: failed creation-date lookup keeps the repo, dated now", async () => {
+    const base = handler;
+    handler = (url) => (url.includes("api.github.com/repos/") ? new Response("rate limited", { status: 403 }) : base(url));
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual([]);
+    expect(items.find((i) => i.section === "repos")?.publishedAt).toBe(now.toISOString());
+  });
+
+  it("PRD-collector: GitHub Search runs as fallback only when trending yields too few repos; query is topic + created:>30d ago + stars:>100", async () => {
+    const base = handler;
+    handler = (url) => (url.startsWith("https://github.com/trending") ? new Response("blocked", { status: 429 }) : base(url));
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual(["gh-trending", "gh-trending-python", "gh-trending-typescript"]);
+    const gh = calls.filter((c) => c.url.includes("api.github.com/search"));
     expect(gh).toHaveLength(4);
     const u = new URL(gh[0].url);
     expect(u.searchParams.get("q")).toBe("topic:llm created:>2026-09-13 stars:>100");
@@ -67,6 +110,12 @@ describe("fetchAll", () => {
     expect(u.searchParams.get("order")).toBe("desc");
     expect(u.searchParams.get("per_page")).toBe("20");
     expect(new Headers(gh[0].init?.headers).has("authorization")).toBe(false);
+    const fast = items.find((i) => i.url === "https://github.com/o/fast")!;
+    expect(fast).toMatchObject({
+      id: itemId("https://github.com/o/fast"), title: "o/fast", publishedAt: "2026-10-03T00:00:00.000Z",
+      metrics: { stars: 1000, forks: 120, language: "Rust", starsPerDay: 100 }, // 10 days old
+    });
+    expect(items.find((i) => i.url === "https://github.com/o/new")?.metrics?.starsPerDay).toBe(300); // younger than a day => divisor 1
   });
 
   it("PRD-collector: GITHUB_TOKEN adds a Bearer Authorization header to GitHub only", async () => {
@@ -76,21 +125,6 @@ describe("fetchAll", () => {
       const auth = new Headers(c.init?.headers).get("authorization");
       expect(auth).toBe(c.url.includes("api.github.com") ? "Bearer tok" : null);
     }
-  });
-
-  it("PRD-collector: maps repos to title=full_name, ★ metrics and starsPerDay = round(stars / max(1, days))", async () => {
-    const { items } = await fetchAll(now);
-    const fast = items.find((i) => i.url === "https://github.com/o/fast")!;
-    expect(fast).toMatchObject({
-      id: itemId("https://github.com/o/fast"), source: "GitHub", section: "repos", title: "o/fast",
-      snippet: "Fast tool", publishedAt: "2026-10-03T00:00:00.000Z",
-      metrics: { stars: 1000, forks: 120, language: "Rust", starsPerDay: 100 }, // 10 days old
-    });
-    const fresh = items.find((i) => i.url === "https://github.com/o/new")!;
-    expect(fresh.metrics?.starsPerDay).toBe(300); // younger than a day => divisor 1
-    expect(fresh.snippet).toBe("");
-    expect(fresh.metrics?.language).toBeUndefined();
-    expect(fresh.metrics?.forks).toBeUndefined(); // no forks_count in the API row => absent, not 0
   });
 
   it("PRD-collector: HN query encodes numericFilters (points>80, created_at_i > now-72h) and maps hits", async () => {

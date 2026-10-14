@@ -1,6 +1,7 @@
-import { CONFIG, SOURCES } from "@/config/sources";
+import { AI_REPO_KEYWORDS, CONFIG, SOURCES } from "@/config/sources";
 import { itemId, type Candidate } from "@/lib/prep";
 import { parseFeed } from "@/lib/rss";
+import { parseTrending } from "@/lib/trending";
 import type { SourceDef } from "@/types";
 
 const UA = `ai-trend/0.1 (+https://github.com/${process.env.GITHUB_REPOSITORY || "hyomin-l/ai-trend"})`;
@@ -15,8 +16,38 @@ async function get(url: string, headers: Record<string, string> = {}): Promise<s
 async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
   const base = { source: s.name, section: s.section, sourceId: s.id };
 
+  if (s.kind === "ghtrending") {
+    const html = await get(`https://github.com/trending${s.url ? `/${s.url}` : ""}?since=weekly`);
+    const repos = parseTrending(html);
+    if (html.trim() && !repos.length) throw new Error("trending page parsed to 0 repos");
+    const ai = repos.filter((r) => AI_REPO_KEYWORDS.test(`${r.fullName.replace(/[-_/]/g, " ")} ${r.description}`)).slice(0, s.cap);
+    // Creation date and (when available) topics come from the REST API; best effort, never gates selection.
+    const token = process.env.GITHUB_TOKEN;
+    const meta = await Promise.all(
+      ai.map((r) =>
+        get(`https://api.github.com/repos/${r.fullName}`, { Accept: "application/vnd.github+json", ...(token ? { Authorization: `Bearer ${token}` } : {}) })
+          .then((b) => JSON.parse(b) as { created_at?: string })
+          .catch(() => ({}) as { created_at?: string }),
+      ),
+    );
+    return ai.map((r, i) => {
+      const url = `https://github.com/${r.fullName}`;
+      const created = Date.parse(meta[i].created_at ?? "");
+      return {
+        ...base,
+        id: itemId(url),
+        title: r.fullName,
+        url,
+        snippet: r.description,
+        // Creation date is display-only. If the API lookup failed it falls back to `now`, which the UI treats as "unknown".
+        publishedAt: new Date(Number.isNaN(created) ? now.getTime() : created).toISOString(),
+        metrics: { stars: r.stars, forks: r.forks, language: r.language, starsGained: r.starsGained, period: "week" as const },
+      };
+    });
+  }
+
   if (s.kind === "github") {
-    const since = new Date(now.getTime() - CONFIG.repoWindowDays * DAY).toISOString().slice(0, 10);
+    const since = new Date(now.getTime() - CONFIG.repoFallbackDays * DAY).toISOString().slice(0, 10);
     const q = encodeURIComponent(`topic:${s.url} created:>${since} stars:>100`);
     const token = process.env.GITHUB_TOKEN;
     const body = await get(
@@ -71,13 +102,18 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
 
 /** Every source in parallel; a failing source is reported in `failed` and never aborts the rest. */
 export async function fetchAll(now: Date): Promise<{ items: Candidate[]; failed: string[] }> {
-  const results = await Promise.allSettled(SOURCES.map((s) => fetchSource(s, now)));
   const items: Candidate[] = [];
   const failed: string[] = [];
-  results.forEach((r, i) => {
-    if (r.status === "fulfilled") return void items.push(...r.value);
-    failed.push(SOURCES[i].id);
-    console.error(`[sources] ${SOURCES[i].id} failed: ${r.reason?.message ?? r.reason}`);
-  });
+  const run = async (defs: SourceDef[]) => {
+    const results = await Promise.allSettled(defs.map((s) => fetchSource(s, now)));
+    results.forEach((r, i) => {
+      if (r.status === "fulfilled") return void items.push(...r.value);
+      failed.push(defs[i].id);
+      console.error(`[sources] ${defs[i].id} failed: ${r.reason?.message ?? r.reason}`);
+    });
+  };
+  await run(SOURCES.filter((s) => !s.fallback));
+  // Fallback sources (GitHub Search) only when the primary repo sources came back (nearly) empty.
+  if (items.filter((i) => i.section === "repos").length < CONFIG.repoFallbackMin) await run(SOURCES.filter((s) => s.fallback));
   return { items, failed };
 }

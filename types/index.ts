@@ -10,7 +10,11 @@ export interface Metrics {
   stars?: number;
   /** Fork count; absent in editions collected before it was tracked. */
   forks?: number;
+  /** Older editions: average stars per day since creation. Newer ones use starsGained. */
   starsPerDay?: number;
+  /** Stars gained in the last `period` (GitHub trending); the repo rank. */
+  starsGained?: number;
+  period?: "week";
   starsDelta?: number;
   points?: number;
   comments?: number;
@@ -66,7 +70,7 @@ export interface Snapshot {
   glossary?: GlossaryEntry[];
 }
 
-export type SourceKind = "rss" | "github" | "hn";
+export type SourceKind = "rss" | "github" | "ghtrending" | "hn";
 
 export interface SourceDef {
   id: string;
@@ -77,4 +81,6 @@ export interface SourceDef {
   cap: number;
   windowHours?: number;
   industry?: Industry;
+  /** Runs only when the primary repo sources yielded fewer than CONFIG.repoFallbackMin repos. */
+  fallback?: boolean;
 }

@@ -52,18 +52,27 @@ describe("prep: filters", () => {
     expect(run([mk({ publishedAt: ago(73) }), keep]).map((i) => i.id)).toEqual([keep.id]);
   });
 
-  it("PRD-collector: repos use a 30-day window", () => {
-    const keep = repo(500, 20, { publishedAt: ago(24 * 29) });
-    expect(run([repo(500, 20, { publishedAt: ago(24 * 31) }), keep]).map((i) => i.id)).toEqual([keep.id]);
+  it("PRD-collector: a repo's creation date never gates selection", () => {
+    const old = repo(50_000, 0, { publishedAt: ago(24 * 900), metrics: { stars: 50_000, starsGained: 4000, period: "week" } });
+    expect(run([old]).map((i) => i.id)).toEqual([old.id]);
   });
 
-  it("PRD-collector: a source's own windowHours overrides the 72h default (reddit 168h)", () => {
+  it("PRD-collector: repos rank by starsGained (falling back to starsPerDay for legacy metrics)", () => {
+    const a = repo(0, 0, { metrics: { stars: 1, starsGained: 500 } });
+    const b = repo(0, 0, { metrics: { stars: 1, starsGained: 900 } });
+    const legacy = repo(0, 0, { metrics: { stars: 1, starsPerDay: 700 } });
+    expect(run([a, legacy, b]).map((i) => i.id)).toEqual([b.id, legacy.id, a.id]);
+  });
+
+  it("PRD-collector: Reddit uses the default 72h window (no windowHours override); slow playbook feeds keep 168h", () => {
     const reddit = SOURCES.find((s) => s.id === "reddit")!;
-    expect(reddit.windowHours).toBe(168);
-    const keep = mk({ sourceId: reddit.id, publishedAt: ago(100) });
-    const drop = mk({ sourceId: reddit.id, publishedAt: ago(170) });
-    const noOverride = mk({ publishedAt: ago(100) });
-    expect(run([keep, drop, noOverride]).map((i) => i.id)).toEqual([keep.id]);
+    expect(reddit.windowHours).toBeUndefined();
+    const keep = mk({ sourceId: reddit.id, publishedAt: ago(70) });
+    const drop = mk({ sourceId: reddit.id, publishedAt: ago(100) });
+    expect(run([keep, drop]).map((i) => i.id)).toEqual([keep.id]);
+    const slow = SOURCES.find((s) => s.id === "latentspace")!;
+    const kept = mk({ sourceId: slow.id, section: "playbook", publishedAt: ago(100) });
+    expect(run([kept]).map((i) => i.id)).toEqual([kept.id]);
   });
 
   it("PRD-collector: drops ids already in an earlier edition", () => {

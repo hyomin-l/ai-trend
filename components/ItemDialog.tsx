@@ -25,7 +25,8 @@ function Metrics({ item, lang }: { item: Item; lang: Lang }) {
   const cells: [string, string][] = [];
   if (m.stars != null) cells.push([u.m.stars, fmtNum(m.stars)]);
   if (m.forks != null) cells.push([u.m.forks, fmtNum(m.forks)]);
-  if (m.starsPerDay != null) cells.push([u.m.perDay, fmtNum(m.starsPerDay)]);
+  if (m.starsGained != null) cells.push([u.m.gained, fmtNum(m.starsGained)]);
+  else if (m.starsPerDay != null) cells.push([u.m.perDay, fmtNum(m.starsPerDay)]);
   if (m.language) cells.push([u.m.language, m.language]);
   if (item.section === "repos") {
     cells.push([u.m.change, item.returning ? `▲ ${fmtNum(m.starsDelta ?? 0)}` : u.newRepo]);

@@ -26,7 +26,8 @@ export function normalizeUrl(u: string): string {
 
 export const itemId = (u: string) => createHash("sha1").update(normalizeUrl(u)).digest("hex").slice(0, 12);
 
-const bySpeed = (a: RawItem, b: RawItem) => (b.metrics?.starsPerDay ?? 0) - (a.metrics?.starsPerDay ?? 0);
+const heat = (i: RawItem) => i.metrics?.starsGained ?? i.metrics?.starsPerDay ?? 0;
+const bySpeed = (a: RawItem, b: RawItem) => heat(b) - heat(a);
 
 function group<T>(xs: T[], key: (x: T) => string): T[][] {
   const m = new Map<string, T[]>();
@@ -56,8 +57,9 @@ export function prep(raw: Candidate[], opts: { now: Date; seen: Map<string, numb
 
     const t = it.publishedAt ? Date.parse(it.publishedAt) : NaN;
     if (Number.isNaN(t)) continue; // freshness unverifiable
-    const hours = DEFS.get(it.sourceId ?? "")?.windowHours ?? (it.section === "repos" ? CONFIG.repoWindowDays * 24 : CONFIG.windowHours);
-    if (opts.now.getTime() - t > hours * 3_600_000) continue;
+    // Repos are ranked by recent star growth; their creation date never gates selection.
+    const hours = DEFS.get(it.sourceId ?? "")?.windowHours ?? CONFIG.windowHours;
+    if (it.section !== "repos" && opts.now.getTime() - t > hours * 3_600_000) continue;
 
     if (!opts.seen.has(it.id)) {
       kept.push(it);

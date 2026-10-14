@@ -36,6 +36,12 @@ export const IconStar = (p: P) => (
   </Svg>
 );
 
+export const IconTrend = (p: P) => (
+  <Svg {...p}>
+    <path d="M2 11.5l4-4 2.5 2.5L14 4.5M10 4.5h4V8.5" strokeLinecap="round" strokeLinejoin="round" />
+  </Svg>
+);
+
 export const IconClose = (p: P) => (
   <Svg {...p}>
     <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />

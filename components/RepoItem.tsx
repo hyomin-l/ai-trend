@@ -1,7 +1,7 @@
 import type { Item, Lang } from "@/types";
 import { ui } from "@/lib/i18n";
 import { fmtCompact, fmtNum, parseRepoTitle, repoDesc } from "@/lib/format";
-import { IconFork, IconStar } from "./Icons";
+import { IconFork, IconStar, IconTrend } from "./Icons";
 import RelTime from "./RelTime";
 import Metric from "./Metric";
 import { Glossed, type GlossPlan } from "./Glossary";
@@ -17,7 +17,7 @@ type Props = {
   onOpen: (item: Item) => void;
 };
 
-/** A rising repo: `owner/repo`, its short description, and ★ / +N per day (plus "재등장 ▲" when it returns). */
+/** A rising repo: `owner/repo`, its short description, and ★ / ⑂ / +N this week (plus "재등장 ▲" when it returns). */
 export default function RepoItem({ item, lang, generatedAt, gloss, dimmed, onOpen }: Props) {
   const u = ui(lang);
   const m = item.metrics;
@@ -47,10 +47,17 @@ export default function RepoItem({ item, lang, generatedAt, gloss, dimmed, onOpe
             {m?.forks != null && <Metric icon={<IconFork size={12} />} label={u.m.forks} value={fmtCompact(m.forks)} />}
           </span>
         )}
-        {m?.starsPerDay != null && (
+        {(m?.starsGained != null || m?.starsPerDay != null) && (
           <span className={styles.rate}>
-            <span title={u.perDayTip}>{u.perDay(fmtNum(m.starsPerDay))}</span>
-            {item.publishedAt && (
+            {m.starsGained != null ? (
+              <span title={u.perWeekTip}>
+                <Metric icon={<IconTrend size={12} />} label={u.m.gained} value={u.perWeek(fmtCompact(m.starsGained))} />
+              </span>
+            ) : (
+              <span title={u.perDayTip}>{u.perDay(fmtNum(m.starsPerDay!))}</span>
+            )}
+            {/* publishedAt == generatedAt means the creation date could not be looked up */}
+            {item.publishedAt && Math.abs(Date.parse(generatedAt) - Date.parse(item.publishedAt)) > 3_600_000 && (
               <span className={styles.born}>
                 <RelTime iso={item.publishedAt} at={generatedAt} lang={lang} wrap={u.created} />
               </span>
