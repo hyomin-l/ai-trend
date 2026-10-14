@@ -110,7 +110,7 @@ Next.js(정적 export) + JSON 스냅샷 + `claude -p`(구독 Claude, 별도 API 
 | `/` | 최신 호(한국어) |
 | `/<lang>/`, `/<lang>/<date>/` | 최신 호, 특정 호 (`lang` = `ko`/`en`) |
 | `/<lang>/archive/`, `/<lang>/stories/` | 지난 호 목록, 기사 목록 |
-| `/latest.json` | 최신 판 전체 (데스크 펫용) |
+| `/latest.json` | 최신 판 전체 + `sections`(섹션 키 → `{ko,en}` 라벨, `SECTIONS`에서 생성) + `pet`(`{version, update}`; `version`은 `desk-pet/VERSION`) (데스크 펫용). 기존 필드는 그대로라 구버전 펫과 호환 |
 | `/search-index.json` | 전 호의 압축 검색 인덱스 |
 | `/editions/<date>/data.json` | 판 하나의 전체 데이터 |
 | `/<lang>/stories/?open=<date>/<id>` | 해당 기사 모달이 열린 딥링크 |
@@ -122,7 +122,7 @@ Next.js(정적 export) + JSON 스냅샷 + `claude -p`(구독 Claude, 별도 API 
 
 - **build:** (권한 `contents: write`, `pages: read`) checkout -> Node 22 -> `npm ci` -> 수집 여부 판단 -> (수집 시) Claude CLI 설치 -> `npm run collect`(저장 전 스냅샷 검증) -> 스냅샷 커밋(`edition: <date>`) -> `npm test`(저장된 스냅샷 검증 포함) -> `actions/configure-pages` -> `npm run build` -> Pages 아티팩트 업로드.
 - **deploy:** (권한 `pages: write`, `id-token: write`만) `actions/deploy-pages`로 배포. 워크플로 기본 권한은 없음(`permissions: {}`).
-- **트리거:** 예약, 수동, `main` push(`desk-pet/**`, `docs/**`만 바뀐 push는 제외). 스냅샷만 바뀐 push는 재배포한다.
+- **트리거:** 예약, 수동, `main` push(`docs/**`만 바뀐 push는 제외). 스냅샷만 바뀐 push는 재배포한다.
 - **건너뛰기 규칙:**
   - `main` push는 수집하지 않고 재배포만 한다.
   - 예약 실행에서 그날(KST) 스냅샷이 이미 있으면 수집하지 않는다.
@@ -141,6 +141,7 @@ macOS 메뉴바 상주 캐릭터(Swift 단일 파일, 외부 패키지 없음). 
 - **메뉴(펫·말풍선 우클릭, 메뉴바 아이콘):** 지금 확인, 숨기기/보이기, 크기(작게·보통·크게), 언어(한국어/English), 종료. 종료하면 다음 로그인까지 다시 뜨지 않는다.
 - **언어 설정:** 말풍선 헤드라인, 섹션명, 날짜, 메뉴 문구, 열리는 링크의 `/<lang>/` 경로에 적용되며 기본은 한국어다.
 - **설치:** macOS 13 이상 전용. `desk-pet/install.sh` 한 번으로 빌드하고, 바이너리를 저장소 밖(`~/Library/Application Support/AITrendPet/`)에 복사한 뒤 로그인 시 자동 실행(LaunchAgent)을 등록한다. 저장소를 옮겨도 동작하며, 업데이트는 `git pull && ./install.sh`, 제거는 `uninstall.sh`(`--purge`면 설정까지 삭제).
+- **업데이트 안내:** 내용(기사·섹션명)은 자동, 앱은 수동(`git pull && ./install.sh`). `latest.json`의 `pet.version`이 실행 중인 앱 버전보다 높으면 메뉴 맨 위에 "새 버전 있음" 항목이 뜨고, 누르면 `desk-pet/README.md`의 Updating 절을 연다(명령은 실행하지 않음). 버전 원천은 `desk-pet/VERSION` 한 줄이다.
 - **저전력:** 평소에는 프레임 루프 없이 정지 자세와 타이머 깜빡임뿐이다(유휴 CPU 약 0.2% 수준). 말풍선·호버·상호작용 직후에만 애니메이션이 켜진다.
 
 ## 10. 보안 원칙

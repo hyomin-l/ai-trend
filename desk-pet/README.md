@@ -5,10 +5,10 @@
 ## 빌드
 
 ```sh
-./build.sh        # swiftc -O -parse-as-library DeskPet.swift -o DeskPet
+./build.sh        # VERSION → Version.swift 생성 후 swiftc -O -parse-as-library DeskPet.swift Version.swift -o DeskPet
 ```
 
-Xcode Command Line Tools(Swift 6)와 macOS 13 이상이 필요하다. 기본 SDK가 컴파일러보다 새로워 빌드가 실패하면(SDK/컴파일러 불일치) `build.sh`가 설치된 SDK(`/Library/Developer/CommandLineTools/SDKs/MacOSX*.sdk`)를 새것부터 차례로 시도해 처음 성공한 것으로 빌드한다. 수동으로는 `swiftc -sdk <SDK 경로> -O -parse-as-library DeskPet.swift -o DeskPet`.
+Xcode Command Line Tools(Swift 6)와 macOS 13 이상이 필요하다. 기본 SDK가 컴파일러보다 새로워 빌드가 실패하면(SDK/컴파일러 불일치) `build.sh`가 설치된 SDK(`/Library/Developer/CommandLineTools/SDKs/MacOSX*.sdk`)를 새것부터 차례로 시도해 처음 성공한 것으로 빌드한다. 수동으로는 `Version.swift`(`let appVersion = "x.y.z"`)를 만든 뒤 `swiftc -sdk <SDK 경로> -O -parse-as-library DeskPet.swift Version.swift -o DeskPet`.
 
 ## 실행
 
@@ -27,7 +27,7 @@ DISPATCH_URL=file:///path/to/dir ./DeskPet   # 로컬 테스트: dir/latest.json
 - 말풍선은 몸통과 꼬리가 하나의 외곽선(단일 경로)이고, 사이트 종이 배경과 같은 은은한 그레인이 깔려 있다.
 - 우클릭(펫·말풍선): 지금 확인 / 펫 숨기기 / 크기 / 언어(한국어·English) / 종료. 메뉴 문구도 선택한 언어로 바뀐다. 숨기면 메뉴바 아이콘의 "펫 보이기"로 되살린다. LaunchAgent `KeepAlive`가 `false`라서 "종료"하면 다음 로그인까지 다시 뜨지 않는다.
 - 펫을 클릭하면 이번 판(`items[]`)에서 **무작위 기사**를 말풍선으로 보여 준다. 셔플 순서로 전부 한 바퀴 돌아야 반복하고, 직전 기사와 같은 기사는 연달아 나오지 않는다. 말풍선이 떠 있을 때 클릭하면 닫지 않고 다음 무작위 기사로 교체한다. 새 판 알림 말풍선만 리드(`front[0]`)로 시작한다.
-- 말풍선 라벨은 `AI Trend · 커뮤니티 · 10월 14일`처럼 섹션 이름(사이트 `SECTION_LABEL`의 한국어명)을 포함한다. 말풍선을 클릭하면 **지금 보이는 그 기사**의 모달이 열린 사이트가 열린다.
+- 말풍선 라벨은 `AI Trend · 커뮤니티 · 10월 14일`처럼 섹션 이름(사이트 `config/sections.ts`의 이름. `latest.json`의 `sections`가 있으면 그것을, 없거나 키가 빠지면 앱에 내장된 `sectionLabel`을 쓴다)을 포함한다. 말풍선을 클릭하면 **지금 보이는 그 기사**의 모달이 열린 사이트가 열린다.
 - `DISPATCH_URL`은 `https://`, `http://localhost`, `http://127.0.0.1`, `file://`만 허용한다. 그 밖의 값은 stderr에 한 줄 남기고 기본 서버로 대체한다. 딥링크의 `date`·`id`는 퍼센트 인코딩하고, 기본 URL과 같은 스킴(http/https/file)일 때만 연다.
 - 누른 자세는 마우스를 떼기 전까지(끄는 동안 포함) 유지한다. 최신 macOS에서 `performDrag`가 곧바로 반환되므로 해제는 `mouseUp`에서만 한다.
 - 펫이나 말풍선을 끌어 옮길 수 있다. 위치는 기억한다.
@@ -58,6 +58,21 @@ git pull && ./install.sh                             # 업데이트: 다시 빌�
 - `~/Library/LaunchAgents/io.github.hyomin-l.deskpet.plist`: 위 바이너리를 가리키는 LaunchAgent. `RunAtLoad` true, `KeepAlive` false. `DISPATCH_URL`을 주고 설치하면 `EnvironmentVariables`에 들어간다.
 
 Label은 `UserDefaults` 도메인과 같아서 재설치해도 위치·크기·언어 설정이 유지된다. `KeepAlive`가 `false`라서 메뉴바의 "종료"로 끄면 다음 로그인까지 다시 뜨지 않는다.
+
+## Updating
+
+- **내용(기사·섹션 이름)은 자동**이다. 펫이 30분마다 `latest.json`을 가져오므로 사이트 쪽 변경은 앱을 건드리지 않아도 반영된다.
+- **앱 자체는 수동**이다. 터미널에서 아래를 실행한다. 다시 빌드해 바이너리를 교체하고 재시작하며, 위치·크기·언어 설정은 유지된다.
+
+  ```sh
+  cd ai-trend/desk-pet && git pull && ./install.sh
+  ```
+
+- 사이트의 `latest.json`이 알리는 `pet.version`이 실행 중인 앱 버전보다 높으면, 우클릭 메뉴와 메뉴바 메뉴 맨 위에 **"새 버전 있음 (x.y.z) — 업데이트 방법"**이 나타난다. 누르면 이 절을 브라우저로 열 뿐 명령은 실행하지 않는다.
+
+### 버전 올리기 (관리자)
+
+앱 코드(`DeskPet.swift` 등)를 바꿔 사용자가 다시 설치해야 할 때만 `desk-pet/VERSION`의 한 줄(`x.y.z`)을 올리고 push한다. 이 파일이 유일한 원천이다: `build.sh`가 `Version.swift`(git 무시)를 만들어 앱에 넣고, 사이트 빌드는 같은 파일을 `latest.json`의 `pet.version`으로 내보낸다. 사이트가 재배포되면 구버전 펫에 안내가 뜬다. VERSION만 올린 push도 사이트를 재배포한다. 섹션 이름만 바꾸는 변경은 올릴 필요가 없다.
 
 ## 저장되는 값과 초기화
 

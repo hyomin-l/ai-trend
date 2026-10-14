@@ -7,3 +7,4 @@ next-env.d.ts
 .env*
 desk-pet/DeskPet
 _tmp/
+desk-pet/Version.swift

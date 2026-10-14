@@ -1,5 +1,5 @@
 // DeskPet — 뉴스 사이트 데스크톱 펫 (macOS, AppKit + SwiftUI, 외부 패키지 없음)
-// 빌드: ./build.sh   실행: ./DeskPet [--demo]   서버 지정: DISPATCH_URL=...
+// 빌드: ./build.sh (VERSION → Version.swift 생성 후 컴파일)   실행: ./DeskPet [--demo]   서버 지정: DISPATCH_URL=...
 import AppKit
 import SwiftUI
 
@@ -7,7 +7,8 @@ import SwiftUI
 let brand = "AI Trend" // 사용자에게 보이는 서비스 이름 — lib/i18n.ts BRAND.name과 같게
 let petName = "애트라"
 let defaultSiteURL = "https://hyomin-l.github.io/ai-trend" // 기본 서버. DISPATCH_URL 환경변수가 우선한다. 포크는 자기 Pages 주소로
-// 섹션 키 → 말풍선 라벨. config/sections.ts의 한국어 이름과 같게
+let updateDocsURL = "https://github.com/hyomin-l/ai-trend/blob/main/desk-pet/README.md#updating" // 앱 업데이트 안내 (desk-pet/README.md "Updating" 절)
+// 섹션 키 → 말풍선 라벨(기본값). 서버 latest.json의 sections가 있으면 그쪽이 우선한다 (config/sections.ts에서 생성).
 let sectionLabel: [String: [String: String]] = [
     "ko": ["newsroom": "뉴스룸", "ax": "산업", "repos": "오픈소스", "pulse": "커뮤니티", "playbook": "실무"],
     "en": ["newsroom": "Newsroom", "ax": "Industry", "repos": "Open Source", "pulse": "Community Pulse", "playbook": "Practice"],
@@ -20,6 +21,7 @@ var lang: String { defaults.string(forKey: "lang") == "en" ? "en" : "ko" }
 let menuText: [String: [String: String]] = [
     "check": ["ko": "지금 확인", "en": "Check now"], "hide": ["ko": "펫 숨기기", "en": "Hide pet"], "show": ["ko": "펫 보이기", "en": "Show pet"],
     "size": ["ko": "크기", "en": "Size"], "small": ["ko": "작게", "en": "Small"], "medium": ["ko": "보통", "en": "Medium"], "large": ["ko": "크게", "en": "Large"],
+    "update": ["ko": "새 버전 있음 (%@) — 업데이트 방법", "en": "Update available (%@) — how to update"],
     "quit": ["ko": "종료 (다음 로그인까지 꺼짐)", "en": "Quit (off until next login)"], "lang": ["ko": "언어 / Language", "en": "Language / 언어"],
 ]
 func tr(_ k: String) -> String { menuText[k]?[lang] ?? k }
@@ -38,6 +40,28 @@ struct Latest: Decodable {
     let issue: Int
     let front: [String]
     let items: [Item]
+    struct Label: Decodable { let ko: String?; let en: String? }
+    struct PetInfo: Decodable { let version: String? }
+    let sections: [String: Label]? // 구버전 latest.json에는 없다
+    let pet: PetInfo?
+}
+
+// 서버가 준 섹션 라벨(최신 latest.json) — 없거나 키가 빠지면 내장 sectionLabel로 대체한다.
+var serverSections: [String: Latest.Label] = [:]
+func labelFor(_ section: String) -> String? {
+    let s = serverSections[section]
+    return (lang == "en" ? s?.en : s?.ko) ?? sectionLabel[lang]?[section]
+}
+
+// "1.10.0" > "1.9.0" — 숫자 구간 단위 비교. 해석 못 하면 false(알리지 않는다).
+func isNewer(_ a: String, than b: String) -> Bool {
+    let x = a.split(separator: ".").map { Int($0) }, y = b.split(separator: ".").map { Int($0) }
+    guard !x.isEmpty, !x.contains(nil), !y.contains(nil) else { return false }
+    for i in 0..<max(x.count, y.count) {
+        let p = i < x.count ? x[i]! : 0, q = i < y.count ? y[i]! : 0
+        if p != q { return p > q }
+    }
+    return false
 }
 
 struct Bubble: Equatable {
@@ -49,7 +73,7 @@ struct Bubble: Equatable {
 func caption(_ date: String, _ section: String? = nil) -> String {
     let d = date.split(separator: "-").compactMap { Int($0) }
     let day = d.count == 3 && (1...12).contains(d[1]) ? (lang == "en" ? "\(enMonths[d[1] - 1]) \(d[2])" : "\(d[1])월 \(d[2])일") : date
-    return [brand, section.flatMap { sectionLabel[lang]?[$0] }, day].compactMap { $0 }.joined(separator: " · ")
+    return [brand, section.flatMap(labelFor), day].compactMap { $0 }.joined(separator: " · ")
 }
 
 func makeBubble(_ date: String, _ it: Latest.Item) -> Bubble {
@@ -117,6 +141,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
     private var panel: NSPanel!
     private var statusItem: NSStatusItem!
     private var edition: Latest?
+    private var newerVersion: String? // 서버가 알린 더 높은 앱 버전 — 있으면 메뉴 맨 위에 안내 항목
     private var queue: [Latest.Item] = [] // 클릭용 셔플 순서 — 다 돌아야 반복
     private var lastShownId: String?
     private var shown: (String, Latest.Item)? // 마지막으로 만든 말풍선의 (날짜, 기사) — 언어 전환 시 재생성용
@@ -130,7 +155,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
             func it(_ id: String, _ sec: String, _ t: (String, String)) -> Latest.Item { .init(id: id, title: .init(ko: t.0, en: t.1), section: sec) }
             let items = [it("a", "repos", ("오픈소스 코딩 에이전트, 주간 ★ 1위", "Open-source coding agent tops the weekly star chart")), it("b", "pulse", ("개발자 커뮤니티가 꼽은 이번 주 가장 뜨거운 AI 툴 논쟁", "The hottest AI tool debate among developers this week")),
                          it("c", "playbook", ("프롬프트 캐싱으로 API 비용을 절반으로 줄이는 방법", "How prompt caching cuts your API bill in half")), it("d", "ax", ("제조 현장에 들어간 AI 점검 에이전트 사례", "An AI inspection agent on the factory floor"))]
-            edition = Latest(date: "2026-10-13", issue: 0, front: ["a"], items: items)
+            edition = Latest(date: "2026-10-13", issue: 0, front: ["a"], items: items, sections: nil, pet: nil)
             lastShownId = "a"
             present("2026-10-13", items[0])
         } else {
@@ -217,6 +242,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
         }
         let langItem = NSMenuItem(title: tr("lang"), action: nil, keyEquivalent: "")
         langItem.submenu = langs
+        if let v = newerVersion { menu.addItem(NSMenuItem(title: String(format: tr("update"), v), action: #selector(openUpdateDocs), keyEquivalent: "")) }
         menu.addItem(NSMenuItem(title: tr("check"), action: #selector(checkNow), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: tr("hide"), action: #selector(toggle), keyEquivalent: ""))
         menu.addItem(sizeItem)
@@ -230,6 +256,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
     func menuNeedsUpdate(_ m: NSMenu) {
         // 제목은 열릴 때마다 현재 언어로 다시 붙인다 (언어 전환 즉시 반영).
         let keys: [Selector: String] = [#selector(checkNow): "check", #selector(quit): "quit"]
+        if let v = newerVersion { m.items.first(where: { $0.action == #selector(openUpdateDocs) })?.title = String(format: tr("update"), v) }
         let sizeKeys = [44: "small", 56: "medium", 72: "large"]
         for it in m.items {
             if let k = it.action.flatMap({ keys[$0] }) { it.title = tr(k) }
@@ -254,6 +281,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
     }
 
     @objc private func checkNow() { Task { await check() } }
+    @objc private func openUpdateDocs() { if let u = URL(string: updateDocsURL) { NSWorkspace.shared.open(u) } } // 열기만 한다 — 명령은 실행하지 않는다.
     @objc private func quit() { NSApp.terminate(nil) }
     // 오른쪽 아래 모서리를 고정한 채 패널 크기를 바꾼다.
     @objc private func setSize(_ item: NSMenuItem) {
@@ -279,6 +307,9 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
               let l = try? JSONDecoder().decode(Latest.self, from: data),
               let lead = l.items.first(where: { $0.id == l.front.first }) ?? l.items.first
         else { return } // 실패는 조용히 무시 — 다음 주기에 다시 시도한다.
+        serverSections = l.sections ?? [:]
+        newerVersion = l.pet?.version.flatMap { isNewer($0, than: appVersion) ? $0 : nil }
+        statusItem.menu = buildMenu() // 메뉴바 메뉴는 한 번 만들어 두므로 안내 항목 유무가 바뀌면 다시 만든다
         if edition?.date != l.date { queue = [] }
         edition = l
         if l.date != defaults.string(forKey: "lastSeenDate") {

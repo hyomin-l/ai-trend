@@ -124,7 +124,7 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 | 지역 이름·지구본 좌표 | `lib/i18n.ts` `REGION_LABEL`, `components/Globe.tsx` `COORDS` |
 | 데스크 펫 이름·기본 서버·섹션명 | `desk-pet/DeskPet.swift` 맨 위 상수 묶음, 또는 실행 시 `DISPATCH_URL` |
 
-섹션을 추가·삭제할 때는 `config/sections.ts`, `config/sources.ts`의 `section` 값, `config/sections.ts`의 `brief`(프롬프트의 섹션 목록이 여기서 생성됨), `desk-pet/DeskPet.swift`의 `sectionLabel`을 함께 고친다.
+섹션을 추가·삭제할 때는 `config/sections.ts`, `config/sources.ts`의 `section` 값, `config/sections.ts`의 `brief`(프롬프트의 섹션 목록이 여기서 생성됨), `desk-pet/DeskPet.swift`의 `sectionLabel`(내장 대체값; 펫은 `latest.json`의 `sections`를 우선 쓰므로 이름만 바꿀 때는 생략 가능)을 함께 고친다.
 
 ## 데스크 펫
 
@@ -138,7 +138,7 @@ git clone https://github.com/hyomin-l/ai-trend.git
 cd ai-trend/desk-pet && ./install.sh
 ```
 
-빌드 후 로그인 시 자동 실행으로 등록하고 바로 띄운다. 기본 서버가 이 사이트라 별도 설정 없이 같은 판을 알려 준다. 업데이트는 `git pull && ./install.sh`, 제거는 `./uninstall.sh`. 자세한 내용은 desk-pet/README.md.
+빌드 후 로그인 시 자동 실행으로 등록하고 바로 띄운다. 기본 서버가 이 사이트라 별도 설정 없이 같은 판을 알려 준다. 업데이트는 `git pull && ./install.sh`(내용은 자동, 앱은 수동이며 새 버전이 있으면 펫 메뉴에 안내가 뜬다. 버전은 `desk-pet/VERSION`), 제거는 `./uninstall.sh`. 자세한 내용은 desk-pet/README.md.
 
 ## 프로젝트 구조
 

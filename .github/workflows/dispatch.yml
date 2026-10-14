@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths-ignore: ["desk-pet/**", "docs/**"]
+    paths-ignore: ["docs/**"] # desk-pet/VERSION feeds latest.json, so pet changes redeploy too
 
 permissions: {}
 
