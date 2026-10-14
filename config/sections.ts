@@ -15,7 +15,7 @@ export const SECTIONS = {
   newsroom: { ko: "뉴스룸", en: "Newsroom", show: 4, brief: "국내외 AI·빅테크 주요 뉴스(언론사 기사와 AI 기업의 공식 발표만)", fresh: true, outletsOnly: true },
   playbook: { ko: "AI 플레이북", en: "AI Playbook", show: 4, brief: "AI 작업 방식, 에이전트 활용법, UI/UX 인사이트" },
   ax: { ko: "현장의 AX", en: "AX in the Field", show: 4, brief: "산업별 AI 도입·전환 사례(국내외)", fresh: true },
-  repos: { ko: "급상승 레포", en: "Rising Repos", show: 4, brief: "급상승 오픈소스 레포" },
+  repos: { ko: "이번 주 오픈소스", en: "Open Source This Week", show: 4, brief: "이번 주 인기 AI 오픈소스 레포·모델" },
   pulse: { ko: "커뮤니티", en: "Community Pulse", show: 4, brief: "개발자 커뮤니티에서 화제인 이슈와 프로젝트", fresh: true },
 } as const satisfies Record<string, SectionDef>;
 
