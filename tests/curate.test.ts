@@ -32,6 +32,20 @@ const gloss = (term: string, over: Record<string, unknown> = {}) => ({ term, des
 describe("parseCuration", () => {
   const good = json([entry("a1"), entry("b2", { section: "repos" }), entry("c3", { section: "ax", industry: "finance" })]);
 
+  it("only news-outlet candidates can land in newsroom; others return to their configured section, other moves stay", () => {
+    const cands = [
+      raw("n1"),
+      raw("p1", { section: "pulse", source: "Reddit" }),
+      raw("x1", { section: "ax", source: "Google News" }),
+      raw("b1", { section: "playbook" }),
+    ];
+    const res = parseCuration(
+      json([entry("n1"), entry("p1", { section: "newsroom" }), entry("x1", { section: "newsroom" }), entry("b1", { section: "pulse" })]),
+      cands,
+    )!;
+    expect(res.items.map((i) => [i.id, i.section])).toEqual([["n1", "newsroom"], ["p1", "pulse"], ["x1", "ax"], ["b1", "pulse"]]);
+  });
+
   it("PRD-curator: accepts clean JSON and merges url/source/publishedAt/metrics from the candidate", () => {
     const res = parseCuration(good, candidates)!;
     expect(res.front).toEqual(["a1", "b2", "c3"]);

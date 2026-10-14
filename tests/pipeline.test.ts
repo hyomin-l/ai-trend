@@ -65,6 +65,35 @@ describe("recentHeadlines", () => {
   });
 });
 
+describe("buildSnapshot freshness guard", () => {
+  const now = new Date("2026-10-13T00:00:00Z");
+  const ago = (h: number) => new Date(now.getTime() - h * 3_600_000).toISOString();
+  const run = (items: Item[], front: string[]) =>
+    buildSnapshot({ date: "2026-10-13", previous: [], collected: 9, failed: [], model: "sonnet", now, curation: { front, items, glossary: [], curated: true } });
+
+  it("drops newsroom/ax/pulse items older than 72h, keeps playbook and repos, and repairs front", () => {
+    const items = [
+      item("old", { publishedAt: ago(150) }),
+      item("oldPulse", { section: "pulse", publishedAt: ago(155) }),
+      item("oldAx", { section: "ax", publishedAt: ago(73) }),
+      item("fresh", { publishedAt: ago(70) }),
+      item("pb", { section: "playbook", publishedAt: ago(150) }),
+      item("rp", { section: "repos", publishedAt: ago(24 * 400) }),
+    ];
+    const s = run(items, ["old", "fresh", "oldPulse"]);
+    expect(s.items.map((i) => i.id)).toEqual(["fresh", "pb", "rp"]);
+    expect(s.front).toEqual(["fresh", "pb", "rp"]);
+    expect(s.stats.published).toBe(3);
+  });
+
+  it("leaves a fully fresh edition untouched", () => {
+    const items = [item("a", { publishedAt: ago(1) }), item("b", { publishedAt: ago(2) })];
+    const s = run(items, ["a", "b"]);
+    expect(s.items).toHaveLength(2);
+    expect(s.front).toEqual(["a", "b"]);
+  });
+});
+
 describe("buildSnapshot", () => {
   const curation = { front: ["x", "y", "z"], items: [item("x"), item("y"), item("z"), item("w")], glossary: [], curated: true };
   const base = {
