@@ -263,6 +263,11 @@ describe("buildPrompt / SYSTEM_PROMPT", () => {
     expect(buildPrompt([hf], [])).toContain("h1|Hugging Face|repos|Title h1|Snippet h1 (♥12, ↓3400)");
   });
 
+  it("Daily Papers candidates carry upvotes in the prompt line", () => {
+    const p = raw("p1", { section: "playbook", source: "Hugging Face Papers", metrics: { upvotes: 248 } });
+    expect(buildPrompt([p], [])).toContain("p1|Hugging Face Papers|playbook|Title p1|Snippet p1 (▲248)");
+  });
+
   it("PRD-curator: one id|source|section|title|snippet line per item, snippet cut at 140", () => {
     const long = raw("L1", { snippet: "x".repeat(500) });
     const lines = buildPrompt([candidates[0], long], []).split("\n");

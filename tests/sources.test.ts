@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { readFileSync } from "node:fs";
 import { SOURCES } from "@/config/sources";
 import { fetchAll } from "@/lib/sources";
 import { itemId } from "@/lib/prep";
@@ -32,6 +33,8 @@ const hfJson = [
   { id: "org/third", likes: 10, downloads: 5, createdAt: "2026-10-02T00:00:00.000Z" },
 ];
 
+const papersJson = JSON.parse(readFileSync("tests/fixtures/hfpapers/daily_papers.json", "utf8")) as any[];
+
 const trendingHtml = `<html><body>
 <article class="Box-row"><h2 class="h3"><a href="/acme/agent-kit" class="Link"><span class="text-normal"> acme / </span> agent-kit</a></h2>
 <p class="col-9"> An <b>LLM</b> agent toolkit &amp; runtime </p>
@@ -54,6 +57,7 @@ beforeEach(() => {
     if (url.includes("api.github.com/repos/")) return Response.json({ created_at: "2025-03-01T00:00:00Z" });
     if (url.includes("api.github.com/search")) return Response.json(ghJson);
     if (url.includes("hn.algolia.com")) return Response.json(hnJson);
+    if (url.includes("huggingface.co/api/daily_papers")) return Response.json(papersJson);
     if (url.includes("huggingface.co/api/models")) return Response.json(hfJson);
     return new Response(feed(3, new URL(url).hostname), { status: 200 });
   };
@@ -177,6 +181,32 @@ describe("fetchAll", () => {
     const { items, failed } = await fetchAll(now);
     expect(failed).toEqual(["hf-models"]);
     expect(items.some((i) => i.source === "GitHub")).toBe(true);
+  });
+
+  it("PRD-collector: Hugging Face Daily Papers become playbook items ranked by upvotes, capped, below the threshold dropped", async () => {
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual([]);
+    const def = SOURCES.find((s) => s.id === "hf-papers")!;
+    const papers = items.filter((i) => i.source === "Hugging Face Papers");
+    expect(papers).toHaveLength(def.cap);
+    const ups = papers.map((p) => p.metrics!.upvotes!);
+    expect(ups).toEqual([...ups].sort((a, b) => b - a));
+    expect(ups.every((n) => n >= def.minUpvotes!)).toBe(true);
+    const top = papersJson.slice().sort((a, b) => b.paper.upvotes - a.paper.upvotes)[0];
+    expect(papers[0]).toMatchObject({
+      section: "playbook", title: top.paper.title, url: `https://huggingface.co/papers/${top.paper.id}`,
+      id: itemId(`https://huggingface.co/papers/${top.paper.id}`), publishedAt: top.paper.submittedOnDailyAt, metrics: { upvotes: top.paper.upvotes },
+    });
+    expect(papers[0].snippet).not.toMatch(/\s{2}|\n/);
+    expect(new URL(calls.find((c) => c.url.includes("daily_papers"))!.url).searchParams.get("limit")).toBe("50");
+  });
+
+  it("PRD-collector: a failing Daily Papers API fails only that source", async () => {
+    const base = handler;
+    handler = (url) => (url.includes("daily_papers") ? new Response("down", { status: 500 }) : base(url));
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual(["hf-papers"]);
+    expect(items.some((i) => i.source === "Hugging Face")).toBe(true);
   });
 
   it("PRD-collector: official announcement feeds are newsroom sources", async () => {

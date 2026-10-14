@@ -27,6 +27,7 @@ function Metrics({ item, lang }: { item: Item; lang: Lang }) {
   if (m.forks != null) cells.push([u.m.forks, fmtNum(m.forks)]);
   if (m.likes != null) cells.push([u.m.likes, fmtNum(m.likes)]);
   if (m.downloads != null) cells.push([u.m.downloads, fmtNum(m.downloads)]);
+  if (m.upvotes != null) cells.push([u.m.upvotes, fmtNum(m.upvotes)]);
   if (m.starsGained != null) cells.push([u.m.gained, fmtNum(m.starsGained)]);
   else if (m.starsPerDay != null) cells.push([u.m.perDay, fmtNum(m.starsPerDay)]);
   if (m.language) cells.push([u.m.language, m.language]);

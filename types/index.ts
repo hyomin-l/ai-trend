@@ -22,6 +22,8 @@ export interface Metrics {
   /** Hugging Face models: Hub likes and total downloads. */
   likes?: number;
   downloads?: number;
+  /** Hugging Face Daily Papers: community upvotes. */
+  upvotes?: number;
 }
 
 /** Normalized candidate produced by the collector, before curation. */
@@ -75,7 +77,7 @@ export interface Snapshot {
   glossary?: GlossaryEntry[];
 }
 
-export type SourceKind = "rss" | "github" | "ghtrending" | "hn" | "hf";
+export type SourceKind = "rss" | "github" | "ghtrending" | "hn" | "hf" | "hfpapers";
 
 export interface SourceDef {
   id: string;
@@ -90,4 +92,6 @@ export interface SourceDef {
   industry?: Industry;
   /** Runs only when the primary repo sources yielded fewer than CONFIG.repoFallbackMin repos. */
   fallback?: boolean;
+  /** hfpapers only: papers with fewer upvotes are dropped. */
+  minUpvotes?: number;
 }

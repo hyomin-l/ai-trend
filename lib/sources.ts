@@ -91,6 +91,30 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
       });
   }
 
+  if (s.kind === "hfpapers") {
+    const body = await get("https://huggingface.co/api/daily_papers?limit=50");
+    const seen = new Set<string>();
+    return (JSON.parse(body) as any[])
+      .filter((d) => typeof d?.paper?.id === "string" && typeof d.paper.title === "string" && (d.paper.upvotes ?? 0) >= (s.minUpvotes ?? 0))
+      .sort((a, b) => b.paper.upvotes - a.paper.upvotes)
+      .filter((d) => !seen.has(d.paper.id) && !!seen.add(d.paper.id))
+      .slice(0, s.cap)
+      .map((d) => {
+        const url = `https://huggingface.co/papers/${d.paper.id}`;
+        const t = Date.parse(d.paper.submittedOnDailyAt ?? d.publishedAt ?? "");
+        return {
+          ...base,
+          id: itemId(url),
+          title: d.paper.title as string,
+          url,
+          snippet: String(d.paper.summary ?? "").replace(/\s+/g, " ").trim(),
+          // The day it was featured on Daily Papers (the arXiv date can be weeks older); unknown falls back to `now`.
+          publishedAt: new Date(Number.isNaN(t) ? now.getTime() : t).toISOString(),
+          metrics: { upvotes: d.paper.upvotes as number },
+        };
+      });
+  }
+
   if (s.kind === "hn") {
     const since = Math.floor(now.getTime() / 1000 - CONFIG.windowHours * 3600);
     const filters = encodeURIComponent(`points>80,created_at_i>${since}`);

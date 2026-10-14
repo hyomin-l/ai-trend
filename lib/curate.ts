@@ -18,7 +18,8 @@ export function buildPrompt(items: RawItem[], recentHeadlines: string[]): string
     const m = i.metrics;
     const stars = m?.stars !== undefined ? ` (★${m.stars}, ★${m.starsGained !== undefined ? `+${m.starsGained} this week` : `${m.starsPerDay ?? 0}/day`}${i.returning ? ", returning" : ""})` : "";
     const hf = m?.likes !== undefined ? ` (♥${m.likes}, ↓${m.downloads ?? 0})` : "";
-    return `${i.id}|${oneLine(i.source)}|${i.section}|${oneLine(i.title)}|${oneLine(i.snippet).slice(0, 140)}${stars}${hf}`;
+    const up = m?.upvotes !== undefined ? ` (▲${m.upvotes})` : "";
+    return `${i.id}|${oneLine(i.source)}|${i.section}|${oneLine(i.title)}|${oneLine(i.snippet).slice(0, 140)}${stars}${hf}${up}`;
   });
   const recent = recentHeadlines.length ? recentHeadlines.map((h) => `- ${oneLine(h)}`).join("\n") : "(없음)";
   return `## 후보\n${lines.join("\n")}\n\n## 직전 판 헤드라인\n${recent}`;

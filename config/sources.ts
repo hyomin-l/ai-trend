@@ -45,6 +45,7 @@ export const HF_SKIP = /gguf|quantiz|uncensored|heretic|\b(awq|gptq|nvfp4|mlx|bn
  * kind "ghtrending": `url` is a language path of github.com/trending (weekly; "" = all languages). Scraped HTML (no official
  * API; OSS Insight's trend ranking is unavailable since 2026-03), so it is the primary repo source but may break.
  * kind "hf": Hugging Face Hub trending models (public API, `url` unused); ids matching HF_SKIP are dropped.
+ * kind "hfpapers": Hugging Face Daily Papers (public API, `url` unused); ranked by upvotes, papers below `minUpvotes` are dropped, `cap` keeps the top few.
  * kind "github": `url` is a repository topic (GitHub Search, new repos only) and `fallback: true` sources run only when the
  * trending sources yielded fewer than CONFIG.repoFallbackMin repos.
  * `cap` is the most items kept per source, `windowHours` overrides CONFIG.windowHours for slow feeds.
@@ -88,6 +89,7 @@ export const SOURCES: SourceDef[] = [
   { id: "anthropic-eng", name: "Anthropic Engineering", kind: "rss", url: "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_engineering.xml", section: "playbook", cap: 2, windowHours: 168, hosts: ["anthropic.com", "www.anthropic.com"] },
   { id: "hamel", name: "Hamel Husain", kind: "rss", url: "https://hamel.dev/index.xml", section: "playbook", cap: 2, windowHours: 168 },
   { id: "interconnects", name: "Interconnects", kind: "rss", url: "https://www.interconnects.ai/feed", section: "playbook", cap: 2, windowHours: 168 },
+  { id: "hf-papers", name: "Hugging Face Papers", kind: "hfpapers", url: "", section: "playbook", cap: 3, windowHours: 168, minUpvotes: 20 },
   { id: "hf-blog", name: "Hugging Face Blog", kind: "rss", url: "https://huggingface.co/blog/feed.xml", section: "playbook", cap: 2, windowHours: 168 },
   { id: "nngroup", name: "NN/g", kind: "rss", url: "https://www.nngroup.com/feed/rss/", section: "playbook", cap: 3, windowHours: 168 },
 ];
