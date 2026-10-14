@@ -13,7 +13,7 @@ Scattered AI trends, gathered into one newspaper page every Monday, Wednesday an
 
 ## 기능
 
-- 하루 한 장 지면: 오늘의 3줄, 지역 지구본, 5개 섹션
+- 하루 한 장 지면: 이번 호 핵심, 지역 지구본, 5개 섹션
 - 한국어/영어 두 벌(`/ko/`, `/en/`), 라이트/다크 테마
 - 날짜 스테퍼와 지난 호 목록, 전 호 기사 목록
 - 상단바 인라인 검색: 오타·띄어쓰기 차이를 허용하고, 결과를 누르면 그 자리에서 기사 모달이 열린다
@@ -114,7 +114,7 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 | 서비스 이름·소개 문구·바탕색 | `lib/i18n.ts` `BRAND` (페이지 제목, manifest, 로고, 큐레이터 프롬프트가 읽음) |
 | 강조색·테마 색 | `app/globals.css` 토큰(`--magenta`, `--paper`, `--ink`). `BRAND.paper`는 `--paper`와 같게 유지. 강조색은 `app/icon.svg`, `components/Globe.tsx` `markerColor`, `desk-pet/DeskPet.swift`에도 있음 |
 | 로고 모양 | `components/Logo.tsx` |
-| 섹션 키·이름(ko/en)·순서·표시 개수, 섹션 설명(`brief`)·플래그(`fresh`, `outletsOnly`) | `config/sections.ts` `SECTIONS` (`FRONT`는 오늘의 3줄, `INDUSTRIES`는 현장의 AX 업종 태그) |
+| 섹션 키·이름(ko/en)·순서·표시 개수, 섹션 설명(`brief`)·플래그(`fresh`, `outletsOnly`) | `config/sections.ts` `SECTIONS` (`FRONT`는 이번 호 핵심, `INDUSTRIES`는 현장의 AX 업종 태그) |
 | 수집 원천 | `config/sources.ts` `SOURCES`, `AX_QUERIES` |
 | 수집 튜닝(모델, 기간, 상한, 중복 제거) | `config/sources.ts` `CONFIG` |
 | 선별 기준 | `config/prompt.ts` `CRITERIA` |

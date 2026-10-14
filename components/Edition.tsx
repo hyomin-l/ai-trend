@@ -23,7 +23,7 @@ type Props = {
   notice?: string;
 };
 
-/** The one-screen page: "오늘의 3줄" band (+ regions) over one column per section. Owns the region filter and the dialogs. */
+/** The one-screen page: "이번 호 핵심" band (+ regions) over one column per section. Owns the region filter and the dialogs. */
 export default function Edition({ snapshot, lang, notice }: Props) {
   const [region, setRegion] = useState<Region | null>(null);
   const [openItem, setOpenItem] = useState<Item | null>(null);

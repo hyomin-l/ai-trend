@@ -23,7 +23,7 @@ export const SECTIONS = {
 export const sectionFlag = (s: keyof typeof SECTIONS, flag: "fresh" | "outletsOnly") => !!(SECTIONS[s] as SectionDef)[flag];
 
 /** The "top stories" band above the columns. Its stories are picked across all sections and not repeated below. */
-export const FRONT = { ko: "오늘의 3줄", en: "Top 3", show: 3 } as const;
+export const FRONT = { ko: "이번 호 핵심", en: "Top 3", show: 3 } as const;
 
 /** Industry tags of the `ax` section (see AX_QUERIES in config/sources.ts and the curator's prompt). */
 export const INDUSTRIES = {

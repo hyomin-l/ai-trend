@@ -16,7 +16,7 @@ type Props = {
 };
 
 /**
- * "오늘의 3줄": the at-a-glance core. The card is one click target: an empty button stretched over it, so the text
+ * "이번 호 핵심": the at-a-glance core. The card is one click target: an empty button stretched over it, so the text
  * (and any glossary terms in it) stays plain, selectable-looking markup. The takeaway reads "왜 중요한가" on phones and
  * just a magenta arrow on desktop, where the label would repeat three times.
  */

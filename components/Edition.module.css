@@ -20,7 +20,7 @@
     flex: 1;
     min-height: 0;
   }
-  /* [오늘의 3줄: three equal cards] | [지역] */
+  /* [이번 호 핵심: three equal cards] | [지역] */
   .band {
     grid-template-columns: minmax(0, 1fr) 217px;
     gap: 0;

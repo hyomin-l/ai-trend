@@ -9,7 +9,7 @@ import SearchField from "./SearchField";
 import page from "./ListPage.module.css";
 import styles from "./ArchiveView.module.css";
 
-/** One line of the edition list: its date, issue and 오늘의 3줄 headlines (already in the page language). */
+/** One line of the edition list: its date, issue and 이번 호 핵심 headlines (already in the page language). */
 export type ArchiveEdition = { date: string; issue: number; heads: string[] };
 
 type Props = { lang: Lang; editions: ArchiveEdition[] };
