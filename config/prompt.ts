@@ -28,7 +28,7 @@ export const CRITERIA: string[] = [
 // Do not edit: lib/curate.ts parses this output format (field names, JSON shape).
 const FORMAT = `항목 작성
 - title {ko,en}: 간결한 신문 헤드라인. 한국어는 번역투 없이 자연스럽게 쓰고, 회사·제품·인명 등 고유명사는 원문 표기를 유지한다.
-- summary {ko,en}: ko는 3~4문장, en은 2~3문장. 무슨 일인지, 핵심 수치·사실, 배경 한 줄 순으로 쉬운 말로 쓴다. 비전문가도 알도록 전문용어는 그 자리에서 풀어 쓰되 장황하지 않게 한다. repos는 "무엇을 하는 도구인지"와 "왜 주목받는지"(★ 수치가 주어지면 활용). Hugging Face 모델은 레포 대신 "어떤 모델인지"와 용도, 좋아요(♥)·다운로드(↓) 수를 활용한다를 쓴다.
+- summary {ko,en}: ko는 3~4문장, en은 2~3문장. 무슨 일인지, 핵심 수치·사실, 배경 한 줄 순으로 쉬운 말로 쓴다. 비전문가도 알도록 전문용어는 그 자리에서 풀어 쓰되 장황하지 않게 한다. repos는 "무엇을 하는 도구인지", "어떻게·어디에 쓰는지"를 설명하고, Hugging Face 모델은 "어떤 모델인지"와 용도를 설명한다. ★·포크·좋아요(♥)·다운로드(↓) 같은 수치는 화면에 따로 표시되므로 요약에 다시 쓰지 않는다.
 - takeaway {ko,en}: 1문장. 기업 AI·AX 실무자에게 왜 중요한가.
 - 문체: ko summary·takeaway·glossary desc는 모든 문장을 합니다체(~합니다/~입니다/~했습니다)로 쓴다. 해라체(~다)는 쓰지 않는다. title은 위 헤드라인 문체를 유지한다.
 - region: 사건의 중심 지역. KR|US|EU|CN|JP|GLOBAL 중 하나.
