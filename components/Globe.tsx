@@ -67,6 +67,8 @@ type Props = {
   hover: Region | null;
   /** A marker was clicked or tapped (a drag does not count). */
   onPick?: (region: Region) => void;
+  /** A click (not a drag) landed on the sphere but on no marker. */
+  onClear?: () => void;
 };
 
 type Controller = { sync: (regions: Props["regions"], active: Region | null, hover: Region | null) => void };
@@ -77,12 +79,14 @@ const PULSE_MS = 1100;
  * cobe v2 has no render loop of its own (no onRender): every `update()` draws one frame, so this component
  * owns a requestAnimationFrame loop. It pauses off-screen, in background tabs and under prefers-reduced-motion.
  */
-export default function Globe({ regions, active, hover, onPick }: Props) {
+export default function Globe({ regions, active, hover, onPick, onClear }: Props) {
   const host = useRef<HTMLDivElement>(null);
   const ctl = useRef<Controller | null>(null);
   const pick = useRef(onPick);
+  const clear = useRef(onClear);
   useEffect(() => {
     pick.current = onPick;
+    clear.current = onClear;
   });
 
   useEffect(() => {
@@ -289,6 +293,7 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
         vel = tvel = 0;
         const region = hit(e.clientX, e.clientY);
         if (region) pick.current?.(region);
+        else if (selected !== null) clear.current?.();
       }
       kick();
     };

@@ -29,7 +29,7 @@ export default function Regions({ regions, active, onSelect, lang }: Props) {
       </SectionHead>
       <div className={styles.body}>
         <div className={styles.globe}>
-          <Globe regions={regions} active={active} hover={hover} onPick={(r) => onSelect(active === r ? null : r)} />
+          <Globe regions={regions} active={active} hover={hover} onPick={(r) => onSelect(active === r ? null : r)} onClear={() => onSelect(null)} />
         </div>
         <ul className={styles.list} aria-label={u.regionFilter}>
           {regions.map(({ region, count }) => (
