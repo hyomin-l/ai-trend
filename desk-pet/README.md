@@ -42,34 +42,22 @@ DISPATCH_URL=file:///path/to/dir ./DeskPet   # 로컬 테스트: dir/latest.json
 - 질감(종이 그레인)은 시작할 때 한 번 만든 160×160 타일을 재사용한다.
 - 측정(`top -l 12 -s 5 -pid <pid> -stats pid,cpu,power,idlew,mem`, 보이는 상태의 유휴): 상시 30fps 루프 CPU 약 8.3%·power 약 9.5 → idle 모드 CPU 약 0.15%·power 약 0.3·wakeups 약 2/s.
 
-## 로그인 시 자동 실행 (LaunchAgent)
-
-`~/Library/LaunchAgents/io.github.hyomin-l.deskpet.plist`를 만든다. `ProgramArguments`의 `<repo-path>`는 저장소를 클론한 절대 경로로 바꾼다.
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key><string>io.github.hyomin-l.deskpet</string>
-  <key>ProgramArguments</key>
-  <array><string><repo-path>/desk-pet/DeskPet</string></array>
-  <key>RunAtLoad</key><true/>
-  <key>KeepAlive</key><false/>
-</dict>
-</plist>
-```
-
-`DISPATCH_URL`을 바꾸려면 `<dict>` 안에 `EnvironmentVariables` 딕셔너리를 추가한다.
+## 설치 (로그인 시 자동 실행)
 
 ```sh
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/io.github.hyomin-l.deskpet.plist   # 지금 등록·실행
-launchctl bootout   gui/$(id -u) ~/Library/LaunchAgents/io.github.hyomin-l.deskpet.plist   # 해제
+cd desk-pet && ./install.sh                          # 빌드 → 설치 → 로그인 시 자동 실행 등록·즉시 실행
+DISPATCH_URL=https://example.com/ai-trend ./install.sh # 다른 서버로 설치 (값 검증은 앱이 한다)
+git pull && ./install.sh                             # 업데이트: 다시 빌드하고 바이너리를 교체한 뒤 재시작
+./uninstall.sh                                       # 제거 (설정은 유지)
+./uninstall.sh --purge                               # 제거 + 저장된 설정(UserDefaults)까지 삭제
 ```
 
-바이너리를 다시 빌드했으면 `launchctl kickstart -k gui/$(id -u)/io.github.hyomin-l.deskpet`으로 재시작한다.
+`install.sh`가 만드는 것(저장소 위치와 무관하므로 저장소를 옮기거나 지워도 계속 동작한다).
 
-`KeepAlive`가 `false`라서 메뉴바의 "종료"로 끄면 다음 로그인까지 다시 뜨지 않는다.
+- `~/Library/Application Support/AITrendPet/DeskPet`: 빌드한 바이너리 복사본.
+- `~/Library/LaunchAgents/io.github.hyomin-l.deskpet.plist`: 위 바이너리를 가리키는 LaunchAgent. `RunAtLoad` true, `KeepAlive` false. `DISPATCH_URL`을 주고 설치하면 `EnvironmentVariables`에 들어간다.
+
+Label은 `UserDefaults` 도메인과 같아서 재설치해도 위치·크기·언어 설정이 유지된다. `KeepAlive`가 `false`라서 메뉴바의 "종료"로 끄면 다음 로그인까지 다시 뜨지 않는다.
 
 ## 저장되는 값과 초기화
 

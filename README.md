@@ -125,15 +125,15 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 
 새 판이 나오면 말풍선으로 알려 주는 macOS 메뉴바 앱(Swift 단일 파일). 말풍선을 누르면 해당 기사 모달이 열린 사이트가 뜬다. 빌드·실행·자동 실행 설정은 [desk-pet/README.md](desk-pet/README.md).
 
-바로 써 보기(macOS 13 이상, 실행 파일은 배포하지 않으므로 직접 빌드한다):
+바로 써 보기(Mac 전용, macOS 13 이상. 실행 파일은 배포하지 않으므로 직접 빌드·설치한다):
 
 ```sh
 xcode-select --install                      # Command Line Tools가 없을 때만
 git clone https://github.com/hyomin-l/ai-trend.git
-cd ai-trend/desk-pet && ./build.sh && ./DeskPet
+cd ai-trend/desk-pet && ./install.sh
 ```
 
-기본 서버가 이 사이트라 별도 설정 없이 같은 판을 알려 준다. 로그인 시 자동 실행(LaunchAgent)은 desk-pet/README.md 참고.
+빌드 후 로그인 시 자동 실행으로 등록하고 바로 띄운다. 기본 서버가 이 사이트라 별도 설정 없이 같은 판을 알려 준다. 업데이트는 `git pull && ./install.sh`, 제거는 `./uninstall.sh`. 자세한 내용은 desk-pet/README.md.
 
 ## 프로젝트 구조
 
