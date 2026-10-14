@@ -33,9 +33,9 @@ Next.js(정적 export) + JSON 스냅샷 + `claude -p`(구독 Claude, 별도 API 
 |---|---|---|---|---|---|
 | 1 | `newsroom` | 뉴스룸 | Newsroom | 국내외 AI·빅테크 주요 뉴스 | TechCrunch AI, The Verge AI, AI타임스 |
 | 2 | `playbook` | AI 플레이북 | AI Playbook | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g |
-| 3 | `pulse` | 커뮤니티 | Community Pulse | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News(검색어 "AI"), Reddit(r/LocalLLaMA+ClaudeAI+MachineLearning 주간 top), GeekNews |
+| 3 | `ax` | 현장의 AX | AX in the Field | 업종별 AI 도입·전환 사례 | Google News RSS: 일반 기업 AX 쿼리 + 업종(건설·금융·물류·유통·미디어) 키워드, 국문·영문 |
 | 4 | `repos` | 급상승 레포 | Rising Repos | 최근 30일 안에 생성돼 스타 증가 속도가 빠른 AI 레포 | GitHub Search API (토픽 llm, ai-agents, mcp, generative-ai) |
-| 5 | `ax` | 현장의 AX | AX in the Field | 업종별 AI 도입·전환 사례 | Google News RSS: 일반 기업 AX 쿼리 + 업종(건설·금융·물류·유통·미디어) 키워드, 국문·영문 |
+| 5 | `pulse` | 커뮤니티 | Community Pulse | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News(검색어 "AI"), Reddit(r/LocalLLaMA+ClaudeAI+MachineLearning 주간 top), GeekNews |
 
 원천은 `config/sources.ts` 기준 27개 피드·쿼리. 업종 태그(`industry`)는 `ax` 항목에만 붙는다.
 

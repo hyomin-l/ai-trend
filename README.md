@@ -26,9 +26,9 @@ Scattered AI trends, gathered into one newspaper page every Monday, Wednesday an
 |---|---|---|
 | 뉴스룸 | 국내외 AI·빅테크 주요 뉴스 | TechCrunch AI, The Verge AI, AI타임스 |
 | AI 플레이북 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g |
-| 커뮤니티 (Community Pulse) | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News, Reddit(r/LocalLLaMA·ClaudeAI·MachineLearning), GeekNews |
-| 급상승 레포 | 최근 30일 안에 생성돼 스타 증가 속도가 빠른 AI 레포 | GitHub Search API (토픽 llm, ai-agents, mcp, generative-ai) |
 | 현장의 AX | 업종별 AI 도입·전환 사례 (건설·금융·물류·유통·미디어) | Google News RSS (업종 키워드 x AI, 국문·영문) |
+| 급상승 레포 | 최근 30일 안에 생성돼 스타 증가 속도가 빠른 AI 레포 | GitHub Search API (토픽 llm, ai-agents, mcp, generative-ai) |
+| 커뮤니티 (Community Pulse) | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News, Reddit(r/LocalLLaMA·ClaudeAI·MachineLearning), GeekNews |
 
 섹션당 4건을 지면에 표시하고 나머지는 섹션 머리를 눌러 본다. 원천은 `config/sources.ts` 기준 27개 피드·쿼리다. 상세 사양은 [docs/PRD.md](docs/PRD.md).
 

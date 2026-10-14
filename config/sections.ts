@@ -9,9 +9,9 @@
 export const SECTIONS = {
   newsroom: { ko: "뉴스룸", en: "Newsroom", show: 4 },
   playbook: { ko: "AI 플레이북", en: "AI Playbook", show: 4 },
-  pulse: { ko: "커뮤니티", en: "Community Pulse", show: 4 },
-  repos: { ko: "급상승 레포", en: "Rising Repos", show: 4 },
   ax: { ko: "현장의 AX", en: "AX in the Field", show: 4 },
+  repos: { ko: "급상승 레포", en: "Rising Repos", show: 4 },
+  pulse: { ko: "커뮤니티", en: "Community Pulse", show: 4 },
 } as const;
 
 /** The "top stories" band above the columns. Its stories are picked across all sections and not repeated below. */
