@@ -38,7 +38,6 @@ export default function RepoItem({ item, lang, generatedAt, gloss, dimmed, onOpe
         ) : (
           title
         )}
-        {isModel && <span className={styles.tag} title={item.source}>HF</span>}
       </h3>
       <p className={styles.desc}>
         <Glossed text={repoDesc(item, lang)} terms={gloss?.get(`${item.id}:m`)} lang={lang} />
