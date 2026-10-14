@@ -110,16 +110,17 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 | 서비스 이름·소개 문구·바탕색 | `lib/i18n.ts` `BRAND` (페이지 제목, manifest, 로고, 큐레이터 프롬프트가 읽음) |
 | 강조색·테마 색 | `app/globals.css` 토큰(`--magenta`, `--paper`, `--ink`). `BRAND.paper`는 `--paper`와 같게 유지. 강조색은 `app/icon.svg`, `components/Globe.tsx` `markerColor`, `desk-pet/DeskPet.swift`에도 있음 |
 | 로고 모양 | `components/Logo.tsx` |
-| 섹션 키·이름(ko/en)·순서·표시 개수 | `config/sections.ts` `SECTIONS` (`FRONT`는 오늘의 3줄, `INDUSTRIES`는 현장의 AX 업종 태그) |
+| 섹션 키·이름(ko/en)·순서·표시 개수, 섹션 설명(`brief`)·플래그(`fresh`, `outletsOnly`) | `config/sections.ts` `SECTIONS` (`FRONT`는 오늘의 3줄, `INDUSTRIES`는 현장의 AX 업종 태그) |
 | 수집 원천 | `config/sources.ts` `SOURCES`, `AX_QUERIES` |
 | 수집 튜닝(모델, 기간, 상한, 중복 제거) | `config/sources.ts` `CONFIG` |
-| 편집 방향·독자 설정 | `config/prompt.ts` (끝부분 출력 형식은 `lib/curate.ts`가 파싱하므로 유지) |
+| 선별 기준 | `config/prompt.ts` `CRITERIA` |
+| 편집 방향·독자 설정 | `config/prompt.ts` `PERSONA` (`FORMAT`의 출력 형식은 `lib/curate.ts`가 파싱하므로 유지) |
 | 발행 일정 | `.github/workflows/dispatch.yml` cron. 일정 문구는 `lib/i18n.ts`(`BRAND.description`, `ui.emptyNote`)와 `config/prompt.ts`에도 있음 |
 | 화면 문구(ko/en) | `lib/i18n.ts` `ko`, `en` |
 | 지역 이름·지구본 좌표 | `lib/i18n.ts` `REGION_LABEL`, `components/Globe.tsx` `COORDS` |
 | 데스크 펫 이름·기본 서버·섹션명 | `desk-pet/DeskPet.swift` 맨 위 상수 묶음, 또는 실행 시 `DISPATCH_URL` |
 
-섹션을 추가·삭제할 때는 `config/sections.ts`, `config/sources.ts`의 `section` 값, `config/prompt.ts`의 섹션 목록, `desk-pet/DeskPet.swift`의 `sectionLabel`을 함께 고친다.
+섹션을 추가·삭제할 때는 `config/sections.ts`, `config/sources.ts`의 `section` 값, `config/sections.ts`의 `brief`(프롬프트의 섹션 목록이 여기서 생성됨), `desk-pet/DeskPet.swift`의 `sectionLabel`을 함께 고친다.
 
 ## 데스크 펫
 
@@ -141,7 +142,7 @@ cd ai-trend/desk-pet && ./install.sh
 app/          라우트: /, /[lang], /[lang]/[date], archive, stories, latest.json, search-index.json, editions/<date>/data.json
 components/   화면 컴포넌트와 CSS Module (TopBar, DateNav, TopSearch, Globe, 각종 Dialog 등)
 lib/          수집·가공·검색 로직 (sources, rss, prep, curate, claude, pipeline, snapshots, search, format, i18n)
-config/       sections.ts: 섹션·업종 정의 / sources.ts: 원천, 기간·상한 / prompt.ts: 큐레이터 프롬프트
+config/       sections.ts: 섹션·업종 정의, 섹션 설명·플래그 / sources.ts: 원천, 기간·상한 / prompt.ts: 큐레이터 프롬프트
 types/        Snapshot·Item 등 공용 타입
 data/         snapshots/ 날짜별 판 JSON
 scripts/      collect.ts 수집 진입점
@@ -164,6 +165,11 @@ vitest 단위 테스트. 네트워크와 LLM 호출은 고정 응답으로 대�
 - 기사 원문 링크는 절대 `http`/`https` URL만 렌더링한다(`lib/format.ts`).
 - CI의 액션은 커밋 SHA로 고정하고 CLI 패키지는 버전을 고정한다.
 - CLI 설치 단계는 시크릿이 없는 별도 단계로 분리한다. 시크릿은 수집 단계에만 주입된다.
+
+## 참고한 프로젝트
+
+- [agents-radar](https://github.com/duanyytop/agents-radar): GitHub Actions와 Pages로 정기 발행하는 파이프라인 구성, 포크해서 직접 돌리는 방식을 참고했다.
+- [AIHOT](https://github.com/KKKKhazix/AIHOT): 소스와 선별 기준을 분리하는 구조, 같은 사건을 묶는 아이디어를 참고했다.
 
 ## 기술 스택
 
