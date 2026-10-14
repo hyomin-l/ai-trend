@@ -1,9 +1,10 @@
 "use client";
 
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Item, Lang, Region, Section, Snapshot } from "@/types";
 import { FRONT, SECTIONS, SECTION_ORDER } from "@/config/sections";
 import { REGIONS } from "@/lib/i18n";
+import { openParam, withoutOpen } from "@/lib/deeplink";
 import { repoDesc } from "@/lib/format";
 import Brief from "./Brief";
 import { planGloss } from "./Glossary";
@@ -64,6 +65,15 @@ export default function Edition({ snapshot, lang, notice }: Props) {
       ro.disconnect();
       document.fonts?.removeEventListener("loadingdone", fit);
     };
+  }, [snapshot]);
+
+  // Deep link `?open=<id>` (desk pet): open that story from the snapshot, even if display caps hide it, then drop the param.
+  useEffect(() => {
+    const id = openParam(window.location.search);
+    if (!id) return;
+    window.history.replaceState(null, "", `${window.location.pathname}${withoutOpen(window.location.search)}${window.location.hash}`);
+    const item = snapshot.items.find((i) => i.id === id);
+    if (item) setOpenItem(item);
   }, [snapshot]);
 
   const { front, bySection, shown, regions, gloss } = useMemo(() => {

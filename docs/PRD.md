@@ -104,6 +104,7 @@ Next.js(정적 export) + JSON 스냅샷 + `claude -p`(구독 Claude, 별도 API 
 | `/search-index.json` | 전 호의 압축 검색 인덱스 |
 | `/editions/<date>/data.json` | 판 하나의 전체 데이터 |
 | `/<lang>/stories/?open=<date>/<id>` | 해당 기사 모달이 열린 딥링크 |
+| `/<lang>/<date>/?open=<id>` (`/`, `/<lang>/`도 최신 지면) | 해당 지면에서 기사 모달이 열린 딥링크(데스크 펫 말풍선) |
 
 ## 8. 수집·배포 파이프라인
 
