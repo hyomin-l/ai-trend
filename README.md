@@ -75,7 +75,8 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 워크플로는 `.github/workflows/dispatch.yml` 하나다.
 
 - 트리거: 예약 실행, 수동 실행(`workflow_dispatch`), `main` push.
-- `main` push는 코드 변경 시 재배포만 하며 수집하지 않는다. `data/snapshots/`, `desk-pet/`, `docs/`만 바뀐 push는 무시한다.
+- `main` push는 재배포만 하며 수집하지 않는다(`COLLECT`가 push에서는 false). `desk-pet/`, `docs/`만 바뀐 push는 무시한다. 워크플로의 스냅샷 커밋은 `GITHUB_TOKEN`으로 push되어 새 실행을 일으키지 않으므로 재귀하지 않는다.
+- 잘못 나간 판 수정: `data/snapshots/<날짜>.json`을 고치거나 삭제하고 push한다. `npm test`가 모든 스냅샷의 구조·링크(http/https만)를 검증하므로 잘못된 수정은 배포 전에 CI에서 실패한다. 스냅샷만 바뀐 push도 재배포된다.
 - 예약 실행에서 그날(KST) 스냅샷이 이미 있으면 수집을 건너뛴다.
 - `CLAUDE_CODE_OAUTH_TOKEN`이 없으면 수집을 건너뛰고 기존 스냅샷으로 배포만 한다. 미큐레이션 판은 내지 않는다.
 - 사이트 URL과 base path는 `actions/configure-pages` 출력에서 파생되므로 포크도 별도 설정 없이 자신의 주소로 빌드된다.
@@ -145,7 +146,7 @@ docs/         제품 사양(PRD)
 npm test
 ```
 
-vitest 단위 테스트. 네트워크와 LLM 호출은 고정 응답으로 대체한다. RSS 파싱, 전처리 규칙, 큐레이션 응답 검증, 검색 매칭 등을 다룬다.
+vitest 단위 테스트. 네트워크와 LLM 호출은 고정 응답으로 대체한다. RSS 파싱, 전처리 규칙, 큐레이션 응답 검증, 검색 매칭 등을 다룬다. `tests/snapshots.test.ts`는 커밋된 모든 스냅샷을 검증한다(`validateSnapshot`).
 
 ## 보안
 

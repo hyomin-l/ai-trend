@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths-ignore: ["data/snapshots/**", "desk-pet/**", "docs/**"]
+    paths-ignore: ["desk-pet/**", "docs/**"]
 
 permissions: {}
 
