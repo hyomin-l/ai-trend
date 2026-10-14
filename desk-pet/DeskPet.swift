@@ -9,8 +9,8 @@ let petName = "애트라"
 let defaultSiteURL = "https://hyomin-l.github.io/ai-trend" // 기본 서버. DISPATCH_URL 환경변수가 우선한다. 포크는 자기 Pages 주소로
 // 섹션 키 → 말풍선 라벨. config/sections.ts의 한국어 이름과 같게
 let sectionLabel: [String: [String: String]] = [
-    "ko": ["newsroom": "뉴스룸", "ax": "현장의 AX", "repos": "이번 주 오픈소스", "pulse": "커뮤니티", "playbook": "AI 플레이북"],
-    "en": ["newsroom": "Newsroom", "ax": "AX in the Field", "repos": "Open Source This Week", "pulse": "Community Pulse", "playbook": "AI Playbook"],
+    "ko": ["newsroom": "뉴스룸", "ax": "산업", "repos": "오픈소스", "pulse": "커뮤니티", "playbook": "실무"],
+    "en": ["newsroom": "Newsroom", "ax": "Industry", "repos": "Open Source", "pulse": "Community Pulse", "playbook": "Practice"],
 ]
 
 let defaults = UserDefaults(suiteName: "io.github.hyomin-l.deskpet")! // 번들 없는 실행 파일이라 도메인을 명시 (LaunchAgent Label과 동일)

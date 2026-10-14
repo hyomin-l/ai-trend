@@ -25,9 +25,9 @@ Scattered AI trends, gathered into one newspaper page every Monday, Wednesday an
 | 섹션 | 다루는 것 | 원천 |
 |---|---|---|
 | 뉴스룸 | 국내외 AI·빅테크 주요 뉴스 | 언론: TechCrunch AI, The Verge AI, AI타임스. 공식 발표: OpenAI, Google AI, Google DeepMind, Anthropic(커뮤니티 미러 피드) |
-| AI 플레이북 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g, Hamel Husain, Interconnects, Anthropic Engineering, Hugging Face Blog, Hugging Face Daily Papers(추천 20 이상 상위 3편, 판 전체 최대 2편) |
-| 현장의 AX | 업종별 AI 도입·전환 사례 (건설·금융·물류·유통·미디어) | Google News RSS (업종 키워드 x AI, 국문·영문) |
-| 이번 주 오픈소스 | 최근 일주일간 스타가 가장 많이 늘어난 AI 레포(생성일 무관) + Hugging Face 트렌딩 모델(좋아요·다운로드, 최대 5건) | Hugging Face Hub API(trendingScore 순, 재패키징 모델 제외). GitHub Trending 주간(전체·python·typescript, HTML 스크랩) + 생성일 조회 GitHub REST. 실패 시 GitHub Search(토픽 llm, ai-agents, mcp, generative-ai, 최근 30일 생성)로 대체 |
+| 실무 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g, Hamel Husain, Interconnects, Anthropic Engineering, Hugging Face Blog, Hugging Face Daily Papers(추천 20 이상 상위 3편, 판 전체 최대 2편) |
+| 산업 | 업종별 AI 도입·전환 사례 (건설·금융·물류·유통·미디어) | Google News RSS (업종 키워드 x AI, 국문·영문) |
+| 오픈소스 | 최근 일주일간 스타가 가장 많이 늘어난 AI 레포(생성일 무관) + Hugging Face 트렌딩 모델(좋아요·다운로드, 최대 5건) | Hugging Face Hub API(trendingScore 순, 재패키징 모델 제외). GitHub Trending 주간(전체·python·typescript, HTML 스크랩) + 생성일 조회 GitHub REST. 실패 시 GitHub Search(토픽 llm, ai-agents, mcp, generative-ai, 최근 30일 생성)로 대체 |
 | 커뮤니티 (Community Pulse) | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News, Reddit(r/LocalLLaMA·ClaudeAI·MachineLearning), GeekNews |
 
 섹션당 4건을 지면에 표시하고 나머지는 섹션 머리를 눌러 본다. 원천은 `config/sources.ts` 기준 37개 피드·쿼리다. 상세 사양은 [docs/PRD.md](docs/PRD.md).
@@ -114,7 +114,7 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 | 서비스 이름·소개 문구·바탕색 | `lib/i18n.ts` `BRAND` (페이지 제목, manifest, 로고, 큐레이터 프롬프트가 읽음) |
 | 강조색·테마 색 | `app/globals.css` 토큰(`--magenta`, `--paper`, `--ink`). `BRAND.paper`는 `--paper`와 같게 유지. 강조색은 `app/icon.svg`, `components/Globe.tsx` `markerColor`, `desk-pet/DeskPet.swift`에도 있음 |
 | 로고 모양 | `components/Logo.tsx` |
-| 섹션 키·이름(ko/en)·순서·표시 개수, 섹션 설명(`brief`)·플래그(`fresh`, `outletsOnly`) | `config/sections.ts` `SECTIONS` (`FRONT`는 이번 호 핵심, `INDUSTRIES`는 현장의 AX 업종 태그) |
+| 섹션 키·이름(ko/en)·순서·표시 개수, 섹션 설명(`brief`)·플래그(`fresh`, `outletsOnly`) | `config/sections.ts` `SECTIONS` (`FRONT`는 이번 호 핵심, `INDUSTRIES`는 산업 업종 태그) |
 | 수집 원천 | `config/sources.ts` `SOURCES`, `AX_QUERIES` |
 | 수집 튜닝(모델, 기간, 상한, 중복 제거) | `config/sources.ts` `CONFIG` |
 | 선별 기준 | `config/prompt.ts` `CRITERIA` |
