@@ -66,10 +66,7 @@ export default function ItemDialog({ item, lang, generatedAt, glossary, onClose 
             {item.industry && <span>{industryTag(item.industry, lang)}</span>}
           </p>
 
-          <section className={styles.block}>
-            <h3 className={styles.label}>{u.what}</h3>
-            <p className={styles.body}>{item.summary[lang]}</p>
-          </section>
+          <p className={styles.body}>{item.summary[lang]}</p>
           <section className={styles.block}>
             <h3 className={`${styles.label} ${styles.why}`}>{u.why}</h3>
             <p className={styles.body}>{item.takeaway[lang]}</p>
