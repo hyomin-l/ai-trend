@@ -21,9 +21,9 @@ jobs:
       contents: write # push the snapshot commit
       pages: read # configure-pages reads the site URL / base path
     env:
-      # Without the subscription token, skip collection instead of publishing an uncurated edition.
-      # (Only a boolean is computed here; the secret value itself is exposed to the collect step alone.)
-      COLLECT: ${{ github.event_name != 'push' && secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+      # Without a Claude credential (subscription token or API key), skip collection instead of publishing an uncurated edition.
+      # (Only a boolean is computed here; the secret values themselves are exposed to the collect step alone.)
+      COLLECT: ${{ github.event_name != 'push' && (secrets.CLAUDE_CODE_OAUTH_TOKEN != '' || secrets.ANTHROPIC_API_KEY != '') }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
@@ -53,9 +53,15 @@ jobs:
       - name: Collect edition
         if: steps.plan.outputs.collect == 'true'
         env:
+          # Either one works. If both are set the CLI prefers ANTHROPIC_API_KEY (pay-as-you-go) over the OAuth token.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run collect
+        run: |
+          # An unset secret arrives as an empty string; drop it so it cannot shadow the other credential.
+          [ -n "$ANTHROPIC_API_KEY" ] || unset ANTHROPIC_API_KEY
+          [ -n "$CLAUDE_CODE_OAUTH_TOKEN" ] || unset CLAUDE_CODE_OAUTH_TOKEN
+          npm run collect
 
       - name: Commit snapshot
         if: steps.plan.outputs.collect == 'true'

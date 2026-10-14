@@ -46,13 +46,14 @@ npm run collect -- --no-llm  # LLM 없이 원문 제목으로 판 생성
 npm run collect -- --date 2026-10-14
 ```
 
-`collect`는 외부 API를 실제로 호출한다. LLM 큐레이션에는 로그인된 `claude` CLI가 필요하다(`--no-llm`이면 불필요). 로컬 빌드는 `BASE_PATH`가 비어 있는 루트 경로 기준이며, 하위 경로 배포를 확인하려면 `BASE_PATH=/<repo> npm run build`.
+`collect`는 외부 API를 실제로 호출한다. LLM 큐레이션에는 인증된 `claude` CLI(구독 로그인 또는 `ANTHROPIC_API_KEY`)가 필요하다(`--no-llm`이면 불필요). 로컬 빌드는 `BASE_PATH`가 비어 있는 루트 경로 기준이며, 하위 경로 배포를 확인하려면 `BASE_PATH=/<repo> npm run build`.
 
 ## 설정
 
 | 이름 | 필수 | 용도 |
 |---|---|---|
-| `CLAUDE_CODE_OAUTH_TOKEN` | CI 수집 시 필수 | Claude 구독 토큰. 저장소 Actions 시크릿으로 등록. 없으면 워크플로는 수집 없이 기존 데이터만 배포 |
+| `CLAUDE_CODE_OAUTH_TOKEN` | CI 수집 시 둘 중 하나 | Claude 구독 토큰(`claude setup-token`). Actions 시크릿으로 등록 |
+| `ANTHROPIC_API_KEY` | CI 수집 시 둘 중 하나 | Anthropic API 키(종량제). Actions 시크릿으로 등록. 둘 다 있으면 CLI가 API 키를 우선 사용. 둘 다 없으면 워크플로는 수집 없이 기존 데이터만 배포 |
 | `GITHUB_TOKEN` | 선택 | GitHub Search API 호출 한도 상향. Actions에서는 자동 제공 |
 | `SNAPSHOT_DIR` | 선택 | 스냅샷 저장 위치 재지정. 기본 `data/snapshots` |
 | `BASE_PATH` | 선택 | 배포 하위 경로. 워크플로가 채우며 로컬 빌드는 빈 값 |
@@ -78,7 +79,7 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 - `main` push는 재배포만 하며 수집하지 않는다(`COLLECT`가 push에서는 false). `desk-pet/`, `docs/`만 바뀐 push는 무시한다. 워크플로의 스냅샷 커밋은 `GITHUB_TOKEN`으로 push되어 새 실행을 일으키지 않으므로 재귀하지 않는다.
 - 잘못 나간 판 수정: `data/snapshots/<날짜>.json`을 고치거나 삭제하고 push한다. `npm test`가 모든 스냅샷의 구조·링크(http/https만)를 검증하므로 잘못된 수정은 배포 전에 CI에서 실패한다. 스냅샷만 바뀐 push도 재배포된다.
 - 예약 실행에서 그날(KST) 스냅샷이 이미 있으면 수집을 건너뛴다.
-- `CLAUDE_CODE_OAUTH_TOKEN`이 없으면 수집을 건너뛰고 기존 스냅샷으로 배포만 한다. 미큐레이션 판은 내지 않는다.
+- `CLAUDE_CODE_OAUTH_TOKEN`과 `ANTHROPIC_API_KEY`가 모두 없으면 수집을 건너뛰고 기존 스냅샷으로 배포만 한다. 미큐레이션 판은 내지 않는다.
 - 사이트 URL과 base path는 `actions/configure-pages` 출력에서 파생되므로 포크도 별도 설정 없이 자신의 주소로 빌드된다.
 
 토큰 사용 최소화: 수집은 결정적 코드가 맡고, LLM은 1회만 호출하며 Claude Code 기본 시스템 프롬프트·도구·MCP를 싣지 않는다. URL과 지표는 원천 데이터에서만 가져와 링크 환각을 막는다.
@@ -87,13 +88,16 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 
 1. 저장소를 포크한다. 포크에서 워크플로 사용 여부를 물으면 활성화한다.
 2. Settings > Pages > Source를 **GitHub Actions**로 설정한다. 사이트 URL(`https://<user>.github.io/<repo>`)과 base path는 자동으로 파생된다.
-3. 각자 자신의 Claude 계정으로 `claude setup-token`을 실행해 토큰을 발급하고 시크릿으로 등록한다.
+3. Claude 구독 토큰(`CLAUDE_CODE_OAUTH_TOKEN`) 또는 Anthropic API 키(`ANTHROPIC_API_KEY`) 중 하나를 시크릿으로 등록한다.
    ```bash
+   claude setup-token   # 구독 토큰 발급
    gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo <user>/<repo>
+   # 또는 Console에서 발급한 API 키
+   gh secret set ANTHROPIC_API_KEY --repo <user>/<repo>
    ```
-   토큰은 공유하거나 커밋하지 않는다. 한 사람당 토큰 하나를 쓴다.
+   토큰·키는 공유하거나 커밋하지 않는다. 둘 다 등록하면 API 키가 우선한다. API 키는 사용량만큼 과금된다(1판당 약 $0.1, 추정). 자동화에서 구독을 쓰는 것은 제공사 약관의 적용을 받으므로 약관을 확인한다.
 4. Actions > `dispatch` > Run workflow를 실행한다. 첫 실행이 수집, `data/snapshots/<date>.json` 커밋, 빌드, 배포까지 수행한다. 이후 월·수·금 05:17 KST에 자동 실행된다.
-5. `GITHUB_TOKEN`은 자동 제공되고 `BASE_PATH`는 워크플로가 Pages 설정에서 채운다. `CLAUDE_CODE_OAUTH_TOKEN`이 없으면 기존 데이터만 배포하며, `main` push는 배포만 한다.
+5. `GITHUB_TOKEN`은 자동 제공되고 `BASE_PATH`는 워크플로가 Pages 설정에서 채운다. 두 시크릿이 모두 없으면 기존 데이터만 배포하며, `main` push는 배포만 한다.
 6. 데스크 펫을 쓴다면 `DISPATCH_URL`을 자신의 사이트로 지정한다.
 
 유의 사항:
