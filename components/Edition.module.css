@@ -55,3 +55,18 @@
     padding-top: var(--s3);
   }
 }
+
+/* No layout shift on load: the static HTML lists every story, and Edition trims each column to fit in a layout effect (before
+   paint once hydrated). Until then the columns keep their box but are invisible; Edition sets data-fit-ready after the first fit.
+   Gated on html.js (layout.tsx boot script) so with scripts off everything shows; the animation is the escape hatch if hydration stalls. */
+@media (min-width: 1100px) {
+  :global(html.js) .grid:not([data-fit-ready]) {
+    visibility: hidden;
+    animation: fit-fallback 0s 1.5s forwards;
+  }
+}
+@keyframes fit-fallback {
+  to {
+    visibility: visible;
+  }
+}

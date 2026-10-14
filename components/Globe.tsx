@@ -339,6 +339,7 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
         target = place ? facing(place[1]) : null;
         if (target !== null && reduce.matches) phi = target;
         draw();
+        el.setAttribute("data-ready", ""); // first frame (palette, markers) is on the canvas: fade the globe in
         kick();
       },
     };
@@ -355,6 +356,7 @@ export default function Globe({ regions, active, hover, onPick }: Props) {
       reduce.removeEventListener("change", kick);
       document.removeEventListener("visibilitychange", kick);
       globe.destroy();
+      el.removeAttribute("data-ready");
       el.replaceChildren();
     };
   }, []);

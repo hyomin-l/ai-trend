@@ -57,11 +57,24 @@ export default function Edition({ snapshot, lang, notice }: Props) {
       }
       setFitHidden((prev) => (JSON.stringify(prev) === JSON.stringify(hidden) ? prev : hidden));
     };
+    // Until the first fit the static HTML is untrimmed, so CSS keeps the columns invisible (html.js, no data-fit-ready). The
+    // reveal is a plain attribute, set before paint, so the first painted frame is already the final one. If fonts are still
+    // loading their line breaks are about to change, so the reveal waits for them (the CSS fallback caps the wait).
+    const reveal = () => root.setAttribute("data-fit-ready", "");
+    let gone = false;
     fit();
+    if (document.fonts?.status === "loading")
+      document.fonts.ready.then(() => {
+        if (gone) return;
+        fit();
+        reveal();
+      });
+    else reveal();
     const ro = new ResizeObserver(fit);
     ro.observe(root);
     document.fonts?.addEventListener("loadingdone", fit); // web fonts change line breaks
     return () => {
+      gone = true;
       ro.disconnect();
       document.fonts?.removeEventListener("loadingdone", fit);
     };

@@ -20,8 +20,8 @@ export const viewport: Viewport = {
 /** localStorage key; components/ThemeToggle.tsx writes it. */
 const THEME_KEY = "ai-trend-theme";
 
-/** Runs before first paint: a saved light/dark choice pins <html data-theme>; with none, CSS follows the system. */
-const THEME_BOOT = `try{var t=localStorage.getItem("${THEME_KEY}");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+/** Runs before first paint: marks <html class="js"> (CSS may hide what script still has to lay out, see Edition.module.css), and a saved light/dark choice pins <html data-theme>; with none, CSS follows the system. */
+const THEME_BOOT = `document.documentElement.classList.add("js");try{var t=localStorage.getItem("${THEME_KEY}");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

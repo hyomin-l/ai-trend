@@ -3,6 +3,17 @@
   width: 100%;
   aspect-ratio: 1;
   isolation: isolate; /* the canvas blends with the disc below, not with the page */
+  /* Disc and canvas appear together, once, after the first real frame is drawn (Globe sets data-ready). */
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+.globe[data-ready] {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .globe {
+    transition: none;
+  }
 }
 /* A flat paper disc behind the sphere (96% of the box, see SCALE in Globe.tsx): the page's grain never shows through. */
 .globe::before {
