@@ -30,7 +30,7 @@ struct Latest: Decodable {
 struct Bubble: Equatable {
     let caption: String
     let headline: String
-    let link: String // 사이트 기준 상대 경로. 열 스토리를 알면 "/ko/stories/?open=<date>/<id>", 아니면 "".
+    let link: String // 사이트 기준 상대 경로. 열 스토리를 알면 "/ko/<date>/?open=<id>", 아니면 "".
 }
 
 func caption(_ date: String, _ section: String? = nil) -> String {
@@ -43,12 +43,12 @@ func makeBubble(_ date: String, _ it: Latest.Item) -> Bubble {
     Bubble(caption: caption(date, it.section), headline: it.title.ko, link: storyLink(date, it.id))
 }
 
-// 사이트 딥링크: 해당 스토리 모달이 열린 채로 스토리 페이지를 연다.
+// 사이트 딥링크: 해당 스토리 모달이 열린 채로 그날의 지면을 연다.
 func storyLink(_ date: String, _ id: String?) -> String {
     guard let id, !id.isEmpty else { return "" }
     let safe = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
     func enc(_ s: String) -> String { s.addingPercentEncoding(withAllowedCharacters: safe) ?? "" }
-    return "/ko/stories/?open=\(enc(date))/\(enc(id))"
+    return "/ko/\(enc(date))/?open=\(enc(id))"
 }
 
 func log(_ s: String) { FileHandle.standardError.write(Data("[deskpet] \(s)\n".utf8)) }
