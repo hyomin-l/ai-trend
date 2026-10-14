@@ -51,6 +51,9 @@ async function main() {
     console.log(`  ${s.padEnd(9)} candidates ${String(n(candidates)).padStart(3)}  published ${String(n(snapshot.items)).padStart(3)}`);
   }
   console.log(`  total     candidates ${String(candidates.length).padStart(3)}  published ${String(snapshot.items.length).padStart(3)}  front: ${snapshot.front.join(", ")}`);
+  // The prompt requires at least one paper when paper candidates exist; the model may still skip it, so say so in the log.
+  const isPaper = (i: { source: string }) => i.source === "Hugging Face Papers";
+  if (snapshot.curated && candidates.some(isPaper) && !snapshot.items.some(isPaper)) console.warn("Warning: no paper published although paper candidates existed");
   console.log(failed.length ? `Failed sources (${failed.length}): ${failed.join(", ")}` : "Failed sources: none");
 }
 
