@@ -79,3 +79,14 @@ export const IconMoon = (p: P) => (
     <path d="M14 8.5A6 6 0 1 1 7.5 2 4.7 4.7 0 0 0 14 8.5z" strokeLinecap="round" strokeLinejoin="round" />
   </Svg>
 );
+
+export const IconHeart = (p: P) => (
+  <Svg {...p}>
+    <path d="M8 13.5L2.9 8.4A3.1 3.1 0 0 1 8 4.2a3.1 3.1 0 0 1 5.1 4.2Z" strokeLinejoin="round" />
+  </Svg>
+);
+export const IconDownload = (p: P) => (
+  <Svg {...p}>
+    <path d="M8 2.5v7.5M4.8 7l3.2 3.2L11.2 7M3 13h10" strokeLinecap="round" strokeLinejoin="round" />
+  </Svg>
+);

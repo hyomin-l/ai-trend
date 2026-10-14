@@ -1,7 +1,7 @@
 import type { Item, Lang } from "@/types";
 import { ui } from "@/lib/i18n";
 import { fmtCompact, fmtNum, parseRepoTitle, repoDesc } from "@/lib/format";
-import { IconFork, IconStar, IconTrend } from "./Icons";
+import { IconDownload, IconFork, IconHeart, IconStar, IconTrend } from "./Icons";
 import RelTime from "./RelTime";
 import Metric from "./Metric";
 import { Glossed, type GlossPlan } from "./Glossary";
@@ -23,6 +23,8 @@ export default function RepoItem({ item, lang, generatedAt, gloss, dimmed, onOpe
   const m = item.metrics;
   const title = item.title[lang];
   const parsed = parseRepoTitle(title);
+  const isModel = m?.likes != null; // Hugging Face model: likes/downloads instead of stars/forks, no weekly growth
+  const showBorn = item.publishedAt && Math.abs(Date.parse(generatedAt) - Date.parse(item.publishedAt)) > 3_600_000;
 
   return (
     <article className={styles.item} data-dim={dimmed || undefined} data-fit="repos">
@@ -36,11 +38,26 @@ export default function RepoItem({ item, lang, generatedAt, gloss, dimmed, onOpe
         ) : (
           title
         )}
+        {isModel && <span className={styles.tag} title={item.source}>HF</span>}
       </h3>
       <p className={styles.desc}>
         <Glossed text={repoDesc(item, lang)} terms={gloss?.get(`${item.id}:m`)} lang={lang} />
       </p>
       <p className={styles.nums}>
+        {isModel && (
+          <>
+            <span className={styles.counts}>
+              <Metric icon={<IconHeart size={12} />} label={u.m.likes} value={fmtCompact(m.likes!)} />
+              {m.downloads != null && <Metric icon={<IconDownload size={12} />} label={u.m.downloads} value={fmtCompact(m.downloads)} />}
+            </span>
+            {/* publishedAt == generatedAt means the creation date is unknown */}
+            {showBorn && (
+              <span className={styles.born}>
+                <RelTime iso={item.publishedAt} at={generatedAt} lang={lang} wrap={u.created} />
+              </span>
+            )}
+          </>
+        )}
         {(m?.stars != null || m?.forks != null) && (
           <span className={styles.counts}>
             {m?.stars != null && <Metric icon={<IconStar size={12} />} label={u.m.stars} value={fmtCompact(m.stars)} />}
@@ -57,7 +74,7 @@ export default function RepoItem({ item, lang, generatedAt, gloss, dimmed, onOpe
               <span title={u.perDayTip}>{u.perDay(fmtNum(m.starsPerDay!))}</span>
             )}
             {/* publishedAt == generatedAt means the creation date could not be looked up */}
-            {item.publishedAt && Math.abs(Date.parse(generatedAt) - Date.parse(item.publishedAt)) > 3_600_000 && (
+            {showBorn && (
               <span className={styles.born}>
                 <RelTime iso={item.publishedAt} at={generatedAt} lang={lang} wrap={u.created} />
               </span>

@@ -46,6 +46,11 @@ describe("parseCuration", () => {
     expect(res.items.map((i) => [i.id, i.section])).toEqual([["n1", "newsroom"], ["p1", "pulse"], ["x1", "ax"], ["b1", "pulse"]]);
   });
 
+  it("official-announcement candidates (configured as newsroom) are allowed in newsroom", () => {
+    const res = parseCuration(json([entry("o1", { section: "newsroom" })]), [raw("o1", { source: "OpenAI" })])!;
+    expect(res.items[0].section).toBe("newsroom");
+  });
+
   it("PRD-curator: accepts clean JSON and merges url/source/publishedAt/metrics from the candidate", () => {
     const res = parseCuration(good, candidates)!;
     expect(res.front).toEqual(["a1", "b2", "c3"]);
@@ -231,6 +236,11 @@ describe("fallbackCuration", () => {
 });
 
 describe("buildPrompt / SYSTEM_PROMPT", () => {
+  it("Hugging Face candidates carry likes and downloads in the prompt line", () => {
+    const hf = raw("h1", { section: "repos", source: "Hugging Face", metrics: { likes: 12, downloads: 3400 } });
+    expect(buildPrompt([hf], [])).toContain("h1|Hugging Face|repos|Title h1|Snippet h1 (♥12, ↓3400)");
+  });
+
   it("PRD-curator: one id|source|section|title|snippet line per item, snippet cut at 140", () => {
     const long = raw("L1", { snippet: "x".repeat(500) });
     const lines = buildPrompt([candidates[0], long], []).split("\n");

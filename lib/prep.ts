@@ -47,11 +47,21 @@ function roundRobin<T>(lists: T[][]): T[] {
   return out;
 }
 
+/** Repos by star growth; Hugging Face models (no growth figure, Hub trending order) are slotted in at every 4th place so truncation never drops them all. */
+function withModels(repos: Candidate[]): Candidate[] {
+  const models = repos.filter((i) => i.metrics?.likes !== undefined);
+  const out = repos.filter((i) => i.metrics?.likes === undefined).sort(bySpeed);
+  models.forEach((m, k) => out.splice(Math.min(3 + 4 * k, out.length), 0, m));
+  return out;
+}
+
 export function prep(raw: Candidate[], opts: { now: Date; seen: Map<string, number | undefined> }): Candidate[] {
   const ids = new Set<string>();
   const kept: Candidate[] = [];
   for (const it of raw) {
     if (!isWebUrl(it.url)) continue; // javascript:, data:, relative or malformed links never become items
+    const hosts = DEFS.get(it.sourceId ?? "")?.hosts;
+    if (hosts && !hosts.includes(new URL(it.url).hostname.toLowerCase())) continue; // third-party mirror must not inject foreign links
     if (ids.has(it.id)) continue;
     ids.add(it.id);
 
@@ -79,7 +89,7 @@ export function prep(raw: Candidate[], opts: { now: Date; seen: Map<string, numb
 
   const sections = SECTION_ORDER.map((s) => {
     const inSection = capped.filter((i) => i.section === s);
-    return s === "repos" ? inSection.sort(bySpeed) : roundRobin(group(inSection, (i) => i.sourceId ?? i.source));
+    return s === "repos" ? withModels(inSection) : roundRobin(group(inSection, (i) => i.sourceId ?? i.source));
   });
   return roundRobin(sections).slice(0, CONFIG.totalCap);
 }

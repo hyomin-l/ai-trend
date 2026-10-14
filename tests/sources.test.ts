@@ -23,6 +23,15 @@ const hnJson = {
   ],
 };
 
+const hfJson = [
+  { id: "acme/big-model", likes: 2100, downloads: 125000, createdAt: "2026-09-14T14:53:42.000Z", pipeline_tag: "text-generation", library_name: "transformers", trendingScore: 900 },
+  { id: "someone/big-model-GGUF", likes: 400, downloads: 90000, createdAt: "2026-10-01T00:00:00.000Z", pipeline_tag: "text-generation" },
+  { id: "x/Cool-Image-Uncensored", likes: 300, downloads: 1000, createdAt: "2026-10-01T00:00:00.000Z" },
+  { id: "x/tiny-AWQ", likes: 30, downloads: 100, createdAt: "2026-10-01T00:00:00.000Z" },
+  { id: "org/no-created", likes: 50, lastModified: "2026-10-10T00:00:00.000Z" },
+  { id: "org/third", likes: 10, downloads: 5, createdAt: "2026-10-02T00:00:00.000Z" },
+];
+
 const trendingHtml = `<html><body>
 <article class="Box-row"><h2 class="h3"><a href="/acme/agent-kit" class="Link"><span class="text-normal"> acme / </span> agent-kit</a></h2>
 <p class="col-9"> An <b>LLM</b> agent toolkit &amp; runtime </p>
@@ -45,6 +54,7 @@ beforeEach(() => {
     if (url.includes("api.github.com/repos/")) return Response.json({ created_at: "2025-03-01T00:00:00Z" });
     if (url.includes("api.github.com/search")) return Response.json(ghJson);
     if (url.includes("hn.algolia.com")) return Response.json(hnJson);
+    if (url.includes("huggingface.co/api/models")) return Response.json(hfJson);
     return new Response(feed(3, new URL(url).hostname), { status: 200 });
   };
   vi.stubGlobal("fetch", async (url: string | URL, init?: RequestInit) => {
@@ -79,7 +89,7 @@ describe("fetchAll", () => {
       "https://github.com/trending/typescript?since=weekly",
     ]);
     expect(calls.some((c) => c.url.includes("api.github.com/search"))).toBe(false);
-    const repos = items.filter((i) => i.section === "repos");
+    const repos = items.filter((i) => i.section === "repos" && i.source === "GitHub");
     expect(repos.every((r) => r.url === "https://github.com/acme/agent-kit")).toBe(true); // ps5-port is not AI-related
     expect(repos).toHaveLength(3); // once per trending page
     expect(repos[0]).toMatchObject({
@@ -142,6 +152,38 @@ describe("fetchAll", () => {
       publishedAt: "2026-10-12T10:00:00.000Z", metrics: { points: 250, comments: 40 },
     });
     expect(hits[1].url).toBe("https://news.ycombinator.com/item?id=222");
+  });
+
+  it("PRD-collector: Hugging Face trending models become repos items; re-packaged copies are skipped, likes/downloads are metrics", async () => {
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual([]);
+    const hf = calls.find((c) => c.url.includes("huggingface.co/api/models"))!;
+    const u = new URL(hf.url);
+    expect(u.searchParams.get("sort")).toBe("trendingScore");
+    expect(u.searchParams.get("direction")).toBe("-1");
+    expect(u.searchParams.get("limit")).toBe("30");
+    const models = items.filter((i) => i.source === "Hugging Face");
+    expect(models.map((i) => i.title)).toEqual(["acme/big-model", "org/no-created", "org/third"]);
+    expect(models[0]).toMatchObject({
+      section: "repos", url: "https://huggingface.co/acme/big-model", id: itemId("https://huggingface.co/acme/big-model"),
+      snippet: "text-generation · transformers", publishedAt: "2026-09-14T14:53:42.000Z", metrics: { likes: 2100, downloads: 125000 },
+    });
+    expect(models[1]).toMatchObject({ publishedAt: "2026-10-10T00:00:00.000Z", metrics: { likes: 50, downloads: 0 } }); // lastModified fallback
+  });
+
+  it("PRD-collector: a failing Hugging Face API fails only that source", async () => {
+    const base = handler;
+    handler = (url) => (url.includes("huggingface.co/api/models") ? new Response("down", { status: 500 }) : base(url));
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual(["hf-models"]);
+    expect(items.some((i) => i.source === "GitHub")).toBe(true);
+  });
+
+  it("PRD-collector: official announcement feeds are newsroom sources", async () => {
+    const { items } = await fetchAll(now);
+    for (const name of ["OpenAI", "Google AI", "Google DeepMind", "Anthropic"]) {
+      expect(items.find((i) => i.source === name)).toMatchObject({ section: "newsroom" });
+    }
   });
 
   it("PRD-collector: RSS items carry source name, section and the industry of the SourceDef", async () => {

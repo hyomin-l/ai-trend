@@ -19,6 +19,9 @@ export interface Metrics {
   points?: number;
   comments?: number;
   language?: string;
+  /** Hugging Face models: Hub likes and total downloads. */
+  likes?: number;
+  downloads?: number;
 }
 
 /** Normalized candidate produced by the collector, before curation. */
@@ -70,7 +73,7 @@ export interface Snapshot {
   glossary?: GlossaryEntry[];
 }
 
-export type SourceKind = "rss" | "github" | "ghtrending" | "hn";
+export type SourceKind = "rss" | "github" | "ghtrending" | "hn" | "hf";
 
 export interface SourceDef {
   id: string;
@@ -80,6 +83,8 @@ export interface SourceDef {
   section: Section;
   cap: number;
   windowHours?: number;
+  /** Allowed item URL hosts (exact match, case-insensitive); items elsewhere are dropped. Set for third-party mirrors. */
+  hosts?: string[];
   industry?: Industry;
   /** Runs only when the primary repo sources yielded fewer than CONFIG.repoFallbackMin repos. */
   fallback?: boolean;

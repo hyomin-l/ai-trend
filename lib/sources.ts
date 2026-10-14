@@ -1,4 +1,4 @@
-import { AI_REPO_KEYWORDS, CONFIG, SOURCES } from "@/config/sources";
+import { AI_REPO_KEYWORDS, CONFIG, HF_SKIP, SOURCES } from "@/config/sources";
 import { itemId, type Candidate } from "@/lib/prep";
 import { parseFeed } from "@/lib/rss";
 import { parseTrending } from "@/lib/trending";
@@ -70,6 +70,27 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
     }));
   }
 
+  if (s.kind === "hf") {
+    const body = await get("https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=30");
+    return (JSON.parse(body) as any[])
+      .filter((m) => typeof m?.id === "string" && !HF_SKIP.test(m.id))
+      .slice(0, s.cap)
+      .map((m) => {
+        const url = `https://huggingface.co/${m.id}`;
+        const t = Date.parse(m.createdAt ?? m.lastModified ?? "");
+        return {
+          ...base,
+          id: itemId(url),
+          title: m.id as string,
+          url,
+          snippet: [m.pipeline_tag, m.library_name].filter(Boolean).join(" · "),
+          // Creation date is display-only (like GitHub repos); unknown falls back to `now`.
+          publishedAt: new Date(Number.isNaN(t) ? now.getTime() : t).toISOString(),
+          metrics: { likes: m.likes ?? 0, downloads: m.downloads ?? 0 },
+        };
+      });
+  }
+
   if (s.kind === "hn") {
     const since = Math.floor(now.getTime() / 1000 - CONFIG.windowHours * 3600);
     const filters = encodeURIComponent(`points>80,created_at_i>${since}`);
@@ -114,6 +135,6 @@ export async function fetchAll(now: Date): Promise<{ items: Candidate[]; failed:
   };
   await run(SOURCES.filter((s) => !s.fallback));
   // Fallback sources (GitHub Search) only when the primary repo sources came back (nearly) empty.
-  if (items.filter((i) => i.section === "repos").length < CONFIG.repoFallbackMin) await run(SOURCES.filter((s) => s.fallback));
+  if (items.filter((i) => i.section === "repos" && i.metrics?.likes === undefined).length < CONFIG.repoFallbackMin) await run(SOURCES.filter((s) => s.fallback));
   return { items, failed };
 }

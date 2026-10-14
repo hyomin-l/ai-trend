@@ -16,7 +16,8 @@ export function buildPrompt(items: RawItem[], recentHeadlines: string[]): string
   const lines = items.map((i) => {
     const m = i.metrics;
     const stars = m?.stars !== undefined ? ` (★${m.stars}, ★${m.starsGained !== undefined ? `+${m.starsGained} this week` : `${m.starsPerDay ?? 0}/day`}${i.returning ? ", returning" : ""})` : "";
-    return `${i.id}|${oneLine(i.source)}|${i.section}|${oneLine(i.title)}|${oneLine(i.snippet).slice(0, 140)}${stars}`;
+    const hf = m?.likes !== undefined ? ` (♥${m.likes}, ↓${m.downloads ?? 0})` : "";
+    return `${i.id}|${oneLine(i.source)}|${i.section}|${oneLine(i.title)}|${oneLine(i.snippet).slice(0, 140)}${stars}${hf}`;
   });
   const recent = recentHeadlines.length ? recentHeadlines.map((h) => `- ${oneLine(h)}`).join("\n") : "(없음)";
   return `## 후보\n${lines.join("\n")}\n\n## 직전 판 헤드라인\n${recent}`;
@@ -74,7 +75,7 @@ export function parseCuration(text: string, candidates: RawItem[]): Curation | n
     if (!SECTION_ORDER.includes(m.section)) continue;
     const title = l10n(m.title);
     if (!title.ko || !title.en) continue;
-    // newsroom is for news outlets only: a candidate whose source is configured elsewhere (Reddit, HN, Google News...)
+    // newsroom is for news outlets and official announcements only (sources configured in newsroom): a candidate whose source is configured elsewhere (Reddit, HN, Google News...)
     // goes back to its own section. Every other reassignment (e.g. playbook <-> pulse) is left to the curator.
     const section: Section = m.section === "newsroom" && c.section !== "newsroom" ? c.section : m.section;
     const industry = section === "ax" ? [m.industry, c.industry].find((x) => INDUSTRY_KEYS.includes(x)) : undefined;

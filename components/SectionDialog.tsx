@@ -5,7 +5,7 @@ import type { Item, Lang, Section } from "@/types";
 import { SECTION_LABEL, industryTag, ui } from "@/lib/i18n";
 import { fmtCompact } from "@/lib/format";
 import RelTime from "./RelTime";
-import { IconFork, IconStar } from "./Icons";
+import { IconDownload, IconFork, IconHeart, IconStar } from "./Icons";
 import Metric from "./Metric";
 import Dialog from "./Dialog";
 import styles from "./SectionDialog.module.css";
@@ -26,6 +26,8 @@ function metaOf(item: Item, lang: Lang, generatedAt: string): ReactNode[] {
   if (item.industry) out.push(industryTag(item.industry, lang));
   if (m?.stars != null) out.push(<Metric key="s" icon={<IconStar size={12} />} label={u.m.stars} value={fmtCompact(m.stars)} />);
   if (m?.forks != null) out.push(<Metric key="f" icon={<IconFork size={12} />} label={u.m.forks} value={fmtCompact(m.forks)} />);
+  if (m?.likes != null) out.push(<Metric key="l" icon={<IconHeart size={12} />} label={u.m.likes} value={fmtCompact(m.likes)} />);
+  if (m?.downloads != null) out.push(<Metric key="d" icon={<IconDownload size={12} />} label={u.m.downloads} value={fmtCompact(m.downloads)} />);
   if (m?.points != null) out.push(u.pts(String(m.points)));
   out.push(<RelTime key="t" iso={item.publishedAt} at={generatedAt} lang={lang} />);
   return out;

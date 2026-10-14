@@ -130,3 +130,15 @@
     line-height: 1.45;
   }
 }
+
+/* Hugging Face marker next to the model id; neutral, small, so owner/name stays the headline. */
+.tag {
+  margin-left: var(--s2);
+  padding: 0 4px;
+  border: 1px solid var(--ink-3);
+  font: 600 10px/1.5 var(--ff-body);
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  vertical-align: 2px;
+  white-space: nowrap;
+}

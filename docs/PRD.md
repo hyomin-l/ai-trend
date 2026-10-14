@@ -31,18 +31,18 @@ Next.js(정적 export) + JSON 스냅샷 + `claude -p`(구독 Claude, 별도 API 
 
 | 순서 | key | KO | EN | 정의 | 원천 |
 |---|---|---|---|---|---|
-| 1 | `newsroom` | 뉴스룸 | Newsroom | 국내외 AI·빅테크 주요 뉴스 | TechCrunch AI, The Verge AI, AI타임스 |
-| 2 | `playbook` | AI 플레이북 | AI Playbook | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g |
+| 1 | `newsroom` | 뉴스룸 | Newsroom | 국내외 AI·빅테크 주요 뉴스 | 언론: TechCrunch AI, The Verge AI, AI타임스(국내는 AI타임스만). 공식 발표: OpenAI, Google AI, Google DeepMind, Anthropic(community 미러 피드). 큐레이터는 section이 newsroom인 소스만 뉴스룸에 둔다. 기간은 언론과 같은 72시간 |
+| 2 | `playbook` | AI 플레이북 | AI Playbook | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g, Hamel Husain, Interconnects, Anthropic Engineering(미러), Hugging Face Blog |
 | 3 | `ax` | 현장의 AX | AX in the Field | 업종별 AI 도입·전환 사례 | Google News RSS: 일반 기업 AX 쿼리 + 업종(건설·금융·물류·유통·미디어) 키워드, 국문·영문 |
-| 4 | `repos` | 급상승 레포 | Rising Repos | 최근 일주일간 스타가 가장 많이 늘어난 AI 레포(생성일 무관) | GitHub Trending 주간(전체·python·typescript, 비공식 HTML) + 생성일 조회 GitHub REST. 트렌딩 소스가 3건 미만이면 GitHub Search(토픽 llm, ai-agents, mcp, generative-ai, 최근 30일 생성)로 대체. OSS Insight 트렌드 API는 2026-03부터 데이터 품질 문제로 비어 있어 제외 |
+| 4 | `repos` | 급상승 레포 | Rising Repos | 최근 일주일간 스타가 가장 많이 늘어난 AI 레포(생성일 무관) + Hugging Face 트렌딩 모델(좋아요·다운로드, 최대 5건, 4번째 자리마다 끼워 넣음) | Hugging Face Hub API(`sort=trendingScore`, GGUF·양자화·uncensored 등 재패키징 모델 제외). GitHub Trending 주간(전체·python·typescript, 비공식 HTML) + 생성일 조회 GitHub REST. 트렌딩 소스가 3건 미만이면 GitHub Search(토픽 llm, ai-agents, mcp, generative-ai, 최근 30일 생성)로 대체. OSS Insight 트렌드 API는 2026-03부터 데이터 품질 문제로 비어 있어 제외 |
 | 5 | `pulse` | 커뮤니티 | Community Pulse | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News(검색어 "AI"), Reddit(r/LocalLLaMA+ClaudeAI+MachineLearning 주간 top), GeekNews |
 
-원천은 `config/sources.ts` 기준 27개 피드·쿼리. 업종 태그(`industry`)는 `ax` 항목에만 붙는다.
+원천은 `config/sources.ts` 기준 36개 피드·쿼리. 업종 태그(`industry`)는 `ax` 항목에만 붙는다.
 
 ### 3.4 수집 규칙
 
 - 소스 어댑터(GitHub, Hacker News, RSS)가 병렬로 수집해 `RawItem`으로 정규화한다. 소스 하나가 실패해도 나머지로 진행하고 `failedSources`에 기록한다.
-- 전처리: URL 정규화 중복 제거(`utm_*`, `fbclid`, `gclid`, `ref` 제거) -> 기간 필터(기본 72시간, 소스별 재정의 가능, 레포는 생성일 무관) -> 이전 판 중복 제거(최근 10개 판의 id) -> 소스별 상한 -> 전체 상한 90건.
+- 전처리: URL 정규화 중복 제거(`utm_*`, `fbclid`, `gclid`, `ref` 제거) -> 기간 필터(기본 72시간, 소스별 재정의 가능, 레포는 생성일 무관) -> 이전 판 중복 제거(최근 10개 판의 id) -> 소스별 상한 -> 전체 상한 110건.
 - 이전 판에 실린 레포라도 마지막 등장 대비 스타가 +50% 이상 늘었으면 `returning`으로 후보에 다시 넣는다. 레포 순위는 주간 스타 증가량(`starsGained`, 구 판은 `starsPerDay`)이고, AI 관련 여부는 이름·설명의 키워드(`AI_REPO_KEYWORDS`)로 가른다.
 - 큐레이션 후 신선도 가드: 최종 섹션이 newsroom·ax·pulse인 항목은 72시간을 넘으면 버린다(큐레이터가 오래된 Reddit 글을 옮겨 놓아도 차단). playbook·repos는 제외. 버려진 id는 `front`에서 빼고 남은 항목으로 채운다.
 
@@ -144,5 +144,4 @@ macOS 메뉴바 상주 캐릭터(Swift 단일 파일, 외부 패키지 없음). 
 
 **향후 과제 (필요가 확인되면)**
 - 뉴스가 아닌 웹 자료(백서, 사례 리포트)용 선택형 원천.
-- 추가 원천(예: Hugging Face).
 - 데스크 펫의 다른 플랫폼 지원.

@@ -132,6 +132,13 @@ describe("prep: ordering and caps", () => {
     expect(speeds).toEqual(Array.from({ length: gh.cap }, (_, i) => gh.cap + 2 - i));
   });
 
+  it("Hugging Face models are slotted into the repo ranking, not dumped behind it", () => {
+    const hf = (likes: number) => mk({ section: "repos", source: "Hugging Face", sourceId: "hf-models", metrics: { likes, downloads: 1 } });
+    const gh = Array.from({ length: 6 }, (_, i) => repo(100, 60 - i * 10));
+    const out = run([hf(5), hf(4), ...gh]).filter((i) => i.section === "repos");
+    expect(out.map((i) => i.metrics?.likes ?? i.metrics?.starsPerDay)).toEqual([60, 50, 40, 5, 30, 20, 10, 4]);
+  });
+
   it("PRD-collector: cap is applied after the seen filter, so seen items do not eat the quota", () => {
     const tc = SOURCES.find((s) => s.id === "techcrunch")!;
     const items = Array.from({ length: tc.cap + 3 }, () => mk({ sourceId: tc.id }));
@@ -159,6 +166,15 @@ describe("prep: ordering and caps", () => {
     expect(out).toHaveLength(CONFIG.totalCap);
     expect(out.filter((i) => i.source === "A")).toHaveLength(CONFIG.totalCap / 2);
   });
+});
+
+describe("per-source host allowlist", () => {
+  it("SEC: anthropic mirror items outside anthropic.com are dropped", () => {
+    const mk2 = (url: string) => mk({ url, sourceId: "anthropic-news" });
+    const out = run([mk2("https://www.anthropic.com/news/a"), mk2("https://anthropic.com/news/b"), mk2("https://evil.example/x"), mk2("https://anthropic.com.evil.example/y"), mk2("https://sub.anthropic.com/z")]);
+    expect(out.map((i) => i.url).sort()).toEqual(["https://anthropic.com/news/b", "https://www.anthropic.com/news/a"]);
+  });
+  it("sources without hosts are unrestricted", () => expect(run([mk({ url: "https://evil.example/x", sourceId: "techcrunch" })])).toHaveLength(1));
 });
 
 describe("URL scheme gate", () => {

@@ -25,10 +25,12 @@ function Metrics({ item, lang }: { item: Item; lang: Lang }) {
   const cells: [string, string][] = [];
   if (m.stars != null) cells.push([u.m.stars, fmtNum(m.stars)]);
   if (m.forks != null) cells.push([u.m.forks, fmtNum(m.forks)]);
+  if (m.likes != null) cells.push([u.m.likes, fmtNum(m.likes)]);
+  if (m.downloads != null) cells.push([u.m.downloads, fmtNum(m.downloads)]);
   if (m.starsGained != null) cells.push([u.m.gained, fmtNum(m.starsGained)]);
   else if (m.starsPerDay != null) cells.push([u.m.perDay, fmtNum(m.starsPerDay)]);
   if (m.language) cells.push([u.m.language, m.language]);
-  if (item.section === "repos") {
+  if (item.section === "repos" && m.likes == null) {
     cells.push([u.m.change, item.returning ? `▲ ${fmtNum(m.starsDelta ?? 0)}` : u.newRepo]);
   }
   if (m.points != null) cells.push([u.m.points, fmtNum(m.points)]);
