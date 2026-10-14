@@ -13,6 +13,7 @@ export const CONFIG = {
   repoFallbackMin: 3, // fallback runs only when the trending sources yielded fewer repos than this
   dedupeEditions: 10, // items already published in this many past editions are skipped...
   returningGrowth: 1.5, // ...unless a repo's stars grew by this factor ("returning")
+  repoDedupeEditions: 4, // repos/models: skipped only for this many editions; older ones (up to dedupeEditions) may come back as "returning"
   recentHeadlineEditions: 3, // past editions whose headlines the curator is told not to repeat
 };
 

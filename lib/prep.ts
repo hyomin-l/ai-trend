@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { SECTION_ORDER } from "@/config/sections";
 import { CONFIG, SOURCES } from "@/config/sources";
 import { isWebUrl } from "@/lib/format";
+import type { Seen } from "@/lib/pipeline";
 import type { RawItem } from "@/types";
 
 /**
@@ -55,7 +56,7 @@ function withModels(repos: Candidate[]): Candidate[] {
   return out;
 }
 
-export function prep(raw: Candidate[], opts: { now: Date; seen: Map<string, number | undefined> }): Candidate[] {
+export function prep(raw: Candidate[], opts: { now: Date; seen: Map<string, Seen> }): Candidate[] {
   const ids = new Set<string>();
   const kept: Candidate[] = [];
   for (const it of raw) {
@@ -75,10 +76,14 @@ export function prep(raw: Candidate[], opts: { now: Date; seen: Map<string, numb
       kept.push(it);
       continue;
     }
-    const before = opts.seen.get(it.id);
+    if (it.section !== "repos") continue;
+    const { stars: before, ago } = opts.seen.get(it.id)!;
     const stars = it.metrics?.stars;
-    if (it.section === "repos" && before !== undefined && stars !== undefined && stars >= before * CONFIG.returningGrowth)
-      kept.push({ ...it, returning: true, metrics: { ...it.metrics, starsDelta: stars - before } });
+    const delta = stars !== undefined && before !== undefined ? stars - before : undefined;
+    if (delta !== undefined && stars! >= before! * CONFIG.returningGrowth)
+      kept.push({ ...it, returning: true, metrics: { ...it.metrics, starsDelta: delta } });
+    else if (ago > CONFIG.repoDedupeEditions) // repos/models are re-listable once out of the short window
+      kept.push({ ...it, returning: true, ...(delta! > 0 && { metrics: { ...it.metrics, starsDelta: delta } }) });
   }
 
   // cap after the seen filter so already-published items do not use up a source's quota

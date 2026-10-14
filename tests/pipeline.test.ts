@@ -38,13 +38,19 @@ describe("seenMap", () => {
   });
 
   it("PRD-collector: a repeated id takes the stars of its most recent appearance", () => {
-    expect(seenMap(previous, 3).get("r1")).toBe(900);
+    expect(seenMap(previous, 3).get("r1")).toEqual({ stars: 900, ago: 1 });
   });
 
   it("PRD-collector: non-repo ids are present with undefined stars", () => {
     const m = seenMap(previous, 1);
     expect(m.has("a")).toBe(true);
-    expect(m.get("a")).toBeUndefined();
+    expect(m.get("a")).toEqual({ stars: undefined, ago: 1 });
+  });
+
+  it("PRD-collector: records how many editions back an id last appeared (1 = newest)", () => {
+    const m = seenMap(previous, 3);
+    expect(m.get("b")?.ago).toBe(2);
+    expect(m.get("old")?.ago).toBe(3);
   });
 
   it("PRD-collector: does not depend on the caller's ordering", () => {

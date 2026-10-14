@@ -31,7 +31,7 @@ function Metrics({ item, lang }: { item: Item; lang: Lang }) {
   else if (m.starsPerDay != null) cells.push([u.m.perDay, fmtNum(m.starsPerDay)]);
   if (m.language) cells.push([u.m.language, m.language]);
   if (item.section === "repos" && m.likes == null) {
-    cells.push([u.m.change, item.returning ? `▲ ${fmtNum(m.starsDelta ?? 0)}` : u.newRepo]);
+    cells.push([u.m.change, item.returning ? `▲ ${m.starsDelta != null ? fmtNum(m.starsDelta) : u.returning}` : u.newRepo]);
   }
   if (m.points != null) cells.push([u.m.points, fmtNum(m.points)]);
   if (m.comments != null) cells.push([u.m.comments, fmtNum(m.comments)]);

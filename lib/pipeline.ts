@@ -5,10 +5,15 @@ export const kstDate = (now: Date) => new Intl.DateTimeFormat("en-CA", { timeZon
 
 const newest = (previous: Snapshot[], n: number) => [...previous].sort((a, b) => b.date.localeCompare(a.date)).slice(0, n);
 
-/** Item id -> stars as of its most recent appearance within the n newest editions. */
-export function seenMap(previous: Snapshot[], n: number): Map<string, number | undefined> {
-  const seen = new Map<string, number | undefined>();
-  for (const s of newest(previous, n)) for (const i of s.items) if (!seen.has(i.id)) seen.set(i.id, i.metrics?.stars);
+/** Most recent appearance of an item: its stars then, and how many editions back (1 = newest edition). */
+export type Seen = { stars?: number; ago: number };
+
+/** Item id -> its most recent appearance within the n newest editions. */
+export function seenMap(previous: Snapshot[], n: number): Map<string, Seen> {
+  const seen = new Map<string, Seen>();
+  newest(previous, n).forEach((s, k) => {
+    for (const i of s.items) if (!seen.has(i.id)) seen.set(i.id, { stars: i.metrics?.stars, ago: k + 1 });
+  });
   return seen;
 }
 

@@ -65,7 +65,7 @@ npm run collect -- --date 2026-10-14
 GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
  build job
   1 fetch   공개 API·RSS 병렬 수집 (소스별 실패 격리)
-  2 prep    중복·기간 필터, 이전 판 중복 제거, 섹션 균형 상한
+  2 prep    중복·기간 필터, 이전 판 중복 제거(레포·HF는 4개 판, 그 외 10개 판), 섹션 균형 상한
   3 curate  claude -p 1회 -> 선별, 한/영 요약, 왜 중요한가, 지역·업종, 용어
   4 save    data/snapshots/YYYY-MM-DD.json 저장·커밋
   npm test -> next build -> Pages 아티팩트 업로드

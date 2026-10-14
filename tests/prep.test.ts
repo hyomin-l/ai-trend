@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { CONFIG, SOURCES } from "@/config/sources";
 import { itemId, normalizeUrl, prep, type Candidate } from "@/lib/prep";
+import type { Seen } from "@/lib/pipeline";
 import { isWebUrl } from "@/lib/format";
 
 const now = new Date("2026-10-13T00:00:00Z");
 const ago = (hours: number) => new Date(now.getTime() - hours * 3_600_000).toISOString();
-const noSeen = new Map<string, number | undefined>();
+const noSeen = new Map<string, Seen>();
 
 let n = 0;
 function mk(over: Partial<Candidate> = {}): Candidate {
@@ -78,12 +79,12 @@ describe("prep: filters", () => {
   it("PRD-collector: drops ids already in an earlier edition", () => {
     const old = mk();
     const fresh = mk();
-    expect(run([old, fresh], new Map([[old.id, undefined]])).map((i) => i.id)).toEqual([fresh.id]);
+    expect(run([old, fresh], new Map([[old.id, { ago: 1 }]])).map((i) => i.id)).toEqual([fresh.id]);
   });
 });
 
 describe("prep: returning repos", () => {
-  const seenWith = (r: Candidate, stars: number) => new Map<string, number | undefined>([[r.id, stars]]);
+  const seenWith = (r: Candidate, stars: number | undefined, ago = 1) => new Map<string, Seen>([[r.id, { stars, ago }]]);
 
   it("PRD-collector: repo at exactly 1.5x stars returns with returning=true and starsDelta", () => {
     const r = repo(1500, 30);
@@ -103,9 +104,49 @@ describe("prep: returning repos", () => {
     expect(run([p], seenWith(p, 100))).toEqual([]);
   });
 
-  it("PRD-collector: seen repo without recorded stars cannot return", () => {
+  it("PRD-collector: seen repo without recorded stars cannot return by growth", () => {
     const r = repo(5000, 30);
-    expect(run([r], new Map([[r.id, undefined]]))).toEqual([]);
+    expect(run([r], seenWith(r, undefined))).toEqual([]);
+  });
+
+  it("PRD-collector: repo seen within repoDedupeEditions is skipped", () => {
+    const r = repo(1100, 30);
+    expect(run([r], seenWith(r, 1000, CONFIG.repoDedupeEditions))).toEqual([]);
+    expect(run([r], seenWith(r, 1000, 2))).toEqual([]);
+  });
+
+  it("PRD-collector: growth rule still applies within the short window", () => {
+    const r = repo(1500, 30);
+    const [out] = run([r], seenWith(r, 1000, 2));
+    expect(out.returning).toBe(true);
+    expect(out.metrics?.starsDelta).toBe(500);
+  });
+
+  it("PRD-collector: repo seen 6 editions ago is re-listed as returning with starsDelta", () => {
+    const r = repo(1100, 30);
+    const [out] = run([r], seenWith(r, 1000, 6));
+    expect(out.returning).toBe(true);
+    expect(out.metrics?.starsDelta).toBe(100);
+  });
+
+  it("PRD-collector: old repo without known stars is re-listed as returning without starsDelta", () => {
+    const r = repo(1100, 30);
+    const [out] = run([r], seenWith(r, undefined, 6));
+    expect(out.returning).toBe(true);
+    expect(out.metrics?.starsDelta).toBeUndefined();
+  });
+
+  it("PRD-collector: Hugging Face model seen 6 editions ago returns without starsDelta", () => {
+    const m = mk({ section: "repos", source: "Hugging Face", publishedAt: ago(24 * 5), metrics: { likes: 500, downloads: 9000 } });
+    const [out] = run([m], seenWith(m, undefined, 6));
+    expect(out.returning).toBe(true);
+    expect(out.metrics?.starsDelta).toBeUndefined();
+    expect(run([m], seenWith(m, undefined, 3))).toEqual([]);
+  });
+
+  it("PRD-collector: non-repo seen 6 editions ago is still skipped", () => {
+    const p = mk({ section: "pulse" });
+    expect(run([p], seenWith(p, undefined, 6))).toEqual([]);
   });
 });
 
@@ -142,7 +183,7 @@ describe("prep: ordering and caps", () => {
   it("PRD-collector: cap is applied after the seen filter, so seen items do not eat the quota", () => {
     const tc = SOURCES.find((s) => s.id === "techcrunch")!;
     const items = Array.from({ length: tc.cap + 3 }, () => mk({ sourceId: tc.id }));
-    const seen = new Map<string, number | undefined>(items.slice(0, 3).map((i) => [i.id, undefined]));
+    const seen = new Map<string, Seen>(items.slice(0, 3).map((i) => [i.id, { ago: 1 }]));
     expect(run(items, seen)).toHaveLength(tc.cap);
   });
 
