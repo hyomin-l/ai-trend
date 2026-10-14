@@ -8,6 +8,7 @@ const config: NextConfig = {
   basePath,
   trailingSlash: true,
   images: { unoptimized: true },
+  agentRules: false, // don't generate AGENTS.md on `next dev`
   env: { NEXT_PUBLIC_BASE_PATH: basePath },
 };
 
