@@ -4,6 +4,18 @@ import AppKit
 import SwiftUI
 
 // MARK: - 포크 시 고칠 상수 (여기 한 곳)
+import Darwin
+var instanceLockFd: Int32 = -1 // 프로세스 수명 동안 열어 둔다 — 닫히면 잠금이 풀린다
+// 사용자당 한 개만 실행: ~/Library/Application Support/AITrendPet/<name>에 flock(비차단). 못 잡으면 false.
+func acquireSingleInstanceLock(name: String) -> Bool {
+    let dir = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Library/Application Support/AITrendPet")
+    try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+    let fd = open(dir.appendingPathComponent(name).path, O_CREAT | O_RDWR, 0o600)
+    guard fd >= 0 else { return true } // 잠금 파일을 못 만들면 막지 않는다
+    if flock(fd, LOCK_EX | LOCK_NB) != 0 { close(fd); return false }
+    instanceLockFd = fd
+    return true
+}
 let brand = "AI Trend" // 사용자에게 보이는 서비스 이름 — lib/i18n.ts BRAND.name과 같게
 let petName = "애트라"
 let defaultSiteURL = "https://hyomin-l.github.io/ai-trend" // 기본 서버. DISPATCH_URL 환경변수가 우선한다. 포크는 자기 Pages 주소로
@@ -147,6 +159,10 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
     private var shown: (String, Latest.Item)? // 마지막으로 만든 말풍선의 (날짜, 기사) — 언어 전환 시 재생성용
 
     func applicationDidFinishLaunching(_ n: Notification) {
+        guard acquireSingleInstanceLock(name: demo ? "demo.lock" : "deskpet.lock") else {
+            log("이미 실행 중인 인스턴스가 있어 종료")
+            exit(0)
+        }
         let w = defaults.double(forKey: "petWidth")
         if [44.0, 56, 72].contains(w) { petWidth = w }
         makePanel()
@@ -267,14 +283,37 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
         }
     }
 
+    // 메뉴바용 템플릿 이미지: 애트라 얼굴 실루엣(블롭 채움 + 눈 구멍). 사이트 Logo.tsx와 같은 좌표, viewBox 56 36 128 128.
+    private func menuBarIcon() -> NSImage {
+        let img = NSImage(size: NSSize(width: 18, height: 18), flipped: true) { r in
+            let k = r.width / 128
+            let blob = NSBezierPath()
+            blob.move(to: NSPoint(x: 120, y: 42))
+            blob.curve(to: NSPoint(x: 178, y: 102), controlPoint1: NSPoint(x: 156, y: 40), controlPoint2: NSPoint(x: 178, y: 66))
+            blob.curve(to: NSPoint(x: 120, y: 158), controlPoint1: NSPoint(x: 178, y: 138), controlPoint2: NSPoint(x: 156, y: 158))
+            blob.curve(to: NSPoint(x: 62, y: 104), controlPoint1: NSPoint(x: 84, y: 158), controlPoint2: NSPoint(x: 62, y: 140))
+            blob.curve(to: NSPoint(x: 120, y: 42), controlPoint1: NSPoint(x: 62, y: 68), controlPoint2: NSPoint(x: 84, y: 44))
+            blob.close()
+            let eyeGap = 36.0 // 두 눈 중심 사이 거리(viewBox 128 단위, 얼굴 중심 x=120 기준 좌우 대칭) — 여기만 고치면 간격이 바뀐다
+            for cx in [120 - eyeGap / 2, 120 + eyeGap / 2] { blob.append(NSBezierPath(roundedRect: NSRect(x: cx - 6.5, y: 89, width: 13, height: 24), xRadius: 6, yRadius: 6)) }
+            // 좌표 → (좌표 - 원점) * k
+            var m = AffineTransform(translationByX: -56, byY: -36); m.append(AffineTransform(scaleByX: k, byY: k))
+            blob.transform(using: m)
+            blob.windingRule = .evenOdd
+            NSColor.black.setFill()
+            blob.fill()
+            return true
+        }
+        img.isTemplate = true
+        img.accessibilityDescription = brand
+        return img
+    }
+
     private func makeStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let b = statusItem.button {
-            let img = NSImage(systemSymbolName: "newspaper", accessibilityDescription: brand)
             b.toolTip = "\(petName) · \(brand)"
-            img?.isTemplate = true
-            b.image = img
-            if img == nil { b.title = "●" }
+            b.image = menuBarIcon()
         }
         let menu = buildMenu()
         statusItem.menu = menu

@@ -12,6 +12,13 @@ DOMAIN="gui/$(id -u)"
 ./build.sh
 mkdir -p "$DIR" "$HOME/Library/LaunchAgents"
 launchctl bootout "$DOMAIN/$LABEL" 2>/dev/null || true # 실행 중 바이너리를 덮어쓰기 전에 내린다
+# 이 경로의 프로세스가 완전히 사라질 때까지 기다린다(최대 5초). 남아 있으면 종료시켜 중복 실행을 막는다.
+i=0
+while pgrep -xf "$BIN( .*)?" >/dev/null 2>&1 && [ $i -lt 25 ]; do sleep 0.2; i=$((i+1)); done
+if pgrep -xf "$BIN( .*)?" >/dev/null 2>&1; then
+  pkill -xf "$BIN( .*)?" || true; sleep 1
+  pkill -9 -xf "$BIN( .*)?" 2>/dev/null || true
+fi
 cp DeskPet "$BIN.new" && mv -f "$BIN.new" "$BIN"
 
 ENVXML=""
