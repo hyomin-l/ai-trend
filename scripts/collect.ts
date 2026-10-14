@@ -5,7 +5,7 @@ import { runClaude } from "@/lib/claude";
 import { curate, fallbackCuration } from "@/lib/curate";
 import { buildSnapshot, kstDate, recentHeadlines, seenMap } from "@/lib/pipeline";
 import { prep } from "@/lib/prep";
-import { isDate, listDates, loadSnapshot, saveSnapshot } from "@/lib/snapshots";
+import { isDate, listDates, loadSnapshot, saveSnapshot, validateSnapshot } from "@/lib/snapshots";
 import { fetchAll } from "@/lib/sources";
 
 const argv = process.argv.slice(2);
@@ -38,6 +38,11 @@ async function main() {
     date, previous, collected: candidates.length, failed, now, curation,
     model: curation.curated ? CONFIG.model : "none",
   });
+  const invalid = validateSnapshot(snapshot, snapshot.date);
+  if (invalid.length) {
+    console.error(`Snapshot failed validation, not saved:\n${invalid.join("\n")}`);
+    process.exit(1);
+  }
   const file = saveSnapshot(snapshot);
 
   console.log(`Edition ${snapshot.date} (issue ${snapshot.issue}, ${snapshot.curated ? `curated by ${snapshot.model}` : "UNCURATED"}) -> ${file}`);
