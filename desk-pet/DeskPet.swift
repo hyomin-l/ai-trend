@@ -95,7 +95,9 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
         let v = ProcessInfo.processInfo.environment["DISPATCH_URL"] ?? ""
         if v.isEmpty { return defaultSiteURL }
         // https, 로컬 테스트용 http://localhost·127.0.0.1, file://만 허용
-        let ok = ["https://", "http://localhost", "http://127.0.0.1", "file://"].contains { v.hasPrefix($0) }
+        let host = URL(string: v)?.host
+        let ok = v.hasPrefix("https://") || v.hasPrefix("file://")
+            || (v.hasPrefix("http://") && (host == "localhost" || host == "127.0.0.1"))
         if !ok { log("DISPATCH_URL 무시(https·localhost·file만 허용): 기본 서버 사용") }
         return ok ? v : defaultSiteURL
     }()
