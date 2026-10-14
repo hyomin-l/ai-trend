@@ -59,6 +59,8 @@
   border-bottom: 1px solid var(--rule);
 }
 .metric {
+  display: flex;
+  flex-direction: column; /* cells in a row are equally tall, so a two-line label ("Stars per day") no longer pushes its value below its neighbours' */
   flex: 1 1 96px;
   padding: var(--s3) var(--s4);
   border-left: 1px solid var(--rule);
@@ -72,7 +74,8 @@
   color: var(--ink-3);
 }
 .metric dd {
-  margin-top: var(--s2);
+  margin-top: auto;
+  padding-top: var(--s2);
   font: 700 18px/1.2 var(--ff-display);
   letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;

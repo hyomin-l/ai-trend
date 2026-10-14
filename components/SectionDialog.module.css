@@ -42,11 +42,12 @@
   outline-offset: -2px;
 }
 .no {
-  padding-top: 4px;
+  align-self: baseline; /* shares the headline's first-line baseline */
   font: 500 12px/1 var(--ff-body);
   color: var(--ink-3);
 }
 .text {
+  align-self: baseline;
   display: grid;
   gap: var(--s1);
   min-width: 0;
@@ -57,6 +58,7 @@
   text-wrap: balance;
 }
 .hit {
+  display: block; /* an inline-block button reports its LAST line as the baseline, which would pull the number down to a wrapped title's second line */
   text-align: left;
 }
 .hit::after {

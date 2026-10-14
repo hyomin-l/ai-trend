@@ -64,8 +64,8 @@
 /* Top-right corner: the close button first in the DOM (first Tab stop), drawn rightmost, with the actions to its left. */
 .chrome {
   position: absolute;
-  top: var(--s3);
-  right: var(--s3);
+  top: 22px; /* centre of the 32px box = centre of the 12px kicker line (padding-top 32 + 6); right matches, so the corner stays square */
+  right: 22px;
   z-index: 1;
   display: flex;
   flex-direction: row-reverse;
@@ -86,6 +86,10 @@
 }
 
 @media (max-width: 640px) {
+  .chrome {
+    top: 14px; /* padding-top 24 + 6 - 16 */
+    right: 14px;
+  }
   .inner {
     padding: var(--s6) var(--s5) var(--s5);
   }
