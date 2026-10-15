@@ -3,12 +3,13 @@ import { CONFIG } from "@/config/sources";
 import { SYSTEM_PROMPT } from "@/config/prompt";
 
 /** One `claude -p` call; the prompt goes through stdin, the answer is the JSON envelope's `.result`. */
-export function runClaude(prompt: string, model: string): Promise<string> {
+export function runClaude(prompt: string, model: string, options: { systemPrompt?: string; label?: string; timeoutMs?: number } = {}): Promise<string> {
+  const started = Date.now();
   return new Promise((resolve, reject) => {
     const p = spawn(
       "claude",
-      ["-p", "--model", model, "--system-prompt", SYSTEM_PROMPT, "--tools", "", "--strict-mcp-config", "--no-session-persistence", "--output-format", "json"],
-      { timeout: CONFIG.timeoutMs }, // kills with SIGTERM, which surfaces below as signal=SIGTERM
+      ["-p", "--model", model, "--system-prompt", options.systemPrompt ?? SYSTEM_PROMPT, "--tools", "", "--strict-mcp-config", "--no-session-persistence", "--output-format", "json"],
+      { timeout: options.timeoutMs ?? CONFIG.timeoutMs }, // kills with SIGTERM, which surfaces below as signal=SIGTERM
     );
     let out = "";
     let err = "";
@@ -25,6 +26,8 @@ export function runClaude(prompt: string, model: string): Promise<string> {
       try {
         const env = JSON.parse(out);
         if (env.is_error) throw new Error(`claude reported an error: ${String(env.result).slice(0, 300)}`);
+        const usage = env.usage;
+        console.log(`[claude:${options.label ?? "curate"}] elapsedMs=${Date.now()-started} promptChars=${prompt.length}${usage ? ` inputTokens=${usage.input_tokens ?? 0} cacheReadTokens=${usage.cache_read_input_tokens ?? 0} cacheWriteTokens=${usage.cache_creation_input_tokens ?? 0} outputTokens=${usage.output_tokens ?? 0}` : ""}`);
         resolve(String(env.result ?? ""));
       } catch (e) {
         reject(e);

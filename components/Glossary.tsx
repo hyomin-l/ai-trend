@@ -2,29 +2,30 @@
 
 import { useId, useRef, type ReactNode } from "react";
 import type { GlossaryEntry, Lang } from "@/types";
+import { findTerm } from "@/lib/format";
 import styles from "./Glossary.module.css";
 
 /** Lets a plan be built per page: text slots in reading order -> which terms get marked in which slot. */
 export type GlossPlan = Map<string, GlossaryEntry[]>;
 
-const ASCII_WORD = /[A-Za-z0-9]/;
-
-/** Index of `term` in `text` (case-insensitive), or -1. A term edged by a letter or digit must not be glued to one ("RAG" is not in "storage"). */
-export function findTerm(text: string, term: string): number {
-  const hay = text.toLowerCase();
-  const needle = term.toLowerCase();
-  for (let i = hay.indexOf(needle); i >= 0; i = hay.indexOf(needle, i + 1)) {
-    const glued =
-      (ASCII_WORD.test(term[0]) && ASCII_WORD.test(text[i - 1] ?? "")) ||
-      (ASCII_WORD.test(term[term.length - 1]) && ASCII_WORD.test(text[i + term.length] ?? ""));
-    if (!glued) return i;
-  }
-  return -1;
-}
-
 /** Glossary terms that occur in any of the texts, in glossary order. */
 export const termsIn = (texts: string[], glossary: GlossaryEntry[] | undefined) =>
   (glossary ?? []).filter((g) => texts.some((t) => findTerm(t, g.term) >= 0));
+
+/** Key phrases and glossary terms share emphasis; overlaps form one background. */
+export function emphasisRanges(text: string, phrases: string[], terms: string[]) {
+  const found = [
+    ...phrases.filter(Boolean).map(p => ({start: text.indexOf(p), end: text.indexOf(p) + p.length})),
+    ...terms.filter(Boolean).map(t => { const start = findTerm(text, t); return {start, end: start + t.length}; }),
+  ].filter(r => r.start >= 0).sort((a,b) => a.start-b.start || b.end-a.end);
+  const ranges: {start:number;end:number}[] = [];
+  for (const range of found) {
+    const previous = ranges[ranges.length-1];
+    if (previous && range.start < previous.end) previous.end = Math.max(previous.end, range.end);
+    else ranges.push({...range});
+  }
+  return ranges;
+}
 
 /** The first slot (reading order) containing each term gets that term; later occurrences stay plain. */
 export function planGloss(slots: { key: string; text: string }[], glossary: GlossaryEntry[]): GlossPlan {

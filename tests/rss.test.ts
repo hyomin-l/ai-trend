@@ -116,3 +116,11 @@ describe("parseFeed", () => {
     expect(c.categories).toEqual(["Research"]);
   });
 });
+
+// Long source evidence is distinct from the compact selection snippet.
+it("preserves richer encoded body when the feed also provides a short description", () => {
+  const body = "Useful original body. ".repeat(100);
+  const [item] = parseFeed(`<rss><channel><item><title>Article</title><link>https://example.com/a</link><description>Short teaser</description><content:encoded><![CDATA[<p>${body}</p>]]></content:encoded></item></channel></rss>`);
+  expect(item.snippet).toBe("Short teaser");
+  expect(item.content).toBe(body.trim());
+});

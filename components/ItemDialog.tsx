@@ -1,11 +1,12 @@
 "use client";
 
+import type { ReactNode } from "react";
 import type { GlossaryEntry, Item, Lang } from "@/types";
 import { REGION_LABEL, SECTION_LABEL, industryTag, ui } from "@/lib/i18n";
 import { fmtNum } from "@/lib/format";
 import WhenTime from "./WhenTime";
 import Dialog from "./Dialog";
-import { termsIn } from "./Glossary";
+import { emphasisRanges, termsIn } from "./Glossary";
 import OriginalLink from "./OriginalLink";
 import styles from "./ItemDialog.module.css";
 
@@ -13,10 +14,21 @@ type Props = {
   item: Item | null;
   lang: Lang;
   generatedAt: string;
-  /** The edition's glossary; terms that occur in this item are listed under "용어". */
+  /** The edition's glossary; terms that occur in this item are listed in the glossary section. */
   glossary?: GlossaryEntry[];
   onClose: () => void;
 };
+
+function HighlightedSummary({ text, phrases, terms }: { text: string; phrases: string[]; terms: string[] }) {
+  const pieces: ReactNode[] = [];
+  let cursor = 0;
+  for (const {start, end} of emphasisRanges(text, phrases, terms)) {
+    pieces.push(text.slice(cursor, start), <mark key={start} className={styles.highlight}>{text.slice(start, end)}</mark>);
+    cursor = end;
+  }
+  pieces.push(text.slice(cursor));
+  return pieces;
+}
 
 function Metrics({ item, lang }: { item: Item; lang: Lang }) {
   const u = ui(lang);
@@ -51,14 +63,14 @@ function Metrics({ item, lang }: { item: Item; lang: Lang }) {
 
 export default function ItemDialog({ item, lang, generatedAt, glossary, onClose }: Props) {
   const u = ui(lang);
-  const terms = item ? termsIn([item.title[lang], item.summary[lang], item.takeaway[lang]], glossary) : [];
+  const terms = item ? termsIn([item.title[lang], item.summary[lang]], glossary) : [];
   return (
     <Dialog
       open={item !== null}
       onClose={onClose}
       label={item?.title[lang] ?? ""}
       closeLabel={u.close}
-      actions={item && <OriginalLink href={item.url} label={u.readOriginal} />}
+      actions={item && <OriginalLink href={item.url} label={u.readOriginal} accent />}
     >
       {item && (
         <article className={styles.article}>
@@ -71,28 +83,14 @@ export default function ItemDialog({ item, lang, generatedAt, glossary, onClose 
             {item.industry && <span>{industryTag(item.industry, lang)}</span>}
           </p>
 
-          <p className={styles.body}>{item.summary[lang]}</p>
-          <section className={styles.block}>
-            <h3 className={`${styles.label} ${styles.why}`}>{u.why}</h3>
-            <p className={styles.body}>{item.takeaway[lang]}</p>
-          </section>
+          <div className={styles.block}>
+            <p className={styles.body}><HighlightedSummary text={item.summary[lang]} phrases={item.highlights?.[lang] ?? []} terms={terms.map(g => g.term)} /></p>
+          </div>
 
-          {!!item.related?.length && (
-            <section className={styles.block}>
-              <h3 className={styles.label}>{u.alsoCovered(item.related.length)}</h3>
-              <ul className={styles.also}>
-                {item.related.map((r) => (
-                  <li key={r.url}>
-                    <OriginalLink href={r.url} label={r.source} small />
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+          {item.reading?.status === "snippet" && <p className={styles.readingNote}>{u.feedOnly}</p>}
 
           {terms.length > 0 && (
-            <section className={styles.block}>
-              <h3 className={styles.label}>{u.terms}</h3>
+            <section className={styles.block} aria-label={u.terms}>
               <dl className={styles.terms}>
                 {terms.map((g) => (
                   <div key={g.term}>
@@ -101,6 +99,18 @@ export default function ItemDialog({ item, lang, generatedAt, glossary, onClose 
                   </div>
                 ))}
               </dl>
+            </section>
+          )}
+
+          {!!item.related?.length && (
+            <section className={`${styles.block} ${terms.length > 0 ? styles.sourcesDivider : ""}`} aria-label={u.alsoCovered(item.related.length)}>
+              <ul className={styles.also}>
+                {item.related.map((r) => (
+                  <li key={r.url}>
+                    <OriginalLink href={r.url} label={r.source} small />
+                  </li>
+                ))}
+              </ul>
             </section>
           )}
 

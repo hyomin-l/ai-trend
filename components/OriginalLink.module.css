@@ -17,3 +17,12 @@
   gap: 3px;
   font-size: 12.5px;
 }
+
+.accent {
+  font-size: 12px; /* matches the article's section label */
+  line-height: 1;
+  color: var(--magenta);
+}
+.accent:hover {
+  color: var(--magenta-hover);
+}

@@ -108,6 +108,7 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
           title: d.paper.title as string,
           url,
           snippet: String(d.paper.summary ?? "").replace(/\s+/g, " ").trim(),
+          content: String(d.paper.summary ?? "").replace(/\s+/g, " ").trim().slice(0, 12000),
           // The day it was featured on Daily Papers (the arXiv date can be weeks older); unknown falls back to `now`.
           publishedAt: new Date(Number.isNaN(t) ? now.getTime() : t).toISOString(),
           metrics: { upvotes: d.paper.upvotes as number },

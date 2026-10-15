@@ -26,6 +26,13 @@ export interface Metrics {
   upvotes?: number;
 }
 
+export interface ReadingInfo {
+  status: "body" | "snippet";
+  via: "rss" | "web" | "readme" | "model-card" | "abstract" | "snippet";
+  chars: number;
+  reason?: string;
+}
+
 /** Normalized candidate produced by the collector, before curation. */
 export interface RawItem {
   id: string;
@@ -34,6 +41,8 @@ export interface RawItem {
   title: string;
   url: string;
   snippet: string;
+  /** Longer feed content / abstract used only while collecting. */
+  content?: string;
   publishedAt?: string;
   industry?: Industry;
   metrics?: Metrics;
@@ -56,6 +65,10 @@ export interface Item {
   returning?: boolean;
   /** Other candidates covering the same event (source name and link only, filled from collected candidates). */
   related?: { source: string; url: string }[];
+  /** Body availability comes from the reader, never the model. */
+  reading?: ReadingInfo;
+  /** Exact short phrases from summary; no HTML or markup. */
+  highlights?: Record<Lang, string[]>;
 }
 
 /** Plain-language explanation of a hard concept or new model/service/project name in this edition. */

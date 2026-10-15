@@ -20,6 +20,15 @@ describe("validateSnapshot", () => {
   const errs = (mut: (s: any) => void) => { const s = base(); mut(s); return validateSnapshot(s, date()).join("\n"); };
 
   it("accepts a good snapshot", () => expect(validateSnapshot(base(), date())).toEqual([]));
+  it("accepts an empty insight when evidence cannot support one", () => {
+    const s = base(); s.items[0].takeaway = {ko:"", en:""};
+    expect(validateSnapshot(s, date())).toEqual([]);
+  });
+  it("validates body-reading metadata while keeping old snapshots compatible", () => {
+    expect(errs(s => { s.items[0].reading = {status:"snippet",via:"snippet",chars:120,reason:"HTTP 429"}; })).toBe("");
+    expect(errs(s => { s.items[0].reading = {status:"body",via:"web",chars:1501}; })).toContain("reading");
+    expect(errs(s => { s.items[0].reading = {status:"body",via:"web",chars:-1}; })).toContain("reading");
+  });
   it("accepts a valid related list and rejects bad ones", () => {
     expect(errs((s) => { s.items[0].related = [{ source: "Other", url: "https://example.com/x" }]; })).toBe("");
     expect(errs((s) => { s.items[0].related = "x"; })).toContain("related must be an array");

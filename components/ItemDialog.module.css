@@ -1,7 +1,7 @@
 .article {
   display: flex;
   flex-direction: column;
-  gap: var(--s4);
+  gap: var(--s2);
 }
 
 .kicker {
@@ -35,12 +35,9 @@
   display: grid;
   gap: var(--s2);
   padding-top: var(--s3);
-  border-top: 1px solid var(--rule);
 }
-.label {
-  font: 700 12px/1 var(--ff-body);
-  letter-spacing: 0.02em;
-  color: var(--ink-3);
+.sourcesDivider {
+  border-top: 1px solid var(--rule);
 }
 .also {
   display: flex;
@@ -50,12 +47,10 @@
   margin: 0;
   padding: 0;
 }
-.why {
-  color: var(--magenta);
-}
 .body {
   font-size: 15px;
   line-height: 1.7;
+  letter-spacing: -0.015em;
   color: var(--ink-2);
   max-width: 62ch; /* a 3-4 sentence summary stays about 36 Korean characters wide inside the 640px dialog */
 }
@@ -106,4 +101,17 @@
   line-height: 1.6;
   color: var(--ink-soft);
   max-width: 62ch;
+}
+
+.highlight {
+  color: inherit;
+  background: light-dark(rgb(194 24 111 / 0.1), rgb(240 71 158 / 0.16));
+  padding: 0 0.12em;
+  border-radius: 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.readingNote {
+  font: 400 12px/1.5 var(--ff-body);
+  color: var(--ink-3);
 }

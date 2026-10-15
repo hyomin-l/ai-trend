@@ -1,13 +1,13 @@
 # AI Trend
 
-Scattered AI trends, gathered into one newspaper page every Monday, Wednesday and Friday.
+Scattered AI trends, gathered into one newspaper page every weekday morning.
 
-월·수·금 새벽, 흩어진 AI 트렌드를 한 장의 지면으로 묶어 발행하는 정적 웹앱. 라이브 데모: https://hyomin-l.github.io/ai-trend (루트 주소는 항상 최신 판, `/en/`은 영어판)
+평일 새벽, 흩어진 AI 트렌드를 한 장의 지면으로 묶어 발행하는 정적 웹앱. 라이브 데모: https://hyomin-l.github.io/ai-trend (루트 주소는 항상 최신 판, `/en/`은 영어판)
 
 ## 개요
 
 - 공개 API와 RSS에서 AI 관련 글·레포·토론을 코드가 수집한다.
-- Claude CLI(`claude -p`)를 발행 1회당 1번만 호출해 선별, 한/영 요약, "왜 중요한가", 지역·업종 태그, 용어 풀이를 만든다. 별도 API 키는 쓰지 않는다.
+- Claude CLI(`claude -p`)를 발행당 2번 호출한다. 먼저 최대 20건의 ID를 선별하고, 해당 글의 본문을 확보한 뒤 한/영 설명·실무 관점·용어 풀이를 작성한다. 별도 API 키는 쓰지 않는다.
 - 그날 판은 JSON 스냅샷으로 저장·커밋되고, Next.js 정적 export로 GitHub Pages에 배포된다. 지난 호는 날짜별로 다시 볼 수 있다.
 - 새 판 알림용 macOS 데스크 펫이 별도로 제공된다.
 
@@ -17,7 +17,7 @@ Scattered AI trends, gathered into one newspaper page every Monday, Wednesday an
 - 한국어/영어 두 벌(`/ko/`, `/en/`), 라이트/다크 테마
 - 날짜 스테퍼와 지난 호 목록, 전 호 기사 목록
 - 상단바 인라인 검색: 오타·띄어쓰기 차이를 허용하고, 결과를 누르면 그 자리에서 기사 모달이 열린다
-- 기사 모달: 요약, 왜 중요한가, 용어 풀이, 원문 링크
+- 기사 모달: 실무 관점을 녹인 설명·용어 풀이·다른 출처 순서, 핵심 구절 1~2곳에 옅은 배경 강조, 간격으로 구분하고 용어와 다른 출처 사이에만 얇은 선 표시(영역 제목 없음), 마젠타 원문 링크
 - 정적 데이터 엔드포인트와 기사 딥링크
 
 ## 지면 구성
@@ -53,7 +53,7 @@ npm run collect -- --date 2026-10-14
 | 이름 | 필수 | 용도 |
 |---|---|---|
 | `CLAUDE_CODE_OAUTH_TOKEN` | CI 수집 시 둘 중 하나 | Claude 구독 토큰(`claude setup-token`). Actions 시크릿으로 등록 |
-| `ANTHROPIC_API_KEY` | CI 수집 시 둘 중 하나 | Anthropic API 키(종량제). Actions 시크릿으로 등록. 둘 다 있으면 CLI가 API 키를 우선 사용. 둘 다 없으면 워크플로는 수집 없이 기존 데이터만 배포 |
+| `ANTHROPIC_API_KEY` | CI 수집 시 둘 중 하나 | Anthropic API 키(종량제). Actions 시크릿으로 등록. 둘 다 있으면 CLI가 API 키를 우선 사용. 둘 다 없으면 예약·수동 실행은 오류로 종료. push는 기존 데이터만 배포 |
 | `GITHUB_TOKEN` | 선택 | GitHub Search API 호출 한도 상향. Actions에서는 자동 제공 |
 | `SNAPSHOT_DIR` | 선택 | 스냅샷 저장 위치 재지정. 기본 `data/snapshots` |
 | `BASE_PATH` | 선택 | 배포 하위 경로. 워크플로가 채우며 로컬 빌드는 빈 값 |
@@ -63,12 +63,14 @@ npm run collect -- --date 2026-10-14
 ## 수집·배포
 
 ```
-GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
+GitHub Actions (평일(월~금) 05:17 KST, cron "17 20 * * 0-4")
  build job
   1 fetch   공개 API·RSS 병렬 수집 (소스별 실패 격리)
-  2 prep    중복·기간 필터, 이전 판 중복 제거(레포·HF는 4개 판, 그 외 10개 판), 섹션 균형 상한
-  3 curate  claude -p 1회 -> 선별, 한/영 요약, 왜 중요한가, 지역·업종, 용어
-  4 save    data/snapshots/YYYY-MM-DD.json 저장·커밋
+  2 prep    중복·기간 필터, 이전 판 중복 제거(레포·HF는 7개 판, 그 외 10개 판), 섹션 균형 상한
+  3 select  claude -p -> 섹션 균형 후보 40건 중 최대 20건의 ID·다른 출처 선별
+  4 read    긴 RSS 본문 우선, 필요 시 공개 HTTPS 본문 추출
+  5 write   claude -p -> 본문 근거 한/영 설명·실무 관점·용어
+  6 save    data/snapshots/YYYY-MM-DD.json 저장·커밋
   npm test -> next build -> Pages 아티팩트 업로드
  deploy job   GitHub Pages 배포
 ```
@@ -76,13 +78,38 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
 워크플로는 `.github/workflows/dispatch.yml` 하나다.
 
 - 트리거: 예약 실행, 수동 실행(`workflow_dispatch`), `main` push.
-- `main` push는 재배포만 하며 수집하지 않는다(`COLLECT`가 push에서는 false). `desk-pet/`, `docs/`만 바뀐 push는 무시한다. 워크플로의 스냅샷 커밋은 `GITHUB_TOKEN`으로 push되어 새 실행을 일으키지 않으므로 재귀하지 않는다.
+- `main` push는 재배포만 하며 수집하지 않는다(`COLLECT`가 push에서는 false). `docs/`만 바뀐 push는 무시한다. 워크플로의 스냅샷 커밋은 `GITHUB_TOKEN`으로 push되어 새 실행을 일으키지 않으므로 재귀하지 않는다.
 - 잘못 나간 판 수정: `data/snapshots/<날짜>.json`을 고치거나 삭제하고 push한다. `npm test`가 모든 스냅샷의 구조·링크(http/https만)를 검증하므로 잘못된 수정은 배포 전에 CI에서 실패한다. 스냅샷만 바뀐 push도 재배포된다.
 - 예약 실행에서 그날(KST) 스냅샷이 이미 있으면 수집을 건너뛴다.
-- `CLAUDE_CODE_OAUTH_TOKEN`과 `ANTHROPIC_API_KEY`가 모두 없으면 수집을 건너뛰고 기존 스냅샷으로 배포만 한다. 미큐레이션 판은 내지 않는다.
+- `CLAUDE_CODE_OAUTH_TOKEN`과 `ANTHROPIC_API_KEY`가 모두 없으면 예약·수동 실행은 설정 오류를 표시하고 실패한다. `main` push는 인증 없이 기존 스냅샷을 재배포할 수 있다.
 - 사이트 URL과 base path는 `actions/configure-pages` 출력에서 파생되므로 포크도 별도 설정 없이 자신의 주소로 빌드된다.
 
-토큰 사용 최소화: 수집은 결정적 코드가 맡고, LLM은 1회만 호출하며 Claude Code 기본 시스템 프롬프트·도구·MCP를 싣지 않는다. URL과 지표는 원천 데이터에서만 가져와 링크 환각을 막는다.
+토큰 사용 최소화: 수집은 결정적 코드가 맡고, LLM은 선별·작성에 각 1회만 호출하며 Claude Code 기본 시스템 프롬프트·도구·MCP를 싣지 않는다. URL과 지표는 원천 데이터에서만 가져와 링크 환각을 막는다.
+
+## 토큰 예산
+
+1회 실행(호출 2회)의 목표는 약 22~23k 토큰이다. 평일 5회 실행이면 주당 약 113k. 한글 1자≈1토큰, 영문 4자≈1토큰으로 어림한 값이며 정확한 사용량은 로그의 `[claude:select|write]` 줄에 나온다.
+
+| 단계 | 입력 | 출력 | 합계 |
+|---|---|---|---|
+| select | 지침 ~1.0k + 후보 40줄(스니펫 80자) ~2.8k + 직전 1개 판 헤드라인 ~0.7k | ~0.5k | ~5k |
+| write | 지침 ~2.7k + 기사 근거(전체 9,000자) ~3.2k + 메타 ~0.7k | ~10.8k (기사 20건 × ~475 + 용어 12개) | ~17.4k |
+
+조절 지점: 후보 줄 수·직전 판 수·기사당/전체 근거 글자 수는 `config/sources.ts`(`CONFIG.selectCap`, `CONFIG.recentHeadlineEditions`, `ARTICLE_READING.articleChars`·`totalChars`), 요약 길이·용어 개수·지침 문구는 `config/prompt.ts`와 `lib/curate.ts`의 `GLOSSARY_MAX`. 출력(요약·용어)이 전체의 거의 절반이라 가장 큰 레버는 요약 길이와 기사 수다.
+
+## 본문 확보와 실행 제한
+
+- 최종 기사 최대 20건만 본문을 읽는다. 기사당 근거 600자, 전체 9,000자(남은 예산을 남은 기사 수로 나눠 배분해 뒤쪽 기사도 비지 않는다). 긴 본문은 발췌이므로 전체 문서를 모델에 넣는 방식은 아니다.
+- RSS의 긴 `content`/`content:encoded`·초록을 먼저 활용하고, 부족하면 공개 HTTPS HTML에서 Readability로 본문만 추출한다. GitHub는 README, HF 모델은 모델 카드를 읽는다.
+- 동시 실행 4개, 요청당 8초, 본문 단계 전체 30초, 응답 1.5MB, 리다이렉트 최대 3회. 동일 호스트는 직렬 요청·최소 250ms 간격과 robots crawl-delay를 지킨다.
+- README·모델 카드는 자르기 전에 front matter, HTML 주석, 이미지·배지, 링크만 있는 줄(언어 선택, 목차)을 걷어 내고 `[글](링크)`는 글만 남긴다.
+- GitHub PR·이슈·토론, Hacker News `item`, Reddit `comments` 페이지는 본문이 아닌 토론이라 읽지 않고(`discussion-page`) 피드 설명을 쓴다. 범용 웹 추출은 후보 제목·스니펫의 3자 이상 단어가 3개 이상일 때 그중 2개 미만만 본문 앞 3,000자에 나오면 다른 글로 보고 버린다(`unrelated-body`).
+- 응답을 Content-Type의 `charset` 또는 `<meta charset>`으로 디코딩한다(EUC-KR 등). 전체 시간 초과(`total-timeout`)는 캐시하지 않아 다음 실행이 다시 시도한다.
+- robots.txt 거부, 사설/로컬 주소, 403·429, 유료벽, 시간 초과·본문 추출 실패는 우회·재시도하지 않고 피드 설명으로 폴백한다. Google News는 확인 가능한 원문 링크만 사용한다.
+- 원문 요청에 로그인 정보·GitHub/Claude 토큰을 전달하지 않는다. HTML의 JS·외부 리소스는 실행하지 않으며 본문을 모델의 지시로 취급하지 않는다.
+- `_tmp/article-reading/<KST 날짜>/`에 성공·실패를 로컬 캐시한다. CI의 새 러너에서는 캐시 재사용을 보장하지 않는다. 원문은 스냅샷에 저장하지 않고 `reading`에 확보 방법·글자 수·실패 이유만 기록한다.
+- 선별 LLM은 60초, 설명 LLM은 180초 제한. 단계별 시간·입력 글자 수·CLI가 보고한 토큰 사용량을 로그로 확인한다. LLM 재시도는 없다.
+- 수동 실행의 `validate_only=true`는 수집·테스트·빌드·아티팩트 업로드만 수행한다(Claude 호출은 그대로여서 구독 토큰을 소모한다). 스냅샷 커밋과 사이트 배포는 하지 않는다. 작업 브랜치에서는 항상 커밋·배포가 생략된다.
 
 ## 포크해서 쓰기
 
@@ -96,8 +123,8 @@ GitHub Actions (월·수·금 05:17 KST, cron "17 20 * * 0,2,4")
    gh secret set ANTHROPIC_API_KEY --repo <user>/<repo>
    ```
    토큰·키는 공유하거나 커밋하지 않는다. 둘 다 등록하면 API 키가 우선한다. API 키는 사용량만큼 과금된다(1판당 약 $0.1, 추정). 자동화에서 구독을 쓰는 것은 제공사 약관의 적용을 받으므로 약관을 확인한다.
-4. Actions > `dispatch` > Run workflow를 실행한다. 첫 실행이 수집, `data/snapshots/<date>.json` 커밋, 빌드, 배포까지 수행한다. 이후 월·수·금 05:17 KST에 자동 실행된다.
-5. `GITHUB_TOKEN`은 자동 제공되고 `BASE_PATH`는 워크플로가 Pages 설정에서 채운다. 두 시크릿이 모두 없으면 기존 데이터만 배포하며, `main` push는 배포만 한다.
+4. Actions > `dispatch` > Run workflow를 실행한다. 첫 실행이 수집, `data/snapshots/<date>.json` 커밋, 빌드, 배포까지 수행한다. 이후 평일(월~금) 05:17 KST에 자동 실행된다.
+5. `GITHUB_TOKEN`은 자동 제공되고 `BASE_PATH`는 워크플로가 Pages 설정에서 채운다. 두 시크릿이 모두 없으면 예약·수동 실행은 실패하며, `main` push는 배포만 한다.
 6. 데스크 펫을 쓴다면 `DISPATCH_URL`을 자신의 사이트로 지정한다.
 
 유의 사항:

@@ -78,9 +78,20 @@ export function validateSnapshot(s: unknown, file: string): string[] {
         if (!isStr(r?.source) || !isStr(r?.url) || !isWebUrl(r.url)) err(w, `related #${j} needs a source and an http(s) url`);
       });
     }
+    if (it.highlights !== undefined) {
+      for (const lang of ["ko", "en"]) {
+        const phrases = it.highlights?.[lang];
+        if (!Array.isArray(phrases) || phrases.length > 2 || phrases.some((p: unknown) => typeof p !== "string" || p.length < 2 || p.length > 60 || !it.summary?.[lang]?.includes(p))) err(w, `highlights.${lang} needs at most two exact summary phrases`);
+      }
+    }
+    if (it.reading !== undefined) {
+      const r = it.reading;
+      if (!r || !["body", "snippet"].includes(r.status) || !["rss", "web", "readme", "model-card", "abstract", "snippet"].includes(r.via) || !Number.isInteger(r.chars) || r.chars < 0 || r.chars > 1500 || (r.reason !== undefined && typeof r.reason !== "string")) err(w, "reading needs a valid status, method and bounded character count");
+    }
     // An uncurated (--no-llm) edition copies feed snippets and has no takeaway, so only the title is required there.
-    for (const f of snap.curated === false ? ["title"] : ["title", "summary", "takeaway"])
+    for (const f of snap.curated === false ? ["title"] : ["title", "summary"])
       if (!isL10n(it[f])) err(w, `${f} needs non-empty ko and en`);
+    if (!it.takeaway || typeof it.takeaway.ko !== "string" || typeof it.takeaway.en !== "string") err(w, "takeaway needs ko and en strings (may be empty when unsupported)");
   });
 
   if (!Array.isArray(snap.front)) err("", "front must be an array");

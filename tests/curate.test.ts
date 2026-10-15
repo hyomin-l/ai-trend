@@ -1,12 +1,12 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import type { RawItem } from "@/types";
-import { CRITERIA, SYSTEM_PROMPT } from "@/config/prompt";
+import { CRITERIA, SYSTEM_PROMPT, WRITING_PROMPT } from "@/config/prompt";
 import { SECTIONS, SECTION_ORDER } from "@/config/sections";
 import { runClaude } from "@/lib/claude";
-import { buildPrompt, curate, fallbackCuration, parseCuration } from "@/lib/curate";
+import { buildPrompt, fallbackCuration, parseCuration } from "@/lib/curate";
 
 const raw = (id: string, over: Partial<RawItem> = {}): RawItem => ({
   id, source: "Src", section: "newsroom", title: `Title ${id}`, url: `https://example.com/${id}`,
@@ -143,6 +143,20 @@ describe("parseCuration", () => {
   });
 });
 
+describe("body highlights", () => {
+  it("keeps at most two exact phrases per language and drops invented or oversized highlights", () => {
+    const result = parseCuration(json([entry("a1", {
+      summary: {ko:"사내 서버에서 동작합니다. 도입 전 처리 속도를 확인합니다.", en:"Runs on internal servers. Check processing speed before adoption."},
+      highlights: {ko:["사내 서버", "없는 표현", "처리 속도", "도입 전", "사내 서버"],en:["internal servers", "processing speed", "not in text"]},
+    })]), candidates)!;
+    expect(result.items[0].highlights).toEqual({ko:["사내 서버","처리 속도"],en:["internal servers","processing speed"]});
+  });
+  it("omits absent or invalid highlights for backwards compatibility", () => {
+    expect(parseCuration(json([entry("a1")]),candidates)!.items[0].highlights).toBeUndefined();
+    expect(parseCuration(json([entry("a1", {highlights:{ko:["made up"],en:"bad"}})]),candidates)!.items[0].highlights).toBeUndefined();
+  });
+});
+
 describe("parseCuration also", () => {
   const cands = [
     raw("n1", { source: "NewsA" }), raw("n2", { source: "NewsB", url: "https://b.com/n2" }),
@@ -166,8 +180,9 @@ describe("parseCuration also", () => {
 });
 
 describe("parseCuration glossary", () => {
-  const items = [entry("a1")];
-  const parse = (glossary: unknown) => parseCuration(json(items, ["a1"], glossary), candidates)!.glossary;
+  // A term only counts when it literally appears in a ko title or summary, so by default the summary shows every glossary term.
+  const parse = (glossary: unknown, shown = JSON.stringify(glossary) ?? "") =>
+    parseCuration(json([entry("a1", { summary: { ko: shown, en: "S" } })], ["a1"], glossary), candidates)!.glossary;
 
   it("PRD-glossary: returns valid entries as {term, desc:{ko,en}}", () => {
     expect(parse([gloss("양자화"), gloss("MCP")])).toEqual([
@@ -180,11 +195,17 @@ describe("parseCuration glossary", () => {
     for (const g of [undefined, null, "nope", 7, { term: "x" }, [null, 3, "x"]]) expect(parse(g)).toEqual([]);
   });
 
-  it("PRD-glossary: keeps at most 8 entries (first 8 valid ones)", () => {
-    const many = Array.from({ length: 12 }, (_, i) => gloss(`용어${i}`));
+  it("PRD-glossary: keeps at most 12 entries", () => {
+    const many = Array.from({ length: 15 }, (_, i) => gloss(`용어${i}`));
     const out = parse(many);
-    expect(out).toHaveLength(8);
-    expect(out.map((g) => g.term)).toEqual(many.slice(0, 8).map((g) => g.term));
+    expect(out).toHaveLength(12);
+    expect(out.map((g) => g.term)).toEqual(many.slice(0, 12).map((g) => g.term));
+  });
+
+  it("drops terms that do not literally appear in a ko title or summary (case-insensitive, never glued inside a word)", () => {
+    const items = [entry("a1", { title: { ko: "Scion 도입", en: "T" }, summary: { ko: "mcp 서버와 storage를 비교하고 ready 상태를 봅니다.", en: "S" } })];
+    const out = parseCuration(json(items, ["a1"], [gloss("Scion"), gloss("MCP"), gloss("RAG"), gloss("rea"), gloss("없는 용어"), gloss("Takeaway", { desc: { ko: "x", en: "y" } })]), candidates)!.glossary;
+    expect(out.map((g) => g.term)).toEqual(["Scion", "MCP"]);
   });
 
   it("PRD-glossary: trims term and desc; term must be 1-40 chars", () => {
@@ -216,13 +237,13 @@ describe("parseCuration glossary", () => {
   });
 
   it("PRD-glossary: an invalid glossary never invalidates the edition", () => {
-    const res = parseCuration(json(items, ["a1"], "garbage"), candidates)!;
+    const res = parseCuration(json([entry("a1")], ["a1"], "garbage"), candidates)!;
     expect(res.items).toHaveLength(1);
     expect(res.glossary).toEqual([]);
   });
 
   it("PRD-glossary: a response without a glossary key still parses (older/shorter output)", () => {
-    expect(parseCuration(JSON.stringify({ front: ["a1"], items }), candidates)!.glossary).toEqual([]);
+    expect(parseCuration(JSON.stringify({ front: ["a1"], items: [entry("a1")] }), candidates)!.glossary).toEqual([]);
   });
 });
 
@@ -268,12 +289,12 @@ describe("buildPrompt / SYSTEM_PROMPT", () => {
     expect(buildPrompt([p], [])).toContain("p1|Hugging Face Papers|playbook|Title p1|Snippet p1 (▲248)");
   });
 
-  it("PRD-curator: one id|source|section|title|snippet line per item, snippet cut at 140", () => {
+  it("PRD-curator: one id|source|section|title|snippet line per item, snippet cut at 80", () => {
     const long = raw("L1", { snippet: "x".repeat(500) });
     const lines = buildPrompt([candidates[0], long], []).split("\n");
     expect(lines).toContain("a1|TechCrunch|newsroom|Title a1|Snippet a1");
     const line = lines.find((l) => l.startsWith("L1|"))!;
-    expect(line.split("|")[4]).toBe("x".repeat(140));
+    expect(line.split("|")[4]).toBe("x".repeat(80));
   });
 
   it("PRD-curator: pipes and newlines inside fields cannot break the line format", () => {
@@ -310,10 +331,10 @@ describe("SYSTEM_PROMPT composition", () => {
 });
 
 describe("SYSTEM_PROMPT glossary", () => {
-  it("PRD-glossary: asks for a top-level glossary of at most 8 terms with ko/en descriptions, exact-as-written terms", () => {
+  it("PRD-glossary: asks for a top-level glossary of at most 12 terms with ko/en descriptions, exact-as-written terms", () => {
     expect(SYSTEM_PROMPT).toContain("용어 풀이");
     expect(SYSTEM_PROMPT).toContain('"glossary":[{"term":"","desc":{"ko":"","en":""}}]');
-    expect(SYSTEM_PROMPT).toMatch(/최대 8/);
+    expect(SYSTEM_PROMPT).toMatch(/최대 12/);
     expect(SYSTEM_PROMPT).toMatch(/60자/);
     expect(SYSTEM_PROMPT).toMatch(/120/);
     expect(SYSTEM_PROMPT).toMatch(/표기 그대로|그대로/);
@@ -327,51 +348,16 @@ describe("SYSTEM_PROMPT selection size and summary length", () => {
     expect(SYSTEM_PROMPT).not.toMatch(/약 30건/);
   });
 
-  it("PRD-curator: summary is 3-4 Korean / 2-3 English sentences with background and inline jargon explanation", () => {
-    expect(SYSTEM_PROMPT).toMatch(/ko는 3~4문장/);
-    expect(SYSTEM_PROMPT).toMatch(/en은 2~3문장/);
+  it("PRD-curator: summary targets 180-230 Korean characters with background and inline jargon explanation", () => {
+    expect(SYSTEM_PROMPT).toMatch(/공백 포함 180~230자/);
+    expect(SYSTEM_PROMPT).toMatch(/en은 200자 이내 1~2문장/);
     expect(SYSTEM_PROMPT).toMatch(/배경/);
     expect(SYSTEM_PROMPT).toMatch(/전문용어/);
   });
-});
 
-describe("curate", () => {
-  const errSpy = () => vi.spyOn(console, "error").mockImplementation(() => {});
-  afterEach(() => vi.restoreAllMocks());
-
-  it("PRD-curator: valid response gives curated:true", async () => {
-    const res = await curate(candidates, [], async () => json([entry("a1"), entry("b2"), entry("c3")]));
-    expect(res.curated).toBe(true);
-    expect(res.items).toHaveLength(3);
-  });
-
-  it("PRD-glossary: curate passes the parsed glossary through; fallback has none", async () => {
-    const res = await curate(candidates, [], async () => json([entry("a1")], ["a1"], [gloss("양자화")]));
-    expect(res.glossary).toEqual([{ term: "양자화", desc: { ko: "양자화 풀이", en: "양자화 explained" } }]);
-    errSpy();
-    expect((await curate(candidates, [], async () => "nope")).glossary).toEqual([]);
-  });
-
-  it("PRD-curator: a throwing run falls back with curated:false", async () => {
-    const spy = errSpy();
-    const res = await curate(candidates, [], async () => { throw new Error("boom"); });
-    expect(res.curated).toBe(false);
-    expect(res.items.length).toBeGreaterThan(0);
-    expect(spy).toHaveBeenCalled();
-  });
-
-  it("PRD-curator: unparseable output falls back with curated:false", async () => {
-    errSpy();
-    const res = await curate(candidates, [], async () => "sorry, no JSON today");
-    expect(res.curated).toBe(false);
-    expect(res.items[0].title.ko).toBe(res.items[0].title.en);
-  });
-
-  it("PRD-curator: the prompt handed to run contains the candidates and recent headlines", async () => {
-    let seen = "";
-    await curate(candidates, ["어제의 헤드라인"], async (p) => { seen = p; return json([entry("a1")]); });
-    expect(seen).toContain("a1|TechCrunch|newsroom");
-    expect(seen).toContain("어제의 헤드라인");
+  it("keeps the English takeaway to 60 characters and the writing prompt compact", () => {
+    expect(SYSTEM_PROMPT).toMatch(/takeaway \{ko,en\}[^\n]*en은 60자 이내/);
+    expect(WRITING_PROMPT.length).toBeLessThanOrEqual(2962); // 3485 before the token-budget pass (-15%)
   });
 });
 

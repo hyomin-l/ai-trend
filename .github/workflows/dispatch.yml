@@ -2,8 +2,13 @@ name: dispatch
 
 on:
   schedule:
-    - cron: "17 20 * * 0,2,4" # Mon/Wed/Fri 05:17 KST (off the top of the hour to dodge cron congestion). The schedule is also quoted in BRAND.description and ui.emptyNote (lib/i18n.ts) and in config/prompt.ts.
+    - cron: "17 20 * * 0-4" # Weekdays (Mon-Fri) 05:17 KST = Sun-Thu 20:17 UTC (off the top of the hour to dodge cron congestion). The schedule is also quoted in BRAND.description and ui.emptyNote (lib/i18n.ts) and in config/prompt.ts.
   workflow_dispatch:
+    inputs:
+      validate_only:
+        description: Collect and build without committing snapshots or deploying (still calls Claude and consumes subscription tokens)
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths-ignore: ["docs/**"] # desk-pet/VERSION feeds latest.json, so pet changes redeploy too
@@ -21,7 +26,7 @@ jobs:
       contents: write # push the snapshot commit
       pages: read # configure-pages reads the site URL / base path
     env:
-      # Without a Claude credential (subscription token or API key), skip collection instead of publishing an uncurated edition.
+      # Collection runs require a Claude credential; pushes only redeploy existing editions.
       # (Only a boolean is computed here; the secret values themselves are exposed to the collect step alone.)
       COLLECT: ${{ github.event_name != 'push' && (secrets.CLAUDE_CODE_OAUTH_TOKEN != '' || secrets.ANTHROPIC_API_KEY != '') }}
     steps:
@@ -34,8 +39,12 @@ jobs:
 
       - name: Decide whether to collect
         id: plan
-        if: env.COLLECT == 'true'
+        if: github.event_name != 'push'
         run: |
+          if [ "$COLLECT" != true ]; then
+            echo "::error::Collection requires CLAUDE_CODE_OAUTH_TOKEN or ANTHROPIC_API_KEY. Add one in repository Actions secrets."
+            exit 1
+          fi
           # A delayed or duplicate scheduled run must not spend tokens on an edition that already exists.
           TODAY=$(TZ=Asia/Seoul date +%F)
           if [ "${{ github.event_name }}" = schedule ] && [ -f "data/snapshots/$TODAY.json" ]; then
@@ -64,7 +73,7 @@ jobs:
           npm run collect
 
       - name: Commit snapshot
-        if: steps.plan.outputs.collect == 'true'
+        if: steps.plan.outputs.collect == 'true' && github.ref == 'refs/heads/main' && github.event.inputs.validate_only != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -83,6 +92,7 @@ jobs:
           path: out
 
   deploy:
+    if: github.ref == 'refs/heads/main' && github.event.inputs.validate_only != 'true'
     needs: build
     runs-on: ubuntu-latest
     permissions:

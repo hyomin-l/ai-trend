@@ -7,14 +7,29 @@ import type { Industry, SourceDef } from "@/types";
 export const CONFIG = {
   model: "sonnet", // `claude --model` for the curator
   timeoutMs: 180_000, // one curation call
-  totalCap: 110, // candidates handed to the curator
+  totalCap: 110, // candidates kept by prep
+  selectCap: 40, // candidate lines the select call sees (a section-balanced slice of totalCap; lib/edition-curation.ts)
   windowHours: 72, // news older than this is dropped
   repoFallbackDays: 30, // fallback GitHub Search only: repos created longer ago than this are not searched
   repoFallbackMin: 3, // fallback runs only when the trending sources yielded fewer repos than this
   dedupeEditions: 10, // items already published in this many past editions are skipped...
   returningGrowth: 1.5, // ...unless a repo's stars grew by this factor ("returning")
-  repoDedupeEditions: 4, // repos/models: skipped only for this many editions; older ones (up to dedupeEditions) may come back as "returning"
-  recentHeadlineEditions: 3, // past editions whose headlines the curator is told not to repeat
+  repoDedupeEditions: 7, // repos/models: skipped only for this many editions; older ones (up to dedupeEditions) may come back as "returning"
+  recentHeadlineEditions: 1, // past editions whose headlines the curator is told not to repeat
+};
+
+/** Bounds for the selected-article reader; no browsers or retries. */
+export const ARTICLE_READING = {
+  maxArticles: 20,
+  articleChars: 600,
+  totalChars: 9000, // shared fairly: each article gets at most the remaining budget / articles left
+  concurrency: 4,
+  requestTimeoutMs: 8000,
+  totalTimeoutMs: 30000,
+  maxBytes: 1_500_000,
+  maxRedirects: 3,
+  minBodyChars: 300,
+  perHostDelayMs: 250,
 };
 
 /**

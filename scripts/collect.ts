@@ -2,17 +2,20 @@
 import { SECTION_ORDER } from "@/config/sections";
 import { CONFIG } from "@/config/sources";
 import { runClaude } from "@/lib/claude";
-import { curate, fallbackCuration } from "@/lib/curate";
+import { fallbackCuration } from "@/lib/curate";
 import { buildSnapshot, kstDate, recentHeadlines, seenMap } from "@/lib/pipeline";
 import { prep } from "@/lib/prep";
 import { isDate, listDates, loadSnapshot, saveSnapshot, validateSnapshot } from "@/lib/snapshots";
 import { fetchAll } from "@/lib/sources";
+import { curateEdition } from "@/lib/edition-curation";
+import { readArticles } from "@/lib/read-articles";
 
 const argv = process.argv.slice(2);
 const noLlm = argv.includes("--no-llm");
 const dateArg = argv.includes("--date") ? argv[argv.indexOf("--date") + 1] : undefined;
 
 async function main() {
+  const started = Date.now();
   const now = new Date();
   const date = dateArg ?? kstDate(now);
   if (!isDate(date)) throw new Error(`--date must be YYYY-MM-DD, got "${date}"`);
@@ -32,7 +35,7 @@ async function main() {
 
   const curation = noLlm
     ? { ...fallbackCuration(candidates), curated: false }
-    : await curate(candidates, recentHeadlines(previous, CONFIG.recentHeadlineEditions), (p) => runClaude(p, CONFIG.model));
+    : await curateEdition(candidates, recentHeadlines(previous, CONFIG.recentHeadlineEditions), (p, systemPrompt, stage) => runClaude(p, CONFIG.model, {systemPrompt, label: stage, timeoutMs: stage === "select" ? 60_000 : CONFIG.timeoutMs}), readArticles);
 
   const snapshot = buildSnapshot({
     date, previous, collected: candidates.length, failed, now, curation,
@@ -54,6 +57,7 @@ async function main() {
   // The prompt requires at least one paper when paper candidates exist; the model may still skip it, so say so in the log.
   const isPaper = (i: { source: string }) => i.source === "Hugging Face Papers";
   if (snapshot.curated && candidates.some(isPaper) && !snapshot.items.some(isPaper)) console.warn("Warning: no paper published although paper candidates existed");
+  console.log(`[collect] elapsedMs=${Date.now()-started}`);
   console.log(failed.length ? `Failed sources (${failed.length}): ${failed.join(", ")}` : "Failed sources: none");
 }
 

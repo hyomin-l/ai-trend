@@ -13,10 +13,14 @@
     "node": ">=20.19.0"
   },
   "dependencies": {
+    "@mozilla/readability": "^0.6.0",
     "cobe": "^2.0.1",
+    "ipaddr.js": "^2.5.0",
+    "linkedom": "^0.18.13",
     "next": "^16.4.0",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "robots-parser": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",

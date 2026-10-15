@@ -91,3 +91,18 @@ export function parseRepoTitle(title: string) {
 
 /** The one-line description a repo row shows: the headline's tagline, else the summary. */
 export const repoDesc = (item: Item, lang: Lang) => parseRepoTitle(item.title[lang])?.tagline || item.summary[lang];
+
+const ASCII_WORD = /[A-Za-z0-9]/;
+
+/** Index of `term` in `text` (case-insensitive), or -1. A term edged by a letter or digit must not be glued to one ("RAG" is not in "storage"). */
+export function findTerm(text: string, term: string): number {
+  const hay = text.toLowerCase();
+  const needle = term.toLowerCase();
+  for (let i = hay.indexOf(needle); i >= 0; i = hay.indexOf(needle, i + 1)) {
+    const glued =
+      (ASCII_WORD.test(term[0]) && ASCII_WORD.test(text[i - 1] ?? "")) ||
+      (ASCII_WORD.test(term[term.length - 1]) && ASCII_WORD.test(text[i + term.length] ?? ""));
+    if (!glued) return i;
+  }
+  return -1;
+}

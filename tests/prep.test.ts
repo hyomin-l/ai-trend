@@ -124,6 +124,16 @@ describe("prep: returning repos", () => {
     expect(run([r], seenWith(r, 1000, 2))).toEqual([]);
   });
 
+  it("daily editions: repos remain excluded through the seventh previous edition", () => {
+    const r = repo(1100, 30);
+    for (const ago of [5, 6, 7]) expect(run([r], seenWith(r, 1000, ago))).toEqual([]);
+  });
+
+  it("daily editions: HF models remain excluded through the seventh previous edition", () => {
+    const m = mk({ section: "repos", source: "Hugging Face", metrics: { likes: 500, downloads: 9000 } });
+    for (const ago of [5, 6, 7]) expect(run([m], seenWith(m, undefined, ago))).toEqual([]);
+  });
+
   it("PRD-collector: growth rule still applies within the short window", () => {
     const r = repo(1500, 30);
     const [out] = run([r], seenWith(r, 1000, 2));
@@ -131,23 +141,23 @@ describe("prep: returning repos", () => {
     expect(out.metrics?.starsDelta).toBe(500);
   });
 
-  it("PRD-collector: repo seen 6 editions ago is re-listed as returning with starsDelta", () => {
+  it("PRD-collector: repo seen 8 editions ago is re-listed as returning with starsDelta", () => {
     const r = repo(1100, 30);
-    const [out] = run([r], seenWith(r, 1000, 6));
+    const [out] = run([r], seenWith(r, 1000, 8));
     expect(out.returning).toBe(true);
     expect(out.metrics?.starsDelta).toBe(100);
   });
 
   it("PRD-collector: old repo without known stars is re-listed as returning without starsDelta", () => {
     const r = repo(1100, 30);
-    const [out] = run([r], seenWith(r, undefined, 6));
+    const [out] = run([r], seenWith(r, undefined, 8));
     expect(out.returning).toBe(true);
     expect(out.metrics?.starsDelta).toBeUndefined();
   });
 
-  it("PRD-collector: Hugging Face model seen 6 editions ago returns without starsDelta", () => {
+  it("PRD-collector: Hugging Face model seen 8 editions ago returns without starsDelta", () => {
     const m = mk({ section: "repos", source: "Hugging Face", publishedAt: ago(24 * 5), metrics: { likes: 500, downloads: 9000 } });
-    const [out] = run([m], seenWith(m, undefined, 6));
+    const [out] = run([m], seenWith(m, undefined, 8));
     expect(out.returning).toBe(true);
     expect(out.metrics?.starsDelta).toBeUndefined();
     expect(run([m], seenWith(m, undefined, 3))).toEqual([]);

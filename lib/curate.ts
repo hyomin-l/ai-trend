@@ -1,4 +1,5 @@
 import { INDUSTRIES, SECTION_ORDER, sectionFlag } from "@/config/sections";
+import { findTerm } from "@/lib/format";
 import { REGIONS } from "@/lib/i18n";
 import type { GlossaryEntry, Industry, Item, L10n, RawItem, Region, Section } from "@/types";
 
@@ -7,7 +8,7 @@ const HANGUL = /[ㄱ-ㆎ가-힣]/;
 
 type Curation = { front: string[]; items: Item[]; glossary: GlossaryEntry[] };
 
-const GLOSSARY_MAX = 8;
+const GLOSSARY_MAX = 12;
 const RELATED_MAX = 4;
 const TERM_MAX = 40;
 
@@ -19,7 +20,7 @@ export function buildPrompt(items: RawItem[], recentHeadlines: string[]): string
     const stars = m?.stars !== undefined ? ` (★${m.stars}, ★${m.starsGained !== undefined ? `+${m.starsGained} this week` : `${m.starsPerDay ?? 0}/day`}${i.returning ? ", returning" : ""})` : "";
     const hf = m?.likes !== undefined ? ` (♥${m.likes}, ↓${m.downloads ?? 0})` : "";
     const up = m?.upvotes !== undefined ? ` (▲${m.upvotes})` : "";
-    return `${i.id}|${oneLine(i.source)}|${i.section}|${oneLine(i.title)}|${oneLine(i.snippet).slice(0, 140)}${stars}${hf}${up}`;
+    return `${i.id}|${oneLine(i.source)}|${i.section}|${oneLine(i.title)}|${oneLine(i.snippet).slice(0, 80)}${stars}${hf}${up}`;
   });
   const recent = recentHeadlines.length ? recentHeadlines.map((h) => `- ${oneLine(h)}`).join("\n") : "(없음)";
   return `## 후보\n${lines.join("\n")}\n\n## 직전 판 헤드라인\n${recent}`;
@@ -41,20 +42,28 @@ function toItem(c: RawItem, over: Pick<Item, "section" | "region" | "title" | "s
   return item;
 }
 
-/** Invalid entries are dropped silently; a missing or garbage glossary is just []. */
-function parseGlossary(v: unknown): GlossaryEntry[] {
+/** Invalid entries and terms that appear in none of `texts` (the ko titles and summaries; the page could not mark them) are dropped silently; a missing or garbage glossary is just []. */
+function parseGlossary(v: unknown, texts: string[]): GlossaryEntry[] {
   const out: GlossaryEntry[] = [];
   if (!Array.isArray(v)) return out;
   const seen = new Set<string>();
   for (const g of v) {
     const term = str(g?.term);
     const desc = l10n(g?.desc);
-    if (!term || term.length > TERM_MAX || !desc.ko || !desc.en || seen.has(term.toLowerCase())) continue;
+    if (!term || term.length > TERM_MAX || !desc.ko || !desc.en || seen.has(term.toLowerCase()) || !texts.some((t) => findTerm(t, term) >= 0)) continue;
     seen.add(term.toLowerCase());
     out.push({ term, desc });
     if (out.length === GLOSSARY_MAX) break;
   }
   return out;
+}
+
+function parseHighlights(value: any, summary: L10n): Item["highlights"] {
+  const phrases = (list: unknown, text: string) => [...new Set(Array.isArray(list) ? list.filter((p): p is string => typeof p === "string").map(p => p.trim()) : [])]
+    .filter(p => p.length >= 2 && p.length <= 60 && text.includes(p)).slice(0, 2);
+  const ko = phrases(value?.ko, summary.ko);
+  const en = phrases(value?.en, summary.en);
+  return ko.length || en.length ? {ko, en} : undefined;
 }
 
 export function parseCuration(text: string, candidates: RawItem[]): Curation | null {
@@ -88,6 +97,8 @@ export function parseCuration(text: string, candidates: RawItem[]): Curation | n
       summary: l10n(m.summary, c.snippet),
       takeaway: l10n(m.takeaway),
     });
+    const highlights = parseHighlights(m.highlights, item.summary);
+    if (highlights) item.highlights = highlights;
     if (industry) item.industry = industry;
     items.push(item);
   }
@@ -111,7 +122,7 @@ export function parseCuration(text: string, candidates: RawItem[]): Curation | n
   const ids = new Set(items.map((i) => i.id));
   const front = [...new Set<string>(Array.isArray(obj.front) ? obj.front : [])].filter((id) => ids.has(id)).slice(0, 3);
   for (const i of items) if (front.length < 3 && !front.includes(i.id)) front.push(i.id);
-  return { front, items, glossary: parseGlossary(obj.glossary) };
+  return { front, items, glossary: parseGlossary(obj.glossary, items.flatMap((i) => [i.title.ko, i.summary.ko])) };
 }
 
 /** No-LLM edition: original titles and snippets, about 4 per section. */
@@ -127,19 +138,4 @@ export function fallbackCuration(candidates: RawItem[]): Curation {
     }),
   );
   return { front: items.slice(0, 3).map((i) => i.id), items, glossary: [] };
-}
-
-export async function curate(
-  candidates: RawItem[],
-  recentHeadlines: string[],
-  run: (prompt: string) => Promise<string>,
-): Promise<Curation & { curated: boolean }> {
-  try {
-    const res = parseCuration(await run(buildPrompt(candidates, recentHeadlines)), candidates);
-    if (res) return { ...res, curated: true };
-    console.error("[curate] response was not valid curation JSON; publishing uncurated edition");
-  } catch (e) {
-    console.error(`[curate] ${(e as Error).message}; publishing uncurated edition`);
-  }
-  return { ...fallbackCuration(candidates), curated: false };
 }
