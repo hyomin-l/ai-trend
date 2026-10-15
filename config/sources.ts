@@ -20,7 +20,7 @@ export const CONFIG = {
 
 /** Bounds for the selected-article reader; no browsers or retries. */
 export const ARTICLE_READING = {
-  maxArticles: 20,
+  maxArticles: 16, // also quoted in SELECTION_PROMPT (config/prompt.ts)
   articleChars: 600,
   totalChars: 9000, // shared fairly: each article gets at most the remaining budget / articles left
   concurrency: 4,

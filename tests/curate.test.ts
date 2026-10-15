@@ -348,8 +348,8 @@ describe("SYSTEM_PROMPT selection size and summary length", () => {
     expect(SYSTEM_PROMPT).not.toMatch(/약 30건/);
   });
 
-  it("PRD-curator: summary targets 180-230 Korean characters with background and inline jargon explanation", () => {
-    expect(SYSTEM_PROMPT).toMatch(/공백 포함 180~230자/);
+  it("PRD-curator: summary targets 150-190 Korean characters with background and inline jargon explanation", () => {
+    expect(SYSTEM_PROMPT).toMatch(/공백 포함 150~190자/);
     expect(SYSTEM_PROMPT).toMatch(/en은 200자 이내 1~2문장/);
     expect(SYSTEM_PROMPT).toMatch(/배경/);
     expect(SYSTEM_PROMPT).toMatch(/전문용어/);
