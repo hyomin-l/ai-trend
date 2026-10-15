@@ -63,7 +63,7 @@ npm run collect -- --date 2026-10-14
 ## 수집·배포
 
 ```
-GitHub Actions (평일(월~금) 05:17 KST, cron "17 20 * * 0-4")
+GitHub Actions (평일(월~금) 새벽 02:17·03:47·05:17 KST 중 먼저 도착한 실행 1회, cron "17 17 / 47 18 / 17 20 * * 0-4")
  build job
   1 fetch   공개 API·RSS 병렬 수집 (소스별 실패 격리)
   2 prep    중복·기간 필터, 이전 판 중복 제거(레포·HF는 7개 판, 그 외 10개 판), 섹션 균형 상한
@@ -80,7 +80,7 @@ GitHub Actions (평일(월~금) 05:17 KST, cron "17 20 * * 0-4")
 - 트리거: 예약 실행, 수동 실행(`workflow_dispatch`), `main` push.
 - `main` push는 재배포만 하며 수집하지 않는다(`COLLECT`가 push에서는 false). `docs/`만 바뀐 push는 무시한다. 워크플로의 스냅샷 커밋은 `GITHUB_TOKEN`으로 push되어 새 실행을 일으키지 않으므로 재귀하지 않는다.
 - 잘못 나간 판 수정: `data/snapshots/<날짜>.json`을 고치거나 삭제하고 push한다. `npm test`가 모든 스냅샷의 구조·링크(http/https만)를 검증하므로 잘못된 수정은 배포 전에 CI에서 실패한다. 스냅샷만 바뀐 push도 재배포된다.
-- 예약 실행에서 그날(KST) 스냅샷이 이미 있으면 수집을 건너뛴다.
+- 예약 실행에서 그날(KST) 스냅샷이 이미 있으면 수집을 건너뛴다. GitHub 예약은 몇 시간씩 밀리거나 누락될 수 있어(실측 3.5시간) 새벽에 세 번 예약하고, 먼저 도착한 실행만 판을 만든다. 나머지는 Claude 설치 전에 끝나 토큰을 쓰지 않는다.
 - `CLAUDE_CODE_OAUTH_TOKEN`과 `ANTHROPIC_API_KEY`가 모두 없으면 예약·수동 실행은 설정 오류를 표시하고 실패한다. `main` push는 인증 없이 기존 스냅샷을 재배포할 수 있다.
 - 사이트 URL과 base path는 `actions/configure-pages` 출력에서 파생되므로 포크도 별도 설정 없이 자신의 주소로 빌드된다.
 
@@ -123,7 +123,7 @@ GitHub Actions (평일(월~금) 05:17 KST, cron "17 20 * * 0-4")
    gh secret set ANTHROPIC_API_KEY --repo <user>/<repo>
    ```
    토큰·키는 공유하거나 커밋하지 않는다. 둘 다 등록하면 API 키가 우선한다. API 키는 사용량만큼 과금된다(1판당 약 $0.1, 추정). 자동화에서 구독을 쓰는 것은 제공사 약관의 적용을 받으므로 약관을 확인한다.
-4. Actions > `dispatch` > Run workflow를 실행한다. 첫 실행이 수집, `data/snapshots/<date>.json` 커밋, 빌드, 배포까지 수행한다. 이후 평일(월~금) 05:17 KST에 자동 실행된다.
+4. Actions > `dispatch` > Run workflow를 실행한다. 첫 실행이 수집, `data/snapshots/<date>.json` 커밋, 빌드, 배포까지 수행한다. 이후 평일(월~금) 새벽에 자동 실행된다.
 5. `GITHUB_TOKEN`은 자동 제공되고 `BASE_PATH`는 워크플로가 Pages 설정에서 채운다. 두 시크릿이 모두 없으면 예약·수동 실행은 실패하며, `main` push는 배포만 한다.
 6. 데스크 펫을 쓴다면 `DISPATCH_URL`을 자신의 사이트로 지정한다.
 

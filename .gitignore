@@ -8,3 +8,7 @@ next-env.d.ts
 desk-pet/DeskPet
 _tmp/
 desk-pet/Version.swift
+
+# iCloud Desktop sync duplicates ("file 2.ext")
+* 2.*
+* 2
