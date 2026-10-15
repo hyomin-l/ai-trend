@@ -31,6 +31,8 @@ export interface ReadingInfo {
   via: "rss" | "web" | "readme" | "model-card" | "abstract" | "snippet";
   chars: number;
   reason?: string;
+  /** Verified public original when the candidate is a news intermediary link. */
+  url?: string;
 }
 
 /** Normalized candidate produced by the collector, before curation. */
@@ -43,6 +45,7 @@ export interface RawItem {
   snippet: string;
   /** Longer feed content / abstract used only while collecting. */
   content?: string;
+  publisherUrl?: string;
   publishedAt?: string;
   industry?: Industry;
   metrics?: Metrics;

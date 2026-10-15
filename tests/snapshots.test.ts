@@ -29,6 +29,10 @@ describe("validateSnapshot", () => {
     expect(errs(s => { s.items[0].reading = {status:"body",via:"web",chars:1501}; })).toContain("reading");
     expect(errs(s => { s.items[0].reading = {status:"body",via:"web",chars:-1}; })).toContain("reading");
   });
+  it("validates a resolved public original URL", () => {
+    expect(errs(s => { s.items[0].reading = {status:"body",via:"web",chars:500,url:"https://publisher.example/story"}; })).toBe("");
+    expect(errs(s => { s.items[0].reading = {status:"body",via:"web",chars:500,url:"javascript:alert(1)"}; })).toContain("reading");
+  });
   it("accepts a valid related list and rejects bad ones", () => {
     expect(errs((s) => { s.items[0].related = [{ source: "Other", url: "https://example.com/x" }]; })).toBe("");
     expect(errs((s) => { s.items[0].related = "x"; })).toContain("related must be an array");

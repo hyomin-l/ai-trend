@@ -1,3 +1,4 @@
+import {gzipSync,deflateSync,brotliCompressSync} from "node:zlib";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { EventEmitter } from "node:events";
 import { Readable } from "node:stream";
@@ -276,5 +277,72 @@ describe("selected article evidence", () => {
     ARTICLE_READING.totalTimeoutMs = 2000;
     net.lookup.mockResolvedValue([{ address: "93.184.216.34", family: 4 }]);
     expect([...(await readArticles([item()])).values()][0].reading.status).toBe("body");
+  });
+});
+
+describe("compressed responses and public originals", () => {
+  it.each(["gzip", "deflate", "br"])("reads %s responses within the same size and time bounds", async (encoding) => {
+    const compress = {gzip:gzipSync,deflate:deflateSync,br:brotliCompressSync}[encoding as "gzip"];
+    reply = url => missingRobots(url) ? {status:404} : {bytes:compress(Buffer.from(html)),headers:{"content-type":"text/html","content-encoding":encoding}};
+    const e=[...(await readArticles([item()])).values()][0];
+    expect(e.reading.status).toBe("body");expect(e.text).toContain("research team");
+  });
+  it("also decompresses robots responses", async () => {
+    reply=(url):Reply=>missingRobots(url)?{bytes:gzipSync(Buffer.from("User-agent: *\nDisallow: /")),headers:{"content-encoding":"gzip","content-type":"text/plain"}}:{body:html,headers:{"content-type":"text/html"}};
+    expect([...(await readArticles([item()])).values()][0].reading.reason).toBe("robots-denied");
+    expect(calls).toHaveLength(1);
+  });
+  it("rejects decompression output over the byte limit", async () => {
+    ARTICLE_READING.maxBytes=1000;
+    reply=url=>missingRobots(url)?{status:404}:{bytes:gzipSync(Buffer.from("a".repeat(20000))),headers:{"content-type":"text/html","content-encoding":"gzip"}};
+    expect([...(await readArticles([item()])).values()][0].reading.reason).toBe("body-too-large");
+  });
+  it("reports a corrupt compressed response separately", async () => {
+    reply=url=>missingRobots(url)?{status:404}:{body:"not gzip",headers:{"content-type":"text/html","content-encoding":"gzip"}};
+    expect([...(await readArticles([item()])).values()][0].reading.reason).toBe("decompression-failed");
+  });
+  it("finds a matching public original when Google News disallows collection", async () => {
+    const direct="https://publisher.example/story";
+    reply=url=>{
+      if(url==="https://news.google.com/robots.txt")return {body:"User-agent: *\nDisallow: /"};
+      if(missingRobots(url))return {status:404};
+      if(url.startsWith("https://www.bing.com/news/search?"))return {body:`<rss><channel><item><title>Research team model release</title><link>http://www.bing.com/news/apiclick.aspx?url=${encodeURIComponent(direct)}</link></item></channel></rss>`,headers:{"content-type":"application/rss+xml"}};
+      return {body:html,headers:{"content-type":"text/html"}};
+    };
+    const e=[...(await readArticles([item("https://news.google.com/rss/articles/opaque",{publisherUrl:"https://publisher.example"} as any)])).values()][0];
+    expect(e.reading).toMatchObject({status:"body",url:direct});
+    expect(calls.filter(c=>c.url.includes("/news/search?"))).toHaveLength(1);
+    expect(calls.some(c=>c.url.includes("/rss/articles/"))).toBe(false);
+    const count=calls.length;
+    const cached=[...(await readArticles([item("https://news.google.com/rss/articles/opaque",{publisherUrl:"https://publisher.example"} as any)])).values()][0];
+    expect(cached.reading.url).toBe(direct);expect(calls).toHaveLength(count);
+  });
+  it.each([
+    ["https://wrong.example/story","Research team model release"],
+    ["https://publisher.example/story","Unrelated sports results today"],
+    ["https://127.0.0.1/story","Research team model release"],
+  ])("rejects mismatched or unsafe search results %s",async(url,title)=>{
+    reply=u=>u==="https://news.google.com/robots.txt"?{body:"User-agent: *\nDisallow: /"}:missingRobots(u)?{status:404}:{body:`<rss><channel><item><title>${title}</title><link>${url}</link></item></channel></rss>`,headers:{"content-type":"application/rss+xml"}};
+    const e=[...(await readArticles([item("https://news.google.com/rss/articles/opaque",{publisherUrl:"https://publisher.example"} as any)])).values()][0];
+    expect(e.reading).toMatchObject({status:"snippet",reason:"google-news-no-public-link"});
+    expect(calls.some(c=>c.url===url)).toBe(false);
+  });
+  it.each(["http-403", "robots-denied"])("identifies publisher %s after a successful original lookup", async (reason) => {
+    reply = url => {
+      if (url === "https://news.google.com/robots.txt") return {body:"User-agent: *\nDisallow: /"};
+      if (url === "https://publisher.example/robots.txt" && reason === "robots-denied") return {body:"User-agent: *\nDisallow: /"};
+      if (missingRobots(url)) return {status:404};
+      if (url.includes("/news/search?")) return {body:'<rss><channel><item><title>Research team model release</title><link>https://publisher.example/story</link></item></channel></rss>'};
+      return {status:403};
+    };
+    const e = [...(await readArticles([item("https://news.google.com/rss/articles/opaque", {publisherUrl:"https://publisher.example"})])).values()][0];
+    expect(e.reading.reason).toBe(`publisher-${reason}`);
+    expect(calls.filter(c => c.url.includes("/news/search?"))).toHaveLength(1);
+  });
+  it("honors search provider robots restrictions without requesting search",async()=>{
+    reply=()=>({body:"User-agent: *\nDisallow: /"});
+    const e=[...(await readArticles([item("https://news.google.com/rss/articles/opaque")])).values()][0];
+    expect(e.reading.reason).toBe("original-lookup-robots-denied");
+    expect(calls.some(c=>c.url.includes("/news/search?"))).toBe(false);
   });
 });

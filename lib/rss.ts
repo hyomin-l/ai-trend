@@ -5,6 +5,8 @@ export interface FeedItem {
   url: string;
   snippet: string;
   content?: string;
+  /** Publisher homepage explicitly provided by the RSS source element. */
+  publisherUrl?: string;
   publishedAt?: string;
   /** <category> / <category term=""> labels; present only when the item has any. */
   categories?: string[];
@@ -68,8 +70,9 @@ export function parseFeed(xml: string): FeedItem[] {
     const snippet = ["description", "summary", "content:encoded", "content"].map((n) => text(tag(block, n))).find(Boolean) ?? "";
     const explicit = ["content:encoded", "content"].map(n => text(tag(block, n))).find(s => s.length >= 300);
     const rich = explicit ?? ["summary", "description"].map(n => text(tag(block, n))).find(s => s.length >= 600);
+    const publisherUrl = block.match(/<source\s[^>]*url=["']([^"']+)["']/i)?.[1];
     const cats = categories(block);
-    out.push({ title, url, snippet: snippet.slice(0, 300), ...(rich && { content: rich.slice(0, 12000) }), publishedAt: date(block), ...(cats.length && { categories: cats }) });
+    out.push({ title, url, snippet: snippet.slice(0, 300), ...(rich && { content: rich.slice(0, 12000) }), ...(publisherUrl && {publisherUrl:decode(publisherUrl)}), publishedAt: date(block), ...(cats.length && { categories: cats }) });
   }
   return out;
 }

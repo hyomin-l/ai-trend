@@ -1,4 +1,6 @@
 import { request } from "node:https";
+import { promisify } from "node:util";
+import { gunzip, inflate, brotliDecompress } from "node:zlib";
 import { lookup } from "node:dns/promises";
 import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -7,11 +9,12 @@ import ipaddr from "ipaddr.js";
 import robotsParser from "robots-parser";
 import { parseHTML } from "linkedom";
 import { Readability } from "@mozilla/readability";
+import { parseFeed } from "@/lib/rss";
 import { ARTICLE_READING as LIMITS } from "@/config/sources";
 import type { RawItem, ReadingInfo } from "@/types";
 
 export type ArticleEvidence = { text: string; reading: ReadingInfo };
-type Body = { text: string; via: ReadingInfo["via"] };
+type Body = { text: string; via: ReadingInfo["via"]; originalUrl?: string };
 type Cached = Body | { reason: string };
 const USER_AGENT = "ai-trend/0.1";
 function fail(reason: string): never { throw new Error(reason); }
@@ -31,6 +34,18 @@ function markdownText(md: string): string {
     .filter((line) => /[\p{L}\p{N}]/u.test(line.replace(LINK, "").replace(/<[^>]*>|https?:\/\/\S+/g, "")))
     .map((line) => line.replace(LINK, "$1").replace(/^\s*#+\s*/, ""))
     .join("\n");
+}
+
+const decompressors = {gzip: promisify(gunzip), deflate: promisify(inflate), br: promisify(brotliDecompress)};
+async function unpack(bytes: Buffer, encoding: string, signal: AbortSignal): Promise<Buffer> {
+  if (!encoding || encoding === "identity") return bytes;
+  const decompress = decompressors[encoding as keyof typeof decompressors];
+  if (!decompress) fail("unsupported-encoding");
+  try { return await bounded(decompress(bytes, {maxOutputLength: LIMITS.maxBytes}), signal); }
+  catch (error) {
+    if (signal.aborted) throw signal.reason;
+    fail((error as NodeJS.ErrnoException).code === "ERR_BUFFER_TOO_LARGE" ? "body-too-large" : "decompression-failed");
+  }
 }
 
 /** Decode with the response's own charset (Content-Type, else an early <meta>); unknown labels fall back to UTF-8. */
@@ -122,7 +137,7 @@ class Reader {
       return await new Promise((resolve, reject) => {
         const req = request(url, {
           agent: false, // Never reuse a socket resolved outside this validation.
-          headers: { "User-Agent": USER_AGENT, Accept: url.hostname === "api.github.com" ? "application/vnd.github.raw+json" : "text/html,text/plain;q=0.9", "Accept-Encoding": "identity" },
+          headers: { "User-Agent": USER_AGENT, Accept: url.hostname === "api.github.com" ? "application/vnd.github.raw+json" : "text/html,text/plain;q=0.9", "Accept-Encoding": "gzip, deflate, br" },
           lookup: (_host, options, callback) => {
             // Node may request an array when autoSelectFamily is enabled.
             if (typeof options === "object" && options.all) callback(null, [pinned] as never);
@@ -140,9 +155,6 @@ class Reader {
           if (Number(res.headers["content-length"]) > LIMITS.maxBytes) {
             res.destroy(); req.destroy(); reject(new Error("body-too-large")); return;
           }
-          if (res.headers["content-encoding"] && res.headers["content-encoding"] !== "identity") {
-            res.destroy(); req.destroy(); reject(new Error("unsupported-encoding")); return;
-          }
           const chunks: Buffer[] = [];
           let bytes = 0;
           res.on("data", (chunk: Buffer) => {
@@ -151,7 +163,10 @@ class Reader {
               res.destroy(); req.destroy(); reject(new Error("body-too-large"));
             } else chunks.push(Buffer.from(chunk));
           });
-          res.on("end", () => resolve({ status, headers: res.headers, text: decode(Buffer.concat(chunks), res.headers["content-type"]) }));
+          res.on("end", () => {
+            unpack(Buffer.concat(chunks), String(res.headers["content-encoding"] ?? "").trim().toLowerCase(), signal)
+              .then(bytes => resolve({status, headers:res.headers, text:decode(bytes, res.headers["content-type"])}), reject);
+          });
           res.on("error", reject);
           res.on("aborted", () => reject(new Error("response-aborted")));
         });
@@ -204,6 +219,58 @@ class Reader {
     }
   }
 
+  private async originalArticle(url: string) {
+    try {
+      const response = await this.fetch(url);
+      if (response.status !== 200) fail(`http-${response.status}`);
+      return response;
+    } catch (error) { return fail(`publisher-${(error as Error).message}`); }
+  }
+
+  /** Read only public links: a Google landing page, then one news RSS lookup if needed. */
+  private async googleArticle(item: RawItem, url: URL) {
+    let landing;
+    try { landing = await this.fetch(url.href); }
+    catch { this.signal.throwIfAborted(); } // A blocked intermediary does not forbid reading the publisher.
+    if (landing?.status === 200) {
+      if (landing.url.hostname !== "news.google.com") return landing;
+      const {document} = parseHTML(landing.text);
+      const links = [document.querySelector('link[rel="canonical"]')?.getAttribute("href"),
+        ...Array.from(document.querySelectorAll("a[href]")).filter(a => /read (?:the )?(?:full|original) article|view (?:the )?(?:full|original) article|원문/i.test(a.textContent ?? "")).map(a => a.getAttribute("href"))];
+      for (const href of links) {
+        try {
+          const target = publicUrl(new URL(href ?? "", landing.url).href);
+          if (!/(^|\.)google\.[a-z.]+$/.test(target.hostname) && target.pathname !== "/") return this.originalArticle(target.href);
+        } catch { /* Not an explicit public article link. */ }
+      }
+    }
+    let publisher = "";
+    try { publisher = publicUrl(item.publisherUrl ?? `https://${item.source}`).hostname.replace(/^www\./, ""); } catch { /* Older snapshots may only have an outlet name. */ }
+    const tokens = [...new Set(item.title.toLowerCase().match(/[\p{L}\p{N}]{2,}/gu) ?? [])].filter(w => !["the","and","for","with","from","that","of","to","in","is","are","say","says"].includes(w));
+    const search = new URL("https://www.bing.com/news/search?format=rss");
+    // A short query finds headline variants; the full title and publisher are checked below.
+    search.searchParams.set("q", `${tokens.slice(0,6).join(" ")} ${publisher ? `site:${publisher}` : item.source.slice(0,80)}`);
+    let results;
+    try { results = await this.fetch(search.href); }
+    catch (error) { fail(`original-lookup-${(error as Error).message}`); }
+    if (results.status !== 200) fail(`original-lookup-http-${results.status}`);
+    for (const result of parseFeed(results.text)) {
+      try {
+        let target = new URL(result.url);
+        // The feed exposes the publisher URL as a plain URL query value; no opaque decoding/RPC.
+        if (/(^|\.)bing\.com$/.test(target.hostname) && target.pathname === "/news/apiclick.aspx") target = new URL(target.searchParams.get("url") ?? "");
+        target = publicUrl(target.href);
+        if (/(^|\.)(?:google|bing)\.[a-z.]+$/.test(target.hostname) || target.pathname === "/") continue;
+        if (publisher && target.hostname.replace(/^www\./, "") !== publisher && !target.hostname.endsWith(`.${publisher}`)) continue;
+        const title = result.title.toLowerCase();
+        const hits = tokens.filter(w => title.includes(w)).length;
+        if (tokens.length < 2 || hits < Math.max(2, Math.ceil(tokens.length * (publisher ? 0.6 : 0.8)))) continue;
+        return this.originalArticle(target.href);
+      } catch { /* Ignore malformed, private or mismatched results, not publisher fetch failures. */ }
+    }
+    return fail("google-news-no-public-link");
+  }
+
   private async readWeb(item: RawItem): Promise<Body> {
     let url = publicUrl(item.url);
     if (DISCUSSION.test(url.hostname + url.pathname)) fail("discussion-page");
@@ -216,21 +283,9 @@ class Reader {
       url = new URL(`https://huggingface.co/${parts[0]}/${parts[1]}/raw/main/README.md`);
       via = "model-card";
     }
-    let response = await this.fetch(url.href);
+    const googleNews = url.hostname === "news.google.com";
+    const response = googleNews ? await this.googleArticle(item, url) : await this.fetch(url.href);
     if (response.status !== 200) fail(`http-${response.status}`);
-    if (response.url.hostname === "news.google.com") {
-      const { document } = parseHTML(response.text);
-      const candidates = [
-        document.querySelector('link[rel="canonical"]')?.getAttribute("href"),
-        ...Array.from(document.querySelectorAll("a[href]")).filter((a) => /read (?:the )?(?:full|original) article|view (?:the )?(?:full|original) article|원문/i.test(a.textContent ?? "")).map((a) => a.getAttribute("href")),
-      ];
-      const outbound = candidates.find((href) => {
-        try { const target = publicUrl(new URL(href ?? "", response.url).href); return !/(^|\.)google\.[a-z.]+$/.test(target.hostname) && target.pathname !== "/"; } catch { return false; }
-      });
-      if (!outbound) fail("google-news-no-public-link");
-      response = await this.fetch(new URL(outbound, response.url).href);
-      if (response.status !== 200) fail(`http-${response.status}`);
-    }
     const contentType = String(response.headers["content-type"] ?? "").toLowerCase();
     let text: string;
     if (via !== "web" && /text\/(plain|markdown)|application\/vnd\.github\.raw/.test(contentType)) {
@@ -249,7 +304,7 @@ class Reader {
       const head = text.slice(0, 3000).toLowerCase();
       if (words.length >= 3 && words.filter((w) => head.includes(w)).length < 2) fail("unrelated-body");
     }
-    return { text: text.slice(0, LIMITS.articleChars), via };
+    return { text: text.slice(0, LIMITS.articleChars), via, ...(googleNews && {originalUrl: response.url.href}) };
   }
 
   async read(item: RawItem): Promise<ArticleEvidence> {
@@ -268,16 +323,17 @@ class Reader {
       const text = plainText(item.snippet).slice(0, LIMITS.articleChars);
       return { text, reading: { status: "snippet", via: "snippet", chars: text.length, reason: result.reason } };
     }
-    return { text: result.text, reading: { status: "body", via: result.via, chars: result.text.length } };
+    return { text: result.text, reading: { status: "body", via: result.via, chars: result.text.length, ...(result.originalUrl && {url:result.originalUrl}) } };
   }
 
   private async cachedRead(item: RawItem): Promise<Cached> {
     const path = join(this.cacheDir, `${createHash("sha256").update(item.url).digest("hex")}.json`);
     try {
       const cached = JSON.parse(await readFile(path, "utf8"));
-      if (cached.version === 1 && cached.url === item.url &&
+      const correctedFailure = cached.version === 1 && (cached.reason === "unsupported-encoding" || (new URL(item.url).hostname === "news.google.com" && ["robots-denied", "google-news-no-public-link"].includes(cached.reason)));
+      if (!correctedFailure && [1,2].includes(cached.version) && cached.url === item.url &&
         (typeof cached.reason === "string" || (typeof cached.text === "string" && cached.text.length >= LIMITS.minBodyChars && ["web", "readme", "model-card"].includes(cached.via)))) {
-        return "reason" in cached ? { reason: cached.reason } : { text: cached.text.slice(0, LIMITS.articleChars), via: cached.via };
+        return "reason" in cached ? { reason: cached.reason } : { text: cached.text.slice(0, LIMITS.articleChars), via: cached.via, ...(cached.originalUrl && {originalUrl: publicUrl(cached.originalUrl).href}) };
       }
     } catch { /* A missing/corrupt cache simply requires a fresh safe read. */ }
     let result: Cached;
@@ -286,7 +342,7 @@ class Reader {
     if ("reason" in result && result.reason === "total-timeout") return result; // transient: a later run should retry
     try {
       await mkdir(this.cacheDir, { recursive: true });
-      await writeFile(path, JSON.stringify({ version: 1, url: item.url, ...result }), "utf8");
+      await writeFile(path, JSON.stringify({ version: 2, url: item.url, ...result }), "utf8");
     } catch { /* Cache failure must not affect the edition. */ }
     return result;
   }
