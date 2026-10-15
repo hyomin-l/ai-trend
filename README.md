@@ -7,7 +7,7 @@ Scattered AI trends, gathered into one newspaper page every weekday morning.
 ## 개요
 
 - 공개 API와 RSS에서 AI 관련 글·레포·토론을 코드가 수집한다.
-- Claude CLI(`claude -p`)를 발행당 2번 호출한다. 먼저 최대 16건의 ID를 선별하고, 해당 글의 본문을 확보한 뒤 한/영 설명·실무 관점·용어 풀이를 작성한다. 별도 API 키는 쓰지 않는다.
+- Claude CLI(`claude -p`)를 발행당 2번 호출한다. 먼저 최대 16건의 ID를 선별하고, 해당 글의 본문을 확보한 뒤 한/영 설명·실무 관점·용어 풀이를 작성한다. 한글 설명은 공백 포함 150~190자, 영어는 200자 이내를 목표로 하며 근거가 부족하면 짧게 쓴다. 구독 토큰으로 실행할 수 있으며, Anthropic API 키도 선택적으로 지원한다.
 - 그날 판은 JSON 스냅샷으로 저장·커밋되고, Next.js 정적 export로 GitHub Pages에 배포된다. 지난 호는 날짜별로 다시 볼 수 있다.
 - 새 판 알림용 macOS 데스크 펫이 별도로 제공된다.
 
@@ -17,7 +17,7 @@ Scattered AI trends, gathered into one newspaper page every weekday morning.
 - 한국어/영어 두 벌(`/ko/`, `/en/`), 라이트/다크 테마
 - 날짜 스테퍼와 지난 호 목록, 전 호 기사 목록
 - 상단바 인라인 검색: 오타·띄어쓰기 차이를 허용하고, 결과를 누르면 그 자리에서 기사 모달이 열린다
-- 기사 모달: 실무 관점을 녹인 설명·용어 풀이·다른 출처 순서, 핵심 구절 1~2곳에 옅은 배경 강조, 간격으로 구분하고 용어와 다른 출처 사이에만 얇은 선 표시(영역 제목 없음), 마젠타 원문 링크
+- 기사 모달: 실무 관점을 녹인 설명·용어 풀이·다른 출처 순서, 핵심 구절 1~2곳과 본문에 등장하는 용어에 옅은 배경 강조, 간격으로 구분하고 용어와 다른 출처 사이에만 얇은 선 표시(영역 제목 없음), 마젠타 원문 링크
 - 정적 데이터 엔드포인트와 기사 딥링크
 
 ## 지면 구성
@@ -108,11 +108,13 @@ GitHub Actions (평일(월~금) 새벽 02:17·03:47·05:17 KST 중 먼저 도착
 - GitHub PR·이슈·토론, Hacker News `item`, Reddit `comments` 페이지는 본문이 아닌 토론이라 읽지 않고(`discussion-page`) 피드 설명을 쓴다. 범용 웹 추출은 후보 제목·스니펫의 3자 이상 단어가 3개 이상일 때 그중 2개 미만만 본문 앞 3,000자에 나오면 다른 글로 보고 버린다(`unrelated-body`).
 - gzip·deflate·Brotli 응답을 해제하며 압축된 바이트와 해제된 바이트에 같은 크기 상한을 적용한다. 손상·미지원 압축은 구분해 기록한다.
 - 응답을 Content-Type의 `charset` 또는 `<meta charset>`으로 디코딩한다(EUC-KR 등). 전체 시간 초과(`total-timeout`)는 캐시하지 않아 다음 실행이 다시 시도한다.
-- robots.txt 거부, 사설/로컬 주소, 403·429, 유료벽, 시간 초과·본문 추출 실패는 우회·재시도하지 않고 피드 설명으로 폴백한다. Google News는 공개 페이지의 명시적 원문 링크를 우선하고, 접근 제한·링크 부재 시 공개 Bing News RSS를 기사당 한 번 조회한다. RSS의 언론사 도메인과 제목을 대조해 한 개의 공개 HTTPS 주소만 읽으며, 못 찾으면 폴백한다. 비공개 RPC·불투명 링크 디코딩·차단 우회는 하지 않는다.
+- robots.txt 거부, 사설/로컬 주소, 403·429, 유료벽, 시간 초과·본문 추출 실패는 우회·재시도하지 않고 피드 설명으로 폴백한다. Google News는 공개 페이지의 명시적 원문 링크를 우선하고, 접근 제한·링크 부재 시 공개 Bing News RSS를 기사당 한 번 조회한다. 피드에 언론사 도메인이 있으면 도메인과 제목을 대조하고, 없으면 제목 일치 기준을 강화한다. 검증한 공개 HTTPS 원문 한 개만 읽으며, 못 찾으면 폴백한다. 비공개 RPC·불투명 링크 디코딩·차단 우회는 하지 않는다.
 - 원문 요청에 로그인 정보·GitHub/Claude 토큰을 전달하지 않는다. HTML의 JS·외부 리소스는 실행하지 않으며 본문을 모델의 지시로 취급하지 않는다.
 - `_tmp/article-reading/<KST 날짜>/`에 성공·실패를 로컬 캐시한다. CI의 새 러너에서는 캐시 재사용을 보장하지 않는다. 원문은 스냅샷에 저장하지 않고 `reading`에 확보 방법·글자 수·실패 이유를 기록한다. Google News의 공개 원문을 찾으면 확인된 주소도 기록해 모달의 원문 보기로 연결한다. 수집 제한·요청 제한·인증·유료벽·시간 초과·원문 주소 미확보·압축 처리 실패는 모달에서 사유별로 안내한다.
 - 선별 LLM은 60초, 설명 LLM은 180초 제한. 단계별 시간·입력 글자 수·CLI가 보고한 토큰 사용량을 로그로 확인한다. LLM 재시도는 없다.
 - 수동 실행의 `validate_only=true`는 수집·테스트·빌드·아티팩트 업로드만 수행한다(Claude 호출은 그대로여서 구독 토큰을 소모한다). 스냅샷 커밋과 사이트 배포는 하지 않는다. 작업 브랜치에서는 항상 커밋·배포가 생략된다.
+
+본문 근거 600자는 모델에 전달하는 발췌 상한이며, 화면 설명의 목표 길이 150~190자와는 별개다. 설명 길이는 작성 지침이며 하한을 강제하거나 부족한 내용을 사실 없이 채우지 않는다. 본문·핵심 구절·용어는 저장된 스냅샷을 표시하므로 리더를 개선해도 기존 기사는 자동으로 재작성되지 않는다. 원문 재확인과 스냅샷 갱신이 필요하다. 적용 이력과 실제 검증 범위는 [본문 확보 문서](docs/article-reading-plan.md)를 참고한다.
 
 ## 포크해서 쓰기
 
@@ -175,14 +177,14 @@ cd ai-trend/desk-pet && ./install.sh
 ```
 app/          라우트: /, /[lang], /[lang]/[date], archive, stories, latest.json, search-index.json, editions/<date>/data.json
 components/   화면 컴포넌트와 CSS Module (TopBar, DateNav, TopSearch, Globe, 각종 Dialog 등)
-lib/          수집·가공·검색 로직 (sources, rss, prep, curate, claude, pipeline, snapshots, search, format, i18n)
+lib/          수집·가공·검색 로직 (sources, rss, prep, edition-curation, read-articles, curate, claude, pipeline, snapshots, search, format, i18n)
 config/       sections.ts: 섹션·업종 정의, 섹션 설명·플래그 / sources.ts: 원천, 기간·상한 / prompt.ts: 큐레이터 프롬프트
 types/        Snapshot·Item 등 공용 타입
 data/         snapshots/ 날짜별 판 JSON
 scripts/      collect.ts 수집 진입점
 tests/        vitest 단위 테스트 (fixtures 포함)
 desk-pet/     macOS 데스크 펫
-docs/         제품 사양(PRD)
+docs/         제품 사양(PRD)·본문 확보 사양과 적용 이력
 ```
 
 ## 테스트
@@ -191,7 +193,7 @@ docs/         제품 사양(PRD)
 npm test
 ```
 
-vitest 단위 테스트. 네트워크와 LLM 호출은 고정 응답으로 대체한다. RSS 파싱, 전처리 규칙, 큐레이션 응답 검증, 검색 매칭 등을 다룬다. `tests/snapshots.test.ts`는 커밋된 모든 스냅샷을 검증한다(`validateSnapshot`).
+vitest 단위 테스트. 네트워크와 LLM 호출은 고정 응답으로 대체한다. RSS 파싱, 전처리 규칙, 큐레이션 응답 검증, 검색 매칭 외에 공개 원문 탐색의 제목·언론사 대조, robots·공개 주소 검증, 압축 해제 상한, 원문 확보 실패 안내를 다룬다. `tests/snapshots.test.ts`는 커밋된 모든 스냅샷을 검증한다(`validateSnapshot`).
 
 ## 보안
 

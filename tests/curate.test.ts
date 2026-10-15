@@ -3,8 +3,9 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 import type { RawItem } from "@/types";
-import { CRITERIA, SYSTEM_PROMPT, WRITING_PROMPT } from "@/config/prompt";
+import { CRITERIA, SELECTION_PROMPT, SYSTEM_PROMPT, WRITING_PROMPT } from "@/config/prompt";
 import { SECTIONS, SECTION_ORDER } from "@/config/sections";
+import { ARTICLE_READING } from "@/config/sources";
 import { runClaude } from "@/lib/claude";
 import { buildPrompt, fallbackCuration, parseCuration } from "@/lib/curate";
 
@@ -342,10 +343,12 @@ describe("SYSTEM_PROMPT glossary", () => {
 });
 
 describe("SYSTEM_PROMPT selection size and summary length", () => {
-  it("PRD-curator: asks for 18-22 items, 3-4 per section, front counted inside its section", () => {
-    expect(SYSTEM_PROMPT).toMatch(/18~22건/);
-    expect(SYSTEM_PROMPT).toMatch(/섹션마다 3~4건/);
-    expect(SYSTEM_PROMPT).not.toMatch(/약 30건/);
+  it("PRD-curator: caps every prompt at the configured article limit while keeping section balance", () => {
+    for (const prompt of [SYSTEM_PROMPT, SELECTION_PROMPT, WRITING_PROMPT]) {
+      expect(prompt).toContain(`전체 최대 ${ARTICLE_READING.maxArticles}건`);
+      expect(prompt).toMatch(/섹션마다 3~4건/);
+      expect(prompt).not.toMatch(/18~22건|약 30건/);
+    }
   });
 
   it("PRD-curator: summary targets 150-190 Korean characters with background and inline jargon explanation", () => {
