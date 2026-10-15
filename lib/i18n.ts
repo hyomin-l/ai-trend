@@ -173,3 +173,44 @@ const en: Dict = {
 
 const DICTS: Record<Lang, Dict> = { ko, en };
 export const ui = (lang: Lang): Dict => DICTS[lang];
+
+/** Explain collection failures without exposing internal exception text. Old snapshots remain supported. */
+export function readingNotice(reason: string | undefined, lang: Lang, url = ""): string {
+  if (!reason) return ui(lang).feedOnly;
+  const publisher = reason.startsWith("publisher-");
+  const r = (publisher ? reason.slice("publisher-".length) : reason).toLowerCase();
+  const messages = {
+    lookup: ["공개된 원문 주소를 찾지 못했습니다.", "A matching public original URL could not be found."],
+    searchBlocked: ["공개 원문 주소 검색이 제한됐습니다.", "Public original-URL lookup was restricted."],
+    google: ["Google News 중계 주소가 자동 수집을 제한했습니다.", "The Google News intermediary restricted automated access."],
+    blocked: ["사이트에서 자동 수집을 제한했습니다.", "The site restricted automated access."],
+    rate: ["사이트의 요청 횟수 제한에 도달했습니다.", "The site's request limit was reached."],
+    auth: ["원문을 읽으려면 인증이 필요합니다.", "Authentication is required to read the original."],
+    paywall: ["유료 열람이 필요한 원문입니다.", "The original requires paid access."],
+    timeout: ["원문을 읽는 제한 시간을 초과했습니다.", "The original could not be read within the time limit."],
+    compression: ["원문의 압축 응답을 처리하지 못했습니다.", "The compressed response could not be decoded."],
+    discussion: ["토론·댓글 페이지는 기사 본문으로 사용하지 않았습니다.", "A discussion page was not used as an article body."],
+    mismatch: ["기사와 일치하는 본문을 확인하지 못했습니다.", "A body matching this article could not be verified."],
+    size: ["원문이 수집 크기 제한을 초과했습니다.", "The original exceeded the collection size limit."],
+    missing: ["원문 주소에서 기사를 찾지 못했습니다.", "The article was not found at its original URL."],
+    permission: ["사이트의 수집 허용 여부를 확인하지 못했습니다.", "The site's collection permission could not be verified."],
+    extraction: ["원문에서 읽을 수 있는 본문을 추출하지 못했습니다.", "Readable article text could not be extracted."],
+  };
+  let key: keyof typeof messages;
+  if (r.includes("timeout")) key = "timeout";
+  else if (r.includes("429")) key = "rate";
+  else if (r.startsWith("original-lookup-")) key = "searchBlocked";
+  else if (r === "google-news-no-public-link") key = "lookup";
+  else if (r === "http-401") key = "auth";
+  else if (r === "paywall") key = "paywall";
+  else if (r === "robots-denied" || r === "http-403") key = !publisher && /^https:\/\/news\.google\.com\//.test(url) ? "google" : "blocked";
+  else if (r.startsWith("robots-")) key = "permission";
+  else if (r === "unsupported-encoding" || r === "decompression-failed") key = "compression";
+  else if (r === "discussion-page") key = "discussion";
+  else if (r === "unrelated-body") key = "mismatch";
+  else if (r === "body-too-large") key = "size";
+  else if (r === "http-404" || r === "http-410") key = "missing";
+  else if (r === "extraction-failed" || r === "unsupported-content-type") key = "extraction";
+  else return ui(lang).feedOnly;
+  return `${messages[key][lang === "ko" ? 0 : 1]} ${lang === "ko" ? "피드 설명을 바탕으로 작성했습니다." : "Written from the feed description."}`;
+}

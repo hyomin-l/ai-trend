@@ -141,18 +141,27 @@
         "en": "Google DeepMind speeds antimicrobial peptide search with Antigravity"
       },
       "summary": {
-        "ko": "구글 딥마인드가 Google Antigravity for Science를 활용해 새로운 항균 펩타이드를 찾는 작업을 가속하는 사례를 소개했습니다. 확인된 내용은 제목과 한 줄 소개뿐이어서 구체적인 수치나 방식은 원문에서 확인해야 합니다.",
-        "en": "Google DeepMind described using Google Antigravity for Science to speed up the search for novel antimicrobial peptides. Only a one-line summary was available, so details are unconfirmed."
+        "ko": "구글 딥마인드는 Antigravity로 단백질 데이터베이스를 탐색하고 후보의 기능·구조를 평가해, 세균을 억제하는 항균 펩타이드 후보를 찾는 과정을 공개했습니다. 여러 데이터베이스를 오가던 탐색을 한 작업 흐름으로 묶고 유망 후보의 우선순위를 정합니다. 호흡기 감염 병원체에 대한 활성을 예측했지만, 실제 효능은 실험실에서 검증 중입니다.",
+        "en": "Google DeepMind used Antigravity to find an antimicrobial peptide candidate by searching protein data. Its predicted activity against respiratory pathogens is still undergoing wet-lab validation."
       },
       "takeaway": {
         "ko": "",
         "en": ""
       },
       "reading": {
-        "status": "snippet",
-        "via": "snippet",
-        "chars": 94,
-        "reason": "unsupported-encoding"
+        "status": "body",
+        "via": "web",
+        "chars": 1500
+      },
+      "highlights": {
+        "ko": [
+          "탐색을 한 작업 흐름으로 묶고",
+          "실제 효능은 실험실에서 검증 중"
+        ],
+        "en": [
+          "find an antimicrobial peptide candidate",
+          "still undergoing wet-lab validation"
+        ]
       }
     },
     {
@@ -306,8 +315,8 @@
         "en": "Hanwha E&C adds AI to site hazard reporting"
       },
       "summary": {
-        "ko": "한화 건설부문이 건설현장 위험 신고에 AI를 도입했다고 EBN이 보도했습니다. 제목에 따르면 근로자가 말하고 사진을 찍으면 AI가 위험 요소 분석까지 해 줍니다. 본문은 확인되지 않아 적용 범위와 성과 수치는 원문에서 확인해야 합니다.",
-        "en": "EBN reports Hanwha's construction division introduced AI for site hazard reporting; per the headline, workers speak and take photos and the AI analyzes them. Details were not available."
+        "ko": "한화 건설부문이 음성으로 위험을 신고하는 ‘안전퀵문고’와 AI 사진 분석을 도입했습니다. 기존 10개 언어 서비스에 음성 입력을 더해 외국인·고령 근로자의 입력 부담을 줄이고, 사진 속 잠재적 위험과 개선대책도 제시합니다. 위험요인과 조치 현황은 기존 안전보건 플랫폼에서 함께 관리해 신고가 실제 현장 개선으로 이어지도록 할 계획입니다.",
+        "en": "Hanwha adds voice input to its 10-language safety platform and uses AI to flag photo hazards and suggest fixes. Reports and follow-up actions are tracked in the same platform."
       },
       "takeaway": {
         "ko": "",
@@ -315,10 +324,20 @@
       },
       "industry": "construction",
       "reading": {
-        "status": "snippet",
-        "via": "snippet",
-        "chars": 56,
-        "reason": "robots-denied"
+        "status": "body",
+        "via": "web",
+        "chars": 1455,
+        "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1727962"
+      },
+      "highlights": {
+        "ko": [
+          "기존 10개 언어 서비스에 음성 입력을 더해",
+          "위험요인과 조치 현황은 기존 안전보건 플랫폼에서 함께 관리"
+        ],
+        "en": [
+          "voice input to its 10-language safety platform",
+          "Reports and follow-up actions are tracked"
+        ]
       }
     },
     {
@@ -333,8 +352,8 @@
         "en": "Why banking AI projects stall between pilot and production"
       },
       "summary": {
-        "ko": "BizTech Magazine이 은행의 AI 프로젝트가 파일럿 단계에서 실서비스로 넘어가지 못하고 멈추는 이유와 성공 방법을 다뤘습니다. 확인된 내용은 제목뿐이어서 구체적인 원인과 수치는 원문을 봐야 합니다.",
-        "en": "BizTech Magazine examines why banking AI projects stall before production and how to succeed. Only the headline was available, so specifics are unconfirmed."
+        "ko": "Microsoft 금융 AI 책임자는 인터뷰에서 은행 AI가 파일럿에 머무는 원인으로 분산된 데이터, 기존 시스템 연동, 성과 측정과 인력 역량 문제를 꼽았습니다. 기술 성능보다 조직의 준비와 협업이 더 큰 장벽이라는 설명입니다. 업무에 연결할 과제와 측정 가능한 성과를 정하고, 접근 통제·모니터링·감사를 설계부터 포함하라고 권했습니다.",
+        "en": "Microsoft's financial AI lead cites data, integration and organizational barriers to scaling bank pilots. He recommends measurable workflow outcomes and security controls built in from the start."
       },
       "takeaway": {
         "ko": "",
@@ -342,10 +361,20 @@
       },
       "industry": "finance",
       "reading": {
-        "status": "snippet",
-        "via": "snippet",
-        "chars": 98,
-        "reason": "robots-denied"
+        "status": "body",
+        "via": "web",
+        "chars": 1500,
+        "url": "https://biztechmagazine.com/article/2026/10/pilot-production-why-banking-ai-projects-stall-and-how-ensure-success"
+      },
+      "highlights": {
+        "ko": [
+          "기술 성능보다 조직의 준비와 협업이 더 큰 장벽",
+          "접근 통제·모니터링·감사를 설계부터 포함"
+        ],
+        "en": [
+          "data, integration and organizational barriers",
+          "security controls built in from the start"
+        ]
       }
     },
     {
@@ -395,18 +424,28 @@
         "en": "Straive expands enterprise AI services via OpenAI partnership"
       },
       "summary": {
-        "ko": "Straive가 OpenAI와의 파트너십을 통해 기업용 AI 서비스를 확대한다고 150sec이 전했습니다. 확인된 내용은 제목뿐이어서 협력 범위와 구체적인 서비스 내용은 원문에서 확인해야 합니다.",
-        "en": "150sec reports Straive is expanding enterprise AI services through a partnership with OpenAI. Only the headline was available, so scope is unconfirmed."
+        "ko": "데이터·AI 운영 기업 Straive가 OpenAI 파트너 네트워크에 합류해 기업 AI의 개발부터 실제 운영까지 지원합니다. OpenAI 모델에 데이터 준비, 기존 시스템 연동, 운영 규칙과 개선 역량을 결합하는 협력입니다. 서비스를 구축과 운영으로 나누며, 업종별 적용 과정에서 사람의 감독과 운영 관리를 유지하는 데 초점을 둡니다.",
+        "en": "Straive joined OpenAI's partner network to help enterprises build and run AI. It combines models with data preparation, integration, governance and human oversight in industry-specific workflows."
       },
       "takeaway": {
         "ko": "",
         "en": ""
       },
       "reading": {
-        "status": "snippet",
-        "via": "snippet",
-        "chars": 72,
-        "reason": "robots-denied"
+        "status": "body",
+        "via": "web",
+        "chars": 1500,
+        "url": "https://150sec.com/straive-expands-enterprise-ai-services-through-openai-partnership/"
+      },
+      "highlights": {
+        "ko": [
+          "기업 AI의 개발부터 실제 운영까지 지원",
+          "사람의 감독과 운영 관리를 유지"
+        ],
+        "en": [
+          "help enterprises build and run AI",
+          "governance and human oversight"
+        ]
       }
     },
     {
@@ -780,6 +819,27 @@
       "desc": {
         "ko": "은행이 대출은 그대로 두고 손실 위험만 다른 투자자에게 넘기는 거래입니다.",
         "en": "A deal where a bank keeps a loan but shifts its loss risk to other investors."
+      }
+    },
+    {
+      "term": "Antigravity",
+      "desc": {
+        "ko": "과학 데이터 탐색과 후보 평가를 돕는 구글의 AI 작업 도구입니다.",
+        "en": "Google’s AI workbench for exploring scientific data and evaluating research candidates."
+      }
+    },
+    {
+      "term": "파일럿",
+      "desc": {
+        "ko": "정식 도입 전에 작은 범위에서 효과와 작동 방식을 확인하는 시범 운영입니다.",
+        "en": "A small trial used to check how a system works and what it delivers before full deployment."
+      }
+    },
+    {
+      "term": "Straive",
+      "desc": {
+        "ko": "기업의 데이터를 준비하고 AI 서비스를 설계·배포·운영하도록 돕는 회사입니다.",
+        "en": "A company that helps enterprises prepare data and design, deploy and operate AI services."
       }
     }
   ]

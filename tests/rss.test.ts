@@ -124,3 +124,8 @@ it("preserves richer encoded body when the feed also provides a short descriptio
   expect(item.snippet).toBe("Short teaser");
   expect(item.content).toBe(body.trim());
 });
+
+it("retains the publisher homepage from a Google News source tag",()=>{
+ const [item]=parseFeed('<rss><channel><item><title>Release - Publisher</title><link>https://news.google.com/rss/articles/a</link><source url="https://publisher.example">Publisher</source></item></channel></rss>');
+ expect(item.publisherUrl).toBe('https://publisher.example');
+});

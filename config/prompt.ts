@@ -17,7 +17,7 @@ ${SECTION_ORDER.map((s) => `- ${s}: ${SECTIONS[s].brief}`).join("\n")}
 
 /** FORK POINT: the selection criteria, one bullet each. Edit freely; the curator reads them as the editorial policy. */
 export const CRITERIA: string[] = [
-  "적게 싣고 잘 고른다. 전체 18~22건: 섹션마다 3~4건(front 3건도 해당 섹션 몫). 후보가 적은 섹션은 있는 만큼만.",
+  "적게 싣고 잘 고른다. 전체 최대 16건: 섹션마다 3~4건(front 3건도 해당 섹션 몫). 후보가 적은 섹션은 있는 만큼만.",
   "같은 사건의 후보가 여럿이면 1건으로 합치고 가장 믿을 만한 출처(1차·원문에 가까운 것)의 id를 쓴다.",
   "같은 사건에 newsroom 출처 후보가 있으면 그것을 대표로 쓴다. 여러 출처가 다룬 사건은 front 후보로 좋다.",
   "직전 판 헤드라인에 실린 사건은 실질적 진전이 있을 때만 포함한다.",

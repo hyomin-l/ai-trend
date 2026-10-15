@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import type { GlossaryEntry, Item, Lang } from "@/types";
-import { REGION_LABEL, SECTION_LABEL, industryTag, ui } from "@/lib/i18n";
+import { REGION_LABEL, SECTION_LABEL, industryTag, readingNotice, ui } from "@/lib/i18n";
 import { fmtNum } from "@/lib/format";
 import WhenTime from "./WhenTime";
 import Dialog from "./Dialog";
@@ -70,7 +70,7 @@ export default function ItemDialog({ item, lang, generatedAt, glossary, onClose 
       onClose={onClose}
       label={item?.title[lang] ?? ""}
       closeLabel={u.close}
-      actions={item && <OriginalLink href={item.url} label={u.readOriginal} accent />}
+      actions={item && <OriginalLink href={item.reading?.url ?? item.url} label={u.readOriginal} accent />}
     >
       {item && (
         <article className={styles.article}>
@@ -87,7 +87,7 @@ export default function ItemDialog({ item, lang, generatedAt, glossary, onClose 
             <p className={styles.body}><HighlightedSummary text={item.summary[lang]} phrases={item.highlights?.[lang] ?? []} terms={terms.map(g => g.term)} /></p>
           </div>
 
-          {item.reading?.status === "snippet" && <p className={styles.readingNote}>{u.feedOnly}</p>}
+          {item.reading?.status === "snippet" && <p className={styles.readingNote}>{readingNotice(item.reading.reason, lang, item.url)}</p>}
 
           {terms.length > 0 && (
             <section className={styles.block} aria-label={u.terms}>

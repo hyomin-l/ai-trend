@@ -86,7 +86,7 @@ export function validateSnapshot(s: unknown, file: string): string[] {
     }
     if (it.reading !== undefined) {
       const r = it.reading;
-      if (!r || !["body", "snippet"].includes(r.status) || !["rss", "web", "readme", "model-card", "abstract", "snippet"].includes(r.via) || !Number.isInteger(r.chars) || r.chars < 0 || r.chars > 1500 || (r.reason !== undefined && typeof r.reason !== "string")) err(w, "reading needs a valid status, method and bounded character count");
+      if (!r || !["body", "snippet"].includes(r.status) || !["rss", "web", "readme", "model-card", "abstract", "snippet"].includes(r.via) || !Number.isInteger(r.chars) || r.chars < 0 || r.chars > 1500 || (r.reason !== undefined && typeof r.reason !== "string") || (r.url !== undefined && (!isStr(r.url) || !isWebUrl(r.url)))) err(w, "reading needs a valid status, method and bounded character count");
     }
     // An uncurated (--no-llm) edition copies feed snippets and has no takeaway, so only the title is required there.
     for (const f of snap.curated === false ? ["title"] : ["title", "summary"])
