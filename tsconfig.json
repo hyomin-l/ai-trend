@@ -36,9 +36,12 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
+    ".next.nosync",
     "_tmp",
     "desk-pet",
     "node_modules",
-    "out"
+    "node_modules.nosync",
+    "out",
+    "out.nosync"
   ]
 }

@@ -46,6 +46,8 @@ npm run collect -- --no-llm  # LLM 없이 원문 제목으로 판 생성
 npm run collect -- --date 2026-10-14
 ```
 
+iCloud로 동기화되는 폴더(바탕화면 등)에서 작업하면 iCloud가 `node_modules`·`.next`·`out`에 "파일 2" 중복본을 만든다. 그래서 세 폴더의 실체를 `*.nosync`(iCloud가 동기화하지 않음)에 두고 같은 이름의 심볼릭 링크로 연결해 둔다. `npm ci`는 링크를 지우므로 로컬에서는 `npm install`을 쓴다.
+
 `collect`는 외부 API를 실제로 호출한다. LLM 큐레이션에는 인증된 `claude` CLI(구독 로그인 또는 `ANTHROPIC_API_KEY`)가 필요하다(`--no-llm`이면 불필요). 로컬 빌드는 `BASE_PATH`가 비어 있는 루트 경로 기준이며, 하위 경로 배포를 확인하려면 `BASE_PATH=/<repo> npm run build`.
 
 ## 설정

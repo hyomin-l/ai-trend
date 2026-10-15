@@ -1,6 +1,8 @@
-node_modules/
-.next/
-out/
+# Build dirs live in *.nosync (iCloud skips them); the names below are symlinks, so no trailing slash.
+node_modules
+.next
+out
+*.nosync
 next-env.d.ts
 *.tsbuildinfo
 .DS_Store
