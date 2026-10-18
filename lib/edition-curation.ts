@@ -1,7 +1,7 @@
 import { ARTICLE_READING, CONFIG } from "@/config/sources";
 import { SELECTION_PROMPT, WRITING_PROMPT } from "@/config/prompt";
 import { SECTION_ORDER } from "@/config/sections";
-import { buildPrompt, fallbackCuration, parseCuration } from "@/lib/curate";
+import { buildPrompt, parseCuration } from "@/lib/curate";
 import { shareChars, type ArticleEvidence } from "@/lib/read-articles";
 import type { RawItem } from "@/types";
 
@@ -63,6 +63,30 @@ export function buildWritingPrompt(items: RawItem[], evidence: Map<string, Artic
   }) });
 }
 
+const clip = (v: unknown, max = 300) => trim(typeof v === "string" ? v : JSON.stringify(v) ?? "", max);
+
+/** Keeps the written items that name a selected ID once and have non-empty ko/en title and summary; logs each rejection. */
+export function acceptWriting(response: string, selected: RawItem[]): ReturnType<typeof parseCuration> {
+  let written: any;
+  try { written = JSON.parse(response.slice(response.indexOf("{"), response.lastIndexOf("}") + 1)); }
+  catch (error) {
+    console.error(`[write] JSON parse error: ${(error as Error).message.slice(0, 200)}; response starts: ${clip(response)}`);
+    return null;
+  }
+  if (!Array.isArray(written?.items)) { console.error(`[write] no items array; response starts: ${clip(response)}`); return null; }
+  const open = new Set(selected.map(i => i.id));
+  const filled = (value: any) => (["ko", "en"] as const).filter(lang => !(typeof value?.[lang] === "string" && value[lang].trim()));
+  const kept = written.items.filter((i: any) => {
+    if (!open.has(i?.id)) { console.error(`[write] dropped ${clip(i?.id, 60)}: ${i?.id ? "unknown or duplicate id" : "missing id"}`); return false; }
+    const empty = [...filled(i.title).map(l => `title.${l}`), ...filled(i.summary).map(l => `summary.${l}`)];
+    if (empty.length) { console.error(`[write] dropped ${i.id}: empty ${empty.join(", ")}`); return false; }
+    open.delete(i.id);
+    return true;
+  });
+  if (open.size) console.error(`[write] missing ids: ${[...open].join(", ")}`);
+  return parseCuration(JSON.stringify({ ...written, items: kept }), selected);
+}
+
 /** Exactly one selection attempt and one writing attempt; no LLM or network retries here. */
 export async function curateEdition(candidates: RawItem[], recent: string[], run: Run, read: Read) {
   const started = Date.now();
@@ -78,7 +102,7 @@ export async function curateEdition(candidates: RawItem[], recent: string[], run
     selection = balancedSelection(bounded);
   }
   const byId = new Map(bounded.map(i => [i.id, i]));
-  const selected = selection.ids.map(id => byId.get(id)!);
+  let selected = selection.ids.map(id => byId.get(id)!);
   console.log(`[select] candidates=${bounded.length} shown=${shown.length} selected=${selected.length} elapsedMs=${Date.now()-started}`);
   const readStarted = Date.now();
   let evidence: Map<string, ArticleEvidence>;
@@ -89,22 +113,18 @@ export async function curateEdition(candidates: RawItem[], recent: string[], run
   }
   console.log(`[read] body=${[...evidence.values()].filter(e=>e.reading.status==="body").length} fallback=${[...evidence.values()].filter(e=>e.reading.status==="snippet").length} chars=${[...evidence.values()].reduce((n,e)=>n+e.text.length,0)} elapsedMs=${Date.now()-readStarted}`);
   for (const [id, e] of evidence) console.log(`[read] ${id} ${e.reading.status}/${e.reading.via} chars=${e.text.length}${e.reading.reason ? ` reason=${e.reading.reason.slice(0,160)}` : ""}`);
-  let curation;
-  let curated = false;
-  try {
-    const response = await run(buildWritingPrompt(selected, evidence), WRITING_PROMPT, "write");
-    const written = JSON.parse(response.slice(response.indexOf("{"), response.lastIndexOf("}") + 1));
-    const expected = new Set(selected.map(i => i.id));
-    const bilingual = (value: any) => ["ko", "en"].every(lang => typeof value?.[lang] === "string" && value[lang].trim());
-    if (!Array.isArray(written.items) || written.items.length !== expected.size ||
-      !written.items.every((i: any) => expected.delete(i?.id) && bilingual(i?.title) && bilingual(i?.summary)))
-      throw new Error("writing must include every selected ID and explicit ko/en titles and summaries");
-    curation = parseCuration(response, selected);
-    if (!curation || curation.items.length !== selected.length) throw new Error("invalid writing output");
-    curated = true;
-  } catch (error) {
-    console.error(`[write] failed; publishing uncurated feed text: ${(error as Error).message.slice(0,200)}`);
-    curation = fallbackCuration(selected);
+  const thin = selected.filter(i => { const e = evidence.get(i.id)!; return e.reading.status === "snippet" && e.text.length < ARTICLE_READING.minEvidenceChars; });
+  if (thin.length) {
+    console.warn(`[read] skipped ${thin.length} with thin evidence (<${ARTICLE_READING.minEvidenceChars} chars): ${thin.map(i => i.id).join(", ")}`);
+    selected = selected.filter(i => !thin.includes(i));
+  }
+  if (!selected.length) throw new Error("no selected article has usable evidence");
+  const response = await run(buildWritingPrompt(selected, evidence), WRITING_PROMPT, "write");
+  const curation = acceptWriting(response, selected);
+  const need = Math.min(CONFIG.minCurated, selected.length);
+  if (!curation || curation.items.length < need) {
+    const got = curation?.items.length ?? 0;
+    throw new Error(`writing produced ${got} valid items, need at least ${need}; not publishing an uncurated edition`);
   }
   const published = new Set(curation.items.map(i => i.id));
   const items = curation.items.map(item => {
@@ -113,5 +133,5 @@ export async function curateEdition(candidates: RawItem[], recent: string[], run
   });
   const front = selection.front.filter(id=>published.has(id));
   for (const item of items) if (front.length < 3 && !front.includes(item.id)) front.push(item.id);
-  return { ...curation, front, items, curated };
+  return { ...curation, front, items, curated: true };
 }

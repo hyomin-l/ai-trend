@@ -15,6 +15,7 @@ export const CONFIG = {
   dedupeEditions: 10, // items already published in this many past editions are skipped...
   returningGrowth: 1.5, // ...unless a repo's stars grew by this factor ("returning")
   repoDedupeEditions: 7, // repos/models: skipped only for this many editions; older ones (up to dedupeEditions) may come back as "returning"
+  minCurated: 10, // fewest written items a run may publish (or all selected, if fewer); below this the collector fails and the next scheduled run retries
   recentHeadlineEditions: 1, // past editions whose headlines the curator is told not to repeat
 };
 
@@ -29,6 +30,7 @@ export const ARTICLE_READING = {
   maxBytes: 1_500_000,
   maxRedirects: 3,
   minBodyChars: 300,
+  minEvidenceChars: 80, // selected articles whose evidence is only a feed snippet shorter than this are not written
   perHostDelayMs: 250,
 };
 

@@ -1,4 +1,5 @@
 // npm run collect [-- --date YYYY-MM-DD] [-- --no-llm]
+// LLM failures exit non-zero without saving, so a later scheduled run retries; only --no-llm saves an uncurated edition.
 import { SECTION_ORDER } from "@/config/sections";
 import { CONFIG } from "@/config/sources";
 import { runClaude } from "@/lib/claude";

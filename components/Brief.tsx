@@ -48,13 +48,15 @@ export default function Brief({ items, lang, generatedAt, gloss, notice, isDimme
             <p className={styles.summary}>
               <Glossed text={item.summary[lang]} terms={gloss?.get(`${item.id}:m`)} lang={lang} />
             </p>
-            <p className={styles.why}>
-              <span className={styles.whyLabel}>{u.why}</span>
-              <span className={styles.arrow} aria-hidden="true">
-                →
-              </span>
-              {item.takeaway[lang]}
-            </p>
+            {item.takeaway[lang] && (
+              <p className={styles.why}>
+                <span className={styles.whyLabel}>{u.why}</span>
+                <span className={styles.arrow} aria-hidden="true">
+                  →
+                </span>
+                {item.takeaway[lang]}
+              </p>
+            )}
             <button type="button" className={styles.hit} aria-label={item.title[lang]} onClick={() => onOpen(item)} />
           </li>
         ))}

@@ -41,7 +41,7 @@ describe("selection before reading", () => {
     const sections=["newsroom","playbook","ax","repos","pulse"] as const;
     const candidates=sections.flatMap(s=>Array.from({length:20},(_,i)=>raw(`${s}${i}`,{section:s,snippet:"x".repeat(300)})));
     const run=vi.fn().mockRejectedValue(new Error("stop"));
-    await curateEdition(candidates,[],run,async()=>new Map());
+    await curateEdition(candidates,[],run,async()=>new Map()).catch(()=>{});
     const lines=(run.mock.calls[0][0] as string).split("\n").filter(l=>l.includes("|"));
     expect(lines).toHaveLength(40);
     for (const s of sections) expect(lines.filter(l=>l.split("|")[2]===s)).toHaveLength(8);
@@ -49,33 +49,68 @@ describe("selection before reading", () => {
     vi.restoreAllMocks();
   });
 
-  it("falls back to bounded section-balanced selection without retrying failed LLM selection", async () => {
-    const candidates=[...Array.from({length:30},(_,i)=>raw(`n${i}`)),raw("r",{section:"repos"}),raw("p",{section:"playbook"})];
+  it("falls back to bounded section-balanced selection when LLM selection fails, without retrying", async () => {
+    const long = "s".repeat(120);
+    const candidates=[...Array.from({length:30},(_,i)=>raw(`n${i}`,{snippet:long})),raw("r",{section:"repos",snippet:long}),raw("p",{section:"playbook",snippet:long})];
     const read=vi.fn(async(_items: RawItem[])=>new Map());
-    const run=vi.fn().mockRejectedValueOnce(new Error("rate limit")).mockRejectedValueOnce(new Error("write failed"));
+    const run=vi.fn().mockRejectedValueOnce(new Error("rate limit")).mockImplementationOnce(async(p:string)=>JSON.stringify({items:JSON.parse(p).articles.map((a:any)=>item(a.id))}));
     const out=await curateEdition(candidates,[],run,read);
     expect(run).toHaveBeenCalledTimes(2);
     const selected=read.mock.calls[0][0] as RawItem[];
     expect(selected.length).toBeLessThanOrEqual(ARTICLE_READING.maxArticles);
     expect(selected.some(i=>i.id==="r")).toBe(true);
     expect(selected.some(i=>i.id==="p")).toBe(true);
-    expect(out.curated).toBe(false);
+    expect(out.curated).toBe(true);
   });
 
-  it.each(["missing selected article", "missing summary language"])("does not report curated success for %s", async problem => {
-    const written = problem === "missing selected article" ? [item("a")] : [item("a"), {...item("b"),summary:{ko:"한글 설명만"}}];
-    const run = vi.fn().mockResolvedValueOnce('{"items":[{"id":"a"},{"id":"b"}]}').mockResolvedValueOnce(JSON.stringify({items:written}));
-    const out = await curateEdition([raw("a"),raw("b")],[],run,async()=>new Map([["a",evidence()],["b",evidence()]]));
-    expect(out.curated).toBe(false);
-    expect(out.items).toHaveLength(2);
-    expect(out.items[0].summary.ko).toBe("Snippet a");
-    expect(run).toHaveBeenCalledTimes(2);
+  it("throws instead of returning an uncurated edition when the write call fails or is unparsable", async () => {
+    vi.spyOn(console,"error").mockImplementation(()=>{});
+    const cands=[raw("a",{snippet:"s".repeat(120)})];
+    const sel='{"items":[{"id":"a"}]}';
+    await expect(curateEdition(cands,[],vi.fn().mockResolvedValueOnce(sel).mockRejectedValueOnce(new Error("boom")),async()=>new Map())).rejects.toThrow("boom");
+    await expect(curateEdition(cands,[],vi.fn().mockResolvedValueOnce(sel).mockResolvedValueOnce("not json"),async()=>new Map())).rejects.toThrow(/0 valid items/);
+    expect(console.error).toHaveBeenCalledWith(expect.stringContaining("JSON parse error"));
+    vi.restoreAllMocks();
+  });
+
+  it("keeps valid written items, drops bad ones with a log, and publishes when enough remain", async () => {
+    const err=vi.spyOn(console,"error").mockImplementation(()=>{});
+    const ids=Array.from({length:12},(_,i)=>`n${i}`);
+    const cands=ids.map(id=>raw(id,{snippet:"s".repeat(120)}));
+    const written=[...ids.slice(0,10).map(item),{...item("n10"),summary:{ko:"한글만",en:" "}},{...item("zzz")}];
+    const run=vi.fn().mockResolvedValueOnce(JSON.stringify({items:ids.map(id=>({id})),front:["n11","n1"]})).mockResolvedValueOnce(JSON.stringify({items:written}));
+    const out=await curateEdition(cands,[],run,async()=>new Map());
+    expect(out.items.map(i=>i.id)).toEqual(ids.slice(0,10));
+    expect(out.front).toEqual(["n1","n0","n2"]);
+    const log=err.mock.calls.map(c=>c[0]).join("\n");
+    expect(log).toContain("dropped n10: empty summary.en");
+    expect(log).toContain("dropped zzz");
+    expect(log).toContain("missing ids: n10, n11");
+    vi.restoreAllMocks();
+  });
+
+  it("fails when fewer than minCurated written items are valid", async () => {
+    vi.spyOn(console,"error").mockImplementation(()=>{});
+    const ids=Array.from({length:12},(_,i)=>`n${i}`);
+    const run=vi.fn().mockResolvedValueOnce(JSON.stringify({items:ids.map(id=>({id}))})).mockResolvedValueOnce(JSON.stringify({items:ids.slice(0,9).map(item)}));
+    await expect(curateEdition(ids.map(id=>raw(id,{snippet:"s".repeat(120)})),[],run,async()=>new Map())).rejects.toThrow(/9 valid items, need at least 10/);
+    vi.restoreAllMocks();
+  });
+
+  it("does not send thin snippet-only evidence to the writer", async () => {
+    vi.spyOn(console,"warn").mockImplementation(()=>{});
+    const cands=[raw("a",{snippet:"short"}),raw("b",{snippet:"s".repeat(120)})];
+    const run=vi.fn().mockResolvedValueOnce('{"items":[{"id":"a"},{"id":"b"}]}').mockResolvedValueOnce(JSON.stringify({items:[item("b")]}));
+    const out=await curateEdition(cands,[],run,async()=>new Map());
+    expect(JSON.parse(run.mock.calls[1][0]).articles.map((a:any)=>a.id)).toEqual(["b"]);
+    expect(out.items.map(i=>i.id)).toEqual(["b"]);
+    vi.restoreAllMocks();
   });
 
   it("unreadable bodies use feed evidence and code-owned reading status even if the model forges it", async () => {
     const run=vi.fn().mockResolvedValueOnce('{"items":[{"id":"a"}]}').mockResolvedValueOnce(JSON.stringify({items:[{...item("a"),reading:{status:"body",via:"web",chars:99999}}]}));
-    const out=await curateEdition([raw("a")],[],run,async()=>new Map());
-    expect(out.items[0].reading).toMatchObject({status:"snippet",via:"snippet",chars:9});
+    const out=await curateEdition([raw("a",{snippet:"Snippet a ".repeat(10)})],[],run,async()=>new Map());
+    expect(out.items[0].reading).toMatchObject({status:"snippet",via:"snippet",chars:99});
     expect(run.mock.calls[1][0]).toContain("Snippet a");
     expect(out.items[0].reading?.reason).toBeTruthy();
   });
