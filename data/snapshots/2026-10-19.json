@@ -1,18 +1,18 @@
 {
   "date": "2026-10-19",
   "issue": 3,
-  "generatedAt": "2026-10-18T19:27:19.653Z",
-  "model": "none",
-  "curated": false,
+  "generatedAt": "2026-10-18T22:51:55.054Z",
+  "model": "sonnet",
+  "curated": true,
   "failedSources": [],
   "stats": {
     "collected": 110,
-    "published": 16
+    "published": 12
   },
   "front": [
+    "4c6c987b6534",
     "09759b8d9858",
-    "d4d8a21bd997",
-    "65442e708214"
+    "32239fe1b8b1"
   ],
   "items": [
     {
@@ -21,18 +21,25 @@
       "url": "https://www.aitimes.com/news/articleView.html?idxno=216380",
       "publishedAt": "2026-10-18T19:10:14.000Z",
       "section": "newsroom",
-      "region": "KR",
+      "region": "US",
       "title": {
-        "ko": "앤트로픽 클로드, 25년 된 암호 표준 미스터리 풀어…“30분도 안 걸렸다”",
-        "en": "앤트로픽 클로드, 25년 된 암호 표준 미스터리 풀어…“30분도 안 걸렸다”"
+        "ko": "클로드, 25년 묵은 NSA 암호 표준 숫자 미스터리 30분 만에 풀어",
+        "en": "Claude Solves 25-Year-Old NSA Cryptography Seed Mystery in Under 30 Minutes"
       },
       "summary": {
-        "ko": "앤트로픽의 ‘클로드’가 미국 국가안보국(NSA)이 제공한 암호 표준 숫자의 출처를 추적해 25년 넘게 이어진 의문을 풀었다. 기존 암호를 깨뜨린 성과가 아니라, 암호 설계에 의도적인 약점이 숨겨져 있을 수 있다는 의심을 줄인 발견이다.앤트로픽은 16일(현지시간) 연구 결과를 공개하고, 내부 연구용 클로드 모델이 30분도 걸리지 않아 미국 국립표준기술연구소(NIST)의 타원곡선 5종에 쓰인 ‘시드(seed)’의 생성 방식을 찾아냈다고 밝혔다. 시드는 암호에 사용할 수학적 구조를 만드는 출발값이다.NIST는 2000년 전자서명 표준에",
-        "en": "앤트로픽의 ‘클로드’가 미국 국가안보국(NSA)이 제공한 암호 표준 숫자의 출처를 추적해 25년 넘게 이어진 의문을 풀었다. 기존 암호를 깨뜨린 성과가 아니라, 암호 설계에 의도적인 약점이 숨겨져 있을 수 있다는 의심을 줄인 발견이다.앤트로픽은 16일(현지시간) 연구 결과를 공개하고, 내부 연구용 클로드 모델이 30분도 걸리지 않아 미국 국립표준기술연구소(NIST)의 타원곡선 5종에 쓰인 ‘시드(seed)’의 생성 방식을 찾아냈다고 밝혔다. 시드는 암호에 사용할 수학적 구조를 만드는 출발값이다.NIST는 2000년 전자서명 표준에"
+        "ko": "앤트로픽 내부 연구용 클로드 모델이 NIST 타원곡선 5종에 쓰인 시드(출발값)의 생성 방식을 30분도 안 걸려 찾아냈습니다. NSA가 제공한 이 숫자는 선택 이유가 설명되지 않아 25년간 의도적 약점 의혹을 받았고, 이번 결과는 그 의심을 줄입니다. 기존 암호를 깬 것은 아닙니다.",
+        "en": "An internal Anthropic research Claude traced how the seeds behind five NIST elliptic curves were generated in under 30 minutes, easing long-held suspicions of a hidden NSA backdoor. No existing cipher was broken."
       },
       "takeaway": {
-        "ko": "",
-        "en": ""
+        "ko": "암호 표준의 설계 근거 검증 같은 장시간 분석 업무에 AI를 쓸 때는 결과의 독립 재검증 절차를 함께 마련해야 합니다.",
+        "en": "When using AI for deep analysis like crypto audits, add independent verification of results."
+      },
+      "highlights": {
+        "ko": [
+          "시드(출발값)의 생성 방식을 30분도 안 걸려 찾아냈습니다",
+          "기존 암호를 깬 것은 아닙니다"
+        ],
+        "en": []
       },
       "related": [
         {
@@ -47,30 +54,104 @@
       }
     },
     {
-      "id": "d4d8a21bd997",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/",
-      "publishedAt": "2026-10-17T21:31:32.000Z",
+      "id": "4c6c987b6534",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/news/public-benefit-fund",
+      "publishedAt": "2026-10-18T00:00:00.000Z",
       "section": "newsroom",
-      "region": "GLOBAL",
+      "region": "US",
       "title": {
-        "ko": "Meta removes language that raised scraping and AI training concerns",
-        "en": "Meta removes language that raised scraping and AI training concerns"
+        "ko": "앤트로픽, 지분 5%를 공익 펀드에 출연…기업가치 오르면 추가",
+        "en": "Anthropic Commits 5% of Shares to New Public Benefit Fund"
       },
       "summary": {
-        "ko": "A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web.",
-        "en": "A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web."
+        "ko": "앤트로픽이 주주 승인을 전제로 자사 지분 5%를 새 기구인 Anthropic Public Benefit Fund에 출연한다고 밝혔습니다. 기업가치가 정해진 기준선에서 50% 오를 때마다 이사회 재량으로 2%가 추가되는 구조여서 회사가 커질수록 공익 몫도 커집니다. 구체적인 기준선은 확인되지 않았습니다.",
+        "en": "Subject to stockholder approval, Anthropic will commit 5% of its shares to a new Public Benefit Fund, adding 2% at the board's discretion for every 50% rise in company value above a baseline."
       },
       "takeaway": {
         "ko": "",
         "en": ""
       },
+      "highlights": {
+        "ko": [
+          "지분 5%를 새 기구인",
+          "50% 오를 때마다 이사회 재량으로 2%가 추가되는 구조"
+        ],
+        "en": [
+          "5% of its shares",
+          "2% at the board's discretion for every 50% rise"
+        ]
+      },
       "related": [
         {
-          "source": "The Verge",
-          "url": "https://www.theverge.com/tech/1013409/meta-removes-language-that-may-have-allowed-it-to-scrape-news-sites"
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/"
         }
       ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 562
+      }
+    },
+    {
+      "id": "ab1e0ebf1e34",
+      "source": "Anthropic Research",
+      "url": "https://www.anthropic.com/research/expectations-for-the-future",
+      "publishedAt": "2026-10-16T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽 보고서: AI 최전선 직원과 일반 대중, 일자리 전망 달라",
+        "en": "Anthropic Reports: Frontier Staff and the Public Differ on AI's Job Impact"
+      },
+      "summary": {
+        "ko": "앤트로픽이 사내 고용 변화와, AI가 일과 경제에 미칠 영향에 대한 대중과 직원의 기대 차이를 다룬 보고서 2편을 공개했습니다. 두 집단은 이론이 다르다기보다 AI 역량을 직접 겪은 경험이 달라 전망도 갈리는 것으로 보인다고 분석합니다.",
+        "en": "Anthropic released two reports on AI's effect on its own employment and on the gap between public and staff expectations, arguing the gap stems from differing experience of AI capabilities rather than different theories."
+      },
+      "takeaway": {
+        "ko": "사내 AI 확산 시 직원들의 직접 사용 경험 격차가 인식 차이를 만들 수 있으니 체험 기회를 먼저 점검할 만합니다.",
+        "en": "Gaps in hands-on AI experience may drive differing views; check exposure first."
+      },
+      "highlights": {
+        "ko": [
+          "AI 역량을 직접 겪은 경험이 달라 전망도 갈리는 것"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 562
+      }
+    },
+    {
+      "id": "218f77bb959f",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/",
+      "publishedAt": "2026-10-18T16:30:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "디즈니, 파산한 Character.AI 직원 대다수 채용 합의",
+        "en": "Disney to Hire Most of Character.AI's Workforce"
+      },
+      "summary": {
+        "ko": "챗봇 스타트업 Character.AI가 파산을 신청한 뒤, 법원 서류에 따르면 디즈니가 직원 다수에게 일자리를 제공하기로 했습니다. 전 CEO 카란딥 아난드는 최근 디즈니의 첫 CTO가 됐고, 디즈니는 일부 자산을 2,000만 달러에 인수하기로 한 바 있습니다.",
+        "en": "After Character.AI filed for bankruptcy, a filing shows Disney will offer jobs to many employees. Ex-CEO Karandeep Anand became Disney's first CTO, and Disney agreed to buy some assets for $20 million."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "일부 자산을 2,000만 달러에 인수하기로"
+        ],
+        "en": [
+          "agreed to buy some assets for $20 million"
+        ]
+      },
       "reading": {
         "status": "body",
         "via": "web",
@@ -82,20 +163,29 @@
       "source": "OpenAI",
       "url": "https://openai.com/index/itau-generative-ai",
       "publishedAt": "2026-10-16T19:00:00.000Z",
-      "section": "newsroom",
+      "section": "ax",
       "region": "GLOBAL",
       "title": {
-        "ko": "How Itaú is building generative AI for its entire customer base",
-        "en": "How Itaú is building generative AI for its entire customer base"
+        "ko": "브라질 이타우, 전 고객 대상 생성형 AI 구축",
+        "en": "Brazil's Itaú Builds Generative AI for Its Entire Customer Base"
       },
       "summary": {
-        "ko": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s most regulated sectors.",
-        "en": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s most regulated sectors."
+        "ko": "브라질 은행 이타우가 대화형 인터페이스 ia.i와 거버넌스(통제·관리) 플랫폼 IARA를 통해 고객과 직원 모두에게 AI First 전략을 적용하고 있습니다. 규제가 엄격한 금융 분야에서 진행된다는 점이 특징이며, 구체적 성과 수치는 확인된 내용에 없습니다.",
+        "en": "Itaú applies its AI First strategy to customers and employees through the ia.i conversational interface and IARA governance platform, in one of Brazil's most regulated sectors. No performance figures were available."
       },
       "takeaway": {
-        "ko": "",
-        "en": ""
+        "ko": "규제 산업에서는 서비스와 함께 거버넌스 플랫폼을 같이 설계했다는 점을 참고할 만합니다.",
+        "en": "Note that governance was built alongside the service in a regulated industry."
       },
+      "highlights": {
+        "ko": [
+          "고객과 직원 모두에게 AI First 전략을 적용"
+        ],
+        "en": [
+          "applies its AI First strategy to customers and employees"
+        ]
+      },
+      "industry": "finance",
       "related": [
         {
           "source": "OpenAI",
@@ -110,79 +200,69 @@
       }
     },
     {
-      "id": "218f77bb959f",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/",
-      "publishedAt": "2026-10-18T16:30:00.000Z",
-      "section": "newsroom",
-      "region": "GLOBAL",
-      "title": {
-        "ko": "Disney agrees to hire the majority of Character.AI’s workforce",
-        "en": "Disney agrees to hire the majority of Character.AI’s workforce"
-      },
-      "summary": {
-        "ko": "The filing also says that the “vast majority” of Character.AI employees who were offered jobs at Disney accepted them. However, this is a stalking horse bid, so another company could come forward with a higher offer.",
-        "en": "The filing also says that the “vast majority” of Character.AI employees who were offered jobs at Disney accepted them. However, this is a stalking horse bid, so another company could come forward with a higher offer."
-      },
-      "takeaway": {
-        "ko": "",
-        "en": ""
-      },
-      "reading": {
-        "status": "body",
-        "via": "web",
-        "chars": 591
-      }
-    },
-    {
       "id": "c22ce4d9c599",
       "source": "AWS Machine Learning Blog",
       "url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
       "publishedAt": "2026-10-16T20:48:16.000Z",
       "section": "playbook",
-      "region": "GLOBAL",
+      "region": "US",
       "title": {
-        "ko": "Building trust in AI agents: A production-ready evaluation framework with Amazon Bedrock AgentCore",
-        "en": "Building trust in AI agents: A production-ready evaluation framework with Amazon Bedrock AgentCore"
+        "ko": "AWS, AI 에이전트 신뢰 확보하는 운영용 평가 프레임워크 제시",
+        "en": "AWS Presents Production Evaluation Framework for Trustworthy AI Agents"
       },
       "summary": {
-        "ko": "Autonomous AI agents fail softly: latency stays flat while answer quality quietly erodes. This post shares a nine-stage evaluation framework, built on Amazon Bedrock AgentCore, that catches silent quality regressions across the full agent lifecycle, from first commit to live production.",
-        "en": "Autonomous AI agents fail softly: latency stays flat while answer quality quietly erodes. This post shares a nine-stage evaluation framework, built on Amazon Bedrock AgentCore, that catches silent quality regressions across the full agent lifecycle, from first commit to live production."
+        "ko": "AI 에이전트는 데모에서는 훌륭해도 운영 중 조용히 품질이 떨어지며, 자신 있게 읽히지만 틀린 답을 내놓는 식으로 실패합니다. AWS는 Amazon Bedrock AgentCore를 활용해 운영 환경에서 에이전트를 평가하는 프레임워크를 소개했습니다.",
+        "en": "Agents that demo well can quietly degrade in production, returning confident but wrong answers. AWS outlines an evaluation framework using Amazon Bedrock AgentCore for production agents."
       },
       "takeaway": {
-        "ko": "",
-        "en": ""
+        "ko": "에이전트 도입 시 출시 전 데모뿐 아니라 운영 중 지속 평가 체계를 갖췄는지 먼저 확인해야 합니다.",
+        "en": "Check for continuous production evaluation, not just pre-launch demos."
+      },
+      "highlights": {
+        "ko": [
+          "운영 중 조용히 품질이 떨어지며"
+        ],
+        "en": [
+          "quietly degrade in production"
+        ]
       },
       "reading": {
         "status": "body",
         "via": "rss",
-        "chars": 591
+        "chars": 562
       }
     },
     {
-      "id": "430a798967e2",
-      "source": "UX Collective",
-      "url": "https://uxdesign.cc/how-to-build-a-brand-foundation-with-ai-without-losing-your-craft-d616b05cb838?source=rss----138adf9c44c---4",
-      "publishedAt": "2026-10-18T19:06:49.000Z",
+      "id": "987754dece67",
+      "source": "Interconnects",
+      "url": "https://www.interconnects.ai/p/meta-shakes-up-the-frontiers-open",
+      "publishedAt": "2026-10-17T14:06:54.000Z",
       "section": "playbook",
-      "region": "GLOBAL",
+      "region": "US",
       "title": {
-        "ko": "How to build a brand foundation with AI without losing your craft",
-        "en": "How to build a brand foundation with AI without losing your craft"
+        "ko": "Meta Muse Spark Open 등장, 미국산 오픈 모델 선두권 복귀",
+        "en": "Meta's Muse Spark Open Brings US Open-Weight Models Back to the Frontier"
       },
       "summary": {
-        "ko": "Here is how to use Claude and a handful of guardrails to build a design system that developers respect and clients can actually ship. Continue reading on UX Collective »",
-        "en": "Here is how to use Claude and a handful of guardrails to build a design system that developers respect and clients can actually ship. Continue reading on UX Collective »"
+        "ko": "Meta의 Muse Spark Open이 미국산 오픈 웨이트(가중치 공개) 모델 중 단연 최강으로 평가됐고, Reflection의 첫 모델 Beam과 Mistral Large 4도 주목받았습니다. 이 모델들이 없었다면 서방 최고 모델보다 나은 중국산 오픈 모델이 20개 넘었을 것이라고 분석합니다.",
+        "en": "Meta's Muse Spark Open is judged the strongest American open-weight model by a wide margin, alongside Reflection's Beam and Mistral Large 4. Without them, 20+ Chinese open models would beat the best Western ones."
       },
       "takeaway": {
-        "ko": "",
-        "en": ""
+        "ko": "오픈 모델 선택지가 넓어졌으니 자사 업무 데이터로 직접 성능과 라이선스를 비교해 볼 만합니다.",
+        "en": "With more open options, benchmark them and check licenses on your own tasks."
+      },
+      "highlights": {
+        "ko": [
+          "미국산 오픈 웨이트(가중치 공개) 모델 중 단연 최강"
+        ],
+        "en": [
+          "strongest American open-weight model by a wide margin"
+        ]
       },
       "reading": {
-        "status": "snippet",
-        "via": "snippet",
-        "chars": 169,
-        "reason": "http-403"
+        "status": "body",
+        "via": "rss",
+        "chars": 562
       }
     },
     {
@@ -193,105 +273,30 @@
       "section": "playbook",
       "region": "GLOBAL",
       "title": {
-        "ko": "Waypoint-OPD: Transferring RL-Induced Policy Shifts via Gated On-Policy Distillation",
-        "en": "Waypoint-OPD: Transferring RL-Induced Policy Shifts via Gated On-Policy Distillation"
+        "ko": "Waypoint-OPD, 강화학습으로 바뀐 정책을 선별 전달하는 증류법",
+        "en": "Waypoint-OPD: Gated Distillation of RL-Induced Policy Shifts"
       },
       "summary": {
-        "ko": "Policy-shift distillation reuses the difference between a teacher's log probabilities before and after reinforcement learning (RL) as supervision on student-generated trajectories. However, this endpoint policy shift cannot reveal whether local action preferences evolved consistently during teacher ",
-        "en": "Policy-shift distillation reuses the difference between a teacher's log probabilities before and after reinforcement learning (RL) as supervision on student-generated trajectories. However, this endpoint policy shift cannot reveal whether local action preferences evolved consistently during teacher "
+        "ko": "강화학습(RL) 전후 교사 모델의 확률 차이를 학생 모델 학습 신호로 재사용하는 방식은, 최종 차이만으로는 학습 중 선호가 일관되게 변했는지 알 수 없습니다. Waypoint-OPD는 초기와 후기 변화가 서로 일치하는지 보고 전달할 부분을 선별합니다.",
+        "en": "Reusing a teacher's pre/post-RL log-probability difference to train a student can't show if preferences changed consistently. Waypoint-OPD checks agreement between early and late shifts to transfer selectively."
       },
       "takeaway": {
         "ko": "",
         "en": ""
       },
       "metrics": {
-        "upvotes": 667
+        "upvotes": 668
+      },
+      "highlights": {
+        "ko": [
+          "초기와 후기 변화가 서로 일치하는지 보고 전달할 부분을 선별"
+        ],
+        "en": []
       },
       "reading": {
         "status": "body",
         "via": "abstract",
         "chars": 600
-      }
-    },
-    {
-      "id": "b636554b6053",
-      "source": "비즈트리뷴",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBZTkpaemFyb3F6c0lFS3ZkZXF5eEJFaG9XUTdVOHp4X3NOTnRaMVU5dUVMVS1yaTV1R18tdnd5eWV3RVM5OGNMR2daNEhPNm9nbE8tLTFMRDFqcEJqRlcyaGY0TC1IXzQ0a2h0Y3dLdw?oc=5",
-      "publishedAt": "2026-10-18T09:33:05.000Z",
-      "section": "ax",
-      "region": "KR",
-      "title": {
-        "ko": "예금보험공사, 네이버클라우드와 생성형 AI 기반 대국민 서비스 혁신 추진",
-        "en": "예금보험공사, 네이버클라우드와 생성형 AI 기반 대국민 서비스 혁신 추진"
-      },
-      "summary": {
-        "ko": "예금보험공사, 네이버클라우드와 생성형 AI 기반 대국민 서비스 혁신 추진 비즈트리뷴",
-        "en": "예금보험공사, 네이버클라우드와 생성형 AI 기반 대국민 서비스 혁신 추진 비즈트리뷴"
-      },
-      "takeaway": {
-        "ko": "",
-        "en": ""
-      },
-      "industry": "finance",
-      "reading": {
-        "status": "snippet",
-        "via": "snippet",
-        "chars": 46,
-        "reason": "google-news-no-public-link"
-      }
-    },
-    {
-      "id": "44077b286c86",
-      "source": "지디넷코리아",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8tZWdvYVpLSDhLeEZZd0xFdmRUYTR5NmF2d19WTVU5ZEZrUmIyNnljYkczRVczZzVLbW5lRkM1QzVqSTFXYWRFQkkxZDRNbEU1NllqRDVR?oc=5",
-      "publishedAt": "2026-10-18T01:58:14.000Z",
-      "section": "ax",
-      "region": "KR",
-      "title": {
-        "ko": "[현장] 씨이랩 안전AI에 시선...'엑스아이바' 큰 관심",
-        "en": "[현장] 씨이랩 안전AI에 시선...'엑스아이바' 큰 관심"
-      },
-      "summary": {
-        "ko": "[현장] 씨이랩 안전AI에 시선...'엑스아이바' 큰 관심 지디넷코리아",
-        "en": "[현장] 씨이랩 안전AI에 시선...'엑스아이바' 큰 관심 지디넷코리아"
-      },
-      "takeaway": {
-        "ko": "",
-        "en": ""
-      },
-      "industry": "construction",
-      "reading": {
-        "status": "body",
-        "via": "web",
-        "chars": 599,
-        "url": "https://zdnet.co.kr/view/?no=20261018105814"
-      }
-    },
-    {
-      "id": "7b2db2e5ac92",
-      "source": "The Supply Chain Xchange",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQX2JDSGdrZnlDNnFSc1N5ZEhsZzVuaDB5ZU5ZbDdVUGxBNXFhX0Rad0ppQnBIenJLSExDNVcxN1kxTFZuc2lvclV2QmlKNDlYbzEzcHhNRk1zT2k2QnUxMkJJNDFxV1l6NjdPYVF3YkhJLUJYTEx1dG5TR2ZwQ0FiRGFqWmdKTnhYX213RlZKZW96ZTlueWNHSzcwWUo4aE9EaExJcml0aVBnc3lpT1FSVzRqcFRDZ1dCa185ZzJRSE4wVHdadXdHQkZ3X0p2TzJwY1E?oc=5",
-      "publishedAt": "2026-10-15T21:16:47.000Z",
-      "section": "ax",
-      "region": "GLOBAL",
-      "title": {
-        "ko": "How warehouse and distribution operations are changing frontline workers’ perceptions on using AI",
-        "en": "How warehouse and distribution operations are changing frontline workers’ perceptions on using AI"
-      },
-      "summary": {
-        "ko": "How warehouse and distribution operations are changing frontline workers’ perceptions on using AI The Supply Chain Xchange",
-        "en": "How warehouse and distribution operations are changing frontline workers’ perceptions on using AI The Supply Chain Xchange"
-      },
-      "takeaway": {
-        "ko": "",
-        "en": ""
-      },
-      "industry": "logistics",
-      "reading": {
-        "status": "snippet",
-        "via": "snippet",
-        "chars": 122,
-        "reason": "google-news-no-public-link"
       }
     },
     {
@@ -302,23 +307,31 @@
       "section": "repos",
       "region": "GLOBAL",
       "title": {
-        "ko": "mksglu/context-mode",
-        "en": "mksglu/context-mode"
+        "ko": "context-mode, 에이전트 컨텍스트 낭비 줄이는 도구",
+        "en": "context-mode Cuts Context Waste in Coding Agents"
       },
       "summary": {
-        "ko": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
-        "en": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks."
+        "ko": "MCP 도구 호출 결과가 컨텍스트 창(AI가 한 번에 기억하는 분량)을 빠르게 채우는 문제를 다룹니다. Playwright 스냅샷 하나가 56KB, GitHub 이슈 20건이 59KB여서 30분이면 40%가 사라지고, 대화가 압축되면 작업 중이던 파일도 잊습니다.",
+        "en": "Targets MCP tool outputs flooding the context window: one Playwright snapshot is 56 KB and 20 GitHub issues 59 KB, so 40% is gone after 30 minutes and compaction makes agents forget files."
       },
       "takeaway": {
-        "ko": "",
-        "en": ""
+        "ko": "장시간 에이전트 작업에서 컨텍스트 소모가 문제라면 도입 전 자사 작업으로 절감 효과를 측정해 보십시오.",
+        "en": "If long agent runs hit context limits, measure the savings on your own tasks."
       },
       "metrics": {
-        "stars": 30697,
-        "forks": 2254,
+        "stars": 30739,
+        "forks": 2276,
         "language": "TypeScript",
         "starsGained": 4438,
         "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "30분이면 40%가 사라지고"
+        ],
+        "en": [
+          "40% is gone after 30 minutes"
+        ]
       },
       "reading": {
         "status": "body",
@@ -334,23 +347,31 @@
       "section": "repos",
       "region": "GLOBAL",
       "title": {
-        "ko": "cathrynlavery/diagram-design",
-        "en": "cathrynlavery/diagram-design"
+        "ko": "diagram-design, 에이전트가 브랜드 맞춤 다이어그램을 그려주는 스킬",
+        "en": "diagram-design: An Agent Skill That Draws Brand-Styled Diagrams"
       },
       "summary": {
-        "ko": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, and Pi. 44 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
-        "en": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, and Pi. 44 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop."
+        "ko": "에이전트에게 말로 요청하면 HTML과 SVG가 담긴 파일 하나로 다이어그램을 그려 주는 에이전트 스킬입니다. 45종의 다이어그램을 지원하고, 웹사이트 주소를 알려 주면 색상과 글꼴을 가져와 이후 도표에 맞춰 줍니다. npx 명령 한 줄로 설치합니다.",
+        "en": "An agent skill that draws diagrams from plain-language requests as one self-contained HTML+SVG file. It supports 45 diagram types and can pull a site's palette and fonts to match branding."
       },
       "takeaway": {
         "ko": "",
         "en": ""
       },
       "metrics": {
-        "stars": 57580,
-        "forks": 3682,
+        "stars": 57653,
+        "forks": 3688,
         "language": "HTML",
         "starsGained": 8382,
         "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "45종의 다이어그램을 지원"
+        ],
+        "en": [
+          "45 diagram types"
+        ]
       },
       "reading": {
         "status": "body",
@@ -364,86 +385,35 @@
       "url": "https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B",
       "publishedAt": "2026-10-07T07:07:30.000Z",
       "section": "repos",
-      "region": "GLOBAL",
+      "region": "CN",
       "title": {
-        "ko": "openbmb/MiniCPM-V-4.7-35B-A3B",
-        "en": "openbmb/MiniCPM-V-4.7-35B-A3B"
+        "ko": "MiniCPM-V 4.7, 시리즈 첫 MoE 비전 모델 공개",
+        "en": "MiniCPM-V 4.7 Debuts as Series' First MoE Vision Model"
       },
       "summary": {
-        "ko": "image-text-to-text · transformers",
-        "en": "image-text-to-text · transformers"
+        "ko": "openbmb가 공개한 MiniCPM-V 4.7은 이미지 한 장, 여러 장, 영상을 이해하는 모델이며 35B-A3B 버전은 시리즈 최초의 MoE입니다. 자체 기법 Lookahead Expert Scheduling으로 기기 안에서 손실 없이 매끄럽게 추론하는 것을 내세웁니다.",
+        "en": "openbmb's MiniCPM-V 4.7 understands single images, multiple images and video; the 35B-A3B variant is the series' first MoE. Lookahead Expert Scheduling targets lossless, smooth on-device inference."
       },
       "takeaway": {
-        "ko": "",
-        "en": ""
+        "ko": "기기 내 추론을 검토한다면 자사 장비에서 실제 속도와 정확도를 확인해야 합니다.",
+        "en": "For on-device use, verify real speed and accuracy on your own hardware."
       },
       "metrics": {
-        "likes": 991,
+        "likes": 1006,
         "downloads": 57935
       },
-      "reading": {
-        "status": "body",
-        "via": "model-card",
-        "chars": 599
-      }
-    },
-    {
-      "id": "9b13d6a721a0",
-      "source": "Hugging Face",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "publishedAt": "2026-10-17T02:40:38.000Z",
-      "section": "repos",
-      "region": "GLOBAL",
-      "title": {
-        "ko": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
-        "en": "deepseek-ai/DeepSeek-V4.1-Flash-1017"
-      },
-      "summary": {
-        "ko": "image-text-to-text · transformers",
-        "en": "image-text-to-text · transformers"
-      },
-      "takeaway": {
-        "ko": "",
-        "en": ""
-      },
-      "metrics": {
-        "likes": 1287,
-        "downloads": 10233
+      "highlights": {
+        "ko": [
+          "시리즈 최초의 MoE"
+        ],
+        "en": [
+          "first MoE"
+        ]
       },
       "reading": {
         "status": "body",
         "via": "model-card",
         "chars": 599
-      }
-    },
-    {
-      "id": "e4018d8e9eb4",
-      "source": "Hacker News",
-      "url": "https://www.theregister.com/databases/2026/10/16/postgres-19-delayed-after-ai-reviewers-find-more-bugs-than-humans-can-fix/5303471",
-      "publishedAt": "2026-10-16T15:55:40.000Z",
-      "section": "pulse",
-      "region": "GLOBAL",
-      "title": {
-        "ko": "Postgres 19 delayed after AI reviewers find more bugs than humans can fix",
-        "en": "Postgres 19 delayed after AI reviewers find more bugs than humans can fix"
-      },
-      "summary": {
-        "ko": "217 points · 92 comments",
-        "en": "217 points · 92 comments"
-      },
-      "takeaway": {
-        "ko": "",
-        "en": ""
-      },
-      "metrics": {
-        "points": 217,
-        "comments": 92
-      },
-      "reading": {
-        "status": "snippet",
-        "via": "snippet",
-        "chars": 24,
-        "reason": "robots-denied"
       }
     },
     {
@@ -452,27 +422,93 @@
       "url": "https://www.mercor.com/research/labor-index/benchmark-map/",
       "publishedAt": "2026-10-16T17:08:38.000Z",
       "section": "pulse",
-      "region": "GLOBAL",
+      "region": "US",
       "title": {
-        "ko": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
-        "en": "90% of US working hours are spent on tasks not covered well by AI benchmarks"
+        "ko": "미국 근로시간 90%는 AI 벤치마크가 제대로 다루지 못하는 업무",
+        "en": "90% of US Working Hours Are Poorly Covered by AI Benchmarks"
       },
       "summary": {
-        "ko": "612 points · 563 comments",
-        "en": "612 points · 563 comments"
+        "ko": "미국 노동시장의 923개 O*NET 직업을 22개 직군으로 나누어, 기존 AI 벤치마크가 각 직업의 업무를 얼마나 다루는지 지도로 보여 준 분석입니다. 근로시간의 약 90%가 벤치마크로 충분히 측정되지 않는 업무라는 결론이며 해커뉴스에서 화제가 됐습니다.",
+        "en": "A map of 923 O*NET occupations in 22 job families shows how much of each job's work AI benchmarks cover, concluding about 90% of US working hours are poorly covered. It drew heavy Hacker News discussion."
       },
       "takeaway": {
-        "ko": "",
-        "en": ""
+        "ko": "벤치마크 점수만으로 도입을 판단하기보다 자사 업무에 맞는 별도 평가셋이 필요한지 따져 봐야 합니다.",
+        "en": "Don't rely on benchmark scores alone; consider task-specific evaluation sets."
       },
       "metrics": {
-        "points": 612,
-        "comments": 563
+        "points": 613,
+        "comments": 567
+      },
+      "highlights": {
+        "ko": [
+          "근로시간의 약 90%가 벤치마크로 충분히 측정되지 않는 업무"
+        ],
+        "en": [
+          "about 90% of US working hours are poorly covered"
+        ]
       },
       "reading": {
         "status": "body",
         "via": "web",
         "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "MCP",
+      "desc": {
+        "ko": "AI 에이전트가 외부 도구와 데이터에 연결되도록 하는 공통 규격입니다.",
+        "en": "A common standard that lets AI agents connect to external tools and data."
+      }
+    },
+    {
+      "term": "컨텍스트 창",
+      "desc": {
+        "ko": "AI가 한 번에 읽고 기억할 수 있는 글의 분량입니다.",
+        "en": "The amount of text an AI can read and keep in mind at once."
+      }
+    },
+    {
+      "term": "MoE",
+      "desc": {
+        "ko": "여러 전문가 모듈 중 일부만 골라 쓰는 방식의 모델 구조로, 계산량을 줄입니다.",
+        "en": "A model design that activates only some expert modules per input, saving compute."
+      }
+    },
+    {
+      "term": "오픈 웨이트",
+      "desc": {
+        "ko": "학습된 모델의 가중치를 공개해 누구나 내려받아 쓸 수 있게 한 방식입니다.",
+        "en": "Releasing a trained model's weights so anyone can download and use it."
+      }
+    },
+    {
+      "term": "Amazon Bedrock AgentCore",
+      "desc": {
+        "ko": "AWS에서 AI 에이전트를 운영하도록 돕는 서비스입니다.",
+        "en": "An AWS service for running AI agents in production."
+      }
+    },
+    {
+      "term": "IARA",
+      "desc": {
+        "ko": "이타우가 AI 사용을 통제·관리하려고 만든 거버넌스 플랫폼입니다.",
+        "en": "Itaú's governance platform for controlling and managing AI use."
+      }
+    },
+    {
+      "term": "O*NET",
+      "desc": {
+        "ko": "미국 노동부가 직업별 업무와 요건을 정리한 직업 정보 데이터베이스입니다.",
+        "en": "A US Department of Labor database describing tasks and requirements of occupations."
+      }
+    },
+    {
+      "term": "에이전트 스킬",
+      "desc": {
+        "ko": "AI 에이전트에 특정 작업 방법을 추가로 가르치는 확장 묶음입니다.",
+        "en": "An add-on package that teaches an AI agent how to do a specific task."
       }
     }
   ]
