@@ -1,0 +1,479 @@
+{
+  "date": "2026-10-19",
+  "issue": 3,
+  "generatedAt": "2026-10-18T19:27:19.653Z",
+  "model": "none",
+  "curated": false,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 16
+  },
+  "front": [
+    "09759b8d9858",
+    "d4d8a21bd997",
+    "65442e708214"
+  ],
+  "items": [
+    {
+      "id": "09759b8d9858",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=216380",
+      "publishedAt": "2026-10-18T19:10:14.000Z",
+      "section": "newsroom",
+      "region": "KR",
+      "title": {
+        "ko": "앤트로픽 클로드, 25년 된 암호 표준 미스터리 풀어…“30분도 안 걸렸다”",
+        "en": "앤트로픽 클로드, 25년 된 암호 표준 미스터리 풀어…“30분도 안 걸렸다”"
+      },
+      "summary": {
+        "ko": "앤트로픽의 ‘클로드’가 미국 국가안보국(NSA)이 제공한 암호 표준 숫자의 출처를 추적해 25년 넘게 이어진 의문을 풀었다. 기존 암호를 깨뜨린 성과가 아니라, 암호 설계에 의도적인 약점이 숨겨져 있을 수 있다는 의심을 줄인 발견이다.앤트로픽은 16일(현지시간) 연구 결과를 공개하고, 내부 연구용 클로드 모델이 30분도 걸리지 않아 미국 국립표준기술연구소(NIST)의 타원곡선 5종에 쓰인 ‘시드(seed)’의 생성 방식을 찾아냈다고 밝혔다. 시드는 암호에 사용할 수학적 구조를 만드는 출발값이다.NIST는 2000년 전자서명 표준에",
+        "en": "앤트로픽의 ‘클로드’가 미국 국가안보국(NSA)이 제공한 암호 표준 숫자의 출처를 추적해 25년 넘게 이어진 의문을 풀었다. 기존 암호를 깨뜨린 성과가 아니라, 암호 설계에 의도적인 약점이 숨겨져 있을 수 있다는 의심을 줄인 발견이다.앤트로픽은 16일(현지시간) 연구 결과를 공개하고, 내부 연구용 클로드 모델이 30분도 걸리지 않아 미국 국립표준기술연구소(NIST)의 타원곡선 5종에 쓰인 ‘시드(seed)’의 생성 방식을 찾아냈다고 밝혔다. 시드는 암호에 사용할 수학적 구조를 만드는 출발값이다.NIST는 2000년 전자서명 표준에"
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "related": [
+        {
+          "source": "Reddit",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1x8v3sn/claude_solved_a_25_year_old_nsa_cryptography/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 562
+      }
+    },
+    {
+      "id": "d4d8a21bd997",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/",
+      "publishedAt": "2026-10-17T21:31:32.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Meta removes language that raised scraping and AI training concerns",
+        "en": "Meta removes language that raised scraping and AI training concerns"
+      },
+      "summary": {
+        "ko": "A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web.",
+        "en": "A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "related": [
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/tech/1013409/meta-removes-language-that-may-have-allowed-it-to-scrape-news-sites"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 562
+      }
+    },
+    {
+      "id": "65442e708214",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/itau-generative-ai",
+      "publishedAt": "2026-10-16T19:00:00.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "How Itaú is building generative AI for its entire customer base",
+        "en": "How Itaú is building generative AI for its entire customer base"
+      },
+      "summary": {
+        "ko": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s most regulated sectors.",
+        "en": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s most regulated sectors."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "related": [
+        {
+          "source": "OpenAI",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE80N2VrejZPN1lRYmFiSTl4MXdWYnYwN1VZN2N0SWFKeW1lWVFMTmU2WkZ5dzI2SmF4VWM3MnhJX09LU2RvSy00YlA3OE1SWUZEX01ya1gwOA?oc=5"
+        }
+      ],
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 183,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "218f77bb959f",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/",
+      "publishedAt": "2026-10-18T16:30:00.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Disney agrees to hire the majority of Character.AI’s workforce",
+        "en": "Disney agrees to hire the majority of Character.AI’s workforce"
+      },
+      "summary": {
+        "ko": "The filing also says that the “vast majority” of Character.AI employees who were offered jobs at Disney accepted them. However, this is a stalking horse bid, so another company could come forward with a higher offer.",
+        "en": "The filing also says that the “vast majority” of Character.AI employees who were offered jobs at Disney accepted them. However, this is a stalking horse bid, so another company could come forward with a higher offer."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 591
+      }
+    },
+    {
+      "id": "c22ce4d9c599",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+      "publishedAt": "2026-10-16T20:48:16.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Building trust in AI agents: A production-ready evaluation framework with Amazon Bedrock AgentCore",
+        "en": "Building trust in AI agents: A production-ready evaluation framework with Amazon Bedrock AgentCore"
+      },
+      "summary": {
+        "ko": "Autonomous AI agents fail softly: latency stays flat while answer quality quietly erodes. This post shares a nine-stage evaluation framework, built on Amazon Bedrock AgentCore, that catches silent quality regressions across the full agent lifecycle, from first commit to live production.",
+        "en": "Autonomous AI agents fail softly: latency stays flat while answer quality quietly erodes. This post shares a nine-stage evaluation framework, built on Amazon Bedrock AgentCore, that catches silent quality regressions across the full agent lifecycle, from first commit to live production."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 591
+      }
+    },
+    {
+      "id": "430a798967e2",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/how-to-build-a-brand-foundation-with-ai-without-losing-your-craft-d616b05cb838?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-10-18T19:06:49.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "How to build a brand foundation with AI without losing your craft",
+        "en": "How to build a brand foundation with AI without losing your craft"
+      },
+      "summary": {
+        "ko": "Here is how to use Claude and a handful of guardrails to build a design system that developers respect and clients can actually ship. Continue reading on UX Collective »",
+        "en": "Here is how to use Claude and a handful of guardrails to build a design system that developers respect and clients can actually ship. Continue reading on UX Collective »"
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 169,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "dd5f2cb6ec69",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.21601",
+      "publishedAt": "2026-10-16T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Waypoint-OPD: Transferring RL-Induced Policy Shifts via Gated On-Policy Distillation",
+        "en": "Waypoint-OPD: Transferring RL-Induced Policy Shifts via Gated On-Policy Distillation"
+      },
+      "summary": {
+        "ko": "Policy-shift distillation reuses the difference between a teacher's log probabilities before and after reinforcement learning (RL) as supervision on student-generated trajectories. However, this endpoint policy shift cannot reveal whether local action preferences evolved consistently during teacher ",
+        "en": "Policy-shift distillation reuses the difference between a teacher's log probabilities before and after reinforcement learning (RL) as supervision on student-generated trajectories. However, this endpoint policy shift cannot reveal whether local action preferences evolved consistently during teacher "
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 667
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 600
+      }
+    },
+    {
+      "id": "b636554b6053",
+      "source": "비즈트리뷴",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBZTkpaemFyb3F6c0lFS3ZkZXF5eEJFaG9XUTdVOHp4X3NOTnRaMVU5dUVMVS1yaTV1R18tdnd5eWV3RVM5OGNMR2daNEhPNm9nbE8tLTFMRDFqcEJqRlcyaGY0TC1IXzQ0a2h0Y3dLdw?oc=5",
+      "publishedAt": "2026-10-18T09:33:05.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "예금보험공사, 네이버클라우드와 생성형 AI 기반 대국민 서비스 혁신 추진",
+        "en": "예금보험공사, 네이버클라우드와 생성형 AI 기반 대국민 서비스 혁신 추진"
+      },
+      "summary": {
+        "ko": "예금보험공사, 네이버클라우드와 생성형 AI 기반 대국민 서비스 혁신 추진 비즈트리뷴",
+        "en": "예금보험공사, 네이버클라우드와 생성형 AI 기반 대국민 서비스 혁신 추진 비즈트리뷴"
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 46,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "44077b286c86",
+      "source": "지디넷코리아",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8tZWdvYVpLSDhLeEZZd0xFdmRUYTR5NmF2d19WTVU5ZEZrUmIyNnljYkczRVczZzVLbW5lRkM1QzVqSTFXYWRFQkkxZDRNbEU1NllqRDVR?oc=5",
+      "publishedAt": "2026-10-18T01:58:14.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "[현장] 씨이랩 안전AI에 시선...'엑스아이바' 큰 관심",
+        "en": "[현장] 씨이랩 안전AI에 시선...'엑스아이바' 큰 관심"
+      },
+      "summary": {
+        "ko": "[현장] 씨이랩 안전AI에 시선...'엑스아이바' 큰 관심 지디넷코리아",
+        "en": "[현장] 씨이랩 안전AI에 시선...'엑스아이바' 큰 관심 지디넷코리아"
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "construction",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 599,
+        "url": "https://zdnet.co.kr/view/?no=20261018105814"
+      }
+    },
+    {
+      "id": "7b2db2e5ac92",
+      "source": "The Supply Chain Xchange",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQX2JDSGdrZnlDNnFSc1N5ZEhsZzVuaDB5ZU5ZbDdVUGxBNXFhX0Rad0ppQnBIenJLSExDNVcxN1kxTFZuc2lvclV2QmlKNDlYbzEzcHhNRk1zT2k2QnUxMkJJNDFxV1l6NjdPYVF3YkhJLUJYTEx1dG5TR2ZwQ0FiRGFqWmdKTnhYX213RlZKZW96ZTlueWNHSzcwWUo4aE9EaExJcml0aVBnc3lpT1FSVzRqcFRDZ1dCa185ZzJRSE4wVHdadXdHQkZ3X0p2TzJwY1E?oc=5",
+      "publishedAt": "2026-10-15T21:16:47.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "How warehouse and distribution operations are changing frontline workers’ perceptions on using AI",
+        "en": "How warehouse and distribution operations are changing frontline workers’ perceptions on using AI"
+      },
+      "summary": {
+        "ko": "How warehouse and distribution operations are changing frontline workers’ perceptions on using AI The Supply Chain Xchange",
+        "en": "How warehouse and distribution operations are changing frontline workers’ perceptions on using AI The Supply Chain Xchange"
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 122,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "c4764ac37ccd",
+      "source": "GitHub",
+      "url": "https://github.com/mksglu/context-mode",
+      "publishedAt": "2026-02-23T05:56:28.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "mksglu/context-mode",
+        "en": "mksglu/context-mode"
+      },
+      "summary": {
+        "ko": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
+        "en": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 30697,
+        "forks": 2254,
+        "language": "TypeScript",
+        "starsGained": 4438,
+        "period": "week"
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "14f321c49518",
+      "source": "GitHub",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "publishedAt": "2026-04-16T18:01:16.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "cathrynlavery/diagram-design",
+        "en": "cathrynlavery/diagram-design"
+      },
+      "summary": {
+        "ko": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, and Pi. 44 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
+        "en": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, and Pi. 44 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 57580,
+        "forks": 3682,
+        "language": "HTML",
+        "starsGained": 8382,
+        "period": "week"
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "2b2992191c6a",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B",
+      "publishedAt": "2026-10-07T07:07:30.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "openbmb/MiniCPM-V-4.7-35B-A3B",
+        "en": "openbmb/MiniCPM-V-4.7-35B-A3B"
+      },
+      "summary": {
+        "ko": "image-text-to-text · transformers",
+        "en": "image-text-to-text · transformers"
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 991,
+        "downloads": 57935
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 599
+      }
+    },
+    {
+      "id": "9b13d6a721a0",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "publishedAt": "2026-10-17T02:40:38.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+        "en": "deepseek-ai/DeepSeek-V4.1-Flash-1017"
+      },
+      "summary": {
+        "ko": "image-text-to-text · transformers",
+        "en": "image-text-to-text · transformers"
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 1287,
+        "downloads": 10233
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 599
+      }
+    },
+    {
+      "id": "e4018d8e9eb4",
+      "source": "Hacker News",
+      "url": "https://www.theregister.com/databases/2026/10/16/postgres-19-delayed-after-ai-reviewers-find-more-bugs-than-humans-can-fix/5303471",
+      "publishedAt": "2026-10-16T15:55:40.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Postgres 19 delayed after AI reviewers find more bugs than humans can fix",
+        "en": "Postgres 19 delayed after AI reviewers find more bugs than humans can fix"
+      },
+      "summary": {
+        "ko": "217 points · 92 comments",
+        "en": "217 points · 92 comments"
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 217,
+        "comments": 92
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 24,
+        "reason": "robots-denied"
+      }
+    },
+    {
+      "id": "32239fe1b8b1",
+      "source": "Hacker News",
+      "url": "https://www.mercor.com/research/labor-index/benchmark-map/",
+      "publishedAt": "2026-10-16T17:08:38.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
+        "en": "90% of US working hours are spent on tasks not covered well by AI benchmarks"
+      },
+      "summary": {
+        "ko": "612 points · 563 comments",
+        "en": "612 points · 563 comments"
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 612,
+        "comments": 563
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ]
+}
