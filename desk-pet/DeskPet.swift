@@ -431,13 +431,14 @@ struct Root: View {
 // 사이트 토큰(app/globals.css): --paper #f7f7f5, --ink #121212, --ink-3 #6b6b6b, --rule-2 ink 22%. 바탕화면이 어두워도 항상 라이트 테마.
 struct BubbleView: View {
     static let tail: CGFloat = 7
+    static let width: CGFloat = 232 // 창 폭 250 − 오른쪽 여백 10 − 왼쪽 여백 8: 왼쪽 선·그림자가 창 가장자리에서 잘리지 않게
     let b: Bubble
     let pet: Pet
     let tailX: CGFloat
     @State private var pressed = false
 
     var body: some View {
-        let shape = BubbleShape(tail: Self.tail, tailX: tailX)
+        let shape = BubbleShape(tail: Self.tail, tailX: tailX - (240 - Self.width)) // 말풍선이 창 안쪽에서 시작하므로 꼬리 위치는 말풍선 기준으로
         let calm = NSWorkspace.shared.accessibilityDisplayShouldReduceMotion
         ZStack(alignment: .topTrailing) {
             VStack(alignment: .leading, spacing: 5) {
@@ -459,11 +460,11 @@ struct BubbleView: View {
                 .accessibilityLabel("닫기")
                 .accessibilityAddTraits(.isButton)
         }
-        .frame(width: 240)
+        .frame(width: Self.width)
         .background(shape.fill(paperGrain).shadow(color: .black.opacity(0.14), radius: 5, y: 2))
         .overlay(shape.stroke(Color(0x121212).opacity(0.22), lineWidth: 0.75))
         .environment(\.colorScheme, .light)
-        .scaleEffect(pressed && !calm ? 0.98 : 1, anchor: UnitPoint(x: tailX / 240, y: 1))
+        .scaleEffect(pressed && !calm ? 0.98 : 1, anchor: UnitPoint(x: (tailX - (240 - Self.width)) / Self.width, y: 1))
         .animation(.easeOut(duration: 0.1), value: pressed)
         .accessibilityElement(children: .contain)
     }
