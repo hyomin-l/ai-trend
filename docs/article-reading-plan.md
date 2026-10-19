@@ -6,8 +6,8 @@
 
 | 항목 | 현재 값·동작 | 기준 파일 |
 |---|---|---|
-| 후보·최종 기사 | 전처리 최대 110건 → 섹션 균형 후보 40건 → 최종 최대 16건 | `config/sources.ts`, `lib/edition-curation.ts` |
-| 본문 입력 | 기사당 최대 600자, 전체 9,000자. 남은 예산을 남은 기사 수에 나눠 배분 | `ARTICLE_READING`, `shareChars` |
+| 후보·최종 기사 | 전처리 최대 110건 → 섹션 균형 후보 60건 → 최종 최대 20건(+예비 6건, 읽기 총 26건 이하; 2026-10-20 변경) | `config/sources.ts`, `lib/edition-curation.ts` |
+| 본문 입력 | 기사당 최대 600자, 전체 11,000자. 남은 예산을 남은 기사 수에 나눠 배분 | `ARTICLE_READING`, `shareChars` |
 | 설명 길이 | 한국어 공백 포함 150~190자, 영어 200자 이내 목표. 근거 부족 시 더 짧게 작성 | `config/prompt.ts` |
 | 핵심 구절·용어 | 언어별 핵심 구절 1~2개(각 2~60자), 판 전체 용어 최대 12개. 본문 구절과 용어를 함께 강조 | `lib/curate.ts`, `components/Glossary.tsx` |
 | 요청 제한 | 동시 4개, 요청당 8초, 본문 단계 전체 30초, 리다이렉트 최대 3회 | `ARTICLE_READING` |
@@ -16,7 +16,7 @@
 | LLM | 선별 60초·작성 180초 각 1회. 재시도 없음 | `scripts/collect.ts`, `lib/claude.ts` |
 | 발행 예약 | 평일 KST 02:17·03:47·05:17. 먼저 도착한 실행이 발행, 해당 날짜 판이 있으면 뒤 예약 수집 생략 | `.github/workflows/dispatch.yml` |
 
-공통 `CRITERIA`·`SELECTION_PROMPT`·코드의 기사 상한은 모두 16건으로 일치한다. 과거 호의 기사 수·설명 길이는 현재 목표와 다를 수 있다.
+공통 `CRITERIA`·`SELECTION_PROMPT`·코드의 기사 상한은 모두 20건으로 일치한다. 과거 호의 기사 수·설명 길이는 현재 목표와 다를 수 있다.
 
 ### 공개 원문과 실패 처리
 

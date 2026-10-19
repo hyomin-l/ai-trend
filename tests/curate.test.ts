@@ -346,7 +346,7 @@ describe("SYSTEM_PROMPT selection size and summary length", () => {
   it("PRD-curator: caps every prompt at the configured article limit while keeping section balance", () => {
     for (const prompt of [SYSTEM_PROMPT, SELECTION_PROMPT, WRITING_PROMPT]) {
       expect(prompt).toContain(`전체 최대 ${ARTICLE_READING.maxArticles}건`);
-      expect(prompt).toMatch(/섹션마다 3~4건/);
+      expect(prompt).toMatch(/섹션마다 4건 목표/);
       expect(prompt).not.toMatch(/18~22건|약 30건/);
     }
   });
@@ -360,7 +360,7 @@ describe("SYSTEM_PROMPT selection size and summary length", () => {
 
   it("keeps the English takeaway to 60 characters and the writing prompt compact", () => {
     expect(SYSTEM_PROMPT).toMatch(/takeaway \{ko,en\}[^\n]*en은 60자 이내/);
-    expect(WRITING_PROMPT.length).toBeLessThanOrEqual(2962); // 3485 before the token-budget pass (-15%)
+    expect(WRITING_PROMPT.length).toBeLessThanOrEqual(3010); // +no-omission rule; 3485 before the token-budget pass (-15%)
   });
 });
 

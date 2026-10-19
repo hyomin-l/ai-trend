@@ -354,7 +354,7 @@ export async function readArticles(items: RawItem[]): Promise<Map<string, Articl
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(new Error("total-timeout")), LIMITS.totalTimeoutMs);
   const reader = new Reader(controller.signal);
-  const selected = items.slice(0, LIMITS.maxArticles);
+  const selected = items.slice(0, LIMITS.maxReads);
   const evidence: ArticleEvidence[] = new Array(selected.length);
   let cursor = 0;
   try {

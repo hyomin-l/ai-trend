@@ -5,26 +5,31 @@ import { buildPrompt, parseCuration } from "@/lib/curate";
 import { shareChars, type ArticleEvidence } from "@/lib/read-articles";
 import type { RawItem } from "@/types";
 
-type Selection = { ids: string[]; front: string[]; also: Record<string, string[]> };
+type Selection = { ids: string[]; reserve: string[]; front: string[]; also: Record<string, string[]> };
 type Run = (prompt: string, systemPrompt: string, stage: "select" | "write") => Promise<string>;
 type Read = (items: RawItem[]) => Promise<Map<string, ArticleEvidence>>;
 const trim = (text: string, max = Infinity) => text.replace(/\s+/g, " ").trim().slice(0, max);
 const idsFrom = (value: unknown, allowed: Set<string>, limit: number): string[] =>
   [...new Set(Array.isArray(value) ? value.filter((id): id is string => typeof id === "string" && allowed.has(id)) : [])].slice(0, limit);
 
+/** Ranked picks: `reserve:true` items (and any primaries beyond maxArticles) are backfill for thin-evidence primaries. */
 export function parseSelection(text: string, candidates: RawItem[]): Selection | null {
   try {
     const value = JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1));
     if (!Array.isArray(value.items)) return null;
     const known = new Set(candidates.map(i => i.id));
-    const ids = idsFrom(value.items.map((i: any) => i?.id), known, ARTICLE_READING.maxArticles);
+    const all = idsFrom(value.items.map((i: any) => i?.id), known, Infinity);
+    const flagged = new Set(value.items.filter((i: any) => i?.reserve === true).map((i: any) => i?.id));
+    const main = all.filter(id => !flagged.has(id));
+    const ids = main.slice(0, ARTICLE_READING.maxArticles);
     if (!ids.length) return null;
-    const selected = new Set(ids);
-    const others = new Set([...known].filter(id => !selected.has(id)));
-    const also = Object.fromEntries(ids.map(id => [id, idsFrom(value.items.find((i: any) => i?.id === id)?.also, others, 4)]));
-    const front = idsFrom(value.front, selected, 3);
+    const reserve = [...main.slice(ARTICLE_READING.maxArticles), ...all.filter(id => flagged.has(id))].slice(0, ARTICLE_READING.reserveArticles);
+    const picked = new Set([...ids, ...reserve]);
+    const others = new Set([...known].filter(id => !picked.has(id)));
+    const also = Object.fromEntries([...ids, ...reserve].map(id => [id, idsFrom(value.items.find((i: any) => i?.id === id)?.also, others, 4)]));
+    const front = idsFrom(value.front, new Set(ids), 3);
     for (const id of ids) if (front.length < 3 && !front.includes(id)) front.push(id);
-    return { ids, front, also };
+    return { ids, reserve, front, also };
   } catch { return null; }
 }
 
@@ -38,12 +43,13 @@ function balanced(candidates: RawItem[], limit: number): RawItem[] {
 }
 
 function balancedSelection(candidates: RawItem[]): Selection {
-  const ids = balanced(candidates, ARTICLE_READING.maxArticles).map(i => i.id);
-  return { ids, front: ids.slice(0, 3), also: {} };
+  const ranked = balanced(candidates, ARTICLE_READING.maxArticles + ARTICLE_READING.reserveArticles).map(i => i.id);
+  const ids = ranked.slice(0, ARTICLE_READING.maxArticles);
+  return { ids, reserve: ranked.slice(ARTICLE_READING.maxArticles), front: ids.slice(0, 3), also: {} };
 }
 
 function boundedEvidence(items: RawItem[], evidence: Map<string, ArticleEvidence>): Map<string, ArticleEvidence> {
-  const list = items.slice(0, ARTICLE_READING.maxArticles);
+  const list = items.slice(0, ARTICLE_READING.maxReads);
   const texts = shareChars(list.map(item => trim(evidence.get(item.id)?.text || item.snippet)));
   return new Map(list.map((item, i) => {
     const found = evidence.get(item.id);
@@ -103,24 +109,40 @@ export async function curateEdition(candidates: RawItem[], recent: string[], run
   }
   const byId = new Map(bounded.map(i => [i.id, i]));
   let selected = selection.ids.map(id => byId.get(id)!);
-  console.log(`[select] candidates=${bounded.length} shown=${shown.length} selected=${selected.length} elapsedMs=${Date.now()-started}`);
+  console.log(`[select] reserve=${selection.reserve.length} candidates=${bounded.length} shown=${shown.length} selected=${selected.length} elapsedMs=${Date.now()-started}`);
   const readStarted = Date.now();
-  let evidence: Map<string, ArticleEvidence>;
-  try { evidence = boundedEvidence(selected, await read(selected)); }
-  catch (error) {
-    console.error(`[read] failed; using feed evidence: ${(error as Error).message.slice(0,200)}`);
-    evidence = boundedEvidence(selected, new Map());
+  const isThin = (e: ArticleEvidence) => e.reading.status === "snippet" && e.text.length < ARTICLE_READING.minEvidenceChars;
+  const pool = selection.reserve.map(id => byId.get(id)!);
+  const evidence = new Map<string, ArticleEvidence>();
+  const kept: RawItem[] = [];
+  let batch = selected, reads = 0, promoted = 0;
+  while (batch.length) { // primaries first, then only the reserves that replace thin ones; reads <= ids + reserve <= maxReads
+    reads += batch.length;
+    let got: Map<string, ArticleEvidence>;
+    try { got = boundedEvidence(batch, await read(batch)); }
+    catch (error) {
+      console.error(`[read] failed; using feed evidence: ${(error as Error).message.slice(0,200)}`);
+      got = boundedEvidence(batch, new Map());
+    }
+    const thin: RawItem[] = [];
+    for (const i of batch) { const e = got.get(i.id)!; evidence.set(i.id, e); (isThin(e) ? thin : kept).push(i); }
+    if (thin.length) console.warn(`[read] skipped ${thin.length} with thin evidence (<${ARTICLE_READING.minEvidenceChars} chars): ${thin.map(i => i.id).join(", ")}`);
+    batch = [];
+    for (const t of thin) {
+      const at = Math.max(pool.findIndex(r => r.section === t.section), pool.length ? 0 : -1); // same section, else next reserve
+      if (at < 0) { console.warn(`[read] no reserve left for ${t.id} (${t.section})`); continue; }
+      const [next] = pool.splice(at, 1);
+      console.log(`[read] backfill ${t.id} -> ${next.id} (${next.section}${next.section === t.section ? "" : ", other section"})`);
+      batch.push(next); promoted++;
+    }
   }
-  console.log(`[read] body=${[...evidence.values()].filter(e=>e.reading.status==="body").length} fallback=${[...evidence.values()].filter(e=>e.reading.status==="snippet").length} chars=${[...evidence.values()].reduce((n,e)=>n+e.text.length,0)} elapsedMs=${Date.now()-readStarted}`);
+  selected = kept;
+  console.log(`[read] reads=${reads} promoted=${promoted} kept=${kept.length} body=${[...evidence.values()].filter(e=>e.reading.status==="body").length} elapsedMs=${Date.now()-readStarted}`);
   for (const [id, e] of evidence) console.log(`[read] ${id} ${e.reading.status}/${e.reading.via} chars=${e.text.length}${e.reading.reason ? ` reason=${e.reading.reason.slice(0,160)}` : ""}`);
-  const thin = selected.filter(i => { const e = evidence.get(i.id)!; return e.reading.status === "snippet" && e.text.length < ARTICLE_READING.minEvidenceChars; });
-  if (thin.length) {
-    console.warn(`[read] skipped ${thin.length} with thin evidence (<${ARTICLE_READING.minEvidenceChars} chars): ${thin.map(i => i.id).join(", ")}`);
-    selected = selected.filter(i => !thin.includes(i));
-  }
   if (!selected.length) throw new Error("no selected article has usable evidence");
   const response = await run(buildWritingPrompt(selected, evidence), WRITING_PROMPT, "write");
   const curation = acceptWriting(response, selected);
+  if (curation && curation.items.length < selected.length) console.warn(`[write] published ${curation.items.length} of ${selected.length} written candidates (target ${ARTICLE_READING.maxArticles})`);
   const need = Math.min(CONFIG.minCurated, selected.length);
   if (!curation || curation.items.length < need) {
     const got = curation?.items.length ?? 0;

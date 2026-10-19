@@ -64,11 +64,11 @@ describe("selected article evidence", () => {
     expect([...result.values()][0].reading.via).toBe("abstract");
     expect(calls).toHaveLength(0);
   });
-  it("reads only the first maxArticles selected items and caps total input", async () => {
-    const result = await readArticles(Array.from({ length: 23 }, (_, i) => item(`https://p.example/${i}`, { content: body })));
-    expect(result.size).toBe(ARTICLE_READING.maxArticles);
+  it("reads only the first maxReads selected items and caps total input", async () => {
+    const result = await readArticles(Array.from({ length: 30 }, (_, i) => item(`https://p.example/${i}`, { content: body })));
+    expect(result.size).toBe(ARTICLE_READING.maxReads);
     expect([...result.values()].reduce((n, e) => n + e.text.length, 0)).toBe(ARTICLE_READING.totalChars);
-    expect([...result.values()].every((e) => e.text.length >= Math.floor(ARTICLE_READING.totalChars / ARTICLE_READING.maxArticles) && e.text.length <= ARTICLE_READING.articleChars)).toBe(true); // the budget is shared, not spent front to back
+    expect([...result.values()].every((e) => e.text.length >= Math.floor(ARTICLE_READING.totalChars / ARTICLE_READING.maxReads) && e.text.length <= ARTICLE_READING.articleChars)).toBe(true); // the budget is shared, not spent front to back
     expect(calls).toHaveLength(0);
   });
   it("extracts article text while excluding navigation and scripts, pins validated DNS", async () => {

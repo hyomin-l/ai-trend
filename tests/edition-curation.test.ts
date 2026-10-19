@@ -12,12 +12,12 @@ const evidence = (text = "body ".repeat(500)) => ({text,reading:{status:"body" a
 
 describe("selection before reading", () => {
   it("accepts only known unique IDs, caps at maxArticles, rejects related IDs already selected", () => {
-    const candidates = Array.from({length:24},(_,i)=>raw(`n${i}`));
-    const selected = parseSelection(JSON.stringify({items:[{id:"unknown"},...candidates.map(c=>({id:c.id,also:["unknown","n21","n1","n21"]})),{id:"n0"}],front:["unknown","n0"]}),candidates)!;
+    const candidates = Array.from({length:40},(_,i)=>raw(`n${i}`));
+    const selected = parseSelection(JSON.stringify({items:[{id:"unknown"},...candidates.map(c=>({id:c.id,also:["unknown","n39","n1","n39"]})),{id:"n0"}],front:["unknown","n0"]}),candidates)!;
     expect(selected.ids).toHaveLength(ARTICLE_READING.maxArticles);
     expect(new Set(selected.ids).size).toBe(ARTICLE_READING.maxArticles);
     expect(selected.ids).not.toContain("unknown");
-    expect(selected.also.n0).toEqual(["n21"]);
+    expect(selected.also.n0).toEqual(["n39"]);
     expect(selected.front[0]).toBe("n0");
     expect(parseSelection("garbage",candidates)).toBeNull();
   });
@@ -36,15 +36,15 @@ describe("selection before reading", () => {
     expect(out.curated).toBe(true);
   });
 
-  it("shows the select call at most 40 section-balanced lines with 80-char snippets", async () => {
+  it("shows the select call at most selectCap (60) section-balanced lines with 80-char snippets", async () => {
     vi.spyOn(console,"error").mockImplementation(()=>{});
     const sections=["newsroom","playbook","ax","repos","pulse"] as const;
     const candidates=sections.flatMap(s=>Array.from({length:20},(_,i)=>raw(`${s}${i}`,{section:s,snippet:"x".repeat(300)})));
     const run=vi.fn().mockRejectedValue(new Error("stop"));
     await curateEdition(candidates,[],run,async()=>new Map()).catch(()=>{});
     const lines=(run.mock.calls[0][0] as string).split("\n").filter(l=>l.includes("|"));
-    expect(lines).toHaveLength(40);
-    for (const s of sections) expect(lines.filter(l=>l.split("|")[2]===s)).toHaveLength(8);
+    expect(lines).toHaveLength(60);
+    for (const s of sections) expect(lines.filter(l=>l.split("|")[2]===s)).toHaveLength(12);
     expect(lines.every(l=>l.split("|")[4]==="x".repeat(80))).toBe(true);
     vi.restoreAllMocks();
   });
@@ -75,25 +75,25 @@ describe("selection before reading", () => {
 
   it("keeps valid written items, drops bad ones with a log, and publishes when enough remain", async () => {
     const err=vi.spyOn(console,"error").mockImplementation(()=>{});
-    const ids=Array.from({length:12},(_,i)=>`n${i}`);
+    const ids=Array.from({length:14},(_,i)=>`n${i}`);
     const cands=ids.map(id=>raw(id,{snippet:"s".repeat(120)}));
-    const written=[...ids.slice(0,10).map(item),{...item("n10"),summary:{ko:"한글만",en:" "}},{...item("zzz")}];
-    const run=vi.fn().mockResolvedValueOnce(JSON.stringify({items:ids.map(id=>({id})),front:["n11","n1"]})).mockResolvedValueOnce(JSON.stringify({items:written}));
+    const written=[...ids.slice(0,12).map(item),{...item("n12"),summary:{ko:"한글만",en:" "}},{...item("zzz")}];
+    const run=vi.fn().mockResolvedValueOnce(JSON.stringify({items:ids.map(id=>({id})),front:["n13","n1"]})).mockResolvedValueOnce(JSON.stringify({items:written}));
     const out=await curateEdition(cands,[],run,async()=>new Map());
-    expect(out.items.map(i=>i.id)).toEqual(ids.slice(0,10));
+    expect(out.items.map(i=>i.id)).toEqual(ids.slice(0,12));
     expect(out.front).toEqual(["n1","n0","n2"]);
     const log=err.mock.calls.map(c=>c[0]).join("\n");
-    expect(log).toContain("dropped n10: empty summary.en");
+    expect(log).toContain("dropped n12: empty summary.en");
     expect(log).toContain("dropped zzz");
-    expect(log).toContain("missing ids: n10, n11");
+    expect(log).toContain("missing ids: n12, n13");
     vi.restoreAllMocks();
   });
 
   it("fails when fewer than minCurated written items are valid", async () => {
     vi.spyOn(console,"error").mockImplementation(()=>{});
-    const ids=Array.from({length:12},(_,i)=>`n${i}`);
-    const run=vi.fn().mockResolvedValueOnce(JSON.stringify({items:ids.map(id=>({id}))})).mockResolvedValueOnce(JSON.stringify({items:ids.slice(0,9).map(item)}));
-    await expect(curateEdition(ids.map(id=>raw(id,{snippet:"s".repeat(120)})),[],run,async()=>new Map())).rejects.toThrow(/9 valid items, need at least 10/);
+    const ids=Array.from({length:14},(_,i)=>`n${i}`);
+    const run=vi.fn().mockResolvedValueOnce(JSON.stringify({items:ids.map(id=>({id}))})).mockResolvedValueOnce(JSON.stringify({items:ids.slice(0,11).map(item)}));
+    await expect(curateEdition(ids.map(id=>raw(id,{snippet:"s".repeat(120)})),[],run,async()=>new Map())).rejects.toThrow(/11 valid items, need at least 12/);
     vi.restoreAllMocks();
   });
 
@@ -113,6 +113,65 @@ describe("selection before reading", () => {
     expect(out.items[0].reading).toMatchObject({status:"snippet",via:"snippet",chars:99});
     expect(run.mock.calls[1][0]).toContain("Snippet a");
     expect(out.items[0].reading?.reason).toBeTruthy();
+  });
+});
+
+const SECTIONS=["newsroom","playbook","ax","repos","pulse"] as const;
+const thinOf=(id:string)=>({text:"x",reading:{status:"snippet" as const,via:"snippet" as const,chars:1,reason:"body unavailable"}});
+const sectioned=(per:number)=>SECTIONS.flatMap(s=>Array.from({length:per},(_,i)=>raw(`${s}${i}`,{section:s,snippet:"s".repeat(120)})));
+const echoWriter=()=>vi.fn().mockImplementation(async(p:string,sys:string,stage:string)=>stage==="write"?JSON.stringify({items:JSON.parse(p).articles.map((a:any)=>item(a.id))}):"");
+
+describe("target 20 with reserves", () => {
+  it("targets 20 = 4 per section x 5 and bounds reads at 26", () => {
+    expect(ARTICLE_READING.maxArticles).toBe(20);
+    expect(ARTICLE_READING.maxReads).toBe(ARTICLE_READING.maxArticles+ARTICLE_READING.reserveArticles);
+  });
+
+  it("parses reserve-flagged items and treats primaries beyond the target as reserve", () => {
+    const cands=Array.from({length:40},(_,i)=>raw(`n${i}`));
+    const items=[...Array.from({length:22},(_,i)=>({id:`n${i}`})),{id:"n30",reserve:true},{id:"n31",reserve:true}];
+    const sel=parseSelection(JSON.stringify({items}),cands)!;
+    expect(sel.ids).toHaveLength(20);
+    expect(sel.reserve).toEqual(["n20","n21","n30","n31"]);
+  });
+
+  it("backfills a thin primary from a reserve of the SAME section and writes exactly 20", async () => {
+    const cands=sectioned(6); // 4 primaries + up to 2 spare per section
+    const primaries=SECTIONS.flatMap(s=>[0,1,2,3].map(i=>({id:`${s}${i}`})));
+    const reserve=SECTIONS.map(s=>({id:`${s}4`,reserve:true}));
+    const read=vi.fn(async(items:RawItem[])=>new Map(items.map(i=>[i.id,i.id==="ax1"?thinOf(i.id):evidence()])));
+    const run=echoWriter().mockResolvedValueOnce(JSON.stringify({items:[...primaries,...reserve]}));
+    vi.spyOn(console,"warn").mockImplementation(()=>{});
+    const out=await curateEdition(cands,[],run,read);
+    expect(read.mock.calls[1][0].map((i:RawItem)=>i.id)).toEqual(["ax4"]);
+    expect(out.items).toHaveLength(20);
+    expect(out.items.filter(i=>i.id.startsWith("ax")).map(i=>i.id).sort()).toEqual(["ax0","ax2","ax3","ax4"]);
+    expect(JSON.parse(run.mock.calls[1][0]).articles).toHaveLength(20);
+    vi.restoreAllMocks();
+  });
+
+  it("falls back to another section's reserve when the section has none, and never reads more than primaries+reserve", async () => {
+    const cands=sectioned(6);
+    const primaries=SECTIONS.flatMap(s=>[0,1,2,3].map(i=>({id:`${s}${i}`})));
+    const reserve=[{id:"repos4",reserve:true},{id:"pulse4",reserve:true}];
+    const thin=new Set(["ax0","ax1","ax2","ax3"]); // ax has no reserve: 4 thin, 2 reserves, both from other sections
+    const read=vi.fn(async(items:RawItem[])=>new Map(items.map(i=>[i.id,thin.has(i.id)?thinOf(i.id):evidence()])));
+    const run=echoWriter().mockResolvedValueOnce(JSON.stringify({items:[...primaries,...reserve]}));
+    vi.spyOn(console,"warn").mockImplementation(()=>{});
+    const out=await curateEdition(cands,[],run,read);
+    const readIds=read.mock.calls.flatMap(c=>c[0].map((i:RawItem)=>i.id));
+    expect(readIds).toHaveLength(22);
+    expect(readIds.length).toBeLessThanOrEqual(ARTICLE_READING.maxReads);
+    expect(new Set(readIds).size).toBe(22);
+    expect(out.items).toHaveLength(18);
+    expect(out.items.map(i=>i.id)).toEqual(expect.arrayContaining(["repos4","pulse4"]));
+    vi.restoreAllMocks();
+  });
+
+  it("writing prompt forbids omitting any article", async () => {
+    const { WRITING_PROMPT } = await import("@/config/prompt");
+    expect(WRITING_PROMPT).toContain("하나도 빠뜨리지 않고");
+    expect(WRITING_PROMPT).toContain("짧은 요약");
   });
 });
 
