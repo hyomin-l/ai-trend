@@ -1,0 +1,597 @@
+{
+  "date": "2026-10-20",
+  "issue": 4,
+  "generatedAt": "2026-10-19T21:33:47.253Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 14
+  },
+  "front": [
+    "8a1ba0c934b0",
+    "583f26b29371",
+    "073765c16b49"
+  ],
+  "items": [
+    {
+      "id": "8a1ba0c934b0",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/",
+      "publishedAt": "2026-10-19T20:09:24.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "AWS, Nvidia 겨냥 개발 도구 TorchNeuron 공개",
+        "en": "AWS Takes Aim at Nvidia With TorchNeuron Dev Tool"
+      },
+      "summary": {
+        "ko": "AWS가 PyTorch로 만든 AI 앱을 설정 한 줄 변경만으로 자사 AI 칩 Trainium에서 돌릴 수 있는 개발 도구 TorchNeuron을 공개했습니다. Nvidia의 강점인 소프트웨어 생태계 장벽을 낮추려는 시도입니다.",
+        "en": "AWS released TorchNeuron, which lets PyTorch apps run on its Trainium chip by changing one line of configuration, targeting Nvidia's software advantage."
+      },
+      "takeaway": {
+        "ko": "실제 이전 시 성능과 호환 범위는 자사 모델로 별도 검증해야 합니다.",
+        "en": "Test performance and compatibility on your own models."
+      },
+      "highlights": {
+        "ko": [
+          "설정 한 줄 변경만으로",
+          "Nvidia의 강점인 소프트웨어 생태계 장벽"
+        ],
+        "en": [
+          "changing one line of configuration"
+        ]
+      },
+      "related": [
+        {
+          "source": "Hugging Face Blog",
+          "url": "https://huggingface.co/blog/hf-torchneuron"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 562
+      }
+    },
+    {
+      "id": "583f26b29371",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=216410",
+      "publishedAt": "2026-10-19T18:01:15.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글, 에이전트가 스스로 개선하는 프레임워크 하네스² 공개",
+        "en": "Google Releases Self-Improving Agent Framework Harness²"
+      },
+      "summary": {
+        "ko": "구글이 AI 모델을 다시 학습시키지 않고도 에이전트의 지시문, 도구 활용법, 메모리, 작업 절차를 스스로 개선하는 오픈소스 프레임워크 하네스²를 공개했습니다. 정답 판정 기준이 없는 실제 작업 환경을 겨냥했습니다.",
+        "en": "Google released Harness², an open-source framework that improves an agent's instructions, tools, memory and procedures without retraining the model."
+      },
+      "takeaway": {
+        "ko": "자동 판정 기준이 없는 업무에서 개선 결과가 믿을 만한지 먼저 검증해야 합니다.",
+        "en": "Verify gains where no automatic grader exists."
+      },
+      "highlights": {
+        "ko": [
+          "모델을 다시 학습시키지 않고도",
+          "정답 판정 기준이 없는 실제 작업 환경"
+        ],
+        "en": [
+          "without retraining the model"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 561
+      }
+    },
+    {
+      "id": "073765c16b49",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1014045/coreweave-stock-debt-sector-ai",
+      "publishedAt": "2026-10-19T21:28:20.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "CoreWeave 부채 불안, AI 업계 전체로 번진다",
+        "en": "CoreWeave's Debt Is Becoming the AI Industry's Problem"
+      },
+      "summary": {
+        "ko": "CoreWeave의 채권이 국채보다 1,000bp 이상 높은 금리를 요구받는 부실 우려 구간에 들어섰고, 주가도 화요일 종가 이후 20% 넘게 떨어졌습니다. 다른 AI 기업에도 일부 파급이 있었고 AI 투자 확대가 사모대출 거품인지 묻는 목소리가 나옵니다.",
+        "en": "CoreWeave's bonds entered distressed territory at 1,000bp over government yields and shares fell over 20%, raising questions about a private credit bubble in AI."
+      },
+      "takeaway": {
+        "ko": "AI 인프라 협력사를 고를 때 재무 건전성과 차입 구조를 함께 점검해야 합니다.",
+        "en": "Check vendors' financial health and debt structure."
+      },
+      "highlights": {
+        "ko": [
+          "1,000bp 이상 높은 금리",
+          "주가도 화요일 종가 이후 20% 넘게 떨어졌습니다"
+        ],
+        "en": [
+          "distressed territory"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 562
+      }
+    },
+    {
+      "id": "141841bfba33",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+      "publishedAt": "2026-10-19T19:28:34.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "AI 코딩 도구 OpenCode 해킹, 이용자 AI 계정에 요금 폭탄",
+        "en": "Hackers Hit AI Coding Tool OpenCode, Running Up User Charges"
+      },
+      "summary": {
+        "ko": "오픈소스 AI 코딩 에이전트 OpenCode가 토요일 밤사이 구형 시스템이 해킹돼 온라인 플랫폼 OpenCode Console 이용자의 1.4%가 영향을 받았다고 밝혔습니다. 일부 이용자가 저장한 API 키(AI 서비스 접속용 비밀번호)로 요금이 불어났습니다.",
+        "en": "OpenCode said attackers breached an older system, affecting 1.4% of OpenCode Console users, some of whom store API keys, and ran up charges on their AI accounts."
+      },
+      "takeaway": {
+        "ko": "외부 도구에 API 키를 맡길 때는 보관 방식과 사용 한도 설정을 점검해야 합니다.",
+        "en": "Audit API key storage and spending limits in external tools."
+      },
+      "highlights": {
+        "ko": [
+          "이용자의 1.4%가 영향을 받았다고",
+          "API 키(AI 서비스 접속용 비밀번호)"
+        ],
+        "en": [
+          "affecting 1.4% of OpenCode Console users"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 562
+      }
+    },
+    {
+      "id": "6872012a5adb",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.21783",
+      "publishedAt": "2026-10-19T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "3D 공간을 스스로 탐색하며 생각하는 비전언어모델 연구",
+        "en": "Learning to Think and Explore in 3D World"
+      },
+      "summary": {
+        "ko": "이미지와 글을 함께 이해하는 비전언어모델(VLM)이 3D 공간을 사람처럼 한 장씩 보며 탐색하도록 학습시킨 연구입니다. 3D 정보를 통째로 넣지 않고 '왼쪽 이동' 같은 행동과 렌더링된 화면 관찰로 상호작용하며 추론합니다.",
+        "en": "A study training vision-language models to explore 3D space one image at a time, using actions like moving left and rendered observations instead of multi-view inputs."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 143
+      },
+      "highlights": {
+        "ko": [
+          "3D 공간을 사람처럼 한 장씩 보며 탐색",
+          "렌더링된 화면 관찰로 상호작용하며 추론"
+        ],
+        "en": [
+          "one image at a time"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 562
+      }
+    },
+    {
+      "id": "a72d1e4da6b0",
+      "source": "OpenAI Research",
+      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+      "publishedAt": "2026-10-15T19:00:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 학계 연구실에 GPT-Rosalind 지원 프로그램",
+        "en": "OpenAI Brings GPT-Rosalind to Academic Labs"
+      },
+      "summary": {
+        "ko": "OpenAI가 자격을 갖춘 학계 연구실에 생명과학 연구용 GPT-Rosalind와 관련 도구를 후원 방식으로 제공하는 Rosalind Academic Plan을 발표했습니다. 확인된 내용은 발표 요약 수준이며 세부 조건은 공개된 범위에서 확인되지 않았습니다.",
+        "en": "OpenAI introduced the Rosalind Academic Plan, offering eligible academic labs sponsored access to GPT-Rosalind and tools for life sciences research."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "자격을 갖춘 학계 연구실",
+          "후원 방식으로 제공"
+        ],
+        "en": [
+          "sponsored access to GPT-Rosalind"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 149,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "9567dde9e2e7",
+      "source": "Forkast News",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQWFFqQW0wNGZSNk5RcFZZa0pJUHpsLXZIY3VRX1JQbWI5NGo3anpkVWtBeXJCRnhmdS1mRW9oZEMtTlg0S253U1E0QjRMNUIyRDBUcUF3QjFIX0pyYmxyQ3VtdTZmZGlvUHZ0TUFsOU50LXlJM1hkQTJKcVFHU2huMFUyS1JCLWd5OUV3dFRVVDN6SEJZNTNhZUhkQ19jNl94alhDeEUwRkJmbmdmbGJQVndfelVrdkJM?oc=5",
+      "publishedAt": "2026-10-19T10:05:44.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "TGVP, 기업 AI 에이전트 도입 병목은 모델이 아닌 인프라",
+        "en": "TGVP: Infrastructure, Not Model Quality, Blocks Enterprise AI Agents"
+      },
+      "summary": {
+        "ko": "TGVP가 기업의 AI 에이전트 도입을 가로막는 주된 병목은 모델 품질이 아니라 인프라라고 진단했습니다. 확인된 내용은 제목 수준이어서 근거 수치나 구체적 사례는 알 수 없습니다.",
+        "en": "TGVP says infrastructure, not model quality, is the main bottleneck to enterprise AI agent adoption. Only the headline was available; no supporting data is confirmed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "모델 품질이 아니라 인프라"
+        ],
+        "en": [
+          "infrastructure, not model quality"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 111,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "617e9d328583",
+      "source": "헬로티",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBKc1dVd211OTZ1bXZVWWw5SElBWnI2eHU0NnpsMDB0SlozR2p1bHZtWHRvU0ZnSzJUVjAzZUYwLWN1cnU2VklVa1VkRy1lbzlQa3JER2hUc3Z3bVpCMERz?oc=5",
+      "publishedAt": "2026-10-19T05:04:57.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "코오롱베니트 AXeed, AX '무엇부터 할지'를 진단으로 정한다",
+        "en": "Kolon Benit's AXeed Sets AX Priorities Through Diagnosis"
+      },
+      "summary": {
+        "ko": "코오롱베니트의 AX 플랫폼 엑시드(AXeed)는 간편 진단 퀵 스캔과 정밀진단으로 기업의 AX 수준을 파악한 뒤 실행 과제와 단계별 로드맵을 만듭니다. 이후 활용 가능한 정부 지원사업까지 연결하는 방식으로, 2026 산업AI EXPO에서 소개됩니다.",
+        "en": "Kolon Benit's AXeed platform diagnoses a firm's AX level via Quick Scan, builds a phased roadmap, and links government support programs. It is previewed at the 2026 Industrial AI EXPO."
+      },
+      "takeaway": {
+        "ko": "진단 결과가 실제 우선순위 결정에 쓰이는지, 성과 수치가 있는지 확인해야 합니다.",
+        "en": "Ask for outcome data showing diagnoses drive priorities."
+      },
+      "highlights": {
+        "ko": [
+          "단계별 로드맵",
+          "정부 지원사업까지 연결"
+        ],
+        "en": [
+          "builds a phased roadmap"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 599,
+        "url": "https://www.hellot.net/mobile/article.html?no=115596"
+      }
+    },
+    {
+      "id": "3de13b42e404",
+      "source": "GitHub",
+      "url": "https://github.com/anthropics/claude-plugins-official",
+      "publishedAt": "2025-11-20T18:36:20.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic 공식 Claude Code 플러그인 디렉터리",
+        "en": "Anthropic's Official Claude Code Plugins Directory"
+      },
+      "summary": {
+        "ko": "Anthropic이 Claude Code용 플러그인을 모아 둔 공식 디렉터리입니다. Anthropic이 직접 만든 플러그인과 파트너·커뮤니티의 외부 플러그인이 나뉘어 있어 코딩 에이전트에 기능을 추가할 때 찾아 설치할 수 있습니다. 설치 전에 신뢰할 수 있는지 확인하라는 경고가 있습니다.",
+        "en": "Anthropic's curated directory of Claude Code plugins, split into internal and third-party ones. It warns users to trust a plugin before installing it."
+      },
+      "takeaway": {
+        "ko": "플러그인은 Anthropic이 내용을 검증하지 않으므로 사내 도입 전 보안 검토가 필요합니다.",
+        "en": "Plugins are unverified; run a security review first."
+      },
+      "metrics": {
+        "stars": 43155,
+        "forks": 4564,
+        "language": "Python",
+        "starsGained": 4774,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "설치 전에 신뢰할 수 있는지 확인"
+        ],
+        "en": [
+          "trust a plugin before installing it"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "9b13d6a721a0",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "publishedAt": "2026-10-17T02:40:38.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "DeepSeek-V4.1-Flash-1017, 추론·코딩·에이전트 성능 개선",
+        "en": "DeepSeek-V4.1-Flash-1017 Improves Reasoning, Coding, Agents"
+      },
+      "summary": {
+        "ko": "DeepSeek-V4.1-Flash의 소규모 업데이트 모델로, 추론·코딩·에이전트 작업·시각 벤치마크 성능이 좋아졌습니다. 작업 실행 시간과 출력 길이도 줄어 같은 일을 더 빠르고 싸게 처리하는 것을 내세웁니다. 에이전트 업무용 모델 후보로 볼 수 있습니다.",
+        "en": "A minor update to DeepSeek-V4.1-Flash with better reasoning, coding, agentic and visual benchmarks, plus shorter execution time and output for lower cost."
+      },
+      "takeaway": {
+        "ko": "벤치마크는 제작사 발표이므로 자사 업무 데이터로 속도와 비용을 직접 비교해야 합니다.",
+        "en": "Benchmarks are self-reported; compare cost on your own tasks."
+      },
+      "metrics": {
+        "likes": 1664,
+        "downloads": 17924
+      },
+      "highlights": {
+        "ko": [
+          "작업 실행 시간과 출력 길이도 줄어"
+        ],
+        "en": [
+          "shorter execution time and output"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 599
+      }
+    },
+    {
+      "id": "36917ef32b44",
+      "source": "GitHub",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "publishedAt": "2025-10-19T20:54:15.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "과학 연구용 에이전트 스킬 모음 Scientific Agent Skills",
+        "en": "Scientific Agent Skills: Skill Library for Research Agents"
+      },
+      "summary": {
+        "ko": "과학 연구 작업에 쓰는 177개 스킬(에이전트가 불러 쓰는 작업 지침 묶음)을 모은 저장소입니다. 개방형 Agent Skills 표준을 지원하는 어떤 AI 에이전트에서도 쓸 수 있고, 데스크톱 연구 도구 K-Dense BYOK는 자체 API 키로 40개 이상 모델을 고를 수 있습니다.",
+        "en": "A repo of 177 skills for scientific research that works with any agent supporting the open Agent Skills standard. K-Dense BYOK adds a desktop workspace with 40+ models."
+      },
+      "takeaway": {
+        "ko": "데이터가 로컬에 남는 구조이므로 연구·R&D 부서의 보안 민감 작업에 시범 적용을 검토할 만합니다.",
+        "en": "Local data handling suits a pilot for sensitive R&D work."
+      },
+      "metrics": {
+        "stars": 52916,
+        "forks": 4686,
+        "language": "Python",
+        "starsGained": 4310,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "177개 스킬",
+          "40개 이상 모델을 고를 수 있습니다"
+        ],
+        "en": [
+          "177 skills for scientific research"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "927053312755",
+      "source": "GitHub",
+      "url": "https://github.com/morluto/rea",
+      "publishedAt": "2026-04-14T00:51:32.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "REA, 바이너리까지 분석하는 리버스 엔지니어링 MCP",
+        "en": "REA: An MCP Server for Reverse Engineering"
+      },
+      "summary": {
+        "ko": "실행 파일, 애플리케이션, 런타임 동작을 분석해 기능이 어떻게 작동하는지 바이너리 수준까지 파악하게 돕는 MCP 도구입니다. npx rea-agents setup 명령으로 설치합니다. 이름이 비슷한 저장소가 있으니 공식 출처에서 받으라는 안내가 있습니다.",
+        "en": "An MCP tool for reverse engineering binaries, applications and runtime behavior, installed with npx rea-agents setup. It warns of similarly named repositories."
+      },
+      "takeaway": {
+        "ko": "유사 이름 저장소 경고가 있으므로 공식 출처에서만 설치하고 사내 사용 범위를 정해야 합니다.",
+        "en": "Install only from official sources and define usage scope."
+      },
+      "metrics": {
+        "stars": 335775,
+        "forks": 84810,
+        "language": "TypeScript",
+        "starsGained": 229268,
+        "period": "week",
+        "starsDelta": 122740
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "이름이 비슷한 저장소가 있으니 공식 출처에서 받으라"
+        ],
+        "en": [
+          "similarly named repositories"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "40d691da45f3",
+      "source": "Hacker News",
+      "url": "https://sphinx-six-theta.vercel.app/",
+      "publishedAt": "2026-10-18T04:33:49.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Show HN: 배포 전 AI 코드 이해도를 묻는 Git 훅 Sphinx",
+        "en": "Show HN: Sphinx Quizzes You on AI Code Before Shipping"
+      },
+      "summary": {
+        "ko": "Sphinx는 AI가 쓴 코드가 배포되기 전, 그 코드가 실제로 무엇을 하는지 개발자에게 질문하는 Git 훅(특정 시점에 자동 실행되는 스크립트)입니다. 기존 코딩 에이전트나 OpenAI 호환 엔드포인트로 적은 토큰만 쓰며 동작하도록 만들었다고 합니다.",
+        "en": "Sphinx is a Git hook that asks developers a question about what AI-written code does before it ships, running on minimal tokens via an existing agent or any OpenAI-compatible endpoint."
+      },
+      "takeaway": {
+        "ko": "AI 코드 리뷰 절차에 이해도 확인 단계를 넣을 때 팀의 푸시 흐름에 맞는지 시험해 볼 만합니다.",
+        "en": "Trial it as an understanding check in your review flow."
+      },
+      "metrics": {
+        "points": 250,
+        "comments": 89
+      },
+      "highlights": {
+        "ko": [
+          "코드가 실제로 무엇을 하는지 개발자에게 질문하는 Git 훅"
+        ],
+        "en": [
+          "asks developers a question about what AI-written code does"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 599
+      }
+    },
+    {
+      "id": "5b09d8d0528d",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=35662",
+      "publishedAt": "2026-10-19T21:33:18.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "이해 못 하는 AI 코드 배포, 개발자들은 어떻게 대처하나",
+        "en": "How Developers Handle Shipping AI Code They Don't Understand"
+      },
+      "summary": {
+        "ko": "Hacker News 토론에서 한 개발자는 LLM에 설계를 맡기지 않고 추상화 계층과 구성 요소의 책임을 직접 정한 뒤 구현만 채우게 한다고 했습니다. 다른 이는 최신 모델도 필요한 추상화를 빠뜨리는 경우를 계속 본다고 했습니다.",
+        "en": "In an Ask HN thread, developers say they define abstractions and component roles themselves and let the LLM fill in implementations, noting that even top models skip needed abstractions."
+      },
+      "takeaway": {
+        "ko": "AI 코딩 도입 시 설계와 추상화는 사람이 정하고 구현만 위임하는 규칙을 시험해 볼 만합니다.",
+        "en": "Try humans owning design while AI handles implementation."
+      },
+      "highlights": {
+        "ko": [
+          "추상화 계층과 구성 요소의 책임을 직접 정한 뒤 구현만 채우게"
+        ],
+        "en": [
+          "define abstractions and component roles themselves"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Trainium",
+      "desc": {
+        "ko": "AWS가 만든 AI 학습·실행용 자체 칩입니다.",
+        "en": "AWS's in-house chip for training and running AI models."
+      }
+    },
+    {
+      "term": "PyTorch",
+      "desc": {
+        "ko": "AI 모델을 만들고 돌리는 데 널리 쓰는 무료 오픈소스 도구입니다.",
+        "en": "A widely used free open-source toolkit for building and running AI models."
+      }
+    },
+    {
+      "term": "하네스²",
+      "desc": {
+        "ko": "AI 에이전트의 지시문·메모리·도구 사용법 등 실행 환경을 스스로 고치는 구글의 프레임워크입니다.",
+        "en": "Google's framework that lets agents refine their own instructions, memory and tool use."
+      }
+    },
+    {
+      "term": "API 키",
+      "desc": {
+        "ko": "AI 서비스를 쓰도록 허가해 주는 비밀번호 같은 문자열입니다.",
+        "en": "A password-like string that grants access to an AI service."
+      }
+    },
+    {
+      "term": "비전언어모델",
+      "desc": {
+        "ko": "이미지와 글을 함께 이해하고 답하는 AI 모델입니다.",
+        "en": "An AI model that understands images and text together."
+      }
+    },
+    {
+      "term": "AXeed",
+      "desc": {
+        "ko": "코오롱베니트가 기업의 AI 전환 수준을 진단하고 로드맵을 짜 주는 플랫폼입니다.",
+        "en": "Kolon Benit's platform that diagnoses AI transformation level and builds a roadmap."
+      }
+    },
+    {
+      "term": "Agent Skills",
+      "desc": {
+        "ko": "AI 에이전트가 필요할 때 불러 쓰는 작업 지침 묶음의 공개 표준입니다.",
+        "en": "An open standard for bundles of task instructions that AI agents load on demand."
+      }
+    },
+    {
+      "term": "MCP",
+      "desc": {
+        "ko": "AI 에이전트가 외부 도구와 데이터에 연결되는 표준 방식입니다.",
+        "en": "A standard way for AI agents to connect to external tools and data."
+      }
+    },
+    {
+      "term": "Git 훅",
+      "desc": {
+        "ko": "코드를 올리는 등 특정 시점에 자동 실행되는 스크립트입니다.",
+        "en": "A script that runs automatically at specific points such as pushing code."
+      }
+    }
+  ]
+}
