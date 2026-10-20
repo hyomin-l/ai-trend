@@ -1,0 +1,799 @@
+{
+  "date": "2026-10-21",
+  "issue": 5,
+  "generatedAt": "2026-10-20T19:15:12.223Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "2e553dc45565",
+    "f52190a49967",
+    "c021c28354e5"
+  ],
+  "items": [
+    {
+      "id": "2e553dc45565",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/20/google-has-joined-amazon-in-attacking-nvidias-stronghold-with-ai-app-developers/",
+      "publishedAt": "2026-10-20T18:38:24.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글, PyTorch용 TorchTPU 오픈소스 공개…엔비디아 독주에 도전",
+        "en": "Google open-sources TorchTPU, challenging Nvidia's grip on AI developers"
+      },
+      "summary": {
+        "ko": "구글이 PyTorch를 자사 AI 칩에서 돌리게 해 주는 TorchTPU를 오픈소스로 공개했습니다. PyTorch는 AI 앱의 약 85%가 쓰는 개발 도구로, 대부분 엔비디아 GPU 기준으로 작성돼 왔습니다. 아마존에 이어 구글도 엔비디아 의존 구조를 깨려는 행보입니다.",
+        "en": "Google open-sourced TorchTPU, letting PyTorch, used by about 85% of AI apps, run on its chips. Like Amazon, it is trying to loosen Nvidia's hold on AI developers."
+      },
+      "takeaway": {
+        "ko": "PyTorch 기반 모델이라면 TPU 이전 시 호환성과 비용을 시험 워크로드로 먼저 비교해 볼 만합니다.",
+        "en": "Benchmark a pilot workload on TPU for compatibility and cost."
+      },
+      "highlights": {
+        "ko": [
+          "AI 앱의 약 85%가 쓰는 개발 도구",
+          "엔비디아 의존 구조를 깨려는 행보"
+        ],
+        "en": [
+          "used by about 85% of AI apps"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "f52190a49967",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats",
+      "publishedAt": "2026-10-20T18:07:34.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Meta, Muse 대화 공유 기능 중단…AI 대화 링크가 웹에 노출",
+        "en": "Meta pauses Muse sharing after AI chats found on the web"
+      },
+      "summary": {
+        "ko": "Meta가 AI 어시스턴트 Muse의 대화 공유 기능을 일시 중단했습니다. 보안업체 Claroc이 공개 DNS 기록에서 Muse 공유 링크 6,800여 개를 찾아냈기 때문입니다. 링크를 아는 사람은 누구나 접근하는 방식이라 대화가 외부에 드러날 수 있었습니다.",
+        "en": "Meta paused Muse chat sharing after security firm Claroc found over 6,800 shared-link URLs in public DNS records, exposing conversations to anyone with the link."
+      },
+      "takeaway": {
+        "ko": "사내 AI 도구의 공유 링크가 외부에서 검색·추적되지 않는지 접근 제어를 점검할 필요가 있습니다.",
+        "en": "Check that your AI tools' share links can't be found externally."
+      },
+      "highlights": {
+        "ko": [
+          "Muse 공유 링크 6,800여 개",
+          "링크를 아는 사람은 누구나 접근"
+        ],
+        "en": [
+          "over 6,800 shared-link URLs"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "c021c28354e5",
+      "source": "Anthropic Research",
+      "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+      "publishedAt": "2026-10-20T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, Claude로 전갈 독소 겨냥 단백질 설계…211개 중 17개 통과",
+        "en": "Claude designs protein binders against scorpion neurotoxins; 17 of 211 pass"
+      },
+      "summary": {
+        "ko": "Anthropic이 연구용 Claude 모델로 전갈 신경독소에 단단히 붙는 작은 단백질 미니바인더를 설계했습니다. Adaptyv Bio와 Twist Bioscience가 211개 설계를 실험해 17개가 기준을 충족했으며, 211개 설계와 데이터는 모두 공개됩니다. 신약 개발 가속 실험의 일환입니다.",
+        "en": "Anthropic had Claude design minibinders against scorpion neurotoxins. Of 211 designs lab-tested by Adaptyv Bio and Twist Bioscience, 17 met criteria; all designs and data are released."
+      },
+      "takeaway": {
+        "ko": "AI 설계의 통과율은 211개 중 17개 수준이어서, 실험 검증 비용을 전제로 후보 선별에 쓰는지 따져봐야 합니다.",
+        "en": "About 8% passed lab tests; budget for experimental validation."
+      },
+      "highlights": {
+        "ko": [
+          "211개 설계를 실험해 17개가 기준을 충족"
+        ],
+        "en": [
+          "Of 211 designs lab-tested",
+          "17 met criteria"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "1002b5ebf41c",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=216438",
+      "publishedAt": "2026-10-20T18:26:21.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글 제미나이 노트북, 슬라이드·영상 만들기 전 구성안 검토 기능",
+        "en": "Google's Gemini Notebook adds outline review before slides and videos"
+      },
+      "summary": {
+        "ko": "구글이 제미나이 노트북의 슬라이드 덱과 비디오 오버뷰에 공동 제작 기능을 넣었습니다. 기존에는 프롬프트를 넣으면 곧바로 완성본이 나왔지만, 이제 AI가 주제와 구성을 먼저 제안하고 사용자가 내용·순서·형식·스타일을 조정한 뒤 생성합니다.",
+        "en": "Google added co-creation to Gemini Notebook's Slide Decks and Video Overviews: the AI proposes topics and structure first, and users edit order, format and style before generation."
+      },
+      "takeaway": {
+        "ko": "보고서·교육 자료 제작에 쓴다면 구성안 단계에서 수정이 가능한지, 사내 자료 연동 범위는 어디까지인지 확인해 볼 만합니다.",
+        "en": "Test whether outline-stage edits cut rework on internal decks."
+      },
+      "highlights": {
+        "ko": [
+          "AI가 주제와 구성을 먼저 제안",
+          "사용자가 내용·순서·형식·스타일을 조정한 뒤 생성"
+        ],
+        "en": [
+          "the AI proposes topics and structure first"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "3757b88936ab",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.26802",
+      "publishedAt": "2026-10-20T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "뇌 반응 예측 모델, 일부 파라미터만 조정해 대형 모델 활용",
+        "en": "Scaling parameter-efficient fine-tuning for brain encoding"
+      },
+      "summary": {
+        "ko": "뇌 신호 예측 모델은 신경 데이터가 비싸고 적어 큰 모델을 처음부터 학습하기 어렵습니다. 이 논문은 파라미터 효율 미세조정으로 아주 큰 사전학습 모델을 적은 학습 파라미터만으로 뇌 인코딩에 맞출 수 있음을 보였습니다. 연산 부담을 줄이는 방법도 함께 제시합니다.",
+        "en": "Neural data is scarce, so training large brain-encoding models is hard. This paper shows parameter-efficient fine-tuning can adapt very large pretrained backbones with few trainable parameters."
+      },
+      "takeaway": {
+        "ko": "데이터가 적은 사내 도메인에서도 대형 모델을 통째로 학습하지 않고 일부만 조정하는 접근을 검토할 수 있습니다.",
+        "en": "For scarce domain data, consider tuning only a small part of a large model."
+      },
+      "metrics": {
+        "upvotes": 231
+      },
+      "highlights": {
+        "ko": [
+          "파라미터 효율 미세조정",
+          "적은 학습 파라미터만으로"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 550
+      }
+    },
+    {
+      "id": "48ac9eccb51b",
+      "source": "Hamel Husain",
+      "url": "https://hamel.dev/blog/posts/decision-model-evals/",
+      "publishedAt": "2026-10-20T07:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "판단 전용 '디시전 모델'을 AI 평가에 쓰는 법",
+        "en": "How to use decision models for evals"
+      },
+      "summary": {
+        "ko": "TypeSafe의 Jev, Perplexity의 Decider, Liquid의 d1, Cloudflare의 Clef, OpenAI의 Decisions API 등 판단 전용 디시전 모델이 잇따라 나왔습니다. 빠르고 저렴하게 판정한다는 점을 내세우며, 이 글은 이를 AI 출력 평가에 활용하는 방법을 다룹니다.",
+        "en": "Decision models like Jev, Decider, d1, Clef and OpenAI's Decisions API promise fast, cheap judgments. Hamel Husain explains how to use them for evaluating AI outputs."
+      },
+      "takeaway": {
+        "ko": "평가를 자동화하려면 판정 모델의 결과를 사람이 매긴 샘플과 먼저 대조해 신뢰도를 검증해야 합니다.",
+        "en": "Validate any judge model against human-labeled samples first."
+      },
+      "highlights": {
+        "ko": [
+          "빠르고 저렴하게 판정"
+        ],
+        "en": [
+          "fast, cheap judgments"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "878b194a9f75",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/anthropic-october-2026-study-human-attention-is-the-new-old-bottleneck-d7bc4642668a?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-10-19T21:39:27.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "병목은 다시 사람의 주의력…에이전트 시대의 UX 설계",
+        "en": "Human attention is the new bottleneck, so design for it"
+      },
+      "summary": {
+        "ko": "Anthropic 내부에서는 에이전트가 사람 1시간당 6시간을 기록하고, 그 결과물을 읽는 데만 일주일의 절반이 들 수 있다고 합니다. 글은 무엇이 사람의 주의를 받을 가치가 있는지 가려내는 판단 체계를 설계하는 것이 핵심 과제라고 짚습니다.",
+        "en": "Agents at Anthropic log six hours per human hour, and reading their output could take half a week. The article argues for designing judgment systems that decide what deserves human attention."
+      },
+      "takeaway": {
+        "ko": "에이전트를 도입하면 결과물 검토 시간이 새 병목이 되므로, 검토 대상 선별 기준을 함께 설계해야 합니다.",
+        "en": "Design review-triage rules alongside any agent rollout."
+      },
+      "highlights": {
+        "ko": [
+          "사람 1시간당 6시간",
+          "판단 체계를 설계하는 것"
+        ],
+        "en": [
+          "six hours per human hour"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "209f0f415bce",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/work-management-context-for-ai-agents-with-smartsheet-mcp-on-aws/",
+      "publishedAt": "2026-10-20T17:59:07.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "AWS·Smartsheet MCP 서버로 AI 에이전트에 업무 관리 맥락 제공",
+        "en": "Smartsheet MCP on AWS gives AI agents work-management context"
+      },
+      "summary": {
+        "ko": "Smartsheet가 MCP 서버를 정식 출시했습니다. MCP는 AI가 외부 도구와 데이터에 접속하는 공통 규격입니다. AI 어시스턴트가 도구를 오가지 않고 일정 수정, 업무 재배정, 상태 확인 같은 프로젝트 관리 작업을 읽고 쓸 수 있습니다.",
+        "en": "Smartsheet launched a generally available MCP Server so AI assistants can read, write and manage projects, such as updating timelines, reassigning tasks and surfacing status."
+      },
+      "takeaway": {
+        "ko": "에이전트에 쓰기 권한을 줄 때는 일정·담당자 변경 범위를 어디까지 허용할지 먼저 정해야 합니다.",
+        "en": "Define what write access agents get before connecting."
+      },
+      "highlights": {
+        "ko": [
+          "일정 수정, 업무 재배정, 상태 확인"
+        ],
+        "en": [
+          "updating timelines, reassigning tasks and surfacing status"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "8e74d2317209",
+      "source": "Program Business",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxORWxoYk1GWmNiUTBNOXZqcXczRXhRbzFpc293Mm5faTNYOWpLVmJqTkRDTHJaYy1IdDhaVTdsYTBLMHdSU0lNbTIwR3BucXNYeWFGRjRMX2plX0VGbUtrYlpZQXZwUmVYbThXUkVOY005OHB2bnM5bFJnbGRqZlFHV2lCdGQ1MkN0N2VqQmNhQl9malQwcFVZ?oc=5",
+      "publishedAt": "2026-10-20T13:01:12.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "무디스 조사: 보험사 AI 확산됐지만 성과 측정은 숙제",
+        "en": "Moody's: insurers embrace AI but struggle to measure returns"
+      },
+      "summary": {
+        "ko": "무디스 설문에서 북미 보험사·중개사 58곳 중 약 3분의 2가 AI를 폭넓게 도입했거나 핵심 업무 여러 곳에 적용했고, 34%는 전사 도입을 마쳤습니다. AI는 주로 운영 효율을 높이지만 많은 기업이 재무적 효과를 측정하지 못하고 있습니다.",
+        "en": "In Moody's survey of 58 North American insurers and brokers, about two-thirds deployed AI broadly and 34% enterprise-wide, but many struggle to measure the financial benefits."
+      },
+      "takeaway": {
+        "ko": "도입 전에 효율 개선을 재무 성과로 환산할 측정 지표를 먼저 정의해 두는 것이 중요합니다.",
+        "en": "Define financial KPIs before deployment, not after."
+      },
+      "highlights": {
+        "ko": [
+          "58곳 중 약 3분의 2",
+          "34%는 전사 도입"
+        ],
+        "en": [
+          "34% enterprise-wide"
+        ]
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://programbusiness.com/news/moodys-insurers-embrace-ai-but-struggle-to-measure-returns/"
+      }
+    },
+    {
+      "id": "c2b50efaa659",
+      "source": "이지경제",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5IbldLSm5iQ2Jpa25IQ01xTGQwcy1QdmU5YnpWdlpOTWJiYWpkdzdtcENZWGkxenBqbXB6R0FpOEJGd3JiY016VWFjNDUyMFFNRURsb2JRNjllbjBxQUFhU05VOVczemJnMVpFRVhR?oc=5",
+      "publishedAt": "2026-10-20T05:36:09.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "베스핀글로벌, 산업별 AX 사례 34건 담은 사례집 발간",
+        "en": "Bespin Global publishes AX casebook with 34 industry cases"
+      },
+      "summary": {
+        "ko": "베스핀글로벌이 금융·공공·제조·유통 등 34건의 AX 사례를 담은 사례집을 냈습니다. KB라이프, 우리금융지주, 한국수력원자력 등이 포함되며, 원전 기술 서류 검토 시간을 90% 단축한 사례가 있습니다. 생산성 개선과 외부 사업화가 과제로 꼽힙니다.",
+        "en": "Bespin Global released a casebook of 34 AX cases across finance, public, manufacturing and retail, including a 90% cut in nuclear technical document review time."
+      },
+      "takeaway": {
+        "ko": "사례집의 90% 단축 같은 수치는 기준 업무와 측정 방식을 확인해 자사 업무에 대입해야 합니다.",
+        "en": "Check the baseline behind headline figures like the 90% cut."
+      },
+      "highlights": {
+        "ko": [
+          "34건의 AX 사례",
+          "검토 시간을 90% 단축"
+        ],
+        "en": [
+          "a 90% cut in nuclear technical document review time"
+        ]
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.ezyeconomy.com/news/articleView.html?idxno=240978"
+      }
+    },
+    {
+      "id": "f2c0ba3af50e",
+      "source": "Construction Owners",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOQlJicDVoaEkzS1I2VzlvdWE4Y3hXQU96S3h4VkN5eXZXaXZiMFBnWWZxTnozMVZlYU9DQ2l5ZHY1bW8zUXJzWGt5bmh5dzh0c3VLS1BnRkQ1dEpTZVFlUUM5S0lpNjhwVk9fV29ZeXMwN01zSXhra2JhSGZqcmF1YjZlQVJRcEtQUjAzd0J6VndnN3RVZE9SUHJ1allwd196VjBIQ1B2ZkJGc1UxN004?oc=5",
+      "publishedAt": "2026-10-20T16:42:38.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "건설사 AI 도입 요령: 작게 시작하고 빨리 실패하라",
+        "en": "The contractor's AI playbook: start small, fail fast"
+      },
+      "summary": {
+        "ko": "Forvis Mazars의 컨설팅 책임자 Kathryn Schneider가 건설 시공사의 AI 도입을 이야기합니다. 박람회마다 AI가 넘쳐 관심과 피로감이 공존하는 가운데, 이미 쓰는 기술 스택을 더 활용하고 자동화와 AI로 적은 자원으로 더 많이 해내도록 돕는다고 합니다.",
+        "en": "Forvis Mazars' Kathryn Schneider discusses AI for contractors amid hype fatigue, focusing on getting more from existing tech stacks and using automation and AI to do more with less."
+      },
+      "takeaway": {
+        "ko": "새 도구를 사기 전에 기존 시스템으로 작은 과제를 먼저 시험해 보는 접근을 고려할 수 있습니다.",
+        "en": "Pilot small tasks on existing systems before buying new tools."
+      },
+      "highlights": {
+        "ko": [
+          "이미 쓰는 기술 스택을 더 활용"
+        ],
+        "en": [
+          "getting more from existing tech stacks"
+        ]
+      },
+      "industry": "construction",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.constructionowners.com/news/start-small-fail-fast-kathryn-schneider-on-the-contractors-ai-playbook"
+      }
+    },
+    {
+      "id": "6096cc3a83ec",
+      "source": "GitHub",
+      "url": "https://github.com/HKUDS/CLI-Anything",
+      "publishedAt": "2026-03-08T13:52:57.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "CLI-Anything: 모든 소프트웨어를 AI 에이전트가 쓰게 만드는 도구",
+        "en": "CLI-Anything: making all software agent-native"
+      },
+      "summary": {
+        "ko": "CLI-Anything은 기존 소프트웨어를 AI 에이전트가 명령줄로 다룰 수 있게 해 주는 Python 프로젝트입니다. 커뮤니티가 만든 CLI는 CLI-Hub에서 pip로 설치해 쓰며, CAD 작업이나 3D 장면, 다이어그램 제작 같은 데모가 제공됩니다.",
+        "en": "CLI-Anything is a Python project that lets AI agents operate existing software through command-line interfaces. Community CLIs install from CLI-Hub via pip, with demos like CAD and 3D scenes."
+      },
+      "takeaway": {
+        "ko": "API가 없는 업무 소프트웨어를 에이전트와 연결할 때 활용할 수 있으나, 실행 권한 범위는 따로 통제해야 합니다.",
+        "en": "Useful for API-less software, but restrict execution permissions."
+      },
+      "metrics": {
+        "stars": 55625,
+        "forks": 5013,
+        "language": "Python",
+        "starsGained": 3129,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "명령줄로 다룰 수 있게",
+          "CLI-Hub에서 pip로 설치"
+        ],
+        "en": [
+          "operate existing software through command-line interfaces"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "d8ea9701e2c6",
+      "source": "GitHub",
+      "url": "https://github.com/ifixai-ai/iFixAi",
+      "publishedAt": "2026-04-27T13:02:34.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "iFixAi: 업무 KPI 기준으로 AI 에이전트의 실수를 점검",
+        "en": "iFixAi: audit AI agents against business KPIs"
+      },
+      "summary": {
+        "ko": "iFixAi는 AI 에이전트가 맡은 일을 제대로 하는지 점검하는 Python 평가 도구입니다. 기존 평가·레드팀·관측 도구가 토큰 효율, 지연, 프롬프트 공격 같은 기술 지표 위주인 점을 보완해 업무 KPI와 조직 구조 기준으로 판단하며, 기록된 행동 감사도 지원합니다.",
+        "en": "iFixAi is a Python tool that checks whether agents do their intended job by business KPIs and org structure, beyond technical metrics, and can audit recorded actions."
+      },
+      "takeaway": {
+        "ko": "에이전트 운영 전에 자사 KPI와 권한 구조를 평가 기준으로 옮길 수 있는지 시험해 볼 만합니다.",
+        "en": "Test whether your KPIs can be encoded as evaluation criteria."
+      },
+      "metrics": {
+        "stars": 30591,
+        "forks": 1656,
+        "language": "Python",
+        "starsGained": 7106,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "업무 KPI와 조직 구조 기준으로 판단"
+        ],
+        "en": [
+          "business KPIs and org structure"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "ebf3dd6aaeb2",
+      "source": "GitHub",
+      "url": "https://github.com/vercel-labs/skills",
+      "publishedAt": "2026-01-14T21:31:18.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "vercel-labs/skills: 코딩 에이전트용 스킬 설치 CLI",
+        "en": "vercel-labs/skills: CLI for installing agent skills"
+      },
+      "summary": {
+        "ko": "에이전트 스킬은 코드 리뷰나 특정 라이브러리 사용법 같은 작업 방식을 코딩 에이전트에게 가르치는 재사용 지침입니다. 이 TypeScript CLI는 npx skills add 명령으로 스킬을 고르고 설치하며, Claude Code·Codex·Cursor 등 75종 이상을 지원합니다. Node.js 22.20 이상이 필요합니다.",
+        "en": "Agent skills are reusable instructions for coding agents. This TypeScript CLI installs them via npx skills add, supports Claude Code, Codex, Cursor and 75 more, and needs Node.js 22.20+."
+      },
+      "takeaway": {
+        "ko": "팀 공통 작업 지침을 스킬로 배포하려면 도입 전 외부 스킬의 내용을 검토하는 절차가 필요합니다.",
+        "en": "Review third-party skills before installing them team-wide."
+      },
+      "metrics": {
+        "stars": 35816,
+        "forks": 3061,
+        "language": "TypeScript",
+        "starsGained": 1694,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "npx skills add 명령",
+          "75종 이상을 지원"
+        ],
+        "en": [
+          "supports Claude Code, Codex, Cursor and 75 more"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "c289dc3d991e",
+      "source": "GitHub",
+      "url": "https://github.com/ruvnet/ruflo",
+      "publishedAt": "2025-06-02T21:24:20.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "ruflo: Claude Code·Codex를 묶는 에이전트 메타 하니스",
+        "en": "ruflo: agent meta-harness for Claude Code and Codex"
+      },
+      "summary": {
+        "ko": "ruflo는 Claude Code와 Codex 위에서 여러 에이전트를 운영하게 해 주는 메타 하니스입니다. 플러그인으로 핵심 도구, 에이전트 시각 콘솔, 라우팅과 정책 적용 모드를 설치하며 Claude Code 2.1.287 이상이 필요합니다. 모드는 계정 권한으로 실행되므로 코드 검토가 권장됩니다.",
+        "en": "ruflo is a meta-harness for Claude Code and Codex, installed as plugins with core tools, a visual console and routing/policy mods. Mods run with your account permissions, so review the code."
+      },
+      "takeaway": {
+        "ko": "모드가 계정 권한으로 실행되므로 사내 도입 전 코드 검토와 권한 분리를 먼저 확인해야 합니다.",
+        "en": "Review mod code and isolate permissions before internal use."
+      },
+      "metrics": {
+        "stars": 77699,
+        "forks": 9143,
+        "language": "TypeScript",
+        "starsGained": 2543,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "Claude Code 2.1.287 이상",
+          "모드는 계정 권한으로 실행"
+        ],
+        "en": [
+          "Mods run with your account permissions"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "e9cd38fcfacc",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=35725",
+      "publishedAt": "2026-10-20T18:35:22.000Z",
+      "section": "pulse",
+      "region": "EU",
+      "title": {
+        "ko": "Mistral Voxtral 3 공개: 50개 언어 음성 인식과 실시간 음성 에이전트 SDK",
+        "en": "Mistral's Voxtral 3: 50-language speech recognition and a real-time voice agent SDK"
+      },
+      "summary": {
+        "ko": "Mistral이 음성 인식, 추론, 도구 호출, 음성 합성을 하나의 실시간 파이프라인으로 잇는 Voxtral 3와 SDK를 공개했습니다. 전사는 50개 언어를 지원하고 실시간 모델은 지연이 500ms 미만입니다. 전사는 분당 0.0035달러부터이며 자체 인프라에서도 실행할 수 있습니다.",
+        "en": "Mistral released Voxtral 3 and an SDK linking speech recognition, reasoning, tool calls and synthesis in real time. Transcription covers 50 languages from $0.0035/min and can run self-hosted."
+      },
+      "takeaway": {
+        "ko": "콜센터 등에 적용하려면 한국어 인식 정확도와 사내 시스템 연동, 자체 인프라 실행 요건을 먼저 확인해야 합니다.",
+        "en": "Verify Korean accuracy and self-hosting needs for call-center use."
+      },
+      "highlights": {
+        "ko": [
+          "지연이 500ms 미만",
+          "분당 0.0035달러부터"
+        ],
+        "en": [
+          "from $0.0035/min"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "a3c71b32431e",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=35721",
+      "publishedAt": "2026-10-20T16:40:24.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "가짜 통계 5만 페이지가 ChatGPT 인용을 얻었다",
+        "en": "50,000 fake-statistics pages earned LLM citations"
+      },
+      "summary": {
+        "ko": "GPT-4.1로 만든 허위 통계 페이지 5만 개를 게시한 실험 사이트가 7개월간 ChatGPT 유입 세션 1만 건 이상과 330개 이상 도메인의 링크를 얻었습니다. 허위 수치가 논문과 투자 리서치까지 퍼져 인용 세탁 위험이 드러났고, 검색 순위가 진실성을 보장하지 않음을 보여 줍니다.",
+        "en": "An experiment site with 50,000 fake-stat pages drew 10,000+ ChatGPT sessions and links from 330+ domains in seven months, showing citation laundering risk; retrieval ranking doesn't ensure truth."
+      },
+      "takeaway": {
+        "ko": "AI 검색 답변의 수치를 업무에 쓸 때는 원출처를 직접 확인하는 절차가 필요합니다.",
+        "en": "Trace AI-cited statistics back to primary sources."
+      },
+      "highlights": {
+        "ko": [
+          "허위 통계 페이지 5만 개",
+          "인용 세탁 위험"
+        ],
+        "en": [
+          "50,000 fake-stat pages"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "bb2f91049337",
+      "source": "Hacker News",
+      "url": "https://100toolkit.com/blog/deslop-model/",
+      "publishedAt": "2026-10-19T13:00:47.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "AI 글쓰기 버릇을 뺀 Qwen3-4B, 맥북 에어에서 미세조정",
+        "en": "Qwen3-4B with AI writing tics trained out"
+      },
+      "summary": {
+        "ko": "Qwen3-4B-Instruct를 맥북 에어에서 미세조정해 엠대시와 '~가 아니라 ~다' 구문, 3개 나열 같은 AI 문체를 없앤 qwen3-4b-deslop가 공개됐습니다. 학습에 없던 40개 프롬프트에서 문체 점수가 121에서 12.5로 떨어졌고, Ollama로 2.5GB를 받아 로컬 실행합니다.",
+        "en": "qwen3-4b-deslop, a MacBook Air fine-tune of Qwen3-4B-Instruct, removes AI writing tics. On 40 unseen prompts the slop score fell from 121 to 12.5; it runs locally via Ollama (2.5 GB)."
+      },
+      "takeaway": {
+        "ko": "사내 문서 문체 교정용 소형 모델의 가능성을 보여 주지만, 한국어에서도 통하는지는 별도로 검증해야 합니다.",
+        "en": "Verify whether the effect holds for Korean text."
+      },
+      "metrics": {
+        "points": 154,
+        "comments": 110
+      },
+      "highlights": {
+        "ko": [
+          "문체 점수가 121에서 12.5로",
+          "2.5GB를 받아 로컬 실행"
+        ],
+        "en": [
+          "slop score fell from 121 to 12.5"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "dbaa90254253",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
+      "publishedAt": "2026-10-20T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 바이오 기업 Orchestra Bio 인수",
+        "en": "OpenAI acquires Orchestra Bio"
+      },
+      "summary": {
+        "ko": "OpenAI가 생명과학 연구개발에 AI 기반 운영을 도입하기 위해 Orchestra Bio를 인수한다고 밝혔습니다. 바이오제약 팀의 신약 개발과 새 치료제 개발을 가속하는 것이 목적입니다. 현재 확인되는 내용은 발표 요약 수준입니다.",
+        "en": "OpenAI is acquiring Orchestra Bio to bring AI-powered operations to life sciences R&D and help biopharma teams accelerate drug development. Only the announcement snippet was available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "생명과학 연구개발에 AI 기반 운영을 도입"
+        ],
+        "en": [
+          "AI-powered operations to life sciences R&D"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 166,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "dd8a8739a45d",
+      "source": "One Useful Thing",
+      "url": "https://www.oneusefulthing.org/p/30-months-on-the-exponential-in-charts",
+      "publishedAt": "2026-10-20T15:57:59.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "지수 곡선 위의 30개월: 차트로 보는 AI 발전",
+        "en": "30 months on the exponential, in charts"
+      },
+      "summary": {
+        "ko": "Ethan Mollick이 두 번째 책 Co-Existence 출간에 맞춰, 첫 책 Co-Intelligence 이후 30개월간의 AI 진전을 차트로 정리했습니다. 챗봇 시대에는 대화창에서 단계마다 AI를 이끌어야 했지만, 지금은 에이전트 AI가 차트 제작을 직접 해낸다는 점이 진전의 지표입니다.",
+        "en": "Marking his book Co-Existence, Ethan Mollick charts 30 months of AI progress since Co-Intelligence. Chatbots needed step-by-step guidance; agentic AI now makes the charts itself."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "30개월간의 AI 진전",
+          "에이전트 AI가 차트 제작을 직접"
+        ],
+        "en": [
+          "30 months of AI progress"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "TorchTPU",
+      "desc": {
+        "ko": "PyTorch로 만든 AI 프로그램을 구글 TPU 칩에서 돌리게 해 주는 도구입니다.",
+        "en": "A tool that lets PyTorch AI programs run on Google's TPU chips."
+      }
+    },
+    {
+      "term": "미니바인더",
+      "desc": {
+        "ko": "표적 물질에 단단히 달라붙도록 설계한 작은 단백질입니다.",
+        "en": "A small designed protein that binds tightly to a target molecule."
+      }
+    },
+    {
+      "term": "파라미터 효율 미세조정",
+      "desc": {
+        "ko": "큰 AI 모델의 일부 값만 조정해 적은 비용으로 새 용도에 맞추는 방법입니다.",
+        "en": "Adapting a large AI model by tuning only a small part of it, at low cost."
+      }
+    },
+    {
+      "term": "디시전 모델",
+      "desc": {
+        "ko": "긴 글을 쓰기보다 맞다·아니다 같은 판단을 빠르게 내리도록 만든 AI 모델입니다.",
+        "en": "An AI model built to make quick judgments rather than write long text."
+      }
+    },
+    {
+      "term": "MCP",
+      "desc": {
+        "ko": "AI가 외부 도구와 데이터에 연결되도록 하는 공통 규격입니다.",
+        "en": "A common standard that connects AI to external tools and data."
+      }
+    },
+    {
+      "term": "CLI-Hub",
+      "desc": {
+        "ko": "AI 에이전트가 쓸 명령줄 도구를 모아 설치하는 커뮤니티 저장소입니다.",
+        "en": "A community hub for installing command-line tools for AI agents."
+      }
+    },
+    {
+      "term": "에이전트 스킬",
+      "desc": {
+        "ko": "코딩 AI에게 특정 작업 방식을 알려 주는 재사용 가능한 지침입니다.",
+        "en": "Reusable instructions that teach a coding AI how to do a task."
+      }
+    },
+    {
+      "term": "메타 하니스",
+      "desc": {
+        "ko": "여러 AI 에이전트 도구를 한데 묶어 운영·통제하는 상위 틀입니다.",
+        "en": "A higher-level framework that bundles and controls multiple AI agent tools."
+      }
+    },
+    {
+      "term": "인용 세탁",
+      "desc": {
+        "ko": "가짜 정보가 권위 있는 곳에 인용되며 믿을 만해 보이게 되는 현상입니다.",
+        "en": "When fake information gains credibility by being cited by authoritative sources."
+      }
+    }
+  ]
+}
