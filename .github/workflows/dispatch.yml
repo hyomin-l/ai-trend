@@ -3,12 +3,13 @@ name: dispatch
 on:
   schedule:
     # Weekdays (Mon-Fri KST) = Sun-Thu UTC. GitHub delays scheduled runs (3.5h observed) and can drop them,
-    # so three slots are booked before the 06:20 commute; the first to arrive publishes and the rest skip
+    # so three slots are booked well before the 06:20 commute; the first to arrive publishes and the rest skip
     # before Claude is installed (see "Decide whether to collect"). Off the top of the hour to dodge congestion.
     # The schedule is also quoted in BRAND.description and ui.emptyNote (lib/i18n.ts) and in config/prompt.ts.
+    # Observed delays were 2-4.3h (10-19: first run 04:26 KST, 10-20: 06:33 KST), so the slots start right after midnight KST.
+    - cron: "17 15 * * 0-4" # 00:17 KST
+    - cron: "17 16 * * 0-4" # 01:17 KST
     - cron: "17 17 * * 0-4" # 02:17 KST
-    - cron: "47 18 * * 0-4" # 03:47 KST
-    - cron: "17 20 * * 0-4" # 05:17 KST
   workflow_dispatch:
     inputs:
       validate_only:
