@@ -1,0 +1,768 @@
+{
+  "date": "2026-10-23",
+  "issue": 7,
+  "generatedAt": "2026-10-22T19:13:17.723Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "86405d6d1e9f",
+    "ba6fa07d677a",
+    "2c1b17b37189"
+  ],
+  "items": [
+    {
+      "id": "86405d6d1e9f",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+      "publishedAt": "2026-10-22T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Anthropic, Agent Skills를 Agentic AI Foundation에 기증",
+        "en": "Anthropic Donates Agent Skills to the Agentic AI Foundation"
+      },
+      "summary": {
+        "ko": "Anthropic이 AI 에이전트에 전문 지식과 업무 절차를 가르치는 개방형 표준 Agent Skills를 Agentic AI Foundation에 기증했습니다. 2025년 12월 공개 이후 ChatGPT, Cursor, GitHub Copilot 등 70곳 넘는 플랫폼이 채택했습니다. 스킬은 SKILL.md 파일과 스크립트를 담은 폴더입니다.",
+        "en": "Anthropic donated Agent Skills, an open standard for teaching agents tasks, to the AAIF. Over 70 platforms have adopted it since December 2025."
+      },
+      "takeaway": {
+        "ko": "스킬은 폴더 단위라 사내 업무 절차를 한 번 정리해 여러 에이전트 도구에서 재사용할 수 있는지 검증해 볼 만합니다.",
+        "en": "Test reusing one internal skill folder across several agent tools."
+      },
+      "highlights": {
+        "ko": [
+          "70곳 넘는 플랫폼이 채택",
+          "SKILL.md 파일과 스크립트를 담은 폴더"
+        ],
+        "en": [
+          "Over 70 platforms have adopted it"
+        ]
+      },
+      "related": [
+        {
+          "source": "Simon Willison",
+          "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "ba6fa07d677a",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/uber-chatgpt-work-rollout",
+      "publishedAt": "2026-10-22T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Uber, 임직원 3만 명 이상에 ChatGPT Work 도입",
+        "en": "Uber Rolls Out ChatGPT Work to 30,000+ Employees"
+      },
+      "summary": {
+        "ko": "Uber가 OpenAI와 함께 ChatGPT Work를 임직원 3만 명 이상에게 배포합니다. 팀이 자료 조사, 데이터 분석, 발표 자료 작성, 복잡한 업무 흐름 처리에 활용하게 됩니다. 확인된 내용은 공식 발표 요약 수준입니다.",
+        "en": "Uber is deploying ChatGPT Work to over 30,000 employees for research, data analysis, presentations and complex workflows."
+      },
+      "takeaway": {
+        "ko": "전사 배포 규모 사례이므로 활용 범위와 성과 지표가 추후 공개되는지 지켜볼 만합니다.",
+        "en": "Watch for usage and outcome metrics from this company-wide rollout."
+      },
+      "highlights": {
+        "ko": [
+          "임직원 3만 명 이상에게 배포"
+        ],
+        "en": [
+          "over 30,000 employees"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 155,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "fe52d49759b6",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+      "publishedAt": "2026-10-22T19:07:09.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "1Password, 비밀번호 노출 없이 AI 에이전트가 로그인하는 기능 출시",
+        "en": "1Password Lets AI Agents Log In Without Seeing Passwords"
+      },
+      "summary": {
+        "ko": "1Password가 사용자를 대신해 AI 에이전트가 계정에 로그인하되 자격 증명은 볼 수 없게 하는 1Password for Agents를 내놨습니다. 에이전트, 사용자, 비밀번호 관리자가 서로 소통하는 구조로 작동합니다. 에이전트에 맡기는 계정 접근 우려에 대응한 것입니다.",
+        "en": "1Password launched 1Password for Agents, letting agents log into accounts for users without ever accessing their credentials."
+      },
+      "takeaway": {
+        "ko": "에이전트에 업무 계정을 맡기기 전, 자격 증명을 분리하는 방식이 사내 보안 정책에 맞는지 확인해야 합니다.",
+        "en": "Check whether credential isolation fits your security policy."
+      },
+      "highlights": {
+        "ko": [
+          "자격 증명은 볼 수 없게"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 571
+      }
+    },
+    {
+      "id": "2c1b17b37189",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1016905/meta-earnings-fall-2026-muse-network",
+      "publishedAt": "2026-10-22T18:15:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "메타, 개인 AI 에이전트 Muse에 미래를 걸다",
+        "en": "Meta Bets Its Future on Personal AI Agent Muse"
+      },
+      "summary": {
+        "ko": "저커버그가 지난달 일반에 공개한 개인 AI 에이전트 Muse에 메타의 미래를 걸고 있습니다. AI 에이전트가 쇼핑과 업무를 대신하고 다른 사람의 에이전트와 대화하는 미래를 제시했습니다. The Verge는 이 비전을 비판적으로 짚었습니다.",
+        "en": "Zuckerberg is staking Meta's future on Muse, its personal AI agent released last month, envisioning agents that shop, work and talk to other agents."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "지난달 일반에 공개한 개인 AI 에이전트 Muse"
+        ],
+        "en": [
+          "personal AI agent released last month"
+        ]
+      },
+      "related": [
+        {
+          "source": "Hugging Face",
+          "url": "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 571
+      }
+    },
+    {
+      "id": "d636564ee5d9",
+      "source": "Latent Space",
+      "url": "https://www.latent.space/p/modal-d",
+      "publishedAt": "2026-10-22T17:40:57.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Modal CEO가 말하는 AI 컴퓨팅 인프라의 방향",
+        "en": "Modal CEO on the Shape of AI Compute"
+      },
+      "summary": {
+        "ko": "Latent Space가 Series D 투자를 유치한 Modal의 CEO Erik Bernhardsson을 인터뷰했습니다. 개발자가 클러스터 준비나 부하 예측, 유휴 자원 비용 없이 코드를 실행하게 한다는 서버리스 AI 인프라 구상을 다룹니다.",
+        "en": "Latent Space interviews Modal CEO Erik Bernhardsson after its Series D, on serverless AI infrastructure without provisioning clusters or paying for idle resources."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "클러스터 준비나 부하 예측, 유휴 자원 비용 없이"
+        ],
+        "en": [
+          "without provisioning clusters"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "44512f6af4ef",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.28402",
+      "publishedAt": "2026-10-22T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "StreamEval, 실시간 상호작용 영상 생성 모델 평가 벤치마크",
+        "en": "StreamEval Benchmarks Interactive Streaming Video Generation"
+      },
+      "summary": {
+        "ko": "StreamEval은 실시간으로 사용자와 상호작용하는 영상 생성 모델을 평가하는 통합 벤치마크입니다. 아바타 대화, 아바타 공연, 월드 생성, 지시 편집, 참조 편집의 다섯 과제를 15~300초 길이의 시나리오 테스트 300건으로 점검합니다.",
+        "en": "StreamEval is a unified benchmark for interactive streaming video generation, with 300 scripted cases of 15-300s across five tasks."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 294
+      },
+      "highlights": {
+        "ko": [
+          "테스트 300건"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 572
+      }
+    },
+    {
+      "id": "b13df1ce33e7",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.26659",
+      "publishedAt": "2026-10-22T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "SpatialScout, VLM 에이전트의 3차원 공간 탐색·지도화 능력 평가",
+        "en": "SpatialScout Tests VLM Agents on Active 3D Mapping"
+      },
+      "summary": {
+        "ko": "SpatialScout는 이미지와 언어를 함께 다루는 VLM 에이전트가 스스로 돌아다니며 3차원 공간의 물체 지도를 만들 수 있는지 평가하는 벤치마크입니다. 실내 장면 80개와 목표 물체 3,140개로 구성됩니다.",
+        "en": "SpatialScout benchmarks whether VLM agents can actively explore and build object-level 3D maps, using 80 indoor scenes and 3,140 target objects."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 128
+      },
+      "highlights": {
+        "ko": [
+          "실내 장면 80개와 목표 물체 3,140개"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 572
+      }
+    },
+    {
+      "id": "d5083253508c",
+      "source": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+      "publishedAt": "2026-10-22T16:00:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Microsoft Research, 대화형 시각화 언어 Flint-interactive 공개",
+        "en": "Microsoft Research Unveils Flint-interactive for Interactive Charts"
+      },
+      "summary": {
+        "ko": "Flint-interactive는 AI 에이전트가 만든 차트를 사용자가 클릭, 필터링, 확대, 강조하며 탐색하게 하는 언어입니다. 낮은 수준의 시각화 코드 대신 의미 단위 이벤트로 동작을 정의하고, 컴파일러가 상호작용 로직을 처리해 개발 부담을 줄입니다.",
+        "en": "Flint-interactive lets agents build charts users can click, filter and zoom, defining behavior via high-level events while a compiler handles interaction logic."
+      },
+      "takeaway": {
+        "ko": "에이전트가 만드는 분석 보고서를 대화형 차트로 바꿀 때 적용 가능한지 시험해 볼 수 있습니다.",
+        "en": "Try it for turning agent-made reports into interactive charts."
+      },
+      "highlights": {
+        "ko": [
+          "클릭, 필터링, 확대, 강조"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "73d02f72bcbb",
+      "source": "경인방송 뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE03VmljbGdYLUVwcllxbXM1eV95NGZwWWFUazNDNER3WUpaTGVEY0Z3b1R1blI0dVhoaUYzdjBoLUpmYTlKcVk2Mmp6eEJYYm1fNko1bWJKel8xelVzTDJud2tFbVfSAWhBVV95cUxNZlhycW4zUE5uY2NLR0Nhd3VoZ2NkYjlhanRUcTJJLUdoTDlIdGpTb296Q1JGd0NoR1cyOVhRZ2lzd0VDZFRHeDMwWVRKY0dockMzeEZQTFJuVk9OSWZkTi0wRW9TeVB4aQ?oc=5",
+      "publishedAt": "2026-10-22T08:23:58.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "BNK금융, 삼성SDS와 그룹 공동 생성형 AI 플랫폼 구축",
+        "en": "BNK Financial Picks Samsung SDS for Group-Wide Generative AI Platform"
+      },
+      "summary": {
+        "ko": "BNK금융그룹이 전 계열사가 함께 쓰는 생성형 AI 플랫폼 구축 사업의 우선협상대상자로 삼성SDS를 선정했습니다. 계열사별 도입에서 벗어나 표준화된 공동 기반을 만들고 금융·보안 위험을 통합 관리하는 것이 핵심입니다. 사업 범위는 기술협상 중입니다.",
+        "en": "BNK Financial chose Samsung SDS as preferred bidder for a shared generative AI platform across affiliates, with unified risk management. Scope is under negotiation."
+      },
+      "takeaway": {
+        "ko": "계열사 공통 AI 기반을 만들 때 위험 통합 관리 체계를 함께 설계하는 방식이 참고가 됩니다.",
+        "en": "A model for designing shared AI infrastructure with unified risk control."
+      },
+      "highlights": {
+        "ko": [
+          "표준화된 공동 기반",
+          "금융·보안 위험을 통합 관리"
+        ],
+        "en": [
+          "shared generative AI platform"
+        ]
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 571,
+        "url": "https://news.ifm.kr/news/articleView.html?idxno=482398"
+      }
+    },
+    {
+      "id": "5422c06dfcfb",
+      "source": "연합뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBaYjRBTTRfSHM0SnZrTU5YYnRIMXAzXzBsaGxYX3ZGdTRSb0xkUmVnb2Jhdmg2ZzBrNzUxMlA1NHQ2N25wR3ZhYkJOX09ubEZIdHZXY016MXNtVDMtdnBrd9IBYEFVX3lxTFBaYjRBTTRfSHM0SnZrTU5YYnRIMXAzXzBsaGxYX3ZGdTRSb0xkUmVnb2Jhdmg2ZzBrNzUxMlA1NHQ2N25wR3ZhYkJOX09ubEZIdHZXY016MXNtVDMtdnBrdw?oc=5",
+      "publishedAt": "2026-10-22T10:02:20.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "LG CNS 통해 챗GPT 엔터프라이즈 쓰는 국내 임직원 3만 명",
+        "en": "30,000 Korean Employees Use ChatGPT Enterprise via LG CNS"
+      },
+      "summary": {
+        "ko": "LG CNS를 통해 오픈AI의 기업용 서비스 챗GPT 엔터프라이즈를 쓰는 국내 기업 임직원이 3만 명에 달합니다. LG CNS는 올해 2월부터 리셀러 파트너로 활동하며 금융, 유통, 바이오, 제조 등으로 도입을 넓혔습니다.",
+        "en": "About 30,000 employees at Korean firms use ChatGPT Enterprise through LG CNS, a reseller since February, across finance, retail, biotech and manufacturing."
+      },
+      "takeaway": {
+        "ko": "도입 전략 수립부터 지원하는 파트너 모델이 사내 확산에 유효한지 비교해 볼 만합니다.",
+        "en": "Compare partner-led rollout support against in-house adoption."
+      },
+      "highlights": {
+        "ko": [
+          "임직원이 3만 명에 달합니다",
+          "올해 2월부터 리셀러 파트너"
+        ],
+        "en": [
+          "About 30,000 employees"
+        ]
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572,
+        "url": "https://www.yna.co.kr/view/AKR20261022171800017"
+      }
+    },
+    {
+      "id": "c000450decb6",
+      "source": "컨슈머치",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFA3Rl9HOWN4VFhqRUV3MTFXbkJiakR1QUN1WFN6V1FVMjNaNXdtMmc2XzVRNGNtVFJKVktCYU1JbXVlcEl1M2RRVTFsVWI1eTJ0Tmd4YnpMMWJHclRsMmYxYVlGTlEtU3A2aHBR?oc=5",
+      "publishedAt": "2026-10-22T08:48:07.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "대우건설, 16개 국어 AI 번역과 스마트 안전교육 현장 적용",
+        "en": "Daewoo E&C Brings 16-Language AI Translation to Sites"
+      },
+      "summary": {
+        "ko": "대우건설이 건설현장에 AI 실시간 번역, 태블릿 기반 스마트 교육, 통합 품질관리 솔루션을 적용하고 있습니다. 16개 국어 번역으로 한국어 안전지시가 외국인 근로자의 모국어로 전달되며, 지난 9월부터 국내 전 현장에 표준화했습니다.",
+        "en": "Daewoo E&C applies AI translation in 16 languages, tablet-based training and quality tools; standardized across domestic sites since September."
+      },
+      "takeaway": {
+        "ko": "외국인 근로자 비중이 높은 현장은 번역 정확도와 안전지시 전달 확인 절차를 먼저 검증해야 합니다.",
+        "en": "Verify translation accuracy and instruction confirmation first."
+      },
+      "highlights": {
+        "ko": [
+          "국내 전 현장에 표준화"
+        ],
+        "en": [
+          "16 languages"
+        ]
+      },
+      "industry": "construction",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572,
+        "url": "https://www.consumuch.com/news/articleView.html?idxno=79349"
+      }
+    },
+    {
+      "id": "2dd0d73ff8f1",
+      "source": "매일일보",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1BZ2Y4RlNIWTlWMWhqWC1yQnc1MjMzTUNHRUNsb29TLUNObko0RmZjQXVib1JJdW8zLWdhU196SDBqZ3RUaXgxUW4xSjBKZEt6LW9Dd1FMaWdIMENNR1NvVmc3amQ?oc=5",
+      "publishedAt": "2026-10-22T08:55:51.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "디스플레이 소부장, AI로 불량률 98% 감축 사례 공유",
+        "en": "Display Suppliers Share AI Gains in Defects and Logistics"
+      },
+      "summary": {
+        "ko": "한국디스플레이산업협회가 연 AX 행사에서 신성이엔지는 AI 예측정비와 센서 모니터링으로 생산능력을 210% 높이고 불량률을 98% 줄였다고 밝혔습니다. 에드워드코리아는 무인 이송으로 저장용량을 25% 늘렸습니다.",
+        "en": "At a display-industry AX event, Shinsung E&G reported 210% higher capacity and 98% fewer defects; Edwards Korea raised storage 25% with unmanned transport."
+      },
+      "takeaway": {
+        "ko": "수치는 기업 자체 발표이므로 도입 전 기준 조건과 측정 방식을 확인해야 합니다.",
+        "en": "Figures are self-reported; check baselines and measurement."
+      },
+      "highlights": {
+        "ko": [],
+        "en": [
+          "98% fewer defects"
+        ]
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572,
+        "url": "https://www.m-i.kr/news/articleView.html?idxno=2009345"
+      }
+    },
+    {
+      "id": "f34c24127709",
+      "source": "GitHub",
+      "url": "https://github.com/Comfy-Org/ComfyUI",
+      "publishedAt": "2023-01-17T03:15:56.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "ComfyUI, 모듈형 AI 콘텐츠 생성 엔진",
+        "en": "ComfyUI: Modular AI Content Creation Engine"
+      },
+      "summary": {
+        "ko": "ComfyUI는 이미지·영상 등 AI 콘텐츠 생성 과정을 모듈형으로 조립해 실행하는 오픈소스 엔진입니다. 기능 단위를 연결해 작업 흐름을 구성하며 Python으로 개발됐습니다. 이번 주 가장 많은 관심을 받은 레포 중 하나입니다.",
+        "en": "ComfyUI is an open-source modular engine for building AI content creation workflows, written in Python."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 141976,
+        "forks": 16739,
+        "language": "Python",
+        "starsGained": 3948,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "모듈형으로 조립해 실행하는 오픈소스 엔진"
+        ],
+        "en": [
+          "modular engine"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 572
+      }
+    },
+    {
+      "id": "30905c3403f9",
+      "source": "GitHub",
+      "url": "https://github.com/wshobson/agents",
+      "publishedAt": "2025-07-24T23:28:14.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "wshobson/agents, 코딩 도구 공용 플러그인·스킬 모음",
+        "en": "wshobson/agents: Shared Plugins and Skills for Coding Tools"
+      },
+      "summary": {
+        "ko": "Claude Code, Codex CLI, Cursor, GitHub Copilot 등 여러 AI 코딩 도구에서 함께 쓰는 플러그인, 에이전트, 스킬 모음입니다. 94개 플러그인에 에이전트 202개, 스킬 185개, 명령 105개가 있고 코드 리뷰, 테스트, 보안 작업을 다룹니다.",
+        "en": "A shared collection of plugins, agents and skills for AI coding tools: 94 plugins, 202 agents, 185 skills and 105 commands."
+      },
+      "takeaway": {
+        "ko": "도구가 달라도 같은 스킬 묶음을 쓸 수 있는지 팀 환경에서 검증해 볼 만합니다.",
+        "en": "Validate one skill set across your team's coding tools."
+      },
+      "metrics": {
+        "stars": 41553,
+        "forks": 4406,
+        "language": "Python",
+        "starsGained": 785,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "94개 플러그인에 에이전트 202개, 스킬 185개"
+        ],
+        "en": [
+          "94 plugins"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 572
+      }
+    },
+    {
+      "id": "0f5e0d0f60af",
+      "source": "GitHub",
+      "url": "https://github.com/ethanplusai/harvey",
+      "publishedAt": "2026-03-12T01:24:50.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Harvey, 구독형 Claude Code로 돌아가는 자율 영업 에이전트",
+        "en": "Harvey: Autonomous Sales Agent on Your Claude Code Subscription"
+      },
+      "summary": {
+        "ko": "Harvey는 영업 대상 기업을 찾아 맞춤 콜드메일을 쓰고 발송하며, 답장을 읽고 미팅까지 이끄는 자율 영업 에이전트입니다. 별도 API 키 없이 Claude Pro·Max나 ChatGPT 구독으로 로컬에서 반복 실행됩니다.",
+        "en": "Harvey is an autonomous sales agent that finds prospects, sends tailored cold emails and handles replies, running locally on Claude or ChatGPT subscriptions."
+      },
+      "takeaway": {
+        "ko": "자동 발송 메일은 수신 동의와 구독 약관 허용 범위를 먼저 확인해야 합니다.",
+        "en": "Check email consent rules and subscription terms first."
+      },
+      "metrics": {
+        "stars": 2079,
+        "forks": 424,
+        "language": "Python",
+        "starsGained": 1491,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "API 키 없이",
+          "답장을 읽고 미팅까지"
+        ],
+        "en": [
+          "autonomous sales agent"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 572
+      }
+    },
+    {
+      "id": "3a4ad9e5ba46",
+      "source": "GitHub",
+      "url": "https://github.com/android/skills",
+      "publishedAt": "2026-03-16T12:41:46.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "android/skills, 안드로이드 개발용 에이전트 스킬 저장소",
+        "en": "android/skills: Agent Skills for Android Development"
+      },
+      "summary": {
+        "ko": "안드로이드 개발 모범 사례를 AI가 따르도록 정리한 모듈형 지침 저장소입니다. 개방형 표준 Agent Skills 형식의 SKILL.md로 작업 방식을 명세해 LLM이 안드로이드 개발 패턴을 정확히 수행하도록 돕습니다.",
+        "en": "A repository of modular, AI-optimized Android best-practice instructions in the open SKILL.md agent skills format."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 9226,
+        "forks": 592,
+        "language": "Kotlin",
+        "starsGained": 1332,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "SKILL.md로 작업 방식을 명세"
+        ],
+        "en": [
+          "SKILL.md"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 571
+      }
+    },
+    {
+      "id": "820bd24a41c4",
+      "source": "Hacker News",
+      "url": "https://mistral.ai/news/mistral-large-4/",
+      "publishedAt": "2026-10-21T19:20:55.000Z",
+      "section": "pulse",
+      "region": "EU",
+      "title": {
+        "ko": "Mistral Large 4 공개 프리뷰, 1조 파라미터 오픈 웨이트",
+        "en": "Mistral Large 4 Enters Public Preview"
+      },
+      "summary": {
+        "ko": "Mistral이 1조 파라미터, 활성 520억 파라미터의 멀티모달 모델 Mistral Large 4 공개 프리뷰를 시작했습니다. Mistral Studio에서 API를 써볼 수 있고, 가중치는 이달 말 공개될 예정입니다.",
+        "en": "Mistral launched a public preview of Mistral Large 4, a 1T-parameter multimodal model with 52B active; weights due end of month."
+      },
+      "takeaway": {
+        "ko": "가중치 공개 후 자체 운영 가능한 인프라 규모와 라이선스를 확인해야 합니다.",
+        "en": "After release, check hosting needs and license terms."
+      },
+      "metrics": {
+        "points": 322,
+        "comments": 102
+      },
+      "highlights": {
+        "ko": [
+          "1조 파라미터",
+          "가중치는 이달 말 공개"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572
+      }
+    },
+    {
+      "id": "eb0f1c4495dc",
+      "source": "Hacker News",
+      "url": "https://www.bbc.com/news/articles/cmreyvepnv0po",
+      "publishedAt": "2026-10-21T19:14:21.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "구글 AI 직원들, 군사 계약에 반발해 퇴사",
+        "en": "Google DeepMind Staff Resign Over Military AI Contracts"
+      },
+      "summary": {
+        "ko": "BBC에 따르면 구글 딥마인드 직원 일부가 회사의 AI 군사 활용 계약에 반발해 최근 퇴사했거나 퇴사를 준비 중입니다. 런던 소재 연구 엔지니어 Sofia Liguori도 이번 주 사직하며 우려를 밝혔습니다.",
+        "en": "Per the BBC, several Google DeepMind staff have resigned or are leaving over military AI contracts, including engineer Sofia Liguori."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 124,
+        "comments": 26
+      },
+      "highlights": {
+        "ko": [],
+        "en": [
+          "resigned or are leaving"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 571
+      }
+    },
+    {
+      "id": "33a150cce87f",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xbzlih/i_replaced_my_samsung_tvs_home_screen_with_claude/",
+      "publishedAt": "2026-10-21T21:11:42.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Claude Code로 삼성 TV 홈 화면을 직접 교체",
+        "en": "Replacing a Samsung TV Home Screen with Claude Code"
+      },
+      "summary": {
+        "ko": "광고가 가득한 삼성 TV 홈 화면 대신 시계, 자주 쓰는 앱, 게임기만 두는 런처를 Claude Code로 만든 사례입니다. TV API를 흉내 내 노트북 브라우저에서 개발해 매번 TV에 설치하지 않고 빠르게 수정했습니다.",
+        "en": "A user built a simpler TV launcher with Claude Code, faking TV APIs so layout and remote navigation could be iterated in a laptop browser."
+      },
+      "takeaway": {
+        "ko": "외부 환경을 모사해 로컬에서 반복 개발하는 방식은 에이전트 작업 속도를 높이는 방법으로 참고할 만합니다.",
+        "en": "Mocking external APIs locally speeds agent iteration."
+      },
+      "highlights": {
+        "ko": [
+          "노트북 브라우저에서 개발"
+        ],
+        "en": [
+          "laptop browser"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "1c7c0e5c15b7",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=35827",
+      "publishedAt": "2026-10-22T17:46:27.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "LLM이 매기는 신뢰도 점수는 믿기 어렵다",
+        "en": "LLM-Generated Confidence Scores Are a Bad Idea"
+      },
+      "summary": {
+        "ko": "LLM이 내놓는 신뢰도 점수는 내부 확신의 측정값이 아니라 이어질 법한 텍스트를 생성한 결과입니다. 같은 질문도 표현만 바꾸면 점수가 달라집니다. 대안으로 관측 정보와 실제 결과 기록으로 별도 산정 규칙을 만들어 검증하라고 제안합니다.",
+        "en": "LLM confidence scores are generated text, not measured confidence, and shift with rephrasing. The post suggests separate rules built from observed data and outcomes."
+      },
+      "takeaway": {
+        "ko": "AI 판단에 점수를 붙여 쓰고 있다면 실제 정답률과 일치하는지 보정 검증부터 해야 합니다.",
+        "en": "Check scores against real accuracy before relying on them."
+      },
+      "highlights": {
+        "ko": [],
+        "en": [
+          "shift with rephrasing"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Agent Skills",
+      "desc": {
+        "ko": "AI 에이전트에게 특정 업무 방법을 알려주는 파일 묶음 형식의 개방형 표준입니다.",
+        "en": "An open standard of file folders that teach AI agents how to perform specific tasks."
+      }
+    },
+    {
+      "term": "VLM",
+      "desc": {
+        "ko": "이미지와 글을 함께 이해하는 AI 모델입니다.",
+        "en": "An AI model that understands both images and text."
+      }
+    },
+    {
+      "term": "벤치마크",
+      "desc": {
+        "ko": "여러 AI 모델의 성능을 같은 기준으로 비교하는 시험입니다.",
+        "en": "A standard test for comparing AI model performance."
+      }
+    },
+    {
+      "term": "오픈 웨이트",
+      "desc": {
+        "ko": "모델의 학습된 가중치를 공개해 누구나 내려받아 쓸 수 있게 한 방식입니다.",
+        "en": "A release style where trained model weights are public for anyone to download and use."
+      }
+    },
+    {
+      "term": "Flint-interactive",
+      "desc": {
+        "ko": "AI가 만든 차트에 클릭·필터 같은 상호작용을 쉽게 넣게 해주는 언어입니다.",
+        "en": "A language that makes it easy to add clicking and filtering to AI-made charts."
+      }
+    }
+  ]
+}
