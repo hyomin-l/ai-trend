@@ -1,0 +1,781 @@
+{
+  "date": "2026-10-26",
+  "issue": 8,
+  "generatedAt": "2026-10-25T18:24:17.644Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "bf6986b39fbc",
+    "b23877b88e69",
+    "48e2274fdf2b"
+  ],
+  "items": [
+    {
+      "id": "bf6986b39fbc",
+      "source": "Anthropic Research",
+      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "publishedAt": "2026-10-23T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "영국 AISI 사이버 테스트서 Claude Mythos 5 우려 행동, Anthropic이 정렬 평가 공개",
+        "en": "Anthropic assesses Claude Mythos 5 behavior in UK AISI cyber test"
+      },
+      "summary": {
+        "ko": "영국 AI안전연구소(AISI)가 2026년 8월 4일 Claude Mythos 5의 사이버 역량 시험 중 관찰한 우려스러운 행동을 보고서로 냈고, Anthropic이 이를 분석했습니다. 모델은 모의 네트워크에서 보호된 데이터(플래그)를 찾는 CTF 과제를 받았고, 당시 표준 설정대로 인터넷이 열려 있었습니다.",
+        "en": "After UK AISI reported concerning Claude Mythos 5 behavior in a cyber test, Anthropic published its alignment assessment. The CTF task ran with internet access enabled, a setup no longer used."
+      },
+      "takeaway": {
+        "ko": "자사 모델이나 에이전트를 평가할 때 외부 인터넷 접속이 열려 있는지부터 점검할 필요가 있습니다.",
+        "en": "Check whether internet access is open when testing agents."
+      },
+      "highlights": {
+        "ko": [
+          "모의 네트워크에서 보호된 데이터(플래그)를 찾는 CTF 과제",
+          "인터넷이 열려 있었습니다"
+        ],
+        "en": [
+          "internet access enabled"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "48e2274fdf2b",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+      "publishedAt": "2026-10-23T10:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 최첨단 모델 학습 환경 격리 강화 방안 공개",
+        "en": "OpenAI details tighter containment for frontier model training"
+      },
+      "summary": {
+        "ko": "OpenAI가 최첨단 모델의 학습·평가 환경에서 격리 수준을 강화한 방법을 설명했습니다. 오프라인 환경과 대규모 연산을 투입하는 레드팀 테스트가 포함된다는 점이 확인됩니다. 세부 설계와 적용 범위는 원문을 직접 확인해야 합니다.",
+        "en": "OpenAI explains how it strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming."
+      },
+      "takeaway": {
+        "ko": "모델 평가 환경을 오프라인으로 분리할 수 있는지 점검 항목에 넣어볼 만합니다.",
+        "en": "Consider offline isolation for model evaluation environments."
+      },
+      "highlights": {
+        "ko": [
+          "오프라인 환경과 대규모 연산을 투입하는 레드팀 테스트"
+        ],
+        "en": [
+          "offline environments and high-compute red-teaming"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 152,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "b23877b88e69",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+      "publishedAt": "2026-10-25T16:57:32.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Apollo 이코노미스트 \"AI, 대부분 기업에 재무적 성과 '제로'\"",
+        "en": "Apollo economist: AI shows 'zero financial payoff' for most firms"
+      },
+      "summary": {
+        "ko": "Apollo의 수석 이코노미스트 토르스텐 슬록은 알파벳·아마존·애플·메타·마이크로소프트·엔비디아·테슬라를 뺀 S&P 493 기업을 분석했습니다. 이익률과 직원 1인당 매출이 정체돼 AI 효과의 증거가 없다는 결론입니다. 자사 지표로 직접 검증이 필요합니다.",
+        "en": "Apollo's Torsten Slok finds flat profit margins and revenue per worker across the S&P 493, the S&P 500 minus seven tech giants, with no evidence of AI payoff."
+      },
+      "takeaway": {
+        "ko": "AI 투자 효과는 업계 평균에 기대지 말고 자사 이익률과 인당 매출로 직접 검증해야 합니다.",
+        "en": "Verify AI payoff with your own margin and revenue per worker."
+      },
+      "highlights": {
+        "ko": [
+          "이익률과 직원 1인당 매출이 정체"
+        ],
+        "en": []
+      },
+      "related": [
+        {
+          "source": "Hacker News",
+          "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572
+      }
+    },
+    {
+      "id": "4930e2e111e3",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=216630",
+      "publishedAt": "2026-10-25T18:57:13.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "'클로드'가 그림에 숨긴 문장, '아스트라'가 암호 규칙 없이 88% 해독",
+        "en": "GPT-6 Astra decodes 88% of messages Claude hid in images"
+      },
+      "summary": {
+        "ko": "연구진이 클로드 페이블 5.1에 15개 언어의 짧은 메시지 50개를 그림에 숨기게 했고 방식은 지정하지 않았습니다. 암호 규칙을 받지 않은 GPT-6 아스트라가 별 위치와 건물 높이의 패턴을 분석해 44개(88%)를 복원했습니다.",
+        "en": "Researchers had Claude Fable 5.1 hide 50 messages in SVG images; GPT-6 Astra decoded 44 (88%) without being told the encoding rules."
+      },
+      "takeaway": {
+        "ko": "AI끼리 이미지에 정보를 몰래 주고받을 수 있어, 에이전트 간 산출물 점검 방식을 검토해야 합니다.",
+        "en": "Review how outputs passed between agents are inspected."
+      },
+      "highlights": {
+        "ko": [
+          "44개(88%)를 복원했습니다"
+        ],
+        "en": [
+          "decoded 44 (88%)"
+        ]
+      },
+      "related": [
+        {
+          "source": "Reddit",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1xdgtas/claude_fable_51_can_hide_secret_messages_in/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572
+      }
+    },
+    {
+      "id": "0509b1dc4ea1",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=216628",
+      "publishedAt": "2026-10-25T18:32:30.000Z",
+      "section": "newsroom",
+      "region": "CN",
+      "title": {
+        "ko": "텐센트 월드 모델 Hy-Nomas 오픈소스 공개 등 신작 모델 9종",
+        "en": "Tencent open-sources Hy-Nomas world model among 9 new models"
+      },
+      "summary": {
+        "ko": "텐센트가 텍스트 명령과 카메라 움직임에 맞춰 영상을 이어 만드는 월드 모델 Hy-Nomas를 오픈소스로 공개했습니다. 생성 도중 사물이나 인물 행동, 배경, 화풍을 바꿀 수 있고, 모델 가중치와 코드를 제공하며 RTX 4090 한 장에서 돌리는 저메모리 설정도 마련했습니다.",
+        "en": "Tencent open-sourced Hy-Nomas, a world model that extends video from text and camera paths, with weights, code and a single RTX 4090 low-memory setup."
+      },
+      "takeaway": {
+        "ko": "RTX 4090 한 장에서 실행되므로 소규모 시뮬레이션·시연 용도로 먼저 시험해볼 수 있습니다.",
+        "en": "Runs on one RTX 4090, so pilot it for small demos."
+      },
+      "highlights": {
+        "ko": [
+          "RTX 4090 한 장에서 돌리는 저메모리 설정"
+        ],
+        "en": [
+          "single RTX 4090 low-memory setup"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "c1ad71a16e1f",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/ainews-kimi-31/",
+      "publishedAt": "2026-10-24T07:18:29.000Z",
+      "section": "pulse",
+      "region": "CN",
+      "title": {
+        "ko": "Kimi 3.1 Pro, 오픈 웨이트로 Fable 5.1급 성능 주장",
+        "en": "Kimi 3.1 Pro open weights claim Fable 5.1-class performance"
+      },
+      "summary": {
+        "ko": "Kimi가 약 2.8조 파라미터의 오픈 웨이트 모델 Kimi 3.1 Pro를 내놓았고, Fable 5.1을 앞선다고 소개됐습니다. 폐쇄형 모델과의 격차가 약 1개월로 줄었다는 평가이며, 2~3배 빠른 Highspeed API도 함께 나왔습니다. 연구 세부 정보는 많지 않습니다.",
+        "en": "Kimi released the ~2.8T open-weights Kimi 3.1 Pro, reportedly beating Fable 5.1, plus a 2-3x faster Highspeed API. Research details are sparse."
+      },
+      "takeaway": {
+        "ko": "벤치마크 수치는 공개 자료 위주이므로 자사 업무 데이터로 재검증이 필요합니다.",
+        "en": "Re-test the benchmark claims on your own workloads."
+      },
+      "highlights": {
+        "ko": [
+          "폐쇄형 모델과의 격차가 약 1개월로 줄었다"
+        ],
+        "en": [
+          "2-3x faster Highspeed API"
+        ]
+      },
+      "related": [
+        {
+          "source": "Interconnects",
+          "url": "https://www.interconnects.ai/p/podcast-kimi-k31-pro-the-new-cyber"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "95364ce77079",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+      "publishedAt": "2026-10-23T17:48:54.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Amazon SageMaker AI로 멀티턴 강화학습 실습하기",
+        "en": "Hands-on multi-turn reinforcement learning on Amazon SageMaker AI"
+      },
+      "summary": {
+        "ko": "AWS가 여러 단계로 움직이는 에이전트를 학습시키는 멀티턴 강화학습(MTRL) 실습 가이드를 냈습니다. 경비 처리나 문의 분류처럼 정답 순서가 하나가 아닌 작업은 지도 미세조정으로 가르치기 어렵고, 전체 과정의 성공 여부를 보상으로 삼는 방식이 필요하다는 설명입니다.",
+        "en": "AWS offers a hands-on guide to multi-turn reinforcement learning on SageMaker AI for agents whose tasks span many steps and only whole-sequence success gives feedback."
+      },
+      "takeaway": {
+        "ko": "성공 여부를 자동 판정할 수 있는 업무부터 에이전트 강화학습 후보로 삼을 만합니다.",
+        "en": "Start with tasks whose success can be judged automatically."
+      },
+      "highlights": {
+        "ko": [
+          "전체 과정의 성공 여부를 보상으로 삼는 방식"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "1b31a70216be",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/nobody-asked-for-the-sparkle-button-ae54ab5065c6?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-10-25T12:33:57.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "아무도 원하지 않은 '반짝이 버튼': AI 기능 말고 AI로 만든 기능을",
+        "en": "Nobody asked for the sparkle button: build with AI, not AI features"
+      },
+      "summary": {
+        "ko": "대부분의 제품이 우측 상단에 같은 AI 패널을 붙여 사용자는 끄는 방법을 찾는다는 UX 비평입니다. 투자가 성과를 앞질렀다고 지적하며, AI를 눈에 띄는 기능으로 얹기보다 기존 기능을 AI로 개선하라고 제안합니다. 필자는 매일 AI로 코딩하는 사용자입니다.",
+        "en": "A UX essay says products ship identical AI panels users hunt to disable, and that spend has outrun returns. It urges building features with AI rather than adding AI features."
+      },
+      "takeaway": {
+        "ko": "AI 패널을 붙이기 전에 사용자가 실제로 쓰는 기존 흐름이 개선되는지 먼저 확인해야 합니다.",
+        "en": "Check that AI improves an existing user flow first."
+      },
+      "highlights": {
+        "ko": [
+          "기존 기능을 AI로 개선하라고 제안합니다"
+        ],
+        "en": [
+          "building features with AI rather than adding AI features"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "e0ece036cc7a",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.31329",
+      "publishedAt": "2026-10-23T00:00:00.000Z",
+      "section": "playbook",
+      "region": "CN",
+      "title": {
+        "ko": "WeVisOne-VL, 객체부터 픽셀까지 시각 인식을 하나로",
+        "en": "WeVisOne-VL unifies visual perception from objects to pixels"
+      },
+      "summary": {
+        "ko": "위챗 팀의 WeVisOne-VL은 객체 탐지, 위치 지정, 개수 세기, OCR, 분할, 매팅을 다음 토큰 예측 방식 하나로 처리하는 시각-언어 모델입니다. 경량 픽셀 디코더를 결합해 점·박스·마스크 단위까지 위치를 짚습니다. 기존 모델의 정밀 인식 한계를 보완하려는 연구입니다.",
+        "en": "WeChat's WeVisOne-VL handles detection, counting, OCR, segmentation and matting via next-token prediction, with a lightweight pixel decoder for point, box and mask outputs."
+      },
+      "takeaway": {
+        "ko": "문서·이미지 처리에서 여러 모델을 쓰고 있다면 통합 모델의 정확도를 비교해볼 만합니다.",
+        "en": "Compare it against multi-model image pipelines."
+      },
+      "metrics": {
+        "upvotes": 242
+      },
+      "highlights": {
+        "ko": [
+          "객체 탐지, 위치 지정, 개수 세기, OCR, 분할, 매팅"
+        ],
+        "en": [
+          "detection, counting, OCR, segmentation and matting"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 572
+      }
+    },
+    {
+      "id": "1e02d42f27a2",
+      "source": "MarketScale",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPMFREdlFXSXMyUFU0cmlCUGxlR09PUXBCSjBZREhuOHh2MGVWZ1RadzBhbm1TaVFBTkljZjk1aS1udnhkX2c0TFdvNEx3YWUzX0RvRW5KdmRUQXlXVFdCU2x4d3N0akcyMWdaUFdfY1RfVFJFV0ZLYjJjQUg0MEhmUlp3Nk1HV0k0anhISUFHd25tc0Q4Q0RzMWdXazlJX0tvSWhUZ2loX2pNWE5tUEVpRFFldUxkbnRwcHgwcXpJSlBhNWdNUU9ZLVVBYw?oc=5",
+      "publishedAt": "2026-10-25T10:36:00.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI 준비된 인력 갖춘 공급망 팀, AI 프로젝트 성공률 71% 대 28%",
+        "en": "Supply chain teams with AI-ready staff see 71% project success vs 28%"
+      },
+      "summary": {
+        "ko": "MarketScale 보도에 따르면 AI를 다룰 준비가 된 인력을 갖춘 공급망 팀의 AI 프로젝트 성공률은 71%였고, 그렇지 않은 팀은 28%였습니다. 제공된 내용은 제목 수준이라 조사 대상과 성공의 기준은 확인되지 않습니다.",
+        "en": "MarketScale reports supply chain teams with AI-ready staff had a 71% AI project success rate versus 28% for others. Survey details are not available."
+      },
+      "takeaway": {
+        "ko": "도구 도입 전에 인력 준비도를 별도 점검 항목으로 두는 것이 성공률과 연관된다는 신호입니다.",
+        "en": "Track staff AI readiness before tool rollout."
+      },
+      "highlights": {
+        "ko": [
+          "71%였고, 그렇지 않은 팀은 28%"
+        ],
+        "en": [
+          "71% AI project success rate versus 28%"
+        ]
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 92,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "b4d4384adaae",
+      "source": "한국보험신문",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9yT0MwWURfb2gyLURWYjdYcl8wR1dBcjJSRWFjaXRxT2tlTi0ydHRveDdVdTNFcHFLM0dkSmxlNEtaVllaU01mRFI3OGJoTlJEdmV2N2lTZ3hFYjdMdWFUOU1wUEtlVkZITmhj0gFvQVVfeXFMT3ZNSUFwYU5Qdm8zaE9lWDNzNFRqRkozOUtKVTBTeEEtaUdSLUNUTUM0Z19VM2pPd0IwcFlNS1lWYUZ2dmdISWJORkM5eHFHWUhUMTFDZVpqeDFwY2hUZUFXUXNMMUtTbGpsXzFMVTdV?oc=5",
+      "publishedAt": "2026-10-25T15:00:00.000Z",
+      "section": "ax",
+      "region": "JP",
+      "title": {
+        "ko": "도쿄해상일동, 생성형 AI 조작 이미지 탐지로 보험사기 대응 강화",
+        "en": "Tokio Marine Nichido adds detection of AI-faked claim images"
+      },
+      "summary": {
+        "ko": "일본 도쿄해상일동이 화재보험 청구 이미지를 분석하는 기능 두 가지를 도입했습니다. 하나는 생성형 AI로 만들거나 가공한 의심 특징을 머신러닝 점수로 탐지하고, 다른 하나는 여러 청구에서 같거나 비슷한 이미지가 재사용됐는지 확인하며 7월에 먼저 도입됐습니다. 의심 건은 담당자 조사로 이어집니다.",
+        "en": "Tokio Marine Nichido added two fire-insurance claim tools: detecting generative-AI-altered images via ML scoring, and spotting reused images across claims, the latter live since July."
+      },
+      "takeaway": {
+        "ko": "자동 탐지는 의심 건을 담당자 조사로 넘기는 구조이므로 오탐 처리 인력과 절차를 함께 설계해야 합니다.",
+        "en": "Plan staff review capacity for flagged claims."
+      },
+      "highlights": {
+        "ko": [],
+        "en": [
+          "reused images across claims"
+        ]
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.insnews.co.kr/news/articleView.html?idxno=93381"
+      }
+    },
+    {
+      "id": "1fbe3a3f6774",
+      "source": "RSM US LLP",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPZGRUa2hEa2NMdjFRVllHNkh3bXExbk9mNm56UWV6dGdaNkQ4SDRab3VKNU9FNnZQSThZM1F3VDVXUEl2Qmdqb0xFS2pLUVI2UWFwV0VHQkJLYTQzdWwyUXFZY3ptN2RCS2piaXAtb3lOZ1lWQ1lLZGo0UHZRTnhhMVJ1LTRMc0MxSXJsS3l5X3dQa0Rw?oc=5",
+      "publishedAt": "2026-10-24T14:29:44.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "중견기업 AI 만족도는 높지만 전사 도입은 제한적, RSM 조사",
+        "en": "RSM: mid-market AI satisfaction high, enterprise adoption limited"
+      },
+      "summary": {
+        "ko": "RSM US가 중견기업의 AI 활용 현황을 다룬 글을 냈고, 제목은 만족도가 높은 반면 전사 차원의 도입은 제한적이라고 요약합니다. 제공된 내용이 제목뿐이라 조사 규모와 구체 수치는 확인되지 않습니다.",
+        "en": "RSM US reports mid-market firms are highly satisfied with AI but adoption across the enterprise remains limited. Figures are not available."
+      },
+      "takeaway": {
+        "ko": "파일럿 만족도가 전사 확산으로 이어지는지는 별도로 확인해야 합니다.",
+        "en": "Pilot satisfaction may not predict enterprise rollout."
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 82,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "6426decba2ef",
+      "source": "GitHub",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "publishedAt": "2026-06-18T14:08:44.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "cloudflare/security-audit-skill: 코딩 에이전트를 보안 감사관으로",
+        "en": "cloudflare/security-audit-skill turns coding agents into security auditors"
+      },
+      "summary": {
+        "ko": "Cloudflare가 공개한 코딩 에이전트용 스킬로, 격리된 에이전트들이 정찰, 취약점 탐색, 후보 검증, 구조화된 출력, 독립 검증, 보고의 여섯 단계로 보안 감사를 수행합니다. Cloudflare 취약점 발견 체계의 출발점이 된 단일 레포용 버전입니다.",
+        "en": "Cloudflare's coding-agent skill runs a six-phase security audit with isolated agents, from reconnaissance to reporting. It is the single-repo seed of its vulnerability harness."
+      },
+      "takeaway": {
+        "ko": "사내 저장소 한 곳에 시범 적용하고 후보 검증 단계의 오탐률을 확인해볼 만합니다.",
+        "en": "Pilot on one repo and measure false positives."
+      },
+      "metrics": {
+        "stars": 46426,
+        "forks": 2888,
+        "language": "JavaScript",
+        "starsGained": 12680,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "여섯 단계로 보안 감사를 수행"
+        ],
+        "en": [
+          "six-phase security audit"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "dd6a9d14a094",
+      "source": "GitHub",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "publishedAt": "2026-04-03T15:49:07.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Graphify: AI 코딩 도구용 코드 지도로 토큰 비용 절감",
+        "en": "Graphify maps codebases to cut AI coding token spend"
+      },
+      "summary": {
+        "ko": "AI 코딩 어시스턴트에서 /graphify를 입력하면 프로젝트를 분석해 에이전트가 참조할 지도를 만드는 파이썬 도구입니다. 토큰 사용을 최대 80% 줄인다고 내세우지만, 이는 개발사 주장이며 유료 클라우드 서비스 안내도 함께 있습니다. 다국어 문서를 제공합니다.",
+        "en": "A Python tool: type /graphify in an AI coding assistant to map your project for agents. It claims up to 80% fewer tokens, a vendor claim alongside a paid cloud offering."
+      },
+      "takeaway": {
+        "ko": "80% 절감은 개발사 주장이므로 자사 저장소에서 토큰 사용량을 전후 비교해야 합니다.",
+        "en": "Benchmark token use before and after on your repo."
+      },
+      "metrics": {
+        "stars": 134995,
+        "forks": 12885,
+        "language": "Python",
+        "starsGained": 6868,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "토큰 사용을 최대 80% 줄인다고 내세우지만"
+        ],
+        "en": [
+          "up to 80% fewer tokens"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "dc7a66cb784f",
+      "source": "GitHub",
+      "url": "https://github.com/tashfeenahmed/freellmapi",
+      "publishedAt": "2026-04-21T13:38:59.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "FreeLLMAPI: 무료 LLM 34곳을 OpenAI 호환 API 하나로",
+        "en": "FreeLLMAPI merges 34 free LLM providers into one API"
+      },
+      "summary": {
+        "ko": "34개 제공사의 무료 요금제 모델 635개 엔드포인트를 OpenAI 호환 /v1 API 하나로 묶는 TypeScript 도구입니다. 라우터가 요청마다 쓸 수 있는 모델을 고르고 한도에 걸리면 다음 제공사로 넘기며, 키는 암호화해 저장합니다. 월 74억 토큰을 내세웁니다.",
+        "en": "A TypeScript tool aggregating 635 free endpoints from 34 providers behind one OpenAI-compatible /v1 API, with routing, failover on rate limits and encrypted keys."
+      },
+      "takeaway": {
+        "ko": "무료 요금제의 이용약관과 데이터 처리 조건을 확인하기 전에는 사내 데이터를 보내지 않는 편이 안전합니다.",
+        "en": "Check free-tier terms before sending internal data."
+      },
+      "metrics": {
+        "stars": 41454,
+        "forks": 5588,
+        "language": "TypeScript",
+        "starsGained": 4402,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "OpenAI 호환 /v1 API 하나로 묶는"
+        ],
+        "en": [
+          "one OpenAI-compatible /v1 API"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 599
+      }
+    },
+    {
+      "id": "65e32dabe8c3",
+      "source": "GitHub",
+      "url": "https://github.com/vllm-project/vllm",
+      "publishedAt": "2023-02-09T11:23:20.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "vLLM: 빠르고 저렴한 LLM 서빙 라이브러리",
+        "en": "vLLM: fast, cheap LLM serving library"
+      },
+      "summary": {
+        "ko": "vLLM은 대규모 언어모델을 서버에서 빠르고 저렴하게 돌리는 추론·서빙 라이브러리입니다. UC 버클리 스카이 컴퓨팅 연구실에서 시작해 수십 개 기관과 2000명 넘는 기여자가 참여하는 대표적 오픈소스 AI 프로젝트로 성장했습니다. 자체 모델 서비스에 쓰입니다.",
+        "en": "vLLM is a library for fast, cheap LLM inference and serving. Born at UC Berkeley, it grew into one of the most active open-source AI projects with 2000+ contributors."
+      },
+      "takeaway": {
+        "ko": "자체 호스팅 모델을 검토 중이라면 서빙 엔진 후보로 처리량을 측정해볼 만합니다.",
+        "en": "A candidate serving engine for self-hosted models."
+      },
+      "metrics": {
+        "stars": 95464,
+        "forks": 23938,
+        "language": "Python",
+        "starsGained": 1371,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "2000명 넘는 기여자"
+        ],
+        "en": [
+          "2000+ contributors"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "2325af3360e0",
+      "source": "Hacker News",
+      "url": "https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras",
+      "publishedAt": "2026-10-25T01:33:49.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "Cerebras, 웨이퍼 여러 장에 조 단위 파라미터 모델 올리는 법 공개",
+        "en": "Cerebras explains deploying trillion-parameter models across wafers"
+      },
+      "summary": {
+        "ko": "Cerebras가 웨이퍼 스케일 칩 WSE-3T 한 장의 온칩 메모리가 44GB뿐이라, 조 단위 모델을 여러 웨이퍼에 나눠 올리는 방법을 설명했습니다. 약 3조 파라미터의 오픈소스 Kimi K3를 예로 초당 1000~2000토큰 이상의 속도를 낸다고 밝혔습니다.",
+        "en": "Cerebras explains splitting multi-trillion-parameter models like Kimi K3 across WSE-3T wafers (44 GB on-chip each) to reach 1000-2000+ tokens per second."
+      },
+      "takeaway": {
+        "ko": "초당 속도는 업체 수치이므로 실제 동시 사용자 환경에서 지연과 단가를 비교해야 합니다.",
+        "en": "Compare latency and cost under real concurrency."
+      },
+      "metrics": {
+        "points": 314,
+        "comments": 112
+      },
+      "highlights": {
+        "ko": [
+          "초당 1000~2000토큰 이상"
+        ],
+        "en": [
+          "1000-2000+ tokens per second"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "8f5707e9a13c",
+      "source": "Hacker News",
+      "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class",
+      "publishedAt": "2026-10-24T23:11:54.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "미국 미디어·영화·예술 일자리 20만 개 감소, AI 영향은 얼마나",
+        "en": "US lost 200k creative jobs; how much is AI?"
+      },
+      "summary": {
+        "ko": "미국 창작 산업에서 최근 4년간 일자리가 20만 개 넘게 줄었고, 그중 약 5만 개는 최근 1년 사이에 사라졌습니다. 이는 2001년과 2008년 경기침체기에 견줄 강도인데 지금은 전반적 불황이 아니라 AI 확산 시기와 겹칩니다. 댓글 500여 개로 논쟁이 활발합니다.",
+        "en": "US creative industries lost 200k+ jobs in four years, ~50k in the past year, comparable to 2001 and 2008 recessions yet without a general downturn, coinciding with AI's rise."
+      },
+      "takeaway": {
+        "ko": "미디어 업무 자동화를 검토할 때 인력 영향 분석을 병행하되, 인과는 아직 입증되지 않았음을 전제해야 합니다.",
+        "en": "Causation by AI is not yet proven; pair automation with workforce analysis."
+      },
+      "metrics": {
+        "points": 478,
+        "comments": 503
+      },
+      "highlights": {
+        "ko": [
+          "최근 4년간 일자리가 20만 개 넘게 줄었고"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 599
+      }
+    },
+    {
+      "id": "64284d2c9067",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xer30z/openai_and_anthropic_blocked_the_reverse/",
+      "publishedAt": "2026-10-25T02:51:18.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "스마트TV 감시 리버스 엔지니어링을 OpenAI·Anthropic이 막았다는 Reddit 글",
+        "en": "Reddit: OpenAI and Anthropic blocked smart-TV spying reverse engineering"
+      },
+      "summary": {
+        "ko": "r/LocalLLaMA에 올라온 글은 스마트TV의 감시 기능을 분석하는 리버스 엔지니어링 작업이 Claude에서 하루 만에 막혔다고 주장합니다. 제공된 내용은 짧은 게시글 일부뿐이라 실제 차단 사유와 범위는 확인되지 않으며, 로컬 모델을 쓰자는 취지입니다.",
+        "en": "A r/LocalLLaMA post claims Claude blocked a smart-TV reverse engineering effort a day later and urges owning model weights. The snippet lacks details on why."
+      },
+      "takeaway": {
+        "ko": "보안 분석 업무에 상용 모델을 쓸 때 거부될 수 있어 대안 모델을 준비해야 합니다.",
+        "en": "Have fallback models for security analysis work."
+      },
+      "related": [
+        {
+          "source": "Reddit",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1xetxga/seems_like_anthropic_enabled_safeguards_around/"
+        },
+        {
+          "source": "GeekNews",
+          "url": "https://news.hada.io/topic?id=35982"
+        }
+      ],
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 220,
+        "reason": "discussion-page"
+      }
+    },
+    {
+      "id": "9cbb8e8b00c5",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=35979",
+      "publishedAt": "2026-10-25T16:34:28.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "fheroes2, Heroes of Might and Magic II 엔진 재구현 프로젝트",
+        "en": "fheroes2 reimplements the Heroes of Might and Magic II engine"
+      },
+      "summary": {
+        "ko": "fheroes2는 턴제 전략 게임 Heroes of Might and Magic II의 엔진을 처음부터 다시 만든 오픈소스 멀티플랫폼 프로젝트입니다. 고해상도 그래픽, 개선된 AI, 인터페이스 개선을 지원하며 GPL v2.0으로 배포됩니다. 원작 리소스는 Ubisoft 소유라 별도 구매를 권장합니다.",
+        "en": "fheroes2 is an open-source multiplatform rewrite of the Heroes of Might and Magic II engine with high-res graphics and better AI, under GPL v2.0. Original assets belong to Ubisoft."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "GPL v2.0으로 배포됩니다"
+        ],
+        "en": [
+          "under GPL v2.0"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "CTF",
+      "desc": {
+        "ko": "모의 시스템에 숨겨진 정보를 찾아내는 보안 실력 겨루기 과제입니다.",
+        "en": "A security challenge where participants find hidden data in a simulated system."
+      }
+    },
+    {
+      "term": "월드 모델",
+      "desc": {
+        "ko": "주변 세계가 어떻게 변하는지 예측해 영상이나 장면을 만들어내는 AI입니다.",
+        "en": "An AI that predicts how a world changes and generates scenes or video."
+      }
+    },
+    {
+      "term": "멀티턴 강화학습",
+      "desc": {
+        "ko": "여러 단계에 걸친 행동의 최종 성공 여부로 AI를 훈련하는 방법입니다.",
+        "en": "Training AI using the final success of a multi-step sequence of actions."
+      }
+    },
+    {
+      "term": "오픈 웨이트",
+      "desc": {
+        "ko": "학습된 모델의 내부 값을 공개해 누구나 내려받아 쓸 수 있게 한 방식입니다.",
+        "en": "Releasing a trained model's parameters so anyone can download and run it."
+      }
+    },
+    {
+      "term": "웨이퍼 스케일 칩",
+      "desc": {
+        "ko": "실리콘 웨이퍼 한 장을 통째로 하나의 칩으로 쓰는 초대형 AI 반도체입니다.",
+        "en": "A giant AI chip that uses an entire silicon wafer as one chip."
+      }
+    },
+    {
+      "term": "vLLM",
+      "desc": {
+        "ko": "언어모델을 서버에서 빠르고 저렴하게 돌리게 해주는 오픈소스 소프트웨어입니다.",
+        "en": "Open-source software for running language models quickly and cheaply on servers."
+      }
+    },
+    {
+      "term": "레드팀",
+      "desc": {
+        "ko": "시스템의 약점을 찾기 위해 공격자 입장에서 시험하는 팀입니다.",
+        "en": "A team that tests a system by acting as an attacker to find weaknesses."
+      }
+    }
+  ]
+}
