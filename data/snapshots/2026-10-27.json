@@ -1,0 +1,812 @@
+{
+  "date": "2026-10-27",
+  "issue": 9,
+  "generatedAt": "2026-10-26T20:28:53.510Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "edf59637f599",
+    "64d59b55a8fb",
+    "b8f740314eab"
+  ],
+  "items": [
+    {
+      "id": "edf59637f599",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/news/s1-sec",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, 나스닥 상장 위해 SEC에 S-1 제출",
+        "en": "Anthropic files S-1 with SEC for Nasdaq IPO"
+      },
+      "summary": {
+        "ko": "Anthropic이 미국 증권거래위원회(SEC)에 기업공개(IPO)를 위한 S-1 등록서류를 제출했습니다. 보통주 A종을 나스닥 글로벌 셀렉트 마켓에 'ANT'라는 종목명으로 상장할 계획입니다. 공모 주식 수와 가격 범위는 아직 정해지지 않았습니다.",
+        "en": "Anthropic filed an S-1 with the SEC for an IPO, planning to list Class A shares on Nasdaq as \"ANT.\" Share count and price range are not yet set."
+      },
+      "takeaway": {
+        "ko": "공모 전 투자설명서가 공개되면 공급사 재무 안정성과 계약 조건을 점검할 수 있습니다.",
+        "en": "The prospectus will let you vet vendor finances."
+      },
+      "highlights": {
+        "ko": [
+          "나스닥 글로벌 셀렉트 마켓에 'ANT'라는 종목명으로 상장",
+          "공모 주식 수와 가격 범위는 아직 정해지지 않았습니다"
+        ],
+        "en": [
+          "list Class A shares on Nasdaq as \"ANT.\""
+        ]
+      },
+      "related": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/"
+        },
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/26/anthropics-ipo-filing-reveals-its-strategy-for-keeping-enterprise-customers-hooked/"
+        },
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018738/anthropic-ipo-s1-filing-weird-details"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "b8f740314eab",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1018666/microsoft-expands-buyouts-60000-employees-eligible",
+      "publishedAt": "2026-10-26T15:58:27.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "마이크로소프트, 최대 6만 명에 자발적 퇴직 제안",
+        "en": "Microsoft offers buyouts to up to 60,000 employees"
+      },
+      "summary": {
+        "ko": "마이크로소프트가 미국, 영국, 캐나다, 인도의 직원 최대 6만 명에게 자발적 퇴직을 제안했습니다. 추가 정리해고 없이 인력을 줄이려는 조치로, 인사 책임자는 재정 지원과 경력 설계 자원을 제공한다고 밝혔습니다. Copilot, CoreAI 등 AI 조직 직원도 대상에 포함된 것으로 전해졌습니다.",
+        "en": "Microsoft is offering voluntary buyouts to up to 60,000 staff in the US, UK, Canada and India, avoiding new layoffs. AI teams like Copilot and CoreAI are reportedly eligible."
+      },
+      "takeaway": {
+        "ko": "AI 투자 확대기에도 인력 구조 조정이 병행되는 만큼 직무 재편 계획을 함께 점검해야 합니다.",
+        "en": "Pair AI investment with a workforce reskilling plan."
+      },
+      "highlights": {
+        "ko": [
+          "직원 최대 6만 명에게 자발적 퇴직을 제안",
+          "추가 정리해고 없이 인력을 줄이려는 조치"
+        ],
+        "en": [
+          "buyouts to up to 60,000 staff"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 571
+      }
+    },
+    {
+      "id": "623265788782",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/",
+      "publishedAt": "2026-10-26T16:46:36.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "SpaceX, 아폴로와 400억 달러 GPU 금융 계약",
+        "en": "SpaceX locks in $40B GPU financing with Apollo"
+      },
+      "summary": {
+        "ko": "SpaceX가 AI 칩과 데이터센터 장비 구입을 위해 약 400억 달러 규모의 금융 계약을 확정했다고 공시했습니다. 아폴로 글로벌 매니지먼트가 운용하는 법인이 장비를 사들여 SpaceX에 약 5년에서 5년 3개월간 임대하는 방식이며, 임대는 장비 인도 시점부터 시작됩니다.",
+        "en": "SpaceX disclosed a binding ~$40B financing for AI chips and data center gear. An Apollo-managed entity buys the hardware and leases it to SpaceX for about five years."
+      },
+      "takeaway": {
+        "ko": "GPU를 직접 사지 않고 리스로 조달하는 구조는 자본 부담을 줄이는 대안으로 검토할 만합니다.",
+        "en": "GPU leasing is an alternative to buying outright."
+      },
+      "highlights": {
+        "ko": [
+          "약 400억 달러 규모의 금융 계약",
+          "약 5년에서 5년 3개월간 임대"
+        ],
+        "en": [
+          "binding ~$40B financing"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572
+      }
+    },
+    {
+      "id": "64d59b55a8fb",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/chatgpt-expanding-world-of-work",
+      "publishedAt": "2026-10-26T10:00:00.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "OpenAI, ChatGPT 업무 활용 데이터 공개",
+        "en": "OpenAI shares data on how ChatGPT is used for work"
+      },
+      "summary": {
+        "ko": "OpenAI가 Signals 데이터로 약 100개국에서 165개 업무 활동에 ChatGPT가 어떻게 쓰이는지, 시간에 따라 사용 양상이 어떻게 달라지는지 분석해 공개했습니다. 확인 가능한 내용은 발표 소개 문구 수준입니다.",
+        "en": "OpenAI published Signals data on 165 work activities across nearly 100 countries, showing how ChatGPT work usage changes over time."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "165개 업무 활동"
+        ],
+        "en": [
+          "165 work activities"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 154,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "619059630d1f",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/ai-is-getting-good-at-math/",
+      "publishedAt": "2026-10-23T15:19:48.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "AI가 수학에 강해진 이유",
+        "en": "Why AI is suddenly getting good at math"
+      },
+      "summary": {
+        "ko": "올해 5월 OpenAI 내부 모델이 1946년부터 열려 있던 에르되시 단위거리 추측의 반례를 찾았고, 이후 여러 미해결 문제의 증명이 잇따랐다고 글은 전합니다. Anthropic도 페르마의 마지막 정리 형식화를 발표했습니다. 필자는 이런 도약을 예측할 수 있는지에 주목합니다.",
+        "en": "Latent Space notes OpenAI's model found a counterexample to a 1946 conjecture in May, with more proofs since, and asks whether such leaps are predictable."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "1946년부터 열려 있던 에르되시 단위거리 추측의 반례"
+        ],
+        "en": [
+          "counterexample to a 1946 conjecture"
+        ]
+      },
+      "related": [
+        {
+          "source": "Microsoft Research",
+          "url": "https://www.microsoft.com/en-us/research/blog/solving-a-31-year-old-grand-challenge-in-mathematics-the-kls-conjecture/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 571
+      }
+    },
+    {
+      "id": "5d83afc7dc65",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.31668",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "영상으로 세상을 읽고 쓰고 상호작용하기: 비디오 월드모델 서베이",
+        "en": "Reading, Writing, Sharing, and Interacting with the World through Video"
+      },
+      "summary": {
+        "ko": "영상 기반 모델은 영상을 이해하고 생성하는 능력이 빠르게 발전했고, 월드모델은 영상 속 세계의 변화 원리를 포착하려 합니다. 이 서베이 논문은 월드모델이라는 관점으로 두 흐름을 묶어 읽기 등 네 가지 작업 축으로 기존 연구를 정리합니다.",
+        "en": "A survey that uses world modeling to unify video foundation models and video world models, organizing the literature around four operations including reading."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 220
+      },
+      "highlights": {
+        "ko": [
+          "월드모델이라는 관점으로 두 흐름을 묶어"
+        ],
+        "en": [
+          "world modeling to unify"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 600
+      }
+    },
+    {
+      "id": "2800e91d32e9",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.30932",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "UserArena: 장기 쇼핑 에이전트용 사용자 시뮬레이션 벤치마크",
+        "en": "UserArena: Benchmarking User Simulation for Long-Horizon Shopping Agents"
+      },
+      "summary": {
+        "ko": "UserArena는 실제 이커머스 환경에서 수집한 6만 4,729개 세션 궤적을 담은 벤치마크로, 쇼핑 에이전트가 긴 상호작용에서 내리는 결정을 평가합니다. 기존 자료에 부족했던 세밀한 실사용자 기록과 궤적 단위 평가, 실제 A/B 테스트 결과와의 오프라인 검증을 지원하는 것이 목표입니다.",
+        "en": "UserArena is an e-commerce benchmark of 64,729 real session trajectories for evaluating shopping agents, supporting trajectory-level evaluation and offline validation against A/B results."
+      },
+      "takeaway": {
+        "ko": "추천 에이전트를 도입하기 전 오프라인 평가가 실제 A/B 결과와 맞는지 검증해야 합니다.",
+        "en": "Check offline evals against real A/B results."
+      },
+      "metrics": {
+        "upvotes": 47
+      },
+      "highlights": {
+        "ko": [
+          "6만 4,729개 세션 궤적",
+          "실제 A/B 테스트 결과와의 오프라인 검증"
+        ],
+        "en": [
+          "64,729 real session trajectories"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 572
+      }
+    },
+    {
+      "id": "8ed93bec7901",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/fleet-wide-computer-vision-lifecycle-at-the-edge-with-sagemaker-sdk-v3/",
+      "publishedAt": "2026-10-26T17:56:58.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "SageMaker SDK v3로 엣지 비전 모델 전체 수명주기 관리",
+        "en": "Managing edge vision model lifecycles with SageMaker SDK v3"
+      },
+      "summary": {
+        "ko": "품질 검사 시범 사업이 성공하면 공장은 40개 라인, 라인당 여러 대의 카메라로 확대를 요구합니다. 카메라마다 각도와 반사, 조명이 달라 합친 영상으로 학습한 단일 모델은 상당수 카메라에서 성능이 떨어집니다. AWS는 SageMaker SDK v3로 이런 대규모 모델 관리를 다루는 방법을 소개합니다.",
+        "en": "AWS shows how SageMaker SDK v3 manages vision models across many cameras, since one model trained on pooled footage underperforms on many individual cameras."
+      },
+      "takeaway": {
+        "ko": "현장 확대 전 카메라별 성능 편차를 측정해 모델을 분리할지 판단해야 합니다.",
+        "en": "Measure per-camera variance before scaling."
+      },
+      "highlights": {
+        "ko": [
+          "40개 라인",
+          "단일 모델은 상당수 카메라에서 성능이 떨어집니다"
+        ],
+        "en": [
+          "one model trained on pooled footage underperforms"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "26fd38f53c39",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Oct/25/seam-cutter/",
+      "publishedAt": "2026-10-25T15:10:19.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Simon Willison, 이미지 중간을 잘라내는 Seam Cutter 공개",
+        "en": "Simon Willison builds Seam Cutter image tool"
+      },
+      "summary": {
+        "ko": "Simon Willison이 이미지에 가로나 세로 절단선을 긋고 양쪽을 서로 밀어 붙이는 크롭 도구를 만들었습니다. 이미지 중간 구간을 잘라내는 효과가 있어, 여러 스크린샷을 이어 붙인 긴 이미지에서 불필요한 프롬프트 부분을 가리는 용도로 씁니다.",
+        "en": "Simon Willison built a tool that cuts an image horizontally or vertically and slides the sides together, removing a middle section, e.g. to redact part of a transcript."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "이미지 중간 구간을 잘라내는 효과"
+        ],
+        "en": [
+          "removing a middle section"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 505
+      }
+    },
+    {
+      "id": "d1a47eb7fadb",
+      "source": "Bank of England",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNQUpfejFXT1hGLXJzVExZWWNJM1lFSHVJaEFnZE9rQlN5OXppd2x2ZmRmTDUzTFVBakoyTkNULWU0U3o4TkZBbnZsdnNXNVcwNEJIQ2VheWRpUzduQTNRb2hLdUpOSllQNDhoVl95bmNZSEh2YVBxMk9aQUt2djVBeXhBT0o0UExVV2daMll0MUJEQ1EzdThMQTNRbkxMdw?oc=5",
+      "publishedAt": "2026-10-26T10:24:58.000Z",
+      "section": "ax",
+      "region": "EU",
+      "title": {
+        "ko": "영국 금융사 75%, 이미 AI 사용 중",
+        "en": "75% of UK financial firms already use AI"
+      },
+      "summary": {
+        "ko": "영란은행과 금융행위감독청(FCA)이 영국 금융 서비스의 AI·머신러닝 활용을 조사한 세 번째 설문 결과, 75%의 기업이 이미 AI를 사용하고 있는 것으로 나타났습니다. 도입 현황을 규제 당국이 직접 집계한 자료입니다.",
+        "en": "The Bank of England and FCA's third survey finds 75% of UK financial firms already use AI."
+      },
+      "takeaway": {
+        "ko": "금융 그룹사는 규제 당국의 조사 항목을 AI 도입 점검 기준으로 참고할 수 있습니다.",
+        "en": "Use the survey topics as an AI governance checklist."
+      },
+      "highlights": {
+        "ko": [
+          "75%의 기업이 이미 AI를 사용"
+        ],
+        "en": [
+          "75% of UK financial firms already use AI"
+        ]
+      },
+      "industry": "finance",
+      "related": [
+        {
+          "source": "Global Regulation Tomorrow",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbFhLUUxsZUIzSWdyQ0JlZ0VUemdXSFE5cnh4VWVDZjJkcDRpcXJlQzFfOFlaTDVNMVpUek9RX1l5djVnZUNRUUR0Zl9lc2taalQ3WF9vNUUtR29UdnRPMEZtaEdkNm95MTBEMGpSX000RFFEZFRja1dTelNNS0tMQ0tWTzNFNHlJNXlwOEM1ZGs4TWlDZHhlQlI5RG9FSEdBTmNONXQtNV9mVGc?oc=5"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.bankofengland.co.uk/report/2024/artificial-intelligence-in-uk-financial-services-2024"
+      }
+    },
+    {
+      "id": "34e823c97d1c",
+      "source": "연합뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE01ZzN6eUc0eUs5ZlNyQjJPVVIySTc0NVA4QlY2REZrUTVVS19oRHBYa2V5ekpoN2pSTklfdy01Ni1uNmVpOC13bVdjUGpDS1k3RlhjWFN2QksxY25QYXZmddIBYEFVX3lxTE01ZzN6eUc0eUs5ZlNyQjJPVVIySTc0NVA4QlY2REZrUTVVS19oRHBYa2V5ekpoN2pSTklfdy01Ni1uNmVpOC13bVdjUGpDS1k3RlhjWFN2QksxY25QYXZmdQ?oc=5",
+      "publishedAt": "2026-10-26T07:30:00.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "원익로보틱스, 완주에 1천억 투자해 제조 AX 거점 조성",
+        "en": "Wonik Robotics to invest 100B won in Wanju AX hub"
+      },
+      "summary": {
+        "ko": "원익로보틱스가 전북도, 완주군과 협약을 맺고 2029년까지 약 1천억 원을 들여 완주테크노밸리에 제조업 AI 전환 거점을 세웁니다. 로봇 핸드와 산업용 휴머노이드 생산 설비, 제조 공정 데이터를 모아 학습하는 피지컬 AI 데이터 인프라가 들어설 예정입니다.",
+        "en": "Wonik Robotics will invest about 100B won by 2029 in a Wanju manufacturing AX hub with robot hand and humanoid production lines and physical AI data infrastructure."
+      },
+      "takeaway": {
+        "ko": "제조 그룹사는 지역 AX 실증 거점과의 공동연구 가능성을 검토할 수 있습니다.",
+        "en": "Manufacturers may explore joint pilots at this hub."
+      },
+      "highlights": {
+        "ko": [
+          "2029년까지 약 1천억 원",
+          "피지컬 AI 데이터 인프라"
+        ],
+        "en": [
+          "about 100B won by 2029"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 599,
+        "url": "https://www.yna.co.kr/view/AKR20261026123500055"
+      }
+    },
+    {
+      "id": "c7e4efb56b99",
+      "source": "IoT Analytics",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5tWUNyY0V6T2s5NnZBbkFpMTlfblgybXFmdWMxY010Y3JVQmxxb3pBZHlSaVZhOVBZeE1CUERWTVNhR2daSVBlQ21RS0NIT0dYcWxzZXc4WEtKLUJxeWNKM2hpVW5IdFVT?oc=5",
+      "publishedAt": "2026-10-26T14:05:16.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "IoT Analytics, 실제 AI 프로젝트 1,533건으로 본 기업 AI 활용 상위 10",
+        "en": "IoT Analytics ranks top 10 enterprise AI uses from 1,533 projects"
+      },
+      "summary": {
+        "ko": "IoT Analytics가 실제 기업 AI 프로젝트 1,533건을 분석해 활용 사례 상위 10개를 정리했습니다. 확인 가능한 내용은 제목 수준이어서 개별 순위와 수치는 원문 확인이 필요합니다.",
+        "en": "IoT Analytics analyzed 1,533 real enterprise AI projects to rank the top 10 applications. Only the title was available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "프로젝트 1,533건"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 88,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "618e8fb74c6c",
+      "source": "GitHub",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "publishedAt": "2026-01-23T20:11:54.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "anthropics/knowledge-work-plugins",
+        "en": "anthropics/knowledge-work-plugins"
+      },
+      "summary": {
+        "ko": "Claude를 직무, 팀, 회사에 맞는 전문가로 바꿔 주는 플러그인 모음입니다. 각 플러그인은 특정 직무에 필요한 스킬, 외부 도구 연결, 슬래시 명령, 하위 에이전트를 묶었습니다. Claude Cowork용으로 만들었고 Claude Code에서도 쓸 수 있습니다.",
+        "en": "Plugins that turn Claude into a role-specific specialist, bundling skills, connectors, slash commands and sub-agents. Built for Claude Cowork, also works with Claude Code."
+      },
+      "takeaway": {
+        "ko": "직무별 업무 방식을 플러그인으로 표준화해 팀 간 결과물 일관성을 확인해 볼 만합니다.",
+        "en": "Test whether plugins standardize team output."
+      },
+      "metrics": {
+        "stars": 33180,
+        "forks": 3655,
+        "language": "Python",
+        "starsGained": 2790,
+        "period": "week",
+        "starsDelta": 3619
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "스킬, 외부 도구 연결, 슬래시 명령, 하위 에이전트를 묶었습니다"
+        ],
+        "en": [
+          "bundling skills, connectors, slash commands and sub-agents"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "117d2cb5f38a",
+      "source": "GitHub",
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "publishedAt": "2026-02-07T08:17:38.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "AgriciDaniel/claude-seo",
+        "en": "AgriciDaniel/claude-seo"
+      },
+      "summary": {
+        "ko": "Claude Code에서 쓰는 무료 오픈소스 SEO 점검 플러그인입니다. 웹사이트 주소를 주면 10~15분 안에 전체 감사를 하고 중요도 순 실행 계획을 내놓습니다. 크롤링, 색인, 사이트맵, 페이지 속도 같은 기술 항목과 콘텐츠 품질을 살핍니다.",
+        "en": "A free open-source Claude Code plugin that audits a website's SEO in 10 to 15 minutes and returns a prioritized action plan covering technical SEO and content quality."
+      },
+      "takeaway": {
+        "ko": "자동 감사 결과는 사내 웹사이트에 적용하기 전 사람이 우선순위를 검토해야 합니다.",
+        "en": "Have a human review the audit priorities."
+      },
+      "metrics": {
+        "stars": 22031,
+        "forks": 3026,
+        "language": "Python",
+        "starsGained": 2492,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "10~15분 안에 전체 감사",
+          "중요도 순 실행 계획"
+        ],
+        "en": [
+          "audits a website's SEO in 10 to 15 minutes"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "1606cfe2c2a9",
+      "source": "GitHub",
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "publishedAt": "2024-12-28T03:31:08.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "TauricResearch/TradingAgents",
+        "en": "TauricResearch/TradingAgents"
+      },
+      "summary": {
+        "ko": "여러 LLM 에이전트가 역할을 나눠 금융 거래를 분석하고 판단하는 멀티 에이전트 프레임워크입니다. 최신 v0.7.0은 ChatGPT Plus·Pro 요금제로 실행하는 기능과 결정 직후 첫 종가부터 점수를 매기는 백테스트를 지원합니다. 리포트는 HTML 한 페이지로 저장됩니다.",
+        "en": "A multi-agent LLM framework for financial trading analysis. v0.7.0 runs on ChatGPT Plus or Pro plans and scores backtests from the first close after each decision."
+      },
+      "takeaway": {
+        "ko": "실거래 적용 전 백테스트 방식과 모델별 판단 차이를 먼저 검증해야 합니다.",
+        "en": "Validate backtests before any live trading."
+      },
+      "metrics": {
+        "stars": 115856,
+        "forks": 22248,
+        "language": "Python",
+        "starsGained": 2461,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "결정 직후 첫 종가부터 점수를 매기는 백테스트"
+        ],
+        "en": [
+          "scores backtests from the first close after each decision"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "7c213e5a7519",
+      "source": "GitHub",
+      "url": "https://github.com/makecindy/cindy",
+      "publishedAt": "2026-07-22T17:49:34.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "makecindy/cindy",
+        "en": "makecindy/cindy"
+      },
+      "summary": {
+        "ko": "내 컴퓨터에서 실제 파일과 로그인된 앱을 쓰며 일하는 오픈소스 AI 에이전트입니다. Claude Code와 Codex를 하나로 묶어 쓰고, 작업 도중 모델을 바꿔도 작업 공간과 기억, 스킬, 도구가 이어집니다. 다른 실행 환경도 추가 중입니다.",
+        "en": "An open-source AI agent running locally with your real files and apps, combining Claude Code and Codex. You can switch models mid-task while workspace, memory and skills persist."
+      },
+      "takeaway": {
+        "ko": "로컬 파일과 로그인 앱에 접근하므로 도입 전 권한 범위를 확인해야 합니다.",
+        "en": "Check its access scope to local files and apps."
+      },
+      "metrics": {
+        "stars": 6293,
+        "forks": 776,
+        "language": "TypeScript",
+        "starsGained": 1514,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "작업 도중 모델을 바꿔도"
+        ],
+        "en": [
+          "switch models mid-task"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "bab48adadc99",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xdwquj/anthropics_new_guide_oct_22_argues_most_agents/",
+      "publishedAt": "2026-10-24T02:15:23.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic 가이드: 서브에이전트는 줄이고 메인 루프 하나로",
+        "en": "Anthropic guide: fold subagents into one main loop"
+      },
+      "summary": {
+        "ko": "Anthropic이 10월 22일 공개한 가이드는 대부분의 에이전트가 서브에이전트를 줄여야 한다고 말합니다. 기본은 모델 하나, 컨텍스트 하나, 열린 도구 루프이며 업무 절차는 스킬, 제한과 조회는 도구에 둡니다. Claude Code 시스템 프롬프트를 80% 넘게 줄였다고 합니다.",
+        "en": "Anthropic's Oct 22 guide says most agents need fewer subagents: one model, one context, one tool loop, with procedures in skills. It cut Claude Code's system prompt by over 80%."
+      },
+      "takeaway": {
+        "ko": "서브에이전트를 유지하기 전 컨텍스트 과다로 성능이 떨어지는지 직접 측정해야 합니다.",
+        "en": "Measure context-bloat degradation before adding subagents."
+      },
+      "highlights": {
+        "ko": [
+          "서브에이전트를 줄여야",
+          "시스템 프롬프트를 80% 넘게 줄였다"
+        ],
+        "en": [
+          "cut Claude Code's system prompt by over 80%"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "2af7003f0e2f",
+      "source": "Hacker News",
+      "url": "https://www.dailycal.org/news/campus/academics/ai-use-leads-uc-berkeley-math-professor-to-see-no-point-in-grading-homework/article_bdf1eae2-c08b-491f-b9f1-81a7cea177de.html",
+      "publishedAt": "2026-10-25T16:28:26.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "버클리 수학 교수 \"AI 시대, 숙제 채점은 의미 없다\"",
+        "en": "Berkeley math professor sees no point in grading homework"
+      },
+      "summary": {
+        "ko": "필즈상 수상자인 UC버클리 리처드 보처즈 교수가 더는 숙제를 채점하지 않는다고 밝혔습니다. 학생들이 AI로 꾸준히 높은 점수를 받는 것을 보고 채점자를 두는 것이 무의미하다고 판단했습니다. 인터뷰는 OpenAI가 나비에-스토크스 문제를 풀었다고 발표한 뒤 나왔습니다.",
+        "en": "Fields medalist Richard Borcherds stopped grading homework after seeing students use AI to score top marks, saying grading no longer makes sense."
+      },
+      "takeaway": {
+        "ko": "사내 교육·평가도 AI 사용을 전제로 평가 방식을 재설계할 필요가 있는지 점검해야 합니다.",
+        "en": "Reassess how internal training is evaluated."
+      },
+      "metrics": {
+        "points": 232,
+        "comments": 327
+      },
+      "highlights": {
+        "ko": [
+          "더는 숙제를 채점하지 않는다"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "ce5ce5fc43fb",
+      "source": "Hacker News",
+      "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
+      "publishedAt": "2026-10-26T16:35:44.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "인기 오픈웨이트 AI 모델의 우려스러운 행동",
+        "en": "Concerning behavior from a popular open-weight AI model"
+      },
+      "summary": {
+        "ko": "내려받아 자체 서버에서 돌리는 오픈웨이트 모델은 데이터가 밖으로 나가지 않아 안전하다는 통념이 2년 가까이 기업과 정부 계약업체의 도입 근거였습니다. 이 글은 그 통념에 의문을 제기하며 인기 모델에서 우려스러운 행동이 확인됐다고 주장합니다.",
+        "en": "The post challenges the belief that self-hosted open-weight models are automatically secure, citing concerning behavior in a popular model."
+      },
+      "takeaway": {
+        "ko": "자체 서버 운영만으로 안전하다고 보지 말고 모델 동작 자체를 보안 검증 대상에 넣어야 합니다.",
+        "en": "Include model behavior in security reviews."
+      },
+      "metrics": {
+        "points": 177,
+        "comments": 68
+      },
+      "highlights": {
+        "ko": [
+          "데이터가 밖으로 나가지 않아 안전하다는 통념"
+        ],
+        "en": [
+          "self-hosted open-weight models are automatically secure"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "6da005897fea",
+      "source": "Hacker News",
+      "url": "https://www.brown.edu/news/2026-10-26/ai-data-workers",
+      "publishedAt": "2026-10-26T12:58:27.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "브라운대 학생, AI를 떠받치는 글로벌 노동 지도화",
+        "en": "Brown student maps hidden global labor powering AI"
+      },
+      "summary": {
+        "ko": "브라운대 학생이 AI 학습 데이터를 라벨링하는 노동의 분포를 지도로 만들었습니다. 많은 기업이 이 작업을 케냐, 인도네시아, 콜롬비아 등 글로벌 사우스의 저임금 노동에 맡기며, 노동자들이 유해한 콘텐츠를 반복해 읽어야 한다는 문제를 지적합니다.",
+        "en": "A Brown student mapped the global data-labeling labor behind AI, noting firms outsource to low-wage workers in Kenya, Indonesia and Colombia who face harmful content."
+      },
+      "takeaway": {
+        "ko": "데이터 라벨링 외주 시 협력사의 노동 환경과 책임 기준을 계약에서 확인해야 합니다.",
+        "en": "Check vendors' labor standards in labeling contracts."
+      },
+      "metrics": {
+        "points": 167,
+        "comments": 154
+      },
+      "highlights": {
+        "ko": [
+          "케냐, 인도네시아, 콜롬비아"
+        ],
+        "en": [
+          "Kenya, Indonesia and Colombia"
+        ]
+      },
+      "related": [
+        {
+          "source": "GeekNews",
+          "url": "https://news.hada.io/topic?id=36060"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 599
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "S-1",
+      "desc": {
+        "ko": "기업공개를 하려는 회사가 미국 증권당국에 내는 등록 서류입니다.",
+        "en": "A registration filing a company submits to US regulators to go public."
+      }
+    },
+    {
+      "term": "서브에이전트",
+      "desc": {
+        "ko": "메인 AI가 일부 작업을 나눠 맡기는 보조 AI입니다.",
+        "en": "A helper AI to which a main AI delegates part of a task."
+      }
+    },
+    {
+      "term": "오픈웨이트",
+      "desc": {
+        "ko": "누구나 내려받아 직접 돌릴 수 있게 공개된 AI 모델입니다.",
+        "en": "An AI model whose weights are public so anyone can download and run it."
+      }
+    },
+    {
+      "term": "피지컬 AI",
+      "desc": {
+        "ko": "로봇처럼 현실 세계에서 움직이며 일하는 AI입니다.",
+        "en": "AI that acts in the physical world, such as in robots."
+      }
+    },
+    {
+      "term": "월드모델",
+      "desc": {
+        "ko": "세상이 어떻게 변하는지 AI가 내부적으로 흉내 내는 모델입니다.",
+        "en": "A model that internally simulates how the world changes."
+      }
+    },
+    {
+      "term": "백테스트",
+      "desc": {
+        "ko": "과거 데이터로 투자 전략이 얼마나 잘 맞았을지 확인하는 검증입니다.",
+        "en": "Testing a strategy on past data to see how it would have performed."
+      }
+    }
+  ]
+}
