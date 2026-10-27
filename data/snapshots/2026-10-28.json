@@ -1,0 +1,792 @@
+{
+  "date": "2026-10-28",
+  "issue": 10,
+  "generatedAt": "2026-10-27T20:05:40.651Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "5ef94984dce4",
+    "5d9174dd4f1a",
+    "4405e085f6c6"
+  ],
+  "items": [
+    {
+      "id": "5ef94984dce4",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "publishedAt": "2026-10-27T16:01:38.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Google DeepMind, 월드 모델 Genie 4 공개",
+        "en": "Google DeepMind unveils Genie 4 world model"
+      },
+      "summary": {
+        "ko": "Google DeepMind가 새 월드 모델 Genie 4를 공개했습니다. 월드 모델은 가상 세계를 실시간으로 만들어 상호작용하게 하는 AI로, 이번 모델은 음악·환경음·대화를 세계와 함께 동시에 생성합니다. Gemini 계열의 능력을 바탕으로 현실 같은 외형과 행동을 구현합니다.",
+        "en": "Google DeepMind announced Genie 4, a natively multimodal world model that generates music, ambient sound and dialogue alongside real-time interactive worlds, building on Gemini models."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "음악·환경음·대화를 세계와 함께 동시에 생성",
+          "Gemini 계열의 능력을 바탕으로"
+        ],
+        "en": []
+      },
+      "related": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/27/googles-genie-4-world-model-adds-audio-more-realistic-worlds-and-real-time-steering/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "5d9174dd4f1a",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1019470/anthropic-ipo-resist-investor-pressure-cut-corners-safety",
+      "publishedAt": "2026-10-27T16:51:22.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, 상장 앞두고 월가 압박 막을 장치 마련",
+        "en": "Anthropic builds defenses against Wall Street pressure ahead of IPO"
+      },
+      "summary": {
+        "ko": "The Verge는 Anthropic이 상장을 앞두고 공공 시장의 자금을 끌어오면서도 안전한 AI 개발이라는 사명을 지키려 한다고 보도했습니다. 모델 성능이 커질수록 위험도 커지는데, 수익을 원하는 주주가 비용이 드는 안전 조치를 달가워하지 않을 수 있다는 우려가 배경입니다.",
+        "en": "The Verge reports Anthropic wants IPO capital without compromising its safety mission, as shareholders may resist costly safety measures that slow products."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "비용이 드는 안전 조치를 달가워하지 않을 수 있다는 우려"
+        ],
+        "en": [
+          "shareholders may resist costly safety measures"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "4405e085f6c6",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=216712",
+      "publishedAt": "2026-10-27T18:20:31.000Z",
+      "section": "newsroom",
+      "region": "CN",
+      "title": {
+        "ko": "\"하네스 복잡해도 성능은 그대로, 비용은 최대 3배\"",
+        "en": "Complex agent harnesses add up to 3x cost with little accuracy gain"
+      },
+      "summary": {
+        "ko": "산둥대와 UC버클리 연구진은 코딩 에이전트의 하네스(모델을 감싸는 실행 환경)를 복잡하게 구성해도 정확도는 거의 오르지 않고 추론 비용만 최대 3배 늘 수 있다고 밝혔습니다. 클로드 코드, 오픈코드, mini-SWE-agent 3종을 모델 5종으로 비교했습니다.",
+        "en": "Researchers found elaborate coding-agent harnesses barely improve accuracy but can raise inference cost up to 3x, comparing Claude Code, OpenCode and mini-SWE-agent across five models."
+      },
+      "takeaway": {
+        "ko": "에이전트 도입 시 지시문과 도구 정의를 줄인 최소 구성과 비교해 비용 대비 정확도를 먼저 검증해야 합니다.",
+        "en": "Compare against a minimal harness for cost versus accuracy first."
+      },
+      "highlights": {
+        "ko": [
+          "정확도는 거의 오르지 않고 추론 비용만 최대 3배 늘 수 있다"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "a3a879144b29",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/oracle-apps-in-chatgpt",
+      "publishedAt": "2026-10-27T07:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, Oracle과 제휴 확대해 ChatGPT에 업무 앱 탑재",
+        "en": "OpenAI expands Oracle partnership to bring apps to ChatGPT"
+      },
+      "summary": {
+        "ko": "OpenAI와 Oracle이 파트너십을 확대해 기업용 업무 애플리케이션과 AI 에이전트를 ChatGPT 안으로 가져오고, Oracle의 새 서비스에도 활용하기로 했습니다. 확인된 내용은 발표 요지뿐이며 세부 조건과 일정은 알 수 없습니다.",
+        "en": "OpenAI and Oracle are expanding their partnership to bring business applications and AI agents into ChatGPT and power new Oracle offerings. Details were not available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "기업용 업무 애플리케이션과 AI 에이전트를 ChatGPT 안으로 가져오고"
+        ],
+        "en": [
+          "bring business applications and AI agents into ChatGPT"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 139,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "543233bf7b25",
+      "source": "Anthropic Research",
+      "url": "https://www.anthropic.com/research/agents-judgment-calls",
+      "publishedAt": "2026-10-27T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, AI 에이전트가 전문가 판단에 미치는 영향 연구",
+        "en": "Anthropic studies how AI agents shape experts' judgment calls"
+      },
+      "summary": {
+        "ko": "Anthropic이 전문가가 AI 에이전트에 일을 맡길 때 중요한 판단을 실제로 직접 내리는지 살폈습니다. 에이전트가 코드와 분석을 처리해도 무엇을 측정하고 모호한 증거를 어떻게 해석할지는 전문가가 정한다는 통념을 검증하는 연구입니다. 결과는 발췌문에 담기지 않았습니다.",
+        "en": "Anthropic examines whether experts truly make key decisions when delegating to AI agents, or defer to them, testing the assumption that humans decide what to measure and interpret."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "전문가가 정한다는 통념을 검증하는 연구"
+        ],
+        "en": [
+          "whether experts truly make key decisions"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "80e5637a67e1",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/opus55/",
+      "publishedAt": "2026-10-27T18:53:10.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic은 Claude로 Claude를 어떻게 만드나",
+        "en": "How Anthropic ships Claude with Claude"
+      },
+      "summary": {
+        "ko": "Latent Space가 Anthropic이 Claude로 Claude를 만드는 방식을 다룬 에피소드를 공개했습니다. S-1 자료에서 손실률 -126%가 GAAP 기준 19% 흑자로 바뀌었다고 소개하며, 개선과 투자라는 두 핵심 루프와 Opus 5.5 출시 과정을 이야기합니다.",
+        "en": "Latent Space goes inside how Anthropic builds Claude with Claude, citing its S-1 turnaround from -126% loss to 19% GAAP profit and its two loops of improvement and investment."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "-126%가 GAAP 기준 19% 흑자로 바뀌었다"
+        ],
+        "en": [
+          "-126% loss to 19% GAAP profit"
+        ]
+      },
+      "related": [
+        {
+          "source": "Latent Space",
+          "url": "https://latent.space/p/how_anthropic_ships_the_1_llm_in_the_world_safely_separating_the_brain_from_the_hands/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 575
+      }
+    },
+    {
+      "id": "6b1eed27bd07",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/the-time-ai-saves-designers-usually-disappears-heres-how-to-keep-it-61eb38e1ed69?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-10-27T11:13:45.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI가 아낀 디자이너의 시간은 왜 사라지나",
+        "en": "Why the time AI saves designers disappears"
+      },
+      "summary": {
+        "ko": "UX 전문가 521명을 대상으로 한 설문을 바탕으로 AI가 UX 업무에 미치는 영향을 다룬 글입니다. 제목은 AI로 절약한 디자이너의 시간이 대개 사라진다고 지적하며 이를 지키는 방법을 제시합니다. 발췌문만 확인돼 세부 결과는 알 수 없습니다.",
+        "en": "A UX Collective piece drawing on a survey of 521 UX professionals, arguing AI-saved time usually vanishes. Only a snippet was available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "UX 전문가 521명을 대상으로 한 설문"
+        ],
+        "en": [
+          "survey of 521 UX professionals"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 94,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "d5c7832cddd3",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.33568",
+      "publishedAt": "2026-10-27T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Trajectory2Gym, 도구 사용 에이전트용 학습 데이터 합성",
+        "en": "Trajectory2Gym synthesizes training interactions for tool-use agents"
+      },
+      "summary": {
+        "ko": "도구 사용 에이전트 학습에서 성공한 궤적이 반드시 좋은 학습 데이터는 아니라는 논문입니다. 다단계 의존성을 충분히 담는 구성적 커버리지와, 각 행동이 그 시점에 보이는 정보로 정당화되는 결정 근거화가 필요하다고 보고 Trajectory2Gym을 제안합니다.",
+        "en": "This paper argues successful tool-use trajectories are not always good supervision, and proposes Trajectory2Gym to ensure compositional coverage and decision grounding."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 330
+      },
+      "highlights": {
+        "ko": [
+          "성공한 궤적이 반드시 좋은 학습 데이터는 아니라는 논문"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 600
+      }
+    },
+    {
+      "id": "f98823f24716",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.34662",
+      "publishedAt": "2026-10-27T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "StreamVibe, 사용자 의도 변화를 먼저 읽는 영상 에이전트",
+        "en": "StreamVibe: proactive video agents for evolving user intent"
+      },
+      "summary": {
+        "ko": "영상을 보며 사용자의 명시되지 않은 의도를 먼저 파악하는 능동형 비디오 에이전트 논문입니다. 웹을 탐색하며 '다음에 어디를 클릭할까'처럼 의도가 계속 바뀌는 상황을 겨냥해, 4.1K 평가 샘플의 StreamVibe-Bench를 함께 내놨습니다.",
+        "en": "A paper on proactive video agents that infer implicit, shifting user intent, introducing StreamVibe-Bench with 4.1K evaluation samples."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 236
+      },
+      "highlights": {
+        "ko": [
+          "사용자의 명시되지 않은 의도를 먼저 파악하는 능동형 비디오 에이전트"
+        ],
+        "en": [
+          "infer implicit, shifting user intent"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 600
+      }
+    },
+    {
+      "id": "2812ff85caf0",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/",
+      "publishedAt": "2026-10-26T23:53:07.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI GPT-6.1 Terra, 시각 추론과 컴퓨터 사용 강조",
+        "en": "GPT-6.1 Terra emphasizes visual reasoning and computer use"
+      },
+      "summary": {
+        "ko": "OpenAI가 빠르고 효율적인 모델 GPT-6.1 Terra를 공개했습니다. 시각 추론과 정밀한 컴퓨터 사용을 앞세워 제안서 작성, 기술 도면 해석, 양식 입력, 영상 편집 같은 업무를 겨냥하며, GPT-5.6 Terra보다 크게 나아졌다고 소개합니다.",
+        "en": "OpenAI's GPT-6.1 Terra is a fast, efficient model stressing visual reasoning and precise computer use for tasks like drafting proposals, reading technical drawings and filling forms."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "시각 추론과 정밀한 컴퓨터 사용"
+        ],
+        "en": [
+          "visual reasoning and precise computer use"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "8f78110d43a0",
+      "source": "전자신문",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1NaXQ2VWFfSG9OVUprMnFOS1VZQTZRaDFBZEcwMlhIUXZVQnpPcEU5ZWtaT1hYdFpTQW90emFVRGlmUkRDZGJFSnlzMTYzUQ?oc=5",
+      "publishedAt": "2026-10-27T04:59:51.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "홈앤쇼핑, 고객센터 AI 대시보드 도입",
+        "en": "Home&Shopping launches AI call-center dashboard"
+      },
+      "summary": {
+        "ko": "홈앤쇼핑이 다음 달 5일 상담 데이터를 AI로 실시간 분석하는 고객센터 AI 대시보드를 선보입니다. 상담 유형별 현황과 불만 상품을 한 화면에서 보며, 문의가 몰리면 감지하는 상담 급증 기능으로 인력 재배치와 안내 문자 발송이 가능합니다.",
+        "en": "Home&Shopping will launch an AI dashboard on the 5th that analyzes call-center data in real time, with a surge alert for staffing and notifications and per-broadcast inquiry analysis."
+      },
+      "takeaway": {
+        "ko": "방송 상품별 문의 분석을 기획에 연결한 사례이므로, 도입 시 문의 분류 정확도와 급증 감지 기준을 확인해야 합니다.",
+        "en": "Check inquiry-classification accuracy and surge-alert thresholds."
+      },
+      "highlights": {
+        "ko": [
+          "상담 데이터를 AI로 실시간 분석",
+          "상담 급증 기능"
+        ],
+        "en": [
+          "real time",
+          "surge alert"
+        ]
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.etnews.com/20261027000269"
+      }
+    },
+    {
+      "id": "04432ea2448d",
+      "source": "뉴스핌",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE11cU1OT0Q3ZFNYQS1aUTJBUm03UUdWR1BwamNJM3RMaWZTeW41UV9yU2VGZTB1LUtFS1B5ZUMzQkpwc2dCUnJvZ1puSXhRVHVLemhZSmRBdEVEeUw1?oc=5",
+      "publishedAt": "2026-10-27T00:54:00.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "건설업 AI, 데이터·투자 기반이 과제",
+        "en": "Construction AI held back by data and investment gaps"
+      },
+      "summary": {
+        "ko": "대한건설정책연구원은 건설정책저널 제63호에서 건설업의 AI 활용이 아직 초기 단계라고 분석했습니다. 현장마다 다른 여건, 분산된 데이터, 부족한 기술 검증 체계가 확산을 막고 있으며, 중소 건설사는 투자 여력과 전문인력이 부족해 기술 개발과 금융·제도 지원이 함께 필요하다고 합니다.",
+        "en": "A construction policy institute says AI use in construction is still early, hindered by scattered data and weak validation; SMEs lack investment and talent and need financial and policy support."
+      },
+      "takeaway": {
+        "ko": "현장별 데이터가 흩어진 조직은 AI 도입 전에 데이터 정비와 기술 검증 체계부터 점검해야 합니다.",
+        "en": "Fix scattered data and validation before adopting AI."
+      },
+      "highlights": {
+        "ko": [
+          "현장마다 다른 여건, 분산된 데이터, 부족한 기술 검증 체계"
+        ],
+        "en": [
+          "scattered data and weak validation"
+        ]
+      },
+      "industry": "construction",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 599,
+        "url": "https://www.newspim.com/news/view/20261027000276"
+      }
+    },
+    {
+      "id": "b6773085f128",
+      "source": "GitHub",
+      "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "publishedAt": "2026-01-27T03:53:13.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "andrej-karpathy-skills, Claude Code 행동 지침 파일",
+        "en": "andrej-karpathy-skills: a CLAUDE.md for better Claude Code behavior"
+      },
+      "summary": {
+        "ko": "Andrej Karpathy가 지적한 LLM 코딩의 문제를 바탕으로 만든 CLAUDE.md 파일 하나입니다. 모델이 사용자 대신 잘못된 가정을 하고 확인 없이 밀고 나가는 습관을 줄이도록 Claude Code의 행동 지침을 담았으며, 프로젝트에 넣어 에이전트 동작을 조정하는 데 씁니다.",
+        "en": "A single CLAUDE.md file based on Andrej Karpathy's observations on LLM coding pitfalls, guiding Claude Code to avoid unchecked assumptions."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 225390,
+        "forks": 22524,
+        "starsGained": 3286,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "잘못된 가정을 하고 확인 없이 밀고 나가는 습관을 줄이도록"
+        ],
+        "en": [
+          "Karpathy's observations on LLM coding pitfalls"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "8898dc1fb352",
+      "source": "GitHub",
+      "url": "https://github.com/heygen-com/hyperframes",
+      "publishedAt": "2026-03-10T01:51:06.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "hyperframes, HTML로 영상을 렌더링하는 에이전트용 프레임워크",
+        "en": "hyperframes: render HTML into video, built for agents"
+      },
+      "summary": {
+        "ko": "HTML, CSS, 미디어, 애니메이션을 입력하면 항상 같은 결과의 MP4 영상으로 렌더링하는 오픈소스 프레임워크입니다. CLI로 로컬에서 쓰거나 Claude Code, Codex, Cursor 같은 코딩 에이전트에 스킬을 설치해 영상 제작을 맡길 수 있습니다.",
+        "en": "An open-source framework that renders HTML, CSS and media into deterministic MP4 videos, usable via CLI or by coding agents like Claude Code, Codex and Cursor through skills."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 73819,
+        "forks": 6696,
+        "language": "TypeScript",
+        "starsGained": 5540,
+        "period": "week",
+        "starsDelta": 9383
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "항상 같은 결과의 MP4 영상으로 렌더링"
+        ],
+        "en": [
+          "deterministic MP4 videos"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 599
+      }
+    },
+    {
+      "id": "7deb0a380978",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "publishedAt": "2026-10-24T02:49:18.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "Nanbeige4.3-33B, 경량 에이전트용 교사 모델",
+        "en": "Nanbeige4.3-33B: a teacher model for lightweight agents"
+      },
+      "summary": {
+        "ko": "Nanbeige4.3-33B는 경량 에이전트 개발을 위한 Nanbeige4.3 시리즈의 대표 교사 모델입니다. 약 30B급 오픈 모델 중 최고 수준의 에이전트 성능을 내세우며 복잡한 코딩과 업무 협업 과제에 강하고, 이 능력을 더 작은 모델로 증류하는 기반이 됩니다.",
+        "en": "Flagship teacher model of the Nanbeige4.3 series, claiming top agentic performance among ~30B open models for coding and cowork tasks, to be distilled into smaller models."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 655,
+        "downloads": 4785
+      },
+      "highlights": {
+        "ko": [
+          "약 30B급 오픈 모델 중 최고 수준의 에이전트 성능"
+        ],
+        "en": [
+          "top agentic performance among ~30B open models"
+        ]
+      },
+      "related": [
+        {
+          "source": "AI타임스",
+          "url": "https://www.aitimes.com/news/articleView.html?idxno=216711"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "9ad5ce51a997",
+      "source": "GitHub",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "publishedAt": "2025-04-17T17:04:31.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "gemini-cli, 터미널용 오픈소스 Gemini 에이전트",
+        "en": "gemini-cli: open-source Gemini agent for the terminal"
+      },
+      "summary": {
+        "ko": "Gemini CLI는 터미널에서 Gemini를 바로 쓰게 해 주는 오픈소스 AI 에이전트입니다. 다만 무료 및 Google One 이용자용은 2026년 6월 18일 Antigravity CLI로 대체됐고, 최신 Gemini 4 Argon에는 최적화되지 않아 Antigravity 사용이 권장됩니다.",
+        "en": "Gemini CLI is an open-source terminal agent for Gemini, but it was replaced by Antigravity CLI for free and Google One users on June 18, 2026, and is not optimized for Gemini 4 Argon."
+      },
+      "takeaway": {
+        "ko": "최신 Gemini 모델이 목적이라면 Gemini CLI 대신 Antigravity로 전환할지 확인해야 합니다.",
+        "en": "For the latest Gemini models, check switching to Antigravity."
+      },
+      "metrics": {
+        "stars": 108574,
+        "forks": 14852,
+        "language": "TypeScript",
+        "starsGained": 1097,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "Antigravity CLI로 대체됐고"
+        ],
+        "en": [
+          "not optimized for Gemini 4 Argon"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "c61ee1a62651",
+      "source": "Hacker News",
+      "url": "https://oioannou.com/blog/ai-promised-less-work/",
+      "publishedAt": "2026-10-27T11:08:14.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "\"AI가 일을 줄여준다더니, 이렇게 많이 일한 적 없다\"",
+        "en": "\"AI promised less work. I've never worked more\""
+      },
+      "summary": {
+        "ko": "모든 개발 업무에 에이전트를 쓰는 한 개발자가 오히려 전보다 더 많이 일하고 있다고 털어놓은 글입니다. 작업 하나가 어려워서가 아니라 동시에 처리할 일이 훨씬 많아져 부담이 커졌다는 설명이며, 2년 전엔 시작할 가치가 없던 일도 이제 끝낼 수 있다고 합니다.",
+        "en": "A developer who uses agents for all engineering says he works more than ever, because far more tasks run at once, even though he can now ship work not worth starting two years ago."
+      },
+      "takeaway": {
+        "ko": "에이전트 도입 효과는 처리 건수뿐 아니라 동시 업무량과 검토 부담이 늘지 않는지도 함께 봐야 합니다.",
+        "en": "Track concurrent workload and review burden, not just throughput."
+      },
+      "metrics": {
+        "points": 600,
+        "comments": 570
+      },
+      "highlights": {
+        "ko": [
+          "동시에 처리할 일이 훨씬 많아져 부담이 커졌다"
+        ],
+        "en": [
+          "far more tasks run at once"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 599
+      }
+    },
+    {
+      "id": "eb967c2830c0",
+      "source": "Hacker News",
+      "url": "https://j11g.com/the-mythical-man-month-in-the-age-of-ai",
+      "publishedAt": "2026-10-27T06:25:37.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI 시대의 『맨먼스 미신』",
+        "en": "The Mythical Man-Month in the Age of AI"
+      },
+      "summary": {
+        "ko": "늦어진 소프트웨어 프로젝트에 인력을 더하면 더 늦어진다는 Brooks의 법칙을 AI 시대에 다시 짚은 글입니다. 저자는 노트북을 화면에 연결하느라 네 사람이 애쓰던 장면을 떠올리며, 사람을 늘려도 문제가 더 빨리 풀리지 않는다고 말합니다.",
+        "en": "An essay revisiting Brooks's Law, that adding manpower to a late software project makes it later, in the age of AI, starting from an anecdote of four people connecting a laptop."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 389,
+        "comments": 278
+      },
+      "highlights": {
+        "ko": [
+          "늦어진 소프트웨어 프로젝트에 인력을 더하면 더 늦어진다는 Brooks의 법칙"
+        ],
+        "en": [
+          "adding manpower to a late software project makes it later"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "95d5916fd628",
+      "source": "Hacker News",
+      "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+      "publishedAt": "2026-10-26T22:41:48.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Workers AI GLM-5.3, 다른 고객 요청 데이터 노출 사고",
+        "en": "Workers AI GLM-5.3 exposed other customers' request data via KV cache"
+      },
+      "summary": {
+        "ko": "Cloudflare Workers AI의 GLM-5.3 모델에서 2026년 8월 27일부터 9월 9일 사이 다른 고객 요청의 데이터가 응답에 섞이는 테넌트 격리 문제가 있었습니다. 영향받은 응답은 155건이며 보안 연구자 Gadi Evron이 제보했고, 수정 후 모델을 복구했습니다. 다른 모델은 영향이 없었습니다.",
+        "en": "A tenant isolation flaw in Workers AI's GLM-5.3 leaked other customers' request data into 155 responses from Aug 27 to Sep 9, 2026. It was fixed and no other model was affected."
+      },
+      "takeaway": {
+        "ko": "공유 추론 서비스를 도입할 때는 고객 간 격리와 캐시 처리 방식, 사고 공지 체계를 점검해야 합니다.",
+        "en": "Audit tenant isolation, cache handling and incident disclosure."
+      },
+      "metrics": {
+        "points": 176,
+        "comments": 71
+      },
+      "highlights": {
+        "ko": [
+          "영향받은 응답은 155건"
+        ],
+        "en": [
+          "155 responses"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "acb3a24ef951",
+      "source": "Hacker News",
+      "url": "https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup",
+      "publishedAt": "2026-10-27T11:08:15.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "위키백과의 AI 생성 콘텐츠 정리 작업",
+        "en": "Wikipedia's cleanup of AI-generated content"
+      },
+      "summary": {
+        "ko": "위키백과 WikiProject AI Cleanup 창립 멤버 Ellia Lebleu가 2023년 시작된 자원봉사 활동을 소개합니다. 초기엔 상투적 표현으로 AI 글을 가려냈지만, 지금은 더 미묘한 AI 생성물을 찾는 도구를 개발하며 위키백과에서 AI의 역할을 논의하고 있습니다.",
+        "en": "Founding member Ellia Lebleu describes WikiProject AI Cleanup, a volunteer effort since 2023, now building tools to detect subtler AI-generated text on Wikipedia."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 374,
+        "comments": 169
+      },
+      "highlights": {
+        "ko": [
+          "더 미묘한 AI 생성물을 찾는 도구를 개발"
+        ],
+        "en": [
+          "building tools to detect subtler AI-generated text"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "월드 모델",
+      "desc": {
+        "ko": "가상 세계를 만들고 그 안의 변화를 예측해 보여주는 AI입니다.",
+        "en": "An AI that builds a virtual world and predicts how it changes, letting users interact with it."
+      }
+    },
+    {
+      "term": "하네스",
+      "desc": {
+        "ko": "AI 모델이 도구를 쓰고 작업을 마치도록 감싸 주는 실행 환경입니다.",
+        "en": "The execution environment around an AI model that lets it use tools and finish tasks."
+      }
+    },
+    {
+      "term": "CLAUDE.md",
+      "desc": {
+        "ko": "Claude Code가 작업 전에 읽는 행동 지침 파일입니다.",
+        "en": "A guideline file that Claude Code reads before working on a project."
+      }
+    },
+    {
+      "term": "증류",
+      "desc": {
+        "ko": "큰 모델의 능력을 작은 모델에 가르쳐 옮기는 방법입니다.",
+        "en": "A method of transferring a large model's abilities to a smaller model."
+      }
+    },
+    {
+      "term": "테넌트 격리",
+      "desc": {
+        "ko": "한 서비스를 함께 쓰는 고객들의 데이터가 서로 섞이지 않게 분리하는 것입니다.",
+        "en": "Keeping the data of customers sharing one service separate from each other."
+      }
+    },
+    {
+      "term": "Antigravity",
+      "desc": {
+        "ko": "Google이 Gemini CLI 후속으로 내놓은 코딩용 도구입니다.",
+        "en": "Google's coding tool that replaced Gemini CLI for some users."
+      }
+    }
+  ]
+}
