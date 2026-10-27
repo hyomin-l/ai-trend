@@ -131,7 +131,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
     @Published var lively = false // 풍부한 애니메이션(떠다님·morph·곁눈질)을 돌리는 중인가. 평소엔 false — 가끔 깜빡이기만 한다.
     var livelyStart = Date.timeIntervalSinceReferenceDate
     var livelyUntil = Date.distantPast
-    private var pins = Set<String>() // "bubble" · "hover" · "press" 중 하나라도 있으면 계속 lively
+    private var pins = Set<String>() // "hover" · "press" 중 하나라도 있으면 계속 lively
     private var settle: Task<Void, Never>?
     @Published var active = true // 창이 보이고 화면이 켜져 있을 때만 true — false면 애니메이션 루프를 멈춘다.
     @Published var petWidth = 56.0 // 펫 몸통 폭(pt): 44 / 56(기본) / 72
@@ -377,7 +377,7 @@ final class Pet: NSObject, ObservableObject, NSApplicationDelegate, NSMenuDelega
     private func present(_ d: String, _ it: Latest.Item) { shown = (d, it); show(makeBubble(d, it)) }
 
     func show(_ b: Bubble?) {
-        pin("bubble", b != nil)
+        pin("bubble", false) // 말풍선은 pin이 아니다 — 뜨거나 닫힐 때 grace초만 lively(눈길 끌기), 이후엔 idle 자세로 떠 있는다
         let calm = NSWorkspace.shared.accessibilityDisplayShouldReduceMotion
         withAnimation(calm ? .easeOut(duration: 0.15) : .spring(response: 0.45, dampingFraction: 0.72)) { bubble = b }
     }
