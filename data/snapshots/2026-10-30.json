@@ -1,0 +1,790 @@
+{
+  "date": "2026-10-30",
+  "issue": 12,
+  "generatedAt": "2026-10-29T20:16:36.319Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "4db20898e948",
+    "7bf0065ceb16",
+    "2a1a8a7c88a0"
+  ],
+  "items": [
+    {
+      "id": "45b4ef0b726f",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1022023/microsoft-exit-offer-layoffs-notepad",
+      "publishedAt": "2026-10-29T16:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Microsoft, 직원 6만 명에 자발적 퇴직 제안",
+        "en": "Microsoft offers voluntary buyouts to about 60,000 employees"
+      },
+      "summary": {
+        "ko": "Microsoft가 미국·영국·캐나다·인도 직원 약 6만 명에게 자발적 퇴직을 제안했습니다. 올해 초 약 9,000명에게 낸 퇴직 제안보다 훨씬 큰 규모로, 이런 제안을 이렇게 많은 직원에게 낸 것은 처음입니다. Satya Nadella CEO의 발언대로 AI가 인력 규모를 바꾸기 시작했다는 신호로 읽힙니다.",
+        "en": "Microsoft is offering voluntary buyouts to about 60,000 employees in the US, UK, Canada and India, far beyond the roughly 9,000 targeted earlier this year, signaling AI is reshaping its workforce."
+      },
+      "takeaway": {
+        "ko": "AI 전환에 따른 인력 구조 변화는 직무별 대체 범위를 먼저 구분해야 하므로 자사 직무를 점검할 필요가 있습니다.",
+        "en": "Map which of your roles AI actually changes before restructuring."
+      },
+      "highlights": {
+        "ko": [
+          "약 6만 명에게 자발적 퇴직을 제안",
+          "이렇게 많은 직원에게 낸 것은 처음"
+        ],
+        "en": [
+          "voluntary buyouts to about 60,000 employees"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "16faca12f964",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+      "publishedAt": "2026-10-27T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, 미 GSA와 협력 확대해 Claude 40% 할인",
+        "en": "Anthropic expands GSA partnership with 40% Claude discount"
+      },
+      "summary": {
+        "ko": "Anthropic이 미국 연방조달청(GSA)과 새 계약을 맺고 Claude Enterprise, Claude for Government, Claude API를 정부 기관에 40% 할인해 제공합니다. 처음으로 모든 제품에 적용되며 주, 지방, 부족 정부까지 대상입니다. 기관의 Claude 활용을 돕는 전담 프로그램도 시작합니다.",
+        "en": "Anthropic's new GSA agreement gives government partners 40% off Claude Enterprise, Claude for Government and the API across all products, including state and local, plus a dedicated adoption program."
+      },
+      "takeaway": {
+        "ko": "공공 부문 가격 기준이 형성되고 있어 대규모 도입 협상 때 참고할 수 있습니다.",
+        "en": "Public-sector pricing may become a reference for volume negotiations."
+      },
+      "highlights": {
+        "ko": [
+          "40% 할인",
+          "주, 지방, 부족 정부까지 대상"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572
+      }
+    },
+    {
+      "id": "4db20898e948",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/",
+      "publishedAt": "2026-10-29T19:56:19.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Thrive Holdings, 보안업체 ADT를 76억 달러에 인수",
+        "en": "Thrive Holdings acquires ADT for about $7.6 billion"
+      },
+      "summary": {
+        "ko": "벤처캐피털 Thrive Capital에서 분리된 사모펀드 Thrive Holdings가 보안업체 ADT를 주당 10달러, 지분 기준 약 76억 달러에 인수한다고 밝혔습니다. 부채를 포함한 기업가치는 153억 달러입니다. OpenAI가 이 회사의 파트너이자 투자자로 참여하고 있습니다.",
+        "en": "Thrive Holdings, a PE spin-out of Thrive Capital and backed by partner OpenAI, will acquire ADT at $10 per share, about $7.6B in equity and $15.3B enterprise value."
+      },
+      "takeaway": {
+        "ko": "인수 후 ADT에 AI를 어떻게 적용할지는 공개되지 않았으므로 후속 발표를 확인해야 합니다.",
+        "en": "How AI will be applied at ADT is not yet disclosed."
+      },
+      "highlights": {
+        "ko": [
+          "주당 10달러, 지분 기준 약 76억 달러",
+          "기업가치는 153억 달러"
+        ],
+        "en": [
+          "$10 per share"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "2a1a8a7c88a0",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs",
+      "publishedAt": "2026-10-29T18:45:31.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Gemini 대화창에서 Google 문서 등 파일 직접 생성·편집",
+        "en": "Gemini chats can now generate and edit Google Docs and other files"
+      },
+      "summary": {
+        "ko": "Google Gemini에서 PDF, Google 문서, 스프레드시트, 슬라이드, Markdown, TXT, 코드 파일을 만들고 미리 보며 바로 고칠 수 있게 됐습니다. 모든 사용자에게 제공되며 PDF만 웹과 모바일에서 되고 나머지 형식은 우선 웹에서만 지원합니다.",
+        "en": "Gemini now lets all users generate, preview and edit PDFs, Docs, Sheets, slides, Markdown, TXT and code in chat. PDF works on web and mobile; other formats are web-only for now."
+      },
+      "takeaway": {
+        "ko": "모바일에서는 PDF만 편집되므로 사내 업무 흐름에 쓰려면 기기별 지원 범위를 확인해야 합니다.",
+        "en": "Check device support: only PDF editing works on mobile."
+      },
+      "highlights": {
+        "ko": [
+          "모든 사용자에게 제공",
+          "나머지 형식은 우선 웹에서만 지원"
+        ],
+        "en": [
+          "all users",
+          "web-only for now"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "7bf0065ceb16",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/updated-model-spec",
+      "publishedAt": "2026-10-29T17:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, Model Spec 개정해 AI 핵심 가치 5가지 제시",
+        "en": "OpenAI updates Model Spec with five core values"
+      },
+      "summary": {
+        "ko": "OpenAI가 AI 모델의 행동 지침인 Model Spec을 개정했습니다. 더 강력해진 AI가 올바른 판단, 인간의 주체성, 사용자 의도에 대한 충실성을 갖추도록 이끄는 다섯 가지 핵심 가치를 담았다고 밝혔습니다. 확인된 내용은 요약 수준입니다.",
+        "en": "OpenAI updated its Model Spec, outlining five core values to guide more capable AI toward sound judgment, human agency and faithfulness to human intent."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "다섯 가지 핵심 가치"
+        ],
+        "en": [
+          "five core values"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 149,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "d28967fce9c6",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+      "publishedAt": "2026-10-29T09:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 최첨단 모델의 정렬 이탈 탐지 방식 공개",
+        "en": "OpenAI details how it detects frontier model misalignment"
+      },
+      "summary": {
+        "ko": "OpenAI가 최첨단 모델이 의도에서 벗어나거나 에이전트가 허가 없이 행동하는 것을 겹겹의 모니터링으로 탐지한다고 밝혔습니다. 사고가 커지기 전에 대응 담당자가 개입할 수 있게 하는 것이 목적입니다. 세부 내용은 확인되지 않았습니다.",
+        "en": "OpenAI says it uses layered monitoring to detect frontier model misalignment and unauthorized agent behavior so responders can intervene before incidents escalate."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "겹겹의 모니터링"
+        ],
+        "en": [
+          "layered monitoring"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 155,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "a80dd20eaec8",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/",
+      "publishedAt": "2026-10-29T17:00:26.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "프롬프트로 세계를 바꾸는 멀티플레이 게임 Spawn",
+        "en": "Spawn: a multiplayer game world shaped by prompts"
+      },
+      "summary": {
+        "ko": "Simon Willison이 Jacob Sansbury의 글을 소개했습니다. 게임 Spawn에서는 플레이어가 게임 속 에이전트 Savi에게 프롬프트를 입력해 세계를 바꿉니다. 그는 휴대폰에서 성과 용을 만들어 그 용을 타고 날아다녔다고 합니다. 최신 모델로 에이전트 엔지니어링을 하는 최전선 사례입니다.",
+        "en": "Simon Willison highlights Jacob Sansbury's piece on Spawn, a multiplayer game where prompts to the in-game agent Savi reshape the world; he conjured a castle and a dragon on his phone."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "프롬프트를 입력해 세계를 바꿉니다"
+        ],
+        "en": [
+          "prompts to the in-game agent Savi"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "502de87809f2",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Oct/29/ben-hylak/",
+      "publishedAt": "2026-10-29T14:06:27.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "“모든 제품은 헤드리스 MCP가 되어야 한다”",
+        "en": "“Every product should be a headless MCP”"
+      },
+      "summary": {
+        "ko": "Ben Hylak은 자신이 쓰는 모든 제품이 화면 없는 MCP가 되어 에이전트에 연결되고, 그 아래 내용은 신경 쓰지 않길 바란다고 말했습니다. 단 자기 제품만은 예외라며 고객이 UI를 사랑한다고 비꼬았습니다. 인용문 하나만 확인됩니다.",
+        "en": "Ben Hylak quips that every product should be a headless MCP feeding an agent, except his own, where customers supposedly love the UI."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "화면 없는 MCP"
+        ],
+        "en": [
+          "headless MCP"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 294,
+        "reason": "extraction-failed"
+      }
+    },
+    {
+      "id": "1fcf22f867e2",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/",
+      "publishedAt": "2026-10-29T18:20:27.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Epsilon, Amazon Nova Act로 의도 기반 UI 테스트 확대",
+        "en": "Epsilon scales intent-driven UI testing with Amazon Nova Act"
+      },
+      "summary": {
+        "ko": "Publicis Groupe 계열 마케팅 서비스 기업 Epsilon은 수억 개 소비자 프로필을 다루며 앱이 빠르게 바뀌어 UI 테스트가 따라가기 어려웠습니다. 50명 규모의 에이전트 플랫폼 팀이 Amazon Nova Act로 제품팀에 유지보수 부담을 주지 않는 테스트를 만들었습니다.",
+        "en": "Epsilon, part of Publicis Groupe, used Amazon Nova Act so its 50-engineer Agentic Platform team could offer intent-driven UI testing without adding maintenance overhead to product teams."
+      },
+      "takeaway": {
+        "ko": "UI가 자주 바뀌는 서비스라면 테스트 유지보수 부담이 실제로 줄었는지 먼저 검증해야 합니다.",
+        "en": "Verify that maintenance effort actually drops when the UI changes often."
+      },
+      "highlights": {
+        "ko": [
+          "유지보수 부담을 주지 않는 테스트"
+        ],
+        "en": [
+          "without adding maintenance overhead"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 593
+      }
+    },
+    {
+      "id": "5e91c059cf7f",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/designing-for-ai-deep-research-lessons-from-google-perplexity-and-microsoft-b32fa2f21e7e?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-10-28T23:23:05.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "오래 걸리는 AI 리서치를 위한 UX 질문 6가지",
+        "en": "Six UX questions for slow AI research tasks"
+      },
+      "summary": {
+        "ko": "UX Collective가 Google, Perplexity, Microsoft의 심층 리서치 기능을 비교해 시간이 걸리는 AI 조사 작업을 설계할 때 던질 여섯 가지 UX 질문을 정리했습니다. 확인된 것은 제목과 소개 문구뿐이어서 질문의 내용은 알 수 없습니다.",
+        "en": "UX Collective draws six UX questions for time-consuming AI research tasks from Google, Perplexity and Microsoft. Only the headline is available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "여섯 가지 UX 질문"
+        ],
+        "en": [
+          "six UX questions"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 87,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "14c308a32a9e",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.36077",
+      "publishedAt": "2026-10-28T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "The Trinity, 멀티모달 에이전트의 재귀적 자기 개선 틀",
+        "en": "The Trinity: recursive self-improvement for multimodal agents"
+      },
+      "summary": {
+        "ko": "멀티모달 에이전트를 키우려면 검증 가능한 환경을 만드는 비용이 크고, 사람이 하네스(에이전트 실행 틀)를 손보는 속도도 한계가 있습니다. The Trinity는 세계 생성과 하네스 진화를 세 역할로 묶어 스스로 개선하는 구조를 제안한 논문입니다. 추천 386건을 받았습니다.",
+        "en": "The Trinity couples world generation with Harness evolution via three roles, addressing costly verifiable environments and manual Harness iteration for multimodal agents. It drew 386 upvotes."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 386
+      },
+      "highlights": {
+        "ko": [
+          "세계 생성과 하네스 진화를 세 역할로 묶어"
+        ],
+        "en": [
+          "couples world generation with Harness evolution"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 600
+      }
+    },
+    {
+      "id": "1b424166c85f",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.34073",
+      "publishedAt": "2026-10-28T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Memory Tax: 에이전트 메모리는 정말 득일까",
+        "en": "Memory Tax: the net value of agent memory"
+      },
+      "summary": {
+        "ko": "여러 벤치마크와 모델로 평가한 결과, 전용 메모리 시스템 상당수가 원본 기록을 바로 검색하는 단순 RAG보다 성능이 낮았습니다. 논문은 메모리의 이득과 손실을 각각 memory benefit과 memory tax로 나눠 분석합니다. 추천 151건을 받았습니다.",
+        "en": "Across benchmarks and models, many dedicated memory systems underperformed naive RAG. The paper splits net value into memory benefit and memory tax. It drew 151 upvotes."
+      },
+      "takeaway": {
+        "ko": "에이전트에 메모리를 붙이기 전에 단순 RAG와 먼저 비교해 순이익이 있는지 검증해야 합니다.",
+        "en": "Benchmark any agent memory against plain RAG first."
+      },
+      "metrics": {
+        "upvotes": 151
+      },
+      "highlights": {
+        "ko": [
+          "단순 RAG보다 성능이 낮았습니다"
+        ],
+        "en": [
+          "underperformed naive RAG"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 600
+      }
+    },
+    {
+      "id": "9dd43a98e34e",
+      "source": "물류신문",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAwUFFLb1VPWFhYYjd1b2prSW0xNzNPY0hoc1g2RG5XVzJZOHQ3cy1WeXNCMHNxQ0xYc1FWbkJrSGdOd2t4WjJoWEt6bFdyNHNIUGpiVVROeEJaX3UtUFVmRm40MmtyNWIzNFlN?oc=5",
+      "publishedAt": "2026-10-29T13:00:46.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "엠로, GS칼텍스에 구매 자동화 AI 에이전트 구축",
+        "en": "Emro builds purchasing-automation AI agent for GS Caltex"
+      },
+      "summary": {
+        "ko": "엠로가 GS칼텍스의 구매 자동화 AI 에이전트 구축 프로젝트를 수주했습니다. 소액 자재 구매부터 견적 요청과 평가, 협력사 선정, 발주까지 자동화하며 운영 모니터링 체계도 만듭니다. 대상은 GS칼텍스가 연간 처리하는 2,700여 건의 소액 구매입니다.",
+        "en": "Emro won a project to build a purchasing AI agent for GS Caltex, automating quotes, evaluation, supplier selection and ordering for about 2,700 small-material purchases a year."
+      },
+      "takeaway": {
+        "ko": "소액 구매처럼 반복적인 건부터 자동화하고 운영 모니터링 체계를 함께 갖추는 접근이 참고할 만합니다.",
+        "en": "Start with repetitive small purchases and build monitoring alongside."
+      },
+      "highlights": {
+        "ko": [
+          "연간 처리하는 2,700여 건의 소액 구매",
+          "발주까지 자동화"
+        ],
+        "en": [
+          "2,700 small-material purchases a year"
+        ]
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.klnews.co.kr/news/articleView.html?idxno=323280"
+      }
+    },
+    {
+      "id": "42247d64a935",
+      "source": "Purdue University",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNTl9vclNrXzlpdXBFdGZ2TmxOUkluZnQ0c0xXUVBvckNacHlRZlRWdkpIbmExcHppTDIxZGtJZWMzWUZhRmREQ2prNW54a2ZvdGNnd0JHUERRY1V4MVBraUpET291aFQ3VXhWSFNaei1ZYlFSRFpGazVHOFNpc3pRcDc2Q3dsSERvejhBc01tZVVyV1NpRUwxdWhpZEZTRlhnajlYRDZubkRNMGg4TFE?oc=5",
+      "publishedAt": "2026-10-29T19:12:44.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "Purdue, 미국 대학 최초로 Google TPU 인프라 도입",
+        "en": "Purdue first U.S. university to deploy Google TPU infrastructure"
+      },
+      "summary": {
+        "ko": "Purdue University가 미국 대학 가운데 처음으로 Google의 TPU AI 인프라를 도입한다고 밝혔습니다. TPU는 Google이 만든 AI 연산 전용 칩입니다. 규모와 용도 등 세부 내용은 확인되지 않았습니다.",
+        "en": "Purdue University says it is the first U.S. university to deploy Google TPU AI infrastructure. No further details were available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "미국 대학 가운데 처음"
+        ],
+        "en": [
+          "first U.S. university"
+        ]
+      },
+      "industry": "media",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 88,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "6bf469d9f09a",
+      "source": "FF News",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVmRjc0JTZklGU3k1QjZ1Smo4Rm40cVdDMTFUQUZFMTlRWF9vNXVmckQyUUVzSDBfSU9leWt4cUJqZFgzbEEyNFljQXZsWWVseVY0YzVFOFhyUHVwdUhCc3lxQldralJjQWJ0UXppR0lZbk1QZlRjaHVHZk1lWWFJNnl6QmE0SW1vY3JGWVltMXN0eW9UQ1ZrUGQxRkQ3enRSb0ptZy1SYzhxS0NzVERuSUFoTQ?oc=5",
+      "publishedAt": "2026-10-29T15:05:46.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Forrester “2027년 AI 은행 M&A 50% 급증”",
+        "en": "Forrester: AI banking M&A to surge 50% in 2027"
+      },
+      "summary": {
+        "ko": "Forrester가 2027년 예측에서 에이전틱 기술이 금융을 재편하면서 AI 관련 은행 인수합병이 50% 늘 것이라고 내다봤습니다. 확인된 것은 제목 수준이어서 근거와 대상 범위는 알 수 없습니다.",
+        "en": "Forrester predicts AI banking M&A will surge 50% in 2027 as agentic technology reshapes finance. Only the headline was available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "인수합병이 50% 늘 것"
+        ],
+        "en": [
+          "surge 50%"
+        ]
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 96,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "2046f5e50faf",
+      "source": "GitHub",
+      "url": "https://github.com/obra/superpowers",
+      "publishedAt": "2025-10-09T19:45:18.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "obra/superpowers, 코딩 에이전트용 개발 방법론",
+        "en": "obra/superpowers: a dev methodology for coding agents"
+      },
+      "summary": {
+        "ko": "코딩 에이전트에 조합 가능한 스킬 모음과 초기 지침을 줘서 소프트웨어 개발 절차 전체를 따르게 하는 도구입니다. 에이전트가 바로 코드를 쓰지 않고 먼저 목적을 묻고, 대화에서 명세를 뽑아 읽기 쉬운 단위로 보여 주며 승인을 받습니다. Shell로 작성됐습니다.",
+        "en": "A set of composable skills and starter instructions that make coding agents follow a full development methodology: ask intent first, draft a spec in readable chunks, then get sign-off."
+      },
+      "takeaway": {
+        "ko": "사내 코딩 에이전트에 명세 합의 단계를 넣고 싶다면 시험해 볼 만합니다.",
+        "en": "Worth trying to add a spec-approval step to coding agents."
+      },
+      "metrics": {
+        "stars": 308380,
+        "forks": 27429,
+        "language": "Shell",
+        "starsGained": 4655,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "먼저 목적을 묻고",
+          "읽기 쉬운 단위로 보여 주며 승인"
+        ],
+        "en": [
+          "ask intent first"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "974d536836f2",
+      "source": "GitHub",
+      "url": "https://github.com/microsoft/skill-recorder",
+      "publishedAt": "2026-07-29T18:16:14.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "microsoft/skill-recorder, 한 번 시연하면 에이전트 스킬로",
+        "en": "microsoft/skill-recorder turns a demo into an agent skill"
+      },
+      "summary": {
+        "ko": "화면에서 작업하는 모습을 한 번 녹화하면 AI 에이전트가 반복할 수 있는 스킬로 바꿔 주는 도구입니다. 클릭, 앱과 창 전환, 방문한 페이지, 선택 사항인 녹화 터미널의 명령과 출력까지 기록합니다. TypeScript로 만들어졌고 릴리스 안내대로 설치합니다.",
+        "en": "Skill Recorder captures a screen session, including clicks, app switches, pages and optional terminal output, and turns it into a skill an AI agent can repeat."
+      },
+      "takeaway": {
+        "ko": "화면 녹화에는 민감 정보가 담길 수 있어 기록 범위를 먼저 확인해야 합니다.",
+        "en": "Check what the recording captures before using it on sensitive work."
+      },
+      "metrics": {
+        "stars": 5545,
+        "forks": 634,
+        "language": "TypeScript",
+        "starsGained": 1187,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "한 번 녹화하면",
+          "반복할 수 있는 스킬로 바꿔"
+        ],
+        "en": [
+          "turns it into a skill an AI agent can repeat"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "11144fe59342",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "publishedAt": "2026-10-23T21:35:42.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "LiquidAI LFM3-1.7B, 로컬 에이전트용 소형 모델",
+        "en": "LiquidAI LFM3-1.7B: a small model for local agents"
+      },
+      "summary": {
+        "ko": "LFM3-1.7B는 로컬 에이전트와 특화 애플리케이션을 위한 텍스트 모델입니다. 256K 토큰 문맥을 지원하고 에이전트 실행 환경에 맞춰 추가 학습했습니다. 4비트로 약 1GB 메모리만 쓰므로 휴대폰이나 노트북에서 돌릴 수 있고, GPU 한 장으로 빠르게 미세조정할 수 있습니다.",
+        "en": "LFM3-1.7B is a text model for local agents with a 256K-token context, trained for agentic harnesses. At 4-bit it needs about 1 GB of memory and can be fine-tuned on a single GPU."
+      },
+      "takeaway": {
+        "ko": "기기 안에서 도는 업무 에이전트를 검토한다면 자사 도메인 정확도를 직접 측정해야 합니다.",
+        "en": "Measure accuracy on your own domain before on-device use."
+      },
+      "metrics": {
+        "likes": 466,
+        "downloads": 15885
+      },
+      "highlights": {
+        "ko": [
+          "4비트로 약 1GB 메모리",
+          "GPU 한 장으로 빠르게 미세조정"
+        ],
+        "en": [
+          "about 1 GB of memory"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "62b1fcdba263",
+      "source": "Hacker News",
+      "url": "https://www.brangus.io/survival-llm",
+      "publishedAt": "2026-10-27T19:55:06.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "인터넷 없이 내 PC에서 도는 비상용 AI Survival LLM",
+        "en": "Survival LLM: offline AI assistant and emergency library"
+      },
+      "summary": {
+        "ko": "Survival LLM은 인터넷 없이 내 컴퓨터에서 도는 무료 오픈소스 AI 비서 겸 비상 자료 라이브러리입니다. 정전 때 음식 보관, 화상 처치, 물 정화 같은 질문에 답하고 읽은 문서와 해당 구절을 출처로 보여 줍니다. 처음 설정할 때만 인터넷이 필요하고 질문은 외부로 나가지 않습니다.",
+        "en": "Survival LLM is a free open-source assistant and emergency library running fully on your computer. It answers with cited sources and needs internet only for setup."
+      },
+      "takeaway": {
+        "ko": "보안상 외부 전송이 어려운 환경에서 출처 표시형 로컬 질의응답의 참고 사례가 됩니다.",
+        "en": "A reference for local, source-cited Q&A where data cannot leave."
+      },
+      "metrics": {
+        "points": 536,
+        "comments": 202
+      },
+      "highlights": {
+        "ko": [
+          "인터넷 없이 내 컴퓨터에서 도는",
+          "질문은 외부로 나가지 않습니다"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "de20cb065fe8",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=36242",
+      "publishedAt": "2026-10-29T18:36:47.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "Google 검색, 사상 처음 Alphabet 매출 절반 아래로",
+        "en": "Google Search falls below half of Alphabet revenue"
+      },
+      "summary": {
+        "ko": "2026년 3분기 Google 검색 매출은 634억 달러로 Alphabet 전체의 49.7%였고, 별도 공시 이후 처음 절반 아래로 내려갔습니다. 검색은 12% 늘었지만 나머지 사업이 40% 늘었습니다. Google Cloud는 103% 증가한 307억 달러로 비중이 24.1%입니다.",
+        "en": "Q3 2026 Google Search revenue was $63.4B, 49.7% of Alphabet, the first time below half. Search grew 12% while other business grew 40%; Cloud rose 103% to $30.7B."
+      },
+      "takeaway": {
+        "ko": "AI 수요가 클라우드 매출로 이어지는 흐름이므로 클라우드 사업자 선정과 계약 조건을 함께 점검할 수 있습니다.",
+        "en": "Cloud growth suggests reviewing provider choice and contract terms."
+      },
+      "highlights": {
+        "ko": [
+          "49.7%",
+          "Google Cloud는 103% 증가한 307억 달러"
+        ],
+        "en": [
+          "49.7% of Alphabet",
+          "Cloud rose 103%"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Model Spec",
+      "desc": {
+        "ko": "AI 모델이 어떻게 행동해야 하는지 정리한 OpenAI의 공개 지침서입니다.",
+        "en": "OpenAI's public document describing how its AI models should behave."
+      }
+    },
+    {
+      "term": "MCP",
+      "desc": {
+        "ko": "AI 에이전트가 외부 도구와 서비스에 연결되도록 하는 공통 규격입니다.",
+        "en": "A common standard that connects AI agents to external tools and services."
+      }
+    },
+    {
+      "term": "헤드리스",
+      "desc": {
+        "ko": "화면 없이 프로그램끼리만 연결돼 작동하는 방식입니다.",
+        "en": "Working without a screen, only through program-to-program connections."
+      }
+    },
+    {
+      "term": "Amazon Nova Act",
+      "desc": {
+        "ko": "AWS가 내놓은, 웹 화면 작업을 AI로 수행하게 하는 에이전트 서비스입니다.",
+        "en": "An AWS agent service that uses AI to carry out tasks in web interfaces."
+      }
+    },
+    {
+      "term": "RAG",
+      "desc": {
+        "ko": "AI가 답하기 전에 관련 문서를 검색해 참고하게 하는 방식입니다.",
+        "en": "A method where AI searches relevant documents before answering."
+      }
+    },
+    {
+      "term": "하네스",
+      "desc": {
+        "ko": "AI 에이전트가 도구를 쓰고 작업을 이어 가도록 감싸 주는 실행 틀입니다.",
+        "en": "The execution framework that lets an AI agent use tools and carry on tasks."
+      }
+    },
+    {
+      "term": "TPU",
+      "desc": {
+        "ko": "Google이 AI 연산을 빠르게 하려고 만든 전용 칩입니다.",
+        "en": "A chip Google built specifically to speed up AI computation."
+      }
+    },
+    {
+      "term": "LFM3-1.7B",
+      "desc": {
+        "ko": "휴대폰과 노트북에서도 돌 수 있게 작게 만든 Liquid AI의 언어 모델입니다.",
+        "en": "A small Liquid AI language model that can run on phones and laptops."
+      }
+    },
+    {
+      "term": "미세조정",
+      "desc": {
+        "ko": "이미 만들어진 AI 모델을 특정 업무에 맞게 추가로 학습시키는 일입니다.",
+        "en": "Further training an existing AI model to fit a specific task."
+      }
+    }
+  ]
+}
