@@ -1,0 +1,686 @@
+{
+  "date": "2026-11-02",
+  "issue": 13,
+  "generatedAt": "2026-11-01T19:38:47.879Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 18
+  },
+  "front": [
+    "fe31d62acfe8",
+    "e6a83342c0c5",
+    "25cc4c9bb2e3"
+  ],
+  "items": [
+    {
+      "id": "fe31d62acfe8",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=216865",
+      "publishedAt": "2026-11-01T20:11:03.000Z",
+      "section": "newsroom",
+      "region": "CN",
+      "title": {
+        "ko": "딥시크, 코딩 '슈퍼 에이전트' 공개…클로드 코드 추격",
+        "en": "DeepSeek unveils coding 'super agent' to chase Claude Code"
+      },
+      "summary": {
+        "ko": "딥시크가 여러 코딩 작업을 자동으로 관리하는 '슈퍼 에이전트' 기술 문서와 소스 코드(dsh-superagent)를 깃허브에 공개했습니다. 5월 전담팀 구성 이후 약 6개월 만의 성과지만 아직 연구용 프로토타입이며 실제 제품 경쟁력은 검증되지 않았습니다.",
+        "en": "DeepSeek published a technical paper and open-source code (dsh-superagent) for a super agent managing multiple coding tasks. It is still a research prototype with unproven product competitiveness."
+      },
+      "takeaway": {
+        "ko": "연구용 프로토타입이므로 도입 검토 전 자사 코드베이스에서 성능을 직접 검증해야 합니다.",
+        "en": "A prototype; test on your own codebase before adopting."
+      },
+      "highlights": {
+        "ko": [
+          "연구용 프로토타입",
+          "실제 제품 경쟁력은 검증되지 않았습니다"
+        ],
+        "en": [
+          "research prototype"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "e6a83342c0c5",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1023820/sam-altman-ram-shortage-cloud-servers",
+      "publishedAt": "2026-10-30T20:48:43.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "올트먼 \"RAM은 책상보다 데이터센터에 있는 편이 낫다\"",
+        "en": "Altman: RAM better in data centers than on your desk"
+      },
+      "summary": {
+        "ko": "샘 올트먼 OpenAI CEO가 팟캐스트에서 공급 부족을 겪는 RAM이 개인 PC보다 데이터센터에 쓰이는 편이 낫다고 말했습니다. 오픈소스 모델을 PC에서 돌리면 로컬 추론이 해결된다는 시각에 선을 그은 발언입니다.",
+        "en": "On a podcast, Sam Altman said it is better for scarce RAM to sit in data centers than in personal PCs, pushing back on the view that open-source local inference solves the problem."
+      },
+      "takeaway": {
+        "ko": "로컬 추론 계획이 있다면 메모리 공급난에 따른 장비 조달 비용을 먼저 확인해야 합니다.",
+        "en": "If planning local inference, check hardware sourcing amid RAM shortage."
+      },
+      "highlights": {
+        "ko": [
+          "RAM이 개인 PC보다 데이터센터에 쓰이는 편이 낫다"
+        ],
+        "en": [
+          "better for scarce RAM to sit in data centers"
+        ]
+      },
+      "related": [
+        {
+          "source": "Reddit",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xizbq1/sam_altman_local_inference_is_a_terrible/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "25cc4c9bb2e3",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+      "publishedAt": "2026-10-30T09:30:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, robots.txt로 AI 학습 선호 표시 지원",
+        "en": "OpenAI to honor robots.txt AI training preferences"
+      },
+      "summary": {
+        "ko": "OpenAI가 공통 robots.txt 신호를 존중해, 웹사이트 운영자가 참여 제공사에 AI 학습 허용 여부를 알릴 수 있도록 하겠다고 밝혔습니다. 확인된 내용은 이 공식 발표 요지뿐입니다.",
+        "en": "OpenAI will honor a shared robots.txt signal so website operators can communicate AI training preferences to participating providers."
+      },
+      "takeaway": {
+        "ko": "자사 웹사이트의 robots.txt 학습 정책을 점검할 시점입니다.",
+        "en": "Review your site's robots.txt AI training policy."
+      },
+      "highlights": {
+        "ko": [
+          "robots.txt 신호를 존중"
+        ],
+        "en": [
+          "honor a shared robots.txt signal"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 140,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "c10fef6ec816",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+      "publishedAt": "2026-10-31T16:12:55.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 신규 투자 라운드 목표액 200억 달러로 낮춰",
+        "en": "OpenAI reportedly lowers funding target to $20B"
+      },
+      "summary": {
+        "ko": "파이낸셜타임스에 따르면 OpenAI가 신규 투자 라운드 목표를 200억 달러로 낮췄고 첫 클로징은 이보다 더 적을 전망입니다. 앞서 기업가치 1.4조 달러에 300억 달러, 이후 1.25조 달러 기준이 거론됐으며 IPO를 앞둔 상황입니다.",
+        "en": "The FT reports OpenAI cut its funding target to $20 billion, with a smaller first close, after earlier talk of $30 billion at $1.4 trillion valuation, ahead of a planned IPO."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "목표를 200억 달러로 낮췄고"
+        ],
+        "en": [
+          "cut its funding target to $20 billion"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 574
+      }
+    },
+    {
+      "id": "18eadc7cf156",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/arca/",
+      "publishedAt": "2026-10-31T16:05:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "\"에이전트가 사람에게 지시한다\": 금융 장기 업무 활용법",
+        "en": "Agents prompt people: long-horizon financial work"
+      },
+      "summary": {
+        "ko": "AI 네이티브 자산관리사 Arca의 AI 엔지니어 Aman Singh는 백그라운드 업무 대부분을 에이전트가 처리하되 최종 결정은 사람 어드바이저가 내리도록 안전장치를 둔다고 설명합니다. 핵심은 사람이 에이전트에게 묻기보다 에이전트가 사람에게 묻는 구조입니다.",
+        "en": "Arca's lead AI engineer says agents handle most background work while human advisors make final decisions; agents prompt people more than people prompt agents."
+      },
+      "takeaway": {
+        "ko": "금융 업무에 에이전트를 넣을 때 최종 승인 단계를 사람에게 두는 설계를 검토할 만합니다.",
+        "en": "Keep human final approval when deploying agents in finance."
+      },
+      "highlights": {
+        "ko": [
+          "최종 결정은 사람 어드바이저가 내리도록"
+        ],
+        "en": [
+          "agents prompt people more than people prompt agents"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 574
+      }
+    },
+    {
+      "id": "697a76b2d0e4",
+      "source": "NN/g",
+      "url": "https://www.nngroup.com/articles/ux-agentic-software-factories/?utm_source=rss&utm_medium=feed&utm_campaign=rss-syndication",
+      "publishedAt": "2026-10-30T17:00:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "에이전트형 소프트웨어 공장에서 UX의 역할",
+        "en": "The role of UX in agentic software factories"
+      },
+      "summary": {
+        "ko": "NN/g는 Anthropic·Google·OpenAI가 내놓은 AI 네이티브 개발 수명주기가 UX를 AI 생성을 돕는 배경 맥락으로 축소한다고 지적합니다. UX는 사용자 요구 발굴, 제작 방향 설정, 출시 전후 평가까지 맡아야 한다는 주장입니다.",
+        "en": "NN/g argues AI-native SDLC visions from Anthropic, Google and OpenAI reduce UX to context; UX should also discover needs, shape what's built, and evaluate before and after launch."
+      },
+      "takeaway": {
+        "ko": "AI 개발 프로세스에 사용자 조사와 출시 후 평가 단계가 빠지지 않았는지 확인해야 합니다.",
+        "en": "Check your AI dev process keeps user research and post-launch evaluation."
+      },
+      "highlights": {
+        "ko": [
+          "출시 전후 평가까지 맡아야"
+        ],
+        "en": [
+          "evaluate before and after launch"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 574
+      }
+    },
+    {
+      "id": "feb912e225e8",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/managing-amazon-bedrock-costs-end-to-end-a-playbook-for-finops-and-platform-teams/",
+      "publishedAt": "2026-10-30T22:42:24.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Amazon Bedrock 비용 관리 플레이북: FinOps·플랫폼팀용",
+        "en": "Managing Amazon Bedrock costs end to end"
+      },
+      "summary": {
+        "ko": "AWS가 생성형 AI 비용 관리를 개발팀과 재무팀의 공동 책임으로 보고 가이드를 냈습니다. 모델별 토큰 단가 비교나 프롬프트 단축만으로는 어느 팀이 어떤 워크로드에 예산 내에서 썼는지 답하기 어렵고, 에이전트 워크로드는 이 문제를 더 키웁니다.",
+        "en": "AWS offers a playbook treating GenAI cost as shared between builders and finance. Token rate comparisons alone can't show which team spent what within budget, and agentic workloads worsen this."
+      },
+      "takeaway": {
+        "ko": "팀·워크로드별 비용 귀속 체계를 갖췄는지 먼저 점검해야 합니다.",
+        "en": "First check you can attribute AI spend by team and workload."
+      },
+      "highlights": {
+        "ko": [
+          "어느 팀이 어떤 워크로드에 예산 내에서 썼는지"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 574
+      }
+    },
+    {
+      "id": "98aa4f3fa331",
+      "source": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+      "publishedAt": "2026-10-30T13:05:28.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Microsoft, 합성 기업 데이터로 Copilot 평가 신뢰 높인다",
+        "en": "Microsoft uses synthetic enterprise data to evaluate Copilot"
+      },
+      "summary": {
+        "ko": "Microsoft는 민감 정보 때문에 실제 기업 데이터를 평가에 쓸 수 없는 문제를 풀기 위해 합성 기업 환경 생성 플랫폼을 만들었습니다. O*NET 직업 데이터, 채용 공고, SEC 공시 등 공개 자료를 바탕으로 실제 업무 흐름을 모사합니다.",
+        "en": "Microsoft built a platform generating synthetic enterprise environments from public data such as O*NET, job postings and SEC filings to evaluate Copilot without sensitive real data."
+      },
+      "takeaway": {
+        "ko": "민감 데이터로 AI를 평가하기 어렵다면 공개 자료 기반 합성 환경을 대안으로 검토할 만합니다.",
+        "en": "Consider public-data synthetic environments when real data can't be used."
+      },
+      "highlights": {
+        "ko": [
+          "합성 기업 환경 생성 플랫폼"
+        ],
+        "en": [
+          "synthetic enterprise environments"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "1e85851336fd",
+      "source": "파이낸셜뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9YMDJYMDBNeDdZcVppQW5xTy1JTTJUQXhFMHhXUHZMNnlGVllJUi1OQVN6aE5LcXpWNlNtbmp1UkpoazFmTXR2TnYyTmh2ZWRubmpDRDFOckQ3QQ?oc=5",
+      "publishedAt": "2026-11-01T09:17:47.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "30분 걸리던 계란 품질검사, AI 기계로 11분에",
+        "en": "AI egg grading cuts inspection from 30 to 11 minutes"
+      },
+      "summary": {
+        "ko": "축산물품질평가원이 개발한 계란 AI 등급판정 기계를 경기 평택 와이제이푸드가 도입했습니다. 카메라로 한 판을 통째로 분석해 외관과 깨짐을 가려내며, 사람은 한 판 확인에 2분이 걸립니다. 2030년 판정물량 56.5%가 목표입니다.",
+        "en": "A grading machine by Korea's livestock quality agency, adopted by YJ Food, inspects whole trays of eggs for appearance and cracks via camera. Target: 56.5% of graded volume by 2030."
+      },
+      "takeaway": {
+        "ko": "사람이 눈으로 하던 검수 공정은 AI 비전 도입 전후 처리 시간과 불량 검출률 비교로 검증할 만합니다.",
+        "en": "Compare inspection time and defect detection before and after vision AI."
+      },
+      "highlights": {
+        "ko": [
+          "2030년 판정물량 56.5%가 목표"
+        ],
+        "en": [
+          "56.5% of graded volume by 2030"
+        ]
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.fnnews.com/news/202611011817458884"
+      }
+    },
+    {
+      "id": "e2469c92ba3c",
+      "source": "GitHub",
+      "url": "https://github.com/Nutlope/hallmark",
+      "publishedAt": "2026-04-27T20:47:10.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "Nutlope/hallmark: AI 티 나지 않는 웹 디자인 스킬",
+        "en": "Nutlope/hallmark: design skill that avoids AI-looking pages"
+      },
+      "summary": {
+        "ko": "Claude Code, Codex, Cursor, OpenCode에서 쓰는 디자인 스킬로, 50가지 테마 중 3개를 제시해 방문자 목적에 맞춰 페이지를 구성합니다. 제목 위 작은 문구 같은 기계적 티를 실제 브라우저에서 검사해 걸러냅니다. Together AI가 만들었습니다.",
+        "en": "A design skill for Claude Code, Codex, Cursor and OpenCode that offers three of fifty themes and lints pages in a real browser for machine-made tells. Made by Together AI."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 44688,
+        "forks": 2369,
+        "language": "CSS",
+        "starsGained": 12062,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "50가지 테마 중 3개를 제시"
+        ],
+        "en": [
+          "lints pages in a real browser"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 599
+      }
+    },
+    {
+      "id": "9b13d6a721a0",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "publishedAt": "2026-10-17T02:40:38.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "DeepSeek-V4.1-Flash-1017 공개…추론·코딩·에이전트 성능 개선",
+        "en": "DeepSeek-V4.1-Flash-1017 improves reasoning, coding, agents"
+      },
+      "summary": {
+        "ko": "DeepSeek-V4.1-Flash의 소규모 업데이트 모델로, 추론·코딩·에이전트 작업·시각 벤치마크가 개선됐습니다. 작업 수행 시간과 출력 길이를 줄여 더 빠르고 저렴하게 쓸 수 있다고 밝혔으며, 여러 에이전트 도구에서 성능 대비 비용 효율을 높였다고 설명합니다.",
+        "en": "A minor update to DeepSeek-V4.1-Flash with gains in reasoning, coding, agentic and visual benchmarks, plus shorter task time and output length for lower cost."
+      },
+      "takeaway": {
+        "ko": "벤치마크는 자체 발표이므로 자사 에이전트 업무에서 비용과 정확도를 직접 비교해야 합니다.",
+        "en": "Vendor benchmarks; compare cost and accuracy on your own tasks."
+      },
+      "metrics": {
+        "likes": 4241,
+        "downloads": 170353
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "작업 수행 시간과 출력 길이를 줄여"
+        ],
+        "en": [
+          "shorter task time and output length"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 599
+      }
+    },
+    {
+      "id": "014576526a4d",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+      "publishedAt": "2026-09-30T18:35:13.000Z",
+      "section": "repos",
+      "region": "EU",
+      "title": {
+        "ko": "Mistral Large 4 공개: 1조 파라미터 멀티모달 MoE 모델",
+        "en": "Mistral Large 4: 1T-parameter multimodal MoE model"
+      },
+      "summary": {
+        "ko": "Mistral의 최대 모델로, 총 1조 파라미터 중 토큰당 490억 개만 활성화되는 멀티모달 전문가혼합(MoE) 모델입니다. 유럽 자사 데이터센터의 엔비디아 GPU 3,800개로 학습했고, 지시 수행·추론·코딩·에이전트를 한 가중치에 통합했으며 보안·금융·법률에서 강점을 보입니다.",
+        "en": "Mistral's largest model: a 1T-parameter multimodal MoE with 49B active parameters per token, trained on 3,800 NVIDIA GPUs in Europe, strong in cybersecurity, finance and law."
+      },
+      "takeaway": {
+        "ko": "금융·법률 업무용이라면 자사 데이터로 성능을 검증하고 1조 규모 모델의 운영 비용도 확인해야 합니다.",
+        "en": "Validate on finance/legal data and check serving costs of a 1T model."
+      },
+      "metrics": {
+        "likes": 1437,
+        "downloads": 4576
+      },
+      "highlights": {
+        "ko": [
+          "토큰당 490억 개만 활성화",
+          "보안·금융·법률에서 강점"
+        ],
+        "en": [
+          "49B active parameters per token"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "e30f8dee0b0b",
+      "source": "GitHub",
+      "url": "https://github.com/NVIDIA/SkillSpector",
+      "publishedAt": "2026-03-21T00:28:43.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "NVIDIA/SkillSpector: 에이전트 스킬 보안 스캐너",
+        "en": "NVIDIA/SkillSpector: security scanner for agent skills"
+      },
+      "summary": {
+        "ko": "Claude Code, Codex CLI 등에서 쓰는 에이전트 스킬을 설치하기 전에 취약점과 악성 패턴을 탐지하는 도구입니다. 분석한 스킬 31,132개 중 26.1%에 취약점이, 5.2%에 악의적 의도가 있는 것으로 나타났습니다.",
+        "en": "A tool that scans agent skills for vulnerabilities and malicious patterns before installation. Of 31,132 skills analyzed, 26.1% had vulnerabilities and 5.2% showed likely malicious intent."
+      },
+      "takeaway": {
+        "ko": "외부 스킬을 사내에 도입하기 전 설치 전 스캔 절차를 넣는 방안을 검토할 만합니다.",
+        "en": "Add pre-install scanning before adopting external agent skills."
+      },
+      "metrics": {
+        "stars": 23834,
+        "forks": 2055,
+        "language": "Python",
+        "starsGained": 2474,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "26.1%에 취약점이, 5.2%에 악의적 의도"
+        ],
+        "en": [
+          "26.1% had vulnerabilities"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "b8da10635efb",
+      "source": "GitHub",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "publishedAt": "2025-08-31T20:50:03.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "thedotmack/claude-mem: Claude Code용 영구 메모리 압축",
+        "en": "thedotmack/claude-mem: persistent memory for Claude Code"
+      },
+      "summary": {
+        "ko": "Claude Code를 위해 만든 영구 메모리 압축 시스템입니다. 확인된 내용은 이 정도이며, 세부 작동 방식은 제공된 발췌에서 확인되지 않습니다. 다국어 문서와 검색 도구, 설정 문서를 갖추고 있습니다.",
+        "en": "A persistent memory compression system built for Claude Code. Details of its mechanism are not confirmed in the excerpt; it offers multilingual docs, search tools and configuration."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 108987,
+        "forks": 9550,
+        "language": "TypeScript",
+        "starsGained": 4575,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "영구 메모리 압축 시스템"
+        ],
+        "en": [
+          "persistent memory compression system"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "9e37c40a85b3",
+      "source": "Hacker News",
+      "url": "https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling",
+      "publishedAt": "2026-10-30T15:52:18.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "\"AI는 SRE를 대체하지 않고 역량을 퇴화시킨다\"",
+        "en": "AI isn't replacing SREs, it's deskilling them"
+      },
+      "summary": {
+        "ko": "SigNoz 뉴스레터 글이 해커뉴스에서 662점, 댓글 482개로 화제입니다. SRE가 소프트웨어의 미래라는 전망과 AI가 모든 기술 직군을 삼킨다는 전망 모두 현업 SRE에게 도움이 안 된다며, 대체보다 숙련도 약화를 문제로 짚습니다.",
+        "en": "A SigNoz newsletter piece drew 662 points on Hacker News, arguing neither 'SRE is the future' nor 'AI devours all jobs' helps practitioners, and framing AI as deskilling SREs."
+      },
+      "takeaway": {
+        "ko": "운영 업무에 AI를 쓸 때 담당자의 장애 대응 숙련도가 유지되는지 점검해야 합니다.",
+        "en": "Check that AI use in ops doesn't erode incident-response skills."
+      },
+      "metrics": {
+        "points": 662,
+        "comments": 482
+      },
+      "highlights": {
+        "ko": [
+          "대체보다 숙련도 약화를 문제로 짚습니다"
+        ],
+        "en": [
+          "AI as deskilling SREs"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "16a45af9adee",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xl47f5/anthropics_mythosclass_model_allegedly_leaked_on/",
+      "publishedAt": "2026-11-01T14:18:38.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Anthropic 미토스급 모델이 Hugging Face에 유출됐다는 주장",
+        "en": "Claim: Anthropic Mythos-class model leaked on Hugging Face"
+      },
+      "summary": {
+        "ko": "Hugging Face 저장소 burner22/numbat이 Anthropic 내부 미토스급 학습 체크포인트를 담고 있다는 주장이 레딧에 올라왔습니다. 14조 파라미터, 전문가 1,224개, 7.72TB 가중치라고 하나 진위는 독립적으로 확인되지 않았습니다.",
+        "en": "A Reddit post claims the Hugging Face repo burner22/numbat holds an Anthropic Mythos-class checkpoint (14T parameters, 7.72 TB). No independent verification of authenticity exists."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "진위는 독립적으로 확인되지 않았습니다"
+        ],
+        "en": [
+          "No independent verification"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "fe85ea435bb7",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=36409&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "publishedAt": "2026-11-01T18:57:17.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "전 Meta 연구원, 해적판 도서 토렌트 후 소송 때문에 삭제",
+        "en": "Ex-Meta researcher deleted torrented pirated books over lawsuit"
+      },
+      "summary": {
+        "ko": "저작권자들은 전 Meta 연구원이 Books3를 토렌트로 내려받고 배포했다고 주장합니다. 법원은 도서를 이용한 Llama 학습을 공정 이용으로 판단했지만 BitTorrent 다운로드는 미해결 쟁점입니다. Meta는 개인 컴퓨터 사본이며 퇴사 2년 뒤 삭제했다고 반박합니다.",
+        "en": "Authors say a former Meta researcher torrented and distributed Books3. A court found Llama training fair use, but BitTorrent downloads remain unresolved; Meta says the copy was personal and deleted after he left."
+      },
+      "takeaway": {
+        "ko": "학습 데이터는 이용 방식뿐 아니라 확보 경로도 법적 쟁점이 되므로 출처 기록을 갖춰야 합니다.",
+        "en": "Document training-data provenance; acquisition method is also a legal issue."
+      },
+      "highlights": {
+        "ko": [
+          "BitTorrent 다운로드는 미해결 쟁점"
+        ],
+        "en": [
+          "BitTorrent downloads remain unresolved"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "011fdc062b2b",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3",
+      "publishedAt": "2026-10-30T22:32:53.000Z",
+      "section": "newsroom",
+      "region": "CN",
+      "title": {
+        "ko": "애플 인텔리전스, iOS 27.3로 중국 상륙",
+        "en": "Apple Intelligence coming to China with iOS 27.3"
+      },
+      "summary": {
+        "ko": "애플이 중국 뉴스룸에서 iOS 27.3와 함께 애플 인텔리전스를 출시한다고 밝혔습니다. 11월 4일 베타를 거쳐 12월 정식 배포되며, 새 Siri AI는 빠지고 알림 요약, 실시간 번역, 문장 교정, 시각 인텔리전스, 사진 객체 제거 등 기존 기능만 제공합니다.",
+        "en": "Apple will launch Apple Intelligence in China with iOS 27.3: beta November 4, full release in December. The new Siri AI is excluded; earlier features like notification summaries and translation are included."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "새 Siri AI는 빠지고"
+        ],
+        "en": [
+          "The new Siri AI is excluded"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "슈퍼 에이전트",
+      "desc": {
+        "ko": "여러 코딩 작업을 자동으로 나누고 관리하는 AI 프로그램입니다.",
+        "en": "An AI program that automatically splits and manages multiple coding tasks."
+      }
+    },
+    {
+      "term": "전문가혼합(MoE)",
+      "desc": {
+        "ko": "여러 전문가 모듈 중 일부만 골라 쓰는 방식의 AI 모델 구조입니다.",
+        "en": "A model design that activates only some of many expert modules per input."
+      }
+    },
+    {
+      "term": "에이전트 스킬",
+      "desc": {
+        "ko": "AI 에이전트가 특정 작업을 수행하도록 설치하는 확장 기능 묶음입니다.",
+        "en": "Installable add-on bundles that let AI agents perform specific tasks."
+      }
+    },
+    {
+      "term": "robots.txt",
+      "desc": {
+        "ko": "웹사이트가 검색·수집 프로그램에 접근 허용 범위를 알리는 설정 파일입니다.",
+        "en": "A file where a website tells crawlers what they may access."
+      }
+    }
+  ]
+}
