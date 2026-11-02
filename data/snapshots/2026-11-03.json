@@ -1,0 +1,781 @@
+{
+  "date": "2026-11-03",
+  "issue": 14,
+  "generatedAt": "2026-11-02T23:06:33.339Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "855688c450b2",
+    "19244c7aa206",
+    "a437782712b7"
+  ],
+  "items": [
+    {
+      "id": "855688c450b2",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+      "publishedAt": "2026-11-02T22:14:50.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, 자기개선 AI 능력 임박 경고",
+        "en": "Anthropic warns it is close to self-improving AI"
+      },
+      "summary": {
+        "ko": "Anthropic이 수정 제출한 S-1A 서류에서 재귀적 자기개선(RSI) 능력을 갖춘 모델 개발이 임박했다고 시사했습니다. RSI는 AI가 스스로를 훈련해 성능 향상을 급격히 가속하는 단계를 뜻합니다. 매출은 급증했지만 비용도 함께 늘었습니다.",
+        "en": "Anthropic's revised S-1A filing hints it is near a model capable of recursive self-improvement (RSI), where AI trains itself and accelerates progress. Revenue is soaring, but so are expenses."
+      },
+      "takeaway": {
+        "ko": "AI 공급사의 모델 발전 속도가 빨라질 수 있으니 계약과 도입 계획에 모델 교체 가능성을 반영해 점검하십시오.",
+        "en": "Build model-swap flexibility into AI vendor contracts and plans."
+      },
+      "highlights": {
+        "ko": [
+          "재귀적 자기개선(RSI) 능력을 갖춘 모델 개발이 임박했다고 시사"
+        ],
+        "en": [
+          "near a model capable of recursive self-improvement (RSI)"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "19244c7aa206",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/grid-protectors-program",
+      "publishedAt": "2026-11-02T15:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 전력망 보호 프로그램 Grid Protectors 발표",
+        "en": "OpenAI introduces Grid Protectors Program"
+      },
+      "summary": {
+        "ko": "OpenAI가 전력 회사와 협력하는 Grid Protectors Program을 공개했습니다. 향후 컴퓨팅 캠퍼스가 전력망 안정성을 뒷받침하고 소비자 전기요금을 보호하도록 돕는 프로그램이라고 밝혔습니다. 세부 내용은 아직 확인되지 않았습니다.",
+        "en": "OpenAI's Grid Protectors Program will work with utilities so future compute campuses support grid reliability and protect consumer electricity costs. Details were not available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "전력 회사와 협력하는 Grid Protectors Program"
+        ],
+        "en": [
+          "work with utilities"
+        ]
+      },
+      "related": [
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1024604/openai-data-center-grid-protection-program"
+        }
+      ],
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 154,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "a437782712b7",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
+      "publishedAt": "2026-11-02T19:19:17.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "뉴욕타임스 등, 브라우저 Brave를 콘텐츠 무단 수집 혐의로 제소",
+        "en": "New York Times and others sue Brave over content scraping"
+      },
+      "summary": {
+        "ko": "뉴욕타임스가 Brave를 상대로 저작권 콘텐츠를 무단 수집해 고객에게 배포했다며 소송을 냈습니다. 고객으로는 Anthropic, Perplexity, Mistral, xAI, Cohere가 거론됐습니다. 데일리뉴스 등 세 매체도 별도 소송을 제기했습니다.",
+        "en": "The New York Times sued Brave for allegedly scraping copyrighted content and distributing it to customers named as Anthropic, Perplexity, Mistral, xAI and Cohere. Three other papers filed a similar suit."
+      },
+      "takeaway": {
+        "ko": "외부 검색·크롤링 API로 받은 데이터의 저작권 출처를 사내 AI 서비스에서 확인할 필요가 있습니다.",
+        "en": "Check the copyright provenance of data from external search APIs."
+      },
+      "highlights": {
+        "ko": [
+          "저작권 콘텐츠를 무단 수집해 고객에게 배포했다며 소송"
+        ],
+        "en": [
+          "allegedly scraping copyrighted content"
+        ]
+      },
+      "related": [
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572
+      }
+    },
+    {
+      "id": "e3f3f6c0c50f",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones",
+      "publishedAt": "2026-11-02T18:56:02.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, Claude Code로 기존 게임 복제 못 하게 제한",
+        "en": "Anthropic restricts Claude Code from cloning video games"
+      },
+      "summary": {
+        "ko": "Anthropic이 Claude Code의 시스템 프롬프트를 고쳐 기존 비디오 게임을 그대로 재현하는 용도를 막았습니다. 독창적 게임이나 특정 장르 게임, 사용자 구상의 게임 제작은 계속 허용합니다. 레트로 게임 분야에서 AI 디컴파일과 포팅이 급증한 흐름과 맞물립니다.",
+        "en": "Anthropic updated Claude Code's system prompt to block re-creating existing video games, while still allowing original games, genre games and user-designed games."
+      },
+      "takeaway": {
+        "ko": "AI 코딩 도구는 저작권 관련 사용 제한이 수시로 바뀔 수 있어 사내 활용 지침에 반영해야 합니다.",
+        "en": "Coding-tool usage limits can change; reflect them in internal guidelines."
+      },
+      "highlights": {
+        "ko": [
+          "기존 비디오 게임을 그대로 재현하는 용도를 막았습니다"
+        ],
+        "en": [
+          "block re-creating existing video games"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "e33216d0e243",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/building_legal_agents_when_you_can_t_see_the_data_-_jacob_lauritzen_cto_of_legora/",
+      "publishedAt": "2026-11-02T22:54:03.000Z",
+      "section": "playbook",
+      "region": "EU",
+      "title": {
+        "ko": "데이터를 볼 수 없을 때 법률 에이전트를 만드는 법",
+        "en": "Building legal agents when you can't see the data"
+      },
+      "summary": {
+        "ko": "법률 AI 스타트업 Legora는 고객 로펌의 데이터라 에이전트의 작업 기록을 전혀 볼 수 없습니다. CTO Jacob Lauritzen이 이런 조건에서 에이전트를 만들고 테스트하는 방법을 설명합니다. Legora는 Word 문서 작성, 계약 1만 건 검토, 실사를 지원합니다.",
+        "en": "Legora can't read its agent's traces because the data belongs to law-firm clients. CTO Jacob Lauritzen explains how to build and test agents under that limit. It drafts Word documents and reviews 10,000 contracts."
+      },
+      "takeaway": {
+        "ko": "고객 데이터를 볼 수 없는 환경이라면 평가 방식을 어떻게 설계할지 먼저 정해야 합니다.",
+        "en": "Decide how to evaluate agents before data access is restricted."
+      },
+      "highlights": {
+        "ko": [
+          "에이전트의 작업 기록을 전혀 볼 수 없습니다",
+          "계약 1만 건 검토"
+        ],
+        "en": [
+          "can't read its agent's traces"
+        ]
+      },
+      "related": [
+        {
+          "source": "Latent Space",
+          "url": "https://latent.space/p/building-ai-for-lawyers-jacob-lauritzen-cto-of-legora/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "116d45292cff",
+      "source": "NN/g",
+      "url": "https://www.nngroup.com/articles/ux-vs-experience-design/?utm_source=rss&utm_medium=feed&utm_campaign=rss-syndication",
+      "publishedAt": "2026-10-30T17:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "NN/g, \"사용자 경험\"에서 \"사용자\"를 뺀 경험 디자인 제안",
+        "en": "NN/g: dropping \"user\" from user experience"
+      },
+      "summary": {
+        "ko": "Nielsen Norman Group은 AI 에이전트가 사람을 대신해 서비스를 쓰면서 UX의 대상이 사람 사용자를 넘어 확장되고 있다고 짚습니다. 이를 아우르는 분야를 경험 디자인이라 부르되 여전히 사람의 목표가 중심이라고 설명합니다.",
+        "en": "NN/g says AI agents acting for people are expanding UX beyond human users. It calls the broader field experience design, still centered on people's goals."
+      },
+      "takeaway": {
+        "ko": "자사 서비스가 에이전트의 접근도 받을 수 있다는 전제로 화면과 API 설계를 점검해 보십시오.",
+        "en": "Review UI and API design assuming agents will also use your service."
+      },
+      "highlights": {
+        "ko": [
+          "AI 에이전트가 사람을 대신해 서비스를 쓰면서"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "195c284d0de5",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/prepare-web-content-for-amazon-bedrock-knowledge-bases-with-crawl4ai/",
+      "publishedAt": "2026-11-02T17:11:21.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Crawl4AI로 Bedrock 지식 베이스용 웹 콘텐츠 준비하기",
+        "en": "Preparing web content for Bedrock Knowledge Bases with Crawl4AI"
+      },
+      "summary": {
+        "ko": "RAG(검색 증강 생성) 앱의 답변 품질은 입력 데이터에 좌우됩니다. AWS는 Amazon Bedrock Knowledge Bases에 웹 콘텐츠를 넣을 때 기본 웹 크롤러 커넥터에서 시작하고, 오픈소스 Crawl4AI로 수집·정제를 보강하는 방법을 소개합니다.",
+        "en": "RAG answer quality depends on ingested data. AWS shows how to supplement the default Bedrock web crawler connector with Crawl4AI when preparing web content."
+      },
+      "takeaway": {
+        "ko": "기본 크롤러로 품질이 부족한 사이트가 있는지 먼저 확인한 뒤 Crawl4AI 도입을 판단하십시오.",
+        "en": "Test where the default crawler falls short before adopting Crawl4AI."
+      },
+      "highlights": {
+        "ko": [
+          "답변 품질은 입력 데이터에 좌우됩니다"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "d001b346efa7",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2610.36545",
+      "publishedAt": "2026-11-02T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "FrameForge, 비디오 모델의 사전 지식으로 이미지 생성 통합",
+        "en": "FrameForge uses video model priors for unified image generation"
+      },
+      "summary": {
+        "ko": "하나의 모델로 입력 이미지의 특징을 유지하며 텍스트 지시대로 새 이미지를 만드는 통합 조건부 생성 연구입니다. 기존에는 조건과 결과를 비디오의 고정된 시간 위치에 두었지만, 작업마다 관계가 다르다는 점에 착안했습니다.",
+        "en": "A study of unified conditional image generation using video foundation models. Unlike prior work fixing condition and target at set temporal positions, it adapts to task-specific relationships."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 112
+      },
+      "highlights": {
+        "ko": [
+          "하나의 모델로 입력 이미지의 특징을 유지하며"
+        ],
+        "en": [
+          "unified conditional image generation"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 572
+      }
+    },
+    {
+      "id": "946eabed1e17",
+      "source": "뉴스1",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBvenpJODhxNi1IaUk3amY1OEk0TVhzV2hVelptdjBWbWNDWU5zeUlsbXFrU21Jc21oZmJ5NkdSQW5YanZ4Vms5TmpDdkx0OXg5UEVJdTVMSVR5YjQ?oc=5",
+      "publishedAt": "2026-11-02T07:14:11.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "IPARK현대산업개발, AI·드론으로 건설 현장 안전·품질 강화",
+        "en": "IPARK HDC uses AI and drones for site safety and quality"
+      },
+      "summary": {
+        "ko": "IPARK현대산업개발이 전 현장에 AI 다국어 번역을 도입해 외국인 근로자 안전교육을 지원합니다. 드론 촬영 사진과 현장 도면을 겹쳐 시공 현황을 확인하고 디지털 트윈 활용도 넓힙니다. 바닥충격음은 전 세대 측정합니다.",
+        "en": "IPARK HDC introduced AI multilingual translation at all sites for safety training, overlays drone photos on plans, expands digital twins and measures floor impact noise in every unit."
+      },
+      "takeaway": {
+        "ko": "현장 안전교육의 다국어 번역은 도입 범위가 명확해 파일럿으로 검증하기 좋습니다.",
+        "en": "Multilingual safety training is a well-scoped pilot candidate."
+      },
+      "highlights": {
+        "ko": [
+          "AI 다국어 번역을 도입해",
+          "바닥충격음은 전 세대 측정"
+        ],
+        "en": [
+          "AI multilingual translation"
+        ]
+      },
+      "industry": "construction",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 468,
+        "url": "https://www.news1.kr/realestate/general/6340177"
+      }
+    },
+    {
+      "id": "84edc7dd4f9f",
+      "source": "연합인포맥스",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFAxTHNFQjhSVHZrbE9GekwxVXcwZFpTa2J3LW9TV0k4RnVmejFkXzNTYzlqbVJIdU40ZmxNb21vLW01dDdKSGtPSF9GNnFsTWFVcDJ2YWlmSm9reEItMXZfZXBNT3J4MjBMVkp2TFlxYWtnbXZs?oc=5",
+      "publishedAt": "2026-11-02T01:42:05.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "LG CNS, 에이전틱 AI로 금융권 업무 방식 바꾼다",
+        "en": "LG CNS brings agentic AI to financial work"
+      },
+      "summary": {
+        "ko": "LG CNS가 KB국민은행에서 여신·기업금융 고객관계관리 지원과 AI OCR 기반 문서 처리에 생성형 AI 에이전트를 적용 중입니다. KB증권에서는 마케팅 문구 생성과 심의 검사까지 확대했습니다. 기존 시스템을 대체하지 않고 그 위에 기능을 더하는 방식입니다.",
+        "en": "LG CNS applies generative AI agents at KB Kookmin Bank for lending, RM support and AI OCR, and at KB Securities for marketing copy and review checks, layered on existing systems."
+      },
+      "takeaway": {
+        "ko": "기존 시스템 위에 기능을 얹는 방식은 전면 교체보다 위험이 낮은지 자사 환경에서 비교해 볼 만합니다.",
+        "en": "Compare layering AI on existing systems against full replacement."
+      },
+      "highlights": {
+        "ko": [
+          "기존 시스템을 대체하지 않고 그 위에 기능을 더하는 방식"
+        ],
+        "en": [
+          "layered on existing systems"
+        ]
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 581,
+        "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4442488"
+      }
+    },
+    {
+      "id": "0b61a9c93fca",
+      "source": "핀포인트뉴스",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE50UDFhRHQ2T2tZUmZBN0Q4d1UxQUluME9HU2xnRGdXSVlEazk0Z3h2OUFNNExDRTFwOTQtM0o5TXhCY3pKVjNiSlJLTjQ3QVRWVVI2dHlBM2RuOWJMSUFtSUlsOG9UWUppaWd6UlVWaEtDT0tHd2xR0gF3QVVfeXFMTnRQMWFEdDZPa1lSZkE3RDh3VTFBSW4wT0dTbGdEZ1dJWURrOTRneHY5QU00TENFMXA5NC0zSjlNeEJjekpWM2JKUktONDdBVFZVUjZ0eUEzZG45YkxJQW1JSWw4b1RZSmlpZ3pSVVZoS0NPS0d3bFE?oc=5",
+      "publishedAt": "2026-11-02T07:28:12.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "네이버클라우드, 육군 군수사령부와 조달·정비·물류 AI 도입",
+        "en": "Naver Cloud and Army Logistics Command to adopt AI"
+      },
+      "summary": {
+        "ko": "네이버클라우드가 육군 군수사령부와 업무협약을 맺고 군수 AI 서비스를 공동 개발·실증합니다. 성능 기반 AI 매칭 조달 플랫폼, 고장 전에 정비하는 상태기반정비(CBM+), 디지털 트윈 기반 스마트 물류가 대상입니다.",
+        "en": "Naver Cloud signed an MOU with the Army Logistics Command to co-develop and test AI for procurement, condition-based maintenance (CBM+) and digital-twin logistics."
+      },
+      "takeaway": {
+        "ko": "협약 단계이므로 실증 성과 지표가 공개되는지 지켜볼 필요가 있습니다.",
+        "en": "This is an MOU; watch for published pilot results."
+      },
+      "highlights": {
+        "ko": [
+          "고장 전에 정비하는 상태기반정비(CBM+)"
+        ],
+        "en": [
+          "condition-based maintenance (CBM+)"
+        ]
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 581,
+        "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=500600"
+      }
+    },
+    {
+      "id": "10ba719313a0",
+      "source": "GitHub",
+      "url": "https://github.com/anthropics/skills",
+      "publishedAt": "2025-09-22T15:53:31.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "anthropics/skills: Claude용 에이전트 스킬 모음",
+        "en": "anthropics/skills: Agent Skills for Claude"
+      },
+      "summary": {
+        "ko": "Claude가 특정 작업을 반복해서 잘 수행하도록 지침, 스크립트, 자료를 담은 폴더 모음입니다. 회사 브랜드 가이드에 맞춘 문서 작성, 조직 워크플로에 맞는 데이터 분석 같은 업무에 필요할 때 동적으로 불러 씁니다.",
+        "en": "A collection of skills, folders of instructions, scripts and resources Claude loads dynamically for repeatable tasks like brand-compliant documents or workflow-specific data analysis."
+      },
+      "takeaway": {
+        "ko": "사내 업무 절차를 스킬 폴더로 정리하면 반복 업무에 적용해 볼 수 있습니다.",
+        "en": "Package internal procedures as skills for repeatable tasks."
+      },
+      "metrics": {
+        "stars": 186759,
+        "forks": 22055,
+        "language": "Python",
+        "starsGained": 2600,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "지침, 스크립트, 자료를 담은 폴더 모음"
+        ],
+        "en": [
+          "loads dynamically"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "4341922ec9bb",
+      "source": "GitHub",
+      "url": "https://github.com/nightly-labs/openbot",
+      "publishedAt": "2026-08-12T21:32:03.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "nightly-labs/openbot: 로컬 AI 팀원 데스크톱 워크스페이스",
+        "en": "nightly-labs/openbot: local desktop workspace for AI teammates"
+      },
+      "summary": {
+        "ko": "Codex, Claude Code, Gemini 등 여러 코딩 에이전트를 에이전트별 작업공간과 대화창으로 한 데스크톱 앱에서 운영하는 도구입니다. 로컬 큐와 내장 브라우저, 에이전트 간 메시지를 지원합니다. 개발 프리뷰라 에이전트가 승인 없이 전체 권한으로 실행됩니다.",
+        "en": "A desktop app running agents like Codex, Claude Code and Gemini, each with its own workspace, with queues, an embedded browser and agent messaging. It is a preview with full access and no approval."
+      },
+      "takeaway": {
+        "ko": "승인 없이 전체 권한으로 실행되므로 격리된 환경에서만 시험해야 합니다.",
+        "en": "Run it only in an isolated environment."
+      },
+      "metrics": {
+        "stars": 4812,
+        "forks": 492,
+        "language": "TypeScript",
+        "starsGained": 3589,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "승인 없이 전체 권한으로 실행됩니다"
+        ],
+        "en": [
+          "full access and no approval"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "110f8b3466ee",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "publishedAt": "2026-10-07T22:50:21.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "NVIDIA Nemotron 3.5 Transcribe, 40개 언어 오프라인 음성 인식",
+        "en": "NVIDIA Nemotron 3.5 Transcribe: offline speech model for 40 languages"
+      },
+      "summary": {
+        "ko": "NVIDIA가 공개한 오픈 웨이트 음성·오디오 모델로 40개 언어를 받아적을 수 있고 최대 1시간 녹음을 처리합니다. 하이브리드 전문가 혼합 구조로 실제 활성화되는 파라미터는 약 43억 개이며, BF16, FP8, NVFP4 정밀도로 배포됩니다.",
+        "en": "NVIDIA's open-weight offline speech model transcribes 40 languages and recordings up to one hour. Its hybrid mixture-of-experts activates about 4.3B parameters, released in BF16, FP8 and NVFP4."
+      },
+      "takeaway": {
+        "ko": "회의록 같은 장시간 녹음에서 한국어 정확도를 직접 측정해 보십시오.",
+        "en": "Measure Korean accuracy on long meeting recordings."
+      },
+      "metrics": {
+        "likes": 677,
+        "downloads": 32439
+      },
+      "highlights": {
+        "ko": [
+          "40개 언어를 받아적을 수 있고 최대 1시간 녹음을 처리"
+        ],
+        "en": [
+          "40 languages and recordings up to one hour"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "c55904e21a85",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "publishedAt": "2026-10-26T03:57:46.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "Baidu Unlimited-OCR-2, 초장문 문서 파싱 모델",
+        "en": "Baidu Unlimited-OCR-2: ultra-long document parsing"
+      },
+      "summary": {
+        "ko": "Baidu가 공개한 문서 인식(OCR) 모델로, 긴 문서를 끝까지 구조화해 읽는 초장문 파싱을 내세웁니다. 이를 평가하는 벤치마크 MarathonDocBench도 함께 내놓았고 논문은 11월 2일 arXiv에 공개됐습니다. ModelScope와 Baidu Cloud에서 쓸 수 있습니다.",
+        "en": "Baidu's OCR model targets ultra-long document parsing. It also released the MarathonDocBench benchmark, and the paper appeared on arXiv on Nov 2. Available on ModelScope and Baidu Cloud."
+      },
+      "takeaway": {
+        "ko": "수백 쪽 계약서·보고서로 자체 샘플을 만들어 인식 정확도를 검증해 보십시오.",
+        "en": "Test accuracy on your own long contracts and reports."
+      },
+      "metrics": {
+        "likes": 561,
+        "downloads": 147588
+      },
+      "highlights": {
+        "ko": [
+          "초장문 파싱을 내세웁니다"
+        ],
+        "en": [
+          "ultra-long document parsing"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "733cf565f7ff",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xm28e6/official_statement_qwen_models_will_stick_to_open/",
+      "publishedAt": "2026-11-02T16:42:32.000Z",
+      "section": "pulse",
+      "region": "CN",
+      "title": {
+        "ko": "Qwen 책임자 \"Qwen 4·5도 오픈소스 유지\"",
+        "en": "Qwen head: Qwen 4 and 5 will stay open source"
+      },
+      "summary": {
+        "ko": "Qwen4가 마지막 오픈 웨이트 시리즈가 되고 이후는 API 전용이 될 것이라는 소문에 Qwen 책임자가 반박했습니다. Qwen 4.0과 5.0도 계속 오픈소스로 공개하겠다는 입장입니다. AI의 가치가 소수에게만 귀속돼선 안 된다는 이유를 들었습니다.",
+        "en": "Qwen's head rejected rumors that Qwen4 would be the last open-weight series, saying Qwen 4.0 and 5.0 will remain open source because AI's value should not belong to a few."
+      },
+      "takeaway": {
+        "ko": "오픈 모델 기반 전략이라면 공식 발표를 근거로 하되 라이선스 조건은 릴리스마다 확인하십시오.",
+        "en": "Rely on official statements but check each release's license."
+      },
+      "highlights": {
+        "ko": [
+          "Qwen 4.0과 5.0도 계속 오픈소스로 공개하겠다는 입장"
+        ],
+        "en": [
+          "Qwen 4.0 and 5.0 will remain open source"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "761e5e0baaa4",
+      "source": "Hacker News",
+      "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+      "publishedAt": "2026-11-01T06:06:19.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "JavaScript 프레임워크의 AI 비용",
+        "en": "The AI cost of JavaScript frameworks"
+      },
+      "summary": {
+        "ko": "웹 개발 커뮤니티의 결정이 근거 없는 느낌에 좌우된다는 문제의식에서, 프레임워크 선택이 AI 코딩에 드는 비용에 미치는 영향을 벤치마크로 따져 본 글입니다. Hacker News에서 466점과 댓글 382개로 큰 관심을 받았습니다.",
+        "en": "A post challenging vibes-based web decisions by benchmarking how framework choice affects AI coding costs. It drew 466 points and 382 comments on Hacker News."
+      },
+      "takeaway": {
+        "ko": "AI 코딩 비용은 프레임워크마다 다를 수 있어 자사 스택으로 직접 측정해 보십시오.",
+        "en": "Measure AI coding cost on your own stack."
+      },
+      "metrics": {
+        "points": 466,
+        "comments": 382
+      },
+      "highlights": {
+        "ko": [
+          "벤치마크로 따져 본 글"
+        ],
+        "en": [
+          "benchmarking"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "3047b2cc0232",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xkxsca/i_gave_claude_access_to_remote_telescopes_now_she/",
+      "publishedAt": "2026-11-01T08:22:37.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Claude에게 원격 망원경을 맡겼더니 매일 밤 하늘을 예약",
+        "en": "Giving Claude remote telescopes: it books the sky nightly"
+      },
+      "summary": {
+        "ko": "한 사용자가 Claude에게 StellarDock의 원격 망원경 운용을 맡겼습니다. Claude는 대상 선정, 달 위치 확인, 필터·노출 설정, 예약, 이미지 다운로드와 합성까지 수행합니다. 첫 주에 소행성 8개의 위치 57건을 측정해 소행성센터에 보고했습니다.",
+        "en": "A user lets Claude run remote telescopes on StellarDock: choosing targets, setting exposures, booking, downloading and stacking images. It sent 57 asteroid positions to the Minor Planet Center."
+      },
+      "takeaway": {
+        "ko": "예약과 결제가 걸린 외부 서비스를 에이전트에 맡길 때는 권한 범위와 비용 한도를 정해야 합니다.",
+        "en": "Set permission scope and spending limits for agents that book services."
+      },
+      "highlights": {
+        "ko": [
+          "소행성 8개의 위치 57건을 측정해 소행성센터에 보고"
+        ],
+        "en": [
+          "57 asteroid positions"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "ed4b58253682",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/lifeval",
+      "publishedAt": "2026-11-02T09:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 일상 업무 수행 능력 평가 벤치마크 LifeVal 공개",
+        "en": "OpenAI introduces LifeVal benchmark"
+      },
+      "summary": {
+        "ko": "OpenAI가 AI가 일상 과업을 얼마나 잘 돕는지 측정하는 벤치마크 LifeVal을 공개했습니다. 보육 기관 찾기, 재무 관리, 정부 서류 작성 같은 과제가 대상입니다. 구체적인 평가 방식과 결과는 확인되지 않았습니다.",
+        "en": "OpenAI introduced LifeVal, a benchmark measuring how well AI helps with everyday tasks such as finding childcare, managing finances and government paperwork. Methods and results were not available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "일상 과업을 얼마나 잘 돕는지 측정하는 벤치마크"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 162,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "7d7291538279",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/1/delete-uv-lock-first/",
+      "publishedAt": "2026-11-01T23:24:22.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Python 3.15 전환 중 의존성 오류엔 uv.lock 삭제",
+        "en": "If in doubt, delete the uv.lock file"
+      },
+      "summary": {
+        "ko": "Simon Willison은 Python 3.15로 옮긴 뒤 의존성 오류가 날 때 uv.lock 파일을 지우라고 권합니다. 라이브러리는 uv.lock을 커밋하지 않지만 uv run 실행 때 생기며, 3.15용 휠이 아직 없는 버전을 고정해 오류를 일으킬 수 있습니다.",
+        "en": "Simon Willison advises deleting uv.lock when hitting dependency errors on Python 3.15, since it may pin a dependency version that has no Python 3.15 wheel yet."
+      },
+      "takeaway": {
+        "ko": "lock 파일이 새 Python 버전과 맞지 않을 수 있으니 오류 시 재생성부터 시도하십시오.",
+        "en": "Regenerate lock files first when errors follow a Python upgrade."
+      },
+      "highlights": {
+        "ko": [
+          "uv.lock 파일을 지우라고 권합니다"
+        ],
+        "en": [
+          "deleting uv.lock"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "재귀적 자기개선(RSI)",
+      "desc": {
+        "ko": "AI가 스스로를 훈련해 더 똑똑해지고 그 속도가 점점 빨라지는 것입니다.",
+        "en": "AI trains itself to get smarter, accelerating progress over time."
+      }
+    },
+    {
+      "term": "RAG",
+      "desc": {
+        "ko": "AI가 답하기 전에 관련 문서를 먼저 찾아 참고하게 하는 방식입니다.",
+        "en": "A method where AI retrieves relevant documents before answering."
+      }
+    },
+    {
+      "term": "Crawl4AI",
+      "desc": {
+        "ko": "웹페이지를 AI가 읽기 좋은 형태로 수집·정리해 주는 오픈소스 도구입니다.",
+        "en": "An open-source tool that collects web pages in an AI-friendly form."
+      }
+    },
+    {
+      "term": "상태기반정비(CBM+)",
+      "desc": {
+        "ko": "장비 상태 데이터를 분석해 고장 나기 전에 미리 정비하는 방식입니다.",
+        "en": "Maintenance done before failure, based on equipment condition data."
+      }
+    },
+    {
+      "term": "디지털 트윈",
+      "desc": {
+        "ko": "현실의 현장이나 설비를 컴퓨터 속에 똑같이 만들어 둔 가상 모델입니다.",
+        "en": "A virtual copy of a real site or facility in a computer."
+      }
+    },
+    {
+      "term": "오픈 웨이트",
+      "desc": {
+        "ko": "학습된 모델 파일을 공개해 누구나 내려받아 쓸 수 있게 한 방식입니다.",
+        "en": "Releasing trained model files so anyone can download and use them."
+      }
+    },
+    {
+      "term": "MarathonDocBench",
+      "desc": {
+        "ko": "아주 긴 문서를 얼마나 잘 읽어내는지 평가하는 시험 세트입니다.",
+        "en": "A test set for how well models parse very long documents."
+      }
+    }
+  ]
+}
