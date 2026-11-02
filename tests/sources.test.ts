@@ -51,6 +51,7 @@ let calls: Call[];
 let handler: (url: string) => Response | Promise<Response>;
 
 beforeEach(() => {
+  delete process.env.FEDI_ACCOUNT; // also when the shell exports one
   calls = [];
   handler = (url) => {
     if (url.startsWith("https://github.com/trending")) return new Response(trendingHtml);
@@ -76,7 +77,8 @@ afterEach(() => {
 describe("fetchAll", () => {
   it("PRD-collector: calls every source once with the ai-trend User-Agent and a timeout signal", async () => {
     await fetchAll(now);
-    expect(calls.filter((c) => !c.url.includes("api.github.com/repos/"))).toHaveLength(SOURCES.filter((s) => !s.fallback).length);
+    // fedi makes no requests without FEDI_ACCOUNT
+    expect(calls.filter((c) => !c.url.includes("api.github.com/repos/"))).toHaveLength(SOURCES.filter((s) => !s.fallback && s.kind !== "fedi").length);
     for (const c of calls) {
       const headers = new Headers(c.init?.headers);
       expect(headers.get("user-agent")).toBe(`ai-trend/0.1 (+https://github.com/${process.env.GITHUB_REPOSITORY || "hyomin-l/ai-trend"})`);
@@ -130,6 +132,22 @@ describe("fetchAll", () => {
       metrics: { stars: 1000, forks: 120, language: "Rust", starsPerDay: 100 }, // 10 days old
     });
     expect(items.find((i) => i.url === "https://github.com/o/new")?.metrics?.starsPerDay).toBe(300); // younger than a day => divisor 1
+  });
+
+  it("PRD-collector: repos linked from fediverse posts don't hold back the GitHub Search fallback", async () => {
+    process.env.FEDI_ACCOUNT = "someone@example.social";
+    const base = handler;
+    handler = (url) => {
+      if (url.startsWith("https://github.com/trending")) return new Response("blocked", { status: 429 });
+      if (url.includes("/api/v1/accounts/lookup")) return Response.json({ id: "42" });
+      if (url.includes("/statuses")) return Response.json(["a", "b", "c"].map((r) => (
+        { id: r, created_at: "2026-10-12T10:00:00Z", url: `https://example.social/@someone/${r}`, card: { url: `https://github.com/acme/${r}`, title: r } }
+      )));
+      return base(url);
+    };
+    const { items } = await fetchAll(now);
+    expect(items.filter((i) => i.sourceId === "fedi-links" && i.section === "repos")).toHaveLength(3);
+    expect(calls.filter((c) => c.url.includes("api.github.com/search"))).toHaveLength(4);
   });
 
   it("PRD-collector: GITHUB_TOKEN adds a Bearer Authorization header to GitHub only", async () => {
@@ -258,6 +276,45 @@ describe("fetchAll", () => {
     expect(res.map((i) => i.title)).toEqual(["new-r", "old-r"]);
     expect(res.every((i) => i.section === "playbook" && !("categories" in i))).toBe(true);
     expect(items.filter((i) => i.sourceId === "openai")).toHaveLength(3); // the general OpenAI source is unfiltered
+  });
+
+  it("PRD-collector: fediverse posts yield only the originals they link to, sectioned by URL; the account comes from FEDI_ACCOUNT", async () => {
+    process.env.FEDI_ACCOUNT = "someone@example.social";
+    const post = (id: string, at: string, card: object | null) => ({ id, created_at: at, url: `https://example.social/@someone/${id}`, card });
+    const base = handler;
+    handler = (url) => {
+      if (url.includes("/api/v1/accounts/lookup")) return Response.json({ id: "42" });
+      if (url.includes("/api/v1/accounts/42/statuses")) return Response.json([
+        post("6", "2026-10-12T10:00:00Z", { url: "https://openai.com/index/spec/", title: "An updated spec", provider_name: "OpenAI", description: " What changed " }),
+        post("f", "2026-10-12T09:30:00Z", { url: "https://github.com/features/copilot", title: "GitHub Copilot", provider_name: "GitHub" }), // site page, not a repo
+        post("5", "2026-10-12T09:00:00Z", { url: "http://www.github.com/acme/agent-kit.git?tab=readme-ov-file", title: "GitHub - acme/agent-kit", provider_name: "GitHub", description: "A tool" }),
+        post("4", "2026-10-12T08:00:00Z", { url: "https://huggingface.co/acme/model-7b", title: "acme/model-7b · Hugging Face", provider_name: "" }),
+        post("3", "2026-10-12T07:00:00Z", { url: "https://arxiv.org/abs/2610.00001", title: "A paper", provider_name: "arXiv.org", description: "Abstract" }),
+        post("2", "2026-10-12T06:00:00Z", null), // no link: the post itself never becomes a candidate
+        post("v", "2026-10-12T06:00:00Z", { url: "https://www.youtube.com/watch?v=abc", title: "A talk", provider_name: "YouTube" }), // videos dropped
+        post("1", "2026-10-12T05:00:00Z", { url: "https://example.social/@someone/9", title: "Own post" }), // link back to the account
+        post("0", "2026-10-01T00:00:00Z", { url: "https://old.test/a", title: "Too old" }), // outside the 72h window
+      ]);
+      return base(url);
+    };
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual([]);
+    const fedi = items.filter((i) => i.sourceId === "fedi-links");
+    expect(fedi.map((i) => [i.section, i.source, i.title])).toEqual([
+      ["newsroom", "OpenAI", "An updated spec"],
+      ["newsroom", "GitHub", "GitHub Copilot"],
+      ["repos", "GitHub", "acme/agent-kit"],
+      ["repos", "huggingface.co", "acme/model-7b"],
+      ["playbook", "arXiv.org", "A paper"],
+    ]);
+    expect(fedi[0]).toMatchObject({ id: itemId("https://openai.com/index/spec/"), url: "https://openai.com/index/spec/", snippet: "What changed", publishedAt: "2026-10-12T10:00:00.000Z" });
+    // same id as the trending row for that repo, so prep keeps one (trending's, with metrics)
+    const trending = items.find((i) => i.sourceId === "gh-trending" && i.title === "acme/agent-kit")!;
+    expect(fedi[2]).toMatchObject({ url: "https://github.com/acme/agent-kit", id: trending.id });
+    const lookup = new URL(calls.find((c) => c.url.includes("/lookup"))!.url);
+    expect(lookup.origin).toBe("https://mastodon.social");
+    expect(lookup.searchParams.get("acct")).toBe("someone@example.social");
+    expect(calls.filter((c) => c.url.includes("/statuses"))).toHaveLength(1); // a short page ends paging
   });
 
   it("PRD-collector: new sources are configured as intended", () => {

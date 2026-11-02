@@ -199,6 +199,14 @@ describe("prep: ordering and caps", () => {
     expect(out.map((i) => i.metrics?.likes ?? i.metrics?.starsPerDay)).toEqual([60, 50, 40, 5, 30, 20, 10, 4]);
   });
 
+  it("repos linked from fediverse posts (no growth figure) take turns with models in the slots, not the tail", () => {
+    const hf = (likes: number) => mk({ section: "repos", source: "Hugging Face", sourceId: "hf-models", metrics: { likes, downloads: 1 } });
+    const fedi = (title: string) => mk({ section: "repos", source: "GitHub", sourceId: "fedi-links", title });
+    const gh = Array.from({ length: 12 }, (_, i) => repo(100, 120 - i * 10));
+    const out = run([hf(5), hf(4), hf(3), fedi("a"), fedi("b"), ...gh]).filter((i) => i.section === "repos");
+    expect(out.slice(0, 12).map((i) => i.metrics?.likes ?? i.metrics?.starsPerDay ?? i.title)).toEqual([120, 110, 100, 5, 90, 80, 70, "a", 60, 50, 40, 4]);
+  });
+
   it("PRD-collector: cap is applied after the seen filter, so seen items do not eat the quota", () => {
     const tc = SOURCES.find((s) => s.id === "techcrunch")!;
     const items = Array.from({ length: tc.cap + 3 }, () => mk({ sourceId: tc.id }));

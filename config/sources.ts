@@ -1,4 +1,4 @@
-import type { Industry, SourceDef } from "@/types";
+import type { Industry, Section, SourceDef } from "@/types";
 
 /**
  * FORK POINT: what the collector reads and how much of it it keeps. Section keys, labels and per-column counts
@@ -59,6 +59,18 @@ const AX_QUERIES: [Industry, string, string][] = [
 export const HF_SKIP = /gguf|quantiz|uncensored|heretic|\b(awq|gptq|nvfp4|mlx|bnb|exl2)\b|[-_](awq|gptq|nvfp4|mlx|fp8|int4|int8|bnb|exl2|lora)\b/i;
 
 /**
+ * kind "fedi" only: the section a linked original lands in, matched against its host (no www.) + path; first match wins.
+ * null drops the link. Anything else stays in the source's own section (newsroom), which the curator may move it out of.
+ */
+export const LINK_SECTIONS: [RegExp, Section | null][] = [
+  [/^((m\.)?youtube\.com|youtu\.be|vimeo\.com)\//, null], // videos: the edition is written from article text, which they lack
+  [/^(arxiv\.org\/(abs|pdf)|huggingface\.co\/papers)\//, "playbook"],
+  // owner/repo pages only, not the sites' own two-segment pages (github.com/features/copilot, huggingface.co/learn/…)
+  [/^github\.com\/(?!(features|topics|orgs|sponsors|marketplace|trending|collections|apps|enterprise|solutions|settings)\/)[^/]+\/[^/]+\/?$/, "repos"],
+  [/^huggingface\.co\/(?!(papers|blog|spaces|datasets|docs|learn|tasks|collections|settings)\/)[^/]+\/[^/]+\/?$/, "repos"],
+];
+
+/**
  * Add, remove or retune sources here; nothing else needs to change. `section` must be a key of config/sections.ts.
  * kind "rss": `url` is a feed (RSS or Atom). "hn": `url` is the Hacker News query.
  * kind "ghtrending": `url` is a language path of github.com/trending (weekly; "" = all languages). Scraped HTML (no official
@@ -67,6 +79,8 @@ export const HF_SKIP = /gguf|quantiz|uncensored|heretic|\b(awq|gptq|nvfp4|mlx|bn
  * kind "hfpapers": Hugging Face Daily Papers (public API, `url` unused); ranked by upvotes, papers below `minUpvotes` are dropped, `cap` keeps the top few.
  * kind "github": `url` is a repository topic (GitHub Search, new repos only) and `fallback: true` sources run only when the
  * trending sources yielded fewer than CONFIG.repoFallbackMin repos.
+ * kind "fedi": `url` is a Mastodon instance; the account comes from the FEDI_ACCOUNT env (user@host; unset = no requests).
+ * Only the originals its posts link to (the instance's preview card) become candidates, sectioned by LINK_SECTIONS.
  * `categories` (rss) keeps only items with a matching <category>. `cap` is the most items kept per source, `windowHours` overrides CONFIG.windowHours for slow feeds.
  */
 export const SOURCES: SourceDef[] = [
@@ -117,4 +131,6 @@ export const SOURCES: SourceDef[] = [
   // Same feed as the `openai` newsroom source, Research category only, weekly window. A fresh post in both is deduped in prep (first wins: newsroom).
   { id: "openai-research", name: "OpenAI Research", kind: "rss", url: "https://openai.com/news/rss.xml", section: "playbook", cap: 2, windowHours: 168, categories: ["Research"] },
   { id: "nngroup", name: "NN/g", kind: "rss", url: "https://www.nngroup.com/feed/rss/", section: "playbook", cap: 3, windowHours: 168 },
+  // Last, so an original that a feed above also carries keeps that feed's entry. `cap` applies per section.
+  { id: "fedi-links", name: "Fediverse", kind: "fedi", url: "https://mastodon.social", section: "newsroom", cap: 4 },
 ];

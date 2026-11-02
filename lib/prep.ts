@@ -48,10 +48,14 @@ function roundRobin<T>(lists: T[][]): T[] {
   return out;
 }
 
-/** Repos by star growth; Hugging Face models (no growth figure, Hub trending order) are slotted in at every 4th place so truncation never drops them all. */
+/**
+ * Repos by star growth. Rows with no growth figure (Hugging Face models in Hub trending order, repos linked from
+ * fediverse posts) are slotted in at every 4th place, alternating by source, so truncation never drops them all.
+ */
 function withModels(repos: Candidate[]): Candidate[] {
-  const models = repos.filter((i) => i.metrics?.likes !== undefined);
-  const out = repos.filter((i) => i.metrics?.likes === undefined).sort(bySpeed);
+  const growth = (i: Candidate) => (i.metrics?.starsGained ?? i.metrics?.starsPerDay) !== undefined;
+  const models = roundRobin(group(repos.filter((i) => !growth(i)), (i) => i.sourceId ?? i.source));
+  const out = repos.filter(growth).sort(bySpeed);
   models.forEach((m, k) => out.splice(Math.min(3 + 4 * k, out.length), 0, m));
   return out;
 }

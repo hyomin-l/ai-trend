@@ -93,13 +93,13 @@ export interface Snapshot {
   glossary?: GlossaryEntry[];
 }
 
-export type SourceKind = "rss" | "github" | "ghtrending" | "hn" | "hf" | "hfpapers";
+export type SourceKind = "rss" | "github" | "ghtrending" | "hn" | "hf" | "hfpapers" | "fedi";
 
 export interface SourceDef {
   id: string;
   name: string;
   kind: SourceKind;
-  url: string; // feed URL, GitHub topic, or HN query
+  url: string; // feed URL, GitHub topic, HN query, or Mastodon instance
   section: Section;
   cap: number;
   windowHours?: number;

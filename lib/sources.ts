@@ -1,4 +1,4 @@
-import { AI_REPO_KEYWORDS, CONFIG, HF_SKIP, SOURCES } from "@/config/sources";
+import { AI_REPO_KEYWORDS, CONFIG, HF_SKIP, LINK_SECTIONS, SOURCES } from "@/config/sources";
 import { itemId, type Candidate } from "@/lib/prep";
 import { parseFeed } from "@/lib/rss";
 import { parseTrending } from "@/lib/trending";
@@ -116,6 +116,44 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
       });
   }
 
+  if (s.kind === "fedi") {
+    // The account lives in a secret, not config, so the public repo never names it; its posts themselves are never candidates.
+    const acct = process.env.FEDI_ACCOUNT?.trim();
+    if (!acct) return [];
+    const since = now.getTime() - (s.windowHours ?? CONFIG.windowHours) * 3_600_000;
+    const link = (p: any): Candidate[] => {
+      const c = p.card;
+      if (!c?.title || !URL.canParse(c.url)) return [];
+      const u = new URL(c.url);
+      if (u.hostname === new URL(p.url ?? p.uri).hostname) return []; // a link back to the account's own posts is not an original
+      const host = u.hostname.replace(/^www\./, "");
+      const rule = LINK_SECTIONS.find(([re]) => re.test(host + u.pathname));
+      if (rule && !rule[1]) return [];
+      const section = rule?.[1] ?? s.section;
+      // Repos become https://host/owner/repo (no www, query or .git) like the other repo sources, so a trending duplicate dedupes.
+      const repo = section === "repos" && u.pathname.split("/").slice(1, 3).join("/").replace(/\.git$/, "");
+      const url = repo ? `https://${host}/${repo}` : c.url;
+      return [{
+        ...base, section, id: itemId(url), url,
+        source: c.provider_name || host,
+        title: repo || c.title,
+        snippet: String(c.description ?? "").trim(),
+        publishedAt: new Date(p.created_at).toISOString(), // when it was shared; the original may be older
+      }];
+    };
+    const out: Candidate[] = [];
+    const { id } = JSON.parse(await get(`${s.url}/api/v1/accounts/lookup?acct=${encodeURIComponent(acct)}`));
+    // exclude_replies keeps self-replies, where thread-style posts put their source link.
+    // ponytail: at most 8 pages (320 posts) per run; raise it if a busy account's window gets cut off.
+    for (let page = 0, maxId = ""; page < 8; page++) {
+      const posts = JSON.parse(await get(`${s.url}/api/v1/accounts/${id}/statuses?limit=40&exclude_replies=true&exclude_reblogs=true${maxId && `&max_id=${maxId}`}`)) as any[];
+      out.push(...posts.filter((p) => Date.parse(p.created_at) >= since).flatMap(link));
+      if (posts.length < 40 || Date.parse(posts.at(-1).created_at) < since) break;
+      maxId = posts.at(-1).id;
+    }
+    return out;
+  }
+
   if (s.kind === "hn") {
     const since = Math.floor(now.getTime() / 1000 - CONFIG.windowHours * 3600);
     const filters = encodeURIComponent(`points>80,created_at_i>${since}`);
@@ -166,7 +204,8 @@ export async function fetchAll(now: Date): Promise<{ items: Candidate[]; failed:
     });
   };
   await run(SOURCES.filter((s) => !s.fallback));
-  // Fallback sources (GitHub Search) only when the primary repo sources came back (nearly) empty.
-  if (items.filter((i) => i.section === "repos" && i.metrics?.likes === undefined).length < CONFIG.repoFallbackMin) await run(SOURCES.filter((s) => s.fallback));
+  // Fallback sources (GitHub Search) only when trending came back (nearly) empty; only its rows carry the weekly gain,
+  // so HF models and repos linked from fediverse posts don't count.
+  if (items.filter((i) => i.metrics?.starsGained !== undefined).length < CONFIG.repoFallbackMin) await run(SOURCES.filter((s) => s.fallback));
   return { items, failed };
 }

@@ -39,6 +39,8 @@ Next.js(정적 export) + JSON 스냅샷 + `claude -p`(Claude 구독 토큰 또�
 
 원천은 `config/sources.ts` 기준 피드·쿼리. 업종 태그(`industry`)는 `ax` 항목에만 붙는다.
 
+**링크 원천(`fedi`):** `FEDI_ACCOUNT`(시크릿, `user@host`) 계정의 최근 72시간 글을 Mastodon 공개 API(`mastodon.social`)로 읽고, 글에 붙은 미리보기 카드의 원문만 후보로 쓴다. 계정 글 본문은 후보·스냅샷 어디에도 남기지 않는다. 출처는 원문 매체(카드 `provider_name`, 없으면 호스트)이고, 날짜(`publishedAt`)는 원문 작성일이 아니라 공유 시각이다(72시간 창도 공유 시각 기준). 섹션은 `LINK_SECTIONS`(arXiv·HF Papers는 `playbook`, GitHub 레포·HF 모델 페이지는 `repos`(`github.com/features/…` 같은 사이트 자체 페이지 제외), 그 외 `newsroom`). 영상(YouTube·Vimeo)은 본문이 없어 버린다. 레포 링크는 `https://호스트/owner/repo`로 정규화해 트렌딩과 같은 레포면 하나로 합치고, 증가 수치가 없으므로 HF 모델과 번갈아 4번째 자리마다 끼운다. 설정 순서상 마지막이라 다른 피드와 URL이 겹치면 그 피드가 이긴다. 섹션별 상한 4.
+
 **지표 표기:** 아이콘 + 숫자로 보인다. 레포는 스타, 포크, 주간 증가(`+N/주`), HF 모델은 좋아요, 다운로드. 1,000 이상은 `1.3k` 형식으로 줄인다.
 
 **시간 표기(`lib/format.ts` `fmtWhen`, `WhenTime`):** 항상 KST 절대 시각으로 보인다("10월 14일 14:05" / "Oct 14, 14:05", 24시간제). 판의 `generatedAt`과 연도가 다를 때만 연도를 붙인다("2025년 10월 14일 14:05"). 현재 시각을 쓰지 않아 서버와 브라우저가 같은 결과를 낸다. `<time>` 요소의 툴팁에 정확한 KST 시각(분 단위)을 담는다. 레포 행은 생성일만 "10월 4일 생성"으로 보인다.

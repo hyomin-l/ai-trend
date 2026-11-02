@@ -73,6 +73,9 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: the fediverse account whose linked originals become candidates (user@host). A secret so neither
+          # the repo nor the run logs name it; unset = that source makes no requests.
+          FEDI_ACCOUNT: ${{ secrets.FEDI_ACCOUNT }}
         run: |
           # An unset secret arrives as an empty string; drop it so it cannot shadow the other credential.
           [ -n "$ANTHROPIC_API_KEY" ] || unset ANTHROPIC_API_KEY
