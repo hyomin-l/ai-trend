@@ -1,0 +1,733 @@
+{
+  "date": "2026-11-04",
+  "issue": 15,
+  "generatedAt": "2026-11-03T20:58:13.264Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 18
+  },
+  "front": [
+    "9b0f1b3870f8",
+    "42ec3b43220b",
+    "49792679d79f"
+  ],
+  "items": [
+    {
+      "id": "49792679d79f",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1025694/apple-siri-ai-third-party-apps",
+      "publishedAt": "2026-11-03T20:16:17.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Apple, Siri AI를 서드파티 앱 전반으로 확대",
+        "en": "Apple opens Siri AI to third-party apps"
+      },
+      "summary": {
+        "ko": "Apple이 iOS 27.3 개발자 프리뷰에서 Siri AI가 모든 서드파티 앱에서 작업을 수행하도록 열었습니다. Siri는 개인 맥락과 화면 인식, 자연어 명령을 활용하며, 여러 작업을 하나로 묶는 앱 스킬도 개발자가 만들 수 있습니다.",
+        "en": "iOS 27.3's developer preview lets Siri AI act across all third-party apps using personal context and on-screen awareness, plus developer-built 'app skills' that bundle tasks."
+      },
+      "takeaway": {
+        "ko": "사내 모바일 앱에 음성 기반 업무 호출을 붙일 수 있는지, 앱 스킬 범위와 정식 배포 시점을 확인해 보십시오.",
+        "en": "Check app-skill scope and release timing before planning voice actions in internal apps."
+      },
+      "highlights": {
+        "ko": [
+          "모든 서드파티 앱에서 작업을 수행",
+          "여러 작업을 하나로 묶는 앱 스킬"
+        ],
+        "en": [
+          "act across all third-party apps",
+          "'app skills'"
+        ]
+      },
+      "related": [
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/tech/1025002/apple-watch-audio-intelligence-watchos-beta"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "a4abd1e2a1c1",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
+      "publishedAt": "2026-11-03T17:07:01.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, 컴퓨팅 마진 악화 공개",
+        "en": "Anthropic discloses worsening compute margins"
+      },
+      "summary": {
+        "ko": "Anthropic이 상장 신고서(S-1) 수정본에서 컴퓨팅 비용 관련 수치를 추가로 공개했습니다. 매출이 가파르게 늘고 있지만 컴퓨팅에서 남는 마진은 오히려 나빠진 것으로 나타났습니다. 6월 30일까지만 다루던 이전 공시를 보완한 자료입니다.",
+        "en": "An amended S-1 shows Anthropic's compute margins getting worse even as revenue skyrockets, updating last week's filing that covered only through June 30."
+      },
+      "takeaway": {
+        "ko": "모델 공급사의 원가 구조가 드러났으니, 장기 API 계약 시 가격 변동 조건을 확인해 보십시오.",
+        "en": "With supplier costs visible, check price-change terms in long-term API contracts."
+      },
+      "highlights": {
+        "ko": [
+          "컴퓨팅에서 남는 마진은 오히려 나빠진 것"
+        ],
+        "en": [
+          "compute margins getting worse"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 549
+      }
+    },
+    {
+      "id": "42ec3b43220b",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/",
+      "publishedAt": "2026-11-03T19:34:43.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "AI 추론 스타트업 Fal, 기업가치 160억 달러로 두 배",
+        "en": "AI inference startup Fal doubles valuation to $16B"
+      },
+      "summary": {
+        "ko": "AI 영상·이미지·음성 모델을 호스팅해 실행해 주는 Fal이 Bessemer 주도로 13억 달러를 유치했습니다. 기업가치는 4월 80억 달러에서 160억 달러로 두 배가 됐고, Series E·F 합계는 16.5억 달러입니다. Nvidia도 참여했습니다.",
+        "en": "Fal, which hosts AI video, image and audio models, raised $1.3B led by Bessemer at a $16B valuation, double April's $8B. Series E and F total $1.65B."
+      },
+      "takeaway": {
+        "ko": "생성형 미디어 모델을 외부 호스팅으로 쓸 계획이라면 호출 단가와 처리 속도를 직접 비교해 보십시오.",
+        "en": "If hosting generative media models externally, compare per-call cost and speed."
+      },
+      "highlights": {
+        "ko": [
+          "13억 달러를 유치",
+          "160억 달러로 두 배"
+        ],
+        "en": [
+          "raised $1.3B",
+          "$16B valuation"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "662bf89dbff2",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1025482/openai-says-chatgpt-is-catching-up-to-google-in-search",
+      "publishedAt": "2026-11-03T18:30:42.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI \"ChatGPT 검색량, Google의 20% 수준\"",
+        "en": "OpenAI: ChatGPT search volume is 20% of Google's"
+      },
+      "summary": {
+        "ko": "OpenAI가 ChatGPT의 검색 질의량이 Google의 20% 수준에 이르렀다고 밝혔습니다. 웹 검색으로 이어지는 질의만 검색으로 셌고, 용어 정의나 간단한 설명 요청은 제외했습니다. Google 검색량의 출처는 공개되지 않아 비교 수치는 참고용입니다.",
+        "en": "OpenAI says ChatGPT search queries equal 20% of Google's volume, counting only queries that trigger a web search. The source of the Google figure wasn't specified."
+      },
+      "takeaway": {
+        "ko": "고객이 정보를 찾는 경로가 AI 검색으로 옮겨가는지, 자사 유입 데이터로 먼저 확인해 보십시오.",
+        "en": "Check your own traffic data for a shift toward AI search."
+      },
+      "highlights": {
+        "ko": [
+          "Google의 20% 수준",
+          "웹 검색으로 이어지는 질의만 검색으로 셌고"
+        ],
+        "en": [
+          "20% of Google's volume",
+          "only queries that trigger a web search"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "a2357e701f02",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/cisco-cyber",
+      "publishedAt": "2026-11-03T08:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Cisco, OpenAI 모델로 기계 속도 보안 방어 구축",
+        "en": "Cisco builds machine-speed defenses with OpenAI"
+      },
+      "summary": {
+        "ko": "Cisco가 네트워크 인텔리전스와 OpenAI 모델을 결합해 기업 보안을 강화하는 방식을 소개했습니다. 더 적응적인 방어 체계를 만들고 있다는 내용이며, 확인된 정보는 요약문 수준이라 구체적 수치나 적용 범위는 알 수 없습니다.",
+        "en": "Cisco combines network intelligence with OpenAI models to build more adaptive enterprise security defenses. Only a short summary was available; no figures."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "네트워크 인텔리전스와 OpenAI 모델을 결합"
+        ],
+        "en": [
+          "combines network intelligence with OpenAI models"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 138,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "9b0f1b3870f8",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+      "publishedAt": "2026-11-03T16:29:48.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "노트북의 Qwen 3.8 27B도 모델 가중치를 해석한다",
+        "en": "Qwen 3.8 27B on a laptop can interpret model weights too"
+      },
+      "summary": {
+        "ko": "Simon Willison이 화제의 글 'Sparks of Weight-Space Programming'의 예제를 노트북에서 돌려봤습니다. 이 글은 GPT-6 Astra 같은 최첨단 모델이 머신러닝 모델의 가중치(숫자로 된 내부 설정값) 텍스트를 읽고 고칠 수 있다고 주장합니다. 그는 로컬 Qwen 3.8 27B로도 해석이 된다고 전합니다.",
+        "en": "Simon Willison ran an example from 'Sparks of Weight-Space Programming', which says frontier models like GPT-6 Astra can read and modify raw model weights, using local Qwen 3.8 27B."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "모델의 가중치(숫자로 된 내부 설정값) 텍스트를 읽고 고칠 수 있다"
+        ],
+        "en": [
+          "read and modify raw model weights"
+        ]
+      },
+      "related": [
+        {
+          "source": "Latent Space",
+          "url": "https://latent.space/p/ainews-llms-can-read-write-neural-network-weights-weight-space-programming-cuts-autoresearch-out-of/"
+        },
+        {
+          "source": "GeekNews",
+          "url": "https://news.hada.io/topic?id=36542&utm_source=geeknews&utm_medium=rss&utm_campaign=news"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "f435f0845e12",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/what-i-learned-teaching-ai-prototyping-at-university-b9fff222625e?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-11-03T10:09:09.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Figma 대신 AI로 프로토타이핑을 가르쳐 보니",
+        "en": "Teaching AI prototyping instead of Figma"
+      },
+      "summary": {
+        "ko": "UPM 패션 스쿨에서 학부·석사생에게 Figma 대신 AI 도구로 프로토타이핑을 가르친 경험담입니다. 새로운 가능성과 함께 불편한 상충 관계가 드러났다고 하며, 비개발자도 생성형 AI로 앱을 만들 수 있다는 점을 보여줍니다.",
+        "en": "An instructor at UPM's Fashion School taught AI prototyping instead of Figma, finding both exciting possibilities and uncomfortable trade-offs for non-tech people building apps."
+      },
+      "takeaway": {
+        "ko": "비개발 부서의 앱 시안 제작에 AI 도구를 시범 적용할 때, 결과물 품질 기준을 미리 정해 두십시오.",
+        "en": "Set quality criteria before piloting AI prototyping with non-developers."
+      },
+      "highlights": {
+        "ko": [
+          "비개발자도 생성형 AI로 앱을 만들 수 있다는 점"
+        ],
+        "en": [
+          "non-tech people building apps"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "bc4177032a04",
+      "source": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+      "publishedAt": "2026-11-03T16:35:36.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Palette, 작은 모델에 우리 회사 디자인 언어로 슬라이드 만들기 가르치기",
+        "en": "Palette: teaching a small model your design language for decks"
+      },
+      "summary": {
+        "ko": "최첨단 모델은 슬라이드를 여러 장 만들수록 비슷한 기본 스타일로 돌아가고, 프롬프트로도 이를 막기 어렵습니다. 기밀 내용은 외부로 보낼 수 없는 경우도 있습니다. Palette는 오픈 가중치 소형 모델을 자체 인프라에서 자사 디자인 언어로 학습시키는 접근입니다.",
+        "en": "Frontier models drift back to a house style in slide decks, and confidential content may not leave your systems. Palette trains a small open-weights model on your own design language."
+      },
+      "takeaway": {
+        "ko": "사내 템플릿 준수와 기밀 보호가 필요한 문서 자동화라면 자체 소형 모델 학습을 검토해 보십시오.",
+        "en": "Consider a self-trained small model for template-bound, confidential document automation."
+      },
+      "highlights": {
+        "ko": [
+          "오픈 가중치 소형 모델을 자체 인프라에서",
+          "자사 디자인 언어로 학습"
+        ],
+        "en": [
+          "small open-weights model",
+          "your own design language"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "2d52e97e8a16",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.01860",
+      "publishedAt": "2026-11-03T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "에이전트 컴퓨터 그래픽스의 발전 동향",
+        "en": "Advances in Agentic Computer Graphics"
+      },
+      "summary": {
+        "ko": "컴퓨터 그래픽스는 코드로 만들어지는데, 거대언어모델(LLM) 에이전트가 그래픽스 코드를 생성하고 피드백으로 반복 개선할 수 있게 됐습니다. 이 논문은 빠르게 늘어난 에이전트 기반 그래픽스 연구를 정리해, 수작업 문헌 조사가 따라가기 어려운 흐름을 짚습니다.",
+        "en": "LLM agents can now generate graphics code and refine it through feedback. This survey organizes the rapidly growing agentic graphics research that manual reviews struggle to track."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 90
+      },
+      "highlights": {
+        "ko": [
+          "그래픽스 코드를 생성하고 피드백으로 반복 개선"
+        ],
+        "en": [
+          "generate graphics code and refine it through feedback"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 549
+      }
+    },
+    {
+      "id": "cc28470f0055",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.00859",
+      "publishedAt": "2026-11-03T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Wave Forcing, 실시간 스트리밍 영상 생성에 도전",
+        "en": "Wave Forcing: toward speed-of-light streaming video generation"
+      },
+      "summary": {
+        "ko": "끊김 없는 긴 영상을 실시간으로 만들려면 일관된 외형과 자연스러운 움직임이 필요합니다. 기존 방식은 순차 처리와 기록 갱신 때문에 비효율적이고 길어질수록 화질이 떨어지거나 카메라가 흔들립니다. Wave Forcing은 생성·학습·실행을 함께 설계해 이를 풀려는 방법입니다.",
+        "en": "Chunk-wise autoregressive video generation is inefficient and degrades over long rollouts. Wave Forcing co-designs generation, training and execution for continuous, multi-step denoised video output."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 101
+      },
+      "highlights": {
+        "ko": [
+          "생성·학습·실행을 함께 설계"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 550
+      }
+    },
+    {
+      "id": "db09b457282c",
+      "source": "GitHub",
+      "url": "https://github.com/blader/humanizer",
+      "publishedAt": "2026-01-18T05:30:15.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "blader/humanizer: AI 글투를 사람처럼 다듬는 스킬",
+        "en": "blader/humanizer: make AI text read like a person wrote it"
+      },
+      "summary": {
+        "ko": "AI가 쓴 글을 내용은 바꾸지 않고 사람이 쓴 것처럼 다듬어 주는 스킬입니다. 위키백과 편집자가 AI 문장을 가려낼 때 쓰는 가이드를 바탕으로 하며, 스킬을 지원하는 Claude Code, Codex 등 에이전트에서 쓸 수 있습니다.",
+        "en": "A skill that rewrites AI-written text to sound human without changing meaning, built on Wikipedia's AI-writing signs guide. Works in Claude Code, Codex and other skill-capable agents."
+      },
+      "takeaway": {
+        "ko": "사내 보고서 초안 후처리에 시험하되, 다듬는 과정에서 사실이 바뀌지 않는지 검증하십시오.",
+        "en": "Trial it on report drafts and verify facts stay unchanged."
+      },
+      "metrics": {
+        "stars": 64366,
+        "forks": 5077,
+        "language": "Python",
+        "starsGained": 3035,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "내용은 바꾸지 않고 사람이 쓴 것처럼 다듬어"
+        ],
+        "en": [
+          "without changing meaning"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "0876c9c2b397",
+      "source": "GitHub",
+      "url": "https://github.com/CopilotKit/OpenBot",
+      "publishedAt": "2026-08-17T00:44:59.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "CopilotKit/OpenBot: 회사가 직접 소유하는 AI 동료",
+        "en": "CopilotKit/OpenBot: the AI assistant your company can own"
+      },
+      "summary": {
+        "ko": "자사 인프라에서 돌리며 무엇이든 고칠 수 있는 ChatGPT형 AI 어시스턴트입니다. AG-UI로 연결한 에이전트가 동료처럼 전용 브라우저, 로그인, 파일을 갖고 허용된 도구만 씁니다. 모든 행동은 실행 전 판단하고 후에 기록합니다.",
+        "en": "A self-hosted ChatGPT-style assistant. AG-UI agents become coworkers with their own browser, logins and files, using only granted tools, with every action decided beforehand and logged."
+      },
+      "takeaway": {
+        "ko": "에이전트 권한 통제와 감사 기록이 필요한 사내 도입이라면 행동 승인 규칙이 요건에 맞는지 확인하십시오.",
+        "en": "Check whether its action-approval rules and logs meet your audit needs."
+      },
+      "metrics": {
+        "stars": 10007,
+        "forks": 1233,
+        "language": "TypeScript",
+        "starsGained": 2710,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "자사 인프라에서 돌리며",
+          "모든 행동은 실행 전 판단하고 후에 기록"
+        ],
+        "en": [
+          "self-hosted",
+          "every action decided beforehand and logged"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "ebf3dd6aaeb2",
+      "source": "GitHub",
+      "url": "https://github.com/vercel-labs/skills",
+      "publishedAt": "2026-01-14T21:31:18.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "vercel-labs/skills: 에이전트 스킬 설치 CLI",
+        "en": "vercel-labs/skills: CLI for agent skills"
+      },
+      "summary": {
+        "ko": "코딩 에이전트에게 코드 리뷰나 라이브러리 사용 같은 작업법을 가르치는 재사용 지침, 에이전트 스킬을 설치하는 명령줄 도구입니다. OpenCode, Claude Code, Codex, Cursor 등 75개 이상을 지원하며 Node.js 22.20 이상에서 npx로 실행합니다.",
+        "en": "A CLI that installs agent skills, reusable instructions for coding agents. Supports OpenCode, Claude Code, Codex, Cursor and 75 more; requires Node.js 22.20+."
+      },
+      "takeaway": {
+        "ko": "팀의 코딩 규칙을 스킬로 배포해 여러 에이전트에 공유할 수 있는지 시험해 보십시오.",
+        "en": "Test distributing team coding rules as skills across agents."
+      },
+      "metrics": {
+        "stars": 37946,
+        "forks": 3283,
+        "language": "TypeScript",
+        "starsGained": 1149,
+        "period": "week",
+        "starsDelta": 2130
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "75개 이상을 지원",
+          "Node.js 22.20 이상"
+        ],
+        "en": [
+          "75 more",
+          "Node.js 22.20+"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "45b453e349d1",
+      "source": "GitHub",
+      "url": "https://github.com/kajisho5/ffmpeg-skill",
+      "publishedAt": "2026-09-03T14:33:38.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "kajisho5/ffmpeg-skill: 코딩 에이전트에 영상 편집 능력 부여",
+        "en": "kajisho5/ffmpeg-skill: give your coding agent a video editor"
+      },
+      "summary": {
+        "ko": "Claude Code, Cursor, Codex 등 MCP 클라이언트가 로컬 FFmpeg로 영상을 편집하고 결과물을 스스로 확인하게 해 주는 도구입니다. 자막 삽입, 화면비 맞춤, 무음 구간 처리, 음량 조정을 지원하며 클라우드나 API 키 없이 파이썬 표준 라이브러리만 씁니다.",
+        "en": "Lets MCP clients like Claude Code, Cursor and Codex edit video with local FFmpeg and check their output. Covers captions, aspect fitting, silence and loudness; no cloud or API keys."
+      },
+      "takeaway": {
+        "ko": "외부 전송이 어려운 사내 영상 편집 자동화에 로컬 방식이 맞는지 시험해 보십시오.",
+        "en": "Test it for video editing that cannot leave internal systems."
+      },
+      "metrics": {
+        "stars": 4453,
+        "forks": 351,
+        "language": "Python",
+        "starsGained": 1352,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "클라우드나 API 키 없이"
+        ],
+        "en": [
+          "no cloud or API keys"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 599
+      }
+    },
+    {
+      "id": "46e307363c08",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/speridlabs/idol",
+      "publishedAt": "2026-10-28T15:55:17.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "speridlabs/idol: 이미지 한 장으로 3D 가우시안 스플랫 생성",
+        "en": "speridlabs/idol: single image to 3D Gaussian splat"
+      },
+      "summary": {
+        "ko": "물체 사진이나 렌더 이미지 한 장을 3D 가우시안 스플랫으로 바꾸는 모델입니다. 배경을 지우고 사진에 없던 옆면까지 최대 104만 개의 가우시안으로 생성해 표준 3DGS .ply 파일로 저장합니다. 일반 GPU에서 VRAM 7.2GB로 2초 이내에 동작합니다.",
+        "en": "A model that turns one object image into a 3D Gaussian splat of up to 1,048,576 Gaussians, saved as a standard 3DGS .ply. Runs on consumer GPUs with 7.2 GB VRAM in under 2 seconds."
+      },
+      "takeaway": {
+        "ko": "상품 3D 자산 제작에 쓸 수 있는지, 보이지 않는 옆면의 정확도를 먼저 검증하십시오.",
+        "en": "Verify accuracy of unseen sides before using for product 3D assets."
+      },
+      "metrics": {
+        "likes": 498,
+        "downloads": 10742
+      },
+      "highlights": {
+        "ko": [
+          "VRAM 7.2GB로 2초 이내"
+        ],
+        "en": [
+          "7.2 GB VRAM in under 2 seconds"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "7b8b2b83311d",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xl2tcm/heretic_20_released_model_modification_for/",
+      "publishedAt": "2026-11-01T13:16:24.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Heretic 2.0 공개, 범용 모델 수정 도구로 확장",
+        "en": "Heretic 2.0 released as a general model modification tool"
+      },
+      "summary": {
+        "ko": "언어 모델의 검열을 제거하는 도구 Heretic이 5개월 개발 끝에 2.0으로 나왔습니다. 검열 제거 전용에서 범용 모델 수정 도구로 확장되며, Hugging Face에 올라온 모델이 8,500개를 넘고 누적 다운로드는 8,800만 건입니다.",
+        "en": "After five months, Heretic 2.0 expands the censorship-removal tool into a general model modification tool, with over 8,500 Hugging Face models and 88 million downloads."
+      },
+      "takeaway": {
+        "ko": "안전장치가 제거된 파생 모델이 널리 퍼져 있으니, 외부 오픈 모델은 출처와 수정 이력을 확인하고 쓰십시오.",
+        "en": "Check provenance and modification history of open models you adopt."
+      },
+      "highlights": {
+        "ko": [
+          "범용 모델 수정 도구로 확장",
+          "누적 다운로드는 8,800만 건"
+        ],
+        "en": [
+          "general model modification tool",
+          "88 million downloads"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "09484dfee9e7",
+      "source": "Hacker News",
+      "url": "https://arstechnica.com/gadgets/2026/10/fujifilm-to-boost-tape-production-5x-as-ai-fuels-archiving-demand/",
+      "publishedAt": "2026-11-02T14:02:42.000Z",
+      "section": "pulse",
+      "region": "JP",
+      "title": {
+        "ko": "Fujifilm, AI 아카이빙 수요에 테이프 생산 5배 확대",
+        "en": "Fujifilm to boost tape production 5x on AI archiving demand"
+      },
+      "summary": {
+        "ko": "Fujifilm이 약 100억 엔(약 6,300만 달러)을 투자해 자기 테이프 생산능력을 2025 회계연도 대비 5배로 늘립니다. 생성형 AI 확산으로 데이터 보관 수요가 기하급수적으로 커졌다는 판단이며, Kanagawa 공장 Odawara 사업장에 투자합니다.",
+        "en": "Fujifilm will invest about 10 billion yen ($63M) to raise magnetic tape capacity fivefold versus FY2025, citing exponential data growth from generative AI."
+      },
+      "takeaway": {
+        "ko": "AI 데이터가 늘면 장기 보관 비용도 커지므로, 저장 매체별 보관 단가를 점검해 보십시오.",
+        "en": "As AI data grows, review long-term storage cost by medium."
+      },
+      "metrics": {
+        "points": 305,
+        "comments": 124
+      },
+      "highlights": {
+        "ko": [
+          "생산능력을 2025 회계연도 대비 5배",
+          "데이터 보관 수요가 기하급수적으로 커졌다"
+        ],
+        "en": [
+          "fivefold versus FY2025",
+          "exponential data growth"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "b1983f25550a",
+      "source": "Retail Technology Innovation Hub",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNejVmZXVIQy12ODAwT3dXUmdGR2M1ZVcycVl4bkU5bWJqMm1XckdDeDhXcV90QzUweWh1S0VEeTZCSTBkcWpCWmVERUhVRHd0cE5pRU5iMFA0UlVrRU5XT283bEk1Q0Exc2JzN05FNklXSWhWbUFwTlc0RDgzc2YxYmhsdXdHZHpLaFdiRl9FQjZkajhhdm1yb3JmZ2M3dGhBRHI5WWlCMVhqbnpleTFKUUZub04zbDdHVXpWMnRUZi1YWURadmF3Z0hIYTdIV3M?oc=5",
+      "publishedAt": "2026-11-03T11:42:35.000Z",
+      "section": "ax",
+      "region": "EU",
+      "title": {
+        "ko": "영국 Morrisons, Duvo와 손잡고 AI 도입 모색",
+        "en": "Morrisons partners with Duvo to explore AI adoption"
+      },
+      "summary": {
+        "ko": "영국 대형 슈퍼마켓 Morrisons가 Duvo와 협력해 AI 도입 기회를 모색한다고 전해졌습니다. 확인된 정보는 제목 수준이어서 협력 범위와 적용 업무, 성과 수치는 알 수 없습니다.",
+        "en": "UK grocer Morrisons is partnering with Duvo to explore AI adoption. Only the headline was available; scope and results are unknown."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 116,
+        "reason": "google-news-no-public-link"
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "가중치",
+      "desc": {
+        "ko": "AI 모델이 학습으로 얻은, 판단을 좌우하는 숫자 설정값입니다.",
+        "en": "The numeric values an AI model learns that determine its outputs."
+      }
+    },
+    {
+      "term": "에이전트 스킬",
+      "desc": {
+        "ko": "코딩 AI에게 특정 작업 방법을 알려주는 재사용 가능한 지침입니다.",
+        "en": "Reusable instructions that teach a coding AI how to do a task."
+      }
+    },
+    {
+      "term": "AG-UI",
+      "desc": {
+        "ko": "AI 에이전트를 사용자 화면과 연결하는 개방형 통신 규약입니다.",
+        "en": "An open protocol connecting AI agents to user interfaces."
+      }
+    },
+    {
+      "term": "3D 가우시안 스플랫",
+      "desc": {
+        "ko": "수많은 작은 3D 점 덩어리로 물체를 입체적으로 표현하는 기술입니다.",
+        "en": "A technique that represents objects in 3D using many small Gaussian blobs."
+      }
+    },
+    {
+      "term": "앱 스킬",
+      "desc": {
+        "ko": "개발자가 여러 작업을 묶어 Siri가 한 번에 실행하게 하는 기능입니다.",
+        "en": "A feature letting developers bundle tasks for Siri to run as one action."
+      }
+    },
+    {
+      "term": "Heretic",
+      "desc": {
+        "ko": "언어 모델에 걸린 검열 장치를 제거하는 오픈소스 도구입니다.",
+        "en": "An open-source tool that removes censorship from language models."
+      }
+    },
+    {
+      "term": "S-1",
+      "desc": {
+        "ko": "미국에서 기업이 상장할 때 증권당국에 내는 신고서입니다.",
+        "en": "The registration filing a company submits to US regulators to go public."
+      }
+    }
+  ]
+}
