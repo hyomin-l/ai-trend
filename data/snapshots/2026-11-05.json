@@ -1,0 +1,799 @@
+{
+  "date": "2026-11-05",
+  "issue": 16,
+  "generatedAt": "2026-11-04T21:20:05.474Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "d23caa988630",
+    "f1f26a9d7d87",
+    "3a06f84c0f51"
+  ],
+  "items": [
+    {
+      "id": "d23caa988630",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/",
+      "publishedAt": "2026-11-04T21:10:56.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Meta, AI 코딩 스타트업 Conductor 인수",
+        "en": "Meta acquires AI coding startup Conductor"
+      },
+      "summary": {
+        "ko": "Meta가 여러 AI 에이전트를 병렬 작업 공간에 투입해 소프트웨어 프로젝트를 만들게 해주는 Conductor를 인수했습니다. 창업자 Charlie Holtz는 내년 초까지 고객이 쓸 새로운 것을 내놓겠다고 밝혔습니다. 인수 조건은 확인되지 않았습니다.",
+        "en": "Meta acquired Conductor, which runs multiple coding agents in parallel workspaces. CEO Charlie Holtz teased something new for customers by early next year."
+      },
+      "takeaway": {
+        "ko": "에이전트 병렬 실행형 코딩 도구가 빅테크 제품으로 흡수되는 만큼 사내 도입 중인 도구의 지원 지속성을 점검할 필요가 있습니다.",
+        "en": "Check vendor continuity of parallel-agent coding tools you use."
+      },
+      "highlights": {
+        "ko": [
+          "여러 AI 에이전트를 병렬 작업 공간에 투입",
+          "내년 초까지"
+        ],
+        "en": [
+          "early next year"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "3a06f84c0f51",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/openai-to-acquire-pierre",
+      "publishedAt": "2026-11-04T14:30:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, Pierre Computer Company 인수",
+        "en": "OpenAI to acquire Pierre Computer Company"
+      },
+      "summary": {
+        "ko": "OpenAI가 Pierre Computer Company를 인수한다고 밝혔습니다. 이를 통해 코드를 만들고 이해하고 검토하는 Codex의 도구를 확장할 계획입니다. 현재 확인된 내용은 공식 발표의 짧은 문장이 전부이며 인수 금액 등은 공개되지 않았습니다.",
+        "en": "OpenAI will acquire Pierre Computer Company to expand Codex's tools for building, understanding and reviewing code. No other details were confirmed."
+      },
+      "takeaway": {
+        "ko": "Codex의 코드 검토 기능 강화가 예상되므로 향후 코드 리뷰 자동화 기능을 검증 대상에 올려둘 만합니다.",
+        "en": "Watch Codex code-review features as a candidate to evaluate."
+      },
+      "highlights": {
+        "ko": [
+          "Codex의 도구를 확장"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 117,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "f1f26a9d7d87",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/04/duckduckgo-pitches-itself-to-schools-amid-backlash-over-googles-ai-policy/",
+      "publishedAt": "2026-11-04T19:29:52.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글 AI 정책 논란 속 DuckDuckGo, 학교 시장 공략",
+        "en": "DuckDuckGo pitches to schools amid Google AI policy backlash"
+      },
+      "summary": {
+        "ko": "구글이 학교에 Gemini는 끌 수 있지만 다른 AI 기능을 끄면 구글 검색도 쓸 수 없게 된다고 안내하자, 개인정보 보호 중심의 검색엔진 DuckDuckGo가 학교 시장 공략에 나섰습니다. 학교에는 Chromebook이 약 5천만 대 있는 것으로 알려져 있습니다.",
+        "en": "After Google said schools could disable Gemini but turning off other AI features would cost Search, DuckDuckGo began pitching itself to schools."
+      },
+      "takeaway": {
+        "ko": "AI 기능을 끄면 기존 서비스까지 막히는 번들 조건이 있는지 SaaS 계약과 설정에서 확인할 필요가 있습니다.",
+        "en": "Check whether disabling AI features bundles away other services."
+      },
+      "highlights": {
+        "ko": [
+          "다른 AI 기능을 끄면 구글 검색도 쓸 수 없게"
+        ],
+        "en": []
+      },
+      "related": [
+        {
+          "source": "Hacker News",
+          "url": "https://www.nytimes.com/2026/11/03/us/google-search-schools-restrict-ai.html"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 574
+      }
+    },
+    {
+      "id": "925925dcd5f4",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217024",
+      "publishedAt": "2026-11-05T06:09:35.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "미 중간선거 민주당 압승, 데이터센터 규제 우려에도 빅테크 주가 급등",
+        "en": "Big Tech surges after Democratic midterm win despite data center curbs"
+      },
+      "summary": {
+        "ko": "미국 중간선거에서 민주당이 압승해 AI 데이터센터 건설에 제동이 걸릴 가능성이 커졌지만 아마존 주가는 장중 7.4% 올랐습니다. 신규 건설이 늦어지면 투자 부담이 줄고 기존 시설 가치가 오른다는 기대가 반영됐으며, 차입으로 확장한 중소형 업체는 급락했습니다.",
+        "en": "Amazon rose up to 7.4% after Democrats' midterm win despite data center curbs, as investors saw lower capex pressure; debt-funded smaller operators fell."
+      },
+      "takeaway": {
+        "ko": "데이터센터 신규 공급이 둔화되면 클라우드 GPU 가격과 용량 계약 조건이 달라질 수 있어 장기 계약 전 확인이 필요합니다.",
+        "en": "Slower data center supply may affect cloud GPU pricing and terms."
+      },
+      "highlights": {
+        "ko": [
+          "아마존 주가는 장중 7.4% 올랐습니다",
+          "차입으로 확장한 중소형 업체는 급락"
+        ],
+        "en": [
+          "Amazon rose up to 7.4%"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 574
+      }
+    },
+    {
+      "id": "63973ddb0548",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.05275",
+      "publishedAt": "2026-11-04T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "논문: 모델·정책 라우팅으로 범용 AI 시스템 구성",
+        "en": "Paper: Model and policy routing for general-purpose AI systems"
+      },
+      "summary": {
+        "ko": "하나의 모델에 모든 능력을 맡기는 대신, 특화된 모델·도구·정책을 묶어 작업마다 가장 알맞은 후보를 고르는 라우팅 방식을 연구한 논문입니다. 성능과 계산 비용의 균형을 어떻게 맞출지가 핵심 질문이며, Hugging Face Papers에서 추천 84개를 받았습니다.",
+        "en": "A study of routing tasks across specialized models, tools and policies, balancing performance and compute cost. It drew 84 upvotes on Hugging Face Papers."
+      },
+      "takeaway": {
+        "ko": "사내 에이전트에 모델을 섞어 쓸 때 작업별 성능과 비용 기준을 먼저 정해두면 라우팅 효과를 검증하기 쉽습니다.",
+        "en": "Define per-task quality and cost metrics before adopting routing."
+      },
+      "metrics": {
+        "upvotes": 84
+      },
+      "highlights": {
+        "ko": [
+          "작업마다 가장 알맞은 후보를 고르는 라우팅",
+          "성능과 계산 비용의 균형"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 573
+      }
+    },
+    {
+      "id": "83de50efad5d",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.00617",
+      "publishedAt": "2026-11-04T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "논문: 심리상담 내담자 표현을 모사하는 Pandora",
+        "en": "Paper: Pandora simulates person-specific client expression in psychotherapy"
+      },
+      "summary": {
+        "ko": "상담 내담자는 고통을 명확히 설명하기 전에 먼저 느끼는 경우가 많은데, 기존 LLM 시뮬레이터는 실제 이해 수준보다 또렷하게 설명하는 경향이 있습니다. Pandora는 심리·관계 상태를 갱신하며 개인별 표현을 모사하는 프레임워크입니다.",
+        "en": "Pandora is a client simulation framework for psychotherapy that updates psychological and relational states to model person-specific expression, addressing overly clear LLM simulators."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 67
+      },
+      "highlights": {
+        "ko": [
+          "심리·관계 상태를 갱신하며 개인별 표현을 모사"
+        ],
+        "en": [
+          "person-specific expression"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 574
+      }
+    },
+    {
+      "id": "26fdec23e0ba",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/your-ai-is-non-deterministic-but-your-product-cant-be-3ec2a0cf870c?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-11-03T22:40:34.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI 에이전트를 만들면서 '정지 버튼'은 누가 설계하나",
+        "en": "Everyone builds AI agents. Who designs the stop button?"
+      },
+      "summary": {
+        "ko": "Thinking Machines Lab 연구진은 온도를 0으로 설정하고 같은 프롬프트를 1,000번 실행했는데 서로 다른 응답 80가지가 나왔습니다. 글은 AI가 스스로 판단하고 행동하는 시대에 자율성이 끝나는 지점을 보여주는 설계가 가장 어렵다고 주장합니다.",
+        "en": "Thinking Machines Lab got 80 different completions from 1,000 runs at temperature zero. The piece argues the hardest design decisions lie where agent autonomy ends."
+      },
+      "takeaway": {
+        "ko": "같은 입력에도 결과가 달라질 수 있으니 에이전트 워크플로에는 사람이 개입하는 중단·승인 지점을 명시해야 합니다.",
+        "en": "Define explicit human stop and approval points in agent flows."
+      },
+      "highlights": {
+        "ko": [
+          "서로 다른 응답 80가지",
+          "자율성이 끝나는 지점"
+        ],
+        "en": [
+          "80 different completions"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 573
+      }
+    },
+    {
+      "id": "1840d116fbdd",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/use-decision-models-with-amazon-bedrock-agentcore-evaluations/",
+      "publishedAt": "2026-11-04T18:46:36.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Amazon Bedrock AgentCore 평가에 의사결정 모델 활용",
+        "en": "Decision models for Amazon Bedrock AgentCore Evaluations"
+      },
+      "summary": {
+        "ko": "의사결정 모델은 구조화된 상태와 정해진 답변 후보를 받아 각 답의 보정된 확률을 돌려줍니다. 정책 준수나 도구 호출 승인 같은 좁고 반복적인 질문에 맞아 에이전트 평가의 채점 단계에 쓸 수 있고, 기준값을 정해 판정할 수 있습니다.",
+        "en": "Decision models return calibrated probabilities over fixed answers, suiting narrow repeatable checks like policy compliance or tool-call approval in agent evaluation."
+      },
+      "takeaway": {
+        "ko": "에이전트 평가에서 정책 준수 같은 반복 판정부터 확률 임계값 방식으로 바꿔 일관성이 나아지는지 검증해볼 만합니다.",
+        "en": "Pilot threshold-based scoring on repeatable policy checks."
+      },
+      "highlights": {
+        "ko": [
+          "각 답의 보정된 확률",
+          "에이전트 평가의 채점 단계"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 574
+      }
+    },
+    {
+      "id": "9afa847c6248",
+      "source": "지디넷코리아",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE40dEVoWEtMQm9mNGtnSmdxcjVoOUNCZHRyTW54ZVNQbmI4OWRmRUVFQ0lGOHpWMzlfNXkwUkd0MjFHTGVKMkg0ZDQ0NVdWUXQyeXdKSDhn?oc=5",
+      "publishedAt": "2026-11-03T02:21:45.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "두핸즈 '품고', 물동량 60% 증가…포장부터 피지컬 AI 학습",
+        "en": "Duhands' Pumgo volume up 60%, training physical AI on packing"
+      },
+      "summary": {
+        "ko": "풀필먼트 서비스 '품고'의 두핸즈는 1~9월 누적 물동량이 전년 대비 60.3%, 매출은 57% 늘었다고 밝혔습니다. 로봇은 외부에서 도입하고 제어 AI와 운영 시스템은 자체 확보하며, 포장 공정부터 작업자 원격 개입을 병행해 학습 중입니다.",
+        "en": "Duhands' Pumgo saw volume up 60.3% and revenue up 57% in Jan-Sep. It trains its own robot-control AI on packing, with remote operator assistance."
+      },
+      "takeaway": {
+        "ko": "로봇 하드웨어는 외부 도입하고 제어 AI만 내재화하는 방식과 원격 개입 병행 구조는 물류 자동화 단계 설계에 참고할 만합니다.",
+        "en": "Buy robot hardware, own control AI, and phase in autonomy."
+      },
+      "highlights": {
+        "ko": [
+          "물동량이 전년 대비 60.3%",
+          "작업자 원격 개입을 병행"
+        ],
+        "en": [
+          "volume up 60.3%"
+        ]
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 574,
+        "url": "https://zdnet.co.kr/view/?no=20261103112145"
+      }
+    },
+    {
+      "id": "1d6b499c8a03",
+      "source": "Retail Banker International",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOcXNFTXYtU3hWekhtNEJTYmZrSy1qeFpDalU2NmphTDlWQ0RUUThDcmJDYWF6WmZUTWxSQnRWejAzSE5CWEUwNGY1TFNzLWNyM2xOekxiY3laYkV1aFdIcWNINk0tWTdnVHA2MXVNUWJYX3BrSHV6VVNkd0lUeU9qeWdfajI0Y2s?oc=5",
+      "publishedAt": "2026-11-03T14:47:59.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Mashreq, 사기 탐지 플랫폼에 생성형 AI 통합",
+        "en": "Mashreq integrates generative AI into fraud detection"
+      },
+      "summary": {
+        "ko": "Mashreq가 사기 탐지 플랫폼에 생성형 AI를 통합했다는 제목의 기사입니다. 확인 가능한 것은 제목뿐이며 적용 범위나 성과 수치, 사용 기술은 알 수 없습니다.",
+        "en": "Mashreq integrated generative AI into its fraud detection platform. Only the headline is available; scope and results are unknown."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 90,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "a1a0422fc732",
+      "source": "CDO Magazine",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxObV9iTWZHdU1iamZXTGNlTWNkVjZtWnZmSG45MFFTNnl4TTZIVjhLZi1IZTVhaVUzNkZwb0t5cjFmVGdwWXBNTEIwRHpXN214OG84a0RucE1qRmtPMXZZaGlVQ2VTU0w3UHBSOXdjM2hNVXlJM1VEckxLcnpjd2FZVllZZHV5NUJXSF90bFVIWUtUVWRUTEpjWkpDZUp3dVU2VEZTZWhxNUtMSC14SGNUYlktWFN3ZVFBWkQ0WA?oc=5",
+      "publishedAt": "2026-11-04T13:25:00.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "공공부문 AI 도입 빠르지만 거버넌스는 뒤처져",
+        "en": "Public sector AI adoption outpaces governance"
+      },
+      "summary": {
+        "ko": "미국과 영국 공공부문 IT 실무자·리더 810명을 조사한 결과, 시행 중인 공식 AI 거버넌스 체계가 있다는 응답은 37%였습니다. 28%는 불완전하거나 일관되지 않게 적용하고, 35%는 체계가 아예 없다고 답했습니다.",
+        "en": "In a survey of 810 US and UK public-sector IT leaders, 37% had an enforced AI governance framework, 28% had incomplete ones and 35% had none."
+      },
+      "takeaway": {
+        "ko": "도입 속도에 비해 통제가 느슨한 경우가 많으니 그룹사별 AI 거버넌스 적용 현황부터 점검할 만합니다.",
+        "en": "Audit how consistently governance is enforced across affiliates."
+      },
+      "highlights": {
+        "ko": [
+          "공식 AI 거버넌스 체계가 있다는 응답은 37%",
+          "35%는 체계가 아예 없다"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.cdomagazine.tech/aiml/survey-finds-ai-governance-lagging-behind-adoption-across-governments"
+      }
+    },
+    {
+      "id": "50dd8e602490",
+      "source": "뉴시안",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5YVUlFd0RIT0VUS3R3d1Q0SFBNckJUdDBXNFFUQVF2cFFWQlRkcVF4ZUlmekNld0ZVcXo4R1I3ZHlzZlpCeEhWNktyOUlzRE9yd3pKaVpUNzFqRy13UzJBRUVtalZXclhvMFlXbg?oc=5",
+      "publishedAt": "2026-11-04T09:10:13.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "KGC, 홍삼 파우치 봉합 검사에 AI 도입",
+        "en": "KGC adds AI inspection to ginseng pouch sealing"
+      },
+      "summary": {
+        "ko": "KGC는 원주공장 파우치 음료 설비에 AI 실링 검사기를 도입했습니다. 엑스레이로 내부 이물질을 보고, AI는 정상·불량 이미지를 학습해 외관 불량을 판별합니다. 앞으로 이미지 데이터를 쌓아 불량률을 낮추고 태양광 설비도 확대할 계획입니다.",
+        "en": "KGC added an AI sealing inspector at its Wonju plant, pairing X-ray foreign-matter checks with vision AI trained on good and defective images."
+      },
+      "takeaway": {
+        "ko": "AI 비전검사는 불량 이미지 축적이 성능을 좌우하므로 도입 전 불량 샘플 확보 계획을 확인해야 합니다.",
+        "en": "Confirm defect-image sourcing before deploying vision inspection."
+      },
+      "highlights": {
+        "ko": [
+          "정상·불량 이미지를 학습해 외관 불량을 판별",
+          "이미지 데이터를 쌓아 불량률을 낮추고"
+        ],
+        "en": []
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.newsian.co.kr/news/articleView.html?idxno=100620"
+      }
+    },
+    {
+      "id": "dd6a9d14a094",
+      "source": "GitHub",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "publishedAt": "2026-04-03T15:49:07.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Graphify, 코딩 에이전트 토큰 사용을 줄이는 코드 지도",
+        "en": "Graphify cuts coding-agent token spend"
+      },
+      "summary": {
+        "ko": "AI 코딩 어시스턴트에서 /graphify를 입력하면 코드베이스를 지도처럼 정리해 에이전트가 필요한 부분만 참고하게 하는 Python 도구입니다. 토큰 사용을 80% 줄인다고 홍보하며, 유료 Graphify Cloud는 상시 메모리를 제공한다고 합니다.",
+        "en": "A Python tool that maps a codebase via /graphify in AI coding assistants so agents read less. It claims 80% token savings; a paid cloud tier adds memory."
+      },
+      "takeaway": {
+        "ko": "80% 절감은 제작사 주장이므로 자사 저장소에서 토큰 사용량과 답변 품질을 비교해 검증해야 합니다.",
+        "en": "Verify the vendor's 80% claim on your own repos."
+      },
+      "metrics": {
+        "stars": 142369,
+        "forks": 13614,
+        "language": "Python",
+        "starsGained": 5085,
+        "period": "week",
+        "starsDelta": 7374
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "토큰 사용을 80% 줄인다고 홍보"
+        ],
+        "en": [
+          "80% token savings"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "dc7a66cb784f",
+      "source": "GitHub",
+      "url": "https://github.com/tashfeenahmed/freellmapi",
+      "publishedAt": "2026-04-21T13:38:59.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "freellmapi, 무료 LLM 34곳을 OpenAI 호환 API 하나로",
+        "en": "freellmapi unifies 34 free LLM providers behind one API"
+      },
+      "summary": {
+        "ko": "34개 제공사의 무료 모델 635개 엔드포인트를 OpenAI 호환 /v1 API 하나로 묶는 TypeScript 도구입니다. 키는 암호화해 저장하고, 라우터가 요청마다 쓸 수 있는 모델을 고르며 한도에 걸리면 다음 제공사로 넘깁니다.",
+        "en": "A TypeScript tool exposing 635 free model endpoints from 34 providers through one OpenAI-compatible API, with encrypted keys, routing and failover."
+      },
+      "takeaway": {
+        "ko": "무료 한도를 묶어 쓰는 방식은 데이터가 여러 외부 제공사로 가므로 사내 업무 데이터에는 쓰지 않는 편이 안전합니다.",
+        "en": "Avoid sending internal data through many free third-party providers."
+      },
+      "metrics": {
+        "stars": 47512,
+        "forks": 6504,
+        "language": "TypeScript",
+        "starsGained": 4414,
+        "period": "week",
+        "starsDelta": 6058
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "OpenAI 호환 /v1 API 하나",
+          "한도에 걸리면 다음 제공사로 넘깁니다"
+        ],
+        "en": [
+          "one OpenAI-compatible"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "e53f91b8c346",
+      "source": "GitHub",
+      "url": "https://github.com/calesthio/OpenMontage",
+      "publishedAt": "2026-03-29T15:23:22.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "OpenMontage, 에이전트가 영상 제작을 맡는 오픈소스",
+        "en": "OpenMontage: open-source agentic video production"
+      },
+      "summary": {
+        "ko": "AI 코딩 어시스턴트를 영상 제작 스튜디오로 바꿔주는 Python 오픈소스입니다. 원하는 영상을 일상 언어로 설명하면 에이전트가 조사, 대본 작성, 소재 생성, 편집, 최종 합성까지 처리합니다.",
+        "en": "A Python open-source system that turns an AI coding assistant into a video studio, handling research, scripting, asset generation, editing and composition."
+      },
+      "takeaway": {
+        "ko": "사내 홍보·교육 영상 제작에 시험해볼 수 있으며, 외부 생성 서비스 사용에 따른 비용과 저작권 조건을 확인해야 합니다.",
+        "en": "Pilot for internal videos; check provider costs and rights."
+      },
+      "metrics": {
+        "stars": 76458,
+        "forks": 10140,
+        "language": "Python",
+        "starsGained": 3490,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "조사, 대본 작성, 소재 생성, 편집, 최종 합성"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "d747ecb5894f",
+      "source": "GitHub",
+      "url": "https://github.com/max-sixty/worktrunk",
+      "publishedAt": "2025-10-17T22:13:14.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Worktrunk, AI 에이전트 병렬 실행용 git worktree 관리자",
+        "en": "Worktrunk: git worktree manager for parallel AI agents"
+      },
+      "summary": {
+        "ko": "하나의 저장소에서 작업 폴더를 여러 개 두는 git worktree를 브랜치처럼 쉽게 다루게 해주는 Rust 기반 CLI입니다. 여러 AI 에이전트를 동시에 돌릴 때 작업이 섞이지 않도록 돕는 도구로, 핵심 명령 세 가지로 구성됩니다.",
+        "en": "A Rust CLI that makes git worktrees as easy as branches, designed for running multiple AI agents in parallel without their work colliding."
+      },
+      "takeaway": {
+        "ko": "에이전트를 병렬로 돌릴 때 작업 폴더 분리가 충돌을 줄이는지 소규모 팀에서 먼저 시험해볼 만합니다.",
+        "en": "Trial on a small team to see if isolation reduces conflicts."
+      },
+      "metrics": {
+        "stars": 10973,
+        "forks": 410,
+        "language": "Rust",
+        "starsGained": 749,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "여러 AI 에이전트를 동시에 돌릴 때"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "68c44263a0af",
+      "source": "Hacker News",
+      "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+      "publishedAt": "2026-11-04T11:52:17.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "\"AI가 40년 묵은 기술 부채를 갚게 만든다\"",
+        "en": "AI is forcing us to pay off 40 years of technical debt"
+      },
+      "summary": {
+        "ko": "10월 말 PHP2Shell 취약점이 드러났습니다. NASA, Wikipedia, 백악관을 비롯해 WordPress나 Drupal을 쓰는 웹사이트가 데이터 유출과 악성 코드 실행 위험에 놓였지만, 연구자가 PHP Foundation에 보고해 악용 전에 패치가 나왔습니다. Hacker News에서 941점을 받았습니다.",
+        "en": "The PHP2Shell flaw put WordPress and Drupal sites at risk, but was patched before exploitation. The essay on technical debt scored 941 points on Hacker News."
+      },
+      "takeaway": {
+        "ko": "오래된 PHP 기반 사이트와 CMS가 사내에 있는지 파악하고 패치 적용 체계를 점검해야 합니다.",
+        "en": "Inventory legacy PHP/CMS sites and check patching processes."
+      },
+      "metrics": {
+        "points": 941,
+        "comments": 575
+      },
+      "highlights": {
+        "ko": [
+          "악용 전에 패치가 나왔습니다"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "78c9789761a9",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xm5vdp/anthropic_confirms_new_claude_code_limits_to/",
+      "publishedAt": "2026-11-02T18:51:30.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "Claude Code, 게임 복제 방지 위한 새 제한 논란",
+        "en": "Claude Code limits to prevent game cloning draw discussion"
+      },
+      "summary": {
+        "ko": "Reddit에서 Anthropic이 게임 복제를 막으려 Claude Code에 새 제한을 둔 것으로 확인됐다는 글이 화제입니다. 게시글에 따르면 차단은 Claude Code와 Opus 5.5 모델 조합에 한정된 것으로 보이며, 직접 복제가 아닌 게임 제작도 막히는지 사용자 경험을 묻고 있습니다.",
+        "en": "A Reddit thread says Claude Code has new limits against game cloning, apparently limited to Claude Code with Opus 5.5, and asks whether non-clone games are blocked too."
+      },
+      "takeaway": {
+        "ko": "게임·콘텐츠 관련 업무에서 도구가 예상치 못하게 거부될 수 있어, 커뮤니티 제보는 공식 정책으로 확인한 뒤 판단해야 합니다.",
+        "en": "Confirm community reports against official policy before acting."
+      },
+      "highlights": {
+        "ko": [
+          "Claude Code와 Opus 5.5 모델 조합에 한정"
+        ],
+        "en": [
+          "Claude Code with Opus 5.5"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 596
+      }
+    },
+    {
+      "id": "a199fe9106db",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xmitzx/alibabas_qwen_code_repo_just_leaked_qwen4max/",
+      "publishedAt": "2026-11-03T03:55:43.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Qwen Code 저장소에서 qwen4-max 등 미공개 모델명 유출",
+        "en": "Qwen Code repo leaks unreleased qwen4 model names"
+      },
+      "summary": {
+        "ko": "Alibaba의 Qwen Code 저장소 풀리퀘스트에서 qwen4-max, qwen4-coder-plus, qwen4-omni-120b-think 등 아직 공개되지 않은 모델 이름이 발견됐다고 합니다. 이들 ID가 모두 262,144 토큰 컨텍스트로 처리된다는 내용이며, 정식 발표는 확인되지 않았습니다.",
+        "en": "Pull requests in Alibaba's Qwen Code repo reference unreleased models like qwen4-max and qwen4-omni-120b-think, all resolving to a 262,144 context. No official announcement."
+      },
+      "takeaway": {
+        "ko": "저장소에 드러난 모델명은 정식 출시와 다를 수 있어 공식 발표 전에는 도입 계획에 반영하지 않는 편이 좋습니다.",
+        "en": "Do not plan around leaked model names before official release."
+      },
+      "highlights": {
+        "ko": [
+          "262,144 토큰 컨텍스트",
+          "정식 발표는 확인되지 않았습니다"
+        ],
+        "en": [
+          "262,144"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 554
+      }
+    },
+    {
+      "id": "59e0df04f675",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=36604&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "publishedAt": "2026-11-04T18:44:45.000Z",
+      "section": "pulse",
+      "region": "EU",
+      "title": {
+        "ko": "GitBook 침해 사고, AI 에이전트 이용한 표적 공격",
+        "en": "GitBook breach: targeted attack using AI agents"
+      },
+      "summary": {
+        "ko": "GitBook은 11월 2일 19:00 CET 공격자가 일부 인프라 자격 증명에 무단 접근했다고 밝혔습니다. AI 에이전트를 이용한 정교한 표적 공격이었고, Git Sync 시크릿과 API 토큰, 방문자가 입력한 질문이 노출됐을 수 있습니다. 모든 고객 API 토큰은 무효화됐습니다.",
+        "en": "GitBook said an attacker accessed infrastructure credentials on Nov 2 via an AI-agent-driven targeted attack; secrets and tokens may be exposed and all customer API tokens were revoked."
+      },
+      "takeaway": {
+        "ko": "GitBook을 쓰는 조직은 Git Sync 연동과 API 토큰을 재발급하고 외부 서비스 키 노출 여부를 점검해야 합니다.",
+        "en": "If you use GitBook, rotate Git Sync secrets and API tokens."
+      },
+      "highlights": {
+        "ko": [
+          "AI 에이전트를 이용한 정교한 표적 공격",
+          "모든 고객 API 토큰은 무효화"
+        ],
+        "en": [
+          "all customer API tokens were revoked"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 325
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Conductor",
+      "desc": {
+        "ko": "여러 AI 에이전트를 동시에 돌려 소프트웨어를 만들게 하는 AI 코딩 스타트업입니다.",
+        "en": "An AI coding startup that runs multiple agents in parallel to build software."
+      }
+    },
+    {
+      "term": "Codex",
+      "desc": {
+        "ko": "OpenAI가 만든 코드 작성·검토용 AI 도구입니다.",
+        "en": "OpenAI's AI tool for writing and reviewing code."
+      }
+    },
+    {
+      "term": "피지컬 AI",
+      "desc": {
+        "ko": "로봇 등 실제 기계를 움직여 물리적 작업을 수행하는 AI입니다.",
+        "en": "AI that controls robots and machines to do physical tasks."
+      }
+    },
+    {
+      "term": "실링",
+      "desc": {
+        "ko": "내용물이 새지 않도록 포장 입구를 붙여 봉합하는 공정입니다.",
+        "en": "The process of sealing a package opening so contents do not leak."
+      }
+    },
+    {
+      "term": "의사결정 모델",
+      "desc": {
+        "ko": "정해진 선택지 중 각 답일 확률을 계산해 돌려주는 모델입니다.",
+        "en": "A model that returns probabilities over a fixed set of answers."
+      }
+    },
+    {
+      "term": "git worktree",
+      "desc": {
+        "ko": "한 저장소에서 여러 작업 폴더를 동시에 쓰게 해주는 git 기능입니다.",
+        "en": "A git feature giving one repository several working folders at once."
+      }
+    },
+    {
+      "term": "Worktrunk",
+      "desc": {
+        "ko": "git worktree를 쉽게 관리하게 해주는 명령줄 도구입니다.",
+        "en": "A command-line tool that simplifies managing git worktrees."
+      }
+    },
+    {
+      "term": "Graphify",
+      "desc": {
+        "ko": "코드베이스를 지도로 정리해 AI 에이전트의 토큰 사용을 줄이는 도구입니다.",
+        "en": "A tool that maps codebases to reduce AI agents' token use."
+      }
+    },
+    {
+      "term": "OpenMontage",
+      "desc": {
+        "ko": "AI 에이전트가 영상 기획부터 편집까지 맡는 오픈소스 시스템입니다.",
+        "en": "An open-source system where AI agents handle video from planning to editing."
+      }
+    },
+    {
+      "term": "PHP2Shell",
+      "desc": {
+        "ko": "PHP 기반 웹사이트에서 정보 열람과 악성 코드 실행을 가능케 한 취약점 이름입니다.",
+        "en": "Name of a PHP vulnerability enabling data reads and code execution on sites."
+      }
+    },
+    {
+      "term": "Git Sync",
+      "desc": {
+        "ko": "GitBook 문서를 Git 저장소와 자동으로 동기화하는 기능입니다.",
+        "en": "A GitBook feature that syncs docs with a Git repository."
+      }
+    }
+  ]
+}
