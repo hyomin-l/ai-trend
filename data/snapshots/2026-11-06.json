@@ -1,0 +1,827 @@
+{
+  "date": "2026-11-06",
+  "issue": 17,
+  "generatedAt": "2026-11-05T21:28:21.032Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "53c56afbaf05",
+    "f49d817c3fd3",
+    "c6134d61030c"
+  ],
+  "items": [
+    {
+      "id": "53c56afbaf05",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/introducing-gpt-6-cyber",
+      "publishedAt": "2026-11-05T09:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 사이버보안 특화 모델 'GPT‑6 Cyber' 공개",
+        "en": "OpenAI introduces GPT‑6 Cyber for aligned cybersecurity agents"
+      },
+      "summary": {
+        "ko": "OpenAI가 악용 가능한 취약점을 찾아 수정안까지 만드는 보안 전용 모델 GPT‑6 Cyber를 공개했습니다. 허가된 범위 안에서만 작동하도록 훈련했다고 밝혔습니다. 원문은 일부만 확인되어 성능 수치는 알 수 없습니다.",
+        "en": "OpenAI introduced GPT‑6 Cyber, a model that finds exploitable vulnerabilities and develops fixes, trained to stay within authorized scope. Only a snippet was available."
+      },
+      "takeaway": {
+        "ko": "도입을 검토한다면 허가 범위 준수가 실제 환경에서 어떻게 통제되는지 먼저 확인해야 합니다.",
+        "en": "Verify how authorized-scope limits are enforced in practice."
+      },
+      "highlights": {
+        "ko": [
+          "취약점을 찾아 수정안까지 만드는 보안 전용 모델",
+          "허가된 범위 안에서만 작동"
+        ],
+        "en": [
+          "finds exploitable vulnerabilities and develops fixes"
+        ]
+      },
+      "related": [
+        {
+          "source": "AI타임스",
+          "url": "https://www.aitimes.com/news/articleView.html?idxno=217074"
+        }
+      ],
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 156,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "f49d817c3fd3",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance",
+      "publishedAt": "2026-11-05T18:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Claude, Plaid 통해 은행·카드 계좌 직접 연결",
+        "en": "Claude can now connect directly to your bank accounts"
+      },
+      "summary": {
+        "ko": "앤트로픽이 Claude에 개인 금융 기능을 추가했습니다. 금융 데이터 연결 서비스 Plaid로 은행·카드 계좌를 연동하면 이번 달 지출을 항목별로 정리하고, 월급일 전 남은 청구서나 큰 지출 가능 여부도 답해 줍니다.",
+        "en": "Anthropic added a Personal Finance feature that links bank and card accounts to Claude via Plaid, summarizing spending by category and answering questions about upcoming bills and big purchases."
+      },
+      "takeaway": {
+        "ko": "금융 계정 연동형 서비스는 데이터 접근 범위와 보관 방식을 사전에 점검해야 합니다.",
+        "en": "Check data access scope and storage before linking financial accounts."
+      },
+      "highlights": {
+        "ko": [
+          "은행·카드 계좌를 연동하면 이번 달 지출을 항목별로 정리"
+        ],
+        "en": [
+          "links bank and card accounts to Claude via Plaid"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 570
+      }
+    },
+    {
+      "id": "c6134d61030c",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1028015/meta-muse-ai-voice-mode-expressive-avatar",
+      "publishedAt": "2026-11-05T19:03:04.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "메타 Muse 에이전트에 실시간 음성 대화 기능",
+        "en": "Meta adds real-time voice mode to Muse agent"
+      },
+      "summary": {
+        "ko": "메타가 AI 에이전트 Muse와 실시간으로 음성 대화할 수 있는 기능을 내놓았습니다. 대화 중 상단 아바타가 말에 맞춰 움직이고, 요청하거나 설정에서 골라 목소리 톤을 바꿀 수 있습니다. 기자가 iOS 앱에서 써 보니 응답이 빨랐다고 합니다.",
+        "en": "Meta launched real-time voice conversations with its Muse agent. The avatar animates with speech and voice tone can be changed by request or in settings."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "실시간으로 음성 대화"
+        ],
+        "en": [
+          "real-time"
+        ]
+      },
+      "related": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 570
+      }
+    },
+    {
+      "id": "d7e9e3e89ee7",
+      "source": "Google AI",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "publishedAt": "2026-11-05T17:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글, 15초 영상 생성하는 Gemini Omni 1.2 Flash 출시",
+        "en": "Google releases Gemini Omni 1.2 Flash with 15-second clips"
+      },
+      "summary": {
+        "ko": "구글이 영상 생성 모델 Gemini Omni 1.2 Flash를 Gemini API와 기업용 Gemini에서 정식 출시했습니다. 15초 길이 영상을 만들고, 여러 번 대화하며 수정할 수 있으며 참조 이미지 반영도 좋아졌습니다. 속도와 비용 효율도 개선했다고 합니다.",
+        "en": "Google made Gemini Omni 1.2 Flash generally available in the Gemini API and Gemini for business, with native 15-second video, multi-turn editing and better reference following."
+      },
+      "takeaway": {
+        "ko": "기업용 영상 제작에 쓰려면 15초 한도와 참조 일관성이 실제 업무 소재에 맞는지 먼저 시험해야 합니다.",
+        "en": "Test whether the 15-second limit and consistency fit your use case."
+      },
+      "highlights": {
+        "ko": [
+          "15초 길이 영상",
+          "여러 번 대화하며 수정"
+        ],
+        "en": []
+      },
+      "related": [
+        {
+          "source": "Google DeepMind",
+          "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 569
+      }
+    },
+    {
+      "id": "947ba2c3e50d",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217043",
+      "publishedAt": "2026-11-05T18:18:08.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽, AI 모델 '신원 확인' 기술 FlashProve 공개",
+        "en": "Anthropic releases FlashProve to verify which AI model answered"
+      },
+      "summary": {
+        "ko": "앤트로픽이 받은 답변이 약속한 모델의 계산 결과인지 수학적으로 검증하는 오픈소스 FlashProve를 공개했습니다. 영지식 증명 기술 zkSNARK로 모델 가중치를 노출하지 않고도 업체의 모델 바꿔치기나 응답 조작을 확인할 수 있습니다.",
+        "en": "Anthropic open-sourced FlashProve, which uses zkSNARK proofs to verify a response came from a specified model without revealing its weights, exposing model swapping or tampering."
+      },
+      "takeaway": {
+        "ko": "외부 AI 서비스 계약 시 모델 동일성 검증 수단으로 쓸 수 있는지, 증명 생성 비용을 확인해 볼 만합니다.",
+        "en": "Check if it can verify vendor models and what proof generation costs."
+      },
+      "highlights": {
+        "ko": [
+          "모델 가중치를 노출하지 않고도",
+          "모델 바꿔치기나 응답 조작을 확인"
+        ],
+        "en": [
+          "without revealing its weights"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 570
+      }
+    },
+    {
+      "id": "3b78672d47e1",
+      "source": "Anthropic Research",
+      "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+      "publishedAt": "2026-11-05T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽, 과학자 Claude 활용 20만 세션 분석",
+        "en": "Anthropic studies how researchers use Claude across science"
+      },
+      "summary": {
+        "ko": "앤트로픽이 개인정보를 보호하는 방식으로 Claude와 Claude Code 연구 세션 20만 7천 건을 분석했습니다. 과학 분야와 연구 작업별로 AI가 어떻게 쓰이는지 살펴 AI의 과학 발견 가속 효과를 가늠하려는 보고서입니다.",
+        "en": "Anthropic analyzed 207,000 Claude and Claude Code research sessions with privacy-preserving methods to see how AI is used across scientific fields and tasks."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "연구 세션 20만 7천 건을 분석"
+        ],
+        "en": [
+          "207,000 Claude and Claude Code research sessions"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "5c5c439c3a5a",
+      "source": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+      "publishedAt": "2026-11-05T16:00:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "마이크로소프트, 에이전트가 짠 웹앱을 증명하는 PDD Kit",
+        "en": "Microsoft's PDD Kit formally verifies agent-written web apps"
+      },
+      "summary": {
+        "ko": "마이크로소프트 리서치의 PDD Kit은 의도를 형식 명세로 바꾸고, 에이전트가 쓴 코드를 모든 입력에 대해 수학적으로 증명합니다. 증명이 어려운 곳은 테스트로 보완합니다. 코드량이 늘어 사람의 전수 검토가 어려워지는 문제를 겨냥했습니다.",
+        "en": "PDD Kit turns intent into a formal spec, proves agent-written code for every input, and uses tests where proof can't reach, addressing the limits of human review."
+      },
+      "takeaway": {
+        "ko": "에이전트 코드 검토 부담이 크다면 명세 작성 난이도와 증명 불가 영역의 비율을 시범 적용으로 확인해야 합니다.",
+        "en": "Pilot it to gauge spec effort and the share of code proofs can't cover."
+      },
+      "highlights": {
+        "ko": [
+          "모든 입력에 대해 수학적으로 증명"
+        ],
+        "en": [
+          "proves agent-written code for every input"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 570
+      }
+    },
+    {
+      "id": "f987c08b0331",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/getting-started-with-web-answer-on-amazon-bedrock-agentcore/",
+      "publishedAt": "2026-11-05T21:04:24.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "아마존 Bedrock AgentCore, 웹 답변 기능 Web Answer 정식 출시",
+        "en": "AWS makes Web Answer on Bedrock AgentCore generally available"
+      },
+      "summary": {
+        "ko": "AWS가 Amazon Bedrock AgentCore의 Web Answer를 정식 출시했습니다. 에이전트가 도구를 한 번 호출하면 출처가 달린 종합 답변을 받습니다. 검색, 내용 수집, 요약, 인용 추출 파이프라인을 직접 만들 필요가 없습니다.",
+        "en": "AWS launched Web Answer on Bedrock AgentCore GA: one tool call returns a synthesized, source-cited answer, removing the need to build search, retrieval, synthesis and citation pipelines."
+      },
+      "takeaway": {
+        "ko": "최신 웹 정보가 필요한 에이전트라면 인용 출처의 신뢰도 통제가 가능한지 확인해야 합니다.",
+        "en": "Check whether you can control which cited sources are trusted."
+      },
+      "highlights": {
+        "ko": [
+          "도구를 한 번 호출하면 출처가 달린 종합 답변"
+        ],
+        "en": [
+          "one tool call",
+          "source-cited answer"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "c997aee47d8b",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.06728",
+      "publishedAt": "2026-11-05T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "스트리밍 영상 강화학습, 턴 단위 보상 TurnWise 제안",
+        "en": "TurnWise brings turn-level credit to streaming video RL"
+      },
+      "summary": {
+        "ko": "스트리밍 영상 이해 모델은 계속 지켜볼지 응답할지 매번 판단해야 합니다. 기존 GRPO 방식은 전체 대화에 하나의 보상을 줘 중복 응답을 강화하는 문제가 있어, TurnWise는 각 판단 시점별로 보상을 나눠 학습합니다.",
+        "en": "Streaming video models must decide each turn whether to respond. TurnWise assigns GRPO credit per turn instead of one trajectory-level reward, avoiding reinforced redundant replies."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 112
+      },
+      "highlights": {
+        "ko": [
+          "각 판단 시점별로 보상을 나눠 학습"
+        ],
+        "en": [
+          "credit per turn"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 600
+      }
+    },
+    {
+      "id": "3701202fe75e",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.06918",
+      "publishedAt": "2026-11-05T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "인코더 없는 로봇 행동 모델 NEO-VLA 제안",
+        "en": "NEO-VLA: an encoder-free vision-language-action policy"
+      },
+      "summary": {
+        "ko": "로봇 조작 모델은 보통 이미지를 먼저 압축한 뒤 행동을 추론하는데, 이 과정에서 형상·경계·깊이 같은 정보가 손실됩니다. NEO-VLA는 별도 시각 인코더 없이 영상 정보에 직접 접근하는 구조를 제안했습니다.",
+        "en": "NEO-VLA is an encoder-free vision-language-action framework that lets action policies access visual computation directly, avoiding information lost in compressed visual encoders."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 55
+      },
+      "highlights": {
+        "ko": [
+          "별도 시각 인코더 없이"
+        ],
+        "en": [
+          "encoder-free"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 600
+      }
+    },
+    {
+      "id": "441c8a78b428",
+      "source": "연합뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9fUTdDbVZkdXQwOGRwczV2UmxNUUFQOFBqT3BVTHpwRjhzZV9ONUw0cGxYYWpyWU9fX1NKYU1kTUlIcHpaSUtjV0ctdmdpT3JCZlFKTllWcEdEbFdWQnVsSNIBYEFVX3lxTE9fUTdDbVZkdXQwOGRwczV2UmxNUUFQOFBqT3BVTHpwRjhzZV9ONUw0cGxYYWpyWU9fX1NKYU1kTUlIcHpaSUtjV0ctdmdpT3JCZlFKTllWcEdEbFdWQnVsSA?oc=5",
+      "publishedAt": "2026-11-05T01:46:23.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "KT, 기업 AI 전환 지원 'AX 비즈 포털' 개설",
+        "en": "KT opens 'AX Biz Portal' for enterprise AI transformation"
+      },
+      "summary": {
+        "ko": "KT가 기업의 AI 전환(AX) 정보와 서비스를 모은 포털을 열었습니다. 데이터 활용 수준 등 6개 항목에 답하면 현황을 진단하고 맞는 솔루션과 추진 방향을 보고서로 추천합니다. 산업별 전략과 도입 사례 비교도 가능합니다.",
+        "en": "KT launched an AX portal where answering six questions yields a diagnosis and a report recommending solutions, with industry strategies and case comparisons."
+      },
+      "takeaway": {
+        "ko": "추천 결과가 KT 상품 중심인지 확인하고 자사 진단 기준과 비교해 활용해야 합니다.",
+        "en": "Check whether recommendations skew toward KT products."
+      },
+      "highlights": {
+        "ko": [
+          "6개 항목에 답하면 현황을 진단"
+        ],
+        "en": [
+          "answering six questions yields a diagnosis"
+        ]
+      },
+      "related": [
+        {
+          "source": "파이낸스투데이",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE80dEsyakp2b2lBcUNuTzl5SEt2VmtIZ2dCdTd2WEVLbnNQWXRXeUhPdllDVTRQSVdNYVo1YzhHck5QYXduWUdWYl9sUUFmZnotcXhrWVZQTWN1dElaZzYzMVcyR1JiOHJVem5xNA?oc=5"
+        },
+        {
+          "source": "메트로신문",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBTdG5vM05sVnNkTElTbjF0UmdON19ZYko4bUFDTnFRZFJyZktOcHRxSUh3N0MyaVVCOUZVWWtTWlR0S3BoY09FcGxJTnozUHhiOWRrOEtPNGxBSVk0allhMw?oc=5"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.yna.co.kr/view/AKR20261105073100017"
+      }
+    },
+    {
+      "id": "01bd7f22b094",
+      "source": "녹색경제신문",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE54U1U0X3c4UjVKcUNyOHk0OGcwN0VKOG0yNnQzVTJEY2EzUmtiR3BtODJHdEc4ZC1PTnIwV3hZR19kN1lfMUc3dHdWMnVraG9nTWxNanN6NTU5ZVpyQ055OXlfTGFnaktj?oc=5",
+      "publishedAt": "2026-11-05T13:22:28.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "현대건설, AI 콘크리트 품질관리 시스템 전 현장 고도화",
+        "en": "Hyundai E&C upgrades AI concrete quality system across sites"
+      },
+      "summary": {
+        "ko": "현대건설이 AI·빅데이터 기반 콘크리트 품질관리 시스템 큐콘의 기능을 확대하고, 기존·신규 현장에 순차 적용합니다. 기상정보 연계와 AI 문자 인식을 도입했습니다. 전체 적용 시점은 내부 목표만 있고 공개하지 않았습니다.",
+        "en": "Hyundai E&C is expanding its AI concrete quality system QCON with weather data and AI text recognition, rolling out to existing and new sites; the full rollout date is undisclosed."
+      },
+      "takeaway": {
+        "ko": "공개된 정량 효과가 없어 현장 적용 시 불량률·검측 시간 같은 지표로 직접 검증해야 합니다.",
+        "en": "No metrics disclosed; validate with defect and inspection-time data."
+      },
+      "highlights": {
+        "ko": [
+          "기상정보 연계와 AI 문자 인식을 도입"
+        ],
+        "en": [
+          "weather data and AI text recognition"
+        ]
+      },
+      "industry": "construction",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.greened.kr/news/articleView.html?idxno=353913"
+      }
+    },
+    {
+      "id": "8c3a38de9734",
+      "source": "폴리뉴스 Polinews",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1LYm1uM1hKV1dDRlZqLXpFblBwY0JYaHBFamx0Q3FDTUlpNFVQaFZIQ2tGVzNkcmV5ZENIdmhpc184WGZsVkFEVThHM240a3BTdXJmUmUwRFR6ck5IYnpoRzVPOFZYV0J3emg5QV93?oc=5",
+      "publishedAt": "2026-11-05T06:09:07.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "금융권 AI 에이전트 확산, 보안위협 대응이 관건",
+        "en": "Finance AI agents spread, raising security concerns"
+      },
+      "summary": {
+        "ko": "DMTS 2026 컨퍼런스에서 금융권 AI 전환이 단순 자동화를 넘어 스스로 판단·수행하는 AI 에이전트로 확대되면서 보안과 책임체계가 핵심 과제로 논의됐습니다. 사이버공격 고도화, 개인정보 유출, 의사결정 오류가 위험으로 지적됐습니다.",
+        "en": "At DMTS 2026, experts said finance AI is shifting to autonomous agents, making security and accountability key, citing cyberattacks, data leaks and decision errors."
+      },
+      "takeaway": {
+        "ko": "에이전트 도입 전 권한 범위와 의사결정 오류 시 책임 주체를 먼저 정리해야 합니다.",
+        "en": "Define agent permissions and accountability before deployment."
+      },
+      "highlights": {
+        "ko": [
+          "보안과 책임체계가 핵심 과제"
+        ],
+        "en": [
+          "security and accountability key"
+        ]
+      },
+      "industry": "finance",
+      "related": [
+        {
+          "source": "TheBanker.com",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE8yWDhYN2d0MFhnczJsUVAxenJhaVNkY1hZSGFlOXBsQWV0Z2JxX0JnZlhoV3lZeVl5b1NUamVUQ3hPa3RfUFFHSnR2ang5WXRDY25NNmUzdC1KbDJqOUdXbjFlc1JSa2dUZEdieTl4aUVJV3Y0RGZsNHJ3?oc=5"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.polinews.co.kr/news/articleView.html?idxno=747772"
+      }
+    },
+    {
+      "id": "8b693962e107",
+      "source": "핀포인트뉴스",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5za2FEbFNfa291QjBMMEIzejlROUpFQkpxRkRZMFJ0WUxmRnhzVHgyUFMyNVB3cjdDOThTRkNVbkVSTFBRVFBQbTNPMVg4UktZQnJJcWxJQUJWT3hRRkIzMEw0azBkLUhKODRlTDdGRmtmWGM?oc=5",
+      "publishedAt": "2026-11-05T06:06:21.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "오리엔트정공, AI 자율이동로봇으로 생산물류 자동화",
+        "en": "Orient Jeonggong automates production logistics with AI robots"
+      },
+      "summary": {
+        "ko": "오리엔트정공이 경기도 피지컬 AI 실증사업에 선정돼 전자사업부 반제품 라인에 자율이동로봇(AMR)을 도입합니다. 작업자가 직접 나르던 자재 운반의 지연과 병목, 안전 위험을 줄이는 것이 목표이며 결과에 따라 전동화 부품 라인으로 넓힐 수 있습니다.",
+        "en": "Orient Jeonggong will deploy AMRs on a semi-finished line under a Gyeonggi physical AI pilot to cut delays, bottlenecks and safety risks, possibly expanding to EV parts lines."
+      },
+      "takeaway": {
+        "ko": "확대 전에 실증에서 물류 지연과 병목이 얼마나 줄었는지 수치로 확인해야 합니다.",
+        "en": "Confirm the pilot's measured reduction in delays before scaling."
+      },
+      "highlights": {
+        "ko": [
+          "자율이동로봇(AMR)을 도입"
+        ],
+        "en": [
+          "deploy AMRs"
+        ]
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=501626"
+      }
+    },
+    {
+      "id": "b22ad9f6b573",
+      "source": "GitHub",
+      "url": "https://github.com/garrytan/gstack",
+      "publishedAt": "2026-03-11T21:22:45.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "garrytan/gstack, 코딩 에이전트를 가상 엔지니어링 팀으로",
+        "en": "garrytan/gstack turns coding agents into a virtual engineering team"
+      },
+      "summary": {
+        "ko": "Y Combinator 대표 개리 탠이 공개한 gstack은 Claude Code 등을 CEO, 설계, 리뷰, QA, 보안, 배포 역할로 나눠 쓰게 하는 슬래시 명령 모음입니다. 모두 마크다운 기반이며 MIT 라이선스로 무료입니다.",
+        "en": "gstack by YC's Garry Tan is a set of slash commands that makes Claude Code act as CEO, designer, reviewer, QA, security and release roles. Markdown-based, MIT licensed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 139887,
+        "forks": 20687,
+        "language": "TypeScript",
+        "starsGained": 1587,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "CEO, 설계, 리뷰, QA, 보안, 배포 역할"
+        ],
+        "en": [
+          "MIT licensed"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "7838c87736f9",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "publishedAt": "2026-11-02T04:13:51.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "문샷AI, 오픈 웨이트 멀티모달 에이전트 모델 Kimi K3.1 Pro 공개",
+        "en": "Moonshot AI releases open-weight Kimi K3.1 Pro"
+      },
+      "summary": {
+        "ko": "Kimi K3.1 Pro는 가중치를 공개한 멀티모달 에이전트 모델로, 3조 개급 파라미터의 전문가 혼합(MoE) 구조입니다. 100만 토큰 문맥을 지원하며 코딩, 3D 제작, 금융 리서치 등에서 개선됐다고 합니다.",
+        "en": "Kimi K3.1 Pro is an open-weight multimodal agentic Mixture-of-Experts model in the 3T class with a 1M-token context, improved in coding, 3D creation and financial research."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 890,
+        "downloads": 11658
+      },
+      "highlights": {
+        "ko": [
+          "100만 토큰 문맥을 지원"
+        ],
+        "en": [
+          "1M-token context"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 599
+      }
+    },
+    {
+      "id": "5ad23f0e2e10",
+      "source": "GitHub",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "publishedAt": "2025-06-26T01:37:46.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "QwenLM/qwen-code, 터미널·에디터용 오픈소스 코딩 에이전트",
+        "en": "QwenLM/qwen-code: open-source coding agent for terminal and editor"
+      },
+      "summary": {
+        "ko": "qwen-code는 터미널, 에디터, 데스크톱, 브라우저, 채팅에서 쓰는 오픈소스 코딩 에이전트입니다. 자동 기억, 서브에이전트, MCP를 지원하고 OpenAI·Anthropic·Gemini·Qwen API나 Ollama, vLLM 로컬 모델로 실행 중 전환할 수 있습니다.",
+        "en": "qwen-code is an open-source coding agent for terminal, editor, desktop, browser and chat, with sub-agents and MCP, switching among major APIs or local Ollama/vLLM models."
+      },
+      "takeaway": {
+        "ko": "사내 코드를 외부로 보내기 어렵다면 로컬 모델 연결로 운영 가능한지 시험해 볼 만합니다.",
+        "en": "Test it with local models if code can't leave your network."
+      },
+      "metrics": {
+        "stars": 29026,
+        "forks": 3314,
+        "language": "TypeScript",
+        "starsGained": 270,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "로컬 모델로 실행 중 전환"
+        ],
+        "en": [
+          "local Ollama/vLLM models"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 599
+      }
+    },
+    {
+      "id": "117d2cb5f38a",
+      "source": "GitHub",
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "publishedAt": "2026-02-07T08:17:38.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "AgriciDaniel/claude-seo, Claude Code용 무료 SEO 감사 플러그인",
+        "en": "AgriciDaniel/claude-seo: free SEO audit plugin for Claude Code"
+      },
+      "summary": {
+        "ko": "claude-seo는 웹사이트 주소를 주면 10~15분 안에 SEO 감사를 하고 우선순위별 실행 계획을 내놓는 Claude Code 플러그인입니다. 크롤링, 색인, 속도, 콘텐츠 품질을 점검하며 AI 검색 인용도 겨냥합니다.",
+        "en": "claude-seo is a free Claude Code plugin that audits a website's SEO in 10-15 minutes and returns a prioritized action plan covering technical SEO and content quality."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 26911,
+        "forks": 3491,
+        "language": "Python",
+        "starsGained": 3531,
+        "period": "week",
+        "starsDelta": 4880
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "10~15분 안에 SEO 감사"
+        ],
+        "en": [
+          "10-15 minutes"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "a959325bd7be",
+      "source": "Hacker News",
+      "url": "https://ben.stolovitz.com/posts/how-use-ai-oct-2026/",
+      "publishedAt": "2026-11-03T18:11:11.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "세일즈포스 연구 엔지니어가 밝힌 1년 사이 달라진 AI 활용법",
+        "en": "An engineer on how his AI use changed in a year"
+      },
+      "summary": {
+        "ko": "마이크로소프트 윈도 AI팀을 거쳐 세일즈포스 AI 리서치 연구 엔지니어가 된 필자가 1년 전과 크게 달라진 AI 활용법을 정리했습니다. 과학자 지원과 빠른 시제품 제작에 AI를 쓰며 월 약 3,000달러를 쓴다고 합니다.",
+        "en": "A Salesforce AI Research engineer, formerly on Microsoft's Windows AI team, describes how his AI use changed in a year, spending about $3,000 a month on rapid prototyping."
+      },
+      "takeaway": {
+        "ko": "개인 사례이므로 월 비용 대비 효과는 자사 업무로 따로 검증해야 합니다.",
+        "en": "A personal case; validate cost-benefit on your own work."
+      },
+      "metrics": {
+        "points": 255,
+        "comments": 310
+      },
+      "highlights": {
+        "ko": [
+          "월 약 3,000달러"
+        ],
+        "en": [
+          "about $3,000 a month"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "d9931a8b95de",
+      "source": "Hacker News",
+      "url": "https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai",
+      "publishedAt": "2026-11-04T10:23:34.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "제프리 힌턴 \"AI 없었으면 더 나았을 수도\"",
+        "en": "Geoffrey Hinton: we might have been better off without AI"
+      },
+      "summary": {
+        "ko": "AI 대부 제프리 힌턴이 가디언 인터뷰에서 AI가 없었다면 인류가 더 나았을 수도 있다고 말했습니다. 올해나 내년 금융·전력 시스템의 일시적 마비 같은 대규모 사고가 날 수 있다고 경고했지만, 자신은 비관론자가 아니라고 밝혔습니다.",
+        "en": "Geoffrey Hinton told the Guardian humans might have been better off without AI, warning of a large incident such as a temporary financial or power blackout, though he is not a doomer."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 317,
+        "comments": 314
+      },
+      "highlights": {
+        "ko": [
+          "금융·전력 시스템의 일시적 마비"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "FlashProve",
+      "desc": {
+        "ko": "AI 답변이 약속한 모델에서 나왔는지 수학적으로 확인하는 앤트로픽의 도구입니다.",
+        "en": "Anthropic's tool that mathematically checks whether an AI answer came from the promised model."
+      }
+    },
+    {
+      "term": "zkSNARK",
+      "desc": {
+        "ko": "내용을 공개하지 않고도 계산이 맞다는 사실만 증명하는 암호 기술입니다.",
+        "en": "A cryptographic method that proves a computation is correct without revealing its contents."
+      }
+    },
+    {
+      "term": "PDD Kit",
+      "desc": {
+        "ko": "에이전트가 쓴 코드가 명세대로 동작하는지 증명하도록 돕는 마이크로소프트의 도구입니다.",
+        "en": "Microsoft's tool for proving agent-written code behaves as specified."
+      }
+    },
+    {
+      "term": "AgentCore",
+      "desc": {
+        "ko": "AI 에이전트를 만들고 운영하도록 돕는 아마존의 서비스입니다.",
+        "en": "Amazon's service for building and running AI agents."
+      }
+    },
+    {
+      "term": "GRPO",
+      "desc": {
+        "ko": "여러 답변을 서로 비교해 점수를 매기며 모델을 학습시키는 강화학습 방식입니다.",
+        "en": "A reinforcement learning method that trains models by comparing groups of answers."
+      }
+    },
+    {
+      "term": "AMR",
+      "desc": {
+        "ko": "스스로 경로를 찾아 물건을 나르는 자율이동로봇입니다.",
+        "en": "Autonomous mobile robot that finds its own route to carry goods."
+      }
+    },
+    {
+      "term": "MoE",
+      "desc": {
+        "ko": "여러 전문가 모델 중 일부만 골라 쓰는 효율적인 AI 구조입니다.",
+        "en": "An efficient AI design that activates only some of many expert sub-models."
+      }
+    },
+    {
+      "term": "MCP",
+      "desc": {
+        "ko": "AI 에이전트가 외부 도구와 데이터에 연결되는 공통 규격입니다.",
+        "en": "A common standard for connecting AI agents to external tools and data."
+      }
+    },
+    {
+      "term": "큐콘",
+      "desc": {
+        "ko": "현대건설이 콘크리트 품질을 관리하는 데 쓰는 AI 시스템입니다.",
+        "en": "Hyundai E&C's AI system for managing concrete quality."
+      }
+    }
+  ]
+}
