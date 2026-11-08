@@ -1,0 +1,730 @@
+{
+  "date": "2026-11-09",
+  "issue": 18,
+  "generatedAt": "2026-11-08T19:40:25.977Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 19
+  },
+  "front": [
+    "2c93e9013ac1",
+    "3f616b3e6b05",
+    "6f78e24cdb5b"
+  ],
+  "items": [
+    {
+      "id": "3f616b3e6b05",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217145",
+      "publishedAt": "2026-11-08T12:08:58.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽, 클로드로 40년 미스터리 단백질 3D 구조 규명",
+        "en": "Anthropic and Claude reveal 3D structure of a 40-year-old protein mystery"
+      },
+      "summary": {
+        "ko": "앤트로픽이 클로드와 함께 세포 속 통 모양 단백질 구조물인 볼트 입자의 새 형태를 발견하고 3D 구조를 밝혔습니다. 첫 구조 모델을 몇 주 걸리던 작업 대신 34시간 만에 만들었고, 4개월이 안 걸린 결과를 bioRxiv에 공개했습니다.",
+        "en": "Anthropic's biology team used Claude to find a new form of the vault particle and map its 3D structure. The first model took 34 hours instead of weeks; results are on bioRxiv."
+      },
+      "takeaway": {
+        "ko": "전문성이 부족한 분야에서 AI가 분석 속도를 얼마나 높이는지, 결과 검증 체계를 함께 갖췄는지 확인할 만합니다.",
+        "en": "Check how much AI speeds up unfamiliar domains and how results are verified."
+      },
+      "highlights": {
+        "ko": [
+          "34시간 만에",
+          "4개월이 안 걸린 결과"
+        ],
+        "en": [
+          "34 hours instead of weeks"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "99667b60655d",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217146",
+      "publishedAt": "2026-11-08T16:59:00.000Z",
+      "section": "newsroom",
+      "region": "CN",
+      "title": {
+        "ko": "앤트그룹, '링 3.2 플래시' 공개…문서 이해 평가서 클로드 오퍼스 5 앞서",
+        "en": "Ant Group unveils Ling-3.2-flash, edging Claude Opus 5 on document understanding"
+      },
+      "summary": {
+        "ko": "앤트그룹이 멀티모달 모델 링 3.2 플래시를 공개했습니다. 총 5600억 매개변수 중 250억개만 쓰는 전문가 혼합(MoE) 구조로 100만 토큰 문맥을 처리하며, 문서 이해 평가 옴니독벤치 1.5에서 92.21점으로 클로드 오퍼스 5(90.56점)를 앞섰습니다.",
+        "en": "Ant Group released Ling-3.2-flash, a multimodal MoE model using 25B of 560B parameters with a 1M-token context. It scored 92.21 on OmniDocBench 1.5, above Claude Opus 5's 90.56."
+      },
+      "takeaway": {
+        "ko": "문서 이해 점수는 벤치마크 기준이므로 자사 문서와 사용료 기준으로 직접 비교 검증이 필요합니다.",
+        "en": "Benchmark scores need validation on your own documents and pricing."
+      },
+      "highlights": {
+        "ko": [
+          "92.21점으로 클로드 오퍼스 5(90.56점)를 앞섰습니다",
+          "100만 토큰 문맥"
+        ],
+        "en": [
+          "scored 92.21 on OmniDocBench 1.5"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "2c93e9013ac1",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+      "publishedAt": "2026-11-07T21:17:08.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "美 정보 메모 \"메가스피드 임원, 젠슨 황 감시 위해 포섭\"",
+        "en": "US intelligence memo: Megaspeed exec recruited to spy on Nvidia CEO"
+      },
+      "summary": {
+        "ko": "미국 정보당국 메모에 따르면 기술 임원 앨리스 황이 중국 국가안전부에 포섭돼 엔비디아 CEO 젠슨 황을 감시하도록 지시받았다고 합니다. 뉴욕타임스가 먼저 보도했고 파이낸셜타임스 등이 뒤따랐으며, 모두 언론 보도 기반이라 독립 검증은 확인되지 않았습니다.",
+        "en": "A US intelligence-based memo reportedly says Alice Huang was recruited by China's MSS to spy on Nvidia CEO Jensen Huang, per NYT and others. It is not independently verified."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "중국 국가안전부에 포섭"
+        ],
+        "en": [
+          "recruited by China's MSS"
+        ]
+      },
+      "related": [
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "c2107a5a7cf6",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+      "publishedAt": "2026-11-07T01:40:28.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Crusoe, 난항 겪던 와이오밍 데이터센터 사업을 Google에 매각",
+        "en": "Crusoe sells troubled Wyoming data center project to Google"
+      },
+      "summary": {
+        "ko": "기업가치 309억 달러로 평가된 데이터센터 개발사 Crusoe가 와이오밍 남동부의 미완공 데이터센터 사업을 Google에 매각했습니다. Crusoe는 Google을 고객으로 유치하려다 실패했고, Google이 비용과 공사 일정을 우려한 끝에 개발을 넘겨받았다고 알려졌습니다.",
+        "en": "Crusoe, valued at $30.9B, sold an unfinished Wyoming data center project to Google, which reportedly had concerns about cost and timeline under Crusoe."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "미완공 데이터센터 사업을 Google에 매각"
+        ],
+        "en": [
+          "sold an unfinished Wyoming data center project to Google"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "ae06ecf71872",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1029533/elvis-eminem-suno-ai-music-clone-lawsuit",
+      "publishedAt": "2026-11-08T17:23:19.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "엘비스·에미넘 권리자, AI 음악 업체 Suno 제소",
+        "en": "Elvis and Eminem rights holders sue Suno"
+      },
+      "summary": {
+        "ko": "엘비스 프레슬리 음악 권리자들과 에미넘 대표곡 일부의 출판사가 AI 음악 업체 Suno를 상대로 소송을 냈습니다. 특정 가수를 흉내 낸 음악과 가사를 불법적으로 생성한다는 주장이며, 프레슬리 측은 목소리 복제를 금지하는 테네시주 ELVIS법 위반을 내세웠습니다.",
+        "en": "Elvis Presley's rights holders and Eminem's publisher sued Suno for generating music and lyrics mimicking the artists. The Presley suit cites Tennessee's ELVIS Act."
+      },
+      "takeaway": {
+        "ko": "생성형 AI 콘텐츠를 업무에 쓸 때 특정 인물의 목소리·스타일 모방 여부를 점검할 필요가 있습니다.",
+        "en": "Check generated content for voice or style imitation of real people."
+      },
+      "highlights": {
+        "ko": [
+          "테네시주 ELVIS법 위반"
+        ],
+        "en": [
+          "Tennessee's ELVIS Act"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 599
+      }
+    },
+    {
+      "id": "93c8440867b9",
+      "source": "NN/g",
+      "url": "https://www.nngroup.com/articles/agent-harness/?utm_source=rss&utm_medium=feed&utm_campaign=rss-syndication",
+      "publishedAt": "2026-11-06T18:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "NN/g가 정리한 '에이전트 하니스'의 정의",
+        "en": "NN/g defines the agent harness"
+      },
+      "summary": {
+        "ko": "에이전트 하니스는 AI 모델과 도구 사이의 반복 작업 흐름을 관리하는 소프트웨어입니다. 같은 모델이라도 하니스가 허용하는 맥락, 권한, 한도에 따라 일정표 문구만 고치는 비서가 되기도, 빈 시간을 찾아 초대장까지 보내는 비서가 되기도 합니다.",
+        "en": "An agent harness is the software loop between an AI model and its tools. Its context, permissions and limits decide whether an assistant only edits agendas or also books meetings."
+      },
+      "takeaway": {
+        "ko": "에이전트 도입 시 모델 성능만이 아니라 하니스의 권한과 한도 설정을 함께 검토해야 합니다.",
+        "en": "Review harness permissions and limits, not just model quality."
+      },
+      "highlights": {
+        "ko": [
+          "맥락, 권한, 한도"
+        ],
+        "en": [
+          "context, permissions and limits"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "594105e3c519",
+      "source": "Anthropic Research",
+      "url": "https://www.anthropic.com/research/components-of-agent-memory",
+      "publishedAt": "2026-11-06T00:00:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽, 에이전트 메모리의 구성 요소 설명",
+        "en": "Anthropic explains the components of agent memory"
+      },
+      "summary": {
+        "ko": "앤트로픽이 AI 에이전트의 기억을 설계할 때의 딜레마를 사람의 기억에 비유해 설명했습니다. 사람은 해마가 경험을 즉시 기록하고 일부만 잠잘 때 장기 지식으로 굳히는데, 에이전트 메모리도 비슷한 구조를 고민해야 한다는 취지입니다.",
+        "en": "Anthropic discusses designing memory for AI agents, comparing it to how the hippocampus records experiences and only some are consolidated into long-term knowledge."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "일부만 잠잘 때 장기 지식으로 굳히는데"
+        ],
+        "en": [
+          "only some are consolidated"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 579
+      }
+    },
+    {
+      "id": "26c6032e1d26",
+      "source": "OpenAI Research",
+      "url": "https://openai.com/index/accelerating-engineering-for-the-physical-world",
+      "publishedAt": "2026-11-03T12:00:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 물리 세계 엔지니어링 가속에 ChatGPT·Codex 활용 소개",
+        "en": "OpenAI shows ChatGPT and Codex accelerating physical-world engineering"
+      },
+      "summary": {
+        "ko": "OpenAI가 ChatGPT와 Codex로 엔지니어가 CAD, PCB 설계, 시뮬레이션 등 물리 세계 엔지니어링 업무를 빠르게 처리하는 방법을 소개했습니다. 제공된 내용이 짧아 구체적인 수치나 사례는 확인되지 않습니다.",
+        "en": "OpenAI describes how ChatGPT and Codex help engineers speed up CAD, PCB design and simulation. Only a short snippet was available; no figures confirmed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 139,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "1007c961b5d3",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/",
+      "publishedAt": "2026-11-06T18:01:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "SageMaker 추론, 멀티 인스턴스 GPU 지원으로 GPU 활용도 높인다",
+        "en": "SageMaker Inference adds Multi-Instance GPU support to raise GPU utilization"
+      },
+      "summary": {
+        "ko": "AWS SageMaker 추론 엔드포인트가 멀티 인스턴스 GPU를 지원해 GPU 하나를 쪼개 쓸 수 있게 됐습니다. 지금까지는 가속기 한 장 단위로만 요청해 A100 8장짜리 인스턴스에 모델 8개까지만 올릴 수 있었고, 작은 모델에는 최신 GPU 한 장이 과했습니다.",
+        "en": "SageMaker endpoints now support Multi-Instance GPU, letting one GPU be split. Previously an 8-A100 instance held at most eight models, and a full new GPU was too much for small ones."
+      },
+      "takeaway": {
+        "ko": "소형 모델을 여러 개 운영한다면 GPU 분할 시 성능 간섭과 비용 변화를 먼저 측정해 볼 만합니다.",
+        "en": "If you run many small models, measure interference and cost under GPU splitting."
+      },
+      "highlights": {
+        "ko": [
+          "GPU 하나를 쪼개 쓸 수 있게"
+        ],
+        "en": [
+          "letting one GPU be split"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "874635804694",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.05376",
+      "publishedAt": "2026-11-06T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "논문: 자율 에이전트에서 인지 공생체로, 인간 지능 증강 제안",
+        "en": "Paper: From autonomous agents to cognitive symbionts for AI-augmented human intelligence"
+      },
+      "summary": {
+        "ko": "지난 10년간 AI는 기계가 혼자 얼마나 해내는가로 평가돼 왔지만, 사람은 여전히 잊고 놓치고 말문이 막힙니다. 이 논문은 상황 밖에 서 있는 기계 대신 사람 곁에서 인간 지능을 증강하는 AI 방향을 제시하며, Hugging Face Papers에서 추천 116표를 받았습니다.",
+        "en": "The paper argues AI should move from acting alone to augmenting human cognition from within the situation, rather than standing outside it. It drew 116 upvotes on Hugging Face Papers."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 116
+      },
+      "highlights": {
+        "ko": [
+          "인간 지능을 증강하는 AI 방향"
+        ],
+        "en": [
+          "augmenting human cognition"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 579
+      }
+    },
+    {
+      "id": "8e4def012361",
+      "source": "약사공론",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5JRExRQ2VSMzVQeVh2M3hUQm5sNGlqRGJOMGhnX1pGYWNORjEwWWN2N2ZLeW13SVAzZmVvUHdoVWJub0VuT1hnc0ZhLWo2UUhSZnM3Q1BhZ3lDNmhwMkFDSFhfcTRKbXlRREhOQw?oc=5",
+      "publishedAt": "2026-11-06T00:57:18.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "태전그룹, 현업 직원이 만든 AI 도구 업무 플랫폼에 도입",
+        "en": "Taejeon Group rolls out AI tools built by its own staff"
+      },
+      "summary": {
+        "ko": "태전그룹이 약국별 출고 데이터를 분석해 PB 상품을 추천하고 거래처 발주 이력을 조회하는 AI 도구를 도입합니다. 계열사 부장·과장급 32명이 6개 팀으로 5개월간 직접 에이전트를 기획·개발했고, 결과물은 그룹 업무 플랫폼에 연계됩니다.",
+        "en": "Taejeon Group is adopting AI tools that recommend PB products from pharmacy shipment data and look up order history. 32 managers built them in six teams over five months."
+      },
+      "takeaway": {
+        "ko": "현업 리더가 직접 만든 에이전트를 사내 플랫폼에 연계하는 방식이므로, 도입 후 사용률과 업무 시간 변화를 측정해 볼 만합니다.",
+        "en": "Track usage and time savings of staff-built agents after platform integration."
+      },
+      "highlights": {
+        "ko": [
+          "계열사 부장·과장급 32명이 6개 팀으로 5개월간"
+        ],
+        "en": [
+          "32 managers built them in six teams over five months"
+        ]
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 579,
+        "url": "https://www.kpanews.co.kr/news/articleView.html?idxno=548303"
+      }
+    },
+    {
+      "id": "8ac198972094",
+      "source": "GitHub",
+      "url": "https://github.com/NVIDIA/auto-ontology",
+      "publishedAt": "2026-04-27T21:45:56.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "NVIDIA/auto-ontology, 에이전트용 데이터 맥락 계층 구축",
+        "en": "NVIDIA/auto-ontology builds a data context layer for agents"
+      },
+      "summary": {
+        "ko": "엔비디아의 오픈소스 라이브러리로, 기업 메타데이터에서 데이터가 어디 있고 무엇을 뜻하는지 알려주는 맥락 계층을 만듭니다. 시스템마다 다른 정의를 정리해 MCP, CLI, API로 에이전트에 제공하며, 매출 지표처럼 정확성이 중요한 분석 에이전트에 쓰입니다.",
+        "en": "NVIDIA's open library builds a context layer from enterprise metadata, reconciles definitions across systems and exposes it to agents via MCP, CLI and API for reliable analytics."
+      },
+      "takeaway": {
+        "ko": "데이터 분석 에이전트의 정확도가 문제라면 기존 시맨틱 모델과 함께 쓸 수 있는지 먼저 검증해 볼 만합니다.",
+        "en": "Test whether it works alongside your existing semantic models."
+      },
+      "metrics": {
+        "stars": 10226,
+        "forks": 829,
+        "language": "Python",
+        "starsGained": 9044,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "시스템마다 다른 정의를 정리해 MCP, CLI, API로 에이전트에 제공"
+        ],
+        "en": [
+          "reconciles definitions across systems"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "5661de317a03",
+      "source": "GitHub",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "publishedAt": "2026-02-12T05:21:38.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Claude-Code-Game-Studios, 클로드 코드 한 세션을 게임 스튜디오로",
+        "en": "Claude-Code-Game-Studios turns one Claude Code session into a game studio"
+      },
+      "summary": {
+        "ko": "클로드 코드 한 세션에 49개 에이전트와 74개 스킬을 얹어 실제 게임 스튜디오처럼 역할을 나누는 셸 기반 도구입니다. 하나의 범용 챗에서는 어렵던 설계 문서, QA, 설계 검토 단계를 갖춰 1인 개발의 코드 품질을 관리하는 데 쓰입니다.",
+        "en": "A Shell-based toolkit adding 49 agents and 74 skills to a Claude Code session so solo game developers get studio-style design review, QA and structure."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 36914,
+        "forks": 4866,
+        "language": "Shell",
+        "starsGained": 5719,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "49개 에이전트와 74개 스킬"
+        ],
+        "en": [
+          "49 agents and 74 skills"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "dbc443423eb8",
+      "source": "GitHub",
+      "url": "https://github.com/The-PR-Agent/pr-agent",
+      "publishedAt": "2023-07-05T21:02:15.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "PR-Agent, 오픈소스 AI 코드 리뷰 에이전트",
+        "en": "PR-Agent, the original open-source AI code reviewer"
+      },
+      "summary": {
+        "ko": "Qodo가 만든 오픈소스 AI 코드 리뷰 에이전트로, 현재는 커뮤니티가 유지하는 레거시 프로젝트입니다. 풀 리퀘스트(코드 변경 제안)를 AI가 검토해 주며, Qodo의 상용 리뷰 서비스와는 별개여서 도입 시 어느 쪽인지 구분해야 합니다.",
+        "en": "A community-maintained legacy open-source AI code review agent from Qodo that reviews pull requests. It is distinct from Qodo's commercial review product."
+      },
+      "takeaway": {
+        "ko": "커뮤니티 유지 프로젝트이므로 도입 전 업데이트 주기와 상용 서비스와의 기능 차이를 확인해야 합니다.",
+        "en": "Check update cadence and feature gaps versus Qodo's commercial product."
+      },
+      "metrics": {
+        "stars": 15574,
+        "forks": 2148,
+        "language": "Python",
+        "starsGained": 1576,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "커뮤니티가 유지하는 레거시 프로젝트"
+        ],
+        "en": [
+          "community-maintained legacy"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "876f4401e17e",
+      "source": "GitHub",
+      "url": "https://github.com/google/skills",
+      "publishedAt": "2026-03-31T19:02:20.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "google/skills, Google 제품용 에이전트 스킬 모음",
+        "en": "google/skills offers agent skills for Google products"
+      },
+      "summary": {
+        "ko": "Google Cloud 등 Google 제품·기술을 다루는 에이전트 스킬 모음 저장소입니다. npx skills add google/skills 명령으로 원하는 스킬과 대상 에이전트, 설치 범위(프로젝트 또는 전역)를 골라 설치하고, update 명령으로 최신 버전으로 갱신합니다.",
+        "en": "A repo of agent skills for Google products including Google Cloud. Install with npx skills add google/skills, choosing skills, target agents and scope, and update with npx skills update."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 23686,
+        "forks": 1976,
+        "language": "Python",
+        "starsGained": 1477,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "npx skills add google/skills"
+        ],
+        "en": [
+          "npx skills add google/skills"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "5072f0d6af00",
+      "source": "Hacker News",
+      "url": "https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
+      "publishedAt": "2026-11-06T20:27:23.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "\"AI가 AI 연구를 극적으로 가속\"…METR 보고서 논쟁",
+        "en": "\"AI is dramatically accelerating AI research\": debate over METR report"
+      },
+      "summary": {
+        "ko": "앤트로픽이 S-1 서류에서 책임 있는 확장 정책상 'AI로 인한 극적 가속' 기준을 곧 충족할 수 있다고 밝혔고, 이를 다룬 METR의 앤트로픽 AI 연구개발 가속 보고서를 해설한 글이 화제입니다. 글쓴이는 보고서 작성에 참여하지 않았다고 밝혔습니다.",
+        "en": "A post discussing METR's report on AI R&D acceleration at Anthropic is trending after Anthropic's S-1 said it may imminently meet its RSP threshold. The author did not work on the report."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 372,
+        "comments": 350
+      },
+      "highlights": {
+        "ko": [
+          "극적 가속' 기준을 곧 충족할 수 있다고"
+        ],
+        "en": [
+          "may imminently meet"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "9f1ff32d0cab",
+      "source": "Hacker News",
+      "url": "https://hunch.net/?p=13764006",
+      "publishedAt": "2026-11-07T18:02:17.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "마이크로소프트 리서치 'AI Frontiers' 그룹의 종료",
+        "en": "The end of Microsoft Research's AI Frontiers group"
+      },
+      "summary": {
+        "ko": "ChatGPT 출시 이후 2023년, 혼자 아이디어를 좇는 방식으로는 늦고 설득력이 약해 연구를 더 조직적으로 해야 한다고 판단한 연구자들이 AI Frontiers를 만들었습니다. 이 글은 그 그룹이 끝나는 과정을 당사자 시점에서 돌아봅니다.",
+        "en": "After ChatGPT, researchers formed AI Frontiers at Microsoft Research because lone efforts were too slow. This first-person post looks back as the group ends."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 482,
+        "comments": 302
+      },
+      "highlights": {
+        "ko": [
+          "연구를 더 조직적으로 해야 한다고 판단한 연구자들"
+        ],
+        "en": [
+          "lone efforts were too slow"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "6f78e24cdb5b",
+      "source": "Hacker News",
+      "url": "https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html",
+      "publishedAt": "2026-11-05T23:09:57.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "쿠반 \"페이스북, AI 딥페이크 사기 광고 알고도 운영\"…문서상 160억 달러",
+        "en": "Cuban: Facebook knowingly runs AI deepfake scam ads; docs cite $16B"
+      },
+      "summary": {
+        "ko": "억만장자 마크 쿠반이 자신이 판 적 없는 294달러짜리 당뇨 치료제 문의 메일을 매주 받는다며, 페이스북이 AI 딥페이크 사기 광고를 알고도 운영한다고 비판했습니다. 문서상 사기 관련 매출이 160억 달러라는 주장이 Hacker News에서 517점을 받았습니다.",
+        "en": "Mark Cuban says he gets weekly emails about a $294 diabetes cure he never sold, and accuses Facebook of knowingly running deepfake scam ads; documents allegedly cite $16B in fraud revenue."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 517,
+        "comments": 231
+      },
+      "highlights": {
+        "ko": [
+          "294달러짜리 당뇨 치료제"
+        ],
+        "en": [
+          "$294 diabetes cure"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "acbe6f399f61",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xossr5/zai_chief_scientist_jie_tang_just_revealed_the/",
+      "publishedAt": "2026-11-05T20:06:15.000Z",
+      "section": "pulse",
+      "region": "CN",
+      "title": {
+        "ko": "Z.ai, 차기 GLM-5.5에 32B·122B·256B 모델 예고",
+        "en": "Z.ai previews GLM-5.5 with 32B, 122B and 256B models"
+      },
+      "summary": {
+        "ko": "Z.ai의 수석 과학자 Jie Tang이 곧 나올 GLM-5.5의 학습 파이프라인을 공개했다는 글이 r/LocalLLaMA에서 화제입니다. 32B, 122B, 256B 세 가지 크기로 나올 예정이며, 비교적 작은 32B 모델이 포함된다는 점이 눈에 띕니다.",
+        "en": "A r/LocalLLaMA post says Z.ai's Jie Tang revealed the training pipeline of upcoming GLM-5.5, coming in 32B, 122B and 256B sizes, including a smaller 32B model."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "32B, 122B, 256B 세 가지 크기"
+        ],
+        "en": [
+          "32B, 122B and 256B sizes"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 120,
+        "reason": "discussion-page"
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "전문가 혼합(MoE)",
+      "desc": {
+        "ko": "여러 전문가 모듈 중 일부만 골라 계산해 효율을 높이는 AI 모델 구조입니다.",
+        "en": "A model design that activates only some expert modules per input to save compute."
+      }
+    },
+    {
+      "term": "볼트 입자",
+      "desc": {
+        "ko": "세포 안에 있는 속이 빈 통 모양 단백질 구조물로, 기능은 아직 불확실합니다.",
+        "en": "A hollow barrel-shaped protein structure in cells whose function is still unclear."
+      }
+    },
+    {
+      "term": "에이전트 하니스",
+      "desc": {
+        "ko": "AI 모델이 도구를 쓰는 과정과 권한, 한도를 관리하는 소프트웨어입니다.",
+        "en": "Software that manages how an AI model uses tools, with its permissions and limits."
+      }
+    },
+    {
+      "term": "MCP",
+      "desc": {
+        "ko": "AI 에이전트가 외부 도구와 데이터에 접속하는 방식을 정한 공통 규약입니다.",
+        "en": "A common protocol for connecting AI agents to external tools and data."
+      }
+    },
+    {
+      "term": "멀티 인스턴스 GPU",
+      "desc": {
+        "ko": "GPU 한 장을 여러 개의 독립된 조각으로 나눠 쓰는 기능입니다.",
+        "en": "A feature that splits one GPU into several isolated slices."
+      }
+    }
+  ]
+}
