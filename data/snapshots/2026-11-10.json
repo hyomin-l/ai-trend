@@ -1,0 +1,767 @@
+{
+  "date": "2026-11-10",
+  "issue": 19,
+  "generatedAt": "2026-11-09T22:55:06.939Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [
+    "reddit"
+  ],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "796a7f7ee338",
+    "432027aa0838",
+    "9c331579e229"
+  ],
+  "items": [
+    {
+      "id": "796a7f7ee338",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "publishedAt": "2026-11-09T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, Claude Fable 5.2·Mythos 5.2 공개",
+        "en": "Anthropic unveils Claude Fable 5.2 and Mythos 5.2"
+      },
+      "summary": {
+        "ko": "Anthropic이 어려운 기술 과제를 겨냥한 Claude Fable 5.2와 Mythos 5.2를 공개했습니다. 코딩·추론·비전이 개선됐고, 사전 테스트에서 사실상 불가능했던 소프트웨어 마이그레이션을 마치고 전자기기 3종을 처음부터 설계했다고 밝혔습니다. 블랙홀 물리 미해결 문제 2건도 풀었다고 합니다.",
+        "en": "Anthropic upgraded Claude Fable and Mythos to 5.2, improving coding, reasoning and vision. In prerelease tests they completed infeasible software migrations and designed three working devices."
+      },
+      "takeaway": {
+        "ko": "성과는 Anthropic 자체 발표이므로 사내의 까다로운 마이그레이션 과제로 직접 검증해 볼 만합니다.",
+        "en": "Results are self-reported; test on your own hard migration tasks."
+      },
+      "highlights": {
+        "ko": [
+          "소프트웨어 마이그레이션을 마치고",
+          "전자기기 3종을 처음부터 설계"
+        ],
+        "en": [
+          "software migrations"
+        ]
+      },
+      "related": [
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1030005/anthropic-claude-fable-mythos-5-2"
+        },
+        {
+          "source": "AI타임스",
+          "url": "https://www.aitimes.com/news/articleView.html?idxno=217196"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "432027aa0838",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/09/a-short-seller-flagged-nvidia-ceos-ties-to-a-suspected-chinese-spy-six-months-before-the-scandal/",
+      "publishedAt": "2026-11-09T22:46:09.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "엔비디아 스파이 스캔들, 공매도 업체가 6개월 전 이미 경고",
+        "en": "Short seller flagged Nvidia CEO's ties six months before spy scandal"
+      },
+      "summary": {
+        "ko": "공매도 업체 Culper Research가 스캔들 6개월 전, 젠슨 황 CEO와 싱가포르 엔비디아 고객사 Megaspeed 임원 앨리스 황의 이례적으로 가까운 관계를 문제 삼았습니다. 이 임원은 중국 스파이 혐의를 받고 있으며, 황 CEO는 혼외 관계를 인정했고 회사는 공식 조사에 착수했습니다.",
+        "en": "Culper Research questioned Jensen Huang's close ties to Megaspeed executive Alice Huang, now suspected of spying for China, months earlier. Huang admitted an affair and Nvidia opened a formal probe."
+      },
+      "takeaway": {
+        "ko": "AI 칩 공급망의 거버넌스 리스크가 드러난 사안이므로 조사 결과와 수출통제 영향을 지켜봐야 합니다.",
+        "en": "Watch the probe's outcome and any export-control fallout."
+      },
+      "highlights": {
+        "ko": [
+          "회사는 공식 조사에 착수했습니다"
+        ],
+        "en": [
+          "opened a formal probe"
+        ]
+      },
+      "related": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/"
+        },
+        {
+          "source": "AI타임스",
+          "url": "https://www.aitimes.com/news/articleView.html?idxno=217195"
+        },
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "9c331579e229",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
+      "publishedAt": "2026-11-09T19:00:00.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "ChatGPT Enterprise, AWS Marketplace에서 구매 가능",
+        "en": "ChatGPT Enterprise now on AWS Marketplace"
+      },
+      "summary": {
+        "ko": "OpenAI가 ChatGPT Enterprise를 AWS Marketplace에서 구매할 수 있게 했습니다. 기존 AWS 구매·청구 관계를 그대로 활용해 조달 절차를 단순화하는 것이 목적입니다. 가격과 약정 조건 등 세부 내용은 확인되지 않았습니다.",
+        "en": "ChatGPT Enterprise is now purchasable via AWS Marketplace, letting firms use existing AWS purchasing and billing to simplify procurement."
+      },
+      "takeaway": {
+        "ko": "AWS 약정 금액으로 결제 가능한지 등 조달 조건을 먼저 확인해 볼 만합니다.",
+        "en": "Check whether it counts toward your AWS spend commitments."
+      },
+      "highlights": {
+        "ko": [
+          "조달 절차를 단순화"
+        ],
+        "en": [
+          "simplify procurement"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 162,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "ce5ea4c26464",
+      "source": "Anthropic Research",
+      "url": "https://www.anthropic.com/research/claude-electronics-design",
+      "publishedAt": "2026-11-09T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Claude, 실제 전자회로 설계를 처음부터 끝까지 수행",
+        "en": "Claude tests on real-world electronics design"
+      },
+      "summary": {
+        "ko": "Anthropic이 회로기판 제조사 Diode Computers와 1년여 협업한 결과를 공개했습니다. 초기 모델은 기판 배치도 어려웠지만, 이제 Claude는 전자 하드웨어를 설계하고 시제품 제작까지 처음부터 끝까지 해냅니다. 칩 데이터시트를 읽고 필요한 부품을 파악하는 과제에서 출발했습니다.",
+        "en": "After a year with Diode Computers, Anthropic says Claude can now design and prototype electronic hardware end to end, up from struggling with board layout."
+      },
+      "takeaway": {
+        "ko": "하드웨어 설계 보조에 쓰려면 사람의 검수 단계와 제조 검증 절차를 함께 설계해야 합니다.",
+        "en": "Pair any hardware use with human review and fabrication checks."
+      },
+      "highlights": {
+        "ko": [
+          "시제품 제작까지 처음부터 끝까지"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572
+      }
+    },
+    {
+      "id": "59de50da7c91",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217162",
+      "publishedAt": "2026-11-10T07:00:00.000Z",
+      "section": "newsroom",
+      "region": "CN",
+      "title": {
+        "ko": "중국 AI \"미국 모델 따라잡았다\"…미공개 모델은 변수",
+        "en": "Chinese AI claims to catch US models, but unreleased ones remain"
+      },
+      "summary": {
+        "ko": "앤트그룹 '링 3.2 플래시', 문샷 AI '키미 K3.1 프로' 등 중국 모델이 일부 평가에서 미국 최상위 모델을 앞섰다고 주장합니다. 코딩과 에이전트에서 실제 경쟁력은 커졌지만, 특정 벤치마크 우위를 전체 기술력으로 보긴 어렵고 OpenAI·Anthropic은 미공개 모델도 보유하고 있습니다.",
+        "en": "Chinese firms like Ant and Moonshot say new models beat US rivals on some benchmarks. Coding and agents are competitive, but benchmark wins don't prove overall superiority, and US leaders hold unreleased models."
+      },
+      "takeaway": {
+        "ko": "벤치마크 수치만 보지 말고 자사 업무 데이터로 직접 비교 평가한 뒤 도입을 판단해야 합니다.",
+        "en": "Compare on your own workloads, not vendor benchmarks."
+      },
+      "highlights": {
+        "ko": [
+          "특정 벤치마크 우위를 전체 기술력으로 보긴 어렵고"
+        ],
+        "en": [
+          "benchmark wins don't prove overall superiority"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572
+      }
+    },
+    {
+      "id": "4a7141713ab5",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1030084/apple-intelligence-usage-packs-ai-features-creator-studio-logic-pro",
+      "publishedAt": "2026-11-09T19:09:58.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "애플, 49.99달러 'Intelligence Usage Packs'로 AI 추가 사용권 판매",
+        "en": "Apple sells $49.99 Intelligence Usage Packs"
+      },
+      "summary": {
+        "ko": "애플이 Logic Pro에 일회성 49.99달러로 사용량을 더 구매하는 'Buy More Usage' 옵션을 넣었습니다. 클라우드 기반이라 사용 한도가 있는 일부 Apple Intelligence 기능을 계속 쓰게 해주는 상품으로, 9월 초 공개된 사용 한도 안내에 이은 조치입니다.",
+        "en": "Apple added a one-time $49.99 'Buy More Usage' option in Logic Pro, letting users keep using cloud-based Apple Intelligence features that have usage limits."
+      },
+      "takeaway": {
+        "ko": "온디바이스 AI도 클라우드 기능에는 사용량 과금이 붙는 흐름이므로 도입 시 한도 조건을 확인해야 합니다.",
+        "en": "Cloud-backed AI features now carry usage caps; check limits."
+      },
+      "highlights": {
+        "ko": [
+          "일회성 49.99달러"
+        ],
+        "en": [
+          "one-time $49.99"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "0eb7f2999aa2",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/single-shot-and-agentic-retrieval-with-amazon-bedrock-managed-knowledge-base/",
+      "publishedAt": "2026-11-09T20:13:18.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Bedrock 관리형 지식베이스, 단발 검색과 에이전트 검색을 한 곳에서",
+        "en": "Single-shot and agentic retrieval in Bedrock Managed Knowledge Base"
+      },
+      "summary": {
+        "ko": "AWS가 Amazon Bedrock Managed Knowledge Base로 질문 난이도에 맞춰 검색 강도를 조절하는 방법을 소개했습니다. 체크리스트 하나로 답하는 단순 질문은 빠르고 저렴하게, 여러 정책 문서에 흩어진 복합 질문은 에이전트가 단계적으로 검색해 깊게 처리합니다.",
+        "en": "AWS shows how Bedrock Managed Knowledge Base matches retrieval effort to each request: fast single-shot lookups for simple questions and agentic multi-step retrieval for complex ones."
+      },
+      "takeaway": {
+        "ko": "사내 문서 챗봇에서 단순·복합 질문의 비율과 응답 비용을 측정해 검색 방식을 나눌지 판단해야 합니다.",
+        "en": "Measure your simple vs. complex query mix and cost first."
+      },
+      "highlights": {
+        "ko": [
+          "질문 난이도에 맞춰 검색 강도를 조절"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 573
+      }
+    },
+    {
+      "id": "9c7e75a27e82",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/cs146s/",
+      "publishedAt": "2026-11-08T21:41:44.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "스탠퍼드는 'AI 네이티브 엔지니어링'을 어떻게 가르치나",
+        "en": "How Stanford teaches AI-native engineering"
+      },
+      "summary": {
+        "ko": "스탠퍼드에서 'The Modern Software Developer'를 가르치고 Monaco의 AI를 이끄는 Mihail Eric이 지금 소프트웨어 엔지니어가 무엇을 배워야 하는지 이야기합니다. Monaco에서는 동료들이 코딩 에이전트로 소프트웨어를 출시하고 장애 원인을 조사합니다.",
+        "en": "Mihail Eric, who teaches at Stanford and leads AI at Monaco, discusses what engineers should learn now. At Monaco, colleagues use coding agents to ship software and investigate outages."
+      },
+      "takeaway": {
+        "ko": "개발 조직의 교육 과정에 에이전트 활용과 장애 분석 실습을 넣는 방안을 검토해 볼 만합니다.",
+        "en": "Consider adding agent-assisted shipping and outage drills to training."
+      },
+      "highlights": {
+        "ko": [
+          "코딩 에이전트로 소프트웨어를 출시하고 장애 원인을 조사"
+        ],
+        "en": [
+          "use coding agents to ship software and investigate outages"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 573
+      }
+    },
+    {
+      "id": "2f0e9ff8493f",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.02075",
+      "publishedAt": "2026-11-06T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "DPDM, 에이전트의 의사결정을 '조건부 예측'으로 통합",
+        "en": "DPDM: a shared conditional predictor for agent decisions"
+      },
+      "summary": {
+        "ko": "논문은 에이전트의 다양한 결정을 하나의 사전학습 예측기로 푸는 구조 DPDM을 제안합니다. 언어모델이 현재와 과거 기록을 의미 표현으로 바꾸면, 범용 조건부 예측기가 목표값을 예측합니다. 과제 설명만으로 알 수 없는 관계는 실제 운영 데이터가 드러낸다는 전제입니다.",
+        "en": "The paper proposes DPDM, where a language model represents current and past records and a shared pretrained conditional predictor predicts task targets, learning relationships revealed by deployment data."
+      },
+      "takeaway": {
+        "ko": "운영 데이터가 충분히 쌓인 의사결정 업무부터 기존 규칙 기반 방식과 예측 정확도를 비교해 볼 만합니다.",
+        "en": "Benchmark against rule-based logic where deployment data is rich."
+      },
+      "metrics": {
+        "upvotes": 81
+      },
+      "highlights": {
+        "ko": [
+          "하나의 사전학습 예측기로 푸는 구조"
+        ],
+        "en": [
+          "shared pretrained conditional predictor"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 573
+      }
+    },
+    {
+      "id": "98d5b7ce1047",
+      "source": "One Useful Thing",
+      "url": "https://www.oneusefulthing.org/p/fable-52-and-jagged-agi",
+      "publishedAt": "2026-11-09T19:04:26.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Ethan Mollick, Fable 5.2 써보니…'들쭉날쭉한 AGI'",
+        "en": "Mollick on Fable 5.2 and 'Jagged AGI'"
+      },
+      "summary": {
+        "ko": "Ethan Mollick이 공개 전 Claude Fable 5.2를 써본 뒤, 이미 훌륭한 Opus 5.5에 이어 매우 인상적이라고 평가했습니다. 최신 모델들이 인공일반지능(AGI)의 경계를 넘었는지 따져 볼 시점이라고 주장하며, 능력이 영역별로 고르지 않은 '들쭉날쭉한' 특성을 짚습니다.",
+        "en": "After pre-launch use, Ethan Mollick calls Claude Fable 5.2 very impressive after Opus 5.5 and asks whether newest models cross into AGI, noting their uneven, jagged capabilities."
+      },
+      "takeaway": {
+        "ko": "모델이 강한 영역과 약한 영역이 갈리므로 업무별로 직접 시험해 적용 범위를 정해야 합니다.",
+        "en": "Capabilities are uneven; test each task before deploying."
+      },
+      "highlights": {
+        "ko": [
+          "영역별로 고르지 않은"
+        ],
+        "en": [
+          "uneven, jagged capabilities"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 573
+      }
+    },
+    {
+      "id": "dbaea6fea484",
+      "source": "지디넷코리아",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9zemJRcFpVT09IYXlXTy01MW9zRTM5eUhHOFpLSmNHUDkwN2FyWnZOU1pSb2pDLW5Dd3RsMDNBelBXTGFpLXlfdUNWQTdwZVNQX250V3lB?oc=5",
+      "publishedAt": "2026-11-09T08:48:41.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "메가존클라우드, 오픈AI 셀렉트 파트너 선정",
+        "en": "Megazone Cloud named OpenAI Select partner"
+      },
+      "summary": {
+        "ko": "메가존클라우드가 6월 출범한 오픈AI 파트너 네트워크에서 셀렉트 등급 파트너로 선정됐습니다. ChatGPT Enterprise, 코딩 도구 Codex, API를 활용한 기업 AI 도입 사업을 확대하고 공동 영업, 임직원 교육·인증, 공동 마케팅을 추진합니다.",
+        "en": "Megazone Cloud became a Select partner in OpenAI's partner network, expanding enterprise adoption with ChatGPT Enterprise, Codex and API, plus joint sales and training."
+      },
+      "takeaway": {
+        "ko": "국내 도입 지원 창구가 늘었으므로 구축·운영 범위와 비용 구조를 비교해 볼 만합니다.",
+        "en": "Compare scope and pricing of local rollout support."
+      },
+      "highlights": {
+        "ko": [
+          "셀렉트 등급 파트너로 선정"
+        ],
+        "en": [
+          "Select partner"
+        ]
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 572,
+        "url": "https://zdnet.co.kr/view/?no=20261109174825"
+      }
+    },
+    {
+      "id": "8ed29f35d434",
+      "source": "THE Journal: Technological Horizons in Education",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOUWJ4ZmtlVURGNjIxdWRWelBpeVliVXo4WlFxUlJxYmdEbi1aQUlPT1JwSmg4UTR5OUFsMnozYUl0QmJSSFVjLWV2NDlRODhOWHhNQV80djVZOWF3bVJFUnBhMGd4WjU0c0x1LWFVNnFzbWhXUDJ4aVFYeEYzd2dMcEY1cXpHdk4xVlJMaUJMeFd4Ym94MWg3LUpPYUQtazNVNWFubjBVaVNVeTRo?oc=5",
+      "publishedAt": "2026-11-09T21:28:16.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "보고서: 기업 AI 지출이 도입 확산보다 빠르게 증가",
+        "en": "Report: enterprise AI spending outpaces adoption growth"
+      },
+      "summary": {
+        "ko": "THE Journal이 기업의 AI 지출 증가 속도가 실제 도입 확산 속도를 앞선다는 보고서를 소개했습니다. 확인된 것은 제목 수준이며 구체적 수치와 조사 대상은 확인되지 않았습니다.",
+        "en": "THE Journal reports that enterprise AI spending is growing faster than adoption. Only the headline is available; figures and sample are unconfirmed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 110,
+        "reason": "extraction-failed"
+      }
+    },
+    {
+      "id": "c2e440be4566",
+      "source": "IBM",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBYV0lfQXVBZUl2dlFBLUxCd2Jkbzl2cm91cmNvRDZNcEN4UnM3MmFBUUZETjBZY0RvQUYxVHpwUFNmZm9WSkVtbF9CR0hGaExZcHpsMnlyVzJlZm5ZVWM1X0tSM2ttMURRQzVuRzJZVlNJTFZHTjNWalNYblE1QQ?oc=5",
+      "publishedAt": "2026-11-07T18:19:21.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "IBM, 고객의 AI가 거래 상대가 되는 에이전트 간 은행업 조명",
+        "en": "IBM: banking when the client's AI is the counterparty"
+      },
+      "summary": {
+        "ko": "IBM이 고객의 AI 에이전트가 은행과 직접 거래하는 에이전트 간(A2A) 환경에서의 은행업을 다뤘습니다. 확인된 것은 제목 수준이며 구체적 사례나 수치는 확인되지 않았습니다.",
+        "en": "IBM discusses banking when clients' AI agents transact directly with banks in an agent-to-agent world. Only the title is available; details are unconfirmed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 85,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "40b1bb8d3105",
+      "source": "GitHub",
+      "url": "https://github.com/vercel-labs/agent-desktop",
+      "publishedAt": "2026-02-19T18:00:49.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "vercel-labs/agent-desktop, 접근성 트리로 데스크톱 앱을 조작",
+        "en": "vercel-labs/agent-desktop: desktop control via accessibility tree"
+      },
+      "summary": {
+        "ko": "AI 에이전트가 macOS·Windows·Linux 데스크톱 앱을 화면 캡처 없이 조작하게 하는 Rust 도구입니다. 앱의 접근성 트리를 JSON으로 읽어 요소마다 참조값을 주고, 에이전트가 클릭·입력 후 화면을 다시 읽어 확인합니다. 모델은 내장하지 않으며 CLI와 C 라이브러리로 제공됩니다.",
+        "en": "A Rust tool letting AI agents operate macOS, Windows and Linux apps by reading the accessibility tree as JSON with element refs, no screenshots. No model inside; ships as CLI and C library."
+      },
+      "takeaway": {
+        "ko": "화면 인식 방식보다 안정적일 수 있으나, 접근성 정보를 제공하지 않는 앱에서의 동작을 먼저 검증해야 합니다.",
+        "en": "Verify behavior on apps with poor accessibility support."
+      },
+      "metrics": {
+        "stars": 20394,
+        "forks": 1508,
+        "language": "Rust",
+        "starsGained": 13712,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "화면 캡처 없이 조작"
+        ],
+        "en": [
+          "no screenshots"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "da7c582ec842",
+      "source": "GitHub",
+      "url": "https://github.com/can1357/oh-my-pi",
+      "publishedAt": "2025-12-31T14:01:28.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "can1357/oh-my-pi, IDE 기능을 연결한 코딩 에이전트",
+        "en": "can1357/oh-my-pi: a coding agent with the IDE wired in"
+      },
+      "summary": {
+        "ko": "Pi를 포크한 터미널 코딩 에이전트로, 60개 이상의 모델 제공자와 31개 내장 도구를 지원합니다. LSP와 DAP 기능을 연결해 코드 탐색과 디버깅까지 에이전트가 다루며, 핵심은 약 8만 줄의 Rust로 작성됐습니다. 현재 시험 삼아 누구나 PR을 낼 수 있습니다.",
+        "en": "A fork of Pi, this coding agent supports 60+ providers and 31 built-in tools, wiring in LSP and DAP operations for navigation and debugging. Its core is about 80k lines of Rust."
+      },
+      "takeaway": {
+        "ko": "기존 IDE 환경과의 통합 수준과 보안 설정을 소규모 저장소에서 먼저 시험해 볼 만합니다.",
+        "en": "Pilot on a small repo to check IDE integration and security."
+      },
+      "metrics": {
+        "stars": 38427,
+        "forks": 4364,
+        "language": "TypeScript",
+        "starsGained": 870,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "60개 이상의 모델 제공자와 31개 내장 도구"
+        ],
+        "en": [
+          "60+ providers and 31 built-in tools"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "276a2df43aba",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
+      "publishedAt": "2026-11-04T02:41:21.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "Ripple-65B Preview, 650억 파라미터 오픈웨이트 모델",
+        "en": "Ripple-65B Preview: 65B open-weight model"
+      },
+      "summary": {
+        "ko": "Ricursive Intelligence가 공개한 650억 파라미터 모델로, 12조 토큰으로 사전학습했고 최대 100만 토큰 문맥을 지원합니다. 에이전트형 코딩 평가 TerminalBench 2.1에서 80.52점을 기록했다고 밝혔으며, Apache 2.0 라이선스로 BF16과 NVFP4 버전이 제공됩니다.",
+        "en": "Ricursive Intelligence's 65B dense Transformer, pretrained on 12T tokens with up to 1M context, scores 80.52 on TerminalBench 2.1. Apache 2.0, with BF16 and NVFP4 versions."
+      },
+      "takeaway": {
+        "ko": "점수는 개발사 발표이므로 자사 코드베이스에서 직접 평가하고 필요한 GPU 사양을 확인해야 합니다.",
+        "en": "Scores are self-reported; test on your codebase and check GPU needs."
+      },
+      "metrics": {
+        "likes": 449,
+        "downloads": 5835
+      },
+      "highlights": {
+        "ko": [
+          "최대 100만 토큰 문맥을 지원",
+          "Apache 2.0 라이선스"
+        ],
+        "en": [
+          "up to 1M context",
+          "Apache 2.0"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "78619289f98b",
+      "source": "GitHub",
+      "url": "https://github.com/lobehub/lobehub",
+      "publishedAt": "2023-05-21T07:19:12.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "lobehub/lobehub, 팀 채팅에 에이전트를 투입하는 플랫폼",
+        "en": "lobehub/lobehub: super-agents for your team's chats"
+      },
+      "summary": {
+        "ko": "팀이 이미 쓰는 채팅에 AI 에이전트를 추가해 스스로 업무를 맡기고 매주 개선되게 하는 오픈소스 플랫폼입니다. TypeScript로 작성됐고 Docker 배포와 문서, 변경 이력을 제공합니다. 세부 기능은 제공된 발췌만으로는 확인되지 않았습니다.",
+        "en": "An open-source TypeScript platform that adds AI agents to the chats your team already uses so they take on work and improve weekly. Docker releases and docs are provided; details are limited."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 84584,
+        "forks": 16168,
+        "language": "TypeScript",
+        "starsGained": 798,
+        "period": "week"
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "da2e6822ca93",
+      "source": "Hacker News",
+      "url": "https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget",
+      "publishedAt": "2026-11-09T05:30:11.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "애플, 일부 엔지니어의 하루 AI 예산을 200달러로 제한",
+        "en": "Apple reportedly caps some engineers' AI budget at $200 a day"
+      },
+      "summary": {
+        "ko": "뉴스레터가 애플이 일부 엔지니어의 하루 AI 지출 한도를 200달러로 제한했다고 전했습니다. 같은 글에는 비영어 프롬프트가 에너지를 최대 179배 더 쓴다는 미시간대 연구도 담겼습니다. 애플 건은 보도 기반이며 공식 확인은 없습니다.",
+        "en": "A newsletter reports Apple capped some engineers' daily AI spend at $200, and cites a Michigan study that non-English prompts use up to 179 times more energy. Apple's cap is unconfirmed."
+      },
+      "takeaway": {
+        "ko": "개발자별 AI 사용 한도를 정할 때 일일 비용 상한과 업무 생산성 데이터를 함께 점검해야 합니다.",
+        "en": "Pair per-developer AI spend caps with productivity data."
+      },
+      "metrics": {
+        "points": 110,
+        "comments": 120
+      },
+      "highlights": {
+        "ko": [
+          "하루 AI 지출 한도를 200달러로 제한"
+        ],
+        "en": [
+          "capped some engineers' daily AI spend at $200"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "45fb196cb1bb",
+      "source": "Hacker News",
+      "url": "https://sergeykuhne.com/blog/fighting-ai-brain-fry",
+      "publishedAt": "2026-11-08T19:37:42.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "\"AI 브레인 프라이\"와 싸우는 법, 개발자 커뮤니티서 화제",
+        "en": "How I'm fighting the AI brain fry"
+      },
+      "summary": {
+        "ko": "Claude Code나 Codex로 여러 작업을 동시에 돌리면 답변을 기다리는 사이 새 작업을 시작해 탭이 20개로 불어나고, 맥락을 머릿속에 다 담지 못해 집중력이 무너진다는 글입니다. 작성자가 이 인지 피로를 줄이려는 방법을 공유했고 댓글이 200개를 넘었습니다.",
+        "en": "A post describes how juggling many Claude Code or Codex threads exhausts focus, and shares the author's way to reduce that fatigue. It drew over 200 comments."
+      },
+      "takeaway": {
+        "ko": "에이전트 병렬 작업 시 동시 진행 수 상한과 맥락 정리 방식을 팀 규칙으로 정해 볼 만합니다.",
+        "en": "Set team limits on concurrent agent threads and context handoffs."
+      },
+      "metrics": {
+        "points": 301,
+        "comments": 207
+      },
+      "highlights": {
+        "ko": [
+          "탭이 20개로 불어나고"
+        ],
+        "en": [
+          "juggling many Claude Code or Codex threads"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "72fdf703e5c8",
+      "source": "지디넷코리아",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBZaXUtMU1rcmdyXzFUNWxkRXJsUVVtYU0xMU9weE5ob0NMMkl5Q3doVXV4R1ZGOTllRmxMM0QyWmZDZjRiTDBSOWVBeGdmMDY5WmRVd1Rn?oc=5",
+      "publishedAt": "2026-11-09T01:49:56.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "인크루트, 창립 28주년에 채용 AX 전환 선언",
+        "en": "Incruit declares recruitment AX on 28th anniversary"
+      },
+      "summary": {
+        "ko": "HR테크 기업 인크루트가 채용·커리어 특화 AI '나비'를 중심으로 AX를 본격화한다고 밝혔습니다. 구직자에게는 합격 가능성 분석과 연계된 자소서 코치, 공공기관용 블라인드 검사기를 제공하고, 기업에는 채용 솔루션 인크루트웍스의 신규 서비스를 내놓습니다.",
+        "en": "HR-tech firm Incruit is accelerating AX around its recruiting AI 'Navi', offering job seekers a cover-letter coach and blind-hiring checker, and employers a new service in Incruit Works."
+      },
+      "takeaway": {
+        "ko": "채용 AI 도입 시 평가의 공정성 검증 방식과 데이터 활용 범위를 확인해야 합니다.",
+        "en": "Check fairness validation and data usage when adopting hiring AI."
+      },
+      "highlights": {
+        "ko": [
+          "채용·커리어 특화 AI '나비'"
+        ],
+        "en": [
+          "recruiting AI 'Navi'"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://zdnet.co.kr/view/?no=20261109101631"
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "마이그레이션",
+      "desc": {
+        "ko": "기존 시스템이나 소프트웨어를 새 환경으로 옮기는 작업입니다.",
+        "en": "Moving existing software or systems to a new environment."
+      }
+    },
+    {
+      "term": "접근성 트리",
+      "desc": {
+        "ko": "화면 속 버튼·입력창 같은 요소를 구조화해 보여주는 정보입니다.",
+        "en": "A structured list of on-screen elements like buttons and fields, used by assistive tools."
+      }
+    },
+    {
+      "term": "Bedrock Managed Knowledge Base",
+      "desc": {
+        "ko": "AWS에서 사내 문서를 AI가 검색해 답하도록 관리해 주는 서비스입니다.",
+        "en": "An AWS service that manages company documents so AI can search them to answer."
+      }
+    },
+    {
+      "term": "Ripple-65B Preview",
+      "desc": {
+        "ko": "Ricursive Intelligence가 공개한 650억 파라미터 규모의 오픈 AI 모델입니다.",
+        "en": "A 65-billion-parameter open AI model released by Ricursive Intelligence."
+      }
+    },
+    {
+      "term": "TerminalBench 2.1",
+      "desc": {
+        "ko": "AI가 터미널에서 코딩 작업을 얼마나 잘 수행하는지 재는 평가입니다.",
+        "en": "A benchmark measuring how well AI performs coding tasks in a terminal."
+      }
+    },
+    {
+      "term": "Intelligence Usage Packs",
+      "desc": {
+        "ko": "애플 AI 기능의 사용 한도를 늘려주는 추가 구매 상품입니다.",
+        "en": "Apple's add-on purchase that raises usage limits on its AI features."
+      }
+    }
+  ]
+}
