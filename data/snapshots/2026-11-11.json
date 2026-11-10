@@ -1,0 +1,797 @@
+{
+  "date": "2026-11-11",
+  "issue": 20,
+  "generatedAt": "2026-11-10T20:51:39.837Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "85a32fe1244f",
+    "fc6b6a56df7b",
+    "5ca4dc7b6d88"
+  ],
+  "items": [
+    {
+      "id": "85a32fe1244f",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/news/roadshow-launch",
+      "publishedAt": "2026-11-10T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, 기업공개 로드쇼 시작",
+        "en": "Anthropic launches IPO roadshow"
+      },
+      "summary": {
+        "ko": "Anthropic이 클래스A 보통주 8억2,500만 주 규모의 기업공개(IPO) 로드쇼를 시작했습니다. 이 중 8억135만 주는 회사가, 2,364만 주는 기존 주주가 매각하며, 기존 주주 몫의 대금은 회사에 들어오지 않습니다. 인수단에는 추가 1억2,375만 주를 살 수 있는 30일 옵션도 부여될 예정입니다.",
+        "en": "Anthropic began its IPO roadshow for 825M Class A shares: 801.35M from the company, 23.65M from existing holders, plus a 30-day option for 123.75M more shares."
+      },
+      "takeaway": {
+        "ko": "주요 AI 공급사의 상장은 재무 공시로 사업 안정성을 점검할 기회이므로, 핵심 벤더 의존도 검토에 활용할 만합니다.",
+        "en": "An IPO's filings let you review vendor stability and dependence."
+      },
+      "highlights": {
+        "ko": [
+          "클래스A 보통주 8억2,500만 주",
+          "기존 주주 몫의 대금은 회사에 들어오지 않습니다"
+        ],
+        "en": [
+          "825M Class A shares",
+          "30-day option for 123.75M more shares"
+        ]
+      },
+      "related": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "fc6b6a56df7b",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+      "publishedAt": "2026-11-10T16:03:47.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글 딥마인드, 'Gemini 4 Carbon' 공개",
+        "en": "Google DeepMind releases Gemini 4 Carbon"
+      },
+      "summary": {
+        "ko": "구글 딥마인드가 최신 프런티어 모델 Gemini 4 Carbon을 개발자, 기업, 과학자, 일반 소비자에게 공개했습니다. 사이버보안 역량과 복잡한 지식 업무, 소프트웨어 엔지니어링에 걸친 장기 에이전트 작업에서 최고 수준의 성능을 내세웁니다.",
+        "en": "Google DeepMind made Gemini 4 Carbon available to developers, enterprises, scientists and consumers, touting frontier cybersecurity and long-horizon agentic performance."
+      },
+      "takeaway": {
+        "ko": "장기 에이전트 작업 성능을 내세운 만큼, 자사 업무 시나리오로 직접 벤치마크해 보는 것이 좋습니다.",
+        "en": "Benchmark its long-horizon agent claims on your own workflows."
+      },
+      "highlights": {
+        "ko": [
+          "장기 에이전트 작업에서 최고 수준의 성능"
+        ],
+        "en": [
+          "long-horizon agentic performance"
+        ]
+      },
+      "related": [
+        {
+          "source": "Simon Willison",
+          "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "5ca4dc7b6d88",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/introducing-businesses-chatgpt",
+      "publishedAt": "2026-11-10T10:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, ChatGPT 내 '비즈니스' 기능 공개",
+        "en": "OpenAI introduces Businesses in ChatGPT"
+      },
+      "summary": {
+        "ko": "OpenAI가 ChatGPT 안에서 기업 정보를 관리하고, 자사가 ChatGPT에 어떻게 노출되는지 파악해 고객의 관심을 실제 행동으로 연결하는 기능을 선보였습니다. 확인된 내용은 소개 문구 수준입니다.",
+        "en": "OpenAI introduced Businesses in ChatGPT, letting firms manage business info, see how they appear, and turn interest into action. Only a brief description is available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "related": [
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1030552/openai-chatgpt-business-agents-hub"
+        }
+      ],
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 122,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "f8c1a7370c13",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "publishedAt": "2026-11-10T12:02:28.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "딥마인드 AlphaProof Code, Signal 암호 프로토콜 코드 검증",
+        "en": "AlphaProof Code verifies Signal protocol code"
+      },
+      "summary": {
+        "ko": "구글 딥마인드 연구진이 AI 에이전트로 Signal 암호 프로토콜의 실제 코드가 갖춘 핵심 보안 특성을 수학적으로 증명했습니다. 오랫동안 어려운 과제로 꼽힌 소프트웨어 보안의 이정표로, 새 에이전트 프레임워크 AlphaProof Code를 활용했습니다.",
+        "en": "Google DeepMind's AI agents mathematically proved key security properties of Signal's actual protocol code using the new AlphaProof Code framework."
+      },
+      "takeaway": {
+        "ko": "보안이 중요한 핵심 코드에 형식 검증을 적용할 수 있을지, 적용 범위와 비용을 살펴볼 만합니다.",
+        "en": "Assess whether formal verification fits your critical code."
+      },
+      "highlights": {
+        "ko": [
+          "Signal 암호 프로토콜의 실제 코드",
+          "수학적으로 증명"
+        ],
+        "en": [
+          "mathematically proved key security properties"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 575
+      }
+    },
+    {
+      "id": "2ec4f6ad3a8d",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/resend/",
+      "publishedAt": "2026-11-10T20:05:17.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "에이전트를 위한 설계: Resend가 추천받는 이유",
+        "en": "Designing for Agents: Why Resend Gets Picked"
+      },
+      "summary": {
+        "ko": "Resend CEO Zeno Rocha가 AI 에이전트가 선택하는 서비스가 되는 법을 설명했습니다. 최근 AEO(에이전트 대상 최적화) 조사에서 Claude Code는 이메일 과제 102건 중 64건에서 Resend를 가장 먼저 골랐습니다.",
+        "en": "Resend CEO Zeno Rocha explains agent-targeted optimization (AEO). In a study, Claude Code picked Resend first in 64 of 102 email tasks."
+      },
+      "takeaway": {
+        "ko": "자사 API·문서가 에이전트에게 어떻게 선택되는지 점검해 볼 만합니다.",
+        "en": "Check how agents choose your APIs and docs."
+      },
+      "highlights": {
+        "ko": [
+          "102건 중 64건에서 Resend를 가장 먼저 골랐습니다"
+        ],
+        "en": [
+          "picked Resend first in 64 of 102"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 574
+      }
+    },
+    {
+      "id": "3e1919c777ea",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/naiveai/",
+      "publishedAt": "2026-11-10T18:56:32.000Z",
+      "section": "playbook",
+      "region": "CN",
+      "title": {
+        "ko": "초당 2,100토큰 NaiveAI, 코딩 성능은 어떨까",
+        "en": "NaiveAI Promises 2,100 Tokens/sec: How Well Does It Code?"
+      },
+      "summary": {
+        "ko": "중국 NaiveAI의 오픈 웨이트 모델 Naive-N0.5-Flash는 코딩 작업에서 초당 토큰 생성량을 최대화하도록 조정됐습니다. Xiaomi의 MiMo-V2.5를 발전시킨 모델로, Latent Space가 편견 없는 리뷰 시리즈의 첫 대상으로 시험했습니다.",
+        "en": "NaiveAI's open-weights Naive-N0.5-Flash, built on Xiaomi's MiMo-V2.5, is tuned for tokens per second in coding. Latent Space launches its review series with it."
+      },
+      "takeaway": {
+        "ko": "속도 수치보다 실제 코드 품질이 중요하므로 자사 과제로 정확도를 함께 검증해야 합니다.",
+        "en": "Verify code quality, not just speed, on your tasks."
+      },
+      "highlights": {
+        "ko": [
+          "초당 토큰 생성량을 최대화"
+        ],
+        "en": [
+          "tuned for tokens per second"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 574
+      }
+    },
+    {
+      "id": "123cc8899327",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.12806",
+      "publishedAt": "2026-11-10T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "LingBot-Touch, 이종 촉각 센서 통합 학습",
+        "en": "LingBot-Touch learns from heterogeneous tactile sensors"
+      },
+      "summary": {
+        "ko": "서로 다른 촉각 센서 데이터를 센서별 물리 특성에서 분리해 이해하도록 만든 촉각 파운데이션 모델 LingBot-Touch를 제안한 논문입니다. 접촉이 많은 정밀 조작에서 여러 센서 데이터를 함께 활용하는 것이 목표입니다.",
+        "en": "This paper proposes LingBot-Touch, a tactile foundation model that frees touch understanding from sensor-specific physics so robots can use heterogeneous data."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 92
+      },
+      "highlights": {
+        "ko": [
+          "센서별 물리 특성에서 분리"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 575
+      }
+    },
+    {
+      "id": "780eb58c952e",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.10771",
+      "publishedAt": "2026-11-10T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "WorldFoundry, 월드 인텔리전스 통합 인프라 제안",
+        "en": "WorldFoundry: Unified Infrastructure for World Intelligence"
+      },
+      "summary": {
+        "ko": "영상 생성 모델이 그럴듯한 화면을 넘어 환경을 제대로 시뮬레이션하려면 지속되는 상태와 물리 법칙, 행동에 대한 일관된 반응이 필요하다고 보고, 생성형 월드 모델을 정의하며 통합 인프라를 제안한 논문입니다.",
+        "en": "This paper defines generative world models as systems with persistent state, physical dynamics and consistent responses to actions, and proposes unified infrastructure."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 52
+      },
+      "highlights": {
+        "ko": [
+          "지속되는 상태와 물리 법칙"
+        ],
+        "en": [
+          "persistent state"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 575
+      }
+    },
+    {
+      "id": "1de6ef6b49ee",
+      "source": "뉴시스",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1UZjBudVpSR3FteHVUaWR2c0JDdFdEZXN2WUc4amQ1TWZ1RFhhMk1KdkN4RE5vS3p3ZVlIUUNVQklzdnI0Ymp5NDZ3bE9rY1llLUMzZXhlSTFBRDRMNlhBUg?oc=5",
+      "publishedAt": "2026-11-10T20:00:00.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "7일 걸리던 집계 10분으로, 우미건설 현장 AI 혁신",
+        "en": "Woomi Construction cuts 7-day tallies to 10 minutes with AI"
+      },
+      "summary": {
+        "ko": "우미건설이 지난해 6월 TF를 꾸리고 3월 전담조직으로 승격해 현장 AI 혁신을 추진한 결과, 7일 걸리던 집계가 10분으로 줄었습니다. 현장 공사관리와 민원 처리 시간도 크게 줄였으며 내년 본사 프로세스로 확대할 계획입니다.",
+        "en": "Woomi Construction's AI push cut a 7-day tally to 10 minutes and reduced site management and complaint handling time, with HQ rollout planned next year."
+      },
+      "takeaway": {
+        "ko": "작은 현장 업무부터 시작한 탑다운 추진이 효과를 냈으므로, 반복 집계 업무를 우선 후보로 볼 만합니다.",
+        "en": "Repetitive tallying tasks are good first AI candidates."
+      },
+      "highlights": {
+        "ko": [
+          "7일 걸리던 집계가 10분으로 줄었습니다"
+        ],
+        "en": [
+          "7-day tally to 10 minutes"
+        ]
+      },
+      "industry": "construction",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 575,
+        "url": "https://www.newsis.com/view/NISX20261110_0003862646"
+      }
+    },
+    {
+      "id": "a3448f964163",
+      "source": "Amazon Web Services (AWS)",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQajh1OGNXTkptYkVRY1NmR1djcHJyc1pRbkl4VHJKY0R5MzNLNHM2a2k0X1lYMjNndTlDbktYTjk2OWo0QS05X0NJV0RiaW1sWW5Qcmh3SllpR2RwOTAyNG9Hcy1pOHVENUZVSGEyLW40T3V6MjFQcXA0NzNwNmh3T1VfZTBBVXF5SXY2bG1YTXVvN1lTYzgxYlpIaUVzTEgtUHE2Tm1YVDFINnhMOVhXM19yQ1RCTjFySEZZN0g4QnR2UE83Nkc3Tms0Mm14V0ZBSzJETXAyVEEyeG4xcXc?oc=5",
+      "publishedAt": "2026-11-10T18:11:08.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "Trovata, Bedrock·AgentCore로 자율 재무 에이전트 구축",
+        "en": "Trovata builds autonomous treasury agents on Bedrock and AgentCore"
+      },
+      "summary": {
+        "ko": "AWS가 Trovata가 Amazon Bedrock과 AgentCore 위에 AI 네이티브 자율 재무(트레저리) 에이전트 솔루션을 구축한 사례를 소개했습니다. 현재 확인되는 것은 제목 수준이며 구체적 수치는 확인되지 않았습니다.",
+        "en": "AWS showcases how Trovata built an AI-native autonomous treasury agent solution on Amazon Bedrock and AgentCore. Only the title is available; no figures."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "finance",
+      "related": [
+        {
+          "source": "AWS Machine Learning Blog",
+          "url": "https://aws.amazon.com/blogs/machine-learning/autonomous-treasury-agents-how-trovata-built-an-ai-native-solution-on-amazon-bedrock-and-agentcore/"
+        }
+      ],
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 125,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "b2f8faa07954",
+      "source": "전자신문",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFAzYkdFZEx3dEVHSW5Wenh0c1V3U2t4MHJVeW13Z1hwaXozNDlLbXZCUVZudkFSb0lwTHFzVVdKZlJidE1ZMjJzOTNsM1FRdw?oc=5",
+      "publishedAt": "2026-11-10T07:00:00.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "가전 협력사 생산라인에도 AI 자율제조 확산",
+        "en": "AI autonomous manufacturing spreads to appliance suppliers"
+      },
+      "summary": {
+        "ko": "삼성전자 1차 협력사 디케이가 2028년 말까지 약 69억원을 투입해 모델 변경에 대응하는 프레스 공정 AI 자율제조 시스템을 개발합니다. AI가 공정조건을 추천하면 작업자가 검토해 적용하고, 결과를 다시 AI에 반영합니다.",
+        "en": "Samsung supplier DK will invest about 6.9B won through 2028 in an AI press-process system; AI recommends conditions, workers review, and results feed back."
+      },
+      "takeaway": {
+        "ko": "AI 추천을 작업자가 검토하는 구조이므로, 숙련 노하우의 데이터화 수준을 먼저 확인해야 합니다.",
+        "en": "Check how well expert know-how is captured as data first."
+      },
+      "highlights": {
+        "ko": [
+          "약 69억원을 투입",
+          "작업자가 검토해 적용"
+        ],
+        "en": [
+          "about 6.9B won"
+        ]
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.etnews.com/20261030000232"
+      }
+    },
+    {
+      "id": "1ceb56a3b374",
+      "source": "GitHub",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "publishedAt": "2026-01-11T05:38:15.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "vercel-labs/agent-browser: AI 에이전트용 브라우저 CLI",
+        "en": "vercel-labs/agent-browser: browser CLI for AI agents"
+      },
+      "summary": {
+        "ko": "AI 에이전트가 셸 명령 한 줄씩으로 브라우저를 조작하게 해주는 Rust 기반 CLI입니다. snapshot 명령이 페이지를 요소별 참조값(@e1 등)이 붙은 간결한 텍스트로 돌려주면, 에이전트가 요소에 동작을 수행하고 결과를 다시 확인합니다.",
+        "en": "A Rust CLI letting AI agents drive a browser one shell command at a time; snapshot returns pages as compact text with element refs like @e1."
+      },
+      "takeaway": {
+        "ko": "웹 업무 자동화 에이전트의 브라우저 계층으로 시험해 볼 만합니다.",
+        "en": "Try it as the browser layer for web-automation agents."
+      },
+      "metrics": {
+        "stars": 49119,
+        "forks": 3445,
+        "language": "Rust",
+        "starsGained": 2994,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "셸 명령 한 줄씩으로 브라우저를 조작"
+        ],
+        "en": [
+          "one shell command at a time"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "aac1c9488d17",
+      "source": "GitHub",
+      "url": "https://github.com/bradautomates/claude-video",
+      "publishedAt": "2026-04-24T04:40:43.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "bradautomates/claude-video: 영상을 에이전트의 증거로",
+        "en": "bradautomates/claude-video: video evidence for agents"
+      },
+      "summary": {
+        "ko": "영상 URL이나 로컬 파일을 타임스탬프가 붙은 프레임과 자막 텍스트로 바꿔 AI 에이전트에 제공하는 /watch 스킬입니다. 기본 자막을 우선 쓰고, 없으면 로컬 WhisperX나 Groq/OpenAI로 전사합니다. Claude Code에서 쓰며 Claude Chat과 Cowork에서는 동작하지 않습니다.",
+        "en": "A /watch skill that turns video URLs or files into timestamped frames and transcripts for agents. Works in Claude Code, not Claude Chat or Cowork."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 20437,
+        "forks": 2173,
+        "language": "Python",
+        "starsGained": 624,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "타임스탬프가 붙은 프레임과 자막 텍스트"
+        ],
+        "en": [
+          "timestamped frames and transcripts"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "ec9a31b73403",
+      "source": "GitHub",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "publishedAt": "2024-03-11T02:57:34.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "MoneyPrinterTurbo: 주제만 주면 숏폼 영상 자동 생성",
+        "en": "MoneyPrinterTurbo: auto-generate short videos from a topic"
+      },
+      "summary": {
+        "ko": "주제나 키워드만 입력하면 영상 대본, 소재 매칭, 자막, 배경음악을 자동으로 만들어 고화질 숏폼 영상으로 합성하는 원스톱 도구입니다. WebUI와 API를 제공하며 대본 작성과 소재 검색어 추출에 외부 대형 언어모델을 연결해 씁니다.",
+        "en": "A one-stop tool that turns a topic into a short video with script, matched footage, subtitles and music. Offers WebUI and API, using LLMs for scripts."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 141947,
+        "forks": 22661,
+        "language": "Python",
+        "starsGained": 4311,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "대본, 소재 매칭, 자막, 배경음악을 자동으로"
+        ],
+        "en": [
+          "script, matched footage, subtitles and music"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "3d1cb7cefa9a",
+      "source": "GitHub",
+      "url": "https://github.com/spotify/portal-ai-plugins",
+      "publishedAt": "2026-07-23T21:17:21.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "spotify/portal-ai-plugins: 코딩 에이전트에 Portal 연결",
+        "en": "spotify/portal-ai-plugins: Portal for coding agents"
+      },
+      "summary": {
+        "ko": "Spotify Portal을 Claude Code, Codex, Cursor, pi에서 쓰게 해주는 플러그인입니다. Portal CLI 인증 설정, 소프트웨어 카탈로그와 기술 문서의 자연어 검색, 서비스 브리핑 생성, 읽기 전용 진단을 지원합니다.",
+        "en": "Plugins bringing Spotify Portal into Claude Code, Codex, Cursor and pi: CLI setup, natural-language catalog search, service briefings and read-only diagnostics."
+      },
+      "takeaway": {
+        "ko": "사내 개발자 포털을 코딩 에이전트에 연결하는 방식의 참고 사례입니다.",
+        "en": "A reference for wiring internal dev portals into coding agents."
+      },
+      "metrics": {
+        "stars": 3200,
+        "forks": 253,
+        "language": "TypeScript",
+        "starsGained": 358,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "소프트웨어 카탈로그와 기술 문서의 자연어 검색"
+        ],
+        "en": [
+          "natural-language catalog search"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "534e23320d33",
+      "source": "Hacker News",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
+      "publishedAt": "2026-11-10T10:25:58.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "\"AI 사용은 취약한 코드베이스를 만든다\"",
+        "en": "AI usage generates a fragile codebase"
+      },
+      "summary": {
+        "ko": "5월 Meta에서 해고된 개발자가 AI 활용 코딩의 경험을 공유했습니다. 코드의 90% 이상을 AI로 생성해야 좋은 평가를 받았지만 생산성은 2배도 되지 않았고, AI 의존이 큰 동료의 코드는 미묘한 결함이 많아 깨지기 쉬웠다고 주장합니다.",
+        "en": "A developer laid off from Meta says AI-written code (90%+ required) didn't even double output, and heavily AI-reliant peers' code was brittle."
+      },
+      "takeaway": {
+        "ko": "AI 코드 비율 목표보다 결함률과 리뷰 부담을 함께 측정해야 합니다.",
+        "en": "Track defect rates and review load, not AI-code share."
+      },
+      "metrics": {
+        "points": 263,
+        "comments": 316
+      },
+      "highlights": {
+        "ko": [
+          "생산성은 2배도 되지 않았고"
+        ],
+        "en": [
+          "didn't even double output"
+        ]
+      },
+      "related": [
+        {
+          "source": "GeekNews",
+          "url": "https://news.hada.io/topic?id=36955&utm_source=geeknews&utm_medium=rss&utm_campaign=news"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "b4717b7762b7",
+      "source": "Hacker News",
+      "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists",
+      "publishedAt": "2026-11-08T23:44:36.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "\"AI 버블은 존재하지 않을 수 있다\" 논쟁",
+        "en": "\"I'm not convinced the AI bubble exists\""
+      },
+      "summary": {
+        "ko": "AI 업계가 과대평가돼 곧 붕괴한다는 통념에 반론을 편 글이 Hacker News에서 562점, 댓글 957개로 뜨거운 논쟁을 일으켰습니다. 글쓴이는 아무도 미래를 알 수 없지만 AI 기업의 급성장이 이어질 가능성도 현실적이라고 봅니다.",
+        "en": "A post doubting the AI bubble drew 957 comments on Hacker News, arguing continued rapid growth is a realistic possibility."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 562,
+        "comments": 957
+      },
+      "highlights": {
+        "ko": [
+          "급성장이 이어질 가능성도 현실적"
+        ],
+        "en": [
+          "continued rapid growth"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "a7266a93fa89",
+      "source": "Hacker News",
+      "url": "https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor",
+      "publishedAt": "2026-11-10T07:19:38.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "Fireworks AI 보안 사고, Notion 고객에 영향",
+        "en": "Fireworks AI breach affects Notion customers"
+      },
+      "summary": {
+        "ko": "Notion은 협력사 Fireworks AI의 보안 사고로 워크스페이스의 1% 미만이 영향을 받았을 수 있다고 밝혔습니다. 작성자나 워크스페이스가 표시되지 않은 일부 Notion AI 대화 세션이 노출됐을 가능성이 있습니다.",
+        "en": "Notion says under 1% of workspaces may be affected by a Fireworks AI incident; some unattributable Notion AI chat sessions may have been exposed."
+      },
+      "takeaway": {
+        "ko": "SaaS가 쓰는 AI 하청 업체까지 포함해 데이터 처리 경로를 점검해야 합니다.",
+        "en": "Audit data paths through your SaaS vendors' AI subprocessors."
+      },
+      "metrics": {
+        "points": 153,
+        "comments": 57
+      },
+      "highlights": {
+        "ko": [
+          "1% 미만이 영향을 받았을 수 있다"
+        ],
+        "en": [
+          "under 1% of workspaces"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "9c5da62bab37",
+      "source": "Hacker News",
+      "url": "https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html",
+      "publishedAt": "2026-11-10T03:20:06.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "CoreWeave 채권 금리 16% 돌파, AI 신용 경색 우려",
+        "en": "CoreWeave bond yield tops 16% on AI credit stress"
+      },
+      "summary": {
+        "ko": "AI 데이터센터 사업자 CoreWeave의 채권 수익률이 16%를 넘었습니다. Jefferies의 Christopher Wood는 AI 투자 경쟁이 끝난다면 신용카드를 빼앗기는 방식일 것이라고 말했습니다. 일부 주에서 데이터센터 규제가 강화될 수 있다는 점도 신용시장을 불안하게 합니다.",
+        "en": "CoreWeave's bond yield topped 16%. Jefferies' Christopher Wood says the AI capex race would end by credit being pulled; data center hurdles add worry."
+      },
+      "takeaway": {
+        "ko": "AI 인프라 업체의 자금 조달 여건이 서비스 가격과 공급 안정성에 미칠 영향을 지켜볼 만합니다.",
+        "en": "Watch how infra funding stress may affect pricing and supply."
+      },
+      "metrics": {
+        "points": 190,
+        "comments": 180
+      },
+      "highlights": {
+        "ko": [
+          "채권 수익률이 16%를 넘었습니다"
+        ],
+        "en": [
+          "bond yield topped 16%"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "f4c46e5c083c",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217239",
+      "publishedAt": "2026-11-10T18:14:53.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "챗GPT, 주요 AI 챗봇 이용량 81% 차지",
+        "en": "ChatGPT holds 81% of major AI chatbot usage"
+      },
+      "summary": {
+        "ko": "시장조사 업체 Graphite가 Similarweb 데이터를 분석한 결과, 챗GPT는 주요 챗봇 6종 이용 세션의 81.2%를 차지했습니다. 9월 월간 이용 세션은 전년 대비 24% 늘어난 613억5000만 건으로 사상 최고였고, 점유율 10%를 넘긴 경쟁 서비스는 없었습니다.",
+        "en": "Graphite's Similarweb analysis shows ChatGPT with 81.2% of sessions across six major chatbots; September sessions hit a record 61.35B, up 24%."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "81.2%를 차지했습니다",
+          "613억5000만 건"
+        ],
+        "en": [
+          "81.2% of sessions"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "AEO",
+      "desc": {
+        "ko": "AI 에이전트가 자사 서비스를 먼저 추천하도록 최적화하는 방식입니다.",
+        "en": "Optimizing a product so AI agents choose and recommend it."
+      }
+    },
+    {
+      "term": "오픈 웨이트 모델",
+      "desc": {
+        "ko": "학습된 모델의 가중치를 공개해 누구나 내려받아 쓸 수 있는 AI 모델입니다.",
+        "en": "An AI model whose trained weights are public for anyone to download and use."
+      }
+    },
+    {
+      "term": "촉각 파운데이션 모델",
+      "desc": {
+        "ko": "여러 촉각 센서 데이터를 폭넓게 학습해 접촉을 이해하는 범용 AI 모델입니다.",
+        "en": "A general AI model trained on diverse touch-sensor data to understand contact."
+      }
+    },
+    {
+      "term": "월드 모델",
+      "desc": {
+        "ko": "환경의 상태와 변화를 내부적으로 예측하고 시뮬레이션하는 AI 모델입니다.",
+        "en": "An AI model that predicts and simulates how an environment changes."
+      }
+    },
+    {
+      "term": "AgentCore",
+      "desc": {
+        "ko": "AWS에서 AI 에이전트를 만들고 운영하도록 돕는 서비스입니다.",
+        "en": "An AWS service for building and running AI agents."
+      }
+    },
+    {
+      "term": "WhisperX",
+      "desc": {
+        "ko": "음성을 글자로 바꾸는 전사 도구입니다.",
+        "en": "A tool that transcribes speech into text."
+      }
+    }
+  ]
+}
