@@ -1,0 +1,809 @@
+{
+  "date": "2026-11-12",
+  "issue": 21,
+  "generatedAt": "2026-11-11T21:56:05.442Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "e879c6fc35d4",
+    "b62af37166f7",
+    "bad6ee94c356"
+  ],
+  "items": [
+    {
+      "id": "e879c6fc35d4",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+      "publishedAt": "2026-11-11T15:00:15.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "딥마인드, DNA가 세포에서 읽히는 방식 예측하는 AlphaGenome 2 공개",
+        "en": "DeepMind unveils AlphaGenome 2 to predict how cells read DNA"
+      },
+      "summary": {
+        "ko": "구글 딥마인드가 DNA 서열과 변이가 사람의 세포 유형별로 어떤 영향을 주는지 예측하는 차세대 모델 AlphaGenome 2를 공개했습니다. 단일세포 생물학과 인간 유전학을 잇는 모델로, 수백 종의 인간 세포 유형에서 유전 변이의 효과를 예측해 질병의 세포 단위 원인을 찾는 데 쓰입니다.",
+        "en": "Google DeepMind announced AlphaGenome 2, a model predicting how DNA sequences and variants affect hundreds of human cell types, helping scientists find the cellular drivers of disease."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "수백 종의 인간 세포 유형에서 유전 변이의 효과를 예측",
+          "질병의 세포 단위 원인을 찾는 데 쓰입니다"
+        ],
+        "en": [
+          "hundreds of human cell types"
+        ]
+      },
+      "related": [
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1031524/google-deepmind-alphagenome-2-genetic-ai-model"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "b62af37166f7",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217271",
+      "publishedAt": "2026-11-11T18:05:45.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽, 페이블 5.2 프롬프트 가이드 공개…\"코드 소유권 문구에 정리 5배\"",
+        "en": "Anthropic publishes Fable 5.2 prompt guide; 'this codebase is yours' boosts cleanup"
+      },
+      "summary": {
+        "ko": "앤트로픽이 최신 모델 클로드 페이블 5.2의 프롬프트 작성 가이드를 공식 개발자 문서로 공개하고 기존 모델용 지침을 재검토하라고 권고했습니다. 프롬프트에 '이 코드베이스는 당신의 것'이라는 문장을 넣자 AI가 중복 코드를 찾아 통합하는 비율이 10% 미만에서 약 50%로 높아졌습니다.",
+        "en": "Anthropic released a prompt guide for Claude Fable 5.2. Adding 'this codebase is yours' raised the rate of merging duplicate code from under 10% to about 50%."
+      },
+      "takeaway": {
+        "ko": "코딩 에이전트 지침에 소유권 표현을 넣으면 수정 범위가 달라지므로 기존 프롬프트를 새 모델에서 다시 검증해야 합니다.",
+        "en": "Re-test existing coding-agent prompts; ownership wording changes edit scope."
+      },
+      "highlights": {
+        "ko": [
+          "10% 미만에서 약 50%로 높아졌습니다",
+          "기존 모델용 지침을 재검토하라고 권고"
+        ],
+        "en": [
+          "from under 10% to about 50%"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 549
+      }
+    },
+    {
+      "id": "bad6ee94c356",
+      "source": "Google AI",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+      "publishedAt": "2026-11-11T16:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글, 그룹 협업 공간 만드는 실험 서비스 Tabletop 공개",
+        "en": "Google Labs launches Tabletop for group collaboration"
+      },
+      "summary": {
+        "ko": "구글이 실시간 협업을 위한 Google Labs 실험 서비스 Tabletop을 공개했습니다. 링크·파일·아이디어를 넣고 @tabletop에 요청하거나 템플릿을 고르면 여행 일정, 저녁 투표, 비용 정산, 토너먼트 대진표 같은 상호작용형 화면을 만들어 줍니다. 초대 링크로 단체방 구성원과 함께 쓸 수 있습니다.",
+        "en": "Google Labs introduced Tabletop, where groups add links and files and prompt @tabletop to generate interactive itineraries, polls, expense splitters and brackets, shared via invite link."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "여행 일정, 저녁 투표, 비용 정산, 토너먼트 대진표"
+        ],
+        "en": [
+          "itineraries, polls, expense splitters and brackets"
+        ]
+      },
+      "related": [
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/tech/1031526/google-tabletop-ai-experiment-waitlist-availability"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "7da1b2b4758f",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+      "publishedAt": "2026-11-09T19:51:47.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Gemini Robotics 2.5, 현실 세계 로봇 손재주 끌어올린다",
+        "en": "Gemini Robotics 2.5 advances real-world robot dexterity"
+      },
+      "summary": {
+        "ko": "구글 딥마인드가 가장 강력한 VLA 모델 Gemini Robotics 2.5를 발표했습니다. 로봇이 배울 수 있는 기술의 폭과 습득 속도를 모두 높여 정교함, 신뢰성, 안전성을 개선했으며 일상 기술부터 공장 현장까지 실험실 밖 환경에서 쓰는 것을 목표로 합니다.",
+        "en": "Google DeepMind introduced Gemini Robotics 2.5, its most capable vision-language-action model, widening the skills robots can learn and speeding up learning for real-world use."
+      },
+      "takeaway": {
+        "ko": "공장 현장 적용을 검토한다면 공개된 신뢰성·안전성 평가 조건이 자사 환경과 맞는지 먼저 확인해야 합니다.",
+        "en": "Check whether published reliability tests match your factory conditions."
+      },
+      "highlights": {
+        "ko": [
+          "기술의 폭과 습득 속도를 모두 높여",
+          "일상 기술부터 공장 현장까지"
+        ],
+        "en": [
+          "most capable vision-language-action model"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "ae5556d61c0b",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/video/why-the-data-center-you-dread-might-never-even-be-built/",
+      "publishedAt": "2026-11-11T20:15:15.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "발표된 데이터센터 상당수는 끝내 지어지지 않을 수 있다",
+        "en": "Many announced data centers may never get built"
+      },
+      "summary": {
+        "ko": "AI 데이터센터 붐이 지역 주민 반대, 인허가 지연, 전력 확보 경쟁이라는 현실적 장벽에 부딪히고 있습니다. 그 이전에 발표된 프로젝트 가운데 상당수는 애초에 실제로 건설되지 않을 수 있어, 수십억 달러가 걸린 투자에서 현실적 계획과 투기적 계획을 가려내는 일이 중요해졌습니다.",
+        "en": "The data center boom faces local opposition, permitting delays and power scrambles, and many announced projects may never be built, making it vital to separate realistic plans from speculative ones."
+      },
+      "takeaway": {
+        "ko": "데이터센터 용량 계약을 검토할 때는 발표 규모보다 인허가와 전력 확보 단계를 확인해야 합니다.",
+        "en": "Verify permits and power access, not announced capacity."
+      },
+      "highlights": {
+        "ko": [
+          "상당수는 애초에 실제로 건설되지 않을 수 있어"
+        ],
+        "en": []
+      },
+      "related": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/podcast/how-backlash-and-red-tape-continue-to-slow-data-centers-post-blue-wave/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "53d5cdba12be",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/11/aws-emulator/",
+      "publishedAt": "2026-11-11T21:18:30.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "AWS, 로컬 테스트용 공식 에뮬레이터 공개…에이전트 떼가 Rust로 개발",
+        "en": "AWS releases official local emulator, built in Rust by agent swarm"
+      },
+      "summary": {
+        "ko": "AWS가 유료 API 키 없이 여러 AWS 서비스의 로컬 복제본을 상대로 테스트할 수 있는 공식 에뮬레이터를 내놨습니다. Rust로 작성됐고 프로젝트 첫 3주 동안 에이전트 무리가 29,684건을 커밋했습니다. 현재 macOS와 Windows에서는 Docker가 필요합니다.",
+        "en": "AWS released an official emulator to test against local clones of its services without paid keys. Written in Rust by agents with 29,684 commits in three weeks; Docker is required on macOS and Windows."
+      },
+      "takeaway": {
+        "ko": "클라우드 연동 테스트를 로컬로 옮기기 전에 사용 중인 AWS 서비스가 에뮬레이터에서 지원되는지 확인해야 합니다.",
+        "en": "Check your AWS services are supported before moving tests local."
+      },
+      "highlights": {
+        "ko": [
+          "유료 API 키 없이",
+          "29,684건을 커밋"
+        ],
+        "en": [
+          "without paid keys"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "d46e4b8dae91",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/codex-work/",
+      "publishedAt": "2026-11-11T04:49:48.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "AI Engineer Code Summit, OpenAI가 말하는 Codex 새 업무 방식",
+        "en": "AI Engineer Code Summit: OpenAI on new ways of working with Codex"
+      },
+      "summary": {
+        "ko": "AI Engineer Code Summit이 OpenAI, 앤트로픽, 구글 딥마인드의 워크숍으로 시작됐습니다. OpenAI 워크숍은 개발자 경험 엔지니어들이 Codex 활용법을 다뤘습니다. 지난 1년간 코딩 에이전트는 끊임없이 개선됐지만, 클라우드로의 전환은 여전히 많은 사용자에게 혼란을 주고 있습니다.",
+        "en": "At AI Engineer Code Summit, OpenAI's DevEx engineers covered new ways of working with Codex. Coding agents improved constantly this year, but the shift to cloud still confuses many users."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "클라우드로의 전환은 여전히 많은 사용자에게 혼란"
+        ],
+        "en": [
+          "shift to cloud still confuses many users"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "cab6adb1a4a4",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/ai-prototyping-inside-your-design-system-a-hands-on-guide-for-design-product-teams-44825904c08d?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-11-10T23:34:58.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "디자인 시스템 안에서 AI 프로토타이핑하기",
+        "en": "AI prototyping inside your design system"
+      },
+      "summary": {
+        "ko": "AI 빌더 도구가 디자인 시스템과 비슷하게 보이기만 하는 결과물을 내놓는 이유와, 에이전트가 우리 컴포넌트를 쓰려면 먼저 갖춰야 할 것을 정리한 실무 가이드입니다. 필자가 직접 쓰는 MCP 설정도 소개하며, 디자인 시스템을 연결하고도 같은 불만을 겪는 팀에 도움이 됩니다.",
+        "en": "A hands-on guide on why AI builders return lookalike UI, what must exist before an agent can use your components, and the MCP setup the author uses with design systems."
+      },
+      "takeaway": {
+        "ko": "에이전트에 디자인 시스템을 연결하기 전에 컴포넌트 문서와 규칙이 에이전트가 읽을 형태로 정비돼 있는지 점검해야 합니다.",
+        "en": "Make component docs agent-readable before connecting a design system."
+      },
+      "highlights": {
+        "ko": [
+          "에이전트가 우리 컴포넌트를 쓰려면 먼저 갖춰야 할 것"
+        ],
+        "en": [
+          "what must exist before an agent can use your components"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 549
+      }
+    },
+    {
+      "id": "b32f33401f92",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.14210",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Tree-Ising, 비트 단위 이징 편집으로 언어모델 결함 수리",
+        "en": "Tree-Ising repairs language models with bit-level Ising edits"
+      },
+      "summary": {
+        "ko": "MIT 연구는 LLM 에이전트가 모델 가중치를 읽고 직접 수리하게 했고, Qwen3.5-0.8B의 추론 반복 오류를 고치는 데 158턴과 8,970만 토큰이 들었습니다. Tree-Ising은 이 수리를 BF16 가중치 위의 희소 이산 최적화 문제로 바꿔, 반복 방향은 약화하고 마무리 방향은 강화합니다.",
+        "en": "MIT work had an LLM agent fix Qwen3.5-0.8B reasoning loops via weights using 89.7M tokens. Tree-Ising recasts the repair as sparse discrete optimization over BF16 weights."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 71
+      },
+      "highlights": {
+        "ko": [
+          "158턴과 8,970만 토큰",
+          "희소 이산 최적화 문제"
+        ],
+        "en": [
+          "89.7M tokens"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 550
+      }
+    },
+    {
+      "id": "71f09bf5cddc",
+      "source": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+      "publishedAt": "2026-11-10T20:52:56.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "마이크로소프트, 휴면 뉴런 재프로그래밍하는 AI 에이전트 백도어 'Lazarus' 발견",
+        "en": "Microsoft finds 'Lazarus' backdoor reprogramming dormant neurons in AI agents"
+      },
+      "summary": {
+        "ko": "마이크로소프트 연구진이 모델의 휴면 뉴런을 재프로그래밍해, 숨겨진 트리거가 나타날 때만 악성 명령을 실행하게 하는 백도어 기법 Lazarus를 발견했습니다. 재학습 없이 심을 수 있고 일반 안전성 평가를 통과하며, 터미널 접근 권한이 있는 에이전트에 특히 위험합니다.",
+        "en": "Microsoft researchers found Lazarus, a backdoor that reprograms dormant neurons so agents run malicious commands on a hidden trigger. It needs no retraining and passes standard safety evaluations."
+      },
+      "takeaway": {
+        "ko": "도구·터미널 권한을 가진 에이전트는 일반 테스트만으로 안전을 보장할 수 없으므로 모델 출처 확인을 도입 기준에 넣어야 합니다.",
+        "en": "Add model provenance checks for agents with tool access."
+      },
+      "highlights": {
+        "ko": [
+          "재학습 없이 심을 수 있고",
+          "일반 안전성 평가를 통과"
+        ],
+        "en": [
+          "passes standard safety evaluations"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "537ee85bb9ba",
+      "source": "디지털데일리",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9Lb1JXTkwzWGFVbmt1Z25sUFczSGFOSXV1dGhkSWRRaTgtSWhCUVNTUWl5czdXN1E2SzZ2UndTWmZfQTV2RlZwUXZhVUxGZ0FjR05tUkkwM0tfREtVUFU3UGZudi0?oc=5",
+      "publishedAt": "2026-11-11T00:08:02.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "GS리테일, AI 검색 최적화로 상품 노출 최대 3.9배",
+        "en": "GS Retail's AI search optimization lifts product exposure up to 3.9x"
+      },
+      "summary": {
+        "ko": "GS리테일이 AI 스타트업 5개사와 약 4개월간 진행한 사업 실증(PoC) 결과를 공개했습니다. 17개 사업부의 현업 수요를 먼저 조사해 과제를 정한 뒤 기술을 맞춘 방식이며, GS샵은 생성형 AI 검색에 맞춰 상품 정보를 최적화해 검색 노출이 최대 3.9배 늘었습니다.",
+        "en": "GS Retail shared results from four months of PoCs with five AI startups. Optimizing GS Shop product data for generative AI search raised search exposure up to 3.9x."
+      },
+      "takeaway": {
+        "ko": "스타트업 PoC는 현업 부서의 과제를 먼저 정한 뒤 기술을 고르는 순서를 따르고, 3.9배가 최대치인 만큼 상품군별 편차를 확인해야 합니다.",
+        "en": "Define business problems first; check variance, since 3.9x is the peak."
+      },
+      "highlights": {
+        "ko": [
+          "검색 노출이 최대 3.9배 늘었습니다",
+          "17개 사업부의 현업 수요를 먼저 조사"
+        ],
+        "en": [
+          "search exposure up to 3.9x"
+        ]
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550,
+        "url": "https://www.ddaily.co.kr/page/view/2026111109062595512"
+      }
+    },
+    {
+      "id": "c1401e6faeb1",
+      "source": "Databricks",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQYTlzdWtpRGJfeDhQQUFqdG41dGNJSnlHS0U4dUd4eTFtNEtmQndyT1FnTHdiZWswV2U4S2QyTjhPYU84NWM2UmRZVHNUR1NBT3I2d1V1NVlVOUMxR0ZiV25KVi1ZQXVzbFJtOU1LSXRVZXJZR0lrTFdfU1p3cE83bXdma3ppU2pTQVZDMjhGTWhuQnc4ek5kZVBCVEgtVFhxR0RTZ3l0MmxFWWtjN25ZdGwtdFpjNGc?oc=5",
+      "publishedAt": "2026-11-11T08:52:27.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Databricks, 유럽·중동에 약 30억 달러 투자",
+        "en": "Databricks to invest ~$3 billion across Europe and the Middle East"
+      },
+      "summary": {
+        "ko": "Databricks가 기업의 AI 도입을 가속하기 위해 유럽과 중동 전역에 약 30억 달러를 투자한다고 발표했습니다. 현재 확인된 내용은 제목 수준이며, 세부 투자 항목과 일정은 확인되지 않았습니다.",
+        "en": "Databricks announced about $3 billion in investment across Europe and the Middle East to accelerate enterprise AI adoption. Details are not available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "약 30억 달러를 투자"
+        ],
+        "en": [
+          "$3 billion"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 114,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "6426decba2ef",
+      "source": "GitHub",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "publishedAt": "2026-06-18T14:08:44.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "cloudflare/security-audit-skill",
+        "en": "cloudflare/security-audit-skill"
+      },
+      "summary": {
+        "ko": "코딩 에이전트를 보안 감사자로 바꿔 주는 스킬입니다. 격리된 에이전트들을 조율해 정찰, 취약점 탐색, 후보 검증, 구조화된 출력, 독립 기록 검증, 보고서 작성의 6단계 감사를 수행합니다. Cloudflare 취약점 발굴 체계의 출발점으로, 단일 저장소 점검에 쓸 수 있습니다.",
+        "en": "A coding-agent skill that runs a six-phase security audit with isolated agents, from reconnaissance to reporting. It is the single-repo starting point of Cloudflare's vulnerability discovery harness."
+      },
+      "takeaway": {
+        "ko": "자사 저장소에 적용하기 전에 후보 취약점 검증 단계가 오탐을 얼마나 걸러내는지 먼저 확인해야 합니다.",
+        "en": "Check how well its validation phase filters false positives."
+      },
+      "metrics": {
+        "stars": 70276,
+        "forks": 4659,
+        "language": "JavaScript",
+        "starsGained": 10967,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "6단계 감사를 수행",
+          "단일 저장소 점검"
+        ],
+        "en": [
+          "six-phase security audit"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "76608378b664",
+      "source": "GitHub",
+      "url": "https://github.com/mattpocock/skills",
+      "publishedAt": "2026-02-03T11:15:53.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "mattpocock/skills",
+        "en": "mattpocock/skills"
+      },
+      "summary": {
+        "ko": "개발자 Matt Pocock이 매일 쓰는 에이전트 스킬 모음입니다. GSD, BMAD, Spec-Kit처럼 개발 과정을 통째로 규정하는 방식 대신, 작고 조합 가능한 스킬로 개발자의 통제권을 지키는 것이 목표입니다. 특정 모델에 묶이지 않아 팀 상황에 맞게 고쳐 쓸 수 있습니다.",
+        "en": "Matt Pocock's daily-use agent skills for real engineering. Small, composable and model-agnostic, they keep developers in control instead of owning the whole process like GSD, BMAD or Spec-Kit."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 321938,
+        "forks": 26994,
+        "language": "Shell",
+        "starsGained": 9872,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "작고 조합 가능한 스킬",
+          "특정 모델에 묶이지 않아"
+        ],
+        "en": [
+          "Small, composable and model-agnostic"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "1f1dbabb56c4",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",
+      "publishedAt": "2026-11-03T06:34:36.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "MiniMaxAI/MiniMax-H3-Image",
+        "en": "MiniMaxAI/MiniMax-H3-Image"
+      },
+      "summary": {
+        "ko": "MiniMax H3 계열의 오픈소스 이미지 생성·편집 모델입니다. 창작 의도를 이해해 이미지를 만들고 수정하며, 텍스트 투 이미지와 이미지 편집, 프롬프트 확장을 API로 쓸 수 있습니다. 웹앱과 데스크톱 앱으로도 바로 써 볼 수 있습니다.",
+        "en": "An open-source image generation and editing model from the MiniMax H3 family. It supports text-to-image, editing and prompt expansion via API, plus web and desktop apps."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 680,
+        "downloads": 142989
+      },
+      "highlights": {
+        "ko": [
+          "텍스트 투 이미지와 이미지 편집, 프롬프트 확장을 API로"
+        ],
+        "en": [
+          "text-to-image, editing and prompt expansion via API"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "b8da10635efb",
+      "source": "GitHub",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "publishedAt": "2025-08-31T20:50:03.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "thedotmack/claude-mem",
+        "en": "thedotmack/claude-mem"
+      },
+      "summary": {
+        "ko": "코딩 에이전트가 세션이 끝나면 모든 것을 잊는 문제를 해결하는 기억 도구입니다. Claude-Mem이 대신 작업 내용을 기억해 다음 세션에서 이어 쓸 수 있게 하며, 검색 도구도 제공합니다. 장기 프로젝트에서 에이전트에 매번 맥락을 다시 설명하는 수고를 줄이는 데 쓸 수 있습니다.",
+        "en": "A memory tool for coding agents that forget everything between sessions. Claude-Mem retains past work for later sessions and offers search tools, reducing repeated context-setting."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 116202,
+        "forks": 10083,
+        "language": "TypeScript",
+        "starsGained": 4473,
+        "period": "week",
+        "starsDelta": 7215
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "세션이 끝나면 모든 것을 잊는 문제"
+        ],
+        "en": [
+          "forget everything between sessions"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 599
+      }
+    },
+    {
+      "id": "77d255b4e9ac",
+      "source": "Hacker News",
+      "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+      "publishedAt": "2026-11-10T21:25:03.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "애플, 로컬 AI 모델 쉽게 돌리는 Mac 앱 'Harbor' 준비 중",
+        "en": "Apple reportedly preparing 'Harbor' Mac app for local AI models"
+      },
+      "summary": {
+        "ko": "제보자 Aaron Perris가 애플이 Harbor라는 새 Mac 앱을 개발 중인 증거를 찾았습니다. 한 대 또는 여러 대의 Mac에서 로컬 AI 모델을 쉽게 돌리게 해 Mac을 비공개 추론 서버로 바꿔 준다고 합니다. Mac Studio와 Mac mini로 로컬 AI를 돌리는 수요가 늘어난 흐름과 맞닿아 있습니다.",
+        "en": "Leaker Aaron Perris found evidence of Apple's Harbor app, which would turn one or more Macs into a private AI inference server for running local models. Unofficial."
+      },
+      "takeaway": {
+        "ko": "사내 데이터를 외부로 보내지 않는 로컬 추론을 검토한다면 공식 발표 전까지는 지원 모델과 성능을 확인할 수 없습니다.",
+        "en": "Support and performance remain unconfirmed until Apple announces."
+      },
+      "metrics": {
+        "points": 505,
+        "comments": 518
+      },
+      "highlights": {
+        "ko": [
+          "Mac을 비공개 추론 서버로 바꿔 준다고",
+          "여러 대의 Mac"
+        ],
+        "en": [
+          "private AI inference server"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "633c21117d7e",
+      "source": "Hacker News",
+      "url": "https://pietromiotti.com/latest/maya-site/?maya",
+      "publishedAt": "2026-11-11T12:05:22.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI 에이전트가 찾은 미발견 마야 유적, 알고 보니 기존 지도화 사례",
+        "en": "AI agents' 'unmapped' Maya site turns out already mapped"
+      },
+      "summary": {
+        "ko": "필자의 AI 에이전트가 NASA 라이다 데이터를 분석해 멕시코에서 보고된 적 없는 마야 유적을 찾았고, 멕시코 정부의 공식 회신까지 72시간이 안 걸렸습니다. 그러나 11일 정정으로, 이미 2025년 논문에 지도화돼 있었고 에이전트가 문헌 조사에서 놓쳤음이 드러났습니다.",
+        "en": "The author's AI agents analyzed NASA lidar and found a Maya site in Mexico, with an official reply in under 72 hours. A correction says it was already mapped in 2025; the agents missed it in literature review."
+      },
+      "takeaway": {
+        "ko": "에이전트의 '신규 발견'은 기존 문헌 대조 단계가 빠지면 재발견일 수 있으므로 선행 조사 검증을 따로 두어야 합니다.",
+        "en": "Add a separate prior-art check; 'discoveries' may be rediscoveries."
+      },
+      "metrics": {
+        "points": 880,
+        "comments": 318
+      },
+      "highlights": {
+        "ko": [
+          "이미 2025년 논문에 지도화돼 있었고",
+          "72시간이 안 걸렸습니다"
+        ],
+        "en": [
+          "already mapped in 2025"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "4443c3f3c02e",
+      "source": "Hacker News",
+      "url": "https://lpeproject.org/blog/your-retirement-savings-are-fueling-the-ai-bubble/",
+      "publishedAt": "2026-11-11T19:06:43.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "은퇴 자금이 AI 거품을 키우고 있다",
+        "en": "Retirement savings are fueling the AI bubble"
+      },
+      "summary": {
+        "ko": "매사추세츠대 경제학자 Lenore Palladino는 지난 목요일 미 증시에서 하루 만에 3조 2천억 달러가 증발했고, 그 한 주 전인 10월 29일에는 매그니피센트 7이 1조 달러 가까이 잃었다고 짚으며 AI 붐에 대한 불안을 경고합니다. 은퇴 자금이 이 흐름에 노출돼 있다는 의견 칼럼입니다.",
+        "en": "Economist Lenore Palladino notes a $3.2 trillion one-day stock loss and nearly $1 trillion lost by the Magnificent Seven on Oct 29, arguing retirement savings are exposed to AI boom risk. An opinion piece."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 115,
+        "comments": 115
+      },
+      "highlights": {
+        "ko": [
+          "하루 만에 3조 2천억 달러가 증발"
+        ],
+        "en": [
+          "$3.2 trillion"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "51cffe37ec7d",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xstews/i_built_a_webcam_xray_mirror_with_claude_fable_52/",
+      "publishedAt": "2026-11-10T17:44:48.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Claude Fable 5.2로 만든 웹캠 엑스레이 거울",
+        "en": "Webcam X-ray mirror built with Claude Fable 5.2"
+      },
+      "summary": {
+        "ko": "한 개발자가 Claude Fable 5.2로 웹캠에 비친 얼굴 위에 두개골, 뇌, 얼굴 근육을 겹쳐 보여 주는 웹페이지를 만들었습니다. 입을 열면 턱이 열리고 손을 들면 손뼈가 손가락을 따라 움직입니다. 엑스레이와 입체 표현을 고를 수 있고, 두개골 크기 조절 슬라이더와 부위 이름 표시도 지원합니다.",
+        "en": "A developer built a webpage with Claude Fable 5.2 that overlays a skull, brain and muscles on a webcam face, with moving jaw and hand bones, X-ray or solid looks, labels and fit sliders."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "손을 들면 손뼈가 손가락을 따라 움직입니다"
+        ],
+        "en": [
+          "overlays a skull, brain and muscles on a webcam face"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 599
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "VLA 모델",
+      "desc": {
+        "ko": "카메라 영상과 말을 이해해 로봇의 행동까지 직접 만들어 내는 AI 모델입니다.",
+        "en": "An AI model that sees, understands language and outputs robot actions directly."
+      }
+    },
+    {
+      "term": "MCP",
+      "desc": {
+        "ko": "AI 에이전트가 외부 도구나 자료에 표준 방식으로 연결되게 하는 규약입니다.",
+        "en": "A standard protocol for connecting AI agents to external tools and data."
+      }
+    },
+    {
+      "term": "백도어",
+      "desc": {
+        "ko": "평소엔 정상으로 보이다가 특정 신호가 오면 몰래 나쁜 동작을 하게 만드는 숨은 장치입니다.",
+        "en": "A hidden mechanism that behaves normally until a secret trigger makes it act maliciously."
+      }
+    },
+    {
+      "term": "라이다",
+      "desc": {
+        "ko": "레이저로 지형의 높낮이를 정밀하게 재는 기술입니다.",
+        "en": "A technology that measures terrain precisely using laser pulses."
+      }
+    },
+    {
+      "term": "스킬",
+      "desc": {
+        "ko": "코딩 에이전트에게 특정 작업 방식을 가르치는 재사용 가능한 지침 묶음입니다.",
+        "en": "A reusable instruction bundle that teaches a coding agent a specific way of working."
+      }
+    },
+    {
+      "term": "추론 서버",
+      "desc": {
+        "ko": "학습된 AI 모델을 실제로 돌려 답을 내 주는 컴퓨터입니다.",
+        "en": "A computer that runs a trained AI model to produce answers."
+      }
+    },
+    {
+      "term": "Tabletop",
+      "desc": {
+        "ko": "구글이 만든, 여럿이 함께 계획하고 결정하는 협업 공간 실험 서비스입니다.",
+        "en": "A Google Labs experiment for groups to plan and decide together."
+      }
+    },
+    {
+      "term": "PoC",
+      "desc": {
+        "ko": "본격 도입 전에 기술이 실제로 통하는지 작게 시험해 보는 과정입니다.",
+        "en": "A small trial to test whether a technology works before full adoption."
+      }
+    }
+  ]
+}
