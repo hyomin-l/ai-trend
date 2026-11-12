@@ -1,0 +1,799 @@
+{
+  "date": "2026-11-13",
+  "issue": 22,
+  "generatedAt": "2026-11-12T20:51:13.636Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 110,
+    "published": 20
+  },
+  "front": [
+    "41cc4a96c923",
+    "a8d5fa7d24b3",
+    "e10b6b9196df"
+  ],
+  "items": [
+    {
+      "id": "41cc4a96c923",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217348",
+      "publishedAt": "2026-11-13T04:47:53.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "젠슨 황, 엔비디아 CEO 전격 사임…주가 장중 14% 급락",
+        "en": "Jensen Huang Resigns as Nvidia CEO; Shares Plunge 14%"
+      },
+      "summary": {
+        "ko": "엔비디아는 12일(현지시간) 젠슨 황 CEO가 사장·CEO·이사직에서 즉시 물러났다고 발표했습니다. 사생활 논란 끝에 나온 결정이며 주가는 장중 14% 넘게 급락했습니다. 콜레트 크레스 CFO가 임시 CEO를 맡고 이사회가 후임을 찾습니다.",
+        "en": "Nvidia said Jensen Huang stepped down as CEO and director on Nov 12 after personal controversies. Shares fell over 14% intraday; CFO Colette Kress is interim CEO."
+      },
+      "takeaway": {
+        "ko": "엔비디아 GPU 조달 계획이 있다면 후임 인선이 공급 계약과 일정에 미칠 영향을 점검해야 합니다.",
+        "en": "Check how the CEO succession may affect your GPU supply plans."
+      },
+      "highlights": {
+        "ko": [
+          "주가는 장중 14% 넘게 급락했습니다",
+          "콜레트 크레스 CFO가 임시 CEO를 맡고"
+        ],
+        "en": [
+          "Shares fell over 14% intraday",
+          "CFO Colette Kress is interim CEO"
+        ]
+      },
+      "related": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/12/jensen-huang-was-having-a-third-affair-reuters-reports/"
+        },
+        {
+          "source": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1032069/jensen-huang-resignation-affair-chips-smuggling"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 549
+      }
+    },
+    {
+      "id": "a8d5fa7d24b3",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+      "publishedAt": "2026-11-12T18:00:50.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글 딥마인드, 속도·효율 중심 'Gemini 4 Hydrogen' 공개",
+        "en": "Google DeepMind Introduces Gemini 4 Hydrogen"
+      },
+      "summary": {
+        "ko": "Google DeepMind가 일상적인 코딩과 에이전트 작업에 맞춰 속도와 효율을 높인 Gemini 4 Hydrogen을 공개했습니다. 어려운 장기 추론은 상위 모델인 Gemini 4 Carbon과 Argon이 맡고, Hydrogen은 더 많은 사용자가 쓰도록 설계됐습니다.",
+        "en": "Google DeepMind unveiled Gemini 4 Hydrogen, built for fast, efficient everyday coding and agentic workflows, while Carbon and Argon handle deep long-horizon reasoning."
+      },
+      "takeaway": {
+        "ko": "사내 코딩·에이전트 업무에서 상위 모델과 품질·속도 차이를 직접 비교해 적용 범위를 정해야 합니다.",
+        "en": "Benchmark it against larger models on your own coding and agent tasks."
+      },
+      "highlights": {
+        "ko": [
+          "속도와 효율을 높인 Gemini 4 Hydrogen",
+          "Gemini 4 Carbon과 Argon이 맡고"
+        ],
+        "en": [
+          "fast, efficient everyday coding and agentic workflows"
+        ]
+      },
+      "related": [
+        {
+          "source": "Google AI",
+          "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/"
+        },
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/12/googles-latest-search-upgrade-promises-better-answers-to-your-most-complicated-questions/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 549
+      }
+    },
+    {
+      "id": "7563c77d72e6",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217349",
+      "publishedAt": "2026-11-13T05:36:17.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "젠슨 황 사임 후폭풍…백악관, 러트닉 상무장관 경질 논의",
+        "en": "After Huang's Exit, White House Weighs Firing Commerce Secretary"
+      },
+      "summary": {
+        "ko": "로이터에 따르면 백악관 고위 관리들이 하워드 러트닉 상무장관의 경질 여부를 논의하고 있습니다. 중국 기업을 수출 제한 명단에 추가하지 않고 엔비디아의 대중국 반도체 수출을 제대로 감독하지 않았다는 비판 때문이며, 의회에서도 책임론이 커지고 있습니다.",
+        "en": "Reuters reports White House officials are discussing firing Commerce Secretary Howard Lutnick over lax chip export controls on China, as Congress also presses for accountability."
+      },
+      "takeaway": {
+        "ko": "대중국 AI 반도체 수출 통제가 바뀔 수 있어, 해외 GPU 조달과 클라우드 계약의 규제 조항을 확인해야 합니다.",
+        "en": "Export-control shifts may hit GPU sourcing; review regulatory clauses."
+      },
+      "highlights": {
+        "ko": [
+          "러트닉 상무장관의 경질 여부를 논의하고 있습니다"
+        ],
+        "en": [
+          "discussing firing Commerce Secretary Howard Lutnick"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "372847c94994",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/amplitude",
+      "publishedAt": "2026-11-12T20:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Amplitude, OpenAI 기반 에이전트로 제품 개선 1~2일 만에 출시",
+        "en": "Amplitude Ships Product Improvements in 1–2 Days with OpenAI"
+      },
+      "summary": {
+        "ko": "Amplitude의 제품 에이전트 Wave는 무엇을 만들지 찾아내고, 코딩 에이전트로 변경 사항 배포를 돕고, 그 효과까지 측정합니다. 주로 OpenAI 모델 위에 만들어졌으며 제품 개선을 1~2일 만에 내놓는다는 사례입니다.",
+        "en": "Amplitude's Wave, built mainly on OpenAI models, identifies what to build, helps ship changes with coding agents and measures impact, enabling 1–2 day product improvements."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "제품 개선을 1~2일 만에 내놓는다는 사례"
+        ],
+        "en": [
+          "1–2 day product improvements"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 172,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "0990939c7d6e",
+      "source": "OpenAI",
+      "url": "https://openai.com/business/customer-stories/holidays-extras-codex",
+      "publishedAt": "2026-11-12T09:30:00.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Holiday Extras, Codex로 앱 개발과 예약 전환율 개선",
+        "en": "Holiday Extras Rethinks What It Can Build with Codex"
+      },
+      "summary": {
+        "ko": "여행 서비스 기업 Holiday Extras가 OpenAI의 Codex를 활용해 고객 전문성을 더 나은 앱으로 옮기고 있습니다. 공개된 내용으로는 예약 전환율 상승과 새로운 성장 가능성이 목표로 소개되며, 구체적 수치는 확인되지 않았습니다.",
+        "en": "Holiday Extras uses OpenAI's Codex to turn customer expertise into better apps, higher booking conversion and growth options. No specific figures were provided."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 134,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "e10b6b9196df",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/ainews-d-day-decision-models-day/",
+      "publishedAt": "2026-11-12T05:26:54.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "구글, 판단 특화 '결정 모델' Gemini Decision 1 발표",
+        "en": "Google Launches Gemini Decision 1 Decision Model"
+      },
+      "summary": {
+        "ko": "Latent Space에 따르면 AIE CODE 행사에서 Google이 Anthropic보다 먼저 상용 결정 모델 Gemini Decision 1을 발표했습니다. 보정된 멀티모달 모델로 최대 1000개 질문을 한 번에 처리하며, 입력 100만 토큰당 가격은 0.10달러로 소개됩니다.",
+        "en": "Per Latent Space, Google announced Gemini Decision 1 at AIE CODE: a calibrated multimodal decision model handling up to 1000 questions, priced from $0.10 per million input tokens."
+      },
+      "takeaway": {
+        "ko": "판단 업무에 쓰려면 모델이 내놓는 확신도가 실제 정답률과 맞는지 자사 데이터로 먼저 검증해야 합니다.",
+        "en": "Validate its calibration against your own data before relying on it."
+      },
+      "highlights": {
+        "ko": [
+          "최대 1000개 질문을 한 번에 처리하며"
+        ],
+        "en": [
+          "handling up to 1000 questions"
+        ]
+      },
+      "related": [
+        {
+          "source": "Simon Willison",
+          "url": "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 573
+      }
+    },
+    {
+      "id": "4e46e49750fb",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/optimizing-cost-per-task-and-proving-agent-roi-on-amazon-bedrock/",
+      "publishedAt": "2026-11-12T18:43:19.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "Amazon Bedrock, 토큰이 아닌 '작업당 비용'으로 에이전트 ROI 입증",
+        "en": "Optimizing Cost per Task and Proving Agent ROI on Amazon Bedrock"
+      },
+      "summary": {
+        "ko": "AWS가 Bedrock 비용 관리 시리즈 2편을 냈습니다. 1편이 누가 얼마나 썼는지 추적하고 통제하는 체계였다면, 이번에는 비용을 토큰이 아닌 작업 단위로 따져 워크플로가 왜 비싼지, 쓴 돈이 값어치를 했는지 밝히는 방법을 다룹니다.",
+        "en": "Part 2 of AWS's Bedrock series shifts from tracking who spent to measuring cost per task rather than per token, to explain why workflows are expensive and prove agent ROI."
+      },
+      "takeaway": {
+        "ko": "에이전트 도입 평가는 토큰 단가보다 업무 한 건당 총비용을 기준으로 잡아야 합니다.",
+        "en": "Judge agents by total cost per completed task, not token price."
+      },
+      "highlights": {
+        "ko": [
+          "비용을 토큰이 아닌 작업 단위로 따져"
+        ],
+        "en": [
+          "cost per task rather than per token"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 572
+      }
+    },
+    {
+      "id": "0f451c0d900e",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.14320",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "에이전트 메모리의 역효과, 근거 연결로 줄인다",
+        "en": "Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents"
+      },
+      "summary": {
+        "ko": "에이전트는 과거 작업에서 뽑은 교훈을 메모리로 쓰지만, 틀린 교훈을 따르거나 잘못 적용해 메모리 없이 풀던 일을 실패하는 경우가 있습니다. 교훈이 성공·실패만 보고 만들어지고 근거 기록 없이 제공되어 검증할 수 없기 때문이며, 근거를 연결하는 방식이 제안됩니다.",
+        "en": "Agent memory can make agents fail tasks they'd otherwise solve, since lessons are given without source trajectories to check. The paper links lessons to evidence to reduce this."
+      },
+      "takeaway": {
+        "ko": "에이전트에 장기 메모리를 붙일 때는 메모리 유무별 성공률을 비교해 성능 저하 여부를 검증해야 합니다.",
+        "en": "Compare success rates with and without memory before deploying it."
+      },
+      "metrics": {
+        "upvotes": 65
+      },
+      "highlights": {
+        "ko": [
+          "메모리 없이 풀던 일을 실패하는 경우"
+        ],
+        "en": [
+          "fail tasks they'd otherwise solve"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 573
+      }
+    },
+    {
+      "id": "ac1c45af20ca",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.13001",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "표 데이터 생성·보완·예측, 한 모델로 가능할까",
+        "en": "One Table Benchmark Tests Generalist Tabular Models"
+      },
+      "summary": {
+        "ko": "표 데이터의 생성, 빈칸 채우기, 예측을 한 모델이 모두 잘하는지 가늠하는 One Table Benchmark가 나왔습니다. 56개 데이터셋, 46개 방법, 20개 능력 축을 같은 조건에서 비교해 세 작업의 공통 능력과 학습 목표 간 상호작용을 살핍니다.",
+        "en": "The One Table Benchmark spans 56 datasets, 46 methods and 20 capability axes to test whether one model can do tabular generation, imputation and prediction well."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 40
+      },
+      "highlights": {
+        "ko": [
+          "56개 데이터셋, 46개 방법, 20개 능력 축"
+        ],
+        "en": [
+          "56 datasets, 46 methods and 20 capability axes"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 573
+      }
+    },
+    {
+      "id": "873e64e78ae9",
+      "source": "Unite.AI",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQaHNyamh2aHZJcU1RN3pNWktrLTZwXy04ckxBcmp2eEZ6SnQ0dktoRkk1bEY2N2JvWUpxcTFPTnVVU21yTWFCVUlqUXNNSjJPeXdEUVFiSVUwejlKVHpSbUw0WVdRYWt2SHBtc3Brd1ZjaXp2aEFKZ2tsUzlOQVhWUE81eURQdWxmWGtNWlZ6MA?oc=5",
+      "publishedAt": "2026-11-12T16:43:03.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "이타우 우니방쿠, Harness로 AI 시대 소프트웨어 배포 표준화",
+        "en": "Itaú Unibanco to Standardize Software Delivery on Harness"
+      },
+      "summary": {
+        "ko": "Harness는 12일 라틴아메리카 최대 민간 은행 Itaú Unibanco가 자사 플랫폼을 선택해 소프트웨어 개발·배포 방식을 바꾼다고 밝혔습니다. 수천 명 엔지니어 조직에 초기 도입 후 확대할 계획이며, 개발 속도를 높이고 생성형 AI 활용을 늘리는 것이 목표입니다.",
+        "en": "Harness said Itaú Unibanco, Latin America's largest private bank, chose its platform to change how software is built and shipped, starting with an initial phase before wider adoption."
+      },
+      "takeaway": {
+        "ko": "AI 코딩 도입 시 배포 파이프라인 표준화를 함께 추진하는지, 단계별 확대 기준이 있는지 참고할 만합니다.",
+        "en": "Note the phased rollout paired with delivery-pipeline standardization."
+      },
+      "highlights": {
+        "ko": [
+          "초기 도입 후 확대할 계획"
+        ],
+        "en": [
+          "initial phase before wider adoption"
+        ]
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.unite.ai/itau-unibanco-to-standardize-ai-era-software-delivery-on-harness/"
+      }
+    },
+    {
+      "id": "99951f9b8d4b",
+      "source": "CPA뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE04SHB4S1BuMFhKRHkxMUVjcnZfak5mX0dkenJIc1UxSFdmWkdPZnFWVThUU3JaOGM2ZHhXZV9PX2VkSUdOUDFlR2JSTmNQWDZiWWpqcTNHalc5T0pvRTIwOUpCNkhLUFFu?oc=5",
+      "publishedAt": "2026-11-12T00:20:25.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "PwC컨설팅·리얼월드, 제조·물류 피지컬 AI 실증 컨소시엄",
+        "en": "PwC Korea and RLWRLD Form Physical AI PoC Consortium"
+      },
+      "summary": {
+        "ko": "PwC컨설팅과 리얼월드가 제조·물류 기업의 피지컬 AI 실증(PoC)을 돕는 컨소시엄을 구성했습니다. PwC의 데이터 플랫폼과 리얼월드의 로봇 파운데이션 모델 RLDX-1을 결합해 진단부터 실물 로봇 검증까지 약 12주 내 원스톱으로 지원합니다.",
+        "en": "PwC Korea and RLWRLD formed a consortium to support physical AI PoCs in manufacturing and logistics, combining a data platform with the RLDX-1 robot foundation model, in about 12 weeks."
+      },
+      "takeaway": {
+        "ko": "공정이 바뀔 때마다 데이터를 새로 만드는 부담이 큰 만큼, 로봇 데이터 재사용 범위를 PoC에서 확인해야 합니다.",
+        "en": "In a PoC, verify how far robot data can be reused across process changes."
+      },
+      "highlights": {
+        "ko": [
+          "약 12주 내 원스톱으로 지원합니다"
+        ],
+        "en": [
+          "in about 12 weeks"
+        ]
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://news.kicpa.or.kr/news/articleView.html?idxno=4284"
+      }
+    },
+    {
+      "id": "102925db4ee6",
+      "source": "Morningstar",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNOXZYeFVWVXlTSTNicW9lODNCd01HcXotZEJaUHllaHhzeGExdkwwUjVKYnNCSzRmUDFPSDZsZ0ZOdW5nUjlnU2FWUndlYnF6WGdPR1BSODFxdGxMU19TRDBzcVRYNEstNWQ2MkhrdkpvN2xwaEVqRUhFa1I3N1YtaUxZM1ZfcGxOSXpROElZblc5dzYtZ2lIU20tbXE1Sm0tdWpCc0FoVURHOUh2MGo1R0tYSDlxRHFjLTdJRHA5ZjVXRlpLTU0yUkM5cHB5Vk53OEpOYzVYd2FUZUFoN3BBRzR6WXFWdw?oc=5",
+      "publishedAt": "2026-11-12T15:30:00.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "조사: 기업 AI 도입이 AI 품질 보증 속도를 앞지른다",
+        "en": "Study: Enterprise AI Adoption Outpacing AI Assurance"
+      },
+      "summary": {
+        "ko": "QualiZeal과 HFS Research의 공동 조사에서 기업의 AI 도입 속도가 AI 품질·신뢰를 점검하는 보증 체계보다 빠르다는 결과가 나왔다고 합니다. 현재 확인되는 것은 제목뿐이며 구체적 수치와 조사 대상은 확인되지 않았습니다.",
+        "en": "A QualiZeal x HFS Research study reportedly finds enterprise AI adoption is outpacing AI assurance. Only the headline is available; figures and sample are unconfirmed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 101,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "0d415288aaf6",
+      "source": "GitHub",
+      "url": "https://github.com/meta/astryx",
+      "publishedAt": "2026-01-09T16:20:32.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "Meta, 사람과 에이전트가 함께 쓰는 디자인 시스템 Astryx 공개",
+        "en": "Meta Open-Sources Astryx Design System"
+      },
+      "summary": {
+        "ko": "Astryx는 Meta 내부에서 8년간 자라 1만 3천 개 이상 앱에 쓰인 디자인 시스템을 오픈소스로 공개한 것입니다. React 19 이상과 StyleX 기반으로 접근성을 갖춘 150개 이상 컴포넌트, 테마, 다크 모드, 템플릿, CLI를 제공하며 현재 베타입니다.",
+        "en": "Astryx is Meta's eight-year-old internal design system, now open source for people and agents. Built on React 19+ and StyleX, it offers 150+ accessible components, theming, templates and a CLI. Beta."
+      },
+      "takeaway": {
+        "ko": "사내 UI를 AI 에이전트로 만들 계획이라면 컴포넌트 규격이 통일된 디자인 시스템부터 갖추는 방안을 검토할 만합니다.",
+        "en": "Consider a unified component system before letting agents build UI."
+      },
+      "metrics": {
+        "stars": 26376,
+        "forks": 2043,
+        "language": "TypeScript",
+        "starsGained": 10820,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "150개 이상 컴포넌트",
+          "현재 베타입니다"
+        ],
+        "en": [
+          "150+ accessible components",
+          "Beta"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "6c64301c09e0",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "publishedAt": "2026-08-05T08:22:59.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "알리바바 Qwen3.8-27B 공개, 자체 서버 구동 가능한 270억 파라미터 모델",
+        "en": "Qwen3.8-27B Released on Hugging Face"
+      },
+      "summary": {
+        "ko": "Qwen3.8-27B는 알리바바 Qwen 팀이 공개한 270억 파라미터급 후속 학습 완료 언어 모델입니다. Transformers, vLLM, SGLang 등에서 쓸 수 있는 가중치가 올라와 있고, 호스팅판은 Qwen Cloud에서 기본 100만 토큰 문맥과 내장 도구를 제공할 예정입니다.",
+        "en": "Qwen3.8-27B is a post-trained 27B-class language model from Qwen with weights compatible with Transformers, vLLM and SGLang; a hosted Qwen Cloud version will offer 1M context."
+      },
+      "takeaway": {
+        "ko": "자체 서버에 올려 쓸 후보로 검토하되, 사내 업무 데이터로 정확도와 필요한 GPU 사양을 먼저 측정해야 합니다.",
+        "en": "Test accuracy and GPU needs on internal data before self-hosting."
+      },
+      "metrics": {
+        "likes": 19727,
+        "downloads": 7094218
+      },
+      "highlights": {
+        "ko": [
+          "기본 100만 토큰 문맥"
+        ],
+        "en": [
+          "1M context"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "10ba719313a0",
+      "source": "GitHub",
+      "url": "https://github.com/anthropics/skills",
+      "publishedAt": "2025-09-22T15:53:31.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "anthropics/skills, Claude에 반복 업무 방식을 가르치는 스킬 모음",
+        "en": "anthropics/skills: Task Skills for Claude"
+      },
+      "summary": {
+        "ko": "스킬은 지침, 스크립트, 자료를 담은 폴더로, Claude가 필요할 때 불러와 전문 작업 성능을 높입니다. 회사 브랜드 지침에 맞춘 문서 작성이나 조직 고유 방식의 데이터 분석처럼 반복 업무를 일정하게 처리하게 하며, 이 저장소는 Anthropic의 구현 예시입니다.",
+        "en": "Skills are folders of instructions, scripts and resources Claude loads dynamically to do specialized tasks repeatably, like brand-compliant documents or org-specific analysis. This repo holds Anthropic's implementations."
+      },
+      "takeaway": {
+        "ko": "사내 문서 양식이나 분석 절차를 스킬 폴더로 정리해 반복 업무에 적용해 볼 수 있습니다.",
+        "en": "Package internal templates and procedures as skills for repeat tasks."
+      },
+      "metrics": {
+        "stars": 193644,
+        "forks": 22780,
+        "language": "Python",
+        "starsGained": 5738,
+        "period": "week",
+        "starsDelta": 6885
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "지침, 스크립트, 자료를 담은 폴더"
+        ],
+        "en": [
+          "folders of instructions, scripts and resources"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "4c1a7c570cbf",
+      "source": "GitHub",
+      "url": "https://github.com/garrytan/gbrain",
+      "publishedAt": "2026-04-05T14:40:56.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "garrytan/gbrain, 쓰던 에이전트에 붙이는 사용자 통제형 메모리",
+        "en": "garrytan/gbrain: User-Controlled Memory for Agents"
+      },
+      "summary": {
+        "ko": "GBrain은 이미 쓰는 AI 에이전트에 사용자가 직접 통제하는 기억을 붙여 주는 도구입니다. 사실을 출처와 함께 저장하고 수정·철회가 가능하며, 여러 에이전트가 같은 기억을 공유합니다. 키 없는 키워드 검색으로 시작해 필요하면 의미 검색을 더하고, MIT 라이선스로 직접 설치해 쓸 수 있습니다.",
+        "en": "GBrain adds user-controlled memory to agents you already use: facts stored with sources, correctable and withdrawable, shared across agents. Starts keyless, MIT-licensed, self-hostable."
+      },
+      "takeaway": {
+        "ko": "에이전트 기억을 사내에 직접 두려면 출처 추적과 수정·철회 기능이 보안 요건에 맞는지 확인해야 합니다.",
+        "en": "Check whether source tracking and withdrawal meet your security needs."
+      },
+      "metrics": {
+        "stars": 32764,
+        "forks": 4884,
+        "language": "TypeScript",
+        "starsGained": 1187,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "사실을 출처와 함께 저장하고 수정·철회가 가능하며"
+        ],
+        "en": [
+          "facts stored with sources, correctable and withdrawable"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "645f1651bd53",
+      "source": "Hacker News",
+      "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+      "publishedAt": "2026-11-11T21:24:35.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "유나이티드항공, AI 에이전트의 항공권 대리 예약 금지",
+        "en": "United Airlines Bans AI Agents From Booking Flights"
+      },
+      "summary": {
+        "ko": "유나이티드항공이 11일 보안 위험과 연방 규정 위반 가능성을 이유로 AI 에이전트가 여행객을 대신해 항공권을 예약하는 것을 금지한다고 밝혔습니다. 여행 준비에 AI를 쓰는 소비자가 늘어나는 가운데 나온 조치로, 해커뉴스에서 댓글 680여 개가 달리며 논쟁이 됐습니다.",
+        "en": "United Airlines said it bans AI agents from booking flights for travelers, citing security risks and possible federal rule violations. The move drew heated debate on Hacker News."
+      },
+      "takeaway": {
+        "ko": "고객 대면 서비스에 에이전트 예약·구매 기능을 붙일 때는 상대 사업자의 약관과 규제 조건을 먼저 확인해야 합니다.",
+        "en": "Check counterparties' terms and regulations before agent-driven purchases."
+      },
+      "metrics": {
+        "points": 656,
+        "comments": 680
+      },
+      "highlights": {
+        "ko": [
+          "보안 위험과 연방 규정 위반 가능성을 이유로"
+        ],
+        "en": [
+          "citing security risks and possible federal rule violations"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "14d884f5926d",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=37071&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "publishedAt": "2026-11-12T19:52:37.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "오래된 TV 박스와 iPad에서 LLM 돌리는 smolmaxxing",
+        "en": "smolmaxxing Runs LLMs on Old TV Boxes and iPads"
+      },
+      "summary": {
+        "ko": "smolmaxxing은 낡은 기기에서 돌아가는 가장 큰 언어 모델을 찾고, 맞춤 커널과 메모리 최적화, 가중치 스트리밍으로 속도를 끌어올리는 프로젝트입니다. 실사용 RAM 약 1GB의 Xiaomi TV Box에서 Qwen3.5-2B는 초당 7.7토큰, 2013년형 iPad Air에서 Bonsai-1.7B는 23.7~25.8토큰이 나왔습니다.",
+        "en": "smolmaxxing finds the largest LLMs runnable on old devices using custom kernels, memory optimization and weight streaming: Qwen3.5-2B hits 7.7 tok/s on a 1GB-RAM TV box; an iPad Air 2013 reaches ~24 tok/s."
+      },
+      "takeaway": {
+        "ko": "저사양 기기에 모델을 올릴 때는 RAM보다 플래시 대역폭이 속도 한계가 된다는 점을 확인해야 합니다.",
+        "en": "On low-end devices, flash bandwidth, not RAM, can cap speed."
+      },
+      "highlights": {
+        "ko": [
+          "Qwen3.5-2B는 초당 7.7토큰"
+        ],
+        "en": [
+          "Qwen3.5-2B hits 7.7 tok/s"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 367
+      }
+    },
+    {
+      "id": "e05d76cd3360",
+      "source": "Hacker News",
+      "url": "https://cabird.com/talks/shipping-faster/",
+      "publishedAt": "2026-11-11T16:33:28.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI는 코드 작성량을 늘려도 성과로 이어질까",
+        "en": "AI, Activity, and Outcomes in Software Engineering"
+      },
+      "summary": {
+        "ko": "해커뉴스에서 화제가 된 글로, 'The Activity-Outcome Gap'과 NBER 논문 'Writing Code vs. Shipping Code' 등을 인용해 AI 도구가 개발 활동과 실제 성과 사이에서 어떤 차이를 만드는지 다룹니다. 확보된 본문은 참고문헌 위주라 구체적 결론은 확인되지 않았습니다.",
+        "en": "A Hacker News-discussed piece citing 'The Activity-Outcome Gap' and the NBER paper 'Writing Code vs. Shipping Code' on AI's effect on developer activity versus outcomes. Only references were available."
+      },
+      "takeaway": {
+        "ko": "AI 코딩 도구 효과는 코드 생성량이 아니라 실제 배포·결과 지표로 측정해야 합니다.",
+        "en": "Measure AI coding gains by shipped outcomes, not code volume."
+      },
+      "metrics": {
+        "points": 124,
+        "comments": 111
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "d4e01d5598e2",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xsk5k9/instead_of_collecting_dust_claude_makes_your_old/",
+      "publishedAt": "2026-11-10T11:06:35.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Claude로 안 쓰는 옛 Kindle을 쓸모 있는 기기로",
+        "en": "Using Claude to Revive an Old Kindle"
+      },
+      "summary": {
+        "ko": "한 Reddit 사용자가 7세대 Kindle을 직접 탈옥한 뒤 Claude에게 원하는 앱의 콘셉트 이미지와 동작 방식을 알려 주어 앱을 만들게 한 경험을 공유했습니다. 앱 실행에는 KUAL 같은 런처가 필요하며, 탈옥 단계에서는 Claude의 새 안전장치 때문에 수동 작업이 필요했습니다.",
+        "en": "A Reddit user manually jailbroke a 7th-gen Kindle, then had Claude build an app from a concept image and behavior description. A launcher like KUAL is needed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "콘셉트 이미지와 동작 방식을 알려 주어"
+        ],
+        "en": [
+          "build an app from a concept image"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "피지컬 AI",
+      "desc": {
+        "ko": "로봇처럼 실제 물리 세계에서 움직이며 일하는 AI를 말합니다.",
+        "en": "AI that acts in the physical world, such as robots."
+      }
+    },
+    {
+      "term": "로봇 파운데이션 모델",
+      "desc": {
+        "ko": "다양한 로봇 작업에 두루 쓰도록 대규모로 미리 학습시킨 로봇용 AI 모델입니다.",
+        "en": "A large pretrained AI model meant to work across many robot tasks."
+      }
+    },
+    {
+      "term": "RLDX-1",
+      "desc": {
+        "ko": "리얼월드가 만든 로봇 파운데이션 모델의 이름입니다.",
+        "en": "RLWRLD's robot foundation model."
+      }
+    },
+    {
+      "term": "Astryx",
+      "desc": {
+        "ko": "Meta가 오픈소스로 공개한 디자인 시스템으로, 화면 부품을 모아 둔 도구 세트입니다.",
+        "en": "Meta's open-source design system, a toolkit of ready-made UI parts."
+      }
+    },
+    {
+      "term": "StyleX",
+      "desc": {
+        "ko": "Meta가 만든 웹 화면 스타일 작성 라이브러리입니다.",
+        "en": "Meta's library for writing web UI styles."
+      }
+    },
+    {
+      "term": "가중치 스트리밍",
+      "desc": {
+        "ko": "모델 데이터를 한꺼번에 올리지 않고 필요한 부분만 저장장치에서 읽어 오는 방식입니다.",
+        "en": "Loading only the needed parts of a model from storage instead of all at once."
+      }
+    },
+    {
+      "term": "스킬",
+      "desc": {
+        "ko": "Claude가 특정 작업을 일정하게 해내도록 지침과 자료를 담아 둔 폴더입니다.",
+        "en": "A folder of instructions and resources that teaches Claude a task."
+      }
+    },
+    {
+      "term": "결정 모델",
+      "desc": {
+        "ko": "문장을 만드는 대신 질문에 대한 판단과 확신도를 내놓도록 만든 AI 모델입니다.",
+        "en": "An AI model built to output judgments with confidence rather than free text."
+      }
+    },
+    {
+      "term": "GBrain",
+      "desc": {
+        "ko": "AI 에이전트에 출처가 붙은 기억을 저장해 주는 오픈소스 도구입니다.",
+        "en": "An open-source tool that stores sourced memory for AI agents."
+      }
+    }
+  ]
+}
