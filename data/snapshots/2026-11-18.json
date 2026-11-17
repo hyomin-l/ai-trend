@@ -1,0 +1,710 @@
+{
+  "date": "2026-11-18",
+  "issue": 25,
+  "generatedAt": "2026-11-17T20:51:16.312Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [
+    "reddit"
+  ],
+  "stats": {
+    "collected": 109,
+    "published": 17
+  },
+  "front": [
+    "549a77347d5e",
+    "e0185595ee6e",
+    "72284a47c9d9"
+  ],
+  "items": [
+    {
+      "id": "549a77347d5e",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "publishedAt": "2026-11-17T17:45:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, GPT-6.2 Astra·Sol 공개",
+        "en": "OpenAI introduces GPT-6.2 Astra and Sol"
+      },
+      "summary": {
+        "ko": "OpenAI가 GPT-6.2 Astra와 Sol을 공개했습니다. 전문 업무 결과물, 코딩, 컴퓨터 사용 능력과 효율을 높이고 비용은 낮췄다고 밝혔으며, ChatGPT Work와 Codex, API에서 모두 쓸 수 있습니다. 구체적인 성능 수치는 확인되지 않았습니다.",
+        "en": "OpenAI launched GPT-6.2 Astra and Sol, claiming better professional outputs, coding, computer use and efficiency at lower cost across ChatGPT Work, Codex and the API."
+      },
+      "takeaway": {
+        "ko": "성능 수치가 공개되지 않았으므로 도입 전 자사 업무 기준으로 코딩·컴퓨터 사용 성능과 단가를 직접 비교해 봐야 합니다.",
+        "en": "No figures yet; benchmark coding, computer use and cost on your own tasks."
+      },
+      "highlights": {
+        "ko": [
+          "ChatGPT Work와 Codex, API에서 모두 쓸 수 있습니다"
+        ],
+        "en": [
+          "lower cost across ChatGPT Work, Codex and the API"
+        ]
+      },
+      "related": [
+        {
+          "source": "GeekNews",
+          "url": "https://news.hada.io/topic?id=37361&utm_source=geeknews&utm_medium=rss&utm_campaign=news"
+        }
+      ],
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 160,
+        "reason": "http-403"
+      }
+    },
+    {
+      "id": "e0185595ee6e",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1035420/jensen-huang-nvidia-return-as-ceo-statement",
+      "publishedAt": "2026-11-17T16:09:57.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "젠슨 황, 이사회 원하면 Nvidia CEO 복귀 용의",
+        "en": "Jensen Huang willing to return as Nvidia CEO"
+      },
+      "summary": {
+        "ko": "지난주 Nvidia CEO에서 물러난 Jensen Huang이 이사회가 주주와 직원, 회사에 이익이라 판단하면 CEO로 복귀할 용의가 있다고 밝혔습니다. 직원·투자자·고객의 복귀 요청이 이어졌다는 설명이며, 월스트리트저널이 성명을 보도했습니다.",
+        "en": "Jensen Huang, who resigned as Nvidia CEO last week, said he would return if the board decides it is in shareholders' and the company's best interest, citing calls from staff and customers."
+      },
+      "takeaway": {
+        "ko": "Nvidia 의존도가 높은 인프라 계획이라면 이사회 결정 전까지 경영진 변동이 공급·로드맵에 미칠 영향을 점검해야 합니다.",
+        "en": "If reliant on Nvidia, monitor how leadership changes affect supply and roadmap."
+      },
+      "highlights": {
+        "ko": [
+          "이사회가 주주와 직원, 회사에 이익이라 판단하면 CEO로 복귀할 용의"
+        ],
+        "en": []
+      },
+      "related": [
+        {
+          "source": "AI타임스",
+          "url": "https://www.aitimes.com/news/articleView.html?idxno=217512"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 570
+      }
+    },
+    {
+      "id": "72284a47c9d9",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1035756/google-spark-ai-tasks-free",
+      "publishedAt": "2026-11-17T18:58:01.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글 Spark AI 에이전트, 'Tasks'로 개편…무료 전환",
+        "en": "Google's Spark AI agent becomes 'Tasks' and goes free"
+      },
+      "summary": {
+        "ko": "구글이 Spark AI 에이전트를 'Tasks'로 이름을 바꾸고 무료로 제공합니다. 새 모델 Gemini 4 Hydrogen 기반으로 식단 계획, 일정 관리, 이메일 속 반복 지출 찾기를 수행합니다. 미국 이용자는 업체에 전화해 가격·재고를 비교하고 Google Pay로 결제하는 기능도 씁니다.",
+        "en": "Google rebranded Spark as free 'Tasks', powered by Gemini 4 Hydrogen. It plans meals, manages calendars and finds recurring expenses; US users can have it call businesses and pay via Google Pay."
+      },
+      "takeaway": {
+        "ko": "에이전트가 이메일·결제·계정 로그인까지 다루는 만큼 도입 전에 권한 범위와 결제 승인 절차를 확인해야 합니다.",
+        "en": "Check access scope and payment approval before agents touch email and payments."
+      },
+      "highlights": {
+        "ko": [
+          "Gemini 4 Hydrogen 기반",
+          "업체에 전화해 가격·재고를 비교하고 Google Pay로 결제"
+        ],
+        "en": [
+          "powered by Gemini 4 Hydrogen",
+          "call businesses and pay via Google Pay"
+        ]
+      },
+      "related": [
+        {
+          "source": "Google AI",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/"
+        },
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/17/google-expands-access-to-gemini-tasks-which-can-help-with-calls-purchases/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 570
+      }
+    },
+    {
+      "id": "b66580a6d15d",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217511",
+      "publishedAt": "2026-11-18T05:01:05.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "MS, 'MAI 코드 2' 공개…앤트로픽급 코딩 성능에 비용 5%",
+        "en": "Microsoft unveils MAI Code 2 with near-frontier coding at ~5% cost"
+      },
+      "summary": {
+        "ko": "마이크로소프트가 이그나이트 2026에서 자체 코딩 모델 'MAI 코드 2'와 경량형 'MAI 코드 2 플래시'를 공개했습니다. OpenAI·앤트로픽 최신 모델에 근접한 코딩 성능을 훨씬 낮은 비용으로 낸다고 합니다. 보안과 에이전트 판단 작업 특화 모델도 함께 선보여 외부 모델 의존을 줄입니다.",
+        "en": "At Ignite 2026 Microsoft released its own coding models MAI Code 2 and MAI Code 2 Flash, plus security and agent-judgment models, claiming near-frontier coding at far lower cost."
+      },
+      "takeaway": {
+        "ko": "비용 비교는 MS 발표 기준이므로 사내 코드베이스로 정확도와 실제 단가를 검증한 뒤 기존 코딩 도구 대체를 판단해야 합니다.",
+        "en": "Cost claims are Microsoft's; verify accuracy and price on your own codebase."
+      },
+      "highlights": {
+        "ko": [
+          "훨씬 낮은 비용으로 낸다고 합니다",
+          "외부 모델 의존을 줄입니다"
+        ],
+        "en": [
+          "near-frontier coding at far lower cost"
+        ]
+      },
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 300,
+        "reason": "request-timeout"
+      }
+    },
+    {
+      "id": "6dd848cbce9c",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217484",
+      "publishedAt": "2026-11-17T18:18:21.000Z",
+      "section": "newsroom",
+      "region": "CN",
+      "title": {
+        "ko": "텐센트 'Hy4 플래시' 출시…작업 비용 최대 95% 절감",
+        "en": "Tencent launches Hy4 flash, cutting task cost up to 95%"
+      },
+      "summary": {
+        "ko": "텐센트가 문서 작성, 발표 자료, 자료 조사 등 일상 업무용 저비용 모델 Hy4 플래시를 내놨습니다. 전체 2240억 매개변수 중 토큰당 120억개만 쓰는 MoE 구조이며 100만 토큰 컨텍스트를 지원합니다. 자체 평가에서 작업당 비용을 최대 95% 줄였고 API는 입력 100만 토큰당 0.07달러입니다.",
+        "en": "Tencent released Hy4 flash for everyday office tasks: a 224B-parameter MoE with 12B active per token and 1M context. It claims up to 95% lower cost per task; input costs $0.07 per million tokens."
+      },
+      "takeaway": {
+        "ko": "95% 절감은 텐센트 자체 평가이므로 사내 문서 업무로 품질을 검증하고, 중국 모델의 데이터 반출·보안 정책 적합성도 확인해야 합니다.",
+        "en": "The 95% saving is self-reported; test quality and check data-security policy fit."
+      },
+      "highlights": {
+        "ko": [
+          "작업당 비용을 최대 95% 줄였고",
+          "입력 100만 토큰당 0.07달러"
+        ],
+        "en": [
+          "up to 95% lower cost per task",
+          "$0.07 per million tokens"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "c618f0b74f32",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.21072",
+      "publishedAt": "2026-11-17T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Sage Flash, 과학 근거 추론·행동하는 3200억 모델",
+        "en": "Sage Flash: 320B model for scientific reasoning and agents"
+      },
+      "summary": {
+        "ko": "Sage Flash는 과학 증거를 추론하고 상호작용 환경에서 행동하도록 만든 3200억 매개변수 MoE 모델입니다. 분자 구조와 생물 서열, 스펙트럼 측정값을 전용 인코더로 읽어 텍스트·이미지와 함께 처리합니다. 도구 사용·검색·코딩을 검증 가능한 환경에서 훈련해 에이전트 능력을 키웠습니다.",
+        "en": "Sage Flash is a 320B-parameter MoE model for reasoning over scientific evidence and acting in interactive environments, with dedicated encoders for molecules, sequences and spectra, trained in verifiable tool-use environments."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 84
+      },
+      "highlights": {
+        "ko": [
+          "3200억 매개변수 MoE 모델",
+          "검증 가능한 환경에서 훈련"
+        ],
+        "en": [
+          "320B-parameter MoE model"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 587
+      }
+    },
+    {
+      "id": "e1f0b0269911",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.21003",
+      "publishedAt": "2026-11-17T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "K2-Horizon, 0.9B~375B 완전 공개 모델 6종",
+        "en": "K2-Horizon: six fully open models from 0.9B to 375B"
+      },
+      "summary": {
+        "ko": "K2-Horizon은 0.9B 밀집 모델부터 375B 규모 MoE까지 완전 공개 언어 모델 6종입니다. 수학·과학, 소프트웨어 개발, 심층 조사, 사무 자동화용 에이전트 작업을 겨냥하며, 같은 크기의 오픈 모델 대비 에이전트·코딩 벤치마크에서 앞서거나 대등하다고 합니다. 어텐션에 MoE를 적용한 MoVA 기법도 도입했습니다.",
+        "en": "K2-Horizon is a fleet of six fully open models, from a 0.9B dense model to a 375B MoE, aimed at agentic work and coding, and introduces Mixture-of-Value Attention (MoVA)."
+      },
+      "takeaway": {
+        "ko": "크기별 6종이라 사내 환경에서 쓸 규모를 골라 사무 자동화 업무로 직접 시험해 볼 수 있습니다.",
+        "en": "Six sizes let you pilot the one that fits your infrastructure on office tasks."
+      },
+      "metrics": {
+        "upvotes": 67
+      },
+      "highlights": {
+        "ko": [
+          "0.9B 밀집 모델부터 375B 규모 MoE까지 완전 공개 언어 모델 6종"
+        ],
+        "en": [
+          "six fully open models, from a 0.9B dense model to a 375B MoE"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 587
+      }
+    },
+    {
+      "id": "af19957a97c2",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/cloudflare/",
+      "publishedAt": "2026-11-17T15:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Cloudflare, 자체 모델 내놓고 '네오랩' 선언",
+        "en": "Cloudflare calls itself a neolab with its own models"
+      },
+      "summary": {
+        "ko": "웹 인프라 기업 Cloudflare가 AI Engineer Code Summit에서 스스로를 네오랩이라 소개했습니다. 네오랩은 모델을 직접 만들지만 OpenAI나 Anthropic은 아닌 회사를 뜻합니다. Cloudflare는 System One 계열 모델 Clef와 Clairic 두 종을 출시했습니다.",
+        "en": "At AI Engineer Code Summit, Cloudflare's Michelle Chen presented the company as a neolab: it builds models but isn't OpenAI or Anthropic. It launched two System One models, Clef and Clairic."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "System One 계열 모델 Clef와 Clairic 두 종"
+        ],
+        "en": [
+          "two System One models, Clef and Clairic"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 587
+      }
+    },
+    {
+      "id": "5b158888670a",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/17/datasette-lite/",
+      "publishedAt": "2026-11-17T16:48:33.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Datasette 서버 앱, 브라우저에서 그대로 구동",
+        "en": "Full Datasette server app now runs in the browser"
+      },
+      "summary": {
+        "ko": "Simon Willison이 Datasette Lite를 서비스 워커와 Pyodide로 전면 재작성했습니다. 서버 없이 브라우저에서 파이썬 앱이 돌아 실제 서버판과 거의 구분되지 않습니다. 특정 URL로 SQLite, JSON, CSV, SQL 스크립트를 열고 PyPI 버전이나 GitHub 커밋을 골라 불러올 수 있습니다.",
+        "en": "Simon Willison rewrote Datasette Lite with service workers and Pyodide so it is nearly indistinguishable from the server app. It loads SQLite, JSON, CSV or SQL files and lets you pick a PyPI version or GitHub commit."
+      },
+      "takeaway": {
+        "ko": "서버 구축 없이 데이터 파일을 브라우저에서 탐색·공유할 수 있어 내부 데이터 확인용 간이 도구로 시험해 볼 만합니다.",
+        "en": "Handy for serverless data browsing; try it as a quick internal data viewer."
+      },
+      "highlights": {
+        "ko": [
+          "서버 없이 브라우저에서 파이썬 앱이 돌아"
+        ],
+        "en": [
+          "nearly indistinguishable from the server app"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 587
+      }
+    },
+    {
+      "id": "1796857b9a1b",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/govern-and-discover-records-with-common-metadata-in-aws-agent-registry/",
+      "publishedAt": "2026-11-17T20:31:04.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "AWS Agent Registry, 공통 메타데이터로 에이전트 관리",
+        "en": "AWS Agent Registry adds common metadata for governance"
+      },
+      "summary": {
+        "ko": "AWS Agent Registry는 에이전트와 MCP 서버, 스킬을 등록·승인·검색하는 카탈로그입니다. 레코드마다 이름, 설명, 프로토콜 정보, 승인 상태가 있으며, 이번에는 사업부, 담당자, 위험 등급, 개발 환경 같은 조직 고유 속성을 공통 메타데이터로 붙여 관리하는 방법을 소개합니다.",
+        "en": "AWS Agent Registry catalogs agents, MCP servers and skills with approval status. The post shows how to add shared custom metadata such as business unit, owner, risk class and environment."
+      },
+      "takeaway": {
+        "ko": "에이전트가 늘어나기 전에 사업부·담당자·위험 등급 같은 사내 분류 기준부터 정해 두면 등록과 승인 체계를 잡기 쉽습니다.",
+        "en": "Define internal tags like owner and risk class before agents proliferate."
+      },
+      "highlights": {
+        "ko": [
+          "사업부, 담당자, 위험 등급, 개발 환경"
+        ],
+        "en": [
+          "business unit, owner, risk class and environment"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "3dd6debb07ef",
+      "source": "Vogue",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNeXBtR2dSaFZDS0tPUy0tQlNFQmM0OGV6VU1VNVlqTU85SXpuSVRjTmhUa0VXRFBOM1pWbTVobXRoclExMk9xYUJMQkMxQ281OVhzQnVjWTRTMDZkbjFjNTBRZXNTVUp6LUdNakx3WmtVcm5zeW5ZQlV3YjdFQk5YLThrR2dPM0g1cTFKaC15V2EyRTRXUlE?oc=5",
+      "publishedAt": "2026-11-17T11:00:00.000Z",
+      "section": "ax",
+      "region": "EU",
+      "title": {
+        "ko": "Zalando, 타사 상품도 대신 사주는 AI 쇼핑 에이전트",
+        "en": "Zalando's AI agent buys from other retailers"
+      },
+      "summary": {
+        "ko": "유럽 이커머스 기업 Zalando가 AI 쇼핑 에이전트 Zalando Extended를 선보입니다. 에이전트가 고객을 대신해 다른 소매업체 상품까지 구매해 주며, 자사 카탈로그를 넘어선 쇼핑 관문이 되려는 시도입니다. 프리미엄 홈·리빙 업체와 시범 운영 중입니다.",
+        "en": "Zalando is launching Zalando Extended, an AI shopping agent that completes purchases from other retailers on customers' behalf, and is testing it with a premium home and living retailer."
+      },
+      "takeaway": {
+        "ko": "재고 없는 타사 상품을 판매하는 모델이므로 결제·반품·책임 소재를 누가 지는지가 도입 시 핵심 확인 항목입니다.",
+        "en": "Key check: who owns payment, returns and liability for third-party items."
+      },
+      "highlights": {
+        "ko": [
+          "다른 소매업체 상품까지 구매",
+          "시범 운영 중"
+        ],
+        "en": [
+          "purchases from other retailers on customers' behalf"
+        ]
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600,
+        "url": "https://www.vogue.com/article/is-zalandos-new-ai-agent-a-blueprint-for-the-future-of-retail"
+      }
+    },
+    {
+      "id": "ca7dd68b4ce7",
+      "source": "GitHub",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "publishedAt": "2026-01-10T06:43:20.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "daily_stock_analysis, 6개 시장 주식 AI 분석·푸시",
+        "en": "daily_stock_analysis: AI stock analysis across six markets"
+      },
+      "summary": {
+        "ko": "AI 대형 언어 모델로 A주, 홍콩, 미국, 일본, 한국, 대만 관심 종목을 매일 자동 분석하는 시스템입니다. 결론, 점수, 추세, 매매 구간, 위험 경고를 담은 '결정 대시보드'를 기업 위챗, 페이슈, Telegram, Discord, Slack, 이메일로 보냅니다. 파이썬 기반이며 투자 판단은 별도 검증이 필요합니다.",
+        "en": "A Python system that uses LLMs to analyze watchlist stocks across A-shares, HK, US, Japan, Korea and Taiwan daily, pushing a decision dashboard to WeCom, Feishu, Telegram, Discord, Slack or email."
+      },
+      "takeaway": {
+        "ko": "일일 분석을 메신저로 자동 배포하는 구조는 참고할 만하지만, 매매 구간 등 AI 출력은 근거 검증 없이 쓰기 어렵습니다.",
+        "en": "The push-to-chat pipeline is reusable; AI trade signals need validation."
+      },
+      "metrics": {
+        "stars": 73059,
+        "forks": 57778,
+        "language": "Python",
+        "starsGained": 4355,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "매일 자동 분석",
+          "결정 대시보드"
+        ],
+        "en": [
+          "decision dashboard"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "c6524b3bb676",
+      "source": "GitHub",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "publishedAt": "2026-05-05T11:22:32.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Claude-BugHunter, 버그 헌팅용 Claude 스킬 묶음",
+        "en": "Claude-BugHunter: Claude skill bundle for bug hunting"
+      },
+      "summary": {
+        "ko": "버그 바운티와 외부 레드팀 작업을 돕는 Claude 스킬 묶음입니다. 스킬 83개, 슬래시 명령 15개, 24개 취약점 유형에 걸친 공개 보고서 패턴 681건을 담았고 Burp MCP 연동과 작업 폴더 구성도 지원합니다. DVWA, Juice Shop 등 실습 플랫폼에서 검증했다고 합니다.",
+        "en": "A Claude skill bundle for bug hunting and red-team work: 83 skills, 15 slash commands, 681 disclosed-report patterns across 24 vulnerability classes, plus Burp MCP integration."
+      },
+      "takeaway": {
+        "ko": "모의해킹 업무에는 쓸 수 있으나 반드시 승인된 범위에서만 사용하도록 내부 통제를 먼저 마련해야 합니다.",
+        "en": "Useful for pentesting, but only within authorized scope; set controls first."
+      },
+      "metrics": {
+        "stars": 8978,
+        "forks": 1345,
+        "language": "Python",
+        "starsGained": 1747,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "스킬 83개, 슬래시 명령 15개",
+          "Burp MCP 연동"
+        ],
+        "en": [
+          "83 skills, 15 slash commands"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "52adf762d407",
+      "source": "GitHub",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "publishedAt": "2026-01-16T17:17:17.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "stitch-skills, Google Stitch용 에이전트 스킬 모음",
+        "en": "stitch-skills: agent skills for Google Stitch"
+      },
+      "summary": {
+        "ko": "Google Stitch 디자인 도구를 코딩 에이전트에서 쓰게 해 주는 스킬과 플러그인 모음입니다. 에이전트 스킬 개방 표준을 따르며 Codex, Gemini CLI, Claude Code, Cursor, OpenCode 등과 호환됩니다. Codex는 마켓플레이스를 추가한 뒤 CLI로 플러그인을 설치합니다.",
+        "en": "A collection of agent skills and plugins for Google Stitch following the Agent Skills open standard, compatible with Codex, Gemini CLI, Claude Code, Cursor and OpenCode."
+      },
+      "takeaway": {
+        "ko": "디자인에서 코드까지 에이전트로 잇는 흐름을 시험하려면 쓰는 코딩 에이전트가 호환 목록에 있는지 먼저 확인하면 됩니다.",
+        "en": "Check your coding agent is on the compatibility list before trying."
+      },
+      "metrics": {
+        "stars": 10042,
+        "forks": 1325,
+        "language": "TypeScript",
+        "starsGained": 943,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "Codex, Gemini CLI, Claude Code, Cursor, OpenCode 등과 호환"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "01e478ba125a",
+      "source": "GitHub",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "publishedAt": "2026-01-23T20:37:37.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "last30days-skill, 최근 30일 반응 기반 AI 검색 스킬",
+        "en": "last30days-skill: AI search ranked by real engagement"
+      },
+      "summary": {
+        "ko": "편집자가 아니라 추천 수, 좋아요, 실제 돈의 움직임으로 점수를 매기는 에이전트 기반 검색 엔진 스킬입니다. Claude Code에서는 마켓플레이스로 설치하고, Codex, Cursor, Copilot, Gemini CLI 등 50여 개 에이전트 호스트에서는 npx로 설치합니다. 현재 v4 파이프라인을 기준으로 합니다.",
+        "en": "An agent-led search skill scored by upvotes, likes and real money rather than editors. Install via the Claude Code marketplace or npx for 50+ Agent Skills hosts; the README covers the v4 pipeline."
+      },
+      "takeaway": {
+        "ko": "트렌드 조사 업무에 쓰려면 점수 기준이 되는 출처와 편향을 먼저 확인해야 합니다.",
+        "en": "Check which sources drive the scores and their bias before relying on it."
+      },
+      "metrics": {
+        "stars": 68905,
+        "forks": 6143,
+        "language": "Python",
+        "starsGained": 901,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "추천 수, 좋아요, 실제 돈의 움직임으로 점수"
+        ],
+        "en": [
+          "scored by upvotes, likes and real money"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "480e1787c926",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=37362&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "publishedAt": "2026-11-17T18:43:52.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "모델별 최적 하네스는 달랐다…비용 최대 5배 차이",
+        "en": "Best harness differs by model; cost varies up to 5x"
+      },
+      "summary": {
+        "ko": "FrontierHarness Eval v1.1이 하네스 22개 구성과 모델 5개를 비교했습니다. 비용 대비 성능이 가장 좋은 하네스는 모델마다 달랐고, GLM-5.3과 Codex CLI 조합만 뚜렷한 우위였습니다. 같은 모델도 하네스에 따라 작업당 비용이 1.8~5.0배 차이 났으며 비싼 하네스가 통과율을 보장하지 않았습니다.",
+        "en": "FrontierHarness Eval v1.1 compared 22 harnesses and 5 models. The best value harness varied by model, cost per task differed 1.8-5.0x for the same model, and pricier harnesses did not guarantee higher pass rates."
+      },
+      "takeaway": {
+        "ko": "모델과 하네스를 묶어 통과당 비용으로 비교해야 하며, 실행 단계가 많을수록 비용이 늘어나는 점을 감안해야 합니다.",
+        "en": "Compare model-harness pairs by cost per pass; more steps raise cost."
+      },
+      "highlights": {
+        "ko": [
+          "작업당 비용이 1.8~5.0배 차이",
+          "비싼 하네스가 통과율을 보장하지 않았습니다"
+        ],
+        "en": [
+          "cost per task differed 1.8-5.0x"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 317
+      }
+    },
+    {
+      "id": "204a30011332",
+      "source": "Hacker News",
+      "url": "https://opencode.ai/product/browse",
+      "publishedAt": "2026-11-16T21:20:37.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "OpenCode Browse, 에이전트가 내 실제 브라우저를 쓴다",
+        "en": "OpenCode Browse lets agents use your real browser"
+      },
+      "summary": {
+        "ko": "MCP 서버와 크롬 확장 프로그램으로 에이전트가 이용자의 탭, 로그인, 확장 프로그램이 있는 실제 브라우저를 쓰게 합니다. 백그라운드 탭에서 페이지 읽기, 클릭, 입력, 스크린샷, 탭 녹화를 하고 로그인·2FA·결제 단계에서는 사용자에게 넘깁니다. Chrome, Edge, Brave 등을 지원합니다.",
+        "en": "An MCP server and Chromium extension that lets agents use your real browser with tabs, logins and extensions, working in background tabs and handing control back for login, 2FA or payment."
+      },
+      "takeaway": {
+        "ko": "로그인된 세션을 에이전트에 열어 주는 방식이라 접근 가능한 계정 범위와 민감 정보 노출 통제를 먼저 확인해야 합니다.",
+        "en": "It exposes logged-in sessions; verify account scope and data exposure controls."
+      },
+      "metrics": {
+        "points": 321,
+        "comments": 207
+      },
+      "highlights": {
+        "ko": [
+          "로그인·2FA·결제 단계에서는 사용자에게 넘깁니다"
+        ],
+        "en": [
+          "handing control back for login, 2FA or payment"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "MoE",
+      "desc": {
+        "ko": "여러 전문가 모듈 중 일부만 골라 작동시켜 효율을 높이는 모델 구조입니다.",
+        "en": "A model design that activates only some expert modules per input to save compute."
+      }
+    },
+    {
+      "term": "MCP",
+      "desc": {
+        "ko": "AI 에이전트가 외부 도구와 데이터에 연결되는 공통 규격입니다.",
+        "en": "A common standard for connecting AI agents to external tools and data."
+      }
+    },
+    {
+      "term": "하네스",
+      "desc": {
+        "ko": "모델을 감싸 도구 호출과 실행 단계를 관리하는 에이전트 실행 틀입니다.",
+        "en": "The agent runtime wrapper that manages a model's tool calls and execution steps."
+      }
+    },
+    {
+      "term": "네오랩",
+      "desc": {
+        "ko": "OpenAI·Anthropic이 아니면서 자체 AI 모델을 만드는 신생 연구 조직을 뜻합니다.",
+        "en": "A newer AI company building its own models that is not OpenAI or Anthropic."
+      }
+    },
+    {
+      "term": "Pyodide",
+      "desc": {
+        "ko": "파이썬을 웹 브라우저 안에서 실행하게 해 주는 기술입니다.",
+        "en": "Technology that runs Python inside a web browser."
+      }
+    },
+    {
+      "term": "서비스 워커",
+      "desc": {
+        "ko": "브라우저 뒤에서 요청을 가로채 처리하는 스크립트로, 서버 역할도 흉내 낼 수 있습니다.",
+        "en": "A browser background script that intercepts requests and can mimic a server."
+      }
+    },
+    {
+      "term": "Hy4 플래시",
+      "desc": {
+        "ko": "텐센트가 일상 업무용으로 내놓은 저비용 AI 모델입니다.",
+        "en": "Tencent's low-cost AI model for everyday office work."
+      }
+    },
+    {
+      "term": "Zalando Extended",
+      "desc": {
+        "ko": "Zalando가 타사 상품까지 대신 구매해 주는 AI 쇼핑 에이전트입니다.",
+        "en": "Zalando's AI shopping agent that buys from other retailers for you."
+      }
+    }
+  ]
+}
