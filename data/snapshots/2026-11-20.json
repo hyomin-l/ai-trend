@@ -1,0 +1,771 @@
+{
+  "date": "2026-11-20",
+  "issue": 27,
+  "generatedAt": "2026-11-19T20:51:00.179Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [
+    "reddit",
+    "gnews-construction-en"
+  ],
+  "stats": {
+    "collected": 109,
+    "published": 19
+  },
+  "front": [
+    "7d9ded845c60",
+    "b898a1b2127c",
+    "2fc737ddb995"
+  ],
+  "items": [
+    {
+      "id": "7d9ded845c60",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217594",
+      "publishedAt": "2026-11-20T05:25:23.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽, 나스닥 상장 첫날 기업가치 2조달러…스페이스X 추월",
+        "en": "Anthropic Debuts on Nasdaq at $2 Trillion Valuation, Topping SpaceX"
+      },
+      "summary": {
+        "ko": "앤트로픽이 19일 나스닥에 종목코드 'ANT'로 상장했습니다. 첫 거래가는 111.50달러로 공모가 83달러보다 34.3% 높았고, 완전희석 기준 기업가치는 약 2조달러로 스페이스X를 넘어섰습니다. 9억8000만주 공모로 813억달러를 조달해 역대 최대 IPO 기록을 세웠습니다.",
+        "en": "Anthropic listed on Nasdaq as 'ANT', opening at $111.50, 34.3% above its $83 IPO price, for a ~$2T fully diluted valuation. It raised $81.3B, a record IPO."
+      },
+      "takeaway": {
+        "ko": "상장으로 재무 공시가 공개되면 Claude 공급사의 안정성을 점검하는 자료로 쓸 수 있는지 확인할 만합니다.",
+        "en": "Check if new public filings help vet Claude vendor stability."
+      },
+      "highlights": {
+        "ko": [
+          "완전희석 기준 기업가치는 약 2조달러",
+          "813억달러를 조달해 역대 최대 IPO 기록"
+        ],
+        "en": [
+          "~$2T fully diluted valuation",
+          "raised $81.3B, a record IPO"
+        ]
+      },
+      "related": [
+        {
+          "source": "Anthropic",
+          "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering"
+        },
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/"
+        },
+        {
+          "source": "GeekNews",
+          "url": "https://news.hada.io/topic?id=37482&utm_source=geeknews&utm_medium=rss&utm_campaign=news"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "b898a1b2127c",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
+      "publishedAt": "2026-11-18T21:35:43.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "구글 딥마인드, 빠른 작업 완료 내세운 Gemini 4 Neon 공개",
+        "en": "Google DeepMind Introduces Gemini 4 Neon"
+      },
+      "summary": {
+        "ko": "Google DeepMind가 Gemini 4 Neon을 공개했습니다. 복잡한 소프트웨어 개발, 지식 업무, 과학 워크플로에서 작업을 처음부터 끝까지 빠르게 마치는 것을 내세운 모델입니다. 최고 수준 사고 단계에서 Artificial Analysis 지능 지수 61점으로 전체 3위에 올랐다고 밝혔습니다.",
+        "en": "Google DeepMind introduced Gemini 4 Neon, built for fast end-to-end task completion. It scores 61 on the Artificial Analysis Intelligence Index at xhigh thinking, #3 overall."
+      },
+      "takeaway": {
+        "ko": "벤치마크 점수는 제작사 발표이므로 자사 업무 데이터로 속도와 품질을 따로 검증해야 합니다.",
+        "en": "Vendor benchmark; re-test on your own workloads."
+      },
+      "highlights": {
+        "ko": [
+          "지능 지수 61점으로 전체 3위"
+        ],
+        "en": [
+          "61 on the Artificial Analysis Intelligence Index"
+        ]
+      },
+      "related": [
+        {
+          "source": "Latent Space",
+          "url": "https://latent.space/p/ainews-gemini-4-neon-gdm-s-opus-sol-contender/"
+        },
+        {
+          "source": "Simon Willison",
+          "url": "https://simonwillison.net/2026/Nov/18/llm-gemini/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "2fc737ddb995",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "publishedAt": "2026-11-19T20:18:49.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "젠슨 황 스캔들, 사건 전개 타임라인",
+        "en": "The Unfolding Jensen Huang Scandal: A Timeline"
+      },
+      "summary": {
+        "ko": "TechCrunch가 엔비디아 공동창업자이자 전 CEO인 젠슨 황의 스캔들 전개 과정을 정리했습니다. 황은 40년간 함께한 아내 외의 관계를 최근 인정했습니다. 미국 당국은 상대 중 한 명인 Megaspeed 임원 Alice Huang을 중국 스파이로 의심하고 있다고 전했습니다.",
+        "en": "TechCrunch lays out the Jensen Huang scandal. The former Nvidia CEO admitted affairs; U.S. officials suspect Megaspeed executive Alice Huang of spying for Beijing."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "Megaspeed 임원 Alice Huang을 중국 스파이로 의심"
+        ],
+        "en": [
+          "suspect Megaspeed executive Alice Huang"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "39259ab178b6",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217562",
+      "publishedAt": "2026-11-19T18:25:39.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "오픈AI, AI로 AMD GPU 설계 개선…“5개월 만에 1년치 진전”",
+        "en": "OpenAI Uses AI to Improve AMD GPU Design, Claims a Year of Progress in Five Months"
+      },
+      "summary": {
+        "ko": "오픈AI가 AI 모델로 AMD 주력 GPU의 회로 설계를 다시 써 전력·성능·면적(PPA) 지표에서 최대 14% 개선을 확인했습니다. 시놉시스 설계 자동화 도구로 기존 기능 유지 여부를 검증했고, 수년간 다듬은 설계에서 5개월 만에 약 1년 치 진전을 냈다고 밝혔습니다.",
+        "en": "OpenAI said its AI rewrote AMD GPU circuit code, gaining up to 14% in power, performance and area, verified with Synopsys EDA tools in under five months."
+      },
+      "takeaway": {
+        "ko": "AI가 고친 설계를 기존 기능 유지 검증 도구로 확인한 방식이어서, 자사 설계 업무에 적용할 때도 검증 체계가 먼저입니다.",
+        "en": "Pair AI-edited designs with automated equivalence checks."
+      },
+      "highlights": {
+        "ko": [
+          "최대 14% 개선",
+          "5개월 만에 약 1년 치 진전"
+        ],
+        "en": [
+          "up to 14%",
+          "under five months"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "a628e3d51eab",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1037902/google-gemini-macos-ai-computer-use",
+      "publishedAt": "2026-11-19T18:21:13.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Mac용 Gemini, 컴퓨터 직접 조작 기능 추가",
+        "en": "Gemini on Mac Can Now Use Your Computer"
+      },
+      "summary": {
+        "ko": "구글 Gemini의 macOS 앱에 컴퓨터 사용 기능이 들어갔습니다. 로컬 파일, 데스크톱 앱, 웹을 넘나드는 여러 단계 작업을 맡길 수 있고, 양식 작성이나 발표자료 제작 등에 쓸 수 있습니다. 접근할 앱은 사용자가 정하며, 현재는 미국 영어 사용자부터 순차 제공됩니다.",
+        "en": "Gemini's macOS app gains computer use for multi-step tasks across local files, desktop apps and the web. Users choose accessible apps; rolling out in English in the US."
+      },
+      "takeaway": {
+        "ko": "접근 가능한 앱을 사용자가 지정하므로, 사내 도입 전 허용 범위 정책부터 정해야 합니다.",
+        "en": "Define which apps agents may access before rollout."
+      },
+      "highlights": {
+        "ko": [
+          "접근할 앱은 사용자가 정하며"
+        ],
+        "en": [
+          "Users choose accessible apps"
+        ]
+      },
+      "related": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "eba1ef6c1e98",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.24738",
+      "publishedAt": "2026-11-19T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Jeveration: 빠른 판단 모델이 이미지도 한 번에 생성",
+        "en": "Jeveration: System One Models Now Generate"
+      },
+      "summary": {
+        "ko": "Jev 같은 System One 모델은 병렬 예측으로 빠르게 결정을 내놓습니다. 이 논문은 같은 방식으로 고품질 이미지를 한 번의 순전파로 생성할 수 있음을 보입니다. 학습을 고정한 시각언어 모델을 활용하며, 병렬 예측이 하나의 일관된 이미지로 모이게 하는 전역 일관성이 핵심 과제입니다.",
+        "en": "The paper shows System One models like Jev can generate high-quality images in a single forward pass, built on a frozen vision-language model, with global consistency as the key challenge."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 110
+      },
+      "highlights": {
+        "ko": [
+          "고품질 이미지를 한 번의 순전파로 생성"
+        ],
+        "en": [
+          "single forward pass"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 550
+      }
+    },
+    {
+      "id": "694c53c6c734",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.23068",
+      "publishedAt": "2026-11-19T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "에이전트 진화의 병목은 ‘개선을 알아보는 평가’",
+        "en": "The Resolution Hypothesis: Agent Evolution's Key Is Identifying Improvements"
+      },
+      "summary": {
+        "ko": "에이전트 진화는 후보 프롬프트·스킬·메모리를 제안하고 점수가 높은 것을 채택하는 반복입니다. 논문은 이 방식이 막히는 이유가 제안 부족이 아니라, 잡음 섞인 평가가 더 나은 후보를 가려내지 못하기 때문이라는 해상도 가설을 제시합니다. 진화 방법 7종과 모델 6종으로 검증했습니다.",
+        "en": "Agent evolution stalls not because proposers fail but because noisy evaluations cannot identify better artifacts, the paper argues, testing seven methods and six models."
+      },
+      "takeaway": {
+        "ko": "에이전트를 자동 개선하려면 후보 생성보다 평가 데이터의 잡음부터 점검해야 합니다.",
+        "en": "Audit evaluation noise before automating agent improvement."
+      },
+      "metrics": {
+        "upvotes": 35
+      },
+      "highlights": {
+        "ko": [
+          "잡음 섞인 평가가 더 나은 후보를 가려내지 못하기 때문"
+        ],
+        "en": [
+          "noisy evaluations cannot identify better artifacts"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 549
+      }
+    },
+    {
+      "id": "ebd75882b3d9",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-harness-adds-strands-harness-defaults-built-in-tools-and-lifecycle-hooks/",
+      "publishedAt": "2026-11-19T20:01:06.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "AgentCore harness, 오픈소스 Strands harness와 수명주기 훅 도입",
+        "en": "Bedrock AgentCore Harness Adds Strands Defaults, Built-in Tools, Lifecycle Hooks"
+      },
+      "summary": {
+        "ko": "아마존이 Bedrock AgentCore harness를 올해 공개한 오픈소스 에이전트 하네스 Strands harness 기반으로 개편했습니다. 기본 설정과 내장 도구를 제공하고, 환불 같은 중요한 행동 전에 직접 만든 결정적 검사와 알림을 넣을 수 있는 수명주기 훅을 추가했습니다. 라이선스는 Apache 2.0입니다.",
+        "en": "Amazon upgraded Bedrock AgentCore harness to the open-source Strands harness (Apache 2.0), adding built-in tools and lifecycle hooks for deterministic checks before consequential actions."
+      },
+      "takeaway": {
+        "ko": "환불처럼 되돌리기 어려운 작업에는 훅으로 규칙 기반 승인 단계를 넣을 수 있는지 확인할 만합니다.",
+        "en": "Test hooks as approval gates for irreversible actions."
+      },
+      "highlights": {
+        "ko": [
+          "결정적 검사와 알림을 넣을 수 있는 수명주기 훅"
+        ],
+        "en": [
+          "lifecycle hooks"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "f6732385d179",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/send-the-firefighters-to-the-fires-6cd7b1893ae7?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-11-19T12:54:05.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "소방관은 불난 곳으로: 엔터프라이즈 UI가 잊은 우선순위",
+        "en": "Send the Firefighters to the Fires"
+      },
+      "summary": {
+        "ko": "사용자의 일이 고장 난 것을 고치는 것이라면 화면은 고장 난 것부터 보여줘야 한다는 UX 칼럼입니다. 이 원칙은 1903년 테일러, 1990년대 제록스 PARC, 산업 관제실 표준에도 담겼지만 기업용 소프트웨어는 계속 잊는다고 지적합니다. 접수 순서대로 출동하는 소방서에 비유합니다.",
+        "en": "A UX essay argues screens should show what's broken first, a principle from Taylor, Xerox PARC and control-room standards that enterprise software keeps forgetting."
+      },
+      "takeaway": {
+        "ko": "사내 대시보드가 접수 순서가 아니라 긴급도 순으로 정렬되는지 점검해 볼 만합니다.",
+        "en": "Check if internal dashboards sort by urgency, not arrival."
+      },
+      "highlights": {
+        "ko": [
+          "고장 난 것부터 보여줘야 한다"
+        ],
+        "en": [
+          "show what's broken first"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 549
+      }
+    },
+    {
+      "id": "1a7855a75063",
+      "source": "전자신문",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE03WmxvclNJUjYtaGw3V1BuMFd3TF9Ic0M3Zkd6c0F4cXBOMnljVWVlTld3d0Z6bU03VGwzQ3Fvc3p0SkM0YXZVRlBBMGc2dw?oc=5",
+      "publishedAt": "2026-11-19T06:40:00.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "GS리테일 홈쇼핑AX부문장 “검색부터 상품 운영까지 쇼핑 전 과정에 AI”",
+        "en": "GS Retail's AX Chief: AI Across the Entire Shopping Journey"
+      },
+      "summary": {
+        "ko": "GS샵이 상품 큐레이션부터 진열까지 돕는 'MD 큐레이션 시스템'을 구축하고 고객용 AI 쇼핑 어시스턴트, 협력사 지원으로 AI 적용 범위를 넓히고 있습니다. 고객 경험, 데이터, 업무 혁신, 협력사 지원 네 영역에서 추진하며, 9월 뷰티 상품군에 어시스턴트를 도입했고 일부 업무에서 준비시간 단축과 구매자 증가가 나타났습니다.",
+        "en": "GS Shop built an MD curation system and a customer AI shopping assistant (beauty, since September), expanding AI across four areas, with shorter prep time and more buyers in some tasks."
+      },
+      "takeaway": {
+        "ko": "전 과정 적용 전에 뷰티처럼 한 상품군에서 먼저 시험한 방식이 참고할 만합니다.",
+        "en": "Pilot in one category first, as GS Shop did with beauty."
+      },
+      "highlights": {
+        "ko": [
+          "9월 뷰티 상품군에 어시스턴트를 도입"
+        ],
+        "en": [
+          "beauty, since September"
+        ]
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550,
+        "url": "https://www.etnews.com/20261119000308"
+      }
+    },
+    {
+      "id": "1555ed6bcb12",
+      "source": "GitHub",
+      "url": "https://github.com/jingyaogong/minimind",
+      "publishedAt": "2024-07-27T04:34:12.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "minimind: 3위안·2시간으로 소형 언어모델을 처음부터 학습",
+        "en": "minimind: Train a Tiny Language Model from Scratch"
+      },
+      "summary": {
+        "ko": "MiniMind는 약 3위안 비용과 2시간 학습으로 64M 규모의 초소형 언어모델을 처음부터 만드는 오픈소스 프로젝트입니다. 사전학습, 지도 미세조정, LoRA, 강화학습, 증류까지 전 과정을 PyTorch 기본 기능만으로 구현했습니다. 일반 개인 GPU에서 재현할 수 있어 LLM 입문 교육용으로 적합합니다. Apache 2.0 라이선스입니다.",
+        "en": "MiniMind trains a ~64M-parameter language model from scratch for about 3 yuan and 2 hours, with full training pipeline in native PyTorch. Apache 2.0, suited to LLM learning."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 66793,
+        "forks": 8778,
+        "language": "Python",
+        "starsGained": 1498,
+        "period": "week"
+      },
+      "highlights": {
+        "ko": [
+          "64M 규모의 초소형 언어모델",
+          "PyTorch 기본 기능만으로 구현"
+        ],
+        "en": [
+          "~64M-parameter language model"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "b4f1a99333cf",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/tencent/Hy4-flash",
+      "publishedAt": "2026-11-17T03:44:46.000Z",
+      "section": "repos",
+      "region": "CN",
+      "title": {
+        "ko": "텐센트 Hy4-flash: 활성 120억 파라미터의 100만 토큰 멀티모달 모델",
+        "en": "Tencent Hy4-flash: 1M-Context Multimodal Model with 12B Active Parameters"
+      },
+      "summary": {
+        "ko": "텐센트 Hy 시리즈 중 가장 비용 효율이 높은 모델로, 전체 2200억 파라미터 가운데 토큰당 120억만 활성화하는 MoE 구조입니다. 텍스트와 이미지를 입력받아 텍스트를 생성하며 최대 100만 토큰 컨텍스트를 지원합니다. 42층 언어 백본에 SigLIP2 기반 비전 인코더가 연결되어 있습니다.",
+        "en": "Tencent's most cost-effective Hy model: 220B-parameter MoE with 12B active per token, text and image input, text output, and up to 1M context."
+      },
+      "takeaway": {
+        "ko": "긴 문서 처리용으로 검토한다면 100만 토큰 구간의 실제 정확도와 서빙 비용을 먼저 확인해야 합니다.",
+        "en": "Verify real accuracy and serving cost at 1M context."
+      },
+      "metrics": {
+        "likes": 332,
+        "downloads": 2053
+      },
+      "highlights": {
+        "ko": [
+          "토큰당 120억만 활성화하는 MoE 구조",
+          "최대 100만 토큰 컨텍스트"
+        ],
+        "en": [
+          "12B active per token"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "6f06a2856d59",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/apple/FastFrames-L",
+      "publishedAt": "2026-11-16T17:21:04.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "애플 FastFrames-L: 실시간에 가까운 480p 영상 생성 모델",
+        "en": "Apple FastFrames-L: Interactive-Latency 480p Video Generation"
+      },
+      "summary": {
+        "ko": "애플이 공개한 FastFrames는 480p 영상을 대화형 수준의 지연으로 만드는 영상 생성 모델입니다. 1.3B 규모 S와 14B 규모 L이 있으며, 두 모델 모두 2단계로 영상을 만드는 자기회귀 확산 방식입니다. 최적화한 LingBot 1.3B는 공식 모델보다 16배 빠르고 카메라 제어를 지원합니다. CUDA 12.8 호환 NVIDIA GPU가 필요합니다.",
+        "en": "Apple's FastFrames (1.3B S, 14B L) are autoregressive two-step video diffusion models making 480p video at interactive latency; optimized LingBot 1.3B is 16x faster. Needs NVIDIA GPU."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 317,
+        "downloads": 0
+      },
+      "highlights": {
+        "ko": [
+          "480p 영상을 대화형 수준의 지연",
+          "공식 모델보다 16배 빠르고"
+        ],
+        "en": [
+          "480p video at interactive latency"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "dc79824f7494",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted",
+      "publishedAt": "2026-11-16T06:52:31.000Z",
+      "section": "repos",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Qwen3.8-27B-pi-adapted: 코딩 에이전트용 LoRA 어댑터",
+        "en": "Qwen3.8-27B-pi-adapted: LoRA Adapter for Coding Agents"
+      },
+      "summary": {
+        "ko": "Qwen3.8-27B를 pi 코딩 에이전트의 두뇌로 쓰도록 강화학습으로 훈련한 LoRA 어댑터입니다. 추론 모드를 끄고도 Terminal-Bench 2.1에서 최고 추론 설정의 기본 모델과 비슷한 56.6%(기본 54.2%)를 냈고, 토큰은 약 4.5배 적게 썼습니다. SWE-bench Pro는 39.2%에서 64.7%로 올랐습니다.",
+        "en": "A LoRA adapter RL-trained to run Qwen3.8-27B behind the pi coding agent. With thinking off it hits 56.6% on Terminal-Bench 2.1 using ~4.5x fewer tokens; SWE-bench Pro rises 39.2% to 64.7%."
+      },
+      "takeaway": {
+        "ko": "추론 모드를 끄고 토큰을 줄여도 성능이 유지되는지 사내 코딩 과제로 비교해 볼 만합니다.",
+        "en": "Compare thinking-off cost and quality on internal coding tasks."
+      },
+      "metrics": {
+        "likes": 722,
+        "downloads": 1320
+      },
+      "highlights": {
+        "ko": [
+          "토큰은 약 4.5배 적게",
+          "39.2%에서 64.7%로"
+        ],
+        "en": [
+          "~4.5x fewer tokens"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "32cca7ee5709",
+      "source": "Hacker News",
+      "url": "https://ounapuu.ee/posts/2026/11/19/unsafeguards/",
+      "publishedAt": "2026-11-19T16:30:18.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "“AI 안전장치 집어치워라”…보안 점검 막힌 개발자의 불만",
+        "en": "Fuck Your AI Safeguards"
+      },
+      "summary": {
+        "ko": "한 시니어 개발자가 Claude Code에 자기 프로젝트의 보안 개선점을 찾게 했는데, 쉬운 수정 한 건 이후 AI 안전장치에 작업이 막혔다고 토로했습니다. 자신이 통제하는 제품의 보안 문제를 고치려는데도 예외 신청을 하라는 식이라는 불만입니다. Hacker News에서 306점, 댓글 108개로 논쟁이 이어졌습니다.",
+        "en": "A senior engineer says Claude Code's safeguards blocked a security fix on his own product after one easy change, pointing him to an exemption process. HN debated it."
+      },
+      "takeaway": {
+        "ko": "보안 점검에 코딩 에이전트를 쓸 때 안전장치가 차단하는 범위와 예외 절차를 미리 확인해야 합니다.",
+        "en": "Learn safeguard limits and exemption steps before security use."
+      },
+      "metrics": {
+        "points": 306,
+        "comments": 108
+      },
+      "highlights": {
+        "ko": [
+          "AI 안전장치에 작업이 막혔다"
+        ],
+        "en": [
+          "safeguards blocked a security fix"
+        ]
+      },
+      "related": [
+        {
+          "source": "GeekNews",
+          "url": "https://news.hada.io/topic?id=37484&utm_source=geeknews&utm_medium=rss&utm_campaign=news"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "f1feb2e4bb48",
+      "source": "Hacker News",
+      "url": "https://nicolasbouliane.com/blog/death-by-ai",
+      "publishedAt": "2026-11-18T06:47:26.000Z",
+      "section": "pulse",
+      "region": "EU",
+      "title": {
+        "ko": "“AI가 All About Berlin을 죽이고 있다”…검색 트래픽 70~75% 급감",
+        "en": "AI Is Killing All About Berlin"
+      },
+      "summary": {
+        "ko": "2017년부터 베를린 정보 사이트를 운영해 온 운영자가 구글 AI Overviews 이후 7년간 성장하던 트래픽이 70~75% 줄었다고 밝혔습니다. 검색하면 광고, 자신의 콘텐츠로 학습한 AI 답변이 먼저 나오고 링크는 그다음에 보입니다. 수입이 줄어 새로운 운영 방식을 찾아야 한다고 썼습니다.",
+        "en": "The operator of All About Berlin says Google AI Overviews cut his traffic 70-75% after seven years of growth, as ads and AI answers now precede his link."
+      },
+      "takeaway": {
+        "ko": "검색 유입에 의존하는 사내외 콘텐츠 채널은 AI 요약 노출 이후 유입 변화를 추적해야 합니다.",
+        "en": "Track inbound traffic changes after AI summaries appear."
+      },
+      "metrics": {
+        "points": 801,
+        "comments": 709
+      },
+      "highlights": {
+        "ko": [
+          "트래픽이 70~75% 줄었다"
+        ],
+        "en": [
+          "cut his traffic 70-75%"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 599
+      }
+    },
+    {
+      "id": "695d1f9a1cf6",
+      "source": "Hacker News",
+      "url": "https://revscope.co/blog/search-seo-geo-2026/",
+      "publishedAt": "2026-11-18T00:17:58.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "구글 AI 답변, 외부 사이트 클릭 40% 감소시킨다",
+        "en": "Google's AI Answers Reducing Search Traffic by 40%"
+      },
+      "summary": {
+        "ko": "미국 데스크톱 이용자 일부에게 AI Overviews를 숨기는 무작위 실험에서, 요약이 뜨면 외부 사이트 클릭이 약 40% 줄었습니다. DataForSEO가 추적하는 미국 키워드의 절반 이상에 요약이 나타나며, 2년 전 6%에서 크게 늘었습니다. 업계의 대응책 GEO는 아직 손실을 메울 방법을 보여주지 못했습니다.",
+        "en": "In a randomized US desktop test, AI Overviews cut clicks to outside sites by about 40%. They now appear on over half of tracked keywords, up from 6%; GEO has yet to offset the loss."
+      },
+      "takeaway": {
+        "ko": "검색 유입에 의존하는 마케팅은 GEO 효과가 입증되지 않았다는 점을 감안해 채널을 분산해야 합니다.",
+        "en": "GEO is unproven; diversify beyond search traffic."
+      },
+      "metrics": {
+        "points": 709,
+        "comments": 562
+      },
+      "highlights": {
+        "ko": [
+          "외부 사이트 클릭이 약 40% 줄었습니다"
+        ],
+        "en": [
+          "cut clicks to outside sites by about 40%"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "d73282dc0549",
+      "source": "Retail TouchPoints",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdG1WYUxxVHlyLWVlRmV3OVBobnpyWjdHZllJdFZrRjdvSTNnc2FfaGU3S2l0SEJHYk0wTUlBV3duM2Mtb25HX0dQQWVhS29Tc0tnWVdQRGhGa0pOYVJheEd1M3VySU02aFRKVFNhakgzZF9OYnlzMTFpZmpiRDdkb2lpUlV5MlJUQlBMRzZBOUVxMVJBaHNHeXVaZ3ZrYS1nRmJQcnpBUGZsSXk3ZFZpUg?oc=5",
+      "publishedAt": "2026-11-19T17:01:49.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "소매업체 다수, AI 거버넌스보다 도입이 빠르다",
+        "en": "Majority of Retailers Adopting AI Faster Than They Can Govern It"
+      },
+      "summary": {
+        "ko": "Retail TouchPoints가 소매업체 다수가 관리 체계를 갖추는 속도보다 AI를 빠르게 도입하고 있다는 제목의 기사를 실었습니다. 현재 확인되는 정보는 제목뿐이어서 구체적인 조사 수치나 내용은 확인되지 않았습니다.",
+        "en": "Retail TouchPoints reports most retailers adopt AI faster than they can govern it. Only the headline is available; no details confirmed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "retail",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 83,
+        "reason": "publisher-http-403"
+      }
+    },
+    {
+      "id": "6ba1622738b0",
+      "source": "SupplyChainBrain",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOQldZZXlUT09DSTZZRG1yZjFQWlYtSHFWM3puN3FnUlhZdnhOZU9CZVdyNEM2U3NQa0J3c2J1MEVXQkpid3hoMlZKWE9Jb1V5M1ExaUxmams4S2t6UnJTSlM3eVlETlFKQzgwZkNoWTE3OThvcm8yOXZ5cUVWcFMzdkV4QzZkazA1ellmakoxcXRKUHVVck1XQS1RanhVOFVBVGEtY0tPRFhtd2NLVE0wRTFWNVh5cGo5QkdKS3BzTncza1VRVmFZZ2ZKazZXa2ZCOUItdndIamFHdm1TSmZ3aWhjNA?oc=5",
+      "publishedAt": "2026-11-19T10:24:13.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "AI 에이전트가 공급망 계획에 들어오지 못하는 5가지 장벽",
+        "en": "The Five Barriers Keeping AI Agents Out of Supply Chain Planning"
+      },
+      "summary": {
+        "ko": "SupplyChainBrain이 AI 에이전트가 공급망 계획 업무에 쓰이지 못하게 막는 다섯 가지 장벽을 다룬 기사를 실었습니다. 현재 확인되는 정보는 제목뿐이어서 각 장벽의 구체적인 내용은 확인되지 않았습니다.",
+        "en": "SupplyChainBrain lists five barriers keeping AI agents out of supply chain planning. Only the headline is available; the barriers themselves are unconfirmed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 81,
+        "reason": "publisher-robots-http-403"
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "완전희석",
+      "desc": {
+        "ko": "스톡옵션 등 앞으로 늘 수 있는 주식까지 모두 포함해 계산하는 방식입니다.",
+        "en": "A valuation method counting all potential shares, such as stock options."
+      }
+    },
+    {
+      "term": "PPA",
+      "desc": {
+        "ko": "반도체 설계의 세 가지 성적표인 전력, 성능, 면적을 묶어 부르는 말입니다.",
+        "en": "Power, performance and area: the three key measures of chip design quality."
+      }
+    },
+    {
+      "term": "수명주기 훅",
+      "desc": {
+        "ko": "에이전트가 일하는 중간 단계마다 직접 만든 검사나 알림을 끼워 넣는 장치입니다.",
+        "en": "A mechanism to insert your own checks or alerts at each step of an agent's work."
+      }
+    },
+    {
+      "term": "MoE",
+      "desc": {
+        "ko": "여러 전문가 모듈 중 일부만 골라 쓰는 방식으로 계산량을 줄이는 모델 구조입니다.",
+        "en": "A model design that uses only some expert modules per input to cut compute."
+      }
+    },
+    {
+      "term": "LoRA",
+      "desc": {
+        "ko": "큰 모델은 그대로 두고 작은 추가 부품만 학습시켜 특정 용도에 맞추는 기법입니다.",
+        "en": "A technique that tunes a large model by training only a small add-on."
+      }
+    },
+    {
+      "term": "GEO",
+      "desc": {
+        "ko": "AI 검색 답변에 자사 콘텐츠가 인용되도록 최적화하는 작업입니다.",
+        "en": "Optimizing content so AI search answers cite it."
+      }
+    },
+    {
+      "term": "AI Overviews",
+      "desc": {
+        "ko": "구글 검색 결과 맨 위에 AI가 요약 답변을 보여주는 기능입니다.",
+        "en": "Google's feature showing an AI-written answer atop search results."
+      }
+    }
+  ]
+}
