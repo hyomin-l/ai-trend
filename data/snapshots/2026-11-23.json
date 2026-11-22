@@ -1,0 +1,789 @@
+{
+  "date": "2026-11-23",
+  "issue": 28,
+  "generatedAt": "2026-11-22T20:51:07.763Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [
+    "reddit"
+  ],
+  "stats": {
+    "collected": 107,
+    "published": 20
+  },
+  "front": [
+    "9afed0143cc7",
+    "c45524e59474",
+    "000028228240"
+  ],
+  "items": [
+    {
+      "id": "9afed0143cc7",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/news/ipo-close",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Anthropic, IPO 마무리…공모가 83달러에 11억 주 발행",
+        "en": "Anthropic closes IPO at $83 per share, 1.127 billion shares"
+      },
+      "summary": {
+        "ko": "Anthropic이 기업공개(IPO)를 마무리했습니다. 공모가 주당 83달러로 클래스A 보통주 11억 2,700만 주를 발행했고, 주관사의 추가 매입 옵션 1억 4,700만 주도 전량 행사됐습니다. 회사가 11억 300만 주, 기존 주주가 약 2,365만 주를 팔았습니다. 동시 사모 발행도 종결됐습니다.",
+        "en": "Anthropic closed its IPO of 1.127B Class A shares at $83, including full exercise of the 147M-share underwriter option. It sold about 1.103B shares and selling stockholders about 23.6M."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "공모가 주당 83달러",
+          "추가 매입 옵션 1억 4,700만 주도 전량 행사"
+        ],
+        "en": [
+          "1.127B Class A shares at $83"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "c45524e59474",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217657",
+      "publishedAt": "2026-11-22T17:25:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "오픈AI \"AI가 연구 작업 절반 스스로 완료\"…7개월 만에 성공률 2배",
+        "en": "OpenAI: agents now finish half of AI research tasks alone, success rate doubled in 7 months"
+      },
+      "summary": {
+        "ko": "오픈AI가 사내 연구 에이전트의 성과를 담은 두 번째 보고서를 공개했습니다. 사람이 2~4시간 걸리는 AI 연구 작업을 에이전트가 스스로 끝내는 비율이 7개월 만에 23%에서 46%로 올랐습니다. 다만 코덱스 중심의 사내 조사라 일반 이용자 성능과는 다르며, 연구 아이디어 구상과 핵심 결정은 여전히 사람이 맡습니다.",
+        "en": "OpenAI's second research-acceleration report says agents completing 2-4 hour AI research tasks rose from 23% to 46% in seven months. It is an internal, Codex-centered study; humans still set ideas and key decisions."
+      },
+      "takeaway": {
+        "ko": "자사 에이전트 도입 효과를 볼 때는 작업 길이별 성공률과 사람이 맡는 판단 영역을 함께 측정해야 합니다.",
+        "en": "Measure success by task length and human-owned decisions."
+      },
+      "highlights": {
+        "ko": [
+          "23%에서 46%로 올랐습니다",
+          "코덱스 중심의 사내 조사"
+        ],
+        "en": [
+          "rose from 23% to 46% in seven months"
+        ]
+      },
+      "related": [
+        {
+          "source": "OpenAI Research",
+          "url": "https://openai.com/index/research-acceleration-jagged-frontier"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "3ea993db7e3c",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/combatting-adversarial-distillation",
+      "publishedAt": "2026-11-20T10:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, '적대적 증류' 대응 방안 공개",
+        "en": "OpenAI details response to adversarial distillation"
+      },
+      "summary": {
+        "ko": "OpenAI가 '적대적 증류'에 대응하는 방안을 밝혔습니다. 적대적 증류란 승인 없이 첨단 모델의 출력을 모아 비슷한 능력의 다른 모델을 학습시키고, 안전장치 없이 배포하는 행위입니다. 예를 들어 사이버 공격 능력을 증류해 실제 공격에 쓸 수 있다는 우려입니다.",
+        "en": "OpenAI describes adversarial distillation: using a frontier model's outputs without authorization to train a similar model and deploy it without safeguards, e.g. to distill cyber capabilities for attacks."
+      },
+      "takeaway": {
+        "ko": "모델 출력을 외부에 제공하는 서비스라면 대량 수집과 재학습 오남용 대응책을 점검해야 합니다.",
+        "en": "If you expose model outputs, review bulk-harvesting defenses."
+      },
+      "highlights": {
+        "ko": [
+          "승인 없이 첨단 모델의 출력을 모아 비슷한 능력의 다른 모델을 학습"
+        ],
+        "en": [
+          "using a frontier model's outputs without authorization"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "f3487ac9886e",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+      "publishedAt": "2026-11-21T21:37:10.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Signal, 모바일 스크린샷 제한…\"에이전트 AI가 존립 위협\"",
+        "en": "Signal restricts mobile screenshots, citing agentic AI as an 'existential threat'"
+      },
+      "summary": {
+        "ko": "메신저 Signal이 모바일 앱의 스크린샷 기능을 제한합니다. 메러디스 휘태커 대표는 운영체제에 들어온 에이전트형 AI가 화면 정보를 읽어 가는 것을 존립을 위협하는 문제로 규정했습니다. Windows, Android, macOS/iOS가 모두 지목됐고, 사생활 보호를 독자적으로 보장하기 어렵다는 입장입니다.",
+        "en": "Signal is limiting screenshots in its app. President Meredith Whittaker says OS-level agentic AI that can scan screens undermines Signal's ability to independently guarantee privacy on Windows, Android and macOS/iOS."
+      },
+      "takeaway": {
+        "ko": "업무 앱의 민감 화면이 OS 에이전트에 노출되는지 보안 정책 차원에서 점검해야 합니다.",
+        "en": "Check whether OS agents can read sensitive work-app screens."
+      },
+      "highlights": {
+        "ko": [
+          "에이전트형 AI가 화면 정보를 읽어 가는 것"
+        ],
+        "en": [
+          "agentic AI that can scan screens"
+        ]
+      },
+      "related": [
+        {
+          "source": "Hacker News",
+          "url": "https://signal.org/blog/protecting-your-privacy/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "d15c45643214",
+      "source": "OpenAI",
+      "url": "https://openai.com/business/customer-stories/hebbia",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "Hebbia, GPT-6 Astra로 금융 리서치 개선 시험",
+        "en": "Hebbia tests GPT-6 Astra for financial research"
+      },
+      "summary": {
+        "ko": "금융 리서치 도구 Hebbia가 OpenAI의 GPT-6 Astra를 시험해 개선 효과를 확인했다고 밝혔습니다. 은행가가 인수 제안 전에 보는 재무제표·계약서·경영진 발표자료에서 질문에 필요한 출처를 찾는 일과, 요청서에 맞춰 발표 자료를 만드는 일을 평가했습니다.",
+        "en": "Hebbia tested OpenAI's GPT-6 Astra on two tasks in its Matrix tool: finding the sources a question needs across financial documents, and building presentations that follow a banker's brief."
+      },
+      "takeaway": {
+        "ko": "문서 기반 답변 도입 시 출처 연결의 정확도를 자사 문서로 먼저 검증해야 합니다.",
+        "en": "Validate source-linking accuracy on your own documents first."
+      },
+      "highlights": {
+        "ko": [
+          "질문에 필요한 출처를 찾는 일"
+        ],
+        "en": [
+          "finding the sources a question needs"
+        ]
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "a04a8ac1d91d",
+      "source": "Beinsure",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1wcUdDNFFKNEZJUTJPNlNSaHB6bi1DalRtSklMd19VS1IwOEtzUy1DSXIwQVZieFp5LU9kSFFFTEE5cHltS3JndDNRTGdzQWR3bUlSLXNxXy1INkU?oc=5",
+      "publishedAt": "2026-11-22T16:06:12.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI 선도 기업 ROI 4배…거버넌스·역량이 가른다",
+        "en": "AI leaders see 4x ROI as governance and skills drive adoption"
+      },
+      "summary": {
+        "ko": "IDC가 Microsoft 의뢰로 28개 산업 시니어 리더 5,200여 명을 조사한 결과, AI 선도 기업(Frontier Firms)의 평균 AI 투자수익률은 4배로 도입이 느린 기업의 2.7배보다 높았습니다. 선도 기업의 약 39%는 5배 이상을 기록했지만 느린 기업은 4%에 그쳤습니다.",
+        "en": "An IDC study commissioned by Microsoft of 5,200+ leaders in 28 industries finds Frontier Firms average 4x AI ROI versus 2.7x for slow adopters; 39% report 5x or more, versus 4%."
+      },
+      "takeaway": {
+        "ko": "Microsoft 의뢰 조사이므로 수치를 그대로 받기보다 자사 ROI 산정 기준과 맞춰 비교해야 합니다.",
+        "en": "Vendor-commissioned data: align with your own ROI basis."
+      },
+      "highlights": {
+        "ko": [
+          "평균 AI 투자수익률은 4배",
+          "느린 기업은 4%에 그쳤습니다"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 595,
+        "url": "https://beinsure.com/statistics/ai-leaders-achieve-4x-roi/"
+      }
+    },
+    {
+      "id": "455ae4d795c3",
+      "source": "The National Law Review",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPekNCdEx2OHY0c0JfcDhheVpNcHlpWnZuZ1dlRWJGTDBZQ3VONEZZY3dfMjlleW51ZjUxTC1QNFpiUjlFT1AzdWR6NE12U3YzSF9ZRDNSeDVhRi03NWx4UTctSzdwNFVvWXNISmMyS2pienpoRHVkeGNPNXUyejR3TnRaUkN5blRKRlJMN2VSODVXd1o4dWpDUXpiSEZQOHBt0gGmAUFVX3lxTE13RTZ4WGVLYWRFdVBmRGlfQW5WWGRwRC1WOE5GVW9zR3RGbFRaVGRhM2NuRzhidHM2c1VDQlYtZTI0MGs0YUl0ODc2YlRoRktfa1JaUmh5NGFEMkQ1V0FqVmU4dEhfS29qYVQ2TWVIRzBMRnVxSTJXSzBjWVFEV09adlAtUTlSY1JEWV9tNlJKQVFubldZbHlsTnRyTTJXRUZSUlEtVFE?oc=5",
+      "publishedAt": "2026-11-20T21:05:45.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "OCC, 생성형·에이전트형 AI 감독 프레임워크 발표",
+        "en": "OCC issues AI supervisory framework for generative and agentic systems"
+      },
+      "summary": {
+        "ko": "미국 통화감독청(OCC)이 생성형 AI와 에이전트형 AI 시스템을 위한 감독 프레임워크를 발표했다는 법률 매체 보도입니다. 현재 확인되는 정보는 제목뿐이며 세부 내용은 확인되지 않았습니다.",
+        "en": "A legal outlet reports the OCC issued a supervisory framework for generative and agentic AI systems. Only the headline is available; details are unconfirmed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 94,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "211fbe8009a4",
+      "source": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/harness-adapters-at-scale",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Hugging Face, 하네스에 맞춰 모델을 조정하는 '하네스 어댑터' 소개",
+        "en": "Hugging Face introduces harness adapters to tune models for your harness"
+      },
+      "summary": {
+        "ko": "Hugging Face가 에이전트 실행 틀에 맞춰 모델을 강화학습으로 조정하는 하네스 어댑터를 소개했습니다. 모델은 범용 성능에 맞춰져 있어, 실제 쓰는 하네스와 작업 분포로 따로 학습하면 정확도와 효율을 더 끌어낼 수 있다는 설명입니다.",
+        "en": "Hugging Face introduces harness adapters: RL-trained on a custom task distribution with your agent harness, they can make a model more accurate and efficient than a general-purpose one."
+      },
+      "takeaway": {
+        "ko": "반복 업무가 뚜렷한 에이전트라면 범용 모델 그대로보다 전용 조정의 정확도·비용 이득을 비교해 볼 만합니다.",
+        "en": "For repeat tasks, compare tuned vs. generic model cost and accuracy."
+      },
+      "highlights": {
+        "ko": [
+          "정확도와 효율을 더 끌어낼 수 있다"
+        ],
+        "en": [
+          "more accurate and efficient"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "c989db0d32fd",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/formal-verification/",
+      "publishedAt": "2026-11-20T21:18:41.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "'슬롭'과의 전쟁, 새 무기는 형식 검증",
+        "en": "The war on slop: formal verification as an emerging weapon"
+      },
+      "summary": {
+        "ko": "올해 AI 업계의 단어로 꼽힌 슬롭은 대규모 언어 모델이 내놓는 낮은 품질의 결과물을 뜻합니다. AI가 쓴 코드가 늘면서 수학적 증명으로 소프트웨어 정확성을 확인하는 형식 검증이 해법으로 주목받고, Harmonic 등 여러 회사가 관련 시스템을 내놓고 있습니다.",
+        "en": "'Slop' — low-quality LLM output — is 2026's AI word. As AI-written code grows, formal verification, which proves software correct mathematically, is gaining attention, with Harmonic and others offering systems."
+      },
+      "takeaway": {
+        "ko": "AI 생성 코드의 검증 병목을 줄이려면 형식 검증 도구가 자사 코드 유형에 적용되는지부터 확인해야 합니다.",
+        "en": "Check if formal verification tools fit your codebase."
+      },
+      "highlights": {
+        "ko": [
+          "수학적 증명으로 소프트웨어 정확성을 확인하는 형식 검증"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "4cc3a535ad30",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/prototypes-have-always-been-the-most-effective-specification-10162107b2ee?source=rss----138adf9c44c---4",
+      "publishedAt": "2026-11-22T11:36:31.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI 시대, 가장 효과적인 명세는 프로토타입",
+        "en": "Prototypes are the most effective specification, especially with AI"
+      },
+      "summary": {
+        "ko": "작동하는 버전을 만드는 데 한나절이면 되는 시대에는 프로토타입이 가장 효과적인 명세가 된다는 글입니다. 요구사항 작성, 승인, 개발 순으로 가는 대신, 누군가 회의 틈틈이 만든 동작 버전이 먼저 나와 논의의 방향을 바꿉니다.",
+        "en": "When a working version takes an afternoon, the prototype becomes the best spec. Instead of requirements, sign-off, then build, a working version often appears first and reshapes the discussion."
+      },
+      "takeaway": {
+        "ko": "요구사항 검토 전에 동작하는 시안을 먼저 만들어 보는 방식을 한 프로젝트에서 시험해 볼 만합니다.",
+        "en": "Pilot prototype-first before requirements review on one project."
+      },
+      "highlights": {
+        "ko": [
+          "프로토타입이 가장 효과적인 명세"
+        ],
+        "en": [
+          "the prototype becomes the best spec"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 600
+      }
+    },
+    {
+      "id": "47ddbf71e00c",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.21373",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "WeVisForensics, 스스로 진화하는 AI 생성 영상 탐지 에이전트",
+        "en": "WeVisForensics: self-evolving agent for detecting AI-generated video"
+      },
+      "summary": {
+        "ko": "WeVisForensics는 AI가 만든 영상을 가려내는 에이전트 프레임워크입니다. 기존 방식은 짧거나 국소적인 조작 흔적을 놓치거나 정해진 워크플로에 묶여 유연성이 낮았습니다. 이 방법은 포렌식 증거에 근거해 조사를 이어 가며 스스로 진화하는 구조를 내세웁니다.",
+        "en": "WeVisForensics is an agentic framework for detecting AI-generated video. It targets weaknesses of single-pass reasoning and fixed multi-agent workflows, grounding detection in explicit forensic evidence."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 56
+      },
+      "highlights": {
+        "ko": [
+          "짧거나 국소적인 조작 흔적을 놓치거나"
+        ],
+        "en": [
+          "grounding detection in explicit forensic evidence"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 549
+      }
+    },
+    {
+      "id": "63dbb81e2a2d",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.26444",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Mind2Act World, 로봇 조작의 '생각'과 '행동'을 따로 진단",
+        "en": "Mind2Act World: diagnostic benchmark separating robot reasoning from action"
+      },
+      "summary": {
+        "ko": "Mind2Act World는 로봇 조작에서 기억 기반 추론, 물리적 실행, 둘의 결합 능력을 따로 진단하는 벤치마크입니다. 기존 평가는 이를 한 작업에서 섞거나 따로만 재서, 실패 원인이 추론인지 실행인지 결합인지 알기 어려웠습니다.",
+        "en": "Mind2Act World is a benchmark that separately diagnoses robot reasoning, physical execution and their composition, so failures can be traced to the right cause."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 53
+      },
+      "highlights": {
+        "ko": [
+          "실패 원인이 추론인지 실행인지 결합인지 알기 어려웠습니다"
+        ],
+        "en": [
+          "failures can be traced to the right cause"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 550
+      }
+    },
+    {
+      "id": "99ccc673a30f",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+      "publishedAt": "2026-11-17T00:26:57.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "Thinking Machines, 멀티모달 모델 Inkling 2 Mini 공개",
+        "en": "Thinking Machines releases multimodal model Inkling 2 Mini"
+      },
+      "summary": {
+        "ko": "Inkling 2 Mini는 텍스트와 이미지를 입력받아 텍스트를 내놓는 범용 멀티모달 모델입니다. 영어 등 여러 언어와 다양한 프로그래밍 언어를 지원하며, 에이전트·도구 사용 시스템, 코딩 도우미, 챗봇, 검색증강생성 앱을 만드는 개발자를 겨냥했습니다.",
+        "en": "Inkling 2 Mini is a general-purpose multimodal model taking text and image input and producing text, aimed at developers building agents, coding assistants, chatbots and RAG apps."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 4825,
+        "downloads": 23543
+      },
+      "highlights": {
+        "ko": [
+          "텍스트와 이미지를 입력받아 텍스트를 내놓는 범용 멀티모달 모델"
+        ],
+        "en": [
+          "text and image input and producing text"
+        ]
+      },
+      "related": [
+        {
+          "source": "Hugging Face Blog",
+          "url": "https://huggingface.co/blog/inkling2mini"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 599
+      }
+    },
+    {
+      "id": "6518fbd35a14",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/higurashi-ai/Haru-4B",
+      "publishedAt": "2026-11-12T11:05:59.000Z",
+      "section": "repos",
+      "region": "JP",
+      "title": {
+        "ko": "Haru-4B, 듣고 말하기를 동시에 하는 음성 대화 모델",
+        "en": "Haru-4B: full-duplex spoken dialogue model that listens and speaks at once"
+      },
+      "summary": {
+        "ko": "Haru-4B는 사람처럼 듣는 동시에 말하는 전이중 음성 대화 기반 모델입니다. 133ms마다 사용자 음성 한 프레임을 받아 자체 음성과 텍스트 한 프레임을 내놓아 서로 기다리지 않습니다. 연구용으로 공개된 사전학습 모델로, 지연이 낮은 다국어 음성 대화 연구에 쓸 수 있습니다.",
+        "en": "Haru-4B is a low-latency multilingual full-duplex spoken dialogue base model: every 133 ms it takes one user audio frame and emits one audio and text frame. Released for research."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 887,
+        "downloads": 8608
+      },
+      "highlights": {
+        "ko": [
+          "133ms마다 사용자 음성 한 프레임을 받아"
+        ],
+        "en": [
+          "every 133 ms it takes one user audio frame"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "74c05f88e457",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/inworld/voice-isolator",
+      "publishedAt": "2026-11-14T02:14:35.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "Inworld Voice Isolator, 잡음 속 목소리만 분리하는 오픈 모델",
+        "en": "Inworld Voice Isolator: open model that isolates voice from noise"
+      },
+      "summary": {
+        "ko": "Inworld Voice Isolator는 잡음이 섞인 음성에서 사람 목소리만 48kHz로 분리하는 Apache-2.0 오픈 모델입니다. 녹음 파일용 64M 모델과, 20ms 선행 참조만 쓰는 실시간 스트리밍용 58M 모델 두 가지이며 녹음 정리나 라이브 오디오 파이프라인에 쓸 수 있습니다.",
+        "en": "Inworld Voice Isolator is an Apache-2.0 model separating voice from noise at 48 kHz, in a 64M offline version for recordings and a 58M realtime streaming version with 20 ms look-ahead."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 616,
+        "downloads": 0
+      },
+      "highlights": {
+        "ko": [
+          "녹음 파일용 64M 모델",
+          "실시간 스트리밍용 58M 모델"
+        ],
+        "en": [
+          "64M offline version",
+          "58M realtime streaming version"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "817dd59c1bdb",
+      "source": "Hugging Face",
+      "url": "https://huggingface.co/apple/DepthPro2",
+      "publishedAt": "2026-11-03T16:55:03.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "Apple Depth Pro 2, 사진·영상에서 픽셀별 실제 깊이 추정",
+        "en": "Apple Depth Pro 2 estimates metric depth per pixel from photos and video"
+      },
+      "summary": {
+        "ko": "Apple의 Depth Pro 2는 일반 카메라의 사진, 영상, 실시간 입력에서 픽셀마다 실제 거리 단위의 깊이를 추정하는 모델입니다. 물체 경계가 선명하고 프레임 간 값이 안정적입니다. 크기별로 나뉘어 있어 큰 모델은 더 정밀하고 작은 모델은 더 빠릅니다.",
+        "en": "Apple's Depth Pro 2 estimates metric depth for every pixel from a photo, video or live feed, with sharp edges and frame-to-frame stability. Sizes range from 24M parameters up; larger is sharper, smaller faster."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "likes": 269,
+        "downloads": 0
+      },
+      "highlights": {
+        "ko": [
+          "픽셀마다 실제 거리 단위의 깊이를 추정"
+        ],
+        "en": [
+          "metric depth for every pixel"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 600
+      }
+    },
+    {
+      "id": "000028228240",
+      "source": "Hacker News",
+      "url": "https://architectlabs.com/blog/frostbite",
+      "publishedAt": "2026-11-20T10:01:41.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "Frostbite, AI가 발견·설계·검증한 새 CPU 아키텍처",
+        "en": "Frostbite: a new CPU architecture discovered, designed and verified by AI"
+      },
+      "summary": {
+        "ko": "AI 시스템이 새로운 CPU 아키텍처를 발견하고 설계·검증까지 했다는 Frostbite 글이 Hacker News에서 화제입니다. 앞선 Redwood에서는 주어진 구조로 추론 가속기를 구현·검증·배포했고, 이번에는 소프트웨어와 하드웨어를 함께 설계하게 했습니다. 성능 수치는 발췌에서 확인되지 않습니다.",
+        "en": "A post on Frostbite, a CPU architecture said to be discovered, designed and verified by AI, is trending on Hacker News. It follows Redwood, where AI built an inference accelerator. Performance figures aren't in the excerpt."
+      },
+      "takeaway": {
+        "ko": "성능 우위 주장은 독립 검증이 필요하므로 수치와 비교 대상이 공개되는지 확인해야 합니다.",
+        "en": "Look for independent benchmarks before trusting claims."
+      },
+      "metrics": {
+        "points": 675,
+        "comments": 362
+      },
+      "highlights": {
+        "ko": [
+          "소프트웨어와 하드웨어를 함께 설계"
+        ],
+        "en": [
+          "discovered, designed and verified by AI"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "92e4ea3fd55e",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=37652&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "publishedAt": "2026-11-22T18:55:14.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "카나리 토큰이 드러낸 AI 공급망 보안 구멍",
+        "en": "Canary tokens expose AI supply chain security gaps"
+      },
+      "summary": {
+        "ko": "Dragos가 2026년 7~11월 약 200만 건의 프롬프트에 추적 가능한 비밀 정보를 심어 조사했습니다. AI 호스팅 업체 3곳에서 유출된 테스트 자격 증명이 AWS 접근 시도에 쓰였고, 일부 리셀러는 기본 요청 로깅만으로 고객 프롬프트 속 비밀번호와 AWS 키를 확보했습니다.",
+        "en": "Dragos seeded about 2 million prompts with traceable secrets over Jul-Nov 2026. Leaked test credentials from three hosting providers were used in AWS access attempts, and some resellers harvested keys via basic request logging."
+      },
+      "takeaway": {
+        "ko": "외부 추론 서비스에 프롬프트를 보낼 때는 비밀값 제거와 데이터 무보관 설정의 실제 준수 여부를 검증해야 합니다.",
+        "en": "Strip secrets from prompts and verify zero-retention claims."
+      },
+      "highlights": {
+        "ko": [
+          "AI 호스팅 업체 3곳에서 유출된 테스트 자격 증명이 AWS 접근 시도에 쓰였고"
+        ],
+        "en": [
+          "Leaked test credentials from three hosting providers"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 310
+      }
+    },
+    {
+      "id": "fd2811614640",
+      "source": "Hacker News",
+      "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off",
+      "publishedAt": "2026-11-20T13:29:59.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "AI 매도에 나스닥 올해 상승분 반납…Anthropic 상장 이튿날 급락",
+        "en": "Nasdaq erases 2026 gains in AI sell-off as Anthropic drops on day two"
+      },
+      "summary": {
+        "ko": "Anthropic 상장 이튿날 주가가 9% 하락한 가운데 나스닥 종합지수가 금요일 올해 상승분을 모두 반납하고 연초 대비 5% 내린 채 마감했습니다. 다우와 S&P 500도 조정 구간에 들어섰고, WSJ에 따르면 나스닥은 이번 주 약 4조 달러의 시가총액이 사라졌습니다.",
+        "en": "Nasdaq erased all 2026 gains and closed 5% below Jan. 1 as Anthropic fell 9% on its second trading day. The Dow and S&P 500 entered correction; WSJ says Nasdaq lost about $4tn this week."
+      },
+      "takeaway": {
+        "ko": "AI 관련 주가 변동성이 커진 만큼 외부 AI 벤더 의존도와 계약 조건을 재점검할 시점입니다.",
+        "en": "Volatility is a cue to review vendor dependence and contracts."
+      },
+      "metrics": {
+        "points": 525,
+        "comments": 919
+      },
+      "highlights": {
+        "ko": [
+          "올해 상승분을 모두 반납",
+          "약 4조 달러의 시가총액이 사라졌습니다"
+        ],
+        "en": [
+          "erased all 2026 gains"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "65edf14fd72a",
+      "source": "Hacker News",
+      "url": "https://www.motherjones.com/politics/2026/11/google-alphabet-union-school-ai-protest-gemini-workers-petition/",
+      "publishedAt": "2026-11-20T16:59:27.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "구글 직원들 \"AI 끈 학교에 불이익 주지 말라\"",
+        "en": "Google workers urge company not to punish schools that opt out of AI"
+      },
+      "summary": {
+        "ko": "구글 직원 수백 명이 Gemini AI 도구를 끈 학교에 내년부터 검색 접근을 막겠다는 정책을 철회하라고 경영진에 요구했습니다. 구글은 이 방침을 2주 전 선거일에 갑작스레 발표했습니다. 교육 현장에서 AI 사용을 사실상 강제한다는 문제 제기입니다.",
+        "en": "Hundreds of Google workers urge leadership to retract a policy that would block schools that disable Gemini from Google's search engine starting next year, announced suddenly two weeks ago."
+      },
+      "takeaway": {
+        "ko": "AI 기능을 서비스 이용 조건과 묶는 정책은 고객 반발 위험이 있어 선택 해제 옵션을 함께 설계해야 합니다.",
+        "en": "Bundling AI with service access invites backlash; offer opt-outs."
+      },
+      "metrics": {
+        "points": 283,
+        "comments": 229
+      },
+      "highlights": {
+        "ko": [
+          "내년부터 검색 접근을 막겠다는 정책을 철회"
+        ],
+        "en": [
+          "block schools that disable Gemini"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "하네스 어댑터",
+      "desc": {
+        "ko": "에이전트가 일하는 실행 환경에 맞춰 모델을 추가 학습시켜 성능을 끌어올리는 조정 모듈입니다.",
+        "en": "A add-on trained so a model performs better in a specific agent runtime environment."
+      }
+    },
+    {
+      "term": "형식 검증",
+      "desc": {
+        "ko": "수학적 증명과 논리로 소프트웨어가 정확한지 따지는 검증 방법입니다.",
+        "en": "A way of proving with math and logic that software works correctly."
+      }
+    },
+    {
+      "term": "슬롭",
+      "desc": {
+        "ko": "AI가 만들어 내는 성의 없고 품질 낮은 결과물을 가리키는 말입니다.",
+        "en": "Slang for low-quality, careless output generated by AI."
+      }
+    },
+    {
+      "term": "적대적 증류",
+      "desc": {
+        "ko": "허락 없이 남의 AI 모델 답변을 모아 비슷한 모델을 만들어 내는 행위입니다.",
+        "en": "Copying a rival AI model's abilities by training on its outputs without permission."
+      }
+    },
+    {
+      "term": "전이중",
+      "desc": {
+        "ko": "전화 통화처럼 듣는 동시에 말할 수 있는 양방향 소통 방식입니다.",
+        "en": "Two-way communication where both sides can speak and listen at the same time, like a phone call."
+      }
+    },
+    {
+      "term": "카나리 토큰",
+      "desc": {
+        "ko": "유출이나 도용을 알아채려고 일부러 심어 두는 추적용 가짜 비밀 정보입니다.",
+        "en": "A decoy secret planted to reveal when data is leaked or misused."
+      }
+    },
+    {
+      "term": "멀티모달",
+      "desc": {
+        "ko": "글뿐 아니라 이미지 같은 여러 형태의 정보를 함께 다루는 방식입니다.",
+        "en": "Able to handle several kinds of input, such as text and images."
+      }
+    },
+    {
+      "term": "Frostbite",
+      "desc": {
+        "ko": "AI가 설계했다고 소개된 새로운 CPU 구조의 이름입니다.",
+        "en": "The name of a new CPU architecture said to be designed by AI."
+      }
+    }
+  ]
+}
