@@ -2,6 +2,8 @@
    separated by light vertical rules; the only horizontal rule is the one under the band. */
 .band {
   display: grid;
+  /* An implicit auto track grows to its widest unbreakable line (the nowrap notice), so the band would overflow phones. */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--s8);
   padding: var(--s5) 0 var(--s6);
   border-bottom: 1px solid var(--rule);

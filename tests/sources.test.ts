@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
-import { SOURCES } from "@/config/sources";
+import { FETCHING, SOURCES } from "@/config/sources";
 import { fetchAll } from "@/lib/sources";
 import { itemId } from "@/lib/prep";
 
@@ -49,8 +49,10 @@ const trendingHtml = `<html><body>
 type Call = { url: string; init?: RequestInit };
 let calls: Call[];
 let handler: (url: string) => Response | Promise<Response>;
+const originalFetching = { ...FETCHING };
 
 beforeEach(() => {
+  Object.assign(FETCHING, { gapMs: 0, retryMs: 0 });
   calls = [];
   handler = (url) => {
     if (url.startsWith("https://github.com/trending")) return new Response(trendingHtml);
@@ -68,6 +70,7 @@ beforeEach(() => {
   vi.spyOn(console, "error").mockImplementation(() => {});
 });
 afterEach(() => {
+  Object.assign(FETCHING, originalFetching);
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
   delete process.env.GITHUB_TOKEN;
@@ -236,6 +239,50 @@ describe("fetchAll", () => {
     expect(failed.sort()).toEqual(["simonw", "verge"]);
     expect(items.some((i) => i.source === "TechCrunch")).toBe(true);
     expect(items.some((i) => i.source === "Simon Willison")).toBe(false);
+  });
+
+  it("PRD-collector: Google News feeds are fetched one at a time", async () => {
+    const base = handler;
+    let active = 0;
+    let peak = 0;
+    handler = async (url) => {
+      if (!url.includes("news.google.com")) return base(url);
+      peak = Math.max(peak, ++active);
+      await new Promise((r) => setTimeout(r, 2));
+      active--;
+      return base(url);
+    };
+    const { failed } = await fetchAll(now);
+    expect(failed).toEqual([]);
+    expect(calls.filter((c) => c.url.includes("news.google.com"))).toHaveLength(SOURCES.filter((s) => s.url.includes("news.google.com")).length);
+    expect(peak).toBe(1);
+  });
+
+  it("PRD-collector: 429/5xx is retried up to FETCHING.retries times; other errors are not retried", async () => {
+    const base = handler;
+    let tc = 0;
+    handler = (url) => {
+      if (url.includes("techcrunch.com") && ++tc === 1) return new Response("busy", { status: 503 });
+      if (url.includes("theverge.com")) return new Response("gone", { status: 404 });
+      if (url.includes("aitimes.com")) return new Response("slow down", { status: 429, headers: { "Retry-After": "0" } });
+      return base(url);
+    };
+    const { items, failed } = await fetchAll(now);
+    expect(failed.sort()).toEqual(["aitimes", "verge"]);
+    expect(items.some((i) => i.source === "TechCrunch")).toBe(true);
+    const n = (host: string) => calls.filter((c) => c.url.includes(host)).length;
+    expect([n("techcrunch.com"), n("theverge.com"), n("aitimes.com")]).toEqual([2, 1, 1 + FETCHING.retries]);
+  });
+
+  it("PRD-collector: an rss source with a malformed URL fails alone", async () => {
+    SOURCES.push({ id: "bad-url", name: "Bad", kind: "rss", url: "news.example/feed", section: "pulse", cap: 1 });
+    try {
+      const { items, failed } = await fetchAll(now);
+      expect(failed).toEqual(["bad-url"]);
+      expect(items.some((i) => i.source === "TechCrunch")).toBe(true);
+    } finally {
+      SOURCES.pop();
+    }
   });
 
   it("PRD-collector: a non-empty response that parses to zero items is a failed source", async () => {

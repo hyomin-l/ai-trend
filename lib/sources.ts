@@ -1,4 +1,4 @@
-import { AI_REPO_KEYWORDS, CONFIG, HF_SKIP, SOURCES } from "@/config/sources";
+import { AI_REPO_KEYWORDS, CONFIG, FETCHING, HF_SKIP, SOURCES } from "@/config/sources";
 import { itemId, type Candidate } from "@/lib/prep";
 import { parseFeed } from "@/lib/rss";
 import { parseTrending } from "@/lib/trending";
@@ -7,10 +7,17 @@ import type { SourceDef } from "@/types";
 const UA = `ai-trend/0.1 (+https://github.com/${process.env.GITHUB_REPOSITORY || "hyomin-l/ai-trend"})`;
 const DAY = 86_400_000;
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 async function get(url: string, headers: Record<string, string> = {}): Promise<string> {
-  const res = await fetch(url, { headers: { "User-Agent": UA, ...headers }, signal: AbortSignal.timeout(15_000) });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
+  for (let attempt = 0; ; attempt++) {
+    const res = await fetch(url, { headers: { "User-Agent": UA, ...headers }, signal: AbortSignal.timeout(15_000) });
+    if (res.ok) return res.text();
+    if (attempt >= FETCHING.retries || (res.status !== 429 && res.status < 500)) throw new Error(`HTTP ${res.status}`);
+    await res.body?.cancel();
+    const after = Number(res.headers.get("retry-after")) * 1000; // seconds form only; an HTTP date falls back to backoff
+    await sleep(Math.min(after > 0 ? after : FETCHING.retryMs * 3 ** attempt, 10_000));
+  }
 }
 
 async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
@@ -153,12 +160,23 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
   });
 }
 
-/** Every source in parallel; a failing source is reported in `failed` and never aborts the rest. */
+/**
+ * Every source in parallel, except feeds on FETCHING.serialHosts: those queue per host, gapMs apart.
+ * A failing source is reported in `failed` and never aborts the rest.
+ */
 export async function fetchAll(now: Date): Promise<{ items: Candidate[]; failed: string[] }> {
   const items: Candidate[] = [];
   const failed: string[] = [];
+  const queues = new Map<string, Promise<unknown>>();
+  const fetchOne = async (s: SourceDef) => { // async: a bad URL rejects this source only instead of throwing out of map()
+    const host = s.kind === "rss" ? new URL(s.url).hostname : "";
+    if (!FETCHING.serialHosts.includes(host)) return fetchSource(s, now);
+    const turn = (queues.get(host) ?? Promise.resolve()).then(() => fetchSource(s, now));
+    queues.set(host, turn.catch(() => {}).then(() => sleep(FETCHING.gapMs)));
+    return turn;
+  };
   const run = async (defs: SourceDef[]) => {
-    const results = await Promise.allSettled(defs.map((s) => fetchSource(s, now)));
+    const results = await Promise.allSettled(defs.map(fetchOne));
     results.forEach((r, i) => {
       if (r.status === "fulfilled") return void items.push(...r.value);
       failed.push(defs[i].id);

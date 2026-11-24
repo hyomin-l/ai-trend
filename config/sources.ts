@@ -37,6 +37,18 @@ export const ARTICLE_READING = {
 };
 
 /**
+ * Source fetching. Google News answers a burst of parallel searches from one cloud IP (GitHub Actions) with 503,
+ * so feeds on `serialHosts` go one at a time, `gapMs` apart. Any source answering 429/5xx is retried `retries` times,
+ * after its Retry-After or `retryMs` x 3^n (each wait capped at 10s).
+ */
+export const FETCHING = {
+  serialHosts: ["news.google.com"],
+  gapMs: 1500,
+  retries: 2,
+  retryMs: 2000,
+};
+
+/**
  * A trending repo is "AI-related" when its name or description matches this (trending pages carry no topics).
  * Word-boundary match, case-insensitive; add terms here, not in code.
  */
@@ -80,10 +92,8 @@ export const SOURCES: SourceDef[] = [
   // Repos section, but models: ranked by the Hub's own trendingScore (order kept), no star-growth figure.
   { id: "hf-models", name: "Hugging Face", kind: "hf", url: "", section: "repos", cap: 5 },
   { id: "hn", name: "Hacker News", kind: "hn", url: "AI", section: "pulse", cap: 8 },
-  // One multireddit request: Reddit allows ~1 unauthenticated request per minute per IP, so three feeds in parallel always 429.
-  // t=day (top of the last 24h) would return only ~25 posts per multireddit and miss anything older than a day that is
-  // still inside the 72h window; t=week + the default 72h filter keeps ~3 days of the best posts.
-  { id: "reddit", name: "Reddit", kind: "rss", url: "https://www.reddit.com/r/LocalLLaMA+ClaudeAI+MachineLearning/top/.rss?t=week", section: "pulse", cap: 8 },
+  // No Reddit: its multireddit RSS has failed (404) on every run since 2026-11-18, and single-subreddit feeds 429 from cloud IPs. Bringing it
+  // back needs an OAuth app (oauth.reddit.com) with its credentials as repository secrets.
   { id: "geeknews", name: "GeekNews", kind: "rss", url: "https://news.hada.io/rss/news", section: "pulse", cap: 6 },
   { id: "techcrunch", name: "TechCrunch", kind: "rss", url: "https://techcrunch.com/category/artificial-intelligence/feed/", section: "newsroom", cap: 8 },
   { id: "verge", name: "The Verge", kind: "rss", url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", section: "newsroom", cap: 6 },

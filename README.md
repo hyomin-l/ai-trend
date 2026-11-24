@@ -28,7 +28,7 @@ Scattered AI trends, gathered into one newspaper page every weekday morning.
 | 실무 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g, Hamel Husain, Interconnects, Anthropic Engineering, AWS Machine Learning Blog, Microsoft Research, OpenAI Research(OpenAI 피드의 Research 분류만), Hugging Face Blog, Hugging Face Daily Papers(추천 20 이상 상위 3편, 판 전체 최대 2편) |
 | 산업 | 업종별 AI 도입·전환 사례 (건설·금융·물류·유통·미디어) | Google News RSS (업종 키워드 x AI, 국문·영문) |
 | 오픈소스 | 최근 일주일간 스타가 가장 많이 늘어난 AI 레포(생성일 무관) + Hugging Face 트렌딩 모델(좋아요·다운로드, 최대 5건) | Hugging Face Hub API(trendingScore 순, 재패키징 모델 제외). GitHub Trending 주간(전체·python·typescript, HTML 스크랩) + 생성일 조회 GitHub REST. 실패 시 GitHub Search(토픽 llm, ai-agents, mcp, generative-ai, 최근 30일 생성)로 대체 |
-| 커뮤니티 (Community Pulse) | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News, Reddit(r/LocalLLaMA·ClaudeAI·MachineLearning), GeekNews |
+| 커뮤니티 (Community Pulse) | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News, GeekNews |
 
 섹션당 4건을 지면에 표시하고 나머지는 섹션 머리를 눌러 본다. 원천은 `config/sources.ts` 기준 42개 피드·쿼리다. 상세 사양은 [docs/PRD.md](docs/PRD.md).
 
@@ -67,7 +67,7 @@ iCloud로 동기화되는 폴더(바탕화면 등)에서 작업하면 iCloud가 
 ```
 GitHub Actions (평일(월~금) 자정 이후 00:17·01:17·02:17 KST 예약 중 먼저 도착한 실행 1회, cron "17 15 / 17 16 / 17 17 * * 0-4")
  build job
-  1 fetch   공개 API·RSS 병렬 수집 (소스별 실패 격리)
+  1 fetch   공개 API·RSS 병렬 수집 (소스별 실패 격리, Google News만 순차·간격, 429/5xx 재시도)
   2 prep    중복·기간 필터, 이전 판 중복 제거(레포·HF는 7개 판, 그 외 10개 판), 섹션 균형 상한
   3 select  claude -p -> 섹션 균형 후보 60건 중 최대 20건 + 예비 6건의 ID·다른 출처 선별
   4 read    긴 RSS 본문 우선, 필요 시 공개 HTTPS 본문 추출 (본문 부실 시 같은 섹션 예비로 대체, 총 26건 이하)
