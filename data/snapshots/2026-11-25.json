@@ -1,0 +1,792 @@
+{
+  "date": "2026-11-25",
+  "issue": 30,
+  "generatedAt": "2026-11-24T20:51:00.903Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [
+    "reddit",
+    "gnews-ax-ko",
+    "gnews-ax-en",
+    "gnews-construction-ko",
+    "gnews-construction-en",
+    "gnews-finance-ko",
+    "gnews-finance-en",
+    "gnews-logistics-ko",
+    "gnews-logistics-en",
+    "gnews-retail-ko",
+    "gnews-retail-en",
+    "gnews-media-ko",
+    "gnews-media-en"
+  ],
+  "stats": {
+    "collected": 68,
+    "published": 19
+  },
+  "front": [
+    "9824edc2f485",
+    "c7d2da5c582f",
+    "7a6462e387eb"
+  ],
+  "items": [
+    {
+      "id": "9824edc2f485",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+      "publishedAt": "2026-11-24T18:30:42.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽 주가, 공모가 아래로…AI 업계에 경고등",
+        "en": "Anthropic shares fall below IPO price, worrying AI startups"
+      },
+      "summary": {
+        "ko": "앤트로픽 주가가 화요일 장중 76달러까지 떨어져 공모가 83달러를 밑돌았습니다. 전날 종가보다 12% 가까이 내렸고 나스닥 상장 후 일주일이 안 됐습니다. 벤처투자자들은 이 주가를 AI 업종 가치를 가늠하는 지표로 지켜봅니다.",
+        "en": "Anthropic fell as low as $76 on Tuesday, below its $83 IPO price and nearly 12% under Monday's close. VCs treat its trading as a barometer for how public markets value AI."
+      },
+      "takeaway": {
+        "ko": "AI 공급사 주가 변동이 가격·계약 조건에 미칠 영향은 아직 불분명하니, 핵심 벤더의 재무 안정성 점검 항목을 추가해 둘 만합니다.",
+        "en": "Add key AI vendors' financial stability to your checks."
+      },
+      "highlights": {
+        "ko": [
+          "공모가 83달러를 밑돌았습니다",
+          "12% 가까이 내렸고"
+        ],
+        "en": [
+          "fell as low as $76 on Tuesday",
+          "nearly 12% under Monday's close"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 578
+      }
+    },
+    {
+      "id": "c7d2da5c582f",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban",
+      "publishedAt": "2026-11-24T17:17:09.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Tidal, 12월 9일부터 AI 생성 음악 금지",
+        "en": "Tidal to ban AI-generated music from December 9"
+      },
+      "summary": {
+        "ko": "음원 서비스 Tidal이 12월 9일부터 AI 생성 음악을 금지합니다. 약 2900만 곡을 삭제하고 하루 8만~8만5000곡의 업로드를 거부할 예정입니다. 최근 90일간 유입된 곡의 43%가 AI 생성물이었고, 앞서 도입한 표시와 수익 제한으로는 부족하다고 판단했습니다.",
+        "en": "Tidal will ban AI-generated music on Dec 9, deleting about 29 million songs and rejecting 80,000-85,000 tracks daily. AI made up 43% of tracks uploaded in the last 90 days."
+      },
+      "takeaway": {
+        "ko": "콘텐츠 플랫폼이 AI 생성물의 비중이 높아지면 표시 단계를 넘어 전면 금지까지 가는 사례로, 자사 콘텐츠 정책의 단계 기준을 점검할 만합니다.",
+        "en": "Review when labeling should escalate to a ban."
+      },
+      "highlights": {
+        "ko": [
+          "약 2900만 곡을 삭제하고",
+          "곡의 43%가 AI 생성물"
+        ],
+        "en": [
+          "deleting about 29 million songs",
+          "AI made up 43% of tracks"
+        ]
+      },
+      "related": [
+        {
+          "source": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/24/tidal-to-ban-and-remove-millions-of-ai-generated-tracks-as-ai-slop-inundates-music-streaming/"
+        },
+        {
+          "source": "GeekNews",
+          "url": "https://news.hada.io/topic?id=37788&utm_source=geeknews&utm_medium=rss&utm_campaign=news"
+        },
+        {
+          "source": "Hacker News",
+          "url": "https://variety.com/2026/music/news/tidal-bans-ai-generated-music-1236956924/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 579
+      }
+    },
+    {
+      "id": "5012cf16ea89",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217728",
+      "publishedAt": "2026-11-24T18:15:58.000Z",
+      "section": "newsroom",
+      "region": "CN",
+      "title": {
+        "ko": "Z.ai, 루프 트랜스포머 적용한 GLM-5.4 출시",
+        "en": "Z.ai launches GLM-5.4 with Loop Transformer design"
+      },
+      "summary": {
+        "ko": "중국 Z.ai가 같은 레이어를 반복 실행하는 루프 트랜스포머 구조의 GLM-5.4를 내놓았습니다. 약 7500억 매개변수로 2조~3조 개 모델에 필적한다고 밝혔지만 타사와의 구체적 비교 점수는 공개하지 않았습니다. 반복 실행만큼 추가 연산이 필요한 점도 따져봐야 합니다.",
+        "en": "Z.ai released GLM-5.4, which reruns the same layers in a loop. It claims ~750B parameters match 2-3T models, but gave no concrete rival benchmark scores; extra compute is required."
+      },
+      "takeaway": {
+        "ko": "성능 주장이 자체 평가라 도입 전 자사 업무 데이터로 정확도와 반복 연산에 따른 응답 지연·비용을 직접 검증해야 합니다.",
+        "en": "Self-reported claims: test accuracy and latency yourself."
+      },
+      "highlights": {
+        "ko": [
+          "2조~3조 개 모델에 필적한다고",
+          "구체적 비교 점수는 공개하지 않았습니다"
+        ],
+        "en": [
+          "match 2-3T models",
+          "gave no concrete rival benchmark scores"
+        ]
+      },
+      "related": [
+        {
+          "source": "Simon Willison",
+          "url": "https://simonwillison.net/2026/Nov/23/glm-54/"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 579
+      }
+    },
+    {
+      "id": "61dcf1169479",
+      "source": "Google DeepMind",
+      "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+      "publishedAt": "2026-11-23T16:59:40.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "딥마인드, 에이전트와 형식 검증으로 양자 알고리즘 개선",
+        "en": "DeepMind improves quantum algorithms with agents and formal verification"
+      },
+      "summary": {
+        "ko": "구글 딥마인드가 Gemini 4 에이전트 팀과 형식 검증을 활용해 잘 알려진 양자 알고리즘을 개선했다고 밝혔습니다. 초기 양자 하드웨어가 감당하기 어려운 자원 요구량이 문제이며, 핵융합 에너지·화학·효소 모델링이 대상입니다. 형식 검증은 결과의 수학적 정확성을 확인하는 절차입니다.",
+        "en": "Google DeepMind used teams of Gemini 4 agents and formal verification to improve known quantum algorithms for fusion energy, chemistry and enzyme modelling, which strain early hardware."
+      },
+      "takeaway": {
+        "ko": "에이전트가 낸 결과를 형식 검증으로 걸러내는 구조는 오류 허용도가 낮은 업무의 AI 활용 검증 방식에 참고가 됩니다.",
+        "en": "Agent output plus formal checks suits low-error-tolerance work."
+      },
+      "highlights": {
+        "ko": [
+          "Gemini 4 에이전트 팀과 형식 검증",
+          "핵융합 에너지·화학·효소 모델링"
+        ],
+        "en": [
+          "teams of Gemini 4 agents and formal verification"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 578
+      }
+    },
+    {
+      "id": "4b17f79747b0",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.31201",
+      "publishedAt": "2026-11-24T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Embo-Harness, 모델이 로봇 정책이 되는 틀을 분석",
+        "en": "Embo-Harness studies frontier models as robot policies"
+      },
+      "summary": {
+        "ko": "Embo-Harness는 최신 멀티모달 모델이 로봇 정책으로 직접 동작하는 틀을 체계적으로 분석하는 연구입니다. 프롬프트, 계획, 행동 실행, 도구 사용의 네 요소를 나누어 어떤 설계가 성능을 좌우하는지 살핍니다. 입력은 초록뿐이라 구체적 결과는 확인되지 않았습니다.",
+        "en": "Embo-Harness systematically studies harnesses where frontier multimodal models act as robot policies, examining prompting, planning, action execution and tool use. Only the abstract was available."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 90
+      },
+      "highlights": {
+        "ko": [
+          "프롬프트, 계획, 행동 실행, 도구 사용의 네 요소"
+        ],
+        "en": [
+          "prompting, planning, action execution and tool use"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 579
+      }
+    },
+    {
+      "id": "316e6b12da0b",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.30989",
+      "publishedAt": "2026-11-24T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "WorldLeague, AI의 물리적 수행 능력 벤치마크",
+        "en": "WorldLeague benchmarks AI physical agency"
+      },
+      "summary": {
+        "ko": "WorldLeague는 AI가 물리적 목표를 얼마나 스스로 달성하는지 재는 벤치마크입니다. 지각·기억·계획·행동이 필요한 시뮬레이션 로봇 과제 60개를 공통으로 풀게 하고, 로봇 궤적으로 목표 진척도를 측정합니다. 장면을 탐색해 단서를 모으는 WorldSeek 등으로 구성됩니다.",
+        "en": "WorldLeague is a benchmark comparing AI systems on 60 simulated robot tasks, scoring progress toward each physical goal from the robot's trajectory, including scene-exploring WorldSeek."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 73
+      },
+      "highlights": {
+        "ko": [
+          "시뮬레이션 로봇 과제 60개"
+        ],
+        "en": [
+          "60 simulated robot tasks"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 579
+      }
+    },
+    {
+      "id": "3488d02604cb",
+      "source": "NN/g",
+      "url": "https://www.nngroup.com/articles/raw-data-vs-synthesized-data/?utm_source=rss&utm_medium=feed&utm_campaign=rss-syndication",
+      "publishedAt": "2026-11-20T18:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI에 사용자 원본 데이터만 주면 좋은 디자인이 나올까",
+        "en": "Can AI generate good designs from raw user data?"
+      },
+      "summary": {
+        "ko": "NN/g 실험에서 AI는 사용자 의견 원본만 받았을 때보다 정리된 조사 결과와 개선 권고를 받았을 때 더 나은 디자인을 만들었습니다. AI가 분석부터 인터페이스 생성까지 한 번에 하는 시대에도 연구 종합 단계를 건너뛰기 어렵다는 뜻입니다.",
+        "en": "In an NN/g study, AI produced better designs when given synthesized findings and recommendations than raw user comments alone, so research synthesis still matters."
+      },
+      "takeaway": {
+        "ko": "AI 프로토타입을 만들기 전에 사용자 조사를 먼저 종합해 입력하는 단계를 업무 흐름에 남겨 두는 것이 좋습니다.",
+        "en": "Keep a research synthesis step before AI prototyping."
+      },
+      "highlights": {
+        "ko": [
+          "정리된 조사 결과와 개선 권고를 받았을 때 더 나은 디자인"
+        ],
+        "en": [
+          "better designs when given synthesized findings"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 579
+      }
+    },
+    {
+      "id": "c7d3ecb00643",
+      "source": "OpenAI Research",
+      "url": "https://openai.com/index/advancing-chip-design-with-our-models",
+      "publishedAt": "2026-11-18T00:00:00.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "OpenAI, 자사 모델로 칩 설계 성능 개선",
+        "en": "OpenAI advances chip design with its models"
+      },
+      "summary": {
+        "ko": "OpenAI가 자사 모델로 칩 설계를 개선한 사례를 공개했습니다. 8월 첫 맞춤형 추론 칩 Jalapeño 개발에 이어 AMD 등 외부 하드웨어에서도 같은 방식으로 성능 향상을 노립니다. 오픈소스 프로세서 설계 두 종으로 세대별 모델의 설계 능력을 평가했습니다.",
+        "en": "OpenAI details how its models improved its custom inference chip Jalapeño and are being applied to AMD hardware, evaluated on two open-source processor designs across model generations."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "오픈소스 프로세서 설계 두 종으로 세대별 모델의 설계 능력을 평가"
+        ],
+        "en": [
+          "two open-source processor designs"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 579
+      }
+    },
+    {
+      "id": "7a6462e387eb",
+      "source": "OpenAI",
+      "url": "https://openai.com/business/customer-stories/ifood",
+      "publishedAt": "2026-11-24T00:00:00.000Z",
+      "section": "ax",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "iFood, 저장소 1만5000개에 코딩 에이전트 확대",
+        "en": "iFood scales coding agents across 15,000 repositories"
+      },
+      "summary": {
+        "ko": "iFood가 코드 저장소 1만5000개 이상에서 코딩 에이전트를 운영하는 방식을 공개했습니다. 작업을 API로 맡기면 원격 샌드박스에서 실행하고 결과를 머지 리퀘스트로 돌려주며, 내부 보안 플랫폼에서는 수정된 취약점 수가 두 배 넘게 늘었습니다.",
+        "en": "iFood runs coding agents across 15,000+ repositories: tasks are API calls, run in a remote sandbox and return as merge requests. Vulnerabilities fixed in its security platform more than doubled."
+      },
+      "takeaway": {
+        "ko": "의존성 취약점 수정처럼 쉽지만 반복적인 대량 작업부터 맡기고, 머지 리퀘스트 검토 체계를 먼저 갖췄는지 확인해야 합니다.",
+        "en": "Start with repetitive bulk fixes; ensure MR review capacity."
+      },
+      "highlights": {
+        "ko": [
+          "수정된 취약점 수가 두 배 넘게 늘었습니다"
+        ],
+        "en": [
+          "more than doubled"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 579
+      }
+    },
+    {
+      "id": "07b4e95a0768",
+      "source": "Anthropic Research",
+      "url": "https://www.anthropic.com/research/working-with-ai",
+      "publishedAt": "2026-11-23T00:00:00.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "앤트로픽, 기업 고객 58곳 인터뷰로 AI 도입 실태 분석",
+        "en": "Anthropic interviews 58 enterprise customers on working with AI"
+      },
+      "summary": {
+        "ko": "앤트로픽이 기업 고객 58곳과 66차례 인터뷰해 AI 도입 실태를 분석했습니다. 기업들은 매우 다양한 지식 업무에 AI를 쓰며, 특히 코딩 에이전트로 비개발 직군에도 소프트웨어 역량을 제공하는 추세입니다. 병목과 인력 재편 방식도 다룹니다.",
+        "en": "Anthropic ran 66 interviews with 58 enterprise customers. Firms use AI across many knowledge tasks, increasingly giving nontechnical roles software capabilities via coding agents."
+      },
+      "takeaway": {
+        "ko": "조사 대상이 앤트로픽 고객이라 도입 의지가 높은 기업에 편중됐을 수 있어, 자사 비개발 직군의 코딩 에이전트 수요는 따로 확인해야 합니다.",
+        "en": "Sample is Anthropic customers; verify your own demand."
+      },
+      "highlights": {
+        "ko": [
+          "기업 고객 58곳과 66차례 인터뷰",
+          "비개발 직군에도 소프트웨어 역량"
+        ],
+        "en": [
+          "66 interviews with 58 enterprise customers"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 579
+      }
+    },
+    {
+      "id": "9a963b981b85",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217751",
+      "publishedAt": "2026-11-24T18:17:40.000Z",
+      "section": "newsroom",
+      "region": "KR",
+      "title": {
+        "ko": "내년 정부 AI 예산 1.6배 확대…풀스택 AX 수출 추진",
+        "en": "Korea's 2027 government AI budget up 1.6x, targeting full-stack AX exports"
+      },
+      "summary": {
+        "ko": "정부의 내년 AI 예산이 정부안 기준 약 16조 원으로 올해의 1.6배가 됐습니다. 과기정통부 몫은 84.3% 늘어난 9조 4000억 원으로 전체의 57%입니다. 24일 K-AX 데이에서 공급·수요기업 80곳이 1대1 상담을 했고, 정부는 풀스택 AX 수출을 목표로 합니다.",
+        "en": "Korea's AI budget for next year is about 16 trillion won, 1.6x this year's. The science ministry's share rose 84.3% to 9.4 trillion won; 80 firms held matching talks at K-AX Day."
+      },
+      "takeaway": {
+        "ko": "산업부·중기부 등 여러 부처가 AX 사업을 추진하므로 그룹사 과제에 맞는 지원사업과 신청 시기를 부처별로 확인해 볼 만합니다.",
+        "en": "Check each ministry's AX support programs and deadlines."
+      },
+      "highlights": {
+        "ko": [
+          "약 16조 원으로 올해의 1.6배",
+          "84.3% 늘어난 9조 4000억 원"
+        ],
+        "en": [
+          "about 16 trillion won, 1.6x this year's"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 579
+      }
+    },
+    {
+      "id": "24a3f358b665",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217750",
+      "publishedAt": "2026-11-24T17:15:28.000Z",
+      "section": "newsroom",
+      "region": "KR",
+      "title": {
+        "ko": "삼성SDS, 임원 인사로 AX 진용 재편…부사장 4명 승진",
+        "en": "Samsung SDS reshuffles for AX, promoting four VPs"
+      },
+      "summary": {
+        "ko": "삼성SDS가 2027년 정기 임원 인사에서 부사장 4명, 상무 6명 등 10명을 승진시켰습니다. 전체 규모는 지난해와 같지만 부사장은 2명에서 4명으로 늘었고, 4명 중 3명이 전략마케팅실 소속입니다. 기업 AX·클라우드·디지털 물류 기여 리더를 발탁했습니다.",
+        "en": "Samsung SDS promoted 10 executives, including four VPs, double last year's two, three of them from strategic marketing, citing contributions to enterprise AX, cloud and digital logistics."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "부사장은 2명에서 4명으로 늘었고"
+        ],
+        "en": [
+          "four VPs, double last year's two"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 579
+      }
+    },
+    {
+      "id": "10ba719313a0",
+      "source": "GitHub",
+      "url": "https://github.com/anthropics/skills",
+      "publishedAt": "2025-09-22T15:53:31.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "anthropics/skills: Claude용 스킬 모음",
+        "en": "anthropics/skills: Skills for Claude"
+      },
+      "summary": {
+        "ko": "앤트로픽의 Claude용 스킬 구현을 모은 저장소입니다. 스킬은 지침·스크립트·자료를 담은 폴더로, Claude가 필요할 때 불러와 전문 작업을 반복 가능하게 수행하도록 돕습니다. 회사 브랜드 가이드에 맞춘 문서 작성이나 조직 고유 절차의 데이터 분석 자동화에 쓸 수 있습니다.",
+        "en": "Anthropic's repo of Claude skills: folders of instructions, scripts and resources Claude loads on demand to repeat specialized tasks, such as brand-compliant documents or custom data analysis."
+      },
+      "takeaway": {
+        "ko": "사내 반복 업무 절차를 스킬 폴더로 정리해 같은 결과가 나오는지 시험해 볼 수 있습니다.",
+        "en": "Package a recurring internal workflow as a skill and test it."
+      },
+      "metrics": {
+        "stars": 199894,
+        "forks": 23391,
+        "language": "Python",
+        "starsGained": 3660,
+        "period": "week",
+        "starsDelta": 6250
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "지침·스크립트·자료를 담은 폴더"
+        ],
+        "en": [
+          "folders of instructions, scripts and resources"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 579
+      }
+    },
+    {
+      "id": "0d415288aaf6",
+      "source": "GitHub",
+      "url": "https://github.com/meta/astryx",
+      "publishedAt": "2026-01-09T16:20:32.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "meta/astryx: Meta의 오픈소스 디자인 시스템",
+        "en": "meta/astryx: Meta's open source design system"
+      },
+      "summary": {
+        "ko": "Meta가 8년간 사내에서 키운 디자인 시스템 Astryx를 오픈소스로 공개했습니다. 사내 1만3000개 이상 앱에 쓰였고, 접근성을 갖춘 컴포넌트 150개 이상과 테마, 다크 모드, 템플릿, CLI를 제공합니다. React 19 이상과 StyleX 기반이며 아직 베타입니다.",
+        "en": "Meta open-sourced Astryx, an eight-year-old design system behind 13,000+ internal apps, with 150+ accessible components, theming, dark mode, templates and a CLI. Built on React 19+ and StyleX; in beta."
+      },
+      "takeaway": {
+        "ko": "베타 단계이므로 사내 UI 표준으로 삼기 전에 React 19 호환 여부와 에이전트 협업 적합성을 작은 화면에서 먼저 검증해야 합니다.",
+        "en": "Beta: pilot on a small UI before adopting."
+      },
+      "metrics": {
+        "stars": 32840,
+        "forks": 2573,
+        "language": "TypeScript",
+        "starsGained": 3165,
+        "period": "week",
+        "starsDelta": 6464
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "컴포넌트 150개 이상",
+          "아직 베타입니다"
+        ],
+        "en": [
+          "150+ accessible components",
+          "in beta"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 578
+      }
+    },
+    {
+      "id": "81ecb7742efe",
+      "source": "Hacker News",
+      "url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+      "publishedAt": "2026-11-23T13:42:38.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "NariQ, Qwen3.8-27B를 10GB로 줄여 BF16 수준 유지",
+        "en": "NariQ shrinks Qwen3.8-27B to 10 GB at BF16-level quality"
+      },
+      "summary": {
+        "ko": "Qwen3.8-27B를 양자화해 10GB 파일로 줄인 NariQ GGUF 모델이 공개됐습니다. 3비트와 2.5비트 파일은 장기 에이전트 작업·수학·이미지 이해에서 원본(BF16) 수준이고 2비트는 점수가 낮습니다. 단일 GPU에서 돌아가지만 전용 llama.cpp 포크가 필수입니다.",
+        "en": "NariQ releases quantized GGUFs of Qwen3.8-27B in a 10 GB file. The 3-bit and 2.5-bit files match BF16 on agent, math and image tasks; 2-bit scores lower. A llama.cpp fork is required."
+      },
+      "takeaway": {
+        "ko": "사내 단일 GPU에서 에이전트용 모델을 돌릴 수 있는지 검증해 볼 만하며, 전용 포크 필수라 운영 환경 호환성을 먼저 확인해야 합니다.",
+        "en": "Check the required llama.cpp fork fits your stack."
+      },
+      "metrics": {
+        "points": 190,
+        "comments": 36
+      },
+      "highlights": {
+        "ko": [
+          "3비트와 2.5비트 파일은",
+          "전용 llama.cpp 포크가 필수"
+        ],
+        "en": [
+          "3-bit and 2.5-bit files match BF16",
+          "A llama.cpp fork is required"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "model-card",
+        "chars": 579
+      }
+    },
+    {
+      "id": "ba93566b3baf",
+      "source": "Hacker News",
+      "url": "https://www.bloodinthemachine.com/p/ai-is-becoming-a-disaster-for-the",
+      "publishedAt": "2026-11-22T12:19:46.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "“AI는 기후에 재앙이 되고 있다” 비판 글 화제",
+        "en": "Essay arguing AI is becoming a climate disaster draws debate"
+      },
+      "summary": {
+        "ko": "AI 산업의 기후 영향을 비판하는 글입니다. 앤트로픽이 IPO 첫날 810억 달러 이상을 조달했다는 점을 짚으며, 한 보고서가 앤트로픽의 예정 데이터센터가 연 2000만 톤 가까운 CO2-e를 배출할 수 있다고 분석했다고 인용합니다.",
+        "en": "An essay criticizing AI's climate impact. It notes Anthropic raised over $81 billion on IPO day and cites a report that its planned data centers could emit nearly 20 megatons of CO2-e a year."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 134,
+        "comments": 64
+      },
+      "highlights": {
+        "ko": [
+          "연 2000만 톤 가까운 CO2-e를 배출"
+        ],
+        "en": [
+          "nearly 20 megatons of CO2-e a year"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "5cc0b3bf0f56",
+      "source": "Hacker News",
+      "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+      "publishedAt": "2026-11-22T05:11:43.000Z",
+      "section": "pulse",
+      "region": "US",
+      "title": {
+        "ko": "카나리 토큰으로 본 AI 공급망 보안 실태",
+        "en": "What canary tokens found in the AI supply chain"
+      },
+      "summary": {
+        "ko": "보안업체 Dragos의 HD Moore 팀이 고유한 추적용 비밀값을 넣은 AI 프롬프트 약 200만 건을 AI 제공사에 보내 어디서 유출되는지 추적했습니다. 7~11월 5개월간 보안 침해, 프롬프트 탈취, 고객 데이터 보호 실패가 광범위하게 확인됐습니다.",
+        "en": "Dragos researchers sent nearly two million prompts with unique trackable secrets to AI providers from July to November and found breaches, prompt theft and widespread failures to protect customer data."
+      },
+      "takeaway": {
+        "ko": "외부 AI 서비스에 민감 정보를 넣기 전, 추적용 가짜 비밀값으로 유출 여부를 점검하는 방식을 도입 심사에 포함할 수 있습니다.",
+        "en": "Add canary-secret leak tests to vendor vetting."
+      },
+      "metrics": {
+        "points": 105,
+        "comments": 22
+      },
+      "highlights": {
+        "ko": [
+          "프롬프트 약 200만 건",
+          "고객 데이터 보호 실패가 광범위하게 확인"
+        ],
+        "en": [
+          "nearly two million prompts"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "67786b63779f",
+      "source": "Hacker News",
+      "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
+      "publishedAt": "2026-11-22T02:10:02.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "아닐 세스의 에세이 「의식 있는 AI의 신화」",
+        "en": "Anil Seth's essay \"The Mythology of Conscious AI\""
+      },
+      "summary": {
+        "ko": "신경과학자 아닐 세스가 쓴 2025 버그루엔 에세이상 수상작으로, 의식 있는 AI라는 통념을 비판적으로 다룹니다. 사람을 닮은 존재를 만들려는 오랜 환상이 AI에서 되살아났다는 문제의식에서 출발합니다. 개발자 커뮤니티에서 활발한 논쟁이 이어졌습니다.",
+        "en": "Neuroscientist Anil Seth's essay, winner of the 2025 Berggruen Prize competition, critically examines the myth of conscious AI, starting from the old dream of creating artificial humans."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "points": 181,
+        "comments": 560
+      },
+      "highlights": {
+        "ko": [
+          "2025 버그루엔 에세이상 수상작"
+        ],
+        "en": [
+          "winner of the 2025 Berggruen Prize competition"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "03938f50d224",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
+      "publishedAt": "2026-11-24T17:00:00.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "Meta, 인스타그램 DM에 AI 어시스턴트 Muse 탑재",
+        "en": "Meta brings Muse AI assistant into Instagram DMs"
+      },
+      "summary": {
+        "ko": "Meta가 AI 에이전트 Muse를 인스타그램 DM 대화창에서 바로 쓸 수 있게 했습니다. 게시물·장소·상품의 맥락을 묻거나 놓친 DM 대화를 요약받을 수 있고, 별도 Muse 앱으로 오갈 필요가 없습니다.",
+        "en": "Meta lets Instagram users chat with its AI agent Muse in a DM thread to get context on posts, places or products or catch up on missed DMs, without switching to the Muse app."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "놓친 DM 대화를 요약받을 수 있고"
+        ],
+        "en": [
+          "catch up on missed DMs"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "루프 트랜스포머",
+      "desc": {
+        "ko": "같은 계산 층을 여러 번 반복 실행해 모델 크기를 키우지 않고 처리 깊이를 높이는 방식입니다.",
+        "en": "A model design that reruns the same layers several times to deepen processing without growing the model."
+      }
+    },
+    {
+      "term": "형식 검증",
+      "desc": {
+        "ko": "결과가 수학적으로 맞는지 규칙에 따라 엄밀하게 확인하는 절차입니다.",
+        "en": "A rigorous, rule-based way to confirm that a result is mathematically correct."
+      }
+    },
+    {
+      "term": "원격 샌드박스",
+      "desc": {
+        "ko": "본 시스템과 분리된 안전한 가상 공간으로, 에이전트가 작업을 실행하는 곳입니다.",
+        "en": "An isolated, safe virtual space separate from production where an agent runs its tasks."
+      }
+    },
+    {
+      "term": "스킬",
+      "desc": {
+        "ko": "Claude가 특정 작업을 반복해 잘하도록 지침과 자료를 담아 둔 폴더입니다.",
+        "en": "A folder of instructions and resources that helps Claude repeat a specific task well."
+      }
+    },
+    {
+      "term": "Astryx",
+      "desc": {
+        "ko": "Meta가 사내에서 키워 공개한, 화면 구성 요소 모음인 오픈소스 디자인 시스템입니다.",
+        "en": "Meta's open source design system, a ready-made set of UI building blocks grown in-house."
+      }
+    },
+    {
+      "term": "양자화",
+      "desc": {
+        "ko": "모델 숫자의 정밀도를 낮춰 파일 크기와 메모리 사용을 줄이는 기술입니다.",
+        "en": "A technique that lowers numeric precision in a model to cut file size and memory use."
+      }
+    },
+    {
+      "term": "NariQ",
+      "desc": {
+        "ko": "코딩 에이전트 기록으로 보정해 모델을 작게 압축하는 양자화 방식 및 그 모델 이름입니다.",
+        "en": "A quantization method, and its models, that compresses a model using coding-agent traces for calibration."
+      }
+    },
+    {
+      "term": "Jalapeño",
+      "desc": {
+        "ko": "OpenAI가 만든 첫 번째 맞춤형 AI 추론용 칩의 이름입니다.",
+        "en": "The name of OpenAI's first custom chip for running AI inference."
+      }
+    }
+  ]
+}
