@@ -9,9 +9,10 @@ const DAY = 86_400_000;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-async function get(url: string, headers: Record<string, string> = {}): Promise<string> {
+/** GET, or a form POST when `form` is given. */
+async function get(url: string, headers: Record<string, string> = {}, form?: URLSearchParams): Promise<string> {
   for (let attempt = 0; ; attempt++) {
-    const res = await fetch(url, { headers: { "User-Agent": UA, ...headers }, signal: AbortSignal.timeout(15_000) });
+    const res = await fetch(url, { method: form ? "POST" : "GET", body: form, headers: { "User-Agent": UA, ...headers }, signal: AbortSignal.timeout(15_000) });
     if (res.ok) return res.text();
     if (attempt >= FETCHING.retries || (res.status !== 429 && res.status < 500)) throw new Error(`HTTP ${res.status}`);
     await res.body?.cancel();
@@ -121,6 +122,36 @@ async function fetchSource(s: SourceDef, now: Date): Promise<Candidate[]> {
           metrics: { upvotes: d.paper.upvotes as number },
         };
       });
+  }
+
+  if (s.kind === "reddit") {
+    const { REDDIT_CLIENT_ID: id, REDDIT_CLIENT_SECRET: secret } = process.env;
+    if (!id || !secret) {
+      console.warn(`[sources] ${s.id} skipped: REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET not set`);
+      return [];
+    }
+    const token = await get(
+      "https://www.reddit.com/api/v1/access_token",
+      { Authorization: `Basic ${Buffer.from(`${id}:${secret}`).toString("base64")}` },
+      new URLSearchParams({ grant_type: "client_credentials" }),
+    );
+    const body = await get(`https://oauth.reddit.com/r/${s.url}/top?t=week&limit=50&raw_json=1`, {
+      Authorization: `Bearer ${JSON.parse(token).access_token}`,
+    });
+    return (JSON.parse(body).data.children as any[]).map(({ data: p }) => {
+      const url = `https://www.reddit.com${p.permalink}`; // the thread, as the RSS feed linked it, so past editions still dedupe
+      const text = String(p.selftext ?? "").replace(/\s+/g, " ").trim();
+      return {
+        ...base,
+        id: itemId(url),
+        title: p.title,
+        url,
+        snippet: text.slice(0, 300) || `r/${p.subreddit} · ${p.score} points · ${p.num_comments} comments`,
+        ...(text.length >= 300 && { content: text.slice(0, 12000) }),
+        publishedAt: new Date(p.created_utc * 1000).toISOString(),
+        metrics: { points: p.score, comments: p.num_comments },
+      };
+    });
   }
 
   if (s.kind === "hn") {

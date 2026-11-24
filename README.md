@@ -28,7 +28,7 @@ Scattered AI trends, gathered into one newspaper page every weekday morning.
 | 실무 | AI 작업 방식, 에이전트 활용법, UI/UX 인사이트 | Simon Willison, Latent Space, One Useful Thing, UX Collective, NN/g, Hamel Husain, Interconnects, Anthropic Engineering, AWS Machine Learning Blog, Microsoft Research, OpenAI Research(OpenAI 피드의 Research 분류만), Hugging Face Blog, Hugging Face Daily Papers(추천 20 이상 상위 3편, 판 전체 최대 2편) |
 | 산업 | 업종별 AI 도입·전환 사례 (건설·금융·물류·유통·미디어) | Google News RSS (업종 키워드 x AI, 국문·영문) |
 | 오픈소스 | 최근 일주일간 스타가 가장 많이 늘어난 AI 레포(생성일 무관) + Hugging Face 트렌딩 모델(좋아요·다운로드, 최대 5건) | Hugging Face Hub API(trendingScore 순, 재패키징 모델 제외). GitHub Trending 주간(전체·python·typescript, HTML 스크랩) + 생성일 조회 GitHub REST. 실패 시 GitHub Search(토픽 llm, ai-agents, mcp, generative-ai, 최근 30일 생성)로 대체 |
-| 커뮤니티 (Community Pulse) | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News, GeekNews |
+| 커뮤니티 (Community Pulse) | 개발자 커뮤니티에서 화제인 이슈와 프로젝트 | Hacker News, Reddit(r/LocalLLaMA·ClaudeAI·MachineLearning, API 키 필요), GeekNews |
 
 섹션당 4건을 지면에 표시하고 나머지는 섹션 머리를 눌러 본다. 원천은 `config/sources.ts` 기준 42개 피드·쿼리다. 상세 사양은 [docs/PRD.md](docs/PRD.md).
 
@@ -57,6 +57,7 @@ iCloud로 동기화되는 폴더(바탕화면 등)에서 작업하면 iCloud가 
 | `CLAUDE_CODE_OAUTH_TOKEN` | CI 수집 시 둘 중 하나 | Claude 구독 토큰(`claude setup-token`). Actions 시크릿으로 등록 |
 | `ANTHROPIC_API_KEY` | CI 수집 시 둘 중 하나 | Anthropic API 키(종량제). Actions 시크릿으로 등록. 둘 다 있으면 CLI가 API 키를 우선 사용. 둘 다 없으면 예약·수동 실행은 오류로 종료. push는 기존 데이터만 배포 |
 | `GITHUB_TOKEN` | 선택 | GitHub Search API 호출 한도 상향. Actions에서는 자동 제공 |
+| `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` | 선택 | Reddit 앱(script 타입)의 client id·secret. Actions 시크릿으로 등록. 없으면 Reddit 소스는 실패가 아닌 건너뜀으로 처리. 2026-11부터 Reddit은 GitHub Actions의 비로그인 RSS·JSON 요청을 막는다(404·429·403) |
 | `SNAPSHOT_DIR` | 선택 | 스냅샷 저장 위치 재지정. 기본 `data/snapshots` |
 | `BASE_PATH` | 선택 | 배포 하위 경로. 워크플로가 채우며 로컬 빌드는 빈 값 |
 

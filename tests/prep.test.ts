@@ -74,11 +74,11 @@ describe("prep: filters", () => {
     expect(run([a, legacy, b]).map((i) => i.id)).toEqual([b.id, legacy.id, a.id]);
   });
 
-  it("PRD-collector: community feeds use the default 72h window (no windowHours override); slow playbook feeds keep 168h", () => {
-    const geeknews = SOURCES.find((s) => s.id === "geeknews")!;
-    expect(geeknews.windowHours).toBeUndefined();
-    const keep = mk({ sourceId: geeknews.id, publishedAt: ago(70) });
-    const drop = mk({ sourceId: geeknews.id, publishedAt: ago(100) });
+  it("PRD-collector: Reddit uses the default 72h window (no windowHours override); slow playbook feeds keep 168h", () => {
+    const reddit = SOURCES.find((s) => s.id === "reddit")!;
+    expect(reddit.windowHours).toBeUndefined();
+    const keep = mk({ sourceId: reddit.id, publishedAt: ago(70) });
+    const drop = mk({ sourceId: reddit.id, publishedAt: ago(100) });
     expect(run([keep, drop]).map((i) => i.id)).toEqual([keep.id]);
     const slow = SOURCES.find((s) => s.id === "latentspace")!;
     const kept = mk({ sourceId: slow.id, section: "playbook", publishedAt: ago(100) });

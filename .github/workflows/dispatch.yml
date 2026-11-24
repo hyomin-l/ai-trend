@@ -73,6 +73,9 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional Reddit app (app-only OAuth); without it the reddit source is skipped, not failed.
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
         run: |
           # An unset secret arrives as an empty string; drop it so it cannot shadow the other credential.
           [ -n "$ANTHROPIC_API_KEY" ] || unset ANTHROPIC_API_KEY

@@ -33,6 +33,15 @@ const hfJson = [
   { id: "org/third", likes: 10, downloads: 5, createdAt: "2026-10-02T00:00:00.000Z" },
 ];
 
+const redditJson = {
+  data: {
+    children: [
+      { data: { title: "Local 70B on one GPU", permalink: "/r/LocalLLaMA/comments/abc/local_70b/", subreddit: "LocalLLaMA", selftext: "x".repeat(320), score: 812, num_comments: 140, created_utc: 1791806400 } },
+      { data: { title: "Link post", permalink: "/r/ClaudeAI/comments/def/link_post/", subreddit: "ClaudeAI", selftext: "", score: 95, num_comments: 12, created_utc: 1791810000 } },
+    ],
+  },
+};
+
 const papersJson = JSON.parse(readFileSync("tests/fixtures/hfpapers/daily_papers.json", "utf8")) as any[];
 
 const trendingHtml = `<html><body>
@@ -61,6 +70,8 @@ beforeEach(() => {
     if (url.includes("hn.algolia.com")) return Response.json(hnJson);
     if (url.includes("huggingface.co/api/daily_papers")) return Response.json(papersJson);
     if (url.includes("huggingface.co/api/models")) return Response.json(hfJson);
+    if (url === "https://www.reddit.com/api/v1/access_token") return Response.json({ access_token: "tok", token_type: "bearer", expires_in: 86400 });
+    if (url.startsWith("https://oauth.reddit.com/")) return Response.json(redditJson);
     return new Response(feed(3, new URL(url).hostname), { status: 200 });
   };
   vi.stubGlobal("fetch", async (url: string | URL, init?: RequestInit) => {
@@ -74,12 +85,15 @@ afterEach(() => {
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
   delete process.env.GITHUB_TOKEN;
+  delete process.env.REDDIT_CLIENT_ID;
+  delete process.env.REDDIT_CLIENT_SECRET;
 });
 
 describe("fetchAll", () => {
   it("PRD-collector: calls every source once with the ai-trend User-Agent and a timeout signal", async () => {
     await fetchAll(now);
-    expect(calls.filter((c) => !c.url.includes("api.github.com/repos/"))).toHaveLength(SOURCES.filter((s) => !s.fallback).length);
+    // reddit has no credentials here, so it makes no request
+    expect(calls.filter((c) => !c.url.includes("api.github.com/repos/"))).toHaveLength(SOURCES.filter((s) => !s.fallback && s.kind !== "reddit").length);
     for (const c of calls) {
       const headers = new Headers(c.init?.headers);
       expect(headers.get("user-agent")).toBe(`ai-trend/0.1 (+https://github.com/${process.env.GITHUB_REPOSITORY || "hyomin-l/ai-trend"})`);
@@ -272,6 +286,35 @@ describe("fetchAll", () => {
     expect(items.some((i) => i.source === "TechCrunch")).toBe(true);
     const n = (host: string) => calls.filter((c) => c.url.includes(host)).length;
     expect([n("techcrunch.com"), n("theverge.com"), n("aitimes.com")]).toEqual([2, 1, 1 + FETCHING.retries]);
+  });
+
+  it("PRD-collector: Reddit without REDDIT_CLIENT_ID/SECRET is skipped, not failed", async () => {
+    vi.spyOn(console, "warn").mockImplementation(() => {});
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual([]);
+    expect(items.some((i) => i.sourceId === "reddit")).toBe(false);
+    expect(calls.some((c) => c.url.includes("reddit.com"))).toBe(false);
+  });
+
+  it("PRD-collector: Reddit reads weekly top posts through app-only OAuth and maps them to pulse items", async () => {
+    Object.assign(process.env, { REDDIT_CLIENT_ID: "cid", REDDIT_CLIENT_SECRET: "sec" });
+    const { items, failed } = await fetchAll(now);
+    expect(failed).toEqual([]);
+    const token = calls.find((c) => c.url === "https://www.reddit.com/api/v1/access_token")!;
+    expect(token.init?.method).toBe("POST");
+    expect(new Headers(token.init?.headers).get("authorization")).toBe(`Basic ${Buffer.from("cid:sec").toString("base64")}`);
+    expect(String(token.init?.body)).toBe("grant_type=client_credentials");
+    const list = calls.find((c) => c.url.startsWith("https://oauth.reddit.com/"))!;
+    expect(list.url).toBe("https://oauth.reddit.com/r/LocalLLaMA+ClaudeAI+MachineLearning/top?t=week&limit=50&raw_json=1");
+    expect(new Headers(list.init?.headers).get("authorization")).toBe("Bearer tok");
+    const reddit = items.filter((i) => i.sourceId === "reddit");
+    expect(reddit[0]).toMatchObject({
+      source: "Reddit", section: "pulse", title: "Local 70B on one GPU",
+      url: "https://www.reddit.com/r/LocalLLaMA/comments/abc/local_70b/", publishedAt: "2026-10-12T12:00:00.000Z",
+      snippet: "x".repeat(300), content: "x".repeat(320), metrics: { points: 812, comments: 140 },
+    });
+    expect(reddit[1]).toMatchObject({ snippet: "r/ClaudeAI · 95 points · 12 comments" });
+    expect(reddit[1].content).toBeUndefined();
   });
 
   it("PRD-collector: an rss source with a malformed URL fails alone", async () => {

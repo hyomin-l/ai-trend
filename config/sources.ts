@@ -77,6 +77,8 @@ export const HF_SKIP = /gguf|quantiz|uncensored|heretic|\b(awq|gptq|nvfp4|mlx|bn
  * API; OSS Insight's trend ranking is unavailable since 2026-03), so it is the primary repo source but may break.
  * kind "hf": Hugging Face Hub trending models (public API, `url` unused); ids matching HF_SKIP are dropped.
  * kind "hfpapers": Hugging Face Daily Papers (public API, `url` unused); ranked by upvotes, papers below `minUpvotes` are dropped, `cap` keeps the top few.
+ * kind "reddit": `url` is subreddits joined by "+", read through Reddit's app-only OAuth API. Since 2026-11 Reddit answers
+ * unauthenticated requests from GitHub Actions with 404 (multireddit RSS), 429 (subreddit RSS), 403 (.json) or a login redirect.
  * kind "github": `url` is a repository topic (GitHub Search, new repos only) and `fallback: true` sources run only when the
  * trending sources yielded fewer than CONFIG.repoFallbackMin repos.
  * `categories` (rss) keeps only items with a matching <category>. `cap` is the most items kept per source, `windowHours` overrides CONFIG.windowHours for slow feeds.
@@ -92,8 +94,8 @@ export const SOURCES: SourceDef[] = [
   // Repos section, but models: ranked by the Hub's own trendingScore (order kept), no star-growth figure.
   { id: "hf-models", name: "Hugging Face", kind: "hf", url: "", section: "repos", cap: 5 },
   { id: "hn", name: "Hacker News", kind: "hn", url: "AI", section: "pulse", cap: 8 },
-  // No Reddit: its multireddit RSS has failed (404) on every run since 2026-11-18, and single-subreddit feeds 429 from cloud IPs. Bringing it
-  // back needs an OAuth app (oauth.reddit.com) with its credentials as repository secrets.
+  // Top of the week, filtered to the default 72h window. Needs REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET (skipped without them).
+  { id: "reddit", name: "Reddit", kind: "reddit", url: "LocalLLaMA+ClaudeAI+MachineLearning", section: "pulse", cap: 8 },
   { id: "geeknews", name: "GeekNews", kind: "rss", url: "https://news.hada.io/rss/news", section: "pulse", cap: 6 },
   { id: "techcrunch", name: "TechCrunch", kind: "rss", url: "https://techcrunch.com/category/artificial-intelligence/feed/", section: "newsroom", cap: 8 },
   { id: "verge", name: "The Verge", kind: "rss", url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", section: "newsroom", cap: 6 },
