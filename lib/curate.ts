@@ -86,7 +86,7 @@ export function parseCuration(text: string, candidates: RawItem[]): Curation | n
     if (!SECTION_ORDER.includes(m.section)) continue;
     const title = l10n(m.title);
     if (!title.ko || !title.en) continue;
-    // an outletsOnly section (newsroom: news outlets and official announcements) takes only candidates whose source is configured there: a candidate whose source is configured elsewhere (Reddit, HN, Google News...)
+    // an outletsOnly section (newsroom: news outlets and official announcements) takes only candidates whose source is configured there: a candidate whose source is configured elsewhere (HN, Google News...)
     // goes back to its own section. Every other reassignment (e.g. playbook <-> pulse) is left to the curator.
     const section: Section = sectionFlag(m.section, "outletsOnly") && c.section !== m.section ? c.section : m.section;
     const industry = section === "ax" ? [m.industry, c.industry].find((x) => INDUSTRY_KEYS.includes(x)) : undefined;

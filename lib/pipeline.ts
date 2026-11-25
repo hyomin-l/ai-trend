@@ -30,7 +30,7 @@ export const recentHeadlines = (previous: Snapshot[], n: number): string[] =>
   newest(previous, n).flatMap((s) => s.items.map((i) => i.title.ko));
 
 /**
- * Post-curation freshness guard: the curator may move an older item (e.g. a week-old Reddit post) into a fresh section, so the FINAL section decides. The sections flagged `fresh` in config/sections.ts keep only items <= CONFIG.windowHours old; playbook (slow feeds)
+ * Post-curation freshness guard: the curator may move an older item (e.g. a week-old playbook post) into a fresh section, so the FINAL section decides. The sections flagged `fresh` in config/sections.ts keep only items <= CONFIG.windowHours old; playbook (slow feeds)
  * and repos (ranked by star growth) are exempt. Dropped ids leave `front`, which is refilled from the remaining items.
  */
 export function dropStale(
