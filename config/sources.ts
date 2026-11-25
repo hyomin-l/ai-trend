@@ -10,6 +10,7 @@ export const CONFIG = {
   totalCap: 110, // candidates kept by prep
   selectCap: 60, // candidate lines the select call sees (a section-balanced slice of totalCap; lib/edition-curation.ts)
   windowHours: 72, // news older than this is dropped
+  feedHostGapMs: 1000, // RSS feeds on one host (12 Google News queries) are fetched one at a time, this far apart
   repoFallbackDays: 30, // fallback GitHub Search only: repos created longer ago than this are not searched
   repoFallbackMin: 3, // fallback runs only when the trending sources yielded fewer repos than this
   dedupeEditions: 10, // items already published in this many past editions are skipped...

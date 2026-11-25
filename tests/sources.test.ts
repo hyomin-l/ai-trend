@@ -1,10 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
-import { SOURCES } from "@/config/sources";
+import { CONFIG, SOURCES } from "@/config/sources";
 import { fetchAll } from "@/lib/sources";
 import { itemId } from "@/lib/prep";
 
 const now = new Date("2026-10-13T00:00:00Z");
+Object.assign(CONFIG, { feedHostGapMs: 3 });
 
 const feed = (n: number, base: string) =>
   `<rss><channel>${Array.from({ length: n }, (_, i) =>
@@ -236,6 +237,27 @@ describe("fetchAll", () => {
     expect(failed.sort()).toEqual(["simonw", "verge"]);
     expect(items.some((i) => i.source === "TechCrunch")).toBe(true);
     expect(items.some((i) => i.source === "Simon Willison")).toBe(false);
+  });
+
+  it("PRD-collector: feeds on one host are fetched one at a time, feedHostGapMs apart; a failure does not stop the queue", async () => {
+    const spans: [number, number][] = [];
+    let open = 0;
+    let peak = 0;
+    const base = handler;
+    handler = async (url) => {
+      if (!url.startsWith("https://news.google.com/")) return base(url);
+      const start = performance.now();
+      peak = Math.max(peak, ++open);
+      await new Promise((r) => setTimeout(r, 2));
+      open--;
+      spans.push([start, performance.now()]);
+      return spans.length === 1 ? new Response("busy", { status: 503 }) : base(url);
+    };
+    const { failed } = await fetchAll(now);
+    expect(failed).toEqual(["gnews-ax-ko"]);
+    expect(spans).toHaveLength(SOURCES.filter((s) => s.url.startsWith("https://news.google.com/")).length);
+    expect(peak).toBe(1);
+    for (let i = 1; i < spans.length; i++) expect(spans[i][0] - spans[i - 1][1]).toBeGreaterThanOrEqual(CONFIG.feedHostGapMs - 1);
   });
 
   it("PRD-collector: a non-empty response that parses to zero items is a failed source", async () => {

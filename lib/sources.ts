@@ -1,3 +1,4 @@
+import { setTimeout as sleep } from "node:timers/promises";
 import { AI_REPO_KEYWORDS, CONFIG, HF_SKIP, SOURCES } from "@/config/sources";
 import { itemId, type Candidate } from "@/lib/prep";
 import { parseFeed } from "@/lib/rss";
@@ -158,7 +159,18 @@ export async function fetchAll(now: Date): Promise<{ items: Candidate[]; failed:
   const items: Candidate[] = [];
   const failed: string[] = [];
   const run = async (defs: SourceDef[]) => {
-    const results = await Promise.allSettled(defs.map((s) => fetchSource(s, now)));
+    // RSS feeds sharing a host queue one after another (non-RSS sources stay parallel): Google News answered
+    // 12 parallel queries from a shared Actions runner IP with 429/503.
+    const queues = new Map<string, Promise<unknown>>();
+    const results = await Promise.allSettled(
+      defs.map((s) => {
+        const key = s.kind === "rss" ? new URL(s.url).host : s.id;
+        const prev = queues.get(key);
+        const job = prev ? prev.catch(() => {}).then(() => sleep(CONFIG.feedHostGapMs)).then(() => fetchSource(s, now)) : fetchSource(s, now);
+        queues.set(key, job);
+        return job;
+      }),
+    );
     results.forEach((r, i) => {
       if (r.status === "fulfilled") return void items.push(...r.value);
       failed.push(defs[i].id);
