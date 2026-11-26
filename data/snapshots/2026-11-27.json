@@ -1,0 +1,818 @@
+{
+  "date": "2026-11-27",
+  "issue": 32,
+  "generatedAt": "2026-11-26T20:55:49.929Z",
+  "model": "sonnet",
+  "curated": true,
+  "failedSources": [],
+  "stats": {
+    "collected": 109,
+    "published": 20
+  },
+  "front": [
+    "c881f1e71110",
+    "fa9d26614fbb",
+    "c0f2de19f056"
+  ],
+  "items": [
+    {
+      "id": "c881f1e71110",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "publishedAt": "2026-11-26T20:03:54.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "엔비디아, 동남아 4개국 서버 출하 일시 중단",
+        "en": "Nvidia pauses server shipments to Southeast Asia"
+      },
+      "summary": {
+        "ko": "엔비디아가 델·슈퍼마이크로 등 제조 파트너에 말레이시아, 싱가포르, 태국, 인도네시아행 서버 출하를 기간 미정으로 멈추라고 했다고 WSJ가 보도했습니다. 현지 파트너가 미국 수출 요건을 지키는지 점검하려는 조치이며, 중국 기업이 이 지역 데이터센터의 칩을 원격으로 쓰는 우회로가 배경입니다.",
+        "en": "Per WSJ, Nvidia told Dell and Super Micro to pause server shipments to Malaysia, Singapore, Thailand and Indonesia while it checks partners' U.S. export compliance."
+      },
+      "takeaway": {
+        "ko": "동남아 데이터센터를 통해 GPU 서버를 조달한다면 납기 지연 가능성과 파트너의 수출 요건 충족 여부를 확인해야 합니다.",
+        "en": "If sourcing GPU servers via SE Asia, check delivery delays and export compliance."
+      },
+      "highlights": {
+        "ko": [
+          "서버 출하를 기간 미정으로 멈추라고",
+          "중국 기업이 이 지역 데이터센터의 칩을 원격으로 쓰는 우회로"
+        ],
+        "en": []
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "fa9d26614fbb",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217834",
+      "publishedAt": "2026-11-26T17:55:33.000Z",
+      "section": "newsroom",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AI가 쓴 코드를 같은 AI가 검토…개발 조직 47% 활용",
+        "en": "47% of dev teams let the same AI agent review code it wrote"
+      },
+      "summary": {
+        "ko": "리드데브 보고서에 따르면 개발 조직의 47%가 코드를 작성한 AI 에이전트에 검토까지 맡깁니다. 응답자 절반은 개발자 1인당 풀 리퀘스트(코드 변경 병합 요청)가 25% 이상 늘었다고 했지만, 검토가 빨라졌다는 응답은 25%에 그쳤습니다. 코드래빗이 후원한 미국·유럽 377명 조사입니다.",
+        "en": "A LeadDev report finds 47% of teams let the authoring AI agent review its own code; PRs rose 25%+ for half of respondents, but only 25% say review got faster."
+      },
+      "takeaway": {
+        "ko": "AI 코딩 도구를 도입할 때는 검토 병목에 대비해 사람의 최종 승인 기준과 검토 인력을 함께 설계해야 합니다.",
+        "en": "Plan human approval rules and review capacity alongside AI coding tools."
+      },
+      "highlights": {
+        "ko": [
+          "47%가 코드를 작성한 AI 에이전트에 검토까지 맡깁니다",
+          "검토가 빨라졌다는 응답은 25%에 그쳤습니다"
+        ],
+        "en": [
+          "47% of teams let the authoring AI agent review its own code"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 549
+      }
+    },
+    {
+      "id": "c0f2de19f056",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats",
+      "publishedAt": "2026-11-26T09:54:40.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "美 42개 주 법무장관, Character.AI 이용자 대화 매각 저지 나서",
+        "en": "42 state AGs move to stop Character.AI from selling user chats"
+      },
+      "summary": {
+        "ko": "미국 42개 주 법무장관이 파산보호(챕터 11) 절차를 밟는 Character.AI의 이용자 데이터 매각을 막으려 나섰습니다. 매각 대상에 미국 계정 2,100만 개 이상의 비공개 대화 기록이 있고 그중 210만 개 이상이 미성년자 계정이라며, 보호 장치가 없다고 주장합니다.",
+        "en": "42 state attorneys general seek to block Character.AI's bankruptcy sale of chat histories from 21M+ U.S. accounts, including 2.1M+ minors', citing no safeguards."
+      },
+      "takeaway": {
+        "ko": "외부 AI 서비스를 쓸 때 서비스가 파산·매각되면 대화 데이터가 어떻게 처리되는지 계약 조항을 확인해야 합니다.",
+        "en": "Check contract terms on chat data handling if an AI vendor goes bankrupt."
+      },
+      "highlights": {
+        "ko": [
+          "2,100만 개 이상의 비공개 대화 기록",
+          "210만 개 이상이 미성년자 계정"
+        ],
+        "en": [
+          "chat histories from 21M+ U.S. accounts"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "f27e0de9d097",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+      "publishedAt": "2026-11-25T22:44:32.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "S&P, 엔비디아 신용등급 강등 검토…거버넌스·키맨 리스크 지적",
+        "en": "S&P weighs Nvidia downgrade over governance and key-man risk"
+      },
+      "summary": {
+        "ko": "S&P 글로벌 레이팅스가 경영·지배구조 우려를 들어 엔비디아의 신용등급 강등을 검토하고 있습니다. 실적은 강하지만 젠슨 황 CEO의 축출과 복직 사태로 경영 감독이 약하고 승계 계획이 없다는 점, 황 CEO에 대한 의존도가 큰 키맨 리스크를 문제 삼았습니다.",
+        "en": "S&P Global Ratings is considering downgrading Nvidia, citing weak executive oversight, no succession planning and heavy reliance on CEO Jensen Huang despite strong financials."
+      },
+      "takeaway": {
+        "ko": "핵심 AI 인프라 공급사를 고를 때 실적뿐 아니라 지배구조와 경영진 의존도도 공급 안정성 점검 항목에 넣을 만합니다.",
+        "en": "Add vendor governance and leadership dependence to supply-risk checks."
+      },
+      "highlights": {
+        "ko": [
+          "신용등급 강등을 검토",
+          "승계 계획이 없다는 점"
+        ],
+        "en": [
+          "weak executive oversight"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "3035467355c1",
+      "source": "AI타임스",
+      "url": "https://www.aitimes.com/news/articleView.html?idxno=217835",
+      "publishedAt": "2026-11-26T17:26:19.000Z",
+      "section": "newsroom",
+      "region": "US",
+      "title": {
+        "ko": "오픈AI 노엄 브라운 \"AI 재귀적 자기개선, 인류 기술 진화와 같은 원리\"",
+        "en": "OpenAI's Noam Brown: AI self-improvement mirrors human tech progress"
+      },
+      "summary": {
+        "ko": "오픈AI 연구 부사장 노엄 브라운이 세쿼이아 캐피털 인터뷰에서 재귀적 자기개선(AI가 스스로 성능을 높이는 과정)은 인류가 기술로 새 기술을 만들어 온 과정과 본질적으로 같다고 말했습니다. AI가 모든 분야에서 인간을 넘지 않아도 자기개선 능력만 집중 강화할 수 있고, 1~2년간 급속한 발전이 이어질 것이라고 전망했습니다.",
+        "en": "In a Sequoia interview, OpenAI's Noam Brown said recursive self-improvement mirrors human tech progress and predicted rapid AI advances over the next 1-2 years."
+      },
+      "takeaway": {
+        "ko": "향후 1~2년 급속한 발전이라는 전망은 한 연구자의 견해이므로, 도입 계획은 실제 성능 검증 결과를 기준으로 세워야 합니다.",
+        "en": "Treat the 1-2 year forecast as opinion; plan on verified performance."
+      },
+      "highlights": {
+        "ko": [
+          "자기개선 능력만 집중 강화할 수 있고",
+          "1~2년간 급속한 발전"
+        ],
+        "en": [
+          "rapid AI advances over the next 1-2 years"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550
+      }
+    },
+    {
+      "id": "c7e5de5fee49",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/the_revolution_vs_the_renaissance_thariq_shihipar_openai/",
+      "publishedAt": "2026-11-25T22:28:01.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "혁명과 르네상스: 코딩 에이전트로 소프트웨어를 만드는 두 방식",
+        "en": "The Revolution vs The Renaissance: two ways to build with coding agents"
+      },
+      "summary": {
+        "ko": "AI 덕분에 소프트웨어를 수천 개씩 만들 만큼 싸게 생산하면서도, 하나를 제대로 다듬을 시간을 얻을 수 있다는 주장입니다. 타릭 시히파르는 격투 게임에서 폴더 속 바위 크기를 고쳐 바로 던져 보고, 모드가 바뀌는 Mac Dock을 만들어 써 보며 산만해진 순간을 알아채는 일이 더 중요함을 깨달았다고 합니다.",
+        "en": "Thariq Shihipar argues AI makes software cheap to mass-produce yet leaves time to polish one thing, shown via a fighting game and a mode-switching Mac Dock."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "바로 던져 보고",
+          "산만해진 순간을 알아채는 일"
+        ],
+        "en": [
+          "cheap to mass-produce"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "e1b0c4ede4d1",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/cut-self-hosted-llm-cost-and-latency-with-the-distributed-kv-caching-agent-skill/",
+      "publishedAt": "2026-11-21T00:14:26.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "AWS, 자체 호스팅 LLM 비용·지연 줄이는 분산 KV 캐시 스킬 공개",
+        "en": "AWS shows distributed KV caching skill to cut self-hosted LLM cost and latency"
+      },
+      "summary": {
+        "ko": "GPU에서 LLM을 직접 운영하면 서버마다 작은 캐시가 따로 있어, 에이전트와 챗봇이 매번 다시 보내는 긴 대화 맥락을 공유하지 못하고 같은 GPU 연산을 되풀이합니다. AWS는 분산 KV 캐시 에이전트 스킬로 이를 해결하는 방법을 소개했으며, 수십만 토큰의 사건 기록을 쌓는 법률 AI 비서가 예시입니다.",
+        "en": "AWS introduces a distributed KV caching agent skill so self-hosted LLM servers share long conversation context instead of repeating GPU work, e.g. for a legal AI assistant."
+      },
+      "takeaway": {
+        "ko": "긴 대화 맥락을 반복 전송하는 업무라면 자체 호스팅 환경에서 캐시 공유 시 응답 지연이 얼마나 줄어드는지 먼저 측정해 볼 만합니다.",
+        "en": "Measure latency gains from shared caching on your long-context workloads."
+      },
+      "highlights": {
+        "ko": [
+          "같은 GPU 연산을 되풀이합니다",
+          "분산 KV 캐시 에이전트 스킬"
+        ],
+        "en": [
+          "share long conversation context"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "c7c801f91e25",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/ainews-math-proofs-are-landing-faster-than-we-can-read-them/",
+      "publishedAt": "2026-11-25T22:23:41.000Z",
+      "section": "playbook",
+      "region": "US",
+      "title": {
+        "ko": "수학 증명, 읽는 속도보다 빠르게 쏟아진다",
+        "en": "Math proofs are landing faster than we can read them"
+      },
+      "summary": {
+        "ko": "OpenAI 논문이 정사각 행렬 곱셈 지수 ω가 정확히 9/4라고 주장했고, 유한 푸리에 변환의 상한과 하한이 일치한다는 논문도 나왔습니다. 10월에 OpenAI가 상한을 9/4 이하로 낮췄기에 하한이 같으면 값이 하나로 정해집니다. 다만 주장 단계라 독립적인 검증이 필요합니다.",
+        "en": "An OpenAI paper claims the matrix multiplication exponent ω is exactly 9/4, and another claims matching bounds for the finite Fourier transform; independent verification is still needed."
+      },
+      "takeaway": {
+        "ko": "AI가 내놓는 증명과 연구 결과는 양이 빠르게 늘고 있으므로, 업무에 쓰기 전 독립 검증 절차를 갖춰야 합니다.",
+        "en": "AI-produced results are multiplying; build independent verification first."
+      },
+      "highlights": {
+        "ko": [
+          "ω가 정확히 9/4라고 주장",
+          "독립적인 검증이 필요합니다"
+        ],
+        "en": [
+          "ω is exactly 9/4"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 550
+      }
+    },
+    {
+      "id": "de55fe526105",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.34849",
+      "publishedAt": "2026-11-26T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Real2SimLab, 실제 영상을 시뮬레이션으로 옮기는 통합 평가 플랫폼",
+        "en": "Real2SimLab: a unified platform for real-to-simulation transfer"
+      },
+      "summary": {
+        "ko": "실제 영상에서 시뮬레이션 프로그램을 만드는 코딩 에이전트가 늘었지만, 벤치마크마다 입력·산출물·채점 방식이 달라 N개 방법을 M개 벤치마크로 평가하려면 N×M번 연동해야 했습니다. Real2SimLab은 이를 하나로 묶어 비교하게 해 주는 통합 플랫폼입니다.",
+        "en": "Real2SimLab unifies real-to-simulation benchmarks that each define their own inputs, deliverables and scoring, avoiding N-by-M integrations when evaluating coding agents."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "upvotes": 101
+      },
+      "highlights": {
+        "ko": [
+          "N개 방법을 M개 벤치마크로 평가하려면 N×M번 연동",
+          "하나로 묶어 비교하게 해 주는 통합 플랫폼"
+        ],
+        "en": [
+          "avoiding N-by-M integrations"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 550
+      }
+    },
+    {
+      "id": "6717576b9778",
+      "source": "Hugging Face Papers",
+      "url": "https://huggingface.co/papers/2611.34575",
+      "publishedAt": "2026-11-26T00:00:00.000Z",
+      "section": "playbook",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "Sage-Med, 의료 멀티모달 AI의 스케일링 한계를 파고들다",
+        "en": "Sage-Med: scaling medical multimodal intelligence"
+      },
+      "summary": {
+        "ko": "기존 의료용 멀티모달 모델(이미지와 글을 함께 다루는 AI)은 범용 최신 모델보다 성능이 낮았습니다. 연구진 평가에서는 모델을 키워도 텍스트 능력만 오르고 이미지 인식은 거의 늘지 않았으며, 추론 모드도 시각 격차를 메우지 못했습니다. 이를 탐구하려 Sage-Med-Preview를 공개했습니다.",
+        "en": "Existing medical multimodal models trail frontier general models; scaling mainly improves text, not vision, and reasoning modes don't close the gap. The authors introduce Sage-Med-Preview."
+      },
+      "takeaway": {
+        "ko": "의료 영상 업무에 AI를 검토한다면 전용 모델이 범용 모델보다 낫다고 단정하지 말고 직접 비교 평가해야 합니다.",
+        "en": "Benchmark medical-specific against general models before assuming it's better."
+      },
+      "metrics": {
+        "upvotes": 84
+      },
+      "highlights": {
+        "ko": [
+          "텍스트 능력만 오르고",
+          "추론 모드도 시각 격차를 메우지 못했습니다"
+        ],
+        "en": [
+          "scaling mainly improves text, not vision"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "abstract",
+        "chars": 550
+      }
+    },
+    {
+      "id": "62d07a979d74",
+      "source": "주간한국",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1Eb0Q2VWdhRDBydkpkb1dCSnc2dEJCWS1kR1Y3UURVbjk2Zi1NUnBhLVJTWUw3R05HcUt5YnVqdXJBQVNwcnlpamxYWHhwZC1wMVE0X0ZHNnpHTjZoZGpzOXRDTTFVMWR0OHdIajVvRFHSAXRBVV95cUxPbTFwNFlGV0ZfR0UxZUVRQzRqMG9mU0tRQjBIcWI5XzFDSldCTmstZlI2ZXdmZkNKQ1BpSU92UVhqMERpd01IRmh0OEpLeExYSFJ1YnpaTWZqRVNKRC1RX2pwa2JGTFhnblpfa2Ryc3M4REFaUQ?oc=5",
+      "publishedAt": "2026-11-26T05:45:46.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "5대 금융지주 AI 도입 가속…금융보안원, 내년 안전성·신뢰성 본평가",
+        "en": "Korea's big five financial groups speed up AI; FSI to run formal safety review next year"
+      },
+      "summary": {
+        "ko": "국내 5대 금융지주가 AI를 대출 심사, 투자 상담, 해외송금, 내부통제 등 핵심 업무에 적용하고 있습니다. 금융보안원은 내년부터 금융회사 AI의 안전성·신뢰성 본평가를 실시하며, AI 에이전트 보안 17개 항목에서 실행 권한과 내부통제를 핵심으로 점검합니다.",
+        "en": "Korea's five major financial groups use AI in lending, advice, remittance and controls; the Financial Security Institute will begin formal AI safety evaluations next year, checking agent permissions and internal controls."
+      },
+      "takeaway": {
+        "ko": "AI 에이전트를 업무에 붙일 때 실행 권한 범위와 내부통제 장치를 17개 점검 항목 기준으로 미리 설계해 둘 필요가 있습니다.",
+        "en": "Define agent execution permissions and internal controls before deployment."
+      },
+      "highlights": {
+        "ko": [
+          "내년부터 금융회사 AI의 안전성·신뢰성 본평가",
+          "실행 권한과 내부통제를 핵심으로 점검"
+        ],
+        "en": [
+          "formal AI safety evaluations next year"
+        ]
+      },
+      "industry": "finance",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550,
+        "url": "https://weekly.hankooki.com/news/articleView.html?idxno=7195885"
+      }
+    },
+    {
+      "id": "8cc16fea9901",
+      "source": "연합뉴스",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE54NFpjT25sUmxabTRiT1ZCNG9IOE9tQWpNYUtDcVdsVHQ2bDhaMHpaQV9nWERwMjBlMW5XR0Z6alZtam1mY1FtYVVYaXVSd01WNnNjM3lXeFY0ZExLckxmUdIBYEFVX3lxTE54NFpjT25sUmxabTRiT1ZCNG9IOE9tQWpNYUtDcVdsVHQ2bDhaMHpaQV9nWERwMjBlMW5XR0Z6alZtam1mY1FtYVVYaXVSd01WNnNjM3lXeFY0ZExLckxmUQ?oc=5",
+      "publishedAt": "2026-11-26T06:44:39.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "산자위, 산업 AI전환·활용 촉진법 의결…제조업 AX 지원 근거 마련",
+        "en": "Korean committee passes industrial AI transformation act to support manufacturing"
+      },
+      "summary": {
+        "ko": "국회 산업통상자원중소벤처기업위원회가 26일 전체회의에서 산업 인공지능 전환 및 활용 촉진법(M.AX법)을 포함한 78건의 법안을 여야 합의로 의결했습니다. 제조업 AI 전환 얼라이언스와 암묵지 데이터 지원사업의 법적 근거를 마련해 제조기업과 AI 기업의 협업을 늘리는 것이 목적입니다.",
+        "en": "Korea's trade and industry committee passed 78 bills including the M.AX Act, giving legal basis for a manufacturing AI alliance and tacit-knowledge data support to boost manufacturer-AI firm collaboration."
+      },
+      "takeaway": {
+        "ko": "제조 계열사는 법 시행 시 얼라이언스 참여와 암묵지 데이터 지원사업 대상 여부를 확인해 볼 만합니다.",
+        "en": "Manufacturing affiliates should check alliance and data-support eligibility once in force."
+      },
+      "highlights": {
+        "ko": [
+          "78건의 법안을 여야 합의로 의결",
+          "암묵지 데이터 지원사업의 법적 근거"
+        ],
+        "en": [
+          "78 bills including the M.AX Act"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550,
+        "url": "https://www.yna.co.kr/view/AKR20261126137500001"
+      }
+    },
+    {
+      "id": "4d5b31399b62",
+      "source": "뉴스핌",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5SOHdXTkRkdFJzdWpfYkpkSG42MWhjM0NGYko1am5BY1gwVERPeFJWcmg5Y1pNZHY1dWtJcDNodlM5ZEFBNkxyNmpaX3FRWFRHclZnWFlrajc4UTFq?oc=5",
+      "publishedAt": "2026-11-24T23:22:00.000Z",
+      "section": "ax",
+      "region": "KR",
+      "title": {
+        "ko": "동원로엑스, 천안 물류센터에 로봇·AI 도입해 생산 효율 20% 개선",
+        "en": "Dongwon LoEX adds robots and AI at Cheonan logistics center, lifting efficiency about 20%"
+      },
+      "summary": {
+        "ko": "동원로엑스가 올해 하반기부터 천안 반도체핵심부품 물류센터에 자율주행 이송 로봇과 AI를 도입해 생산 효율이 약 20% 개선됐다고 밝혔습니다. 로봇 기업 트위니와 협약을 맺었고, 피킹은 아직 직원이 맡지만 향후 휴머노이드 로봇과 협업해 자동화할 계획입니다.",
+        "en": "Dongwon LoEX says autonomous transport robots and AI at its Cheonan semiconductor-parts logistics center improved productivity about 20%; picking remains manual, with humanoid robots planned."
+      },
+      "takeaway": {
+        "ko": "약 20% 개선은 회사 발표이므로 자사 물류센터에 적용할 때는 측정 기준과 피킹 같은 수작업 공정의 자동화 범위를 따져야 합니다.",
+        "en": "The 20% is self-reported; check measurement basis and manual-picking scope."
+      },
+      "highlights": {
+        "ko": [
+          "생산 효율이 약 20% 개선",
+          "피킹은 아직 직원이 맡지만"
+        ],
+        "en": [
+          "improved productivity about 20%"
+        ]
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 550,
+        "url": "https://www.newspim.com/news/view/20261125000113"
+      }
+    },
+    {
+      "id": "fbc188074d91",
+      "source": "Supply & Demand Chain Executive",
+      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNN19FQ0RRRnZBVEhNV2FDa3hNd3JILXBvSnFZZEdmSmh6ZWpKTHJPOEhkMWZDREJjazZQT1Nob3dLeVR6dVFWVkJPN2RDX2FUb3ROM0VXcFJnU2stS25acjY0X1pZOTJPSDA4OFl6MjRsSi1lajVFZlpuUXR5eFVYNDl4Z3B0MUxqV0JTbFdDWGlnakNUalVwLTI0bzU1b1FnVnlKMy01MkRRRFA0Ui1hRWdTWnFCdXkxVVJ5ZnVZTGstZkVsNy1tVmRnWF91UDhrcm1qN1lxVE54SDhaOFE1S0RhR3ZPUllMMWZoQXY3WEJlQnhuV3FWaEV1cUgtcFJBSVcyQm9B?oc=5",
+      "publishedAt": "2026-11-26T19:15:22.000Z",
+      "section": "ax",
+      "region": "US",
+      "title": {
+        "ko": "조직 57%, 2028년까지 AI가 창고 의사결정 자동화할 것으로 예상",
+        "en": "57% of organizations expect AI to automate warehouse decisions by 2028"
+      },
+      "summary": {
+        "ko": "Supply & Demand Chain Executive는 조직의 57%가 2028년까지 AI가 창고 관련 의사결정을 자동화할 것으로 예상한다고 전했습니다. 확인된 것은 제목 수준의 내용뿐이며, 조사 주체와 대상 등 세부 내용은 원문을 읽지 못해 알 수 없습니다.",
+        "en": "Supply & Demand Chain Executive reports 57% of organizations expect AI to automate warehouse decisions by 2028. Only the headline was available; survey details are unconfirmed."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "highlights": {
+        "ko": [
+          "57%가 2028년까지 AI가 창고 관련 의사결정을 자동화할 것"
+        ],
+        "en": []
+      },
+      "industry": "logistics",
+      "reading": {
+        "status": "snippet",
+        "via": "snippet",
+        "chars": 102,
+        "reason": "google-news-no-public-link"
+      }
+    },
+    {
+      "id": "a67bb8d2a6b4",
+      "source": "GitHub",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "publishedAt": "2025-09-11T10:39:55.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "chrome-devtools-mcp, 코딩 에이전트가 실제 크롬을 제어",
+        "en": "chrome-devtools-mcp lets coding agents drive a live Chrome"
+      },
+      "summary": {
+        "ko": "Claude, Cursor, Copilot 같은 코딩 에이전트가 실행 중인 크롬 브라우저를 조작하고 살펴보게 하는 도구입니다. MCP 서버와 CLI 두 형태로 제공되며, 크롬 개발자도구의 기능으로 자동화, 상세 디버깅, 성능 분석을 할 수 있습니다. 웹 앱 테스트나 화면 문제 진단을 에이전트에 맡길 때 씁니다.",
+        "en": "An MCP server and CLI that let coding agents like Claude, Cursor or Copilot control and inspect a live Chrome browser using DevTools for automation, debugging and performance analysis."
+      },
+      "takeaway": {
+        "ko": "에이전트가 실제 브라우저를 제어하므로 사내 시스템에 연결할 때는 접근 가능한 계정과 페이지 범위를 먼저 제한해야 합니다.",
+        "en": "Limit accounts and pages the agent's browser can reach."
+      },
+      "metrics": {
+        "stars": 59488,
+        "forks": 4894,
+        "language": "TypeScript",
+        "starsGained": 1203,
+        "period": "week",
+        "starsDelta": 1871
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "실행 중인 크롬 브라우저를 조작하고 살펴보게",
+          "자동화, 상세 디버깅, 성능 분석"
+        ],
+        "en": [
+          "control and inspect a live Chrome browser"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "95c23a9afeb3",
+      "source": "GitHub",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "publishedAt": "2026-01-27T20:22:24.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "modern-web-guidance, 코딩 에이전트에 최신 웹 표준 지식을 심는다",
+        "en": "modern-web-guidance embeds modern web expertise into coding agents"
+      },
+      "summary": {
+        "ko": "웹 플랫폼 전문 지식, 모범 사례, 브라우저 호환성 데이터를 코딩 에이전트에 직접 넣어 주는 스킬 모음의 소스 저장소입니다. 에이전트가 낡은 코드 패턴 대신 최신 웹 기능을 쓰도록 유도하며, 스킬을 작성·보정·평가하는 코드와 문서가 들어 있습니다.",
+        "en": "Source repo for a skill set that embeds web platform expertise, best practices and browser compatibility data into coding agents, steering them from legacy patterns toward modern web features."
+      },
+      "takeaway": {
+        "ko": "사내 웹 개발에서 에이전트가 낡은 패턴을 쓰는 문제가 있다면 이 스킬 적용 전후 코드 품질을 비교해 볼 만합니다.",
+        "en": "Compare agent code quality before and after applying these skills."
+      },
+      "metrics": {
+        "stars": 11233,
+        "forks": 842,
+        "language": "TypeScript",
+        "starsGained": 2309,
+        "period": "week",
+        "starsDelta": 3310
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "낡은 코드 패턴 대신 최신 웹 기능",
+          "브라우저 호환성 데이터"
+        ],
+        "en": [
+          "steering them from legacy patterns"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "09a3e479d01f",
+      "source": "GitHub",
+      "url": "https://github.com/backnotprop/plannotator",
+      "publishedAt": "2025-12-28T02:09:40.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "Plannotator, 에이전트의 계획·코드 변경을 주석으로 검토",
+        "en": "Plannotator: annotate and review your agents' plans and diffs"
+      },
+      "summary": {
+        "ko": "에이전트가 낸 계획, 명세, 마크다운, HTML 산출물과 코드 변경을 읽고 주석을 달아 피드백을 돌려보내는 검토 도구입니다. 새 기능 Plannotator Inbox는 여러 에이전트 작업에서 결정 사항, 프로토타입, 계획을 한곳에 모아 보여 주며 모든 코딩 에이전트와 함께 쓸 수 있다고 합니다.",
+        "en": "A review tool to annotate agent plans, specs, HTML artifacts and diffs and send feedback back; the new Inbox gathers decisions and prototypes from multi-agent work in one place."
+      },
+      "takeaway": {
+        "ko": "여러 에이전트를 병행 운용할 때 사람이 승인할 결정 지점을 한곳에서 관리할 수 있는지 시험해 볼 만합니다.",
+        "en": "Test whether it centralizes human approval points across agents."
+      },
+      "metrics": {
+        "stars": 15233,
+        "forks": 1457,
+        "language": "TypeScript",
+        "starsGained": 1764,
+        "period": "week",
+        "starsDelta": 2773
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "주석을 달아 피드백을 돌려보내는 검토 도구",
+          "모든 코딩 에이전트와 함께 쓸 수 있다"
+        ],
+        "en": [
+          "annotate agent plans, specs, HTML artifacts and diffs"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "ec453d1217c2",
+      "source": "GitHub",
+      "url": "https://github.com/tradermonty/claude-trading-skills",
+      "publishedAt": "2025-10-19T16:37:29.000Z",
+      "section": "repos",
+      "region": "US",
+      "title": {
+        "ko": "claude-trading-skills, 개인 투자자용 Claude 스킬 툴킷",
+        "en": "claude-trading-skills: a Claude Skills toolkit for individual investors"
+      },
+      "summary": {
+        "ko": "시간이 부족한 개인 투자자를 위한 Claude 스킬 기반 트레이딩 워크플로 도구 모음입니다. 장기 투자, ETF, 배당주를 중심으로 시장 상황이 좋을 때 스윙 매매를 곁들이는 투자자를 겨냥하며, 매매 판단을 AI에 넘기지 않고 시장 점검과 리스크 관리를 구조화하는 것이 목표입니다.",
+        "en": "A Claude Skills toolkit for time-constrained individual investors that structures market review and risk management rather than outsourcing buy/sell decisions to AI."
+      },
+      "takeaway": {
+        "ko": "",
+        "en": ""
+      },
+      "metrics": {
+        "stars": 8573,
+        "forks": 1561,
+        "language": "Python",
+        "starsGained": 1422,
+        "period": "week",
+        "starsDelta": 2359
+      },
+      "returning": true,
+      "highlights": {
+        "ko": [
+          "매매 판단을 AI에 넘기지 않고",
+          "시장 점검과 리스크 관리를 구조화"
+        ],
+        "en": [
+          "rather than outsourcing buy/sell decisions to AI"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "readme",
+        "chars": 600
+      }
+    },
+    {
+      "id": "c83866a1dbc9",
+      "source": "Hacker News",
+      "url": "https://diseasescuredbyai.com/",
+      "publishedAt": "2026-11-26T17:16:41.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "\"AI가 치료한 질병\" 추적 사이트: 아직 0건",
+        "en": "Site tracking diseases cured by AI: still zero"
+      },
+      "summary": {
+        "ko": "AI가 치료한 질병 수를 추적하는 사이트가 해커뉴스에서 화제입니다. 2026년 11월 26일 기준 FDA 승인 내역을 대조한 결과, AI가 발견한 치료제로 완치된 질병은 0건이고 승인된 AI 발굴 신약도 아직 없다고 밝힙니다. 2025년 AI 신약 개발 시장은 69.3억 달러로 제시됩니다.",
+        "en": "A Hacker News-popular tracker says no disease has been cured by an AI-discovered treatment and no AI-discovered drug is approved, per FDA data through Nov 2026; the AI drug-discovery market was $6.93B in 2025."
+      },
+      "takeaway": {
+        "ko": "AI 신약 개발 관련 성과를 평가할 때는 시장 규모보다 실제 승인 여부를 기준으로 삼아야 합니다.",
+        "en": "Judge AI drug claims by actual approvals, not market size."
+      },
+      "metrics": {
+        "points": 282,
+        "comments": 172
+      },
+      "highlights": {
+        "ko": [
+          "완치된 질병은 0건",
+          "승인된 AI 발굴 신약도 아직 없다"
+        ],
+        "en": [
+          "no AI-discovered drug is approved"
+        ]
+      },
+      "related": [
+        {
+          "source": "GeekNews",
+          "url": "https://news.hada.io/topic?id=37915&utm_source=geeknews&utm_medium=rss&utm_campaign=news"
+        }
+      ],
+      "reading": {
+        "status": "body",
+        "via": "web",
+        "chars": 600
+      }
+    },
+    {
+      "id": "d3ddcbcc31f8",
+      "source": "GeekNews",
+      "url": "https://news.hada.io/topic?id=37914&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "publishedAt": "2026-11-26T18:46:29.000Z",
+      "section": "pulse",
+      "region": "GLOBAL",
+      "title": {
+        "ko": "재미로 AWS Lambda 5,600개에 Qwen 추론 분산, 비용은 80배 넘게",
+        "en": "Serving Qwen on 5,600 AWS Lambdas for fun cost over 80x more"
+      },
+      "summary": {
+        "ko": "미세 조정한 Qwen3.5-4B 모델의 추론을 AWS Lambda 5,600개로 나누는 실험에 성공했지만, 호스팅 모델보다 비용이 80배 이상 높았습니다. 메모리를 3GB로 제한하고 레이어와 토큰 블록 단위로 작업을 쪼갰으며, 4,000토큰 문서 처리에 17초와 3.4센트가 들었습니다.",
+        "en": "A fine-tuned Qwen3.5-4B was served across 5,600 AWS Lambdas, working but costing over 80x a hosted model: 17 seconds and 3.4 cents for a 4,000-token document."
+      },
+      "takeaway": {
+        "ko": "서버리스로 모델 추론을 분산하는 것은 기술적으로 가능하지만 이 실험에서는 비용이 크게 불리했으므로 운영 적용은 단가부터 따져야 합니다.",
+        "en": "Feasible but costly here; check unit cost before production use."
+      },
+      "highlights": {
+        "ko": [
+          "호스팅 모델보다 비용이 80배 이상 높았습니다",
+          "17초와 3.4센트"
+        ],
+        "en": [
+          "costing over 80x a hosted model"
+        ]
+      },
+      "reading": {
+        "status": "body",
+        "via": "rss",
+        "chars": 329
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "풀 리퀘스트",
+      "desc": {
+        "ko": "개발자가 고친 코드를 본 코드에 합쳐 달라고 요청하는 절차입니다.",
+        "en": "A request asking to merge a developer's code changes into the main codebase."
+      }
+    },
+    {
+      "term": "키맨 리스크",
+      "desc": {
+        "ko": "특정 한 사람에게 회사의 성패가 크게 달려 있는 위험입니다.",
+        "en": "The risk of a company depending heavily on one individual."
+      }
+    },
+    {
+      "term": "재귀적 자기개선",
+      "desc": {
+        "ko": "AI가 스스로 더 나은 AI를 만들며 성능을 계속 높여 가는 과정입니다.",
+        "en": "A process where AI improves itself, repeatedly building better AI."
+      }
+    },
+    {
+      "term": "KV 캐시",
+      "desc": {
+        "ko": "AI가 이전 대화 내용을 매번 다시 계산하지 않도록 중간 결과를 저장해 두는 공간입니다.",
+        "en": "Stored intermediate results so an AI needn't recompute earlier conversation each time."
+      }
+    },
+    {
+      "term": "챕터 11",
+      "desc": {
+        "ko": "미국에서 회사가 영업을 이어 가며 빚을 정리하는 파산보호 절차입니다.",
+        "en": "A U.S. bankruptcy process letting a company keep operating while restructuring debt."
+      }
+    },
+    {
+      "term": "M.AX법",
+      "desc": {
+        "ko": "제조업의 AI 전환을 지원하기 위한 한국의 산업 인공지능 전환 및 활용 촉진법입니다.",
+        "en": "Korea's act supporting AI transformation of manufacturing."
+      }
+    },
+    {
+      "term": "Real2SimLab",
+      "desc": {
+        "ko": "실제 영상을 시뮬레이션으로 옮기는 AI 방법들을 한 번에 비교 평가하는 플랫폼입니다.",
+        "en": "A platform to evaluate AI methods that turn real video into simulations in one place."
+      }
+    },
+    {
+      "term": "멀티모달",
+      "desc": {
+        "ko": "글과 이미지처럼 여러 형태의 정보를 함께 다루는 방식입니다.",
+        "en": "Handling several kinds of information, such as text and images, together."
+      }
+    },
+    {
+      "term": "Plannotator",
+      "desc": {
+        "ko": "에이전트가 만든 계획과 코드 변경에 주석을 달아 검토하는 오픈소스 도구입니다.",
+        "en": "An open-source tool for annotating and reviewing agent plans and code changes."
+      }
+    }
+  ]
+}
